@@ -1,0 +1,392 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#FFF"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="alternate" type="application/rss+xml" title="沉鱼的博客" href="https://scottalive.github.io/rss.xml"><link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="https://scottalive.github.io/atom.xml"><link rel="alternate" type="application/json" title="沉鱼的博客" href="https://scottalive.github.io/feed.json"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext"><link rel="stylesheet" href="/css/app.css?v=0.2.5"><meta name="keywords" content="编程笔记,python"><link rel="canonical" href="https://scottalive.github.io/computer-science/python/basic/44.Cookie%E5%92%8CSession/"><title>Cookie 和 Session - Python 基础 - Python - 计算机科学 | Chrono Cross = 沉鱼的博客 = 了解自我，超越自我</title><meta name="generator" content="Hexo 5.4.2"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">Cookie 和 Session</h1><div class="meta"><span class="item" title="创建时间：2025-04-14 12:07:49"><span class="icon"><i class="ic i-calendar"></i> </span><span class="text">发表于</span> <time itemprop="dateCreated datePublished" datetime="2025-04-14T12:07:49+08:00">2025-04-14</time> </span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i> </span><span class="text">本文字数</span> <span>17k</span> <span class="text">字</span> </span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i> </span><span class="text">阅读时长</span> <span>15 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span> <span class="line"></span> <span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">Chrono Cross</a></li></ul><ul class="right"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div id="imgs" class="pjax"><ul><li class="item" data-background-image="https://pic.imgdb.cn/item/6425240da682492fcce08e71.jpg"></li><li class="item" data-background-image="https://1306263805.vod2.myqcloud.com/b5881d8bvodsh1306263805/c521a274243791580873924232/hAbyJZTHNbQA.jpeg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/642523dda682492fcce0508d.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/642523c4a682492fcce030fc.jpg"></li><li class="item" data-background-image="https://1306263805.vod2.myqcloud.com/b5881d8bvodsh1306263805/c521a236243791580873924216/Bz7IkZVaUA8A.jpeg"></li><li class="item" data-background-image="https://1306263805.vod2.myqcloud.com/b5881d8bvodsh1306263805/be22d29d243791580873625927/QYOO5qKaMv0A.jpg"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"/><use xlink:href="#gentle-wave" x="48" y="3"/><use xlink:href="#gentle-wave" x="48" y="5"/><use xlink:href="#gentle-wave" x="48" y="7"/></g></svg></div><main><div class="inner"><div id="main" class="pjax"><div class="article wrap"><div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i> <span><a href="/">首页</a></span><i class="ic i-angle-right"></i> <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/" itemprop="item" rel="index" title="分类于 计算机科学"><span itemprop="name">计算机科学</span></a><meta itemprop="position" content="1"></span><i class="ic i-angle-right"></i> <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/python/" itemprop="item" rel="index" title="分类于 Python"><span itemprop="name">Python</span></a><meta itemprop="position" content="2"></span><i class="ic i-angle-right"></i> <span class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/python/basic/" itemprop="item" rel="index" title="分类于 Python 基础"><span itemprop="name">Python 基础</span></a><meta itemprop="position" content="3"></span></div><article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://scottalive.github.io/computer-science/python/basic/44.Cookie%E5%92%8CSession/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/avatar.jpg"><meta itemprop="name" content="沉鱼"><meta itemprop="description" content="了解自我，超越自我, 编程笔记 & 资料分享"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="沉鱼的博客"></span><div class="body md" itemprop="articleBody"><h2 id="cookie和session"><a class="anchor" href="#cookie和session">#</a> Cookie 和 Session</h2><p>我们继续来完成上一章节中的项目，实现 “用户登录” 的功能，并限制只有登录的用户才能投票。</p><h3 id="用户登录的准备工作"><a class="anchor" href="#用户登录的准备工作">#</a> 用户登录的准备工作</h3><p>我们先为实现用户登录做一些准备工作。</p><ol><li><p>创建用户模型。之前我们讲解过如果通过 Django 的 ORM 实现从二维表到模型的转换（反向工程），这次我们尝试把模型变成二维表（正向工程）。</p><pre><code class="language-Python">class User(models.Model):
+    &quot;&quot;&quot;用户&quot;&quot;&quot;
+    no = models.AutoField(primary_key=True, verbose_name='编号')
+    username = models.CharField(max_length=20, unique=True, verbose_name='用户名')
+    password = models.CharField(max_length=32, verbose_name='密码')
+    tel = models.CharField(max_length=20, verbose_name='手机号')
+    reg_date = models.DateTimeField(auto_now_add=True, verbose_name='注册时间')
+    last_visit = models.DateTimeField(null=True, verbose_name='最后登录时间')
+
+    class Meta:
+        db_table = 'tb_user'
+        verbose_name = '用户'
+        verbose_name_plural = '用户'
+</code></pre></li><li><p>使用下面的命令生成迁移文件并执行迁移，将 <code>User</code> 模型直接变成关系型数据库中的二维表 <code>tb_user</code> 。</p><pre><code class="language-Bash">python manage.py makemigrations polls
+python manage.py migrate polls
+</code></pre></li><li><p>用下面的 SQL 语句直接插入两条测试数据，通常不能将用户的密码直接保存在数据库中，因此我们将用户密码处理成对应的 MD5 摘要。MD5 消息摘要算法是一种被广泛使用的密码哈希函数（散列函数），可以产生出一个 128 位（比特）的哈希值（散列值），用于确保信息传输完整一致。在使用哈希值时，通常会将哈希值表示为 16 进制字符串，因此 128 位的 MD5 摘要通常表示为 32 个十六进制符号。</p><pre><code class="language-SQL">insert into `tb_user`
+    (`username`, `password`, `tel`, `reg_date`)
+values
+    ('wangdachui', '1c63129ae9db9c60c3e8aa94d3e00495', '13122334455', now()),
+    ('hellokitty', 'c6f8cf68e5f68b0aa4680e089ee4742c', '13890006789', now());
+</code></pre><blockquote><p><strong>说明</strong>：上面创建的两个用户 <code>wangdachui</code> 和 <code>hellokitty</code> 密码分别是 <code>1qaz2wsx</code> 和 <code>Abc123!!</code> 。</p></blockquote></li><li><p>我们在应用下增加一个名为 <code>utils.py</code> 的模块用来保存需要使用的工具函数。Python 标准库中的 <code>hashlib</code> 模块封装了常用的哈希算法，包括：MD5、SHA1、SHA256 等。下面是使用 <code>hashlib</code> 中的 <code>md5</code> 类将字符串处理成 MD5 摘要的函数如下所示。</p><pre><code class="language-Python">import hashlib
+
+
+def gen_md5_digest(content):
+    return hashlib.md5(content.encode()).hexdigest()
+</code></pre></li><li><p>编写用户登录的视图函数和模板页。</p><p>添加渲染登录页面的视图函数：</p><pre><code class="language-Python">def login(request: HttpRequest) -&gt; HttpResponse:
+    hint = ''
+    return render(request, 'login.html', &#123;'hint': hint&#125;)
+</code></pre><p>增加 <code>login.html</code> 模板页：</p><pre><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;用户登录&lt;/title&gt;
+    &lt;style&gt;
+        #container &#123;
+            width: 520px;
+            margin: 10px auto;
+        &#125;
+        .input &#123;
+            margin: 20px 0;
+            width: 460px;
+            height: 40px;
+        &#125;
+        .input&gt;label &#123;
+            display: inline-block;
+            width: 140px;
+            text-align: right;
+        &#125;
+        .input&gt;img &#123;
+            width: 150px;
+            vertical-align: middle;
+        &#125;
+        input[name=captcha] &#123;
+            vertical-align: middle;
+        &#125;
+        form+div &#123;
+            margin-top: 20px;
+        &#125;
+        form+div&gt;a &#123;
+            text-decoration: none;
+            color: darkcyan;
+            font-size: 1.2em;
+        &#125;
+        .button &#123;
+            width: 500px;
+            text-align: center;
+            margin-top: 20px;
+        &#125;
+        .hint &#123;
+            color: red;
+            font-size: 12px;
+        &#125;
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;container&quot;&gt;
+        &lt;h1&gt;用户登录&lt;/h1&gt;
+        &lt;hr&gt;
+        &lt;p class=&quot;hint&quot;&gt;&#123;&#123; hint &#125;&#125;&lt;/p&gt;
+        &lt;form action=&quot;/login/&quot; method=&quot;post&quot;&gt;
+            &#123;% csrf_token %&#125;
+            &lt;fieldset&gt;
+                &lt;legend&gt;用户信息&lt;/legend&gt;
+                &lt;div class=&quot;input&quot;&gt;
+                    &lt;label&gt;用户名：&lt;/label&gt;
+                    &lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;input&quot;&gt;
+                    &lt;label&gt;密码：&lt;/label&gt;
+                    &lt;input type=&quot;password&quot; name=&quot;password&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;input&quot;&gt;
+                    &lt;label&gt;验证码：&lt;/label&gt;
+                    &lt;input type=&quot;text&quot; name=&quot;captcha&quot;&gt;
+                    &lt;img id=&quot;code&quot; src=&quot;/captcha/&quot; alt=&quot;&quot; width=&quot;150&quot; height=&quot;40&quot;&gt;
+                &lt;/div&gt;
+            &lt;/fieldset&gt;
+            &lt;div class=&quot;button&quot;&gt;
+                &lt;input type=&quot;submit&quot; value=&quot;登录&quot;&gt;
+                &lt;input type=&quot;reset&quot; value=&quot;重置&quot;&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+        &lt;div&gt;
+            &lt;a href=&quot;/&quot;&gt;返回首页&lt;/a&gt;
+            &lt;a href=&quot;/register/&quot;&gt;注册新用户&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>注意，在上面的表单中，我们使用了模板指令 <code>&#123;% csrf_token %&#125;</code> 为表单添加一个隐藏域（大家可以在浏览器中显示网页源代码就可以看到这个指令生成的 <code>type</code> 属性为 <code>hidden</code> 的 <code>input</code> 标签），它的作用是在表单中生成一个随机令牌（token）来防范<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUI3JUE4JUU3JUFCJTk5JUU4JUFGJUI3JUU2JUIxJTgyJUU0JUJDJUFBJUU5JTgwJUEw">跨站请求伪造</span>（简称为 CSRF），这也是 Django 在提交表单时的硬性要求。如果我们的表单中没有这样的令牌，那么提交表单时，Django 框架会产生一个响应状态码为 <code>403</code> 的响应（禁止访问），除非我们设置了免除 CSRF 令牌。下图是一个关于 CSRF 简单生动的例子。</p><p><img data-src="./res/csrf-simple.png" alt=""></p></li></ol><p>接下来，我们可以编写提供验证码和实现用户登录的视图函数，在此之前，我们先说说一个 Web 应用实现用户跟踪的方式以及 Django 框架对实现用户跟踪所提供的支持。对一个 Web 应用来说，用户登录成功后必然要让服务器能够记住该用户已经登录，这样服务器才能为这个用户提供更好的服务，而且上面说到的 CSRF 也是通过钓鱼网站来套取用户登录信息进行恶意操作的攻击手段，这些都是以用户跟踪技术为基础的。在理解了这些背景知识后，我们就清楚用户登录时到底需要执行哪些操作。</p><h3 id="实现用户跟踪"><a class="anchor" href="#实现用户跟踪">#</a> 实现用户跟踪</h3><p>如今，一个网站如果不通过某种方式记住你是谁以及你之前在网站的活动情况，失去的就是网站的可用性和便利性，继而很有可能导致网站用户的流式，所以记住一个用户（更专业的说法叫<strong>用户跟踪</strong>）对绝大多数 Web 应用来说都是必需的功能。</p><p>在服务器端，我们想记住一个用户最简单的办法就是创建一个对象，通过这个对象就可以把用户相关的信息都保存起来，这个对象就是我们常说的 session（用户会话对象）。那么问题来了，HTTP 本身是一个<strong>无连接</strong>（每次请求和响应的过程中，服务器一旦完成对客户端请求的响应之后就断开连接）、<strong>无状态</strong>（客户端再次发起对服务器的请求时，服务器无法得知这个客户端之前的任何信息）的协议，即便服务器通过 session 对象保留了用户数据，还得通过某种方式来确定当前的请求与之前保存过的哪一个 session 是有关联的。相信很多人都能想到，我们可以给每个 session 对象分配一个全局唯一的标识符来识别 session 对象，我们姑且称之为 sessionid，每次客户端发起请求时，只要携带上这个 sessionid，就有办法找到与之对应的 session 对象，从而实现在两次请求之间记住该用户的信息，也就是我们之前说的用户跟踪。</p><p>要让客户端记住并在每次请求时带上 sessionid 又有以下几种做法：</p><ol><li><p>URL 重写。所谓 URL 重写就是在 URL 中携带 sessionid，例如： <code>http://www.example.com/index.html?sessionid=123456</code> ，服务器通过获取 sessionid 参数的值来取到与之对应的 session 对象。</p></li><li><p>隐藏域（隐式表单域）。在提交表单的时候，可以通过在表单中设置隐藏域向服务器发送额外的数据。例如： <code>&lt;input type=&quot;hidden&quot; name=&quot;sessionid&quot; value=&quot;123456&quot;&gt;</code> 。</p></li><li><p>本地存储。现在的浏览器都支持多种本地存储方案，包括：cookie、localStorage、sessionStorage、IndexedDB 等。在这些方案中，cookie 是历史最为悠久也是被诟病得最多的一种方案，也是我们接下来首先为大家讲解的一种方案。简单的说，cookie 是一种以键值对方式保存在浏览器临时文件中的数据，每次请求时，请求头中会携带本站点的 cookie 到服务器，那么只要将 sessionid 写入 cookie，下次请求时服务器只要读取请求头中的 cookie 就能够获得这个 sessionid，如下图所示。</p><p><img data-src="./res/sessionid_from_cookie.png" alt=""></p><p>在 HTML5 时代要，除了 cookie，还可以使用新的本地存储 API 来保存数据，就是刚才提到的 localStorage、sessionStorage、IndexedDB 等技术，如下图所示。</p><p><img data-src="./res/cookie_xstorage_indexeddb.png" alt=""></p></li></ol><p><strong>总结一下</strong>，要实现用户跟踪，服务器端可以为每个用户会话创建一个 session 对象并将 session 对象的 ID 写入到浏览器的 cookie 中；用户下次请求服务器时，浏览器会在 HTTP 请求头中携带该网站保存的 cookie 信息，这样服务器就可以从 cookie 中找到 session 对象的 ID 并根据此 ID 获取到之前创建的 session 对象；由于 session 对象可以用键值对的方式保存用户数据，这样之前保存在 session 对象中的信息可以悉数取出，服务器也可以根据这些信息判定用户身份和了解用户偏好，为用户提供更好的个性化服务。</p><h3 id="django框架对session的支持"><a class="anchor" href="#django框架对session的支持">#</a> Django 框架对 session 的支持</h3><p>在创建 Django 项目时，默认的配置文件 <code>settings.py</code> 文件中已经激活了一个名为 <code>SessionMiddleware</code> 的中间件（关于中间件的知识我们在后面的章节做详细讲解，这里只需要知道它的存在即可），因为这个中间件的存在，我们可以直接通过请求对象的 <code>session</code> 属性来操作会话对象。前面我们说过， <code>session</code> 属性是一个像字典一样可以读写数据的容器对象，因此我们可以使用 “键值对” 的方式来保留用户数据。与此同时， <code>SessionMiddleware</code> 中间件还封装了对 cookie 的操作，在 cookie 中保存了 sessionid，这一点我们在上面已经提到过了。</p><p>在默认情况下，Django 将 session 的数据序列化后保存在关系型数据库中，在 Django 1.6 以后的版本中，默认的序列化数据的方式是 JSON 序列化，而在此之前一直使用 Pickle 序列化。JSON 序列化和 Pickle 序列化的差别在于前者将对象序列化为字符串（字符形式），而后者将对象序列化为字节串（二进制形式），因为安全方面的原因，JSON 序列化成为了目前 Django 框架默认序列化数据的方式，这就要求在我们保存在 session 中的数据必须是能够 JSON 序列化的，否则就会引发异常。还有一点需要说明的是，使用关系型数据库保存 session 中的数据在大多数时候并不是最好的选择，因为数据库可能会承受巨大的压力而成为系统性能的瓶颈，在后面的章节中我们会告诉大家如何将 session 保存到缓存服务中以提升系统的性能。</p><h3 id="实现用户登录验证"><a class="anchor" href="#实现用户登录验证">#</a> 实现用户登录验证</h3><p>首先，我们在刚才的 <code>polls/utils.py</code> 文件中编写生成随机验证码的函数 <code>gen_random_code</code> ，内容如下所示。</p><pre><code class="language-Python">import random
+
+ALL_CHARS = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+
+def gen_random_code(length=4):
+    return ''.join(random.choices(ALL_CHARS, k=length))
+</code></pre><p>编写生成验证码图片的类 <code>Captcha</code> 。</p><pre><code class="language-Python">&quot;&quot;&quot;
+图片验证码
+&quot;&quot;&quot;
+import os
+import random
+from io import BytesIO
+
+from PIL import Image
+from PIL import ImageFilter
+from PIL.ImageDraw import Draw
+from PIL.ImageFont import truetype
+
+
+class Bezier:
+    &quot;&quot;&quot;贝塞尔曲线&quot;&quot;&quot;
+
+    def __init__(self):
+        self.tsequence = tuple([t / 20.0 for t in range(21)])
+        self.beziers = &#123;&#125;
+
+    def make_bezier(self, n):
+        &quot;&quot;&quot;绘制贝塞尔曲线&quot;&quot;&quot;
+        try:
+            return self.beziers[n]
+        except KeyError:
+            combinations = pascal_row(n - 1)
+            result = []
+            for t in self.tsequence:
+                tpowers = (t ** i for i in range(n))
+                upowers = ((1 - t) ** i for i in range(n - 1, -1, -1))
+                coefs = [c * a * b for c, a, b in zip(combinations,
+                                                      tpowers, upowers)]
+                result.append(coefs)
+            self.beziers[n] = result
+            return result
+
+
+class Captcha:
+    &quot;&quot;&quot;验证码&quot;&quot;&quot;
+
+    def __init__(self, width, height, fonts=None, color=None):
+        self._image = None
+        self._fonts = fonts if fonts else \
+            [os.path.join(os.path.dirname(__file__), 'fonts', font)
+             for font in ['Arial.ttf', 'Georgia.ttf', 'Action.ttf']]
+        self._color = color if color else random_color(0, 200, random.randint(220, 255))
+        self._width, self._height = width, height
+
+    @classmethod
+    def instance(cls, width=200, height=75):
+        &quot;&quot;&quot;用于获取Captcha对象的类方法&quot;&quot;&quot;
+        prop_name = f'_instance_&#123;width&#125;_&#123;height&#125;'
+        if not hasattr(cls, prop_name):
+            setattr(cls, prop_name, cls(width, height))
+        return getattr(cls, prop_name)
+
+    def _background(self):
+        &quot;&quot;&quot;绘制背景&quot;&quot;&quot;
+        Draw(self._image).rectangle([(0, 0), self._image.size],
+                                    fill=random_color(230, 255))
+
+    def _smooth(self):
+        &quot;&quot;&quot;平滑图像&quot;&quot;&quot;
+        return self._image.filter(ImageFilter.SMOOTH)
+
+    def _curve(self, width=4, number=6, color=None):
+        &quot;&quot;&quot;绘制曲线&quot;&quot;&quot;
+        dx, height = self._image.size
+        dx /= number
+        path = [(dx * i, random.randint(0, height))
+                for i in range(1, number)]
+        bcoefs = Bezier().make_bezier(number - 1)
+        points = []
+        for coefs in bcoefs:
+            points.append(tuple(sum([coef * p for coef, p in zip(coefs, ps)])
+                                for ps in zip(*path)))
+        Draw(self._image).line(points, fill=color if color else self._color, width=width)
+
+    def _noise(self, number=50, level=2, color=None):
+        &quot;&quot;&quot;绘制扰码&quot;&quot;&quot;
+        width, height = self._image.size
+        dx, dy = width / 10, height / 10
+        width, height = width - dx, height - dy
+        draw = Draw(self._image)
+        for i in range(number):
+            x = int(random.uniform(dx, width))
+            y = int(random.uniform(dy, height))
+            draw.line(((x, y), (x + level, y)),
+                      fill=color if color else self._color, width=level)
+
+    def _text(self, captcha_text, fonts, font_sizes=None, drawings=None, squeeze_factor=0.75, color=None):
+        &quot;&quot;&quot;绘制文本&quot;&quot;&quot;
+        color = color if color else self._color
+        fonts = tuple([truetype(name, size)
+                       for name in fonts
+                       for size in font_sizes or (65, 70, 75)])
+        draw = Draw(self._image)
+        char_images = []
+        for c in captcha_text:
+            font = random.choice(fonts)
+            c_width, c_height = draw.textsize(c, font=font)
+            char_image = Image.new('RGB', (c_width, c_height), (0, 0, 0))
+            char_draw = Draw(char_image)
+            char_draw.text((0, 0), c, font=font, fill=color)
+            char_image = char_image.crop(char_image.getbbox())
+            for drawing in drawings:
+                d = getattr(self, drawing)
+                char_image = d(char_image)
+            char_images.append(char_image)
+        width, height = self._image.size
+        offset = int((width - sum(int(i.size[0] * squeeze_factor)
+                                  for i in char_images[:-1]) -
+                      char_images[-1].size[0]) / 2)
+        for char_image in char_images:
+            c_width, c_height = char_image.size
+            mask = char_image.convert('L').point(lambda i: i * 1.97)
+            self._image.paste(char_image,
+                              (offset, int((height - c_height) / 2)),
+                              mask)
+            offset += int(c_width * squeeze_factor)
+
+    @staticmethod
+    def _warp(image, dx_factor=0.3, dy_factor=0.3):
+        &quot;&quot;&quot;图像扭曲&quot;&quot;&quot;
+        width, height = image.size
+        dx = width * dx_factor
+        dy = height * dy_factor
+        x1 = int(random.uniform(-dx, dx))
+        y1 = int(random.uniform(-dy, dy))
+        x2 = int(random.uniform(-dx, dx))
+        y2 = int(random.uniform(-dy, dy))
+        warp_image = Image.new(
+            'RGB',
+            (width + abs(x1) + abs(x2), height + abs(y1) + abs(y2)))
+        warp_image.paste(image, (abs(x1), abs(y1)))
+        width2, height2 = warp_image.size
+        return warp_image.transform(
+            (width, height),
+            Image.QUAD,
+            (x1, y1, -x1, height2 - y2, width2 + x2, height2 + y2, width2 - x2, -y1))
+
+    @staticmethod
+    def _offset(image, dx_factor=0.1, dy_factor=0.2):
+        &quot;&quot;&quot;图像偏移&quot;&quot;&quot;
+        width, height = image.size
+        dx = int(random.random() * width * dx_factor)
+        dy = int(random.random() * height * dy_factor)
+        offset_image = Image.new('RGB', (width + dx, height + dy))
+        offset_image.paste(image, (dx, dy))
+        return offset_image
+
+    @staticmethod
+    def _rotate(image, angle=25):
+        &quot;&quot;&quot;图像旋转&quot;&quot;&quot;
+        return image.rotate(random.uniform(-angle, angle),
+                            Image.BILINEAR, expand=1)
+
+    def generate(self, captcha_text='', fmt='PNG'):
+        &quot;&quot;&quot;生成验证码(文字和图片)
+        :param captcha_text: 验证码文字
+        :param fmt: 生成的验证码图片格式
+        :return: 验证码图片的二进制数据
+        &quot;&quot;&quot;
+        self._image = Image.new('RGB', (self._width, self._height), (255, 255, 255))
+        self._background()
+        self._text(captcha_text, self._fonts,
+                   drawings=['_warp', '_rotate', '_offset'])
+        self._curve()
+        self._noise()
+        self._smooth()
+        image_bytes = BytesIO()
+        self._image.save(image_bytes, format=fmt)
+        return image_bytes.getvalue()
+
+
+def pascal_row(n=0):
+    &quot;&quot;&quot;生成毕达哥拉斯三角形（杨辉三角）&quot;&quot;&quot;
+    result = [1]
+    x, numerator = 1, n
+    for denominator in range(1, n // 2 + 1):
+        x *= numerator
+        x /= denominator
+        result.append(x)
+        numerator -= 1
+    if n &amp; 1 == 0:
+        result.extend(reversed(result[:-1]))
+    else:
+        result.extend(reversed(result))
+    return result
+
+
+def random_color(start=0, end=255, opacity=255):
+    &quot;&quot;&quot;获得随机颜色&quot;&quot;&quot;
+    red = random.randint(start, end)
+    green = random.randint(start, end)
+    blue = random.randint(start, end)
+    if opacity is None:
+        return red, green, blue
+    return red, green, blue, opacity
+</code></pre><blockquote><p><strong>说明</strong>：上面的代码中用到了三个字体文件，字体文件位于 <code>polls/fonts</code> 目录下，大家可以自行添加字体文件，但是需要注意字体文件的文件名跟上面代码的第 45 行保持一致。</p></blockquote><p>接下来，我们先完成提供验证码的视图函数。</p><pre><code class="language-Python">def get_captcha(request: HttpRequest) -&gt; HttpResponse:
+    &quot;&quot;&quot;验证码&quot;&quot;&quot;
+    captcha_text = gen_random_code()
+    request.session['captcha'] = captcha_text
+    image_data = Captcha.instance().generate(captcha_text)
+    return HttpResponse(image_data, content_type='image/png')
+</code></pre><p>注意上面代码中的第 4 行，我们将随机生成的验证码字符串保存到 session 中，稍后用户登录时，我们要将保存在 session 中的验证码字符串和用户输入的验证码字符串进行比对，如果用户输入了正确的验证码才能够执行后续的登录流程，代码如下所示。</p><pre><code class="language-Python">def login(request: HttpRequest) -&gt; HttpResponse:
+    hint = ''
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        if username and password:
+            password = gen_md5_digest(password)
+            user = User.objects.filter(username=username, password=password).first()
+            if user:
+                request.session['userid'] = user.no
+                request.session['username'] = user.username
+                return redirect('/')
+            else:
+                hint = '用户名或密码错误'
+        else:
+            hint = '请输入有效的用户名和密码'
+    return render(request, 'login.html', &#123;'hint': hint&#125;)
+</code></pre><blockquote><p><strong>说明</strong>：上面的代码没有对用户名和密码没有进行验证，实际项目中建议使用正则表达式验证用户输入信息，否则有可能将无效的数据交给数据库进行处理或者造成其他安全方面的隐患。</p></blockquote><p>上面的代码中，我们设定了登录成功后会在 session 中保存用户的编号（ <code>userid</code> ）和用户名（ <code>username</code> ），页面会重定向到首页。接下来我们可以稍微对首页的代码进行调整，在页面的右上角显示出登录用户的用户名。我们将这段代码单独写成了一个名为 header.html 的 HTML 文件，首页中可以通过在 <code>&lt;body&gt;</code> 标签中添加 <code>&#123;% include 'header.html' %&#125;</code> 来包含这个页面，代码如下所示。</p><pre><code class="language-HTML">&lt;div class=&quot;user&quot;&gt;
+    &#123;% if request.session.userid %&#125;
+    <span>&#123;&#123; request.session.username &#125;&#125;</span>
+    <a href="/logout">注销</a>
+    &#123;% else %&#125;
+    <a href="/login">登录</a>&nbsp;&nbsp;
+    &#123;% endif %&#125;
+    &lt;a href=&quot;/register&quot;&gt;注册&lt;/a&gt;
+&lt;/div&gt;
+</code></pre><p>如果用户没有登录，页面会显示登录和注册的超链接；而用户登录成功后，页面上会显示用户名和注销的链接，注销链接对应的视图函数如下所示，URL 的映射与之前讲过的类似，不再赘述。</p><pre><code class="language-Python">def logout(request):
+    &quot;&quot;&quot;注销&quot;&quot;&quot;
+    request.session.flush()
+    return redirect('/')
+</code></pre><p>上面的代码通过 session 对象 <code>flush</code> 方法来销毁 session，一方面清除了服务器上 session 对象保存的用户数据，一方面将保存在浏览器 cookie 中的 sessionid 删除掉，稍后我们会对如何读写 cookie 的操作加以说明。</p><p>我们可以通过项目使用的数据库中名为 <code>django_session</code> 的表来找到所有的 session，该表的结构如下所示：</p><table><thead><tr><th>session_key</th><th>session_data</th><th>expire_date</th></tr></thead><tbody><tr><td>c9g2gt5cxo0k2evykgpejhic5ae7bfpl</td><td>MmI4YzViYjJhOGMyMDJkY2M5Yzg3...</td><td>2019-05-25 23:16:13.898522</td></tr></tbody></table><p>其中，第 1 列就是浏览器 cookie 中保存的 sessionid；第 2 列是经过 BASE64 编码后的 session 中的数据，如果使用 Python 的 <code>base64</code> 对其进行解码，解码的过程和结果如下所示。</p><pre><code class="language-Python">import base64
+
+base64.b64decode('MmI4YzViYjJhOGMyMDJkY2M5Yzg3ZWIyZGViZmUzYmYxNzdlNDdmZjp7ImNhcHRjaGEiOiJzS3d0Iiwibm8iOjEsInVzZXJuYW1lIjoiamFja2ZydWVkIn0=')
+</code></pre><p>第 3 列是 session 的过期时间，session 过期后浏览器保存的 cookie 中的 sessionid 就会失效，但是数据库中的这条对应的记录仍然会存在，如果想清除过期的数据，可以使用下面的命令。</p><pre><code class="language-Shell">python manage.py clearsessions
+</code></pre><p>Django 框架默认的 session 过期时间为两周（1209600 秒），如果想修改这个时间，可以在项目的配置文件中添加如下所示的代码。</p><pre><code class="language-Python"># 配置会话的超时时间为1天（86400秒）
+SESSION_COOKIE_AGE = 86400
+</code></pre><p>有很多对安全性要求较高的应用都必须在关闭浏览器窗口时让会话过期，不再保留用户的任何信息，如果希望在关闭浏览器窗口时就让会话过期（cookie 中的 sessionid 失效），可以加入如下所示的配置。</p><pre><code class="language-Python"># 设置为True在关闭浏览器窗口时session就过期
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+</code></pre><p>如果不希望将 session 的数据保存在数据库中，可以将其放入缓存中，对应的配置如下所示，缓存的配置和使用我们在后面讲解。</p><pre><code class="language-Python"># 配置将会话对象放到缓存中存储
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+# 配置使用哪一组缓存来保存会话
+SESSION_CACHE_ALIAS = 'default'
+</code></pre><p>如果要修改 session 数据默认的序列化方式，可以将默认的 <code>JSONSerializer</code> 修改为 <code>PickleSerializer</code> 。</p><pre><code class="language-Python">SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+</code></pre><p>接下来，我们就可以限制只有登录用户才能为老师投票，修改后的 <code>praise_or_criticize</code> 函数如下所示，我们通过从 <code>request.session</code> 中获取 <code>userid</code> 来判定用户是否登录。</p><pre><code class="language-Python">def praise_or_criticize(request: HttpRequest) -&gt; HttpResponse:
+    if request.session.get('userid'):
+        try:
+            tno = int(request.GET.get('tno'))
+            teacher = Teacher.objects.get(no=tno)
+            if request.path.startswith('/praise/'):
+                teacher.good_count += 1
+                count = teacher.good_count
+            else:
+                teacher.bad_count += 1
+                count = teacher.bad_count
+            teacher.save()
+            data = &#123;'code': 20000, 'mesg': '投票成功', 'count': count&#125;
+        except (ValueError, Teacher.DoesNotExist):
+            data = &#123;'code': 20001, 'mesg': '投票失败'&#125;
+    else:
+        data = &#123;'code': 20002, 'mesg': '请先登录'&#125;
+    return JsonResponse(data)
+</code></pre><p>当然，在修改了视图函数后， <code>teachers.html</code> 也需要进行调整，用户如果没有登录，就将用户引导至登录页，登录成功再返回到投票页，此处不再赘述。</p><h3 id="在视图函数中读写cookie"><a class="anchor" href="#在视图函数中读写cookie">#</a> 在视图函数中读写 cookie</h3><p>下面我们对如何使用 cookie 做一个更为细致的说明以便帮助大家在 Web 项目中更好的使用这项技术。Django 封装的 <code>HttpRequest</code> 和 <code>HttpResponse</code> 对象分别提供了读写 cookie 的操作。</p><p>HttpRequest 封装的属性和方法：</p><ol><li><code>COOKIES</code> 属性 - 该属性包含了 HTTP 请求携带的所有 cookie。</li><li><code>get_signed_cookie</code> 方法 - 获取带签名的 cookie，如果签名验证失败，会产生 <code>BadSignature</code> 异常。</li></ol><p>HttpResponse 封装的方法：</p><ol><li><code>set_cookie</code> 方法 - 该方法可以设置一组键值对并将其最终将写入浏览器。</li><li><code>set_signed_cookie</code> 方法 - 跟上面的方法作用相似，但是会对 cookie 进行签名来达到防篡改的作用。因为如果篡改了 cookie 中的数据，在不知道<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JUFGJTg2JUU5JTkyJUE1">密钥</span>和<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JTlCJTkwXyglRTUlQUYlODYlRTclQTAlODElRTUlQUQlQTYp">盐</span>的情况下是无法生成有效的签名，这样服务器在读取 cookie 时会发现数据与签名不一致从而产生 <code>BadSignature</code> 异常。需要说明的是，这里所说的密钥就是我们在 Django 项目配置文件中指定的 <code>SECRET_KEY</code> ，而盐是程序中设定的一个字符串，你愿意设定为什么都可以，只要是一个有效的字符串。</li></ol><p>上面提到的方法，如果不清楚它们的具体用法，可以自己查阅一下 Django 的<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRqYW5nb3Byb2plY3QuY29tL2VuLzIuMS9yZWYvcmVxdWVzdC1yZXNwb25zZS8=">官方文档</span>，没有什么资料比官方文档能够更清楚的告诉你这些方法到底如何使用。</p><p>刚才我们说过了，激活 <code>SessionMiddleware</code> 之后，每个 <code>HttpRequest</code> 对象都会绑定一个 session 属性，它是一个类似字典的对象，除了保存用户数据之外还提供了检测浏览器是否支持 cookie 的方法，包括：</p><ol><li><code>set_test_cookie</code> 方法 - 设置用于测试的 cookie。</li><li><code>test_cookie_worked</code> 方法 - 检测测试 cookie 是否工作。</li><li><code>delete_test_cookie</code> 方法 - 删除用于测试的 cookie。</li><li><code>set_expiry</code> 方法 - 设置会话的过期时间。</li><li><code>get_expire_age</code> / <code>get_expire_date</code> 方法 - 获取会话的过期时间。</li><li><code>clear_expired</code> 方法 - 清理过期的会话。</li></ol><p>下面是在执行登录之前检查浏览器是否支持 cookie 的代码。通常情况下，浏览器默认开启了对 cookie 的支持，但是可能因为某种原因，用户禁用了浏览器的 cookie 功能，遇到这种情况我们可以在视图函数中提供一个检查功能，如果检查到用户浏览器不支持 cookie，可以给出相应的提示。</p><pre><code class="language-Python">def login(request):
+    if request.method == 'POST':
+        if request.session.test_cookie_worked():
+            request.session.delete_test_cookie()
+            # Add your code to perform login process here
+        else:
+            return HttpResponse(&quot;Please enable cookies and try again.&quot;)
+    request.session.set_test_cookie()
+    return render_to_response('login.html')
+</code></pre><h3 id="cookie的替代品"><a class="anchor" href="#cookie的替代品">#</a> Cookie 的替代品</h3><p>之前我们说过了，cookie 的名声一直都不怎么好，当然我们在实际开发中是不会在 cookie 中保存用户的敏感信息（如用户的密码、信用卡的账号等）的，而且保存在 cookie 中的数据一般也会做好编码和签名的工作。对于支持 HTML5 的浏览器来说，可以使用 localStorage 和 sessionStorage 做为 cookie 的替代方案，相信从名字上你就能听出二者的差别，存储在 <code>localStorage</code> 的数据可以长期保留；而存储在 <code>sessionStorage</code> 的数据会在浏览器关闭时会被清除 。关于这些 cookie 替代品的用法，建议大家查阅<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWI="> MDN</span> 来进行了解。</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"><div class="tags"><a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="tag"><i class="ic i-tag"></i> 编程笔记</a> <a href="/tags/python/" rel="tag"><i class="ic i-tag"></i> python</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i> </span><span class="text">更新于</span> <time title="修改时间：2025-04-14 03:09:55" itemprop="dateModified" datetime="2025-04-14T03:09:55+08:00">2025-04-14</time> </span><span id="computer-science/python/basic/44.Cookie和Session/" class="item leancloud_visitors" data-flag-title="Cookie 和 Session" title="阅读次数"><span class="icon"><i class="ic i-eye"></i> </span><span class="text">阅读次数</span> <span class="leancloud-visitors-count"></span> <span class="text">次</span></span></div><div class="reward"><button><i class="ic i-heartbeat"></i> 赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img data-src="/images/wechatpay.png" alt="沉鱼 微信支付"><p>微信支付</p></div><div><img data-src="/images/alipay.png" alt="沉鱼 支付宝"><p>支付宝</p></div><div><img data-src="/images/paypal.png" alt="沉鱼 贝宝"><p>贝宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者： </strong>沉鱼 <i class="ic i-at"><em>@</em></i>沉鱼的博客</li><li class="link"><strong>本文链接：</strong> <a href="https://scottalive.github.io/computer-science/python/basic/44.Cookie%E5%92%8CSession/" title="Cookie 和 Session">https://scottalive.github.io/computer-science/python/basic/44.Cookie和Session/</a></li><li class="license"><strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/computer-science/python/basic/43.%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%92%8CAjax%E8%AF%B7%E6%B1%82/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;642522e3a682492fccdf1d5f.jpg" title="静态资源和Ajax请求"><span class="type">上一篇</span> <span class="category"><i class="ic i-flag"></i> Python 基础</span><h3>静态资源和Ajax请求</h3></a></div><div class="item right"><a href="/computer-science/python/basic/45.%E5%88%B6%E4%BD%9C%E6%8A%A5%E8%A1%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;1306263805.vod2.myqcloud.com&#x2F;b5881d8bvodsh1306263805&#x2F;ff95c794243791580874142725&#x2F;e9tCBaFA0AMA.jpeg" title="制作报表"><span class="type">下一篇</span> <span class="category"><i class="ic i-flag"></i> Python 基础</span><h3>制作报表</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie%E5%92%8Csession"><span class="toc-number">1.</span> <span class="toc-text">Cookie 和 Session</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.1.</span> <span class="toc-text">用户登录的准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%94%A8%E6%88%B7%E8%B7%9F%E8%B8%AA"><span class="toc-number">1.2.</span> <span class="toc-text">实现用户跟踪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#django%E6%A1%86%E6%9E%B6%E5%AF%B9session%E7%9A%84%E6%94%AF%E6%8C%81"><span class="toc-number">1.3.</span> <span class="toc-text">Django 框架对 session 的支持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81"><span class="toc-number">1.4.</span> <span class="toc-text">实现用户登录验证</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E8%A7%86%E5%9B%BE%E5%87%BD%E6%95%B0%E4%B8%AD%E8%AF%BB%E5%86%99cookie"><span class="toc-number">1.5.</span> <span class="toc-text">在视图函数中读写 cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie%E7%9A%84%E6%9B%BF%E4%BB%A3%E5%93%81"><span class="toc-number">1.6.</span> <span class="toc-text">Cookie 的替代品</span></a></li></ol></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li><a href="/computer-science/python/basic/01.%E5%88%9D%E8%AF%86Python/" rel="bookmark" title="初识Python">初识Python</a></li><li><a href="/computer-science/python/basic/02.%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0/" rel="bookmark" title="语言元素">语言元素</a></li><li><a href="/computer-science/python/basic/NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%A5%E9%97%A8/" rel="bookmark" title="NoSQL入门">NoSQL入门</a></li><li><a href="/computer-science/python/basic/03.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/" rel="bookmark" title="分支结构">分支结构</a></li><li><a href="/computer-science/python/basic/04.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/" rel="bookmark" title="循环结构">循环结构</a></li><li><a href="/computer-science/python/basic/05.%E6%9E%84%E9%80%A0%E7%A8%8B%E5%BA%8F%E9%80%BB%E8%BE%91/" rel="bookmark" title="构造程序逻辑">构造程序逻辑</a></li><li><a href="/computer-science/python/basic/06.%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="bookmark" title="函数和模块的使用">函数和模块的使用</a></li><li><a href="/computer-science/python/basic/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="bookmark" title="字符串和常用数据结构">字符串和常用数据结构</a></li><li><a href="/computer-science/python/basic/08.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="bookmark" title="面向对象编程基础">面向对象编程基础</a></li><li><a href="/computer-science/python/basic/09.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/" rel="bookmark" title="面向对象进阶">面向对象进阶</a></li><li><a href="/computer-science/python/basic/10.%E5%9B%BE%E5%BD%A2%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="bookmark" title="图形用户界面和游戏开发">图形用户界面和游戏开发</a></li><li><a href="/computer-science/python/basic/11.%E6%96%87%E4%BB%B6%E5%92%8C%E5%BC%82%E5%B8%B8/" rel="bookmark" title="文件和异常">文件和异常</a></li><li><a href="/computer-science/python/basic/12.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="bookmark" title="使用正则表达式">使用正则表达式</a></li><li><a href="/computer-science/python/basic/13.%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" rel="bookmark" title="进程和线程">进程和线程</a></li><li><a href="/computer-science/python/basic/14.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" rel="bookmark" title="网络编程入门">网络编程入门</a></li><li><a href="/computer-science/python/basic/15.%E5%9B%BE%E5%83%8F%E5%92%8C%E5%8A%9E%E5%85%AC%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/" rel="bookmark" title="图像和办公文档处理">图像和办公文档处理</a></li><li><a href="/computer-science/python/basic/16-20.Python%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6/" rel="bookmark" title="Python语言进阶">Python语言进阶</a></li><li><a href="/computer-science/python/basic/21-30.Web%E5%89%8D%E7%AB%AF%E6%A6%82%E8%BF%B0/" rel="bookmark" title="Web前端概述">Web前端概述</a></li><li><a href="/computer-science/python/basic/31-35.%E7%8E%A9%E8%BD%ACLinux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="bookmark" title="玩转Linux操作系统">玩转Linux操作系统</a></li><li><a href="/computer-science/python/basic/36.%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8CMySQL%E6%A6%82%E8%BF%B0/" rel="bookmark" title="关系型数据库和MySQL概述">关系型数据库和MySQL概述</a></li><li><a href="/computer-science/python/basic/37.SQL%E8%AF%A6%E8%A7%A3/" rel="bookmark" title="SQL 和 MySQL 详解">SQL 和 MySQL 详解</a></li><li><a href="/computer-science/python/basic/38.%E6%B7%B1%E5%85%A5MySQL/" rel="bookmark" title="深入MySQL">深入MySQL</a></li><li><a href="/computer-science/python/basic/39.Python%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%85%A5MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="bookmark" title="Python程序接入MySQL数据库">Python程序接入MySQL数据库</a></li><li><a href="/computer-science/python/basic/40.%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E5%92%8CHiveSQL/" rel="bookmark" title="Hive简介">Hive简介</a></li><li><a href="/computer-science/python/basic/41.Django%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" rel="bookmark" title="Django快速上手">Django快速上手</a></li><li><a href="/computer-science/python/basic/42.%E6%B7%B1%E5%85%A5%E6%A8%A1%E5%9E%8B/" rel="bookmark" title="深入模型">深入模型</a></li><li><a href="/computer-science/python/basic/43.%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%92%8CAjax%E8%AF%B7%E6%B1%82/" rel="bookmark" title="静态资源和Ajax请求">静态资源和Ajax请求</a></li><li class="active"><a href="/computer-science/python/basic/44.Cookie%E5%92%8CSession/" rel="bookmark" title="Cookie和Session">Cookie和Session</a></li><li><a href="/computer-science/python/basic/45.%E5%88%B6%E4%BD%9C%E6%8A%A5%E8%A1%A8/" rel="bookmark" title="制作报表">制作报表</a></li><li><a href="/computer-science/python/basic/46.%E6%97%A5%E5%BF%97%E5%92%8C%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7%E6%A0%8F/" rel="bookmark" title="日志和调试工具栏">日志和调试工具栏</a></li><li><a href="/computer-science/python/basic/47.%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E5%BA%94%E7%94%A8/" rel="bookmark" title="中间件的应用">中间件的应用</a></li><li><a href="/computer-science/python/basic/48.%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/" rel="bookmark" title="前后端分离开发入门">前后端分离开发入门</a></li><li><a href="/computer-science/python/basic/49.RESTful%E6%9E%B6%E6%9E%84%E5%92%8CDRF%E5%85%A5%E9%97%A8/" rel="bookmark" title="RESTful架构和DRF入门">RESTful架构和DRF入门</a></li><li><a href="/computer-science/python/basic/50.RESTful%E6%9E%B6%E6%9E%84%E5%92%8CDRF%E8%BF%9B%E9%98%B6/" rel="bookmark" title="RESTful架构和DRF进阶">RESTful架构和DRF进阶</a></li><li><a href="/computer-science/python/basic/51.%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98/" rel="bookmark" title="使用缓存">使用缓存</a></li><li><a href="/computer-science/python/basic/52.%E6%8E%A5%E5%85%A5%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0/" rel="bookmark" title="接入三方平台">接入三方平台</a></li><li><a href="/computer-science/python/basic/53.%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="bookmark" title="异步任务和定时任务">异步任务和定时任务</a></li><li><a href="/computer-science/python/basic/54.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="bookmark" title="单元测试">单元测试</a></li><li><a href="/computer-science/python/basic/55.%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/" rel="bookmark" title="项目上线">项目上线</a></li><li><a href="/computer-science/python/basic/56-60.%E7%94%A8FastAPI%E5%BC%80%E5%8F%91%E6%95%B0%E6%8D%AE%E6%8E%A5%E5%8F%A3/" rel="bookmark" title="用FastAPI开发网络数据接口">用FastAPI开发网络数据接口</a></li><li><a href="/computer-science/python/basic/61.%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E6%A6%82%E8%BF%B0/" rel="bookmark" title="网络数据采集概述">网络数据采集概述</a></li><li><a href="/computer-science/python/basic/62.%E7%94%A8Python%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90-1/" rel="bookmark" title="用Python获取网络数据">用Python获取网络数据</a></li><li><a href="/computer-science/python/basic/62.%E7%94%A8Python%E8%A7%A3%E6%9E%90HTML%E9%A1%B5%E9%9D%A2-2/" rel="bookmark" title="用Python解析HTML页面">用Python解析HTML页面</a></li><li><a href="/computer-science/python/basic/63.%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9C%A8%E7%88%AC%E8%99%AB%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" rel="bookmark" title="并发编程在爬虫中的应用">并发编程在爬虫中的应用</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-1/" rel="bookmark" title="Python中的并发编程-1">Python中的并发编程-1</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-2/" rel="bookmark" title="Python中的并发编程-2">Python中的并发编程-2</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-3/" rel="bookmark" title="Python中的并发编程-3">Python中的并发编程-3</a></li><li><a href="/computer-science/python/basic/64.%E4%BD%BF%E7%94%A8Selenium%E6%8A%93%E5%8F%96%E7%BD%91%E9%A1%B5%E5%8A%A8%E6%80%81%E5%86%85%E5%AE%B9/" rel="bookmark" title="使用Selenium抓取网页动态内容">使用Selenium抓取网页动态内容</a></li><li><a href="/computer-science/python/basic/65.%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6Scrapy%E7%AE%80%E4%BB%8B/" rel="bookmark" title="爬虫框架Scrapy简介">爬虫框架Scrapy简介</a></li><li><a href="/computer-science/python/basic/66.%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0/" rel="bookmark" title="数据分析概述">数据分析概述</a></li><li><a href="/computer-science/python/basic/67.%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" rel="bookmark" title="环境准备">环境准备</a></li><li><a href="/computer-science/python/basic/68.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-1/" rel="bookmark" title="NumPy的应用-1">NumPy的应用-1</a></li><li><a href="/computer-science/python/basic/69.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-2/" rel="bookmark" title="NumPy的应用-2">NumPy的应用-2</a></li><li><a href="/computer-science/python/basic/70.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-1/" rel="bookmark" title="Pandas的应用-1">Pandas的应用-1</a></li><li><a href="/computer-science/python/basic/71.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-2/" rel="bookmark" title="Pandas的应用-2">Pandas的应用-2</a></li><li><a href="/computer-science/python/basic/72.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-3/" rel="bookmark" title="Pandas的应用-3">Pandas的应用-3</a></li><li><a href="/computer-science/python/basic/73.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-4/" rel="bookmark" title="Pandas的应用-4">Pandas的应用-4</a></li><li><a href="/computer-science/python/basic/74.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-5/" rel="bookmark" title="Pandas的应用-5">Pandas的应用-5</a></li><li><a href="/computer-science/python/basic/75.%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-1/" rel="bookmark" title="数据可视化-1">数据可视化-1</a></li><li><a href="/computer-science/python/basic/76.%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-2/" rel="bookmark" title="数据可视化-2">数据可视化-2</a></li><li><a href="/computer-science/python/basic/100.Python%E9%9D%A2%E8%AF%95%E9%A2%98%E5%AE%9E%E5%BD%95/" rel="bookmark" title="Python面试题实录">Python面试题实录</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="image" itemprop="image" alt="沉鱼" data-src="/images/avatar.jpg"><p class="name" itemprop="name">沉鱼</p><div class="description" itemprop="description">编程笔记 & 资料分享</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">95</span> <span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">14</span> <span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">18</span> <span class="name">标签</span></a></div></nav><div class="social"><span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1Njb3R0YWxpdmU=" title="https:&#x2F;&#x2F;github.com&#x2F;Scottalive"><i class="ic i-github"></i></span> <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9hbWVoaW1l" title="https:&#x2F;&#x2F;twitter.com&#x2F;amehime"><i class="ic i-twitter"></i></span> <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9ydXJpc216aw==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;rurismzk"><i class="ic i-zhihu"></i></span> <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTEyODg2ODIz" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;12886823"><i class="ic i-cloud-music"></i></span> <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vYW1laGltZQ==" title="https:&#x2F;&#x2F;weibo.com&#x2F;amehime"><i class="ic i-weibo"></i></span> <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS9hbWVoaW1l" title="https:&#x2F;&#x2F;about.me&#x2F;amehime"><i class="ic i-address-card"></i></span> <span class="exturl item email" data-url="bWFpbHRvOnlvdXJuYW1lQG1haWwuY29t" title="mailto:yourname@mail.com"><i class="ic i-envelope"></i></span> <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;yourname"><i class="ic i-facebook"></i></span> <span class="exturl item stackoverflow" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname"><i class="ic i-stack-overflow"></i></span> <span class="exturl item instagram" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;instagram.com&#x2F;yourname"><i class="ic i-instagram"></i></span> <span class="exturl item skype" data-url="c2t5cGU6eW91cm5hbWU/Y2FsbHxjaGF0" title="skype:yourname?call|chat"><i class="ic i-skype"></i></span> <span class="exturl item douban" data-url="aHR0cHM6Ly93d3cuZG91YmFuLmNvbS9wZW9wbGUveW91cm5hbWUv" title="https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;yourname&#x2F;"><i class="ic i-douban"></i></span></div><ul class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li><li class="item"><a href="/friends/" rel="section"><i class="ic i-heart"></i>友達</a></li><li class="item"><a href="/links/" rel="section"><i class="ic i-magic"></i>链接</a></li></ul></div></div></div><ul id="quick"><li class="prev pjax"><a href="/computer-science/python/basic/43.%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%92%8CAjax%E8%AF%B7%E6%B1%82/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/computer-science/python/basic/45.%E5%88%B6%E4%BD%9C%E6%8A%A5%E8%A1%A8/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-3/" title="Python中的并发编程-3">Python中的并发编程-3</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/50.RESTful%E6%9E%B6%E6%9E%84%E5%92%8CDRF%E8%BF%9B%E9%98%B6/" title="RESTful架构和DRF进阶">RESTful架构和DRF进阶</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/springcloud/" title="分类于 微服务">微服务</a></div><span><a href="/computer-science/java/springcloud/%E5%88%9D%E8%AF%86Nacos/" title="初识Nacos">初识Nacos</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/psychology/" title="分类于 心理学">心理学</a> <i class="ic i-angle-right"></i> <a href="/categories/psychology/Inferiority-and-transcendence/" title="分类于 自卑与超越">自卑与超越</a></div><span><a href="/psychology/%E8%87%AA%E5%8D%91%E4%B8%8E%E8%B6%85%E8%B6%8A/%E5%BA%8F%E8%A8%80/" title="序言">序言</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/06.%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" title="函数和模块的使用">函数和模块的使用</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/01.%E5%88%9D%E8%AF%86Python/" title="初识Python">初识Python</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/javase/" title="分类于 JavaSE">JavaSE</a></div><span><a href="/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/" title="Java8新特性">Java8新特性</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/54.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" title="单元测试">单元测试</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-2/" title="Python中的并发编程-2">Python中的并发编程-2</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a></div><span><a href="/computer-science/java/arithmetic/1-%E5%8A%9B%E6%89%A3-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C-%E7%AE%80%E5%8D%95/" title="力扣算法题-1-两数之和">力扣算法题-1-两数之和</a></span></li></ul></div><div><h2>最新评论</h2><ul class="leancloud-recent-comment"></ul></div></div><div class="status"><div class="copyright">&copy; 2010 – <span itemprop="copyrightYear">2025</span> <span class="with-love"><i class="ic i-sakura rotate"></i> </span><span class="author" itemprop="copyrightHolder">沉鱼 @ Chrono Cross</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i> </span><span title="站点总字数">562k 字</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="ic i-coffee"></i> </span><span title="站点阅读时长">8:31</span></div><div class="powered-by">基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL={path:"computer-science/python/basic/44.Cookie和Session/",favicon:{show:"（●´3｀●）やれやれだぜ",hide:"(´Д｀)大変だ！"},search:{placeholder:"文章搜索",empty:"关于 「 ${query} 」，什么也没搜到",stats:"${time} ms 内找到 ${hits} 条结果"},valine:!0,fancybox:!0,copyright:'复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',ignores:[function(e){return e.includes("#")},function(e){return new RegExp(LOCAL.path+"$").test(e)}]}</script><script src="https://cdn.polyfill.io/v2/polyfill.js"></script><script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script><script src="/js/app.js?v=0.2.5"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/shizuku.model.json"},display:{position:"right",width:200,height:400},mobile:{show:!0},react:{opacity:.7},log:!1})</script></body></html>

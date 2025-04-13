@@ -1,0 +1,302 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#FFF"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="alternate" type="application/rss+xml" title="沉鱼的博客" href="https://scottalive.github.io/rss.xml"><link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="https://scottalive.github.io/atom.xml"><link rel="alternate" type="application/json" title="沉鱼的博客" href="https://scottalive.github.io/feed.json"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext"><link rel="stylesheet" href="/css/app.css?v=0.2.5"><meta name="keywords" content="编程笔记,python"><link rel="canonical" href="https://scottalive.github.io/computer-science/python/basic/68.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-1/"><title>NumPy 的应用 - 1 - Python 基础 - Python - 计算机科学 | Chrono Cross = 沉鱼的博客 = 了解自我，超越自我</title><meta name="generator" content="Hexo 5.4.2"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">NumPy 的应用 - 1</h1><div class="meta"><span class="item" title="创建时间：2025-04-24 05:07:49"><span class="icon"><i class="ic i-calendar"></i> </span><span class="text">发表于</span> <time itemprop="dateCreated datePublished" datetime="2025-04-24T05:07:49+08:00">2025-04-24</time> </span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i> </span><span class="text">本文字数</span> <span>9.7k</span> <span class="text">字</span> </span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i> </span><span class="text">阅读时长</span> <span>9 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span> <span class="line"></span> <span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">Chrono Cross</a></li></ul><ul class="right"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div id="imgs" class="pjax"><ul><li class="item" data-background-image="https://pic.imgdb.cn/item/642523c5a682492fcce031f8.jpg"></li><li class="item" data-background-image="https://1306263805.vod2.myqcloud.com/b5881d8bvodsh1306263805/ff95c794243791580874142725/e9tCBaFA0AMA.jpeg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/642523aca682492fcce012c7.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/642523aba682492fcce0126e.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/6422abdea682492fcc8c202d.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/642522e2a682492fccdf1cad.jpg"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"/><use xlink:href="#gentle-wave" x="48" y="3"/><use xlink:href="#gentle-wave" x="48" y="5"/><use xlink:href="#gentle-wave" x="48" y="7"/></g></svg></div><main><div class="inner"><div id="main" class="pjax"><div class="article wrap"><div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i> <span><a href="/">首页</a></span><i class="ic i-angle-right"></i> <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/" itemprop="item" rel="index" title="分类于 计算机科学"><span itemprop="name">计算机科学</span></a><meta itemprop="position" content="1"></span><i class="ic i-angle-right"></i> <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/python/" itemprop="item" rel="index" title="分类于 Python"><span itemprop="name">Python</span></a><meta itemprop="position" content="2"></span><i class="ic i-angle-right"></i> <span class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/python/basic/" itemprop="item" rel="index" title="分类于 Python 基础"><span itemprop="name">Python 基础</span></a><meta itemprop="position" content="3"></span></div><article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://scottalive.github.io/computer-science/python/basic/68.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-1/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/avatar.jpg"><meta itemprop="name" content="沉鱼"><meta itemprop="description" content="了解自我，超越自我, 编程笔记 & 资料分享"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="沉鱼的博客"></span><div class="body md" itemprop="articleBody"><h2 id="numpy的应用-1"><a class="anchor" href="#numpy的应用-1">#</a> NumPy 的应用 - 1</h2><p>Numpy 是一个开源的 Python 科学计算库，<strong>用于快速处理任意维度的数组</strong>。Numpy <strong>支持常见的数组和矩阵操作</strong>，对于同样的数值计算任务，使用 NumPy 不仅代码要简洁的多，而且 NumPy 的性能远远优于原生 Python，基本是一个到两个数量级的差距，而且数据量越大，NumPy 的优势就越明显。</p><p>Numpy 最为核心的数据类型是 <code>ndarray</code> ，使用 <code>ndarray</code> 可以处理一维、二维和多维数组，该对象相当于是一个快速而灵活的大数据容器。NumPy 底层代码使用 C 语言编写，解决了 GIL 的限制， <code>ndarray</code> 在存取数据的时候，数据与数据的地址都是连续的，这确保了可以进行高效率的批量操作，远远优于 Python 中的 <code>list</code> ；另一方面 <code>ndarray</code> 对象提供了更多的方法来处理数据，尤其是和统计相关的方法，这些方法也是 Python 原生的 <code>list</code> 没有的。</p><h3 id="准备工作"><a class="anchor" href="#准备工作">#</a> 准备工作</h3><ol><li><p>启动 Notebook</p><pre><code class="language-Bash">jupyter notebook
+</code></pre><blockquote><p><strong>提示</strong>：在启动 Notebook 之前，建议先安装好数据分析相关依赖项，包括之前提到的三大神器以及相关依赖项，包括： <code>numpy</code> 、 <code>pandas</code> 、 <code>matplotlib</code> 、 <code>openpyxl</code> 等。如果使用 Anaconda，则无需单独安装。</p></blockquote></li><li><p>导入</p><pre><code class="language-Python">import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+</code></pre><blockquote><p><strong>说明</strong>：如果已经启动了 Notebook 但尚未安装相关依赖库，例如尚未安装 <code>numpy</code> ，可以在 Notebook 的单元格中输入 <code>!pip install numpy</code> 并运行该单元格来安装 NumPy，也可以一次性安装多个三方库，需要在单元格中输入 <code>%pip install numpy pandas matplotlib</code> 。注意上面的代码，我们不仅导入了 NumPy，还将 pandas 和 matplotlib 库一并导入了。</p></blockquote></li></ol><h3 id="创建数组对象"><a class="anchor" href="#创建数组对象">#</a> 创建数组对象</h3><p>创建 <code>ndarray</code> 对象有很多种方法，下面就如何创建一维数组、二维数组和多维数组进行说明。</p><h4 id="一维数组"><a class="anchor" href="#一维数组">#</a> 一维数组</h4><ul><li><p>方法一：使用 <code>array</code> 函数，通过 <code>list</code> 创建数组对象</p><p>代码：</p><pre><code class="language-Python">array1 = np.array([1, 2, 3, 4, 5])
+array1
+</code></pre><p>输出：</p><pre><code>array([1, 2, 3, 4, 5])
+</code></pre></li><li><p>方法二：使用 <code>arange</code> 函数，指定取值范围创建数组对象</p><p>代码：</p><pre><code class="language-Python">array2 = np.arange(0, 20, 2)
+array2
+</code></pre><p>输出：</p><pre><code>array([ 0,  2,  4,  6,  8, 10, 12, 14, 16, 18])
+</code></pre></li><li><p>方法三：使用 <code>linspace</code> 函数，用指定范围均匀间隔的数字创建数组对象</p><p>代码：</p><pre><code class="language-Python">array3 = np.linspace(-5, 5, 101)
+array3
+</code></pre><p>输出：</p><pre><code>array([-5. , -4.9, -4.8, -4.7, -4.6, -4.5, -4.4, -4.3, -4.2, -4.1, -4. ,
+       -3.9, -3.8, -3.7, -3.6, -3.5, -3.4, -3.3, -3.2, -3.1, -3. , -2.9,
+       -2.8, -2.7, -2.6, -2.5, -2.4, -2.3, -2.2, -2.1, -2. , -1.9, -1.8,
+       -1.7, -1.6, -1.5, -1.4, -1.3, -1.2, -1.1, -1. , -0.9, -0.8, -0.7,
+       -0.6, -0.5, -0.4, -0.3, -0.2, -0.1,  0. ,  0.1,  0.2,  0.3,  0.4,
+        0.5,  0.6,  0.7,  0.8,  0.9,  1. ,  1.1,  1.2,  1.3,  1.4,  1.5,
+        1.6,  1.7,  1.8,  1.9,  2. ,  2.1,  2.2,  2.3,  2.4,  2.5,  2.6,
+        2.7,  2.8,  2.9,  3. ,  3.1,  3.2,  3.3,  3.4,  3.5,  3.6,  3.7,
+        3.8,  3.9,  4. ,  4.1,  4.2,  4.3,  4.4,  4.5,  4.6,  4.7,  4.8,
+        4.9,  5. ])
+</code></pre></li><li><p>方法四：使用 <code>numpy.random</code> 模块的函数生成随机数创建数组对象</p><p>产生 10 个<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">[0, 1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span> 范围的随机小数，代码：</p><pre><code class="language-Python">array4 = np.random.rand(10)
+array4
+</code></pre><p>输出：</p><pre><code>array([0.45556132, 0.67871326, 0.4552213 , 0.96671509, 0.44086463,
+       0.72650875, 0.79877188, 0.12153022, 0.24762739, 0.6669852 ])
+</code></pre><p>产生 10 个<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>1</mn><mo separator="true">,</mo><mn>100</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">[1, 100)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 范围的随机整数，代码：</p><pre><code class="language-Python">array5 = np.random.randint(1, 100, 10)
+array5
+</code></pre><p>输出：</p><pre><code>array([29, 97, 87, 47, 39, 19, 71, 32, 79, 34])
+</code></pre><p>产生 20 个<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi><mo>=</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">\mu=50</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.625em;vertical-align:-.19444em"></span><span class="mord mathnormal">μ</span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:.64444em;vertical-align:0"></span><span class="mord">5</span><span class="mord">0</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">\sigma=10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.43056em;vertical-align:0"></span><span class="mord mathnormal" style="margin-right:.03588em">σ</span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:.64444em;vertical-align:0"></span><span class="mord">1</span><span class="mord">0</span></span></span></span> 的正态分布随机数，代码：</p><pre><code class="language-Python">array6 = np.random.normal(50, 10, 20)
+array6
+</code></pre><p>输出：</p><pre><code>array([55.04155586, 46.43510797, 20.28371158, 62.67884053, 61.23185964,
+       38.22682148, 53.17126151, 43.54741592, 36.11268017, 40.94086676,
+       63.27911699, 46.92688903, 37.1593374 , 67.06525656, 67.47269463,
+       23.37925889, 31.45312239, 48.34532466, 55.09180924, 47.95702787])
+</code></pre></li></ul><blockquote><p><strong>说明</strong>：创建一维数组还有很多其他的方式，比如通过读取字符串、读取文件、解析正则表达式等方式，这里我们暂不讨论这些方式，有兴趣的读者可以自行研究。</p></blockquote><h4 id="二维数组"><a class="anchor" href="#二维数组">#</a> 二维数组</h4><ul><li><p>方法一：使用 <code>array</code> 函数，通过嵌套的 <code>list</code> 创建数组对象</p><p>代码：</p><pre><code class="language-Python">array7 = np.array([[1, 2, 3], [4, 5, 6]])
+array7
+</code></pre><p>输出：</p><pre><code>array([[1, 2, 3],
+       [4, 5, 6]])
+</code></pre></li><li><p>方法二：使用 <code>zeros</code> 、 <code>ones</code> 、 <code>full</code> 函数指定数组的形状创建数组对象</p><p>使用 <code>zeros</code> 函数，代码：</p><pre><code class="language-Python">array8 = np.zeros((3, 4))
+array8
+</code></pre><p>输出：</p><pre><code>array([[0., 0., 0., 0.],
+       [0., 0., 0., 0.],
+       [0., 0., 0., 0.]])
+</code></pre><p>使用 <code>ones</code> 函数，代码：</p><pre><code class="language-Python">array9 = np.ones((3, 4))
+array9
+</code></pre><p>输出：</p><pre><code>array([[1., 1., 1., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.]])
+</code></pre><p>使用 <code>full</code> 函数，代码：</p><pre><code class="language-Python">array10 = np.full((3, 4), 10)
+array10
+</code></pre><p>输出：</p><pre><code>array([[10, 10, 10, 10],
+       [10, 10, 10, 10],
+       [10, 10, 10, 10]])
+</code></pre></li><li><p>方法三：使用 eye 函数创建单位矩阵</p><p>代码：</p><pre><code class="language-Python">array11 = np.eye(4)
+array11
+</code></pre><p>输出：</p><pre><code>array([[1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.]])
+</code></pre></li><li><p>方法四：通过 <code>reshape</code> 将一维数组变成二维数组</p><p>代码：</p><pre><code class="language-Python">array12 = np.array([1, 2, 3, 4, 5, 6]).reshape(2, 3)
+array12
+</code></pre><p>输出：</p><pre><code>array([[1, 2, 3],
+       [4, 5, 6]])
+</code></pre><blockquote><p><strong>提示</strong>： <code>reshape</code> 是 <code>ndarray</code> 对象的一个方法，使用 <code>reshape</code> 方法时需要确保调形后的数组元素个数与调形前数组元素个数保持一致，否则将会产生异常。</p></blockquote></li><li><p>方法五：通过 <code>numpy.random</code> 模块的函数生成随机数创建数组对象</p><p>产生<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">[0, 1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span> 范围的随机小数构成的 3 行 4 列的二维数组，代码：</p><pre><code class="language-Python">array13 = np.random.rand(3, 4)
+array13
+</code></pre><p>输出：</p><pre><code>array([[0.54017809, 0.46797771, 0.78291445, 0.79501326],
+       [0.93973783, 0.21434806, 0.03592874, 0.88838892],
+       [0.84130479, 0.3566601 , 0.99935473, 0.26353598]])
+</code></pre><p>产生<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>1</mn><mo separator="true">,</mo><mn>100</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">[1, 100)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 范围的随机整数构成的 3 行 4 列的二维数组，代码：</p><pre><code class="language-Python">array14 = np.random.randint(1, 100, (3, 4))
+array14
+</code></pre><p>输出：</p><pre><code>array([[83, 30, 64, 53],
+       [39, 92, 53, 43],
+       [43, 48, 91, 72]])
+</code></pre></li></ul><h4 id="多维数组"><a class="anchor" href="#多维数组">#</a> 多维数组</h4><ul><li><p>使用随机的方式创建多维数组</p><p>代码：</p><pre><code class="language-Python">array15 = np.random.randint(1, 100, (3, 4, 5))
+array15
+</code></pre><p>输出：</p><pre><code>array([[[94, 26, 49, 24, 43],
+        [27, 27, 33, 98, 33],
+        [13, 73,  6,  1, 77],
+        [54, 32, 51, 86, 59]],
+
+       [[62, 75, 62, 29, 87],
+        [90, 26,  6, 79, 41],
+        [31, 15, 32, 56, 64],
+        [37, 84, 61, 71, 71]],
+
+       [[45, 24, 78, 77, 41],
+        [75, 37,  4, 74, 93],
+        [ 1, 36, 36, 60, 43],
+        [23, 84, 44, 89, 79]]])
+</code></pre></li><li><p>将一维二维的数组调形为多维数组</p><p>一维数组调形为多维数组，代码：</p><pre><code class="language-Python">array16 = np.arange(1, 25).reshape((2, 3, 4))
+array16
+</code></pre><p>输出：</p><pre><code class="language-Python">array([[[ 1,  2,  3,  4],
+        [ 5,  6,  7,  8],
+        [ 9, 10, 11, 12]],
+
+       [[13, 14, 15, 16],
+        [17, 18, 19, 20],
+        [21, 22, 23, 24]]])
+</code></pre><p>二维数组调形为多维数组，代码：</p><pre><code class="language-Python">array17 = np.random.randint(1, 100, (4, 6)).reshape((4, 3, 2))
+array17
+</code></pre><p>输出：</p><pre><code>array([[[60, 59],
+        [31, 80],
+        [54, 91]],
+
+       [[67,  4],
+        [ 4, 59],
+        [47, 49]],
+
+       [[16,  4],
+        [ 5, 71],
+        [80, 53]],
+
+       [[38, 49],
+        [70,  5],
+        [76, 80]]])
+</code></pre></li><li><p>读取图片获得对应的三维数组</p><p>代码：</p><pre><code class="language-Python">array18 = plt.imread('guido.jpg')
+array18
+</code></pre><p>输出：</p><pre><code>array([[[ 36,  33,  28],
+        [ 36,  33,  28],
+        [ 36,  33,  28],
+        ...,
+        [ 32,  31,  29],
+        [ 32,  31,  27],
+        [ 31,  32,  26]],
+
+       [[ 37,  34,  29],
+        [ 38,  35,  30],
+        [ 38,  35,  30],
+        ...,
+        [ 31,  30,  28],
+        [ 31,  30,  26],
+        [ 30,  31,  25]],
+
+       [[ 38,  35,  30],
+        [ 38,  35,  30],
+        [ 38,  35,  30],
+        ...,
+        [ 30,  29,  27],
+        [ 30,  29,  25],
+        [ 29,  30,  25]],
+
+       ...,
+
+       [[239, 178, 123],
+        [237, 176, 121],
+        [235, 174, 119],
+        ...,
+        [ 78,  68,  56],
+        [ 75,  67,  54],
+        [ 73,  65,  52]],
+
+       [[238, 177, 120],
+        [236, 175, 118],
+        [234, 173, 116],
+        ...,
+        [ 82,  70,  58],
+        [ 78,  68,  56],
+        [ 75,  66,  51]],
+
+       [[238, 176, 119],
+        [236, 175, 118],
+        [234, 173, 116],
+        ...,
+        [ 84,  70,  61],
+        [ 81,  69,  57],
+        [ 79,  67,  53]]], dtype=uint8)
+</code></pre><blockquote><p><strong>说明</strong>：上面的代码读取了当前路径下名为 <code>guido.jpg</code> 的图片文件，计算机系统中的图片通常由若干行若干列的像素点构成，而每个像素点又是由红绿蓝三原色构成的，所以能够用三维数组来表示。读取图片用到了 <code>matplotlib</code> 库的 <code>imread</code> 函数。</p></blockquote></li></ul><h3 id="数组对象的属性"><a class="anchor" href="#数组对象的属性">#</a> 数组对象的属性</h3><ol><li><p><code>size</code> 属性：数组元素个数</p><p>代码：</p><pre><code class="language-Python">array19 = np.arange(1, 100, 2)
+array20 = np.random.rand(3, 4)
+print(array19.size, array20.size)
+</code></pre><p>输出：</p><pre><code>50 12
+</code></pre></li><li><p><code>shape</code> 属性：数组的形状</p><p>代码：</p><pre><code class="language-Python">print(array19.shape, array20.shape)
+</code></pre><p>输出：</p><pre><code>(50,) (3, 4)
+</code></pre></li><li><p><code>dtype</code> 属性：数组元素的数据类型</p><p>代码：</p><pre><code class="language-Python">print(array19.dtype, array20.dtype)
+</code></pre><p>输出：</p><pre><code>int64 float64
+</code></pre><p><code>ndarray</code> 对象元素的数据类型可以参考如下所示的表格。</p><p>&lt;img src=&quot;<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL215cGljLzIwMjExMDA1MTE0ODEzLnBuZw==">https://github.com/mypic/20211005114813.png</span>&quot; width=&quot;85%&quot;&gt;</p></li><li><p><code>ndim</code> 属性：数组的维度</p><p>代码：</p><pre><code class="language-Python">print(array19.ndim, array20.ndim)
+</code></pre><p>输出：</p><pre><code>1 2
+</code></pre></li><li><p><code>itemsize</code> 属性：数组单个元素占用内存空间的字节数</p><p>代码：</p><pre><code class="language-Python">array21 = np.arange(1, 100, 2, dtype=np.int8)
+print(array19.itemsize, array20.itemsize, array21.itemsize)
+</code></pre><p>输出：</p><pre><code>8 8 1
+</code></pre><blockquote><p><strong>说明</strong>：在使用 <code>arange</code> 创建数组对象时，通过 <code>dtype</code> 参数指定元素的数据类型。可以看出， <code>np.int8</code> 代表的是 8 位有符号整数，只占用 1 个字节的内存空间，取值范围是<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mo>−</mo><mn>128</mn><mo separator="true">,</mo><mn>127</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[-128,127]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord">−</span><span class="mord">1</span><span class="mord">2</span><span class="mord">8</span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord">1</span><span class="mord">2</span><span class="mord">7</span><span class="mclose">]</span></span></span></span>。</p></blockquote></li><li><p><code>nbytes</code> 属性：数组所有元素占用内存空间的字节数</p><p>代码：</p><pre><code class="language-Python">print(array19.nbytes, array20.nbytes, array21.nbytes)
+</code></pre><p>输出：</p><pre><code>400 96 50
+</code></pre></li><li><p><code>flat</code> 属性：数组（一维化之后）元素的迭代器</p><p>代码：</p><pre><code class="language-Python">from typing import Iterable
+
+print(isinstance(array20.flat, np.ndarray), isinstance(array20.flat, Iterable))
+</code></pre><p>输出：</p><pre><code>False True
+</code></pre></li><li><p><code>base</code> 属性：数组的基对象（如果数组共享了其他数组的内存空间）</p><p>代码：</p><pre><code class="language-Python">array22 = array19[:]
+print(array22.base is array19, array22.base is array21)
+</code></pre><p>输出：</p><pre><code>True False
+</code></pre><blockquote><p><strong>说明</strong>：上面的代码用到了数组的切片操作，它类似于 Python 中 <code>list</code> 类型的切片，但在细节上又不完全相同，下面会专门讲解这个知识点。通过上面的代码可以发现， <code>ndarray</code> 切片后得到的新的数组对象跟原来的数组对象共享了内存中的数据，因此 <code>array22</code> 的 <code>base</code> 属性就是 <code>array19</code> 对应的数组对象。</p></blockquote></li></ol><h3 id="数组的索引和切片"><a class="anchor" href="#数组的索引和切片">#</a> 数组的索引和切片</h3><p>和 Python 中的列表类似，NumPy 的 <code>ndarray</code> 对象可以进行索引和切片操作，通过索引可以获取或修改数组中的元素，通过切片可以取出数组的一部分。</p><ol><li><p>索引运算（普通索引）</p><p>一维数组，代码：</p><pre><code class="language-Python">array23 = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+print(array23[0], array23[array23.size - 1])
+print(array23[-array23.size], array23[-1])
+</code></pre><p>输出：</p><pre><code>1 9
+1 9
+</code></pre><p>二维数组，代码：</p><pre><code class="language-Python">array24 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print(array24[2])
+print(array24[0][0], array24[-1][-1])
+print(array24[1][1], array24[1, 1])
+</code></pre><p>输出：</p><pre><code>[7 8 9]
+1 9
+5 5
+[[ 1  2  3]
+ [ 4 10  6]
+ [ 7  8  9]]
+</code></pre><p>代码：</p><pre><code class="language-Python">array24[1][1] = 10
+print(array24)
+array24[1] = [10, 11, 12]
+print(array24)
+</code></pre><p>输出：</p><pre><code>[[ 1  2  3]
+ [ 4 10  6]
+ [ 7  8  9]]
+[[ 1  2  3]
+ [10 11 12]
+ [ 7  8  9]]
+</code></pre></li><li><p>切片运算（切片索引）</p><p>切片是形如 <code>[开始索引:结束索引:步长]</code> 的语法，通过指定<strong>开始索引</strong>（默认值无穷小）、<strong>结束索引</strong>（默认值无穷大）和<strong>步长</strong>（默认值 1），从数组中取出指定部分的元素并构成新的数组。因为开始索引、结束索引和步长都有默认值，所以它们都可以省略，如果不指定步长，第二个冒号也可以省略。一维数组的切片运算跟 Python 中的 <code>list</code> 类型的切片非常类似，此处不再赘述，二维数组的切片可以参考下面的代码，相信非常容易理解。</p><p>代码：</p><pre><code class="language-Python">print(array24[:2, 1:])
+</code></pre><p>输出：</p><pre><code>[[2 3]
+ [5 6]]
+</code></pre><p>代码：</p><pre><code class="language-Python">print(array24[2])
+print(array24[2, :])
+</code></pre><p>输出：</p><pre><code>[7 8 9]
+[7 8 9]
+</code></pre><p>代码：</p><pre><code class="language-Python">print(array24[2:, :])
+</code></pre><p>输出：</p><pre><code>[[7 8 9]]
+</code></pre><p>代码：</p><pre><code class="language-Python">print(array24[:, :2])
+</code></pre><p>输出：</p><pre><code>[[1 2]
+ [4 5]
+ [7 8]]
+</code></pre><p>代码：</p><pre><code class="language-Python">print(array24[1, :2])
+print(array24[1:2, :2])
+</code></pre><p>输出：</p><pre><code>[4 5]
+[[4 5]]
+</code></pre><p>代码：</p><pre><code class="language-Python">print(array24[::2, ::2])
+</code></pre><p>输出：</p><pre><code>[[1 3]
+ [7 9]]
+</code></pre><p>代码：</p><pre><code class="language-Python">print(array24[::-2, ::-2])
+</code></pre><p>输出：</p><pre><code>[[9 7]
+ [3 1]]
+</code></pre><p>关于数组的索引和切片运算，大家可以通过下面的两张图来增强印象，这两张图来自<span class="exturl" data-url="aHR0cHM6Ly9pdGVtLmpkLmNvbS8xMjM5ODcyNS5odG1s">《利用 Python 进行数据分析》</span>一书，它是 <code>pandas</code> 库的作者 Wes McKinney 撰写的 Python 数据分析领域的经典教科书，有兴趣的读者可以购买和阅读原书。</p><p>&lt;img src=&quot;<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2phY2tmcnVlZC9teXBpYy9yYXcvbWFzdGVyLzIwMjExMDA1MTE1MDA1LnBuZw==">https://github.com/jackfrued/mypic/raw/master/20211005115005.png</span>&quot; style=&quot;zoom: 65%&quot;&gt;</p><p>&lt;img src=&quot;<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2phY2tmcnVlZC9teXBpYy9yYXcvbWFzdGVyLzIwMjExMDA1MTE1MDQxLnBuZw==">https://github.com/jackfrued/mypic/raw/master/20211005115041.png</span>&quot; style=&quot;zoom:65%&quot;&gt;</p></li><li><p>花式索引（fancy index）</p><p>花式索引（Fancy indexing）是指利用整数数组进行索引，这里所说的整数数组可以是 NumPy 的 <code>ndarray</code> ，也可以是 Python 中 <code>list</code> 、 <code>tuple</code> 等可迭代类型，可以使用正向或负向索引。</p><p>一维数组的花式索引，代码：</p><pre><code class="language-Python">array25 = np.array([50, 30, 15, 20, 40])
+array25[[0, 1, -1]]
+</code></pre><p>输出：</p><pre><code>array([50, 30, 40])
+</code></pre><p>二维数组的花式索引，代码：</p><pre><code class="language-Python">array26 = np.array([[30, 20, 10], [40, 60, 50], [10, 90, 80]])
+# 取二维数组的第1行和第3行
+array26[[0, 2]]
+</code></pre><p>输出：</p><pre><code>array([[30, 20, 10],
+       [10, 90, 80]])
+</code></pre><p>代码：</p><pre><code class="language-Python"># 取二维数组第1行第2列，第3行第3列的两个元素
+array26[[0, 2], [1, 2]]
+</code></pre><p>输出：</p><pre><code>array([20, 80])
+</code></pre><p>代码：</p><pre><code class="language-Python"># 取二维数组第1行第2列，第3行第2列的两个元素
+array26[[0, 2], 1]
+</code></pre><p>输出：</p><pre><code>array([20, 90])
+</code></pre></li><li><p>布尔索引</p><p>布尔索引就是通过布尔类型的数组对数组元素进行索引，布尔类型的数组可以手动构造，也可以通过关系运算来产生布尔类型的数组。</p><p>代码：</p><pre><code class="language-Python">array27 = np.arange(1, 10)
+array27[[True, False, True, True, False, False, False, False, True]]
+</code></pre><p>输出：</p><pre><code>array([1, 3, 4, 9])
+</code></pre><p>代码：</p><pre><code class="language-Python">array27 &gt;= 5
+</code></pre><p>输出：</p><pre><code>array([False, False, False, False,  True,  True,  True,  True,  True])
+</code></pre><p>代码：</p><pre><code class="language-Python"># ~运算符可以实现逻辑变反，看看运行结果跟上面有什么不同
+~(array27 &gt;= 5)
+</code></pre><p>输出：</p><pre><code>array([ True,  True,  True,  True, False, False, False, False, False])
+</code></pre><p>代码：</p><pre><code class="language-Python">array27[array27 &gt;= 5]
+</code></pre><p>输出：</p><pre><code>array([5, 6, 7, 8, 9])
+</code></pre></li></ol><blockquote><p><strong>提示</strong>：切片操作虽然创建了新的数组对象，但是新数组和原数组共享了数组中的数据，简单的说，如果通过新数组对象或原数组对象修改数组中的数据，其实修改的是同一块数据。花式索引和布尔索引也会创建新的数组对象，而且新数组复制了原数组的元素，新数组和原数组并不是共享数据的关系，这一点通过前面讲的数组的 <code>base</code> 属性也可以了解到，在使用的时候要引起注意。</p></blockquote><h4 id="案例通过数组切片处理图像"><a class="anchor" href="#案例通过数组切片处理图像">#</a> 案例：通过数组切片处理图像</h4><p>学习基础知识总是比较枯燥且没有成就感的，所以我们还是来个案例为大家演示下上面学习的数组索引和切片操作到底有什么用。前面我们说到过，可以用三维数组来表示图像，那么通过图像对应的三维数组进行操作，就可以实现对图像的处理，如下所示。</p><p>读入图片创建三维数组对象。</p><pre><code class="language-Python">guido_image = plt.imread('guido.jpg')
+plt.imshow(guido_image)
+</code></pre><p>对数组的 0 轴进行反向切片，实现图像的垂直翻转。</p><pre><code class="language-Python">plt.imshow(guido_image[::-1])
+</code></pre><p><img data-src="https://github.com/jackfrued/mypic/raw/master/20211005115228.png" alt=""></p><p>对数组的 1 轴进行反向切片，实现图像的水平翻转。</p><pre><code class="language-Python">plt.imshow(guido_image[:,::-1])
+</code></pre><p><img data-src="https://github.com/jackfrued/mypic/raw/master/20211005115242.png" alt=""></p><p>将 Guido 的头切出来。</p><pre><code class="language-Python">plt.imshow(guido_image[30:350, 90:300])
+</code></pre><p><img data-src="https://github.com/jackfrued/mypic/raw/master/20211005115305.png" alt=""></p><h3 id="数组对象的方法"><a class="anchor" href="#数组对象的方法">#</a> 数组对象的方法</h3><h4 id="统计方法"><a class="anchor" href="#统计方法">#</a> 统计方法</h4><p>统计方法主要包括： <code>sum()</code> 、 <code>mean()</code> 、 <code>std()</code> 、 <code>var()</code> 、 <code>min()</code> 、 <code>max()</code> 、 <code>argmin()</code> 、 <code>argmax()</code> 、 <code>cumsum()</code> 等，分别用于对数组中的元素求和、求平均、求标准差、求方差、找最大、找最小、求累积和等，请参考下面的代码。</p><pre><code class="language-Python">array28 = np.array([1, 2, 3, 4, 5, 5, 4, 3, 2, 1])
+print(array28.sum())
+print(array28.mean())
+print(array28.max())
+print(array28.min())
+print(array28.std())
+print(array28.var())
+print(array28.cumsum())
+</code></pre><p>输出：</p><pre><code>30
+3.0
+5
+1
+1.4142135623730951
+2.0
+[ 1  3  6 10 15 20 24 27 29 30]
+</code></pre><h4 id="其他方法"><a class="anchor" href="#其他方法">#</a> 其他方法</h4><ol><li><p><code>all()</code> / <code>any()</code> 方法：判断数组是否所有元素都是 <code>True</code> / 判断数组是否有为 <code>True</code> 的元素。</p></li><li><p><code>astype()</code> 方法：拷贝数组，并将数组中的元素转换为指定的类型。</p></li><li><p><code>dump()</code> 方法：保存数组到文件中，可以通过 NumPy 中的 <code>load()</code> 函数从保存的文件中加载数据创建数组。</p><p>代码：</p><pre><code class="language-Python">array31.dump('array31-data')
+array32 = np.load('array31-data', allow_pickle=True)
+array32
+</code></pre><p>输出：</p><pre><code>array([[1, 2],
+       [3, 4],
+       [5, 6]])
+</code></pre></li><li><p><code>fill()</code> 方法：向数组中填充指定的元素。</p></li><li><p><code>flatten()</code> 方法：将多维数组扁平化为一维数组。</p><p>代码：</p><pre><code class="language-Python">array32.flatten()
+</code></pre><p>输出：</p><pre><code>array([1, 2, 3, 4, 5, 6])
+</code></pre></li><li><p><code>nonzero()</code> 方法：返回非 0 元素的索引。</p></li><li><p><code>round()</code> 方法：对数组中的元素做四舍五入操作。</p></li><li><p><code>sort()</code> 方法：对数组进行就地排序。</p><p>代码：</p><pre><code class="language-Python">array33 = np.array([35, 96, 12, 78, 66, 54, 40, 82])
+array33.sort()
+array33
+</code></pre><p>输出：</p><pre><code>array([12, 35, 40, 54, 66, 78, 82, 96])
+</code></pre></li><li><p><code>swapaxes()</code> 和 <code>transpose()</code> 方法：交换数组指定的轴。</p><p>代码：</p><pre><code class="language-Python"># 指定需要交换的两个轴，顺序无所谓
+array32.swapaxes(0, 1)
+</code></pre><p>输出：</p><pre><code>array([[1, 3, 5],
+      [2, 4, 6]])
+</code></pre><p>代码：</p><pre><code class="language-Python"># 对于二维数组，transpose相当于实现了矩阵的转置
+array32.transpose()
+</code></pre><p>输出：</p><pre><code>array([[1, 3, 5],
+      [2, 4, 6]])
+</code></pre></li><li><p><code>tolist()</code> 方法：将数组转成 Python 中的 <code>list</code> 。</p></li></ol><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"><div class="tags"><a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="tag"><i class="ic i-tag"></i> 编程笔记</a> <a href="/tags/python/" rel="tag"><i class="ic i-tag"></i> python</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i> </span><span class="text">更新于</span> <time title="修改时间：2025-04-14 03:13:07" itemprop="dateModified" datetime="2025-04-14T03:13:07+08:00">2025-04-14</time> </span><span id="computer-science/python/basic/68.NumPy的应用-1/" class="item leancloud_visitors" data-flag-title="NumPy 的应用 - 1" title="阅读次数"><span class="icon"><i class="ic i-eye"></i> </span><span class="text">阅读次数</span> <span class="leancloud-visitors-count"></span> <span class="text">次</span></span></div><div class="reward"><button><i class="ic i-heartbeat"></i> 赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img data-src="/images/wechatpay.png" alt="沉鱼 微信支付"><p>微信支付</p></div><div><img data-src="/images/alipay.png" alt="沉鱼 支付宝"><p>支付宝</p></div><div><img data-src="/images/paypal.png" alt="沉鱼 贝宝"><p>贝宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者： </strong>沉鱼 <i class="ic i-at"><em>@</em></i>沉鱼的博客</li><li class="link"><strong>本文链接：</strong> <a href="https://scottalive.github.io/computer-science/python/basic/68.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-1/" title="NumPy 的应用 - 1">https://scottalive.github.io/computer-science/python/basic/68.NumPy的应用-1/</a></li><li class="license"><strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/computer-science/python/basic/67.%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;642523aba682492fcce0129d.jpg" title="环境准备"><span class="type">上一篇</span> <span class="category"><i class="ic i-flag"></i> Python 基础</span><h3>环境准备</h3></a></div><div class="item right"><a href="/computer-science/python/basic/69.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;1306263805.vod2.myqcloud.com&#x2F;b5881d8bvodsh1306263805&#x2F;ff95c794243791580874142725&#x2F;e9tCBaFA0AMA.jpeg" title="NumPy的应用-2"><span class="type">下一篇</span> <span class="category"><i class="ic i-flag"></i> Python 基础</span><h3>NumPy的应用-2</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#numpy%E7%9A%84%E5%BA%94%E7%94%A8-1"><span class="toc-number">1.</span> <span class="toc-text">NumPy 的应用 - 1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.</span> <span class="toc-text">创建数组对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">1.2.1.</span> <span class="toc-text">一维数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">1.2.2.</span> <span class="toc-text">二维数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">1.2.3.</span> <span class="toc-text">多维数组</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="toc-number">1.3.</span> <span class="toc-text">数组对象的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E7%B4%A2%E5%BC%95%E5%92%8C%E5%88%87%E7%89%87"><span class="toc-number">1.4.</span> <span class="toc-text">数组的索引和切片</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E9%80%9A%E8%BF%87%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E5%A4%84%E7%90%86%E5%9B%BE%E5%83%8F"><span class="toc-number">1.4.1.</span> <span class="toc-text">案例：通过数组切片处理图像</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.</span> <span class="toc-text">数组对象的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.1.</span> <span class="toc-text">统计方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.2.</span> <span class="toc-text">其他方法</span></a></li></ol></li></ol></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li><a href="/computer-science/python/basic/01.%E5%88%9D%E8%AF%86Python/" rel="bookmark" title="初识Python">初识Python</a></li><li><a href="/computer-science/python/basic/02.%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0/" rel="bookmark" title="语言元素">语言元素</a></li><li><a href="/computer-science/python/basic/NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%A5%E9%97%A8/" rel="bookmark" title="NoSQL入门">NoSQL入门</a></li><li><a href="/computer-science/python/basic/03.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/" rel="bookmark" title="分支结构">分支结构</a></li><li><a href="/computer-science/python/basic/04.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/" rel="bookmark" title="循环结构">循环结构</a></li><li><a href="/computer-science/python/basic/05.%E6%9E%84%E9%80%A0%E7%A8%8B%E5%BA%8F%E9%80%BB%E8%BE%91/" rel="bookmark" title="构造程序逻辑">构造程序逻辑</a></li><li><a href="/computer-science/python/basic/06.%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="bookmark" title="函数和模块的使用">函数和模块的使用</a></li><li><a href="/computer-science/python/basic/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="bookmark" title="字符串和常用数据结构">字符串和常用数据结构</a></li><li><a href="/computer-science/python/basic/08.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="bookmark" title="面向对象编程基础">面向对象编程基础</a></li><li><a href="/computer-science/python/basic/09.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/" rel="bookmark" title="面向对象进阶">面向对象进阶</a></li><li><a href="/computer-science/python/basic/10.%E5%9B%BE%E5%BD%A2%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="bookmark" title="图形用户界面和游戏开发">图形用户界面和游戏开发</a></li><li><a href="/computer-science/python/basic/11.%E6%96%87%E4%BB%B6%E5%92%8C%E5%BC%82%E5%B8%B8/" rel="bookmark" title="文件和异常">文件和异常</a></li><li><a href="/computer-science/python/basic/12.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="bookmark" title="使用正则表达式">使用正则表达式</a></li><li><a href="/computer-science/python/basic/13.%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" rel="bookmark" title="进程和线程">进程和线程</a></li><li><a href="/computer-science/python/basic/14.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" rel="bookmark" title="网络编程入门">网络编程入门</a></li><li><a href="/computer-science/python/basic/15.%E5%9B%BE%E5%83%8F%E5%92%8C%E5%8A%9E%E5%85%AC%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/" rel="bookmark" title="图像和办公文档处理">图像和办公文档处理</a></li><li><a href="/computer-science/python/basic/16-20.Python%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6/" rel="bookmark" title="Python语言进阶">Python语言进阶</a></li><li><a href="/computer-science/python/basic/21-30.Web%E5%89%8D%E7%AB%AF%E6%A6%82%E8%BF%B0/" rel="bookmark" title="Web前端概述">Web前端概述</a></li><li><a href="/computer-science/python/basic/31-35.%E7%8E%A9%E8%BD%ACLinux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="bookmark" title="玩转Linux操作系统">玩转Linux操作系统</a></li><li><a href="/computer-science/python/basic/36.%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8CMySQL%E6%A6%82%E8%BF%B0/" rel="bookmark" title="关系型数据库和MySQL概述">关系型数据库和MySQL概述</a></li><li><a href="/computer-science/python/basic/37.SQL%E8%AF%A6%E8%A7%A3/" rel="bookmark" title="SQL 和 MySQL 详解">SQL 和 MySQL 详解</a></li><li><a href="/computer-science/python/basic/38.%E6%B7%B1%E5%85%A5MySQL/" rel="bookmark" title="深入MySQL">深入MySQL</a></li><li><a href="/computer-science/python/basic/39.Python%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%85%A5MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="bookmark" title="Python程序接入MySQL数据库">Python程序接入MySQL数据库</a></li><li><a href="/computer-science/python/basic/40.%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E5%92%8CHiveSQL/" rel="bookmark" title="Hive简介">Hive简介</a></li><li><a href="/computer-science/python/basic/41.Django%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" rel="bookmark" title="Django快速上手">Django快速上手</a></li><li><a href="/computer-science/python/basic/42.%E6%B7%B1%E5%85%A5%E6%A8%A1%E5%9E%8B/" rel="bookmark" title="深入模型">深入模型</a></li><li><a href="/computer-science/python/basic/43.%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%92%8CAjax%E8%AF%B7%E6%B1%82/" rel="bookmark" title="静态资源和Ajax请求">静态资源和Ajax请求</a></li><li><a href="/computer-science/python/basic/44.Cookie%E5%92%8CSession/" rel="bookmark" title="Cookie和Session">Cookie和Session</a></li><li><a href="/computer-science/python/basic/45.%E5%88%B6%E4%BD%9C%E6%8A%A5%E8%A1%A8/" rel="bookmark" title="制作报表">制作报表</a></li><li><a href="/computer-science/python/basic/46.%E6%97%A5%E5%BF%97%E5%92%8C%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7%E6%A0%8F/" rel="bookmark" title="日志和调试工具栏">日志和调试工具栏</a></li><li><a href="/computer-science/python/basic/47.%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E5%BA%94%E7%94%A8/" rel="bookmark" title="中间件的应用">中间件的应用</a></li><li><a href="/computer-science/python/basic/48.%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/" rel="bookmark" title="前后端分离开发入门">前后端分离开发入门</a></li><li><a href="/computer-science/python/basic/49.RESTful%E6%9E%B6%E6%9E%84%E5%92%8CDRF%E5%85%A5%E9%97%A8/" rel="bookmark" title="RESTful架构和DRF入门">RESTful架构和DRF入门</a></li><li><a href="/computer-science/python/basic/50.RESTful%E6%9E%B6%E6%9E%84%E5%92%8CDRF%E8%BF%9B%E9%98%B6/" rel="bookmark" title="RESTful架构和DRF进阶">RESTful架构和DRF进阶</a></li><li><a href="/computer-science/python/basic/51.%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98/" rel="bookmark" title="使用缓存">使用缓存</a></li><li><a href="/computer-science/python/basic/52.%E6%8E%A5%E5%85%A5%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0/" rel="bookmark" title="接入三方平台">接入三方平台</a></li><li><a href="/computer-science/python/basic/53.%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="bookmark" title="异步任务和定时任务">异步任务和定时任务</a></li><li><a href="/computer-science/python/basic/54.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="bookmark" title="单元测试">单元测试</a></li><li><a href="/computer-science/python/basic/55.%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/" rel="bookmark" title="项目上线">项目上线</a></li><li><a href="/computer-science/python/basic/56-60.%E7%94%A8FastAPI%E5%BC%80%E5%8F%91%E6%95%B0%E6%8D%AE%E6%8E%A5%E5%8F%A3/" rel="bookmark" title="用FastAPI开发网络数据接口">用FastAPI开发网络数据接口</a></li><li><a href="/computer-science/python/basic/61.%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E6%A6%82%E8%BF%B0/" rel="bookmark" title="网络数据采集概述">网络数据采集概述</a></li><li><a href="/computer-science/python/basic/62.%E7%94%A8Python%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90-1/" rel="bookmark" title="用Python获取网络数据">用Python获取网络数据</a></li><li><a href="/computer-science/python/basic/62.%E7%94%A8Python%E8%A7%A3%E6%9E%90HTML%E9%A1%B5%E9%9D%A2-2/" rel="bookmark" title="用Python解析HTML页面">用Python解析HTML页面</a></li><li><a href="/computer-science/python/basic/63.%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9C%A8%E7%88%AC%E8%99%AB%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" rel="bookmark" title="并发编程在爬虫中的应用">并发编程在爬虫中的应用</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-1/" rel="bookmark" title="Python中的并发编程-1">Python中的并发编程-1</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-2/" rel="bookmark" title="Python中的并发编程-2">Python中的并发编程-2</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-3/" rel="bookmark" title="Python中的并发编程-3">Python中的并发编程-3</a></li><li><a href="/computer-science/python/basic/64.%E4%BD%BF%E7%94%A8Selenium%E6%8A%93%E5%8F%96%E7%BD%91%E9%A1%B5%E5%8A%A8%E6%80%81%E5%86%85%E5%AE%B9/" rel="bookmark" title="使用Selenium抓取网页动态内容">使用Selenium抓取网页动态内容</a></li><li><a href="/computer-science/python/basic/65.%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6Scrapy%E7%AE%80%E4%BB%8B/" rel="bookmark" title="爬虫框架Scrapy简介">爬虫框架Scrapy简介</a></li><li><a href="/computer-science/python/basic/66.%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0/" rel="bookmark" title="数据分析概述">数据分析概述</a></li><li><a href="/computer-science/python/basic/67.%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" rel="bookmark" title="环境准备">环境准备</a></li><li class="active"><a href="/computer-science/python/basic/68.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-1/" rel="bookmark" title="NumPy的应用-1">NumPy的应用-1</a></li><li><a href="/computer-science/python/basic/69.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-2/" rel="bookmark" title="NumPy的应用-2">NumPy的应用-2</a></li><li><a href="/computer-science/python/basic/70.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-1/" rel="bookmark" title="Pandas的应用-1">Pandas的应用-1</a></li><li><a href="/computer-science/python/basic/71.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-2/" rel="bookmark" title="Pandas的应用-2">Pandas的应用-2</a></li><li><a href="/computer-science/python/basic/72.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-3/" rel="bookmark" title="Pandas的应用-3">Pandas的应用-3</a></li><li><a href="/computer-science/python/basic/73.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-4/" rel="bookmark" title="Pandas的应用-4">Pandas的应用-4</a></li><li><a href="/computer-science/python/basic/74.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-5/" rel="bookmark" title="Pandas的应用-5">Pandas的应用-5</a></li><li><a href="/computer-science/python/basic/75.%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-1/" rel="bookmark" title="数据可视化-1">数据可视化-1</a></li><li><a href="/computer-science/python/basic/76.%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-2/" rel="bookmark" title="数据可视化-2">数据可视化-2</a></li><li><a href="/computer-science/python/basic/100.Python%E9%9D%A2%E8%AF%95%E9%A2%98%E5%AE%9E%E5%BD%95/" rel="bookmark" title="Python面试题实录">Python面试题实录</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="image" itemprop="image" alt="沉鱼" data-src="/images/avatar.jpg"><p class="name" itemprop="name">沉鱼</p><div class="description" itemprop="description">编程笔记 & 资料分享</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">95</span> <span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">14</span> <span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">18</span> <span class="name">标签</span></a></div></nav><div class="social"><span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1Njb3R0YWxpdmU=" title="https:&#x2F;&#x2F;github.com&#x2F;Scottalive"><i class="ic i-github"></i></span> <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9hbWVoaW1l" title="https:&#x2F;&#x2F;twitter.com&#x2F;amehime"><i class="ic i-twitter"></i></span> <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9ydXJpc216aw==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;rurismzk"><i class="ic i-zhihu"></i></span> <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTEyODg2ODIz" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;12886823"><i class="ic i-cloud-music"></i></span> <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vYW1laGltZQ==" title="https:&#x2F;&#x2F;weibo.com&#x2F;amehime"><i class="ic i-weibo"></i></span> <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS9hbWVoaW1l" title="https:&#x2F;&#x2F;about.me&#x2F;amehime"><i class="ic i-address-card"></i></span> <span class="exturl item email" data-url="bWFpbHRvOnlvdXJuYW1lQG1haWwuY29t" title="mailto:yourname@mail.com"><i class="ic i-envelope"></i></span> <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;yourname"><i class="ic i-facebook"></i></span> <span class="exturl item stackoverflow" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname"><i class="ic i-stack-overflow"></i></span> <span class="exturl item instagram" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;instagram.com&#x2F;yourname"><i class="ic i-instagram"></i></span> <span class="exturl item skype" data-url="c2t5cGU6eW91cm5hbWU/Y2FsbHxjaGF0" title="skype:yourname?call|chat"><i class="ic i-skype"></i></span> <span class="exturl item douban" data-url="aHR0cHM6Ly93d3cuZG91YmFuLmNvbS9wZW9wbGUveW91cm5hbWUv" title="https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;yourname&#x2F;"><i class="ic i-douban"></i></span></div><ul class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li><li class="item"><a href="/friends/" rel="section"><i class="ic i-heart"></i>友達</a></li><li class="item"><a href="/links/" rel="section"><i class="ic i-magic"></i>链接</a></li></ul></div></div></div><ul id="quick"><li class="prev pjax"><a href="/computer-science/python/basic/67.%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/computer-science/python/basic/69.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-2/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/50.RESTful%E6%9E%B6%E6%9E%84%E5%92%8CDRF%E8%BF%9B%E9%98%B6/" title="RESTful架构和DRF进阶">RESTful架构和DRF进阶</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/44.Cookie%E5%92%8CSession/" title="Cookie和Session">Cookie和Session</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/04.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/" title="循环结构">循环结构</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/springcloud/" title="分类于 微服务">微服务</a></div><span><a href="/computer-science/java/springcloud/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" title="Ribbon负载均衡">Ribbon负载均衡</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/arithmetic/" title="分类于 算法">算法</a></div><span><a href="/computer-science/java/arithmetic/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="排序算法">排序算法</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/10.%E5%9B%BE%E5%BD%A2%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" title="图形用户界面和游戏开发">图形用户界面和游戏开发</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/interview/" title="分类于 面试题">面试题</a></div><span><a href="/computer-science/java/interview/SpringBoot%E9%9D%A2%E8%AF%95%E9%A2%98/" title="SpringBoot面试题">SpringBoot面试题</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/arithmetic/" title="分类于 算法">算法</a></div><span><a href="/computer-science/java/arithmetic/2-%E5%8A%9B%E6%89%A3-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E4%B8%AD%E7%AD%89/" title="力扣算法题-2-两数相加">力扣算法题-2-两数相加</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/38.%E6%B7%B1%E5%85%A5MySQL/" title="深入MySQL">深入MySQL</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/javase/" title="分类于 JavaSE">JavaSE</a></div><span><a href="/computer-science/java/javase/String%E7%B1%BB/" title="String类">String类</a></span></li></ul></div><div><h2>最新评论</h2><ul class="leancloud-recent-comment"></ul></div></div><div class="status"><div class="copyright">&copy; 2010 – <span itemprop="copyrightYear">2025</span> <span class="with-love"><i class="ic i-sakura rotate"></i> </span><span class="author" itemprop="copyrightHolder">沉鱼 @ Chrono Cross</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i> </span><span title="站点总字数">562k 字</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="ic i-coffee"></i> </span><span title="站点阅读时长">8:31</span></div><div class="powered-by">基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL={path:"computer-science/python/basic/68.NumPy的应用-1/",favicon:{show:"（●´3｀●）やれやれだぜ",hide:"(´Д｀)大変だ！"},search:{placeholder:"文章搜索",empty:"关于 「 ${query} 」，什么也没搜到",stats:"${time} ms 内找到 ${hits} 条结果"},valine:!0,fancybox:!0,copyright:'复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',ignores:[function(e){return e.includes("#")},function(e){return new RegExp(LOCAL.path+"$").test(e)}]}</script><script src="https://cdn.polyfill.io/v2/polyfill.js"></script><script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script><script src="/js/app.js?v=0.2.5"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/shizuku.model.json"},display:{position:"right",width:200,height:400},mobile:{show:!0},react:{opacity:.7},log:!1})</script></body></html>

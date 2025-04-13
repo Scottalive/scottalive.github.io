@@ -1,0 +1,325 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#FFF"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="alternate" type="application/rss+xml" title="沉鱼的博客" href="https://scottalive.github.io/rss.xml"><link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="https://scottalive.github.io/atom.xml"><link rel="alternate" type="application/json" title="沉鱼的博客" href="https://scottalive.github.io/feed.json"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext"><link rel="stylesheet" href="/css/app.css?v=0.2.5"><meta name="keywords" content="编程笔记,python"><link rel="canonical" href="https://scottalive.github.io/computer-science/python/basic/NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%A5%E9%97%A8/"><title>NoSQL 入门 - Python 基础 - Python - 计算机科学 | Chrono Cross = 沉鱼的博客 = 了解自我，超越自我</title><meta name="generator" content="Hexo 5.4.2"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">NoSQL 入门</h1><div class="meta"><span class="item" title="创建时间：2025-04-14 02:36:49"><span class="icon"><i class="ic i-calendar"></i> </span><span class="text">发表于</span> <time itemprop="dateCreated datePublished" datetime="2025-04-14T02:36:49+08:00">2025-04-14</time> </span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i> </span><span class="text">本文字数</span> <span>15k</span> <span class="text">字</span> </span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i> </span><span class="text">阅读时长</span> <span>13 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span> <span class="line"></span> <span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">Chrono Cross</a></li></ul><ul class="right"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div id="imgs" class="pjax"><ul><li class="item" data-background-image="https://pic.imgdb.cn/item/6422abdea682492fcc8c1f21.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/6422abdea682492fcc8c1f69.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/642523dda682492fcce050a8.jpg"></li><li class="item" data-background-image="https://1306263805.vod2.myqcloud.com/b5881d8bvodsh1306263805/b7a05f17243791580873392920/BbCDjviBEnUA.jpeg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/6422abdea682492fcc8c202d.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/642523c4a682492fcce030fc.jpg"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"/><use xlink:href="#gentle-wave" x="48" y="3"/><use xlink:href="#gentle-wave" x="48" y="5"/><use xlink:href="#gentle-wave" x="48" y="7"/></g></svg></div><main><div class="inner"><div id="main" class="pjax"><div class="article wrap"><div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i> <span><a href="/">首页</a></span><i class="ic i-angle-right"></i> <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/" itemprop="item" rel="index" title="分类于 计算机科学"><span itemprop="name">计算机科学</span></a><meta itemprop="position" content="1"></span><i class="ic i-angle-right"></i> <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/python/" itemprop="item" rel="index" title="分类于 Python"><span itemprop="name">Python</span></a><meta itemprop="position" content="2"></span><i class="ic i-angle-right"></i> <span class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/python/basic/" itemprop="item" rel="index" title="分类于 Python 基础"><span itemprop="name">Python 基础</span></a><meta itemprop="position" content="3"></span></div><article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://scottalive.github.io/computer-science/python/basic/NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%A5%E9%97%A8/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/avatar.jpg"><meta itemprop="name" content="沉鱼"><meta itemprop="description" content="了解自我，超越自我, 编程笔记 & 资料分享"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="沉鱼的博客"></span><div class="body md" itemprop="articleBody"><h2 id="nosql入门"><a class="anchor" href="#nosql入门">#</a> NoSQL 入门</h2><h3 id="nosql概述"><a class="anchor" href="#nosql概述">#</a> NoSQL 概述</h3><p>如今，大多数的计算机系统（包括服务器、PC、移动设备等）都会产生庞大的数据量。其实，早在 2012 年的时候，全世界每天产生的数据量就达到了 2.5EB（艾字节，$$1EB\approx10^{18} B$$）。这些数据有很大一部分是由关系型数据库来存储和管理的。 早在 1970 年，E.F.Codd 发表了论述关系型数据库的著名论文 “<em>A relational model of data for large shared data banks</em>”，这篇文章奠定了关系型数据库的基础并在接下来的数十年时间内产生了深远的影响。实践证明，关系型数据库是实现数据持久化最为重要的方式，它也是大多数应用在选择持久化方案时的首选技术。</p><p>NoSQL 是一项全新的数据库革命性运动，虽然它的历史可以追溯到 1998 年，但是 NoSQL 真正深入人心并得到广泛的应用是在进入大数据时候以后，业界普遍认为 NoSQL 是更适合大数据存储的技术方案，这才使得 NoSQL 的发展达到了前所未有的高度。2012 年《纽约时报》的一篇专栏中写到，大数据时代已经降临，在商业、经济及其他领域中，决策将不再基于经验和直觉而是基于数据和分析而作出。事实上，在天文学、气象学、基因组学、生物学、社会学、互联网搜索引擎、金融、医疗、社交网络、电子商务等诸多领域，由于数据过于密集和庞大，在数据的分析和处理上也遇到了前所未有的限制和阻碍，这一切都使得对大数据处理技术的研究被提升到了新的高度，也使得各种 NoSQL 的技术方案进入到了公众的视野。</p><p>NoSQL 数据库按照其存储类型可以大致分为以下几类：</p><table><thead><tr><th>类型</th><th>部分代表</th><th>特点</th></tr></thead><tbody><tr><td>列族数据库</td><td>HBase&lt;br&gt;Cassandra&lt;br&gt;Hypertable</td><td>顾名思义是按列存储数据的。最大的特点是方便存储结构化和半结构化数据，方便做数据压缩，对针对某一列或者某几列的查询有非常大的 I/O 优势，适合于批量数据处理和即时查询。</td></tr><tr><td>文档数据库</td><td>MongoDB&lt;br&gt;CouchDB&lt;br&gt;ElasticSearch</td><td>文档数据库一般用类 JSON 格式存储数据，存储的内容是文档型的。这样也就有机会对某些字段建立索引，实现关系数据库的某些功能，但不提供对参照完整性和分布事务的支持。</td></tr><tr><td>KV 数据库</td><td>DynamoDB&lt;br&gt;Redis&lt;br&gt;LevelDB</td><td>可以通过 key 快速查询到其 value，有基于内存和基于磁盘两种实现方案。</td></tr><tr><td>图数据库</td><td>Neo4J&lt;br&gt;FlockDB&lt;br&gt;JanusGraph</td><td>使用图结构进行语义查询的数据库，它使用节点、边和属性来表示和存储数据。图数据库从设计上，就可以简单快速的检索难以在关系系统中建模的复杂层次结构。</td></tr><tr><td>对象数据库</td><td>db4o&lt;br&gt;Versant</td><td>通过类似面向对象语言的语法操作数据库，通过对象的方式存取数据。</td></tr></tbody></table><blockquote><p><strong>说明</strong>：想了解更多的 NoSQL 数据库，可以访问<span class="exturl" data-url="aHR0cDovL25vc3FsLWRhdGFiYXNlLm9yZy8="> http://nosql-database.org/</span>。</p></blockquote><h3 id="redis概述"><a class="anchor" href="#redis概述">#</a> Redis 概述</h3><p>Redis 是一种基于键值对的 NoSQL 数据库，它提供了对多种数据类型（字符串、哈希、列表、集合、有序集合、位图等）的支持，能够满足很多应用场景的需求。Redis 将数据放在内存中，因此读写性能是非常惊人的。与此同时，Redis 也提供了持久化机制，能够将内存中的数据保存到硬盘上，在发生意外状况时数据也不会丢掉。此外，Redis 还支持键过期、地理信息运算、发布订阅、事务、管道、Lua 脚本扩展等功能，总而言之，Redis 的功能和性能都非常强大，如果项目中要实现高速缓存和消息队列这样的服务，直接交给 Redis 就可以了。目前，国内外很多著名的企业和商业项目都使用了 Redis，包括：Twitter、Github、StackOverflow、新浪微博、百度、优酷土豆、美团、小米、唯品会等。</p><h4 id="redis简介"><a class="anchor" href="#redis简介">#</a> Redis 简介</h4><p>2008 年，一个名为 Salvatore Sanfilippo 的程序员为他开发的 LLOOGG 项目定制了专属的数据库（因为之前他无论怎样优化 MySQL，系统性能已经无法再提升了），这项工作的成果就是 Redis 的初始版本。后来他将 Redis 的代码放到了全球最大的代码托管平台<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FudGlyZXovcmVkaXM="> Github</span>，从那以后，Redis 引发了大量开发者的好评和关注，继而有数百人参与了 Redis 的开发和维护，这使得 Redis 的功能越来越强大和性能越来越好。</p><p>Redis 是 REmote DIctionary Server 的缩写，它是一个用 ANSI C 编写的高性能的 key-value 存储系统，与其他的 key-value 存储系统相比，Redis 有以下一些特点（也是优点）：</p><ul><li>Redis 的读写性能极高，并且有丰富的特性（发布 / 订阅、事务、通知等）。</li><li>Redis 支持数据的持久化（RDB 和 AOF 两种方式），可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。</li><li>Redis 支持多种数据类型，包括：string、hash、list、set，zset、bitmap、hyperloglog 等。</li><li>Redis 支持主从复制（实现读写分析）以及哨兵模式（监控 master 是否宕机并自动调整配置）。</li><li>Redis 支持分布式集群，可以很容易的通过水平扩展来提升系统的整体性能。</li><li>Redis 基于 TCP 提供的可靠传输服务进行通信，很多编程语言都提供了 Redis 客户端支持。</li></ul><h4 id="redis的应用场景"><a class="anchor" href="#redis的应用场景">#</a> Redis 的应用场景</h4><ol><li>高速缓存 - 将不常变化但又经常被访问的热点数据放到 Redis 数据库中，可以大大降低关系型数据库的压力，从而提升系统的响应性能。</li><li>排行榜 - 很多网站都有排行榜功能，利用 Redis 中的列表和有序集合可以非常方便的构造各种排行榜系统。</li><li>商品秒杀 / 投票点赞 - Redis 提供了对计数操作的支持，网站上常见的秒杀、点赞等功能都可以利用 Redis 的计数器通过 + 1 或 - 1 的操作来实现，从而避免了使用关系型数据的 <code>update</code> 操作。</li><li>分布式锁 - 利用 Redis 可以跨多台服务器实现分布式锁（类似于线程锁，但是能够被多台机器上的多个线程或进程共享）的功能，用于实现一个阻塞式操作。</li><li>消息队列 - 消息队列和高速缓存一样，是一个大型网站不可缺少的基础服务，可以实现业务解耦和非实时业务削峰等特性，这些我们都会在后面的项目中为大家展示。</li></ol><h4 id="redis的安装和配置"><a class="anchor" href="#redis的安装和配置">#</a> Redis 的安装和配置</h4><p>可以使用 Linux 系统的包管理工具（如 yum）来安装 Redis，也可以通过在 Redis 的<span class="exturl" data-url="aHR0cHM6Ly9yZWRpcy5pby8=">官方网站</span>下载 Redis 的源代码，解压缩解归档之后通过 make 工具对源代码进行构建并安装，在更新这篇文档时，Redis 官方提供的最新稳定版本是<span class="exturl" data-url="aHR0cHM6Ly9kb3dubG9hZC5yZWRpcy5pby9yZWxlYXNlcy9yZWRpcy01LjAuMTAudGFyLmd6"> Redis 5.0.10</span>。</p><p>下载：</p><pre><code class="language-Bash">wget https://download.redis.io/releases/redis-5.0.10.tar.gz
+</code></pre><p>解压缩和解归档：</p><pre><code class="language-Bash">tar -zxf redis-5.0.10.tar.gz
+</code></pre><p>进入 Redis 源代码目录：</p><pre><code class="language-Bash">cd redis-5.0.10
+</code></pre><p>构建和安装：</p><pre><code class="language-Bash">make &amp;&amp; make install
+</code></pre><p>在 redis 源代码目录下有一个名为 redis.conf 的配置文件，我们可以先查看一下该文件。</p><pre><code class="language-Bash">vim redis.conf
+</code></pre><p>下面我们对 Redis 的配置文件进行一个扼要的介绍。</p><p>配置 Redis 服务的 IP 地址和端口：</p><p><img data-src="./res/redis-bind-and-port.png" alt=""></p><p>配置底层有多少个数据库：</p><p><img data-src="./res/redis-databases.png" alt=""></p><p>配置 Redis 的持久化机制 - RDB。</p><p><img data-src="./res/redis-rdb-1.png" alt=""></p><p><img data-src="./res/redis-rdb-3.png" alt=""></p><p>配置 Redis 的持久化机制 - AOF：</p><p><img data-src="./res/redis-aof.png" alt=""></p><p>配置访问 Redis 服务器的口令：</p><p><img data-src="./res/redis-security.png" alt=""></p><p>配置 Redis 的主从复制（通过主从复制可以实现读写分离）：</p><p><img data-src="./res/redis-replication.png" alt=""></p><p>配置慢查询：</p><p><img data-src="./res/redis-slow-logs.png" alt=""></p><p>上面这些内容就是 Redis 的基本配置，如果你对上面的内容感到困惑也没有关系，先把 Redis 用起来再回头去推敲这些内容就行了。如果想找一些参考书，<span class="exturl" data-url="aHR0cHM6Ly9pdGVtLmpkLmNvbS8xMjEyMTczMC5odG1s">《Redis 开发与运维》</span>是一本不错的入门读物，而<span class="exturl" data-url="aHR0cHM6Ly9pdGVtLmpkLmNvbS8xMTc5MTYwNy5odG1s">《Redis 实战》</span>是不错的进阶读物。</p><h4 id="redis的服务器和客户端"><a class="anchor" href="#redis的服务器和客户端">#</a> Redis 的服务器和客户端</h4><p>接下来启动 Redis 服务器，下面的方式将以默认的配置启动 Redis 服务。</p><pre><code class="language-Bash">redis-server
+</code></pre><p>如果希望修改 Redis 的配置（如端口、认证口令、持久化方式等），可以通过下面两种方式。</p><p><strong>方式一</strong>：通过参数指定认证口令和 AOF 持久化方式。</p><pre><code class="language-Bash">redis-server --requirepass yourpass --appendonly yes
+</code></pre><p><strong>方式二</strong>：通过指定的配置文件来修改 Redis 的配置。</p><pre><code class="language-Bash">redis-server /root/redis-5.0.10/redis.conf
+</code></pre><p>下面我们使用第一种方式来启动 Redis 并将其置于后台运行，将 Redis 产生的输出重定向到名为 redis.log 的文件中。</p><pre><code class="language-Bash">redis-server --requirepass yourpass &gt; redis.log &amp;
+</code></pre><p>可以通过 <code>ps</code> 或者 <code>netstat</code> 来检查 Redis 服务器是否启动成功。</p><pre><code class="language-Bash">ps -ef | grep redis-server
+netstat -nap | grep redis-server
+</code></pre><p>接下来，我们尝试用 Redis 命令行工具 <code>redis-cli</code> 去连接服务器，该工具默认连接本机的 <code>6379</code> 端口，如果需要指定 Redis 服务器和端口，可以使用 <code>-h</code> 和 <code>-p</code> 参数分别进行指定。</p><pre><code class="language-Bash">redis-cli
+</code></pre><p>进入命令行工具后，就可以通过 Redis 的命令来操作 Redis 服务器，如下所示。</p><pre><code class="language-Bash">127.0.0.1:6379&gt; auth yourpass
+OK
+127.0.0.1:6379&gt; ping
+PONG
+127.0.0.1:6379&gt;
+</code></pre><p>Redis 有着非常丰富的数据类型，也有很多的命令来操作这些数据，具体的内容可以查看<span class="exturl" data-url="aHR0cDovL3JlZGlzZG9jLmNvbS8="> Redis 命令参考</span>，在这个网站上，除了 Redis 的命令参考，还有 Redis 的详细文档，其中包括了通知、事务、主从复制、持久化、哨兵、集群等内容。</p><p><img data-src="./res/redis-data-types.png" alt=""></p><blockquote><p><strong>说明</strong>：上面的插图来自付磊和张益军编著的《Redis 开发与运维》一书。</p></blockquote><pre><code class="language-Bash">127.0.0.1:6379&gt; set username admin
+OK
+127.0.0.1:6379&gt; get username
+&quot;admin&quot;
+127.0.0.1:6379&gt; set password &quot;123456&quot; ex 300
+OK
+127.0.0.1:6379&gt; get password
+&quot;123456&quot;
+127.0.0.1:6379&gt; ttl username
+(integer) -1
+127.0.0.1:6379&gt; ttl password
+(integer) 286
+127.0.0.1:6379&gt; hset stu1 name hao
+(integer) 0
+127.0.0.1:6379&gt; hset stu1 age 38
+(integer) 1
+127.0.0.1:6379&gt; hset stu1 gender male
+(integer) 1
+127.0.0.1:6379&gt; hgetall stu1
+1) &quot;name&quot;
+2) &quot;hao&quot;
+3) &quot;age&quot;
+4) &quot;38&quot;
+5) &quot;gender&quot;
+6) &quot;male&quot;
+127.0.0.1:6379&gt; hvals stu1
+1) &quot;hao&quot;
+2) &quot;38&quot;
+3) &quot;male&quot;
+127.0.0.1:6379&gt; hmset stu2 name wang age 18 gender female tel 13566778899
+OK
+127.0.0.1:6379&gt; hgetall stu2
+1) &quot;name&quot;
+2) &quot;wang&quot;
+3) &quot;age&quot;
+4) &quot;18&quot;
+5) &quot;gender&quot;
+6) &quot;female&quot;
+7) &quot;tel&quot;
+8) &quot;13566778899&quot;
+127.0.0.1:6379&gt; lpush nums 1 2 3 4 5
+(integer) 5
+127.0.0.1:6379&gt; lrange nums 0 -1
+1) &quot;5&quot;
+2) &quot;4&quot;
+3) &quot;3&quot;
+4) &quot;2&quot;
+5) &quot;1&quot;
+127.0.0.1:6379&gt; lpop nums
+&quot;5&quot;
+127.0.0.1:6379&gt; lpop nums
+&quot;4&quot;
+127.0.0.1:6379&gt; rpop nums
+&quot;1&quot;
+127.0.0.1:6379&gt; rpop nums
+&quot;2&quot;
+127.0.0.1:6379&gt; sadd fruits apple banana orange apple grape grape
+(integer) 4
+127.0.0.1:6379&gt; scard fruits
+(integer) 4
+127.0.0.1:6379&gt; smembers fruits
+1) &quot;grape&quot;
+2) &quot;orange&quot;
+3) &quot;banana&quot;
+4) &quot;apple&quot;
+127.0.0.1:6379&gt; sismember fruits apple
+(integer) 1
+127.0.0.1:6379&gt; sismember fruits durian
+(integer) 0
+127.0.0.1:6379&gt; sadd nums1 1 2 3 4 5
+(integer) 5
+127.0.0.1:6379&gt; sadd nums2 2 4 6 8
+(integer) 4
+127.0.0.1:6379&gt; sinter nums1 nums2
+1) &quot;2&quot;
+2) &quot;4&quot;
+127.0.0.1:6379&gt; sunion nums1 nums2
+1) &quot;1&quot;
+2) &quot;2&quot;
+3) &quot;3&quot;
+4) &quot;4&quot;
+5) &quot;5&quot;
+6) &quot;6&quot;
+7) &quot;8&quot;
+127.0.0.1:6379&gt; sdiff nums1 nums2
+1) &quot;1&quot;
+2) &quot;3&quot;
+3) &quot;5&quot;
+127.0.0.1:6379&gt; zadd topsinger 5234 zhangxy 1978 chenyx 2235 zhoujl 3520 xuezq
+(integer) 4
+127.0.0.1:6379&gt; zrange topsinger 0 -1 withscores
+1) &quot;chenyx&quot;
+2) &quot;1978&quot;
+3) &quot;zhoujl&quot;
+4) &quot;2235&quot;
+5) &quot;xuezq&quot;
+6) &quot;3520&quot;
+7) &quot;zhangxy&quot;
+8) &quot;5234&quot;
+127.0.0.1:6379&gt; zrevrange topsinger 0 -1
+1) &quot;zhangxy&quot;
+2) &quot;xuezq&quot;
+3) &quot;zhoujl&quot;
+4) &quot;chenyx&quot;
+127.0.0.1:6379&gt; zrevrank topsinger zhoujl
+(integer) 2
+127.0.0.1:6379&gt; geoadd pois 116.39738549206541 39.90862689286386 tiananmen
+(integer) 1
+127.0.0.1:6379&gt; geoadd pois 116.27172936413572 39.99135172904494 yiheyuan
+(integer) 1
+127.0.0.1:6379&gt; geoadd pois 117.27766503308104 40.65332064313784 gubeishuizhen
+(integer) 1
+127.0.0.1:6379&gt; geodist pois tiananmen gubeishuizhen km
+&quot;111.5333&quot;
+127.0.0.1:6379&gt; geodist pois tiananmen yiheyuan km
+&quot;14.1230&quot;
+127.0.0.1:6379&gt; georadius pois 116.86499108288572 40.40149669363615 50 km withdist
+1) 1) &quot;gubeishuizhen&quot;
+   2) &quot;44.7408&quot;
+</code></pre><h4 id="在python程序中使用redis"><a class="anchor" href="#在python程序中使用redis">#</a> 在 Python 程序中使用 Redis</h4><p>可以使用 pip 安装名为 <code>redis</code> 的三方库，该三方库的核心是一个名为 <code>Redis</code> 的类， <code>Redis</code> 对象代表一个 Redis 客户端，通过该客户端可以向 Redis 服务器发送命令并获取执行的结果。上面我们在 Redis 客户端中使用的命令基本上就是 <code>Redis</code> 对象可以接收的消息，所以如果了解了 Redis 的命令就可以在 Python 中玩转 Redis。</p><pre><code class="language-Bash">pip3 install redis
+</code></pre><p>进入 Python 交互式环境，使用 <code>redis</code> 三方库来操作 Redis。</p><pre><code class="language-Bash">&gt;&gt;&gt; import redis
+&gt;&gt;&gt;
+&gt;&gt;&gt; client = redis.Redis(host='127.0.0.1', port=6379, password='yourpass')
+&gt;&gt;&gt;
+&gt;&gt;&gt; client.set('username', 'admin')
+True
+&gt;&gt;&gt; client.hset('student', 'name', 'luohao')
+1
+&gt;&gt;&gt; client.hset('student', 'age', 40)
+1
+&gt;&gt;&gt; client.keys('*')
+[b'username', b'student']
+&gt;&gt;&gt; client.get('username')
+b'admin'
+&gt;&gt;&gt; client.hgetall('student')
+&#123;b'name': b'luohao', b'age': b'40'&#125;
+</code></pre><h3 id="mongodb概述"><a class="anchor" href="#mongodb概述">#</a> MongoDB 概述</h3><h4 id="mongodb简介"><a class="anchor" href="#mongodb简介">#</a> MongoDB 简介</h4><p>MongoDB 是 2009 年问世的一个面向文档的数据库管理系统，由 C++ 语言编写，旨在为 Web 应用提供可扩展的高性能数据存储解决方案。虽然在划分类别的时候后，MongoDB 被认为是 NoSQL 的产品，但是它更像一个介于关系数据库和非关系数据库之间的产品，在非关系数据库中它功能最丰富，最像关系数据库。</p><p>MongoDB 将数据存储为一个文档，一个文档由一系列的 “键值对” 组成，其文档类似于 JSON 对象，但是 MongoDB 对 JSON 进行了二进制处理（能够更快的定位 key 和 value），因此其文档的存储格式称为 BSON。关于 JSON 和 BSON 的差别大家可以看看 MongoDB 官方网站的文章<span class="exturl" data-url="aHR0cHM6Ly93d3cubW9uZ29kYi5jb20vanNvbi1hbmQtYnNvbg==">《JSON and BSON》</span>。</p><p>目前，MongoDB 已经提供了对 Windows、macOS、Linux、Solaris 等多个平台的支持，而且也提供了多种开发语言的驱动程序，Python 当然是其中之一。</p><h4 id="mongodb的安装和启动"><a class="anchor" href="#mongodb的安装和启动">#</a> MongoDB 的安装和启动</h4><p>可以从 MongoDB 的<span class="exturl" data-url="aHR0cHM6Ly93d3cubW9uZ29kYi5jb20vdHJ5L2Rvd25sb2FkL2NvbW11bml0eQ==">官方下载链接</span>下载 MongoDB，官方提供了 Windows、macOS 和多种 Linux 版本的安装包。下面以 CentOS 为例，简单说一下如何安装和启动 MongoDB。</p><p>下载服务器和命令行的 RPM 安装包。</p><pre><code class="language-Bash">wget https://repo.mongodb.org/yum/redhat/7/mongodb-org/4.4/x86_64/RPMS/mongodb-org-server-4.4.2-1.el7.x86_64.rpm
+rpm -ivh mongodb-org-server-4.4.2-1.el7.x86_64.rpm
+wget https://repo.mongodb.org/yum/redhat/7/mongodb-org/4.4/x86_64/RPMS/mongodb-org-shell-4.4.2-1.el7.x86_64.rpm
+rpm -ivh mongodb-org-shell-4.4.2-1.el7.x86_64.rpm
+</code></pre><p>启动 MongoDB 服务器，需要先创建保存数据的文件夹。</p><pre><code class="language-Bash">mkdir -p /data/db
+</code></pre><p>修改 MongoDB 的配置文件，将其中 <code>bindIp</code> 选项的值修改为本机 IP 地址而不是默认的 <code>127.0.0.1</code> ，本机 IP 地址可以通过 <code>ifconfig</code> 命令进行查看。</p><pre><code class="language-Bash">vim /etc/mongod.conf
+</code></pre><p>使用 <code>systemctl</code> 命令启动服务。</p><pre><code class="language-Bash">systemctl start mongod
+</code></pre><h4 id="mongodb基本概念"><a class="anchor" href="#mongodb基本概念">#</a> MongoDB 基本概念</h4><p>我们通过与关系型数据库的比较来说明 MongoDB 中的一些概念。</p><table><thead><tr><th>SQL</th><th>MongoDB</th></tr></thead><tbody><tr><td>database</td><td>database</td></tr><tr><td>table（表）</td><td>collection（集合）</td></tr><tr><td>row（行）</td><td>document（文档）</td></tr><tr><td>column（列）</td><td>field（字段）</td></tr><tr><td>index</td><td>index</td></tr><tr><td>table joins（表连接）</td><td>（嵌套文档）</td></tr><tr><td>primary key</td><td>primary key</td></tr></tbody></table><h4 id="通过shell操作mongodb"><a class="anchor" href="#通过shell操作mongodb">#</a> 通过 Shell 操作 MongoDB</h4><ol start="0"><li><p>启动命令行工具，进入交互式环境。</p><pre><code class="language-Bash">mongo
+</code></pre><blockquote><p><strong>说明</strong>：</p></blockquote></li><li><p>查看、创建和删除数据库。</p><pre><code class="language-JavaScript">&gt; // 显示所有数据库
+&gt; show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+&gt; // 创建并切换到school数据库
+&gt; use school
+switched to db school
+&gt; // 删除当前数据库
+&gt; db.dropDatabase()
+&#123; &quot;ok&quot; : 1 &#125;
+</code></pre></li><li><p>创建、删除和查看集合。</p><pre><code class="language-JavaScript">&gt; // 创建并切换到school数据库
+&gt; use school
+switched to db school
+&gt; // 创建colleges集合
+&gt; db.createCollection('colleges')
+&#123; &quot;ok&quot; : 1 &#125;
+&gt; // 创建students集合
+&gt; db.createCollection('students')
+&#123; &quot;ok&quot; : 1 &#125;
+&gt; // 查看所有集合
+&gt; show collections
+colleges
+students
+&gt; // 删除colleges集合
+&gt; db.colleges.drop()
+true
+</code></pre><blockquote><p><strong>说明</strong>：在 MongoDB 中插入文档时如果集合不存在会自动创建集合，所以也可以按照下面的方式通过插入文档来创建集合。</p></blockquote></li><li><p>文档的 CRUD 操作。</p><pre><code class="language-JavaScript">&gt; // 向students集合插入文档
+&gt; db.students.insert(&#123;stuid: 1001, name: '骆昊', age: 40&#125;)
+WriteResult(&#123; &quot;nInserted&quot; : 1 &#125;)
+&gt; // 向students集合插入文档
+&gt; db.students.save(&#123;stuid: 1002, name: '王大锤', tel: '13012345678', gender: '男'&#125;)
+WriteResult(&#123; &quot;nInserted&quot; : 1 &#125;)
+&gt; // 查看所有文档
+&gt; db.students.find()
+&#123; &quot;_id&quot; : ObjectId(&quot;5b13c72e006ad854460ee70b&quot;), &quot;stuid&quot; : 1001, &quot;name&quot; : &quot;骆昊&quot;, &quot;age&quot; : 38 &#125;
+&#123; &quot;_id&quot; : ObjectId(&quot;5b13c790006ad854460ee70c&quot;), &quot;stuid&quot; : 1002, &quot;name&quot; : &quot;王大锤&quot;, &quot;tel&quot; : &quot;13012345678&quot;, &quot;gender&quot; : &quot;男&quot; &#125;
+&gt; // 更新stuid为1001的文档
+&gt; db.students.update(&#123;stuid: 1001&#125;, &#123;'$set': &#123;tel: '13566778899', gender: '男'&#125;&#125;)
+WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 &#125;)
+&gt; // 插入或更新stuid为1003的文档
+&gt; db.students.update(&#123;stuid: 1003&#125;, &#123;'$set': &#123;name: '白元芳', tel: '13022223333', gender: '男'&#125;&#125;,  upsert=true)
+WriteResult(&#123;
+        &quot;nMatched&quot; : 0,
+        &quot;nUpserted&quot; : 1,
+        &quot;nModified&quot; : 0,
+        &quot;_id&quot; : ObjectId(&quot;5b13c92dd185894d7283efab&quot;)
+&#125;)
+&gt; // 查询所有文档
+&gt; db.students.find().pretty()
+&#123;
+        &quot;_id&quot; : ObjectId(&quot;5b13c72e006ad854460ee70b&quot;),
+        &quot;stuid&quot; : 1001,
+        &quot;name&quot; : &quot;骆昊&quot;,
+        &quot;age&quot; : 38,
+        &quot;gender&quot; : &quot;男&quot;,
+        &quot;tel&quot; : &quot;13566778899&quot;
+&#125;
+&#123;
+        &quot;_id&quot; : ObjectId(&quot;5b13c790006ad854460ee70c&quot;),
+        &quot;stuid&quot; : 1002,
+        &quot;name&quot; : &quot;王大锤&quot;,
+        &quot;tel&quot; : &quot;13012345678&quot;,
+        &quot;gender&quot; : &quot;男&quot;
+&#125;
+&#123;
+        &quot;_id&quot; : ObjectId(&quot;5b13c92dd185894d7283efab&quot;),
+        &quot;stuid&quot; : 1003,
+        &quot;gender&quot; : &quot;男&quot;,
+        &quot;name&quot; : &quot;白元芳&quot;,
+        &quot;tel&quot; : &quot;13022223333&quot;
+&#125;
+&gt; // 查询stuid大于1001的文档
+&gt; db.students.find(&#123;stuid: &#123;'$gt': 1001&#125;&#125;).pretty()
+&#123;
+        &quot;_id&quot; : ObjectId(&quot;5b13c790006ad854460ee70c&quot;),
+        &quot;stuid&quot; : 1002,
+        &quot;name&quot; : &quot;王大锤&quot;,
+        &quot;tel&quot; : &quot;13012345678&quot;,
+        &quot;gender&quot; : &quot;男&quot;
+&#125;
+&#123;
+        &quot;_id&quot; : ObjectId(&quot;5b13c92dd185894d7283efab&quot;),
+        &quot;stuid&quot; : 1003,
+        &quot;gender&quot; : &quot;男&quot;,
+        &quot;name&quot; : &quot;白元芳&quot;,
+        &quot;tel&quot; : &quot;13022223333&quot;
+&#125;
+&gt; // 查询stuid大于1001的文档只显示name和tel字段
+&gt; db.students.find(&#123;stuid: &#123;'$gt': 1001&#125;&#125;, &#123;_id: 0, name: 1, tel: 1&#125;).pretty()
+&#123; &quot;name&quot; : &quot;王大锤&quot;, &quot;tel&quot; : &quot;13012345678&quot; &#125;
+&#123; &quot;name&quot; : &quot;白元芳&quot;, &quot;tel&quot; : &quot;13022223333&quot; &#125;
+&gt; // 查询name为“骆昊”或者tel为“13022223333”的文档
+&gt; db.students.find(&#123;'$or': [&#123;name: '骆昊'&#125;, &#123;tel: '13022223333'&#125;]&#125;, &#123;_id: 0, name: 1, tel: 1&#125;).pretty()
+&#123; &quot;name&quot; : &quot;骆昊&quot;, &quot;tel&quot; : &quot;13566778899&quot; &#125;
+&#123; &quot;name&quot; : &quot;白元芳&quot;, &quot;tel&quot; : &quot;13022223333&quot; &#125;
+&gt; // 查询学生文档跳过第1条文档只查1条文档
+&gt; db.students.find().skip(1).limit(1).pretty()
+&#123;
+        &quot;_id&quot; : ObjectId(&quot;5b13c790006ad854460ee70c&quot;),
+        &quot;stuid&quot; : 1002,
+        &quot;name&quot; : &quot;王大锤&quot;,
+        &quot;tel&quot; : &quot;13012345678&quot;,
+        &quot;gender&quot; : &quot;男&quot;
+&#125;
+&gt; // 对查询结果进行排序(1表示升序，-1表示降序)
+&gt; db.students.find(&#123;&#125;, &#123;_id: 0, stuid: 1, name: 1&#125;).sort(&#123;stuid: -1&#125;)
+&#123; &quot;stuid&quot; : 1003, &quot;name&quot; : &quot;白元芳&quot; &#125;
+&#123; &quot;stuid&quot; : 1002, &quot;name&quot; : &quot;王大锤&quot; &#125;
+&#123; &quot;stuid&quot; : 1001, &quot;name&quot; : &quot;骆昊&quot; &#125;
+&gt; // 在指定的一个或多个字段上创建索引
+&gt; db.students.ensureIndex(&#123;name: 1&#125;)
+&#123;
+        &quot;createdCollectionAutomatically&quot; : false,
+        &quot;numIndexesBefore&quot; : 1,
+        &quot;numIndexesAfter&quot; : 2,
+        &quot;ok&quot; : 1
+&#125;
+</code></pre></li></ol><p>使用 MongoDB 可以非常方便的配置数据复制，通过冗余数据来实现数据的高可用以及灾难恢复，也可以通过数据分片来应对数据量迅速增长的需求。关于 MongoDB 更多的操作可以查阅<span class="exturl" data-url="aHR0cHM6Ly9tb25nb2RiLWRvY3VtZW50YXRpb24ucmVhZHRoZWRvY3MuaW8vZW4vbGF0ZXN0Lw==">官方文档</span> ，同时推荐大家阅读 Kristina Chodorow 写的<span class="exturl" data-url="aHR0cDovL3d3dy5pdHVyaW5nLmNvbS5jbi9ib29rLzExNzI=">《MongoDB 权威指南》</span>。</p><h4 id="在python程序中操作mongodb"><a class="anchor" href="#在python程序中操作mongodb">#</a> 在 Python 程序中操作 MongoDB</h4><p>可以通过 pip 安装 <code>pymongo</code> 来实现对 MongoDB 的操作。</p><pre><code class="language-Shell">pip install pymongo
+</code></pre><p>进入 Python 交互式环境，就可以执行以下的操作。</p><pre><code class="language-Python">&gt;&gt;&gt; from pymongo import MongoClient
+&gt;&gt;&gt;
+&gt;&gt;&gt; client = MongoClient('mongodb://127.0.0.1:27017') 
+&gt;&gt;&gt; db = client.school
+&gt;&gt;&gt; for student in db.students.find():
+...     print('学号:', student['stuid'])
+...     print('姓名:', student['name'])
+...     print('电话:', student['tel'])
+... 
+学号: 1001.0
+姓名: 骆昊
+电话: 13566778899
+学号: 1002.0
+姓名: 王大锤
+电话: 13012345678
+学号: 1003.0
+姓名: 白元芳
+电话: 13022223333
+&gt;&gt;&gt; db.students.find().count()
+3
+&gt;&gt;&gt; db.students.remove()
+&#123;'n': 3, 'ok': 1.0&#125;
+&gt;&gt;&gt; db.students.find().count()
+0
+&gt;&gt;&gt; from pymongo import ASCENDING
+&gt;&gt;&gt;
+&gt;&gt;&gt; coll = db.students
+&gt;&gt;&gt; coll.create_index([('name', ASCENDING)], unique=True)
+'name_1'
+&gt;&gt;&gt; coll.insert_one(&#123;'stuid': int(1001), 'name': '骆昊', 'gender': True&#125;)
+&lt;pymongo.results.InsertOneResult object at 0x1050cc6c8&gt;
+&gt;&gt;&gt; coll.insert_many([&#123;'stuid': int(1002), 'name': '王大锤', 'gender': False&#125;, &#123;'stuid': int(1003), 'name': '白元芳', 'gender': True&#125;])
+&lt;pymongo.results.InsertManyResult object at 0x1050cc8c8&gt;
+&gt;&gt;&gt; for student in coll.find(&#123;'gender': True&#125;):
+...     print('学号:', student['stuid'])
+...     print('姓名:', student['name'])
+...     print('性别:', '男' if student['gender'] else '女')
+... 
+学号: 1001
+姓名: 骆昊
+性别: 男
+学号: 1003
+姓名: 白元芳
+性别: 男
+</code></pre><p>关于<a target="_blank" rel="noopener" href="https://api.mongodb.com/python/current/tutorial.html"> <code>pymongo</code> </a>更多的知识可以通过它的官方文档进行了解，也可以使用<a target="_blank" rel="noopener" href="https://pypi.org/project/mongoengine/"> <code>MongoEngine</code> </a>这样的库来简化 Python 程序对 MongoDB 的操作，除此之外，还有以异步 I/O 方式访问 MongoDB 的三方库<a target="_blank" rel="noopener" href="https://pypi.org/project/motor/"> <code>motor</code> </a>都是不错的选择。</p><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"><div class="tags"><a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="tag"><i class="ic i-tag"></i> 编程笔记</a> <a href="/tags/python/" rel="tag"><i class="ic i-tag"></i> python</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i> </span><span class="text">更新于</span> <time title="修改时间：2025-04-14 02:37:58" itemprop="dateModified" datetime="2025-04-14T02:37:58+08:00">2025-04-14</time> </span><span id="computer-science/python/basic/NoSQL数据库入门/" class="item leancloud_visitors" data-flag-title="NoSQL 入门" title="阅读次数"><span class="icon"><i class="ic i-eye"></i> </span><span class="text">阅读次数</span> <span class="leancloud-visitors-count"></span> <span class="text">次</span></span></div><div class="reward"><button><i class="ic i-heartbeat"></i> 赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img data-src="/images/wechatpay.png" alt="沉鱼 微信支付"><p>微信支付</p></div><div><img data-src="/images/alipay.png" alt="沉鱼 支付宝"><p>支付宝</p></div><div><img data-src="/images/paypal.png" alt="沉鱼 贝宝"><p>贝宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者： </strong>沉鱼 <i class="ic i-at"><em>@</em></i>沉鱼的博客</li><li class="link"><strong>本文链接：</strong> <a href="https://scottalive.github.io/computer-science/python/basic/NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%A5%E9%97%A8/" title="NoSQL 入门">https://scottalive.github.io/computer-science/python/basic/NoSQL数据库入门/</a></li><li class="license"><strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/computer-science/java/interview/10%E6%9C%8831%E6%97%A5%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;1306263805.vod2.myqcloud.com&#x2F;b5881d8bvodsh1306263805&#x2F;c521a274243791580873924232&#x2F;hAbyJZTHNbQA.jpeg" title="10月31日面试失败复盘"><span class="type">上一篇</span> <span class="category"><i class="ic i-flag"></i> 面试题</span><h3>10月31日面试失败复盘</h3></a></div><div class="item right"><a href="/computer-science/python/basic/03.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;642522e2a682492fccdf1cda.jpg" title="分支结构"><span class="type">下一篇</span> <span class="category"><i class="ic i-flag"></i> Python 基础</span><h3>分支结构</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#nosql%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">NoSQL 入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nosql%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">NoSQL 概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redis%E6%A6%82%E8%BF%B0"><span class="toc-number">1.2.</span> <span class="toc-text">Redis 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#redis%E7%AE%80%E4%BB%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">Redis 简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#redis%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.2.2.</span> <span class="toc-text">Redis 的应用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#redis%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.3.</span> <span class="toc-text">Redis 的安装和配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#redis%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">1.2.4.</span> <span class="toc-text">Redis 的服务器和客户端</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8python%E7%A8%8B%E5%BA%8F%E4%B8%AD%E4%BD%BF%E7%94%A8redis"><span class="toc-number">1.2.5.</span> <span class="toc-text">在 Python 程序中使用 Redis</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mongodb%E6%A6%82%E8%BF%B0"><span class="toc-number">1.3.</span> <span class="toc-text">MongoDB 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mongodb%E7%AE%80%E4%BB%8B"><span class="toc-number">1.3.1.</span> <span class="toc-text">MongoDB 简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mongodb%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%90%AF%E5%8A%A8"><span class="toc-number">1.3.2.</span> <span class="toc-text">MongoDB 的安装和启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mongodb%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.3.3.</span> <span class="toc-text">MongoDB 基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87shell%E6%93%8D%E4%BD%9Cmongodb"><span class="toc-number">1.3.4.</span> <span class="toc-text">通过 Shell 操作 MongoDB</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8python%E7%A8%8B%E5%BA%8F%E4%B8%AD%E6%93%8D%E4%BD%9Cmongodb"><span class="toc-number">1.3.5.</span> <span class="toc-text">在 Python 程序中操作 MongoDB</span></a></li></ol></li></ol></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li><a href="/computer-science/python/basic/01.%E5%88%9D%E8%AF%86Python/" rel="bookmark" title="初识Python">初识Python</a></li><li><a href="/computer-science/python/basic/02.%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0/" rel="bookmark" title="语言元素">语言元素</a></li><li class="active"><a href="/computer-science/python/basic/NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%A5%E9%97%A8/" rel="bookmark" title="NoSQL入门">NoSQL入门</a></li><li><a href="/computer-science/python/basic/03.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/" rel="bookmark" title="分支结构">分支结构</a></li><li><a href="/computer-science/python/basic/04.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/" rel="bookmark" title="循环结构">循环结构</a></li><li><a href="/computer-science/python/basic/05.%E6%9E%84%E9%80%A0%E7%A8%8B%E5%BA%8F%E9%80%BB%E8%BE%91/" rel="bookmark" title="构造程序逻辑">构造程序逻辑</a></li><li><a href="/computer-science/python/basic/06.%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="bookmark" title="函数和模块的使用">函数和模块的使用</a></li><li><a href="/computer-science/python/basic/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="bookmark" title="字符串和常用数据结构">字符串和常用数据结构</a></li><li><a href="/computer-science/python/basic/08.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="bookmark" title="面向对象编程基础">面向对象编程基础</a></li><li><a href="/computer-science/python/basic/09.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/" rel="bookmark" title="面向对象进阶">面向对象进阶</a></li><li><a href="/computer-science/python/basic/10.%E5%9B%BE%E5%BD%A2%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="bookmark" title="图形用户界面和游戏开发">图形用户界面和游戏开发</a></li><li><a href="/computer-science/python/basic/11.%E6%96%87%E4%BB%B6%E5%92%8C%E5%BC%82%E5%B8%B8/" rel="bookmark" title="文件和异常">文件和异常</a></li><li><a href="/computer-science/python/basic/12.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="bookmark" title="使用正则表达式">使用正则表达式</a></li><li><a href="/computer-science/python/basic/13.%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" rel="bookmark" title="进程和线程">进程和线程</a></li><li><a href="/computer-science/python/basic/14.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" rel="bookmark" title="网络编程入门">网络编程入门</a></li><li><a href="/computer-science/python/basic/15.%E5%9B%BE%E5%83%8F%E5%92%8C%E5%8A%9E%E5%85%AC%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/" rel="bookmark" title="图像和办公文档处理">图像和办公文档处理</a></li><li><a href="/computer-science/python/basic/16-20.Python%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6/" rel="bookmark" title="Python语言进阶">Python语言进阶</a></li><li><a href="/computer-science/python/basic/21-30.Web%E5%89%8D%E7%AB%AF%E6%A6%82%E8%BF%B0/" rel="bookmark" title="Web前端概述">Web前端概述</a></li><li><a href="/computer-science/python/basic/31-35.%E7%8E%A9%E8%BD%ACLinux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="bookmark" title="玩转Linux操作系统">玩转Linux操作系统</a></li><li><a href="/computer-science/python/basic/36.%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8CMySQL%E6%A6%82%E8%BF%B0/" rel="bookmark" title="关系型数据库和MySQL概述">关系型数据库和MySQL概述</a></li><li><a href="/computer-science/python/basic/37.SQL%E8%AF%A6%E8%A7%A3/" rel="bookmark" title="SQL 和 MySQL 详解">SQL 和 MySQL 详解</a></li><li><a href="/computer-science/python/basic/38.%E6%B7%B1%E5%85%A5MySQL/" rel="bookmark" title="深入MySQL">深入MySQL</a></li><li><a href="/computer-science/python/basic/39.Python%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%85%A5MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="bookmark" title="Python程序接入MySQL数据库">Python程序接入MySQL数据库</a></li><li><a href="/computer-science/python/basic/40.%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E5%92%8CHiveSQL/" rel="bookmark" title="Hive简介">Hive简介</a></li><li><a href="/computer-science/python/basic/41.Django%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" rel="bookmark" title="Django快速上手">Django快速上手</a></li><li><a href="/computer-science/python/basic/42.%E6%B7%B1%E5%85%A5%E6%A8%A1%E5%9E%8B/" rel="bookmark" title="深入模型">深入模型</a></li><li><a href="/computer-science/python/basic/43.%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%92%8CAjax%E8%AF%B7%E6%B1%82/" rel="bookmark" title="静态资源和Ajax请求">静态资源和Ajax请求</a></li><li><a href="/computer-science/python/basic/44.Cookie%E5%92%8CSession/" rel="bookmark" title="Cookie和Session">Cookie和Session</a></li><li><a href="/computer-science/python/basic/45.%E5%88%B6%E4%BD%9C%E6%8A%A5%E8%A1%A8/" rel="bookmark" title="制作报表">制作报表</a></li><li><a href="/computer-science/python/basic/46.%E6%97%A5%E5%BF%97%E5%92%8C%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7%E6%A0%8F/" rel="bookmark" title="日志和调试工具栏">日志和调试工具栏</a></li><li><a href="/computer-science/python/basic/47.%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E5%BA%94%E7%94%A8/" rel="bookmark" title="中间件的应用">中间件的应用</a></li><li><a href="/computer-science/python/basic/48.%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/" rel="bookmark" title="前后端分离开发入门">前后端分离开发入门</a></li><li><a href="/computer-science/python/basic/49.RESTful%E6%9E%B6%E6%9E%84%E5%92%8CDRF%E5%85%A5%E9%97%A8/" rel="bookmark" title="RESTful架构和DRF入门">RESTful架构和DRF入门</a></li><li><a href="/computer-science/python/basic/50.RESTful%E6%9E%B6%E6%9E%84%E5%92%8CDRF%E8%BF%9B%E9%98%B6/" rel="bookmark" title="RESTful架构和DRF进阶">RESTful架构和DRF进阶</a></li><li><a href="/computer-science/python/basic/51.%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98/" rel="bookmark" title="使用缓存">使用缓存</a></li><li><a href="/computer-science/python/basic/52.%E6%8E%A5%E5%85%A5%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0/" rel="bookmark" title="接入三方平台">接入三方平台</a></li><li><a href="/computer-science/python/basic/53.%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="bookmark" title="异步任务和定时任务">异步任务和定时任务</a></li><li><a href="/computer-science/python/basic/54.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="bookmark" title="单元测试">单元测试</a></li><li><a href="/computer-science/python/basic/55.%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/" rel="bookmark" title="项目上线">项目上线</a></li><li><a href="/computer-science/python/basic/56-60.%E7%94%A8FastAPI%E5%BC%80%E5%8F%91%E6%95%B0%E6%8D%AE%E6%8E%A5%E5%8F%A3/" rel="bookmark" title="用FastAPI开发网络数据接口">用FastAPI开发网络数据接口</a></li><li><a href="/computer-science/python/basic/61.%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E6%A6%82%E8%BF%B0/" rel="bookmark" title="网络数据采集概述">网络数据采集概述</a></li><li><a href="/computer-science/python/basic/62.%E7%94%A8Python%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90-1/" rel="bookmark" title="用Python获取网络数据">用Python获取网络数据</a></li><li><a href="/computer-science/python/basic/62.%E7%94%A8Python%E8%A7%A3%E6%9E%90HTML%E9%A1%B5%E9%9D%A2-2/" rel="bookmark" title="用Python解析HTML页面">用Python解析HTML页面</a></li><li><a href="/computer-science/python/basic/63.%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9C%A8%E7%88%AC%E8%99%AB%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" rel="bookmark" title="并发编程在爬虫中的应用">并发编程在爬虫中的应用</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-1/" rel="bookmark" title="Python中的并发编程-1">Python中的并发编程-1</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-2/" rel="bookmark" title="Python中的并发编程-2">Python中的并发编程-2</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-3/" rel="bookmark" title="Python中的并发编程-3">Python中的并发编程-3</a></li><li><a href="/computer-science/python/basic/64.%E4%BD%BF%E7%94%A8Selenium%E6%8A%93%E5%8F%96%E7%BD%91%E9%A1%B5%E5%8A%A8%E6%80%81%E5%86%85%E5%AE%B9/" rel="bookmark" title="使用Selenium抓取网页动态内容">使用Selenium抓取网页动态内容</a></li><li><a href="/computer-science/python/basic/65.%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6Scrapy%E7%AE%80%E4%BB%8B/" rel="bookmark" title="爬虫框架Scrapy简介">爬虫框架Scrapy简介</a></li><li><a href="/computer-science/python/basic/66.%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0/" rel="bookmark" title="数据分析概述">数据分析概述</a></li><li><a href="/computer-science/python/basic/67.%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" rel="bookmark" title="环境准备">环境准备</a></li><li><a href="/computer-science/python/basic/68.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-1/" rel="bookmark" title="NumPy的应用-1">NumPy的应用-1</a></li><li><a href="/computer-science/python/basic/69.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-2/" rel="bookmark" title="NumPy的应用-2">NumPy的应用-2</a></li><li><a href="/computer-science/python/basic/70.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-1/" rel="bookmark" title="Pandas的应用-1">Pandas的应用-1</a></li><li><a href="/computer-science/python/basic/71.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-2/" rel="bookmark" title="Pandas的应用-2">Pandas的应用-2</a></li><li><a href="/computer-science/python/basic/72.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-3/" rel="bookmark" title="Pandas的应用-3">Pandas的应用-3</a></li><li><a href="/computer-science/python/basic/73.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-4/" rel="bookmark" title="Pandas的应用-4">Pandas的应用-4</a></li><li><a href="/computer-science/python/basic/74.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-5/" rel="bookmark" title="Pandas的应用-5">Pandas的应用-5</a></li><li><a href="/computer-science/python/basic/75.%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-1/" rel="bookmark" title="数据可视化-1">数据可视化-1</a></li><li><a href="/computer-science/python/basic/76.%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-2/" rel="bookmark" title="数据可视化-2">数据可视化-2</a></li><li><a href="/computer-science/python/basic/100.Python%E9%9D%A2%E8%AF%95%E9%A2%98%E5%AE%9E%E5%BD%95/" rel="bookmark" title="Python面试题实录">Python面试题实录</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="image" itemprop="image" alt="沉鱼" data-src="/images/avatar.jpg"><p class="name" itemprop="name">沉鱼</p><div class="description" itemprop="description">编程笔记 & 资料分享</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">95</span> <span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">14</span> <span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">18</span> <span class="name">标签</span></a></div></nav><div class="social"><span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1Njb3R0YWxpdmU=" title="https:&#x2F;&#x2F;github.com&#x2F;Scottalive"><i class="ic i-github"></i></span> <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9hbWVoaW1l" title="https:&#x2F;&#x2F;twitter.com&#x2F;amehime"><i class="ic i-twitter"></i></span> <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9ydXJpc216aw==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;rurismzk"><i class="ic i-zhihu"></i></span> <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTEyODg2ODIz" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;12886823"><i class="ic i-cloud-music"></i></span> <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vYW1laGltZQ==" title="https:&#x2F;&#x2F;weibo.com&#x2F;amehime"><i class="ic i-weibo"></i></span> <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS9hbWVoaW1l" title="https:&#x2F;&#x2F;about.me&#x2F;amehime"><i class="ic i-address-card"></i></span> <span class="exturl item email" data-url="bWFpbHRvOnlvdXJuYW1lQG1haWwuY29t" title="mailto:yourname@mail.com"><i class="ic i-envelope"></i></span> <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;yourname"><i class="ic i-facebook"></i></span> <span class="exturl item stackoverflow" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname"><i class="ic i-stack-overflow"></i></span> <span class="exturl item instagram" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;instagram.com&#x2F;yourname"><i class="ic i-instagram"></i></span> <span class="exturl item skype" data-url="c2t5cGU6eW91cm5hbWU/Y2FsbHxjaGF0" title="skype:yourname?call|chat"><i class="ic i-skype"></i></span> <span class="exturl item douban" data-url="aHR0cHM6Ly93d3cuZG91YmFuLmNvbS9wZW9wbGUveW91cm5hbWUv" title="https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;yourname&#x2F;"><i class="ic i-douban"></i></span></div><ul class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li><li class="item"><a href="/friends/" rel="section"><i class="ic i-heart"></i>友達</a></li><li class="item"><a href="/links/" rel="section"><i class="ic i-magic"></i>链接</a></li></ul></div></div></div><ul id="quick"><li class="prev pjax"><a href="/computer-science/java/interview/10%E6%9C%8831%E6%97%A5%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/computer-science/python/basic/03.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-1/" title="Python中的并发编程-1">Python中的并发编程-1</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/76.%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-2/" title="数据可视化-2">数据可视化-2</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/54.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" title="单元测试">单元测试</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/61.%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E6%A6%82%E8%BF%B0/" title="网络数据采集概述">网络数据采集概述</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/interview/" title="分类于 面试题">面试题</a></div><span><a href="/computer-science/java/interview/10%E6%9C%8830%E6%97%A5%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/" title="10月30日面试失败复盘">10月30日面试失败复盘</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/67.%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" title="环境准备">环境准备</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/44.Cookie%E5%92%8CSession/" title="Cookie和Session">Cookie和Session</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/53.%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" title="异步任务和定时任务">异步任务和定时任务</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/13.%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" title="进程和线程">进程和线程</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/springcloud/" title="分类于 微服务">微服务</a></div><span><a href="/computer-science/java/springcloud/Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" title="Eureka注册中心">Eureka注册中心</a></span></li></ul></div><div><h2>最新评论</h2><ul class="leancloud-recent-comment"></ul></div></div><div class="status"><div class="copyright">&copy; 2010 – <span itemprop="copyrightYear">2025</span> <span class="with-love"><i class="ic i-sakura rotate"></i> </span><span class="author" itemprop="copyrightHolder">沉鱼 @ Chrono Cross</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i> </span><span title="站点总字数">562k 字</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="ic i-coffee"></i> </span><span title="站点阅读时长">8:31</span></div><div class="powered-by">基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL={path:"computer-science/python/basic/NoSQL数据库入门/",favicon:{show:"（●´3｀●）やれやれだぜ",hide:"(´Д｀)大変だ！"},search:{placeholder:"文章搜索",empty:"关于 「 ${query} 」，什么也没搜到",stats:"${time} ms 内找到 ${hits} 条结果"},valine:!0,fancybox:!0,copyright:'复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',ignores:[function(e){return e.includes("#")},function(e){return new RegExp(LOCAL.path+"$").test(e)}]}</script><script src="https://cdn.polyfill.io/v2/polyfill.js"></script><script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script><script src="/js/app.js?v=0.2.5"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/shizuku.model.json"},display:{position:"right",width:200,height:400},mobile:{show:!0},react:{opacity:.7},log:!1})</script></body></html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#FFF"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="alternate" type="application/rss+xml" title="沉鱼的博客" href="https://scottalive.github.io/rss.xml"><link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="https://scottalive.github.io/atom.xml"><link rel="alternate" type="application/json" title="沉鱼的博客" href="https://scottalive.github.io/feed.json"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext"><link rel="stylesheet" href="/css/app.css?v=0.2.5"><meta name="keywords" content="编程笔记,python"><link rel="canonical" href="https://scottalive.github.io/computer-science/python/basic/14.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/"><title>网络编程入门 - Python 基础 - Python - 计算机科学 | Chrono Cross = 沉鱼的博客 = 了解自我，超越自我</title><meta name="generator" content="Hexo 5.4.2"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">网络编程入门</h1><div class="meta"><span class="item" title="创建时间：2025-04-14 03:18:49"><span class="icon"><i class="ic i-calendar"></i> </span><span class="text">发表于</span> <time itemprop="dateCreated datePublished" datetime="2025-04-14T03:18:49+08:00">2025-04-14</time> </span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i> </span><span class="text">本文字数</span> <span>10k</span> <span class="text">字</span> </span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i> </span><span class="text">阅读时长</span> <span>9 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span> <span class="line"></span> <span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">Chrono Cross</a></li></ul><ul class="right"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div id="imgs" class="pjax"><ul><li class="item" data-background-image="https://pic.imgdb.cn/item/642523fca682492fcce07831.jpg"></li><li class="item" data-background-image="https://1306263805.vod2.myqcloud.com/b5881d8bvodsh1306263805/ff94a276243791580874140459/aVSyNxDAHikA.jpeg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/642523dda682492fcce0505c.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/642523aba682492fcce0126e.jpg"></li><li class="item" data-background-image="https://1306263805.vod2.myqcloud.com/b5881d8bvodsh1306263805/c521a236243791580873924216/Bz7IkZVaUA8A.jpeg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/642523dda682492fcce050a8.jpg"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"/><use xlink:href="#gentle-wave" x="48" y="3"/><use xlink:href="#gentle-wave" x="48" y="5"/><use xlink:href="#gentle-wave" x="48" y="7"/></g></svg></div><main><div class="inner"><div id="main" class="pjax"><div class="article wrap"><div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i> <span><a href="/">首页</a></span><i class="ic i-angle-right"></i> <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/" itemprop="item" rel="index" title="分类于 计算机科学"><span itemprop="name">计算机科学</span></a><meta itemprop="position" content="1"></span><i class="ic i-angle-right"></i> <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/python/" itemprop="item" rel="index" title="分类于 Python"><span itemprop="name">Python</span></a><meta itemprop="position" content="2"></span><i class="ic i-angle-right"></i> <span class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/python/basic/" itemprop="item" rel="index" title="分类于 Python 基础"><span itemprop="name">Python 基础</span></a><meta itemprop="position" content="3"></span></div><article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://scottalive.github.io/computer-science/python/basic/14.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/avatar.jpg"><meta itemprop="name" content="沉鱼"><meta itemprop="description" content="了解自我，超越自我, 编程笔记 & 资料分享"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="沉鱼的博客"></span><div class="body md" itemprop="articleBody"><h2><a class="anchor" href="#">#</a></h2><h3 id="计算机网络基础"><a class="anchor" href="#计算机网络基础">#</a> 计算机网络基础</h3><p>计算机网络是独立自主的计算机互联而成的系统的总称，组建计算机网络最主要的目的是实现多台计算机之间的通信和资源共享。今天计算机网络中的设备和计算机网络的用户已经多得不可计数，而计算机网络也可以称得上是一个 “复杂巨系统”，对于这样的系统，我们不可能用一两篇文章把它讲清楚，有兴趣的读者可以自行阅读 Andrew S.Tanenbaum 老师的经典之作《计算机网络》或 Kurose 和 Ross 老师合著的《计算机网络：自顶向下方法》来了解计算机网络的相关知识。</p><h4 id="计算机网络发展史"><a class="anchor" href="#计算机网络发展史">#</a> 计算机网络发展史</h4><ol><li><p>1960s - 美国国防部 ARPANET 项目问世，奠定了分组交换网络的基础。</p><p><img data-src="./res/arpanet.png" alt=""></p></li><li><p>1980s - 国际标准化组织（ISO）发布 OSI/RM，奠定了网络技术标准化的基础。</p><p><img data-src="./res/osimodel.png" alt=""></p></li><li><p>1990s - 英国人<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JThGJTkwJUU1JUE3JTg2JUMyJUI3JUU2JTlGJThGJUU1JTg1JUE3JUU4JThDJUIyLSVFNiU5RCU4RQ==">蒂姆・伯纳斯 - 李</span>发明了图形化的浏览器，浏览器的简单易用性使得计算机网络迅速被普及。</p><p>在没有浏览器的年代，上网是这样的。</p><p><img data-src="./res/before-browser.jpg" alt=""></p><p>有了浏览器以后，上网是这样的。</p><p><img data-src="./res/after-browser.jpg" alt=""></p></li></ol><h4 id="tcpip模型"><a class="anchor" href="#tcpip模型">#</a> TCP/IP 模型</h4><p>实现网络通信的基础是网络通信协议，这些协议通常是由<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU0JUJBJTkyJUU4JTgxJTk0JUU3JUJEJTkxJUU1JUI3JUE1JUU3JUE4JThCJUU0JUJCJUJCJUU1JThBJUExJUU3JUJCJTg0">互联网工程任务组</span> （IETF）制定的。所谓 “协议” 就是通信计算机双方必须共同遵从的一组约定，例如怎样建立连接、怎样互相识别等，网络协议的三要素是：语法、语义和时序。构成我们今天使用的 Internet 的基础的是 TCP/IP 协议族，所谓协议族就是一系列的协议及其构成的通信模型，我们通常也把这套东西称为 TCP/IP 模型。与国际标准化组织发布的 OSI/RM 这个七层模型不同，TCP/IP 是一个四层模型，也就是说，该模型将我们使用的网络从逻辑上分解为四个层次，自底向上依次是：网络接口层、网络层、传输层和应用层，如下图所示。</p><p><img data-src="./res/TCP-IP-model.png" alt=""></p><p>IP 通常被翻译为网际协议，它服务于网络层，主要实现了寻址和路由的功能。接入网络的每一台主机都需要有自己的 IP 地址，IP 地址就是主机在计算机网络上的身份标识。当然由于 IPv4 地址的匮乏，我们平常在家里、办公室以及其他可以接入网络的公共区域上网时获得的 IP 地址并不是全球唯一的 IP 地址，而是一个<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLWhhbnMvJUU1JUIxJTgwJUU1JTlGJTlGJUU3JUJEJTkx">局域网（LAN）</span>中的内部 IP 地址，通过<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JUJEJTkxJUU3JUJCJTlDJUU1JTlDJUIwJUU1JTlEJTgwJUU4JUJEJUFDJUU2JThEJUEy">网络地址转换（NAT）服务</span>我们也可以实现对网络的访问。计算机网络上有大量的被我们称为 “<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUI3JUFGJUU3JTk0JUIxJUU1JTk5JUE4">路由器</span>” 的网络中继设备，它们会存储转发我们发送到网络上的数据分组，让从源头发出的数据最终能够找到传送到目的地通路，这项功能就是所谓的路由。</p><p>TCP 全称传输控制协议，它是基于 IP 提供的寻址和路由服务而建立起来的负责实现端到端可靠传输的协议，之所以将 TCP 称为可靠的传输协议是因为 TCP 向调用者承诺了三件事情：</p><ol><li>数据不传丢不传错（利用握手、校验和重传机制可以实现）。</li><li>流量控制（通过滑动窗口匹配数据发送者和接收者之间的传输速度）。</li><li>拥塞控制（通过 RTT 时间以及对滑动窗口的控制缓解网络拥堵）。</li></ol><h4 id="网络应用模式"><a class="anchor" href="#网络应用模式">#</a> 网络应用模式</h4><ol><li>C/S 模式和 B/S 模式。这里的 C 指的是 Client（客户端），通常是一个需要安装到某个宿主操作系统上的应用程序；而 B 指的是 Browser（浏览器），它几乎是所有图形化操作系统都默认安装了的一个应用软件；通过 C 或 B 都可以实现对 S（服务器）的访问。关于二者的比较和讨论在网络上有一大堆的文章，在此我们就不再浪费笔墨了。</li><li>去中心化的网络应用模式。不管是 B/S 还是 C/S 都需要服务器的存在，服务器就是整个应用模式的中心，而去中心化的网络应用通常没有固定的服务器或者固定的客户端，所有应用的使用者既可以作为资源的提供者也可以作为资源的访问者。</li></ol><h3 id="基于http协议的网络资源访问"><a class="anchor" href="#基于http协议的网络资源访问">#</a> 基于 HTTP 协议的网络资源访问</h3><h4 id="http超文本传输协议"><a class="anchor" href="#http超文本传输协议">#</a> HTTP（超文本传输协议）</h4><p>HTTP 是超文本传输协议（Hyper-Text Transfer Proctol）的简称，维基百科上对 HTTP 的解释是：超文本传输协议是一种用于分布式、协作式和超媒体信息系统的应用层协议，它是<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JTg1JUE4JUU3JTkwJTgzJUU4JUIzJTg3JUU4JUE4JThBJUU3JUI2JUIy">万维网</span>数据通信的基础，设计 HTTP 最初的目的是为了提供一种发布和接收<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvSFRNTA=="> HTML</span> 页面的方法，通过 HTTP 或者<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU4JUI2JTg1JUU2JTk2JTg3JUU2JTlDJUFDJUU0JUJDJUEwJUU4JUJFJTkzJUU1JUFFJTg5JUU1JTg1JUE4JUU1JThEJThGJUU4JUFFJUFF"> HTTPS</span>（超文本传输安全协议）请求的资源由 URI（<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JUI1JUIxJUU0JUI4JTgwJUU4JUIzJTg3JUU2JUJBJTkwJUU2JUE4JTk5JUU4JUFEJTk4JUU3JUFDJUE2">统一资源标识符</span>）来标识。关于 HTTP 的更多内容，我们推荐阅读阮一峰老师的<span class="exturl" data-url="aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMTYvMDgvaHR0cC5odG1s">《HTTP 协议入门》</span>，简单的说，通过 HTTP 我们可以获取网络上的（基于字符的）资源，开发中经常会用到的网络 API（有的地方也称之为网络数据接口）就是基于 HTTP 来实现数据传输的。</p><h4 id="json格式"><a class="anchor" href="#json格式">#</a> JSON 格式</h4><p><strong>JSON</strong>（<strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation）是一种轻量级的数据交换语言，该语言以易于让人阅读的文字（纯文本）为基础，用来传输由属性值或者序列性的值组成的数据对象。尽管 JSON 是最初只是 Javascript 中一种创建对象的字面量语法，但它在当下更是一种独立于语言的数据格式，很多编程语言都支持 JSON 格式数据的生成和解析，Python 内置的 json 模块也提供了这方面的功能。由于 JSON 是纯文本，它和<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvWE1M"> XML</span> 一样都适用于异构系统之间的数据交换，而相较于 XML，JSON 显得更加的轻便和优雅。下面是表达同样信息的 XML 和 JSON，而 JSON 的优势是相当直观的。</p><p>XML 的例子：</p><pre><code class="language-XML">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;message&gt;
+	&lt;from&gt;Alice&lt;/from&gt;
+	&lt;to&gt;Bob&lt;/to&gt;
+	&lt;content&gt;Will you marry me?&lt;/content&gt;
+&lt;/message&gt;
+</code></pre><p>JSON 的例子：</p><pre><code class="language-JSON">&#123;
+    &quot;from&quot;: &quot;Alice&quot;,
+    &quot;to&quot;: &quot;Bob&quot;,
+    &quot;content&quot;: &quot;Will you marry me?&quot;
+&#125;
+</code></pre><h4 id="requests库"><a class="anchor" href="#requests库">#</a> requests 库</h4><p>requests 是一个基于 HTTP 协议来使用网络的第三库，其<span class="exturl" data-url="aHR0cDovL2NuLnB5dGhvbi1yZXF1ZXN0cy5vcmcvemhfQ04vbGF0ZXN0Lw==">官方网站</span>有这样的一句介绍它的话：“Requests 是唯一的一个<strong>非转基因</strong>的 Python HTTP 库，人类可以安全享用。” 简单的说，使用 requests 库可以非常方便的使用 HTTP，避免安全缺陷、冗余代码以及 “重复发明轮子”（行业黑话，通常用在软件工程领域表示重新创造一个已有的或是早已被优化過的基本方法）。前面的文章中我们已经使用过这个库，下面我们还是通过 requests 来实现一个访问网络数据接口并从中获取美女图片下载链接然后下载美女图片到本地的例子程序，程序中使用了<span class="exturl" data-url="aHR0cHM6Ly93d3cudGlhbmFwaS5jb20v">天行数据</span>提供的网络 API。</p><p>我们可以先通过 pip 安装 requests 及其依赖库。</p><pre><code class="language-Shell">pip install requests
+</code></pre><p>如果使用 PyCharm 作为开发工具，可以直接在代码中书写 <code>import requests</code> ，然后通过代码修复功能来自动下载安装 requests。</p><pre><code class="language-Python">from time import time
+from threading import Thread
+
+import requests
+
+
+# 继承Thread类创建自定义的线程类
+class DownloadHanlder(Thread):
+
+    def __init__(self, url):
+        super().__init__()
+        self.url = url
+
+    def run(self):
+        filename = self.url[self.url.rfind('/') + 1:]
+        resp = requests.get(self.url)
+        with open('/Users/Hao/' + filename, 'wb') as f:
+            f.write(resp.content)
+
+
+def main():
+    # 通过requests模块的get函数获取网络资源
+    # 下面的代码中使用了天行数据接口提供的网络API
+    # 要使用该数据接口需要在天行数据的网站上注册
+    # 然后用自己的Key替换掉下面代码的中APIKey即可
+    resp = requests.get(
+        'http://api.tianapi.com/meinv/?key=APIKey&amp;num=10')
+    # 将服务器返回的JSON格式的数据解析为字典
+    data_model = resp.json()
+    for mm_dict in data_model['newslist']:
+        url = mm_dict['picUrl']
+        # 通过多线程的方式实现图片下载
+        DownloadHanlder(url).start()
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><h3 id="基于传输层协议的套接字编程"><a class="anchor" href="#基于传输层协议的套接字编程">#</a> 基于传输层协议的套接字编程</h3><p>套接字这个词对很多不了解网络编程的人来说显得非常晦涩和陌生，其实说得通俗点，套接字就是一套用<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvQyVFOCVBRiVBRCVFOCVBOCU4MA=="> C 语言</span>写成的应用程序开发库，主要用于实现进程间通信和网络编程，在网络应用开发中被广泛使用。在 Python 中也可以基于套接字来使用传输层提供的传输服务，并基于此开发自己的网络应用。实际开发中使用的套接字可以分为三类：流套接字（TCP 套接字）、数据报套接字和原始套接字。</p><h4 id="tcp套接字"><a class="anchor" href="#tcp套接字">#</a> TCP 套接字</h4><p>所谓 TCP 套接字就是使用 TCP 协议提供的传输服务来实现网络通信的编程接口。在 Python 中可以通过创建 socket 对象并指定 type 属性为 SOCK_STREAM 来使用 TCP 套接字。由于一台主机可能拥有多个 IP 地址，而且很有可能会配置多个不同的服务，所以作为服务器端的程序，需要在创建套接字对象后将其绑定到指定的 IP 地址和端口上。这里的端口并不是物理设备而是对 IP 地址的扩展，用于区分不同的服务，例如我们通常将 HTTP 服务跟 80 端口绑定，而 MySQL 数据库服务默认绑定在 3306 端口，这样当服务器收到用户请求时就可以根据端口号来确定到底用户请求的是 HTTP 服务器还是数据库服务器提供的服务。端口的取值范围是 0~65535，而 1024 以下的端口我们通常称之为 “著名端口”（留给像 FTP、HTTP、SMTP 等 “著名服务” 使用的端口，有的地方也称之为 “周知端口”），自定义的服务通常不使用这些端口，除非自定义的是 HTTP 或 FTP 这样的著名服务。</p><p>下面的代码实现了一个提供时间日期的服务器。</p><pre><code class="language-Python">from socket import socket, SOCK_STREAM, AF_INET
+from datetime import datetime
+
+
+def main():
+    # 1.创建套接字对象并指定使用哪种传输服务
+    # family=AF_INET - IPv4地址
+    # family=AF_INET6 - IPv6地址
+    # type=SOCK_STREAM - TCP套接字
+    # type=SOCK_DGRAM - UDP套接字
+    # type=SOCK_RAW - 原始套接字
+    server = socket(family=AF_INET, type=SOCK_STREAM)
+    # 2.绑定IP地址和端口(端口用于区分不同的服务)
+    # 同一时间在同一个端口上只能绑定一个服务否则报错
+    server.bind(('192.168.1.2', 6789))
+    # 3.开启监听 - 监听客户端连接到服务器
+    # 参数512可以理解为连接队列的大小
+    server.listen(512)
+    print('服务器启动开始监听...')
+    while True:
+        # 4.通过循环接收客户端的连接并作出相应的处理(提供服务)
+        # accept方法是一个阻塞方法如果没有客户端连接到服务器代码不会向下执行
+        # accept方法返回一个元组其中的第一个元素是客户端对象
+        # 第二个元素是连接到服务器的客户端的地址(由IP和端口两部分构成)
+        client, addr = server.accept()
+        print(str(addr) + '连接到了服务器.')
+        # 5.发送数据
+        client.send(str(datetime.now()).encode('utf-8'))
+        # 6.断开连接
+        client.close()
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><p>运行服务器程序后我们可以通过 Windows 系统的 telnet 来访问该服务器，结果如下图所示。</p><pre><code class="language-Shell">telnet 192.168.1.2 6789
+</code></pre><p><img data-src="./res/telnet.png" alt=""></p><p>当然我们也可以通过 Python 的程序来实现 TCP 客户端的功能，相较于实现服务器程序，实现客户端程序就简单多了，代码如下所示。</p><pre><code class="language-Python">from socket import socket
+
+
+def main():
+    # 1.创建套接字对象默认使用IPv4和TCP协议
+    client = socket()
+    # 2.连接到服务器(需要指定IP地址和端口)
+    client.connect(('192.168.1.2', 6789))
+    # 3.从服务器接收数据
+    print(client.recv(1024).decode('utf-8'))
+    client.close()
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><p>需要注意的是，上面的服务器并没有使用多线程或者异步 I/O 的处理方式，这也就意味着当服务器与一个客户端处于通信状态时，其他的客户端只能排队等待。很显然，这样的服务器并不能满足我们的需求，我们需要的服务器是能够同时接纳和处理多个用户请求的。下面我们来设计一个使用多线程技术处理多个用户请求的服务器，该服务器会向连接到服务器的客户端发送一张图片。</p><p>服务器端代码：</p><pre><code class="language-Python">from socket import socket, SOCK_STREAM, AF_INET
+from base64 import b64encode
+from json import dumps
+from threading import Thread
+
+
+def main():
+    
+    # 自定义线程类
+    class FileTransferHandler(Thread):
+
+        def __init__(self, cclient):
+            super().__init__()
+            self.cclient = cclient
+
+        def run(self):
+            my_dict = &#123;&#125;
+            my_dict['filename'] = 'guido.jpg'
+            # JSON是纯文本不能携带二进制数据
+            # 所以图片的二进制数据要处理成base64编码
+            my_dict['filedata'] = data
+            # 通过dumps函数将字典处理成JSON字符串
+            json_str = dumps(my_dict)
+            # 发送JSON字符串
+            self.cclient.send(json_str.encode('utf-8'))
+            self.cclient.close()
+
+    # 1.创建套接字对象并指定使用哪种传输服务
+    server = socket()
+    # 2.绑定IP地址和端口(区分不同的服务)
+    server.bind(('192.168.1.2', 5566))
+    # 3.开启监听 - 监听客户端连接到服务器
+    server.listen(512)
+    print('服务器启动开始监听...')
+    with open('guido.jpg', 'rb') as f:
+        # 将二进制数据处理成base64再解码成字符串
+        data = b64encode(f.read()).decode('utf-8')
+    while True:
+        client, addr = server.accept()
+        # 启动一个线程来处理客户端的请求
+        FileTransferHandler(client).start()
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><p>客户端代码：</p><pre><code class="language-Python">from socket import socket
+from json import loads
+from base64 import b64decode
+
+
+def main():
+    client = socket()
+    client.connect(('192.168.1.2', 5566))
+    # 定义一个保存二进制数据的对象
+    in_data = bytes()
+    # 由于不知道服务器发送的数据有多大每次接收1024字节
+    data = client.recv(1024)
+    while data:
+        # 将收到的数据拼接起来
+        in_data += data
+        data = client.recv(1024)
+    # 将收到的二进制数据解码成JSON字符串并转换成字典
+    # loads函数的作用就是将JSON字符串转成字典对象
+    my_dict = loads(in_data.decode('utf-8'))
+    filename = my_dict['filename']
+    filedata = my_dict['filedata'].encode('utf-8')
+    with open('/Users/Hao/' + filename, 'wb') as f:
+        # 将base64格式的数据解码成二进制数据并写入文件
+        f.write(b64decode(filedata))
+    print('图片已保存.')
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><p>在这个案例中，我们使用了 JSON 作为数据传输的格式（通过 JSON 格式对传输的数据进行了序列化和反序列化的操作），但是 JSON 并不能携带二进制数据，因此对图片的二进制数据进行了 Base64 编码的处理。Base64 是一种用 64 个字符表示所有二进制数据的编码方式，通过将二进制数据每 6 位一组的方式重新组织，刚好可以使用 0~9 的数字、大小写字母以及 “+” 和 “/” 总共 64 个字符表示从 <code>000000</code> 到 <code>111111</code> 的 64 种状态。<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvQmFzZTY0">维基百科</span>上有关于 Base64 编码的详细讲解，不熟悉 Base64 的读者可以自行阅读。</p><blockquote><p><strong>说明：</strong> 上面的代码主要为了讲解网络编程的相关内容因此并没有对异常状况进行处理，请读者自行添加异常处理代码来增强程序的健壮性。</p></blockquote><h4 id="udp套接字"><a class="anchor" href="#udp套接字">#</a> UDP 套接字</h4><p>传输层除了有可靠的传输协议 TCP 之外，还有一种非常轻便的传输协议叫做用户数据报协议，简称 UDP。TCP 和 UDP 都是提供端到端传输服务的协议，二者的差别就如同打电话和发短信的区别，后者不对传输的可靠性和可达性做出任何承诺从而避免了 TCP 中握手和重传的开销，所以在强调性能和而不是数据完整性的场景中（例如传输网络音视频数据），UDP 可能是更好的选择。可能大家会注意到一个现象，就是在观看网络视频时，有时会出现卡顿，有时会出现花屏，这无非就是部分数据传丢或传错造成的。在 Python 中也可以使用 UDP 套接字来创建网络应用，对此我们不进行赘述，有兴趣的读者可以自行研究。</p><h3 id="网络应用开发"><a class="anchor" href="#网络应用开发">#</a> 网络应用开发</h3><h4 id="发送电子邮件"><a class="anchor" href="#发送电子邮件">#</a> 发送电子邮件</h4><p>在即时通信软件如此发达的今天，电子邮件仍然是互联网上使用最为广泛的应用之一，公司向应聘者发出录用通知、网站向用户发送一个激活账号的链接、银行向客户推广它们的理财产品等几乎都是通过电子邮件来完成的，而这些任务应该都是由程序自动完成的。</p><p>就像我们可以用 HTTP（超文本传输协议）来访问一个网站一样，发送邮件要使用 SMTP（简单邮件传输协议），SMTP 也是一个建立在 TCP（传输控制协议）提供的可靠数据传输服务的基础上的应用级协议，它规定了邮件的发送者如何跟发送邮件的服务器进行通信的细节，而 Python 中的 smtplib 模块将这些操作简化成了几个简单的函数。</p><p>下面的代码演示了如何在 Python 发送邮件。</p><pre><code class="language-Python">from smtplib import SMTP
+from email.header import Header
+from email.mime.text import MIMEText
+
+
+def main():
+    # 请自行修改下面的邮件发送者和接收者
+    sender = 'abcdefg@126.com'
+    receivers = ['uvwxyz@qq.com', 'uvwxyz@126.com']
+    message = MIMEText('用Python发送邮件的示例代码.', 'plain', 'utf-8')
+    message['From'] = Header('王大锤', 'utf-8')
+    message['To'] = Header('骆昊', 'utf-8')
+    message['Subject'] = Header('示例代码实验邮件', 'utf-8')
+    smtper = SMTP('smtp.126.com')
+    # 请自行修改下面的登录口令
+    smtper.login(sender, 'secretpass')
+    smtper.sendmail(sender, receivers, message.as_string())
+    print('邮件发送完成!')
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><p>如果要发送带有附件的邮件，那么可以按照下面的方式进行操作。</p><pre><code class="language-Python">from smtplib import SMTP
+from email.header import Header
+from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
+from email.mime.multipart import MIMEMultipart
+
+import urllib
+
+
+def main():
+    # 创建一个带附件的邮件消息对象
+    message = MIMEMultipart()
+    
+    # 创建文本内容
+    text_content = MIMEText('附件中有本月数据请查收', 'plain', 'utf-8')
+    message['Subject'] = Header('本月数据', 'utf-8')
+    # 将文本内容添加到邮件消息对象中
+    message.attach(text_content)
+
+    # 读取文件并将文件作为附件添加到邮件消息对象中
+    with open('/Users/Hao/Desktop/hello.txt', 'rb') as f:
+        txt = MIMEText(f.read(), 'base64', 'utf-8')
+        txt['Content-Type'] = 'text/plain'
+        txt['Content-Disposition'] = 'attachment; filename=hello.txt'
+        message.attach(txt)
+    # 读取文件并将文件作为附件添加到邮件消息对象中
+    with open('/Users/Hao/Desktop/汇总数据.xlsx', 'rb') as f:
+        xls = MIMEText(f.read(), 'base64', 'utf-8')
+        xls['Content-Type'] = 'application/vnd.ms-excel'
+        xls['Content-Disposition'] = 'attachment; filename=month-data.xlsx'
+        message.attach(xls)
+    
+    # 创建SMTP对象
+    smtper = SMTP('smtp.126.com')
+    # 开启安全连接
+    # smtper.starttls()
+    sender = 'abcdefg@126.com'
+    receivers = ['uvwxyz@qq.com']
+    # 登录到SMTP服务器
+    # 请注意此处不是使用密码而是邮件客户端授权码进行登录
+    # 对此有疑问的读者可以联系自己使用的邮件服务器客服
+    smtper.login(sender, 'secretpass')
+    # 发送邮件
+    smtper.sendmail(sender, receivers, message.as_string())
+    # 与邮件服务器断开连接
+    smtper.quit()
+    print('发送完成!')
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><h4 id="发送短信"><a class="anchor" href="#发送短信">#</a> 发送短信</h4><p>发送短信也是项目中常见的功能，网站的注册码、验证码、营销信息基本上都是通过短信来发送给用户的。在下面的代码中我们使用了<span class="exturl" data-url="aHR0cDovL3d3dy5paHV5aS5jb20v">互亿无线</span>短信平台（该平台为注册用户提供了 50 条免费短信以及常用开发语言发送短信的 demo，可以登录该网站并在用户自服务页面中对短信进行配置）提供的 API 接口实现了发送短信的服务，当然国内的短信平台很多，读者可以根据自己的需要进行选择（通常会考虑费用预算、短信达到率、使用的难易程度等指标），如果需要在商业项目中使用短信服务建议购买短信平台提供的套餐服务。</p><pre><code class="language-Python">import urllib.parse
+import http.client
+import json
+
+
+def main():
+    host  = &quot;106.ihuyi.com&quot;
+    sms_send_uri = &quot;/webservice/sms.php?method=Submit&quot;
+    # 下面的参数需要填入自己注册的账号和对应的密码
+    params = urllib.parse.urlencode(&#123;'account': '你自己的账号', 'password' : '你自己的密码', 'content': '您的验证码是：147258。请不要把验证码泄露给其他人。', 'mobile': '接收者的手机号', 'format':'json' &#125;)
+    print(params)
+    headers = &#123;'Content-type': 'application/x-www-form-urlencoded', 'Accept': 'text/plain'&#125;
+    conn = http.client.HTTPConnection(host, port=80, timeout=30)
+    conn.request('POST', sms_send_uri, params, headers)
+    response = conn.getresponse()
+    response_str = response.read()
+    jsonstr = response_str.decode('utf-8')
+    print(json.loads(jsonstr))
+    conn.close()
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"><div class="tags"><a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="tag"><i class="ic i-tag"></i> 编程笔记</a> <a href="/tags/python/" rel="tag"><i class="ic i-tag"></i> python</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i> </span><span class="text">更新于</span> <time title="修改时间：2025-04-14 03:08:33" itemprop="dateModified" datetime="2025-04-14T03:08:33+08:00">2025-04-14</time> </span><span id="computer-science/python/basic/14.网络编程入门和网络应用开发/" class="item leancloud_visitors" data-flag-title="网络编程入门" title="阅读次数"><span class="icon"><i class="ic i-eye"></i> </span><span class="text">阅读次数</span> <span class="leancloud-visitors-count"></span> <span class="text">次</span></span></div><div class="reward"><button><i class="ic i-heartbeat"></i> 赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img data-src="/images/wechatpay.png" alt="沉鱼 微信支付"><p>微信支付</p></div><div><img data-src="/images/alipay.png" alt="沉鱼 支付宝"><p>支付宝</p></div><div><img data-src="/images/paypal.png" alt="沉鱼 贝宝"><p>贝宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者： </strong>沉鱼 <i class="ic i-at"><em>@</em></i>沉鱼的博客</li><li class="link"><strong>本文链接：</strong> <a href="https://scottalive.github.io/computer-science/python/basic/14.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" title="网络编程入门">https://scottalive.github.io/computer-science/python/basic/14.网络编程入门和网络应用开发/</a></li><li class="license"><strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/computer-science/python/basic/13.%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;6425240da682492fcce08e71.jpg" title="进程和线程"><span class="type">上一篇</span> <span class="category"><i class="ic i-flag"></i> Python 基础</span><h3>进程和线程</h3></a></div><div class="item right"><a href="/computer-science/python/basic/15.%E5%9B%BE%E5%83%8F%E5%92%8C%E5%8A%9E%E5%85%AC%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;642522e3a682492fccdf1dcf.jpg" title="图像和办公文档处理"><span class="type">下一篇</span> <span class="category"><i class="ic i-flag"></i> Python 基础</span><h3>图像和办公文档处理</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text">计算机网络基础</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%8F%91%E5%B1%95%E5%8F%B2"><span class="toc-number">1.1.1.</span> <span class="toc-text">计算机网络发展史</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tcpip%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">TCP&#x2F;IP 模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.3.</span> <span class="toc-text">网络应用模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8Ehttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE"><span class="toc-number">1.2.</span> <span class="toc-text">基于 HTTP 协议的网络资源访问</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#http%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.2.1.</span> <span class="toc-text">HTTP（超文本传输协议）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#json%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.2.2.</span> <span class="toc-text">JSON 格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#requests%E5%BA%93"><span class="toc-number">1.2.3.</span> <span class="toc-text">requests 库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B"><span class="toc-number">1.3.</span> <span class="toc-text">基于传输层协议的套接字编程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tcp%E5%A5%97%E6%8E%A5%E5%AD%97"><span class="toc-number">1.3.1.</span> <span class="toc-text">TCP 套接字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#udp%E5%A5%97%E6%8E%A5%E5%AD%97"><span class="toc-number">1.3.2.</span> <span class="toc-text">UDP 套接字</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91"><span class="toc-number">1.4.</span> <span class="toc-text">网络应用开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E9%80%81%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6"><span class="toc-number">1.4.1.</span> <span class="toc-text">发送电子邮件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E9%80%81%E7%9F%AD%E4%BF%A1"><span class="toc-number">1.4.2.</span> <span class="toc-text">发送短信</span></a></li></ol></li></ol></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li><a href="/computer-science/python/basic/01.%E5%88%9D%E8%AF%86Python/" rel="bookmark" title="初识Python">初识Python</a></li><li><a href="/computer-science/python/basic/02.%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0/" rel="bookmark" title="语言元素">语言元素</a></li><li><a href="/computer-science/python/basic/NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%A5%E9%97%A8/" rel="bookmark" title="NoSQL入门">NoSQL入门</a></li><li><a href="/computer-science/python/basic/03.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/" rel="bookmark" title="分支结构">分支结构</a></li><li><a href="/computer-science/python/basic/04.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/" rel="bookmark" title="循环结构">循环结构</a></li><li><a href="/computer-science/python/basic/05.%E6%9E%84%E9%80%A0%E7%A8%8B%E5%BA%8F%E9%80%BB%E8%BE%91/" rel="bookmark" title="构造程序逻辑">构造程序逻辑</a></li><li><a href="/computer-science/python/basic/06.%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="bookmark" title="函数和模块的使用">函数和模块的使用</a></li><li><a href="/computer-science/python/basic/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="bookmark" title="字符串和常用数据结构">字符串和常用数据结构</a></li><li><a href="/computer-science/python/basic/08.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="bookmark" title="面向对象编程基础">面向对象编程基础</a></li><li><a href="/computer-science/python/basic/09.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/" rel="bookmark" title="面向对象进阶">面向对象进阶</a></li><li><a href="/computer-science/python/basic/10.%E5%9B%BE%E5%BD%A2%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="bookmark" title="图形用户界面和游戏开发">图形用户界面和游戏开发</a></li><li><a href="/computer-science/python/basic/11.%E6%96%87%E4%BB%B6%E5%92%8C%E5%BC%82%E5%B8%B8/" rel="bookmark" title="文件和异常">文件和异常</a></li><li><a href="/computer-science/python/basic/12.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="bookmark" title="使用正则表达式">使用正则表达式</a></li><li><a href="/computer-science/python/basic/13.%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" rel="bookmark" title="进程和线程">进程和线程</a></li><li class="active"><a href="/computer-science/python/basic/14.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" rel="bookmark" title="网络编程入门">网络编程入门</a></li><li><a href="/computer-science/python/basic/15.%E5%9B%BE%E5%83%8F%E5%92%8C%E5%8A%9E%E5%85%AC%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/" rel="bookmark" title="图像和办公文档处理">图像和办公文档处理</a></li><li><a href="/computer-science/python/basic/16-20.Python%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6/" rel="bookmark" title="Python语言进阶">Python语言进阶</a></li><li><a href="/computer-science/python/basic/21-30.Web%E5%89%8D%E7%AB%AF%E6%A6%82%E8%BF%B0/" rel="bookmark" title="Web前端概述">Web前端概述</a></li><li><a href="/computer-science/python/basic/31-35.%E7%8E%A9%E8%BD%ACLinux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="bookmark" title="玩转Linux操作系统">玩转Linux操作系统</a></li><li><a href="/computer-science/python/basic/36.%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8CMySQL%E6%A6%82%E8%BF%B0/" rel="bookmark" title="关系型数据库和MySQL概述">关系型数据库和MySQL概述</a></li><li><a href="/computer-science/python/basic/37.SQL%E8%AF%A6%E8%A7%A3/" rel="bookmark" title="SQL 和 MySQL 详解">SQL 和 MySQL 详解</a></li><li><a href="/computer-science/python/basic/38.%E6%B7%B1%E5%85%A5MySQL/" rel="bookmark" title="深入MySQL">深入MySQL</a></li><li><a href="/computer-science/python/basic/39.Python%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%85%A5MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="bookmark" title="Python程序接入MySQL数据库">Python程序接入MySQL数据库</a></li><li><a href="/computer-science/python/basic/40.%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E5%92%8CHiveSQL/" rel="bookmark" title="Hive简介">Hive简介</a></li><li><a href="/computer-science/python/basic/41.Django%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" rel="bookmark" title="Django快速上手">Django快速上手</a></li><li><a href="/computer-science/python/basic/42.%E6%B7%B1%E5%85%A5%E6%A8%A1%E5%9E%8B/" rel="bookmark" title="深入模型">深入模型</a></li><li><a href="/computer-science/python/basic/43.%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%92%8CAjax%E8%AF%B7%E6%B1%82/" rel="bookmark" title="静态资源和Ajax请求">静态资源和Ajax请求</a></li><li><a href="/computer-science/python/basic/44.Cookie%E5%92%8CSession/" rel="bookmark" title="Cookie和Session">Cookie和Session</a></li><li><a href="/computer-science/python/basic/45.%E5%88%B6%E4%BD%9C%E6%8A%A5%E8%A1%A8/" rel="bookmark" title="制作报表">制作报表</a></li><li><a href="/computer-science/python/basic/46.%E6%97%A5%E5%BF%97%E5%92%8C%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7%E6%A0%8F/" rel="bookmark" title="日志和调试工具栏">日志和调试工具栏</a></li><li><a href="/computer-science/python/basic/47.%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E5%BA%94%E7%94%A8/" rel="bookmark" title="中间件的应用">中间件的应用</a></li><li><a href="/computer-science/python/basic/48.%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/" rel="bookmark" title="前后端分离开发入门">前后端分离开发入门</a></li><li><a href="/computer-science/python/basic/49.RESTful%E6%9E%B6%E6%9E%84%E5%92%8CDRF%E5%85%A5%E9%97%A8/" rel="bookmark" title="RESTful架构和DRF入门">RESTful架构和DRF入门</a></li><li><a href="/computer-science/python/basic/50.RESTful%E6%9E%B6%E6%9E%84%E5%92%8CDRF%E8%BF%9B%E9%98%B6/" rel="bookmark" title="RESTful架构和DRF进阶">RESTful架构和DRF进阶</a></li><li><a href="/computer-science/python/basic/51.%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98/" rel="bookmark" title="使用缓存">使用缓存</a></li><li><a href="/computer-science/python/basic/52.%E6%8E%A5%E5%85%A5%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0/" rel="bookmark" title="接入三方平台">接入三方平台</a></li><li><a href="/computer-science/python/basic/53.%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="bookmark" title="异步任务和定时任务">异步任务和定时任务</a></li><li><a href="/computer-science/python/basic/54.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="bookmark" title="单元测试">单元测试</a></li><li><a href="/computer-science/python/basic/55.%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/" rel="bookmark" title="项目上线">项目上线</a></li><li><a href="/computer-science/python/basic/56-60.%E7%94%A8FastAPI%E5%BC%80%E5%8F%91%E6%95%B0%E6%8D%AE%E6%8E%A5%E5%8F%A3/" rel="bookmark" title="用FastAPI开发网络数据接口">用FastAPI开发网络数据接口</a></li><li><a href="/computer-science/python/basic/61.%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E6%A6%82%E8%BF%B0/" rel="bookmark" title="网络数据采集概述">网络数据采集概述</a></li><li><a href="/computer-science/python/basic/62.%E7%94%A8Python%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90-1/" rel="bookmark" title="用Python获取网络数据">用Python获取网络数据</a></li><li><a href="/computer-science/python/basic/62.%E7%94%A8Python%E8%A7%A3%E6%9E%90HTML%E9%A1%B5%E9%9D%A2-2/" rel="bookmark" title="用Python解析HTML页面">用Python解析HTML页面</a></li><li><a href="/computer-science/python/basic/63.%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9C%A8%E7%88%AC%E8%99%AB%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" rel="bookmark" title="并发编程在爬虫中的应用">并发编程在爬虫中的应用</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-1/" rel="bookmark" title="Python中的并发编程-1">Python中的并发编程-1</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-2/" rel="bookmark" title="Python中的并发编程-2">Python中的并发编程-2</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-3/" rel="bookmark" title="Python中的并发编程-3">Python中的并发编程-3</a></li><li><a href="/computer-science/python/basic/64.%E4%BD%BF%E7%94%A8Selenium%E6%8A%93%E5%8F%96%E7%BD%91%E9%A1%B5%E5%8A%A8%E6%80%81%E5%86%85%E5%AE%B9/" rel="bookmark" title="使用Selenium抓取网页动态内容">使用Selenium抓取网页动态内容</a></li><li><a href="/computer-science/python/basic/65.%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6Scrapy%E7%AE%80%E4%BB%8B/" rel="bookmark" title="爬虫框架Scrapy简介">爬虫框架Scrapy简介</a></li><li><a href="/computer-science/python/basic/66.%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0/" rel="bookmark" title="数据分析概述">数据分析概述</a></li><li><a href="/computer-science/python/basic/67.%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" rel="bookmark" title="环境准备">环境准备</a></li><li><a href="/computer-science/python/basic/68.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-1/" rel="bookmark" title="NumPy的应用-1">NumPy的应用-1</a></li><li><a href="/computer-science/python/basic/69.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-2/" rel="bookmark" title="NumPy的应用-2">NumPy的应用-2</a></li><li><a href="/computer-science/python/basic/70.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-1/" rel="bookmark" title="Pandas的应用-1">Pandas的应用-1</a></li><li><a href="/computer-science/python/basic/71.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-2/" rel="bookmark" title="Pandas的应用-2">Pandas的应用-2</a></li><li><a href="/computer-science/python/basic/72.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-3/" rel="bookmark" title="Pandas的应用-3">Pandas的应用-3</a></li><li><a href="/computer-science/python/basic/73.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-4/" rel="bookmark" title="Pandas的应用-4">Pandas的应用-4</a></li><li><a href="/computer-science/python/basic/74.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-5/" rel="bookmark" title="Pandas的应用-5">Pandas的应用-5</a></li><li><a href="/computer-science/python/basic/75.%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-1/" rel="bookmark" title="数据可视化-1">数据可视化-1</a></li><li><a href="/computer-science/python/basic/76.%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-2/" rel="bookmark" title="数据可视化-2">数据可视化-2</a></li><li><a href="/computer-science/python/basic/100.Python%E9%9D%A2%E8%AF%95%E9%A2%98%E5%AE%9E%E5%BD%95/" rel="bookmark" title="Python面试题实录">Python面试题实录</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="image" itemprop="image" alt="沉鱼" data-src="/images/avatar.jpg"><p class="name" itemprop="name">沉鱼</p><div class="description" itemprop="description">编程笔记 & 资料分享</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">95</span> <span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">14</span> <span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">18</span> <span class="name">标签</span></a></div></nav><div class="social"><span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1Njb3R0YWxpdmU=" title="https:&#x2F;&#x2F;github.com&#x2F;Scottalive"><i class="ic i-github"></i></span> <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9hbWVoaW1l" title="https:&#x2F;&#x2F;twitter.com&#x2F;amehime"><i class="ic i-twitter"></i></span> <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9ydXJpc216aw==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;rurismzk"><i class="ic i-zhihu"></i></span> <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTEyODg2ODIz" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;12886823"><i class="ic i-cloud-music"></i></span> <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vYW1laGltZQ==" title="https:&#x2F;&#x2F;weibo.com&#x2F;amehime"><i class="ic i-weibo"></i></span> <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS9hbWVoaW1l" title="https:&#x2F;&#x2F;about.me&#x2F;amehime"><i class="ic i-address-card"></i></span> <span class="exturl item email" data-url="bWFpbHRvOnlvdXJuYW1lQG1haWwuY29t" title="mailto:yourname@mail.com"><i class="ic i-envelope"></i></span> <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;yourname"><i class="ic i-facebook"></i></span> <span class="exturl item stackoverflow" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname"><i class="ic i-stack-overflow"></i></span> <span class="exturl item instagram" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;instagram.com&#x2F;yourname"><i class="ic i-instagram"></i></span> <span class="exturl item skype" data-url="c2t5cGU6eW91cm5hbWU/Y2FsbHxjaGF0" title="skype:yourname?call|chat"><i class="ic i-skype"></i></span> <span class="exturl item douban" data-url="aHR0cHM6Ly93d3cuZG91YmFuLmNvbS9wZW9wbGUveW91cm5hbWUv" title="https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;yourname&#x2F;"><i class="ic i-douban"></i></span></div><ul class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li><li class="item"><a href="/friends/" rel="section"><i class="ic i-heart"></i>友達</a></li><li class="item"><a href="/links/" rel="section"><i class="ic i-magic"></i>链接</a></li></ul></div></div></div><ul id="quick"><li class="prev pjax"><a href="/computer-science/python/basic/13.%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/computer-science/python/basic/15.%E5%9B%BE%E5%83%8F%E5%92%8C%E5%8A%9E%E5%85%AC%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/39.Python%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%85%A5MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/" title="Python程序接入MySQL数据库">Python程序接入MySQL数据库</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/interview/" title="分类于 面试题">面试题</a></div><span><a href="/computer-science/java/interview/10%E6%9C%8831%E6%97%A5%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/" title="10月31日面试失败复盘">10月31日面试失败复盘</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/interview/" title="分类于 面试题">面试题</a></div><span><a href="/computer-science/java/interview/10%E6%9C%8830%E6%97%A5%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/" title="10月30日面试失败复盘">10月30日面试失败复盘</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/javase/" title="分类于 JavaSE">JavaSE</a></div><span><a href="/computer-science/java/javase/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" title="Java面对对象程序设计">Java面对对象程序设计</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/51.%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98/" title="使用缓存">使用缓存</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/psychology/" title="分类于 心理学">心理学</a> <i class="ic i-angle-right"></i> <a href="/categories/psychology/%E6%93%8D%E7%BA%B5%E5%BF%83%E7%90%86%E5%AD%A6/" title="分类于 操纵心理学">操纵心理学</a></div><span><a href="/psychology/%E6%93%8D%E7%BA%B5%E5%BF%83%E7%90%86%E5%AD%A6/%E6%93%8D%E7%BA%B5%E6%80%A7%E7%90%86%E5%AD%A6/" title="操纵性理学">操纵性理学</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/46.%E6%97%A5%E5%BF%97%E5%92%8C%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7%E6%A0%8F/" title="日志和调试工具栏">日志和调试工具栏</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/arithmetic/" title="分类于 算法">算法</a></div><span><a href="/computer-science/java/arithmetic/3-%E5%8A%9B%E6%89%A3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E4%B8%AD%E7%AD%89/" title="力扣算法题-3-无重复字符的最长子串">力扣算法题-3-无重复字符的最长子串</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/introduction/" title="分类于 个人简介">个人简介</a></div><span><a href="/introduction/%E5%8E%9F%E5%88%99/" title="个人原则">个人原则</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/interview/" title="分类于 面试题">面试题</a></div><span><a href="/computer-science/java/interview/Java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" title="Java基础面试题">Java基础面试题</a></span></li></ul></div><div><h2>最新评论</h2><ul class="leancloud-recent-comment"></ul></div></div><div class="status"><div class="copyright">&copy; 2010 – <span itemprop="copyrightYear">2025</span> <span class="with-love"><i class="ic i-sakura rotate"></i> </span><span class="author" itemprop="copyrightHolder">沉鱼 @ Chrono Cross</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i> </span><span title="站点总字数">562k 字</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="ic i-coffee"></i> </span><span title="站点阅读时长">8:31</span></div><div class="powered-by">基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL={path:"computer-science/python/basic/14.网络编程入门和网络应用开发/",favicon:{show:"（●´3｀●）やれやれだぜ",hide:"(´Д｀)大変だ！"},search:{placeholder:"文章搜索",empty:"关于 「 ${query} 」，什么也没搜到",stats:"${time} ms 内找到 ${hits} 条结果"},valine:!0,fancybox:!0,copyright:'复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',ignores:[function(e){return e.includes("#")},function(e){return new RegExp(LOCAL.path+"$").test(e)}]}</script><script src="https://cdn.polyfill.io/v2/polyfill.js"></script><script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script><script src="/js/app.js?v=0.2.5"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/shizuku.model.json"},display:{position:"right",width:200,height:400},mobile:{show:!0},react:{opacity:.7},log:!1})</script></body></html>

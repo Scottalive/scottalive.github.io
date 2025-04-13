@@ -1,0 +1,332 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#FFF"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="alternate" type="application/rss+xml" title="沉鱼的博客" href="https://scottalive.github.io/rss.xml"><link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="https://scottalive.github.io/atom.xml"><link rel="alternate" type="application/json" title="沉鱼的博客" href="https://scottalive.github.io/feed.json"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext"><link rel="stylesheet" href="/css/app.css?v=0.2.5"><meta name="keywords" content="编程笔记,python"><link rel="canonical" href="https://scottalive.github.io/computer-science/python/basic/42.%E6%B7%B1%E5%85%A5%E6%A8%A1%E5%9E%8B/"><title>深入模型 - Python 基础 - Python - 计算机科学 | Chrono Cross = 沉鱼的博客 = 了解自我，超越自我</title><meta name="generator" content="Hexo 5.4.2"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">深入模型</h1><div class="meta"><span class="item" title="创建时间：2025-04-14 10:07:49"><span class="icon"><i class="ic i-calendar"></i> </span><span class="text">发表于</span> <time itemprop="dateCreated datePublished" datetime="2025-04-14T10:07:49+08:00">2025-04-14</time> </span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i> </span><span class="text">本文字数</span> <span>13k</span> <span class="text">字</span> </span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i> </span><span class="text">阅读时长</span> <span>12 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span> <span class="line"></span> <span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">Chrono Cross</a></li></ul><ul class="right"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div id="imgs" class="pjax"><ul><li class="item" data-background-image="https://pic.imgdb.cn/item/642522e2a682492fccdf1cad.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/6425240da682492fcce08e26.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/642523fca682492fcce07831.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/6422abdea682492fcc8c1f69.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/642523aca682492fcce01314.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/642523c4a682492fcce03132.jpg"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"/><use xlink:href="#gentle-wave" x="48" y="3"/><use xlink:href="#gentle-wave" x="48" y="5"/><use xlink:href="#gentle-wave" x="48" y="7"/></g></svg></div><main><div class="inner"><div id="main" class="pjax"><div class="article wrap"><div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i> <span><a href="/">首页</a></span><i class="ic i-angle-right"></i> <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/" itemprop="item" rel="index" title="分类于 计算机科学"><span itemprop="name">计算机科学</span></a><meta itemprop="position" content="1"></span><i class="ic i-angle-right"></i> <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/python/" itemprop="item" rel="index" title="分类于 Python"><span itemprop="name">Python</span></a><meta itemprop="position" content="2"></span><i class="ic i-angle-right"></i> <span class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/python/basic/" itemprop="item" rel="index" title="分类于 Python 基础"><span itemprop="name">Python 基础</span></a><meta itemprop="position" content="3"></span></div><article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://scottalive.github.io/computer-science/python/basic/42.%E6%B7%B1%E5%85%A5%E6%A8%A1%E5%9E%8B/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/avatar.jpg"><meta itemprop="name" content="沉鱼"><meta itemprop="description" content="了解自我，超越自我, 编程笔记 & 资料分享"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="沉鱼的博客"></span><div class="body md" itemprop="articleBody"><h2 id="深入模型"><a class="anchor" href="#深入模型">#</a> 深入模型</h2><p>在上一个章节中，我们提到了 Django 是基于 MVC 架构的 Web 框架，MVC 架构追求的是 “模型” 和 “视图” 的解耦合。所谓 “模型” 说得更直白一些就是数据（的表示），所以通常也被称作 “数据模型”。在实际的项目中，数据模型通常通过数据库实现持久化操作，而关系型数据库在过去和当下都是持久化的首选方案，下面我们通过完成一个投票项目来讲解和模型相关的知识点。投票项目的首页会展示某在线教育平台所有的学科；点击学科可以查看到该学科的老师及其信息；用户登录后在查看老师的页面为老师投票，可以投赞成票和反对票；未登录的用户可以通过登录页进行登录；尚未注册的用户可以通过注册页输入个人信息进行注册。在这个项目中，我们使用 MySQL 数据库来实现数据持久化操作。</p><h3 id="创建项目和应用"><a class="anchor" href="#创建项目和应用">#</a> 创建项目和应用</h3><p>我们首先创建 Django 项目 <code>vote</code> 并为其添加虚拟环境和依赖项。接下来，在项目下创建名为 <code>polls</code> 的应用和保存模板页的文件夹 <code>tempaltes</code> ，项目文件夹的结构如下所示。</p><p><img data-src="res/pycharm-vote-project.png" alt=""></p><p>根据上面描述的项目需求，我们准备了四个静态页面，分别是展示学科的页面 <code>subjects.html</code> ，显示学科老师的页面 <code>teachers.html</code> ，登录页面 <code>login.html</code> ，注册页面 <code>register.html</code> ，稍后我们会将静态页修改为 Django 项目所需的模板页。</p><h3 id="配置关系型数据库mysql"><a class="anchor" href="#配置关系型数据库mysql">#</a> 配置关系型数据库 MySQL</h3><ol><li><p>在 MySQL 中创建数据库，创建用户，授权用户访问该数据库。</p><pre><code class="language-SQL">create database vote default charset utf8;
+create user 'hellokitty'@'%' identified by 'Hellokitty.618';
+grant all privileges on vote.* to 'hellokitty'@'%';
+flush privileges;
+</code></pre></li><li><p>在 MySQL 中创建保存学科和老师信息的二维表（保存用户信息的表稍后处理）。</p><pre><code class="language-SQL">use vote;
+
+-- 创建学科表
+create table `tb_subject`
+(
+	`no` integer auto_increment comment '学科编号',
+    `name` varchar(50) not null comment '学科名称',
+    `intro` varchar(1000) not null default '' comment '学科介绍',
+    `is_hot` boolean not null default 0 comment '是不是热门学科',
+    primary key (`no`)
+);
+-- 创建老师表
+create table `tb_teacher`
+(
+    `no` integer auto_increment comment '老师编号',
+    `name` varchar(20) not null comment '老师姓名',
+    `sex` boolean not null default 1 comment '老师性别',
+    `birth` date not null comment '出生日期',
+    `intro` varchar(1000) not null default '' comment '老师介绍',
+    `photo` varchar(255) not null default '' comment '老师照片',
+    `gcount` integer not null default 0 comment '好评数',
+    `bcount` integer not null default 0 comment '差评数',
+    `sno` integer not null comment '所属学科',
+    primary key (`no`),
+    foreign key (`sno`) references `tb_subject` (`no`)
+);
+</code></pre></li><li><p>在虚拟环境中安装连接 MySQL 数据库所需的依赖项。</p><pre><code class="language-Bash">pip install mysqlclient
+</code></pre><blockquote><p><strong>说明</strong>：如果因为某些原因无法安装 <code>mysqlclient</code> 三方库，可以使用它的替代品 <code>pymysql</code> ， <code>pymysql</code> 是用纯 Python 开发的连接 MySQL 的 Python 库，安装更容易成功，但是需要在 Django 项目文件夹的 <code>__init__.py</code> 中添加如下所示的代码。</p><pre><code class="language-Python">import pymysql
+
+pymysql.install_as_MySQLdb()
+</code></pre><p>如果使用 Django 2.2 及以上版本，还会遇到 PyMySQL 跟 Django 框架的兼容性问题，兼容性问题会导致项目无法运行，需要按照 GitHub 上 PyMySQL 仓库<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1B5TXlTUUwvUHlNeVNRTC9pc3N1ZXMvNzkw"> Issues</span> 中提供的方法进行处理。总体来说，使用 <code>pymysql</code> 会比较麻烦，强烈建议大家首选安装 <code>mysqlclient</code> 。</p></blockquote></li><li><p>修改项目的 settings.py 文件，首先将我们创建的应用 <code>polls</code> 添加已安装的项目（ <code>INSTALLED_APPS</code> ）中，然后配置 MySQL 作为持久化方案。</p><pre><code class="language-Python">INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'polls',
+]
+
+DATABASES = &#123;
+    'default': &#123;
+        # 数据库引擎配置
+        'ENGINE': 'django.db.backends.mysql',
+        # 数据库的名字
+        'NAME': 'vote',
+        # 数据库服务器的IP地址（本机可以写localhost或127.0.0.1）
+        'HOST': 'localhost',
+        # 启动MySQL服务的端口号
+        'PORT': 3306,
+        # 数据库用户名和口令
+        'USER': 'hellokitty',
+        'PASSWORD': 'Hellokitty.618',
+        # 数据库使用的字符集
+        'CHARSET': 'utf8',
+        # 数据库时间日期的时区设定
+        'TIME_ZONE': 'Asia/Chongqing',
+    &#125;
+&#125;
+</code></pre><p>在配置 ENGINE 属性时，常用的可选值包括：</p><ul><li><code>'django.db.backends.sqlite3'</code> ：SQLite 嵌入式数据库。</li><li><code>'django.db.backends.postgresql'</code> ：BSD 许可证下发行的开源关系型数据库产品。</li><li><code>'django.db.backends.mysql'</code> ：甲骨文公司经济高效的数据库产品。</li><li><code>'django.db.backends.oracle'</code> ：甲骨文公司关系型数据库旗舰产品。</li></ul><p>其他的配置可以参考官方文档中<span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRqYW5nb3Byb2plY3QuY29tL3poLWhhbnMvMi4wL3JlZi9kYXRhYmFzZXMvI3RoaXJkLXBhcnR5LW5vdGVz">数据库配置</span>的部分。</p></li><li><p>Django 框架提供了 ORM 来解决数据持久化问题，ORM 翻译成中文叫 “对象关系映射”。因为 Python 是面向对象的编程语言，我们在 Python 程序中使用对象模型来保存数据，而关系型数据库使用关系模型，用二维表来保存数据，这两种模型并不匹配。使用 ORM 是为了实现对象模型到关系模型的<strong>双向转换</strong>，这样就不用在 Python 代码中书写 SQL 语句和游标操作，因为这些都会由 ORM 自动完成。利用 Django 的 ORM，我们可以直接将刚才创建的学科表和老师表变成 Django 中的模型类。</p><pre><code class="language-Bash">python manage.py inspectdb &gt; polls/models.py
+</code></pre><p>我们可以对自动生成的模型类稍作调整，代码如下所示。</p><pre><code class="language-Python">from django.db import models
+
+
+class Subject(models.Model):
+    no = models.AutoField(primary_key=True, verbose_name='编号')
+    name = models.CharField(max_length=50, verbose_name='名称')
+    intro = models.CharField(max_length=1000, verbose_name='介绍')
+    is_hot = models.BooleanField(verbose_name='是否热门')
+
+    class Meta:
+        managed = False
+        db_table = 'tb_subject'
+
+
+class Teacher(models.Model):
+    no = models.AutoField(primary_key=True, verbose_name='编号')
+    name = models.CharField(max_length=20, verbose_name='姓名')
+    sex = models.BooleanField(default=True, verbose_name='性别')
+    birth = models.DateField(verbose_name='出生日期')
+    intro = models.CharField(max_length=1000, verbose_name='个人介绍')
+    photo = models.ImageField(max_length=255, verbose_name='照片')
+    good_count = models.IntegerField(default=0, db_column='gcount', verbose_name='好评数')
+    bad_count = models.IntegerField(default=0, db_column='bcount', verbose_name='差评数')
+    subject = models.ForeignKey(Subject, models.DO_NOTHING, db_column='sno')
+
+    class Meta:
+        managed = False
+        db_table = 'tb_teacher'
+</code></pre><blockquote><p><strong>说明</strong>：模型类都直接或间接继承自 <code>Model</code> 类，模型类跟关系型数据库的二维表对应，模型对象跟表中的记录对应，模型对象的属性跟表中的字段对应。如果对上面模型类的属性定义不是特别理解，可以看看本文后面提供的 “模型定义参考” 部分的内容。</p></blockquote></li></ol><h3 id="使用orm完成模型的crud操作"><a class="anchor" href="#使用orm完成模型的crud操作">#</a> 使用 ORM 完成模型的 CRUD 操作</h3><p>有了 Django 框架的 ORM，我们可以直接使用面向对象的方式来实现对数据的 CRUD（增删改查）操作。我们可以在 PyCharm 的终端中输入下面的命令进入到 Django 项目的交互式环境，然后尝试对模型的操作。</p><pre><code class="language-Bash">python manage.py shell
+</code></pre><h4 id="新增"><a class="anchor" href="#新增">#</a> 新增</h4><pre><code class="language-Python">from polls.models import Subject
+
+subject1 = Subject(name='Python全栈开发', intro='当下最热门的学科', is_hot=True)
+subject1.save()
+subject2 = Subject(name='全栈软件测试', intro='学习自动化测试的学科', is_hot=False)
+subject2.save()
+subject3 = Subject(name='JavaEE分布式开发', intro='基于Java语言的服务器应用开发', is_hot=True)
+</code></pre><h4 id="删除"><a class="anchor" href="#删除">#</a> 删除</h4><pre><code class="language-Python">subject = Subject.objects.get(no=2)
+subject.delete()
+</code></pre><h4 id="更新"><a class="anchor" href="#更新">#</a> 更新</h4><pre><code class="language-Shell">subject = Subject.objects.get(no=1)
+subject.name = 'Python全栈+人工智能'
+subject.save()
+</code></pre><h4 id="查询"><a class="anchor" href="#查询">#</a> 查询</h4><ol><li>查询所有对象。</li></ol><pre><code class="language-Shell">Subjects.objects.all()
+</code></pre><ol start="2"><li>过滤数据。</li></ol><pre><code class="language-Shell"># 查询名称为“Python全栈+人工智能”的学科
+Subject.objects.filter(name='Python全栈+人工智能')
+
+# 查询名称包含“全栈”的学科（模糊查询）
+Subject.objects.filter(name__contains='全栈')
+Subject.objects.filter(name__startswith='全栈')
+Subject.objects.filter(name__endswith='全栈')
+
+# 查询所有热门学科
+Subject.objects.filter(is_hot=True)
+
+# 查询编号大于3小于10的学科
+Subject.objects.filter(no__gt=3).filter(no__lt=10)
+Subject.objects.filter(no__gt=3, no__lt=10)
+
+# 查询编号在3到7之间的学科
+Subject.objects.filter(no__ge=3, no__le=7)
+Subject.objects.filter(no__range=(3, 7))
+</code></pre><ol start="3"><li>查询单个对象。</li></ol><pre><code class="language-Shell"># 查询主键为1的学科
+Subject.objects.get(pk=1)
+Subject.objects.get(no=1)
+Subject.objects.filter(no=1).first()
+Subject.objects.filter(no=1).last()
+</code></pre><ol start="4"><li>排序。</li></ol><pre><code class="language-Shell"># 查询所有学科按编号升序排列
+Subject.objects.order_by('no')
+# 查询所有部门按部门编号降序排列
+Subject.objects.order_by('-no')
+</code></pre><ol start="5"><li>切片（分页查询）。</li></ol><pre><code class="language-Shell"># 按编号从小到大查询前3个学科
+Subject.objects.order_by('no')[:3]
+</code></pre><ol start="6"><li>计数。</li></ol><pre><code class="language-Python"># 查询一共有多少个学科
+Subject.objects.count()
+</code></pre><ol start="7"><li>高级查询。</li></ol><pre><code class="language-Shell"># 查询编号为1的学科的老师
+Teacher.objects.filter(subject__no=1)
+Subject.objects.get(pk=1).teacher_set.all() 
+
+# 查询学科名称有“全栈”二字的学科的老师
+Teacher.objects.filter(subject__name__contains='全栈') 
+</code></pre><blockquote><p><strong>说明 1</strong>：由于老师与学科之间存在多对一外键关联，所以能通过学科反向查询到该学科的老师（从一对多关系中 “一” 的一方查询 “多” 的一方），反向查询属性默认的名字是 <code>类名小写_set</code> （如上面例子中的 <code>teacher_set</code> ），当然也可以在创建模型时通过 <code>ForeingKey</code> 的 <code>related_name</code> 属性指定反向查询属性的名字。如果不希望执行反向查询可以将 <code>related_name</code> 属性设置为 <code>'+'</code> 或者以 <code>'+'</code> 开头的字符串。</p></blockquote><blockquote><p><strong>说明 2</strong>：ORM 查询多个对象时会返回 QuerySet 对象，QuerySet 使用了惰性查询，即在创建 QuerySet 对象的过程中不涉及任何数据库活动，等真正用到对象时（对 QuerySet 求值）才向数据库发送 SQL 语句并获取对应的结果，这一点在实际开发中需要引起注意！</p></blockquote><blockquote><p><strong>说明 3</strong>：如果希望更新多条数据，不用先逐一获取模型对象再修改对象属性，可以直接使用 QuerySet 对象的 <code>update()</code> 方法一次性更新多条数据。</p></blockquote><h3 id="利用django后台管理模型"><a class="anchor" href="#利用django后台管理模型">#</a> 利用 Django 后台管理模型</h3><p>在创建好模型类之后，可以通过 Django 框架自带的后台管理应用（ <code>admin</code> 应用）实现对模型的管理。虽然实际应用中，这个后台可能并不能满足我们的需求，但是在学习 Django 框架时，我们可以利用 <code>admin</code> 应用来管理我们的模型，同时也通过它来了解一个项目的后台管理系统需要哪些功能。使用 Django 自带的 <code>admin</code> 应用步骤如下所示。</p><ol><li><p>将 <code>admin</code> 应用所需的表迁移到数据库中。 <code>admin</code> 应用本身也需要数据库的支持，而且在 <code>admin</code> 应用中已经定义好了相关的数据模型类，我们只需要通过模型迁移操作就能自动在数据库中生成所需的二维表。</p><pre><code class="language-Bash">python manage.py migrate
+</code></pre></li><li><p>创建访问 <code>admin</code> 应用的超级用户账号，这里需要输入用户名、邮箱和口令。</p><pre><code class="language-Shell">python manage.py createsuperuser
+</code></pre><blockquote><p><strong>说明</strong>：输入口令时没有回显也不能退格，需要一气呵成完成输入。</p></blockquote></li><li><p>运行项目，在浏览器中访问 <code>http://127.0.0.1:8000/admin</code> ，输入刚才创建的超级用户账号和密码进行登录。</p><p><img data-src="/Users/Hao/Desktop/Python-100-Days/Day41-55/res/django-admin-login.png" alt=""></p><p>登录后进入管理员操作平台。</p><p><img data-src="res/django-admin-apps.png" alt=""></p><p>注意，我们暂时还没能在 <code>admin</code> 应用中看到之前创建的模型类，为此需要在 <code>polls</code> 应用的 <code>admin.py</code> 文件中对需要管理的模型进行注册。</p></li><li><p>注册模型类。</p><pre><code class="language-Python">from django.contrib import admin
+
+from polls.models import Subject, Teacher
+
+admin.site.register(Subject)
+admin.site.register(Teacher)
+</code></pre><p>注册模型类后，就可以在后台管理系统中看到它们。</p><p><img data-src="./res/django-admin-models.png" alt=""></p></li><li><p>对模型进行 CRUD 操作。</p><p>可以在管理员平台对模型进行 C（新增）、R（查看）、U（更新）、D（删除）操作，如下图所示。</p><ul><li><p>添加学科。</p><p><img data-src="res/django-admin-add-model.png" alt=""></p></li><li><p>查看所有学科。</p><p><img data-src="res/django-admin-view-models.png" alt=""></p></li><li><p>删除和更新学科。</p><p><img data-src="res/django-admin-delete-update-model.png" alt=""></p></li></ul></li><li><p>注册模型管理类。</p><p>可能大家已经注意到了，刚才在后台查看部门信息的时候，显示的部门信息并不直观，为此我们再修改 <code>admin.py</code> 文件，通过注册模型管理类，可以在后台管理系统中更好的管理模型。</p><pre><code class="language-Python">from django.contrib import admin
+
+from polls.models import Subject, Teacher
+
+
+class SubjectModelAdmin(admin.ModelAdmin):
+    list_display = ('no', 'name', 'intro', 'is_hot')
+    search_fields = ('name', )
+    ordering = ('no', )
+
+
+class TeacherModelAdmin(admin.ModelAdmin):
+    list_display = ('no', 'name', 'sex', 'birth', 'good_count', 'bad_count', 'subject')
+    search_fields = ('name', )
+    ordering = ('no', )
+
+
+admin.site.register(Subject, SubjectModelAdmin)
+admin.site.register(Teacher, TeacherModelAdmin)
+</code></pre><p><img data-src="res/django-admin-view-models-subject.png" alt=""></p><p><img data-src="res/django-admin-view-models-teacher.png" alt=""></p><p>为了更好的查看模型，我们为 <code>Subject</code> 类添加 <code>__str__</code> 魔法方法，并在该方法中返回学科名字。这样在如上图所示的查看老师的页面上显示老师所属学科时，就不再是 <code>Subject object(1)</code> 这样晦涩的信息，而是学科的名称。</p></li></ol><h3 id="实现学科页和老师页效果"><a class="anchor" href="#实现学科页和老师页效果">#</a> 实现学科页和老师页效果</h3><ol><li><p>修改 <code>polls/views.py</code> 文件，编写视图函数实现对学科页和老师页的渲染。</p><pre><code class="language-Python">from django.shortcuts import render, redirect
+
+from polls.models import Subject, Teacher
+
+
+def show_subjects(request):
+    subjects = Subject.objects.all().order_by('no')
+    return render(request, 'subjects.html', &#123;'subjects': subjects&#125;)
+
+
+def show_teachers(request):
+    try:
+        sno = int(request.GET.get('sno'))
+        teachers = []
+        if sno:
+            subject = Subject.objects.only('name').get(no=sno)
+            teachers = Teacher.objects.filter(subject=subject).order_by('no')
+        return render(request, 'teachers.html', &#123;
+            'subject': subject,
+            'teachers': teachers
+        &#125;)
+    except (ValueError, Subject.DoesNotExist):
+        return redirect('/')
+</code></pre></li><li><p>修改 <code>templates/subjects.html</code> 和 <code>templates/teachers.html</code> 模板页。</p><p><code>subjects.html</code></p><pre><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+   &lt;meta charset=&quot;UTF-8&quot;&gt;
+   &lt;title&gt;学科信息&lt;/title&gt;
+   &lt;style&gt;
+       #container &#123;
+           width: 80%;
+           margin: 10px auto;
+       &#125;
+       .user &#123;
+           float: right;
+           margin-right: 10px;
+       &#125;
+       .user&gt;a &#123;
+           margin-right: 10px;
+       &#125;
+       #main&gt;dl&gt;dt &#123;
+           font-size: 1.5em;
+           font-weight: bold;
+       &#125;
+       #main&gt;dl&gt;dd &#123;
+           font-size: 1.2em;
+       &#125;
+       a &#123;
+           text-decoration: none;
+           color: darkcyan;
+       &#125;
+   &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+   &lt;div id=&quot;container&quot;&gt;
+       &lt;div class=&quot;user&quot;&gt;
+           &lt;a href=&quot;login.html&quot;&gt;用户登录&lt;/a&gt;
+           &lt;a href=&quot;register.html&quot;&gt;快速注册&lt;/a&gt;
+       &lt;/div&gt;
+       &lt;h1&gt;扣丁学堂所有学科&lt;/h1&gt;
+       &lt;hr&gt;
+       &lt;div id=&quot;main&quot;&gt;
+           &#123;% for subject in subjects %&#125;
+                <dl>
+                    <dt>
+                        <a href="/teachers/?sno=&#123;&#123; subject.no &#125;&#125;">&#123;&#123; subject.name &#125;&#125;</a>
+                        &#123;% if subject.is_hot %&#125;
+                        <img data-src="/static/images/hot-icon-small.png">
+                        &#123;% endif %&#125;
+                    </dt>
+                    <dd>&#123;&#123; subject.intro &#125;&#125;</dd>
+                </dl>
+                &#123;% endfor %&#125;
+       &lt;/div&gt;
+   &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p><code>teachers.html</code></p><pre><code class="language-HTML">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;老师信息&lt;/title&gt;
+    &lt;style&gt;
+        #container &#123;
+            width: 80%;
+            margin: 10px auto;
+        &#125;
+        .teacher &#123;
+            width: 100%;
+            margin: 0 auto;
+            padding: 10px 0;
+            border-bottom: 1px dashed gray;
+            overflow: auto;
+        &#125;
+        .teacher&gt;div &#123;
+            float: left;
+        &#125;
+        .photo &#123;
+            height: 140px;
+            border-radius: 75px;
+            overflow: hidden;
+            margin-left: 20px;
+        &#125;
+        .info &#123;
+            width: 75%;
+            margin-left: 30px;
+        &#125;
+        .info div &#123;
+            clear: both;
+            margin: 5px 10px;
+        &#125;
+        .info span &#123;
+            margin-right: 25px;
+        &#125;
+        .info a &#123;
+            text-decoration: none;
+            color: darkcyan;
+        &#125;
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;container&quot;&gt;
+        &lt;h1&gt;&#123;&#123; subject.name &#125;&#125;学科的老师信息&lt;/h1&gt;
+        &lt;hr&gt;
+        &#123;% if not teachers %&#125;
+                <h2>暂无该学科老师信息</h2>
+            &#123;% endif %&#125;
+        &#123;% for teacher in teachers %&#125;
+            <div class="teacher">
+                <div class="photo">
+                    <img data-src="/static/images/&#123;&#123; teacher.photo &#125;&#125;" height="140" alt="">
+                </div>
+                <div class="info">
+                    <div>
+                        <span><strong>姓名：&#123;&#123; teacher.name &#125;&#125;</strong></span>
+                        <span>性别：&#123;&#123; teacher.sex | yesno:'男,女' &#125;&#125;</span>
+                        <span>出生日期：&#123;&#123; teacher.birth | date:'Y年n月j日'&#125;&#125;</span>
+                    </div>
+                    <div class="intro">&#123;&#123; teacher.intro &#125;&#125;</div>
+                    <div class="comment">
+                        <a href="">好评</a>&nbsp;(<strong>&#123;&#123; teacher.good_count &#125;&#125;</strong>)
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="">差评</a>&nbsp;<strong>&#123;&#123; teacher.bad_count &#125;&#125;</strong>)
+                    </div>
+                </div>
+            </div>
+            &#123;% endfor %&#125;
+        &lt;a href=&quot;/&quot;&gt;返回首页&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li><li><p>修改 <code>vote/urls.py</code> 文件，实现映射 URL。</p><pre><code class="language-Python">from django.contrib import admin
+from django.urls import path
+
+from polls.views import show_subjects, show_teachers
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', show_subjects),
+    path('teachers/', show_teachers),
+]
+</code></pre></li></ol><p>到此为止，页面上需要的图片（静态资源）还没有能够正常展示，我们在下一章节中为大家介绍如何处理模板页上的需要的静态资源。</p><h3 id="补充内容"><a class="anchor" href="#补充内容">#</a> 补充内容</h3><h4 id="django模型最佳实践"><a class="anchor" href="#django模型最佳实践">#</a> Django 模型最佳实践</h4><ol><li>正确的为模型和关系字段命名。</li><li>设置适当的 <code>related_name</code> 属性。</li><li>用 <code>OneToOneField</code> 代替 <code>ForeignKeyField(unique=True)</code> 。</li><li>通过 “迁移操作”（migrate）来添加模型。</li><li>用 NoSQL 来应对需要降低范式级别的场景。</li><li>如果布尔类型可以为空要使用 <code>NullBooleanField</code> 。</li><li>在模型中放置业务逻辑。</li><li>用 <code>&lt;ModelName&gt;.DoesNotExists</code> 取代 <code>ObjectDoesNotExists</code> 。</li><li>在数据库中不要出现无效数据。</li><li>不要对 <code>QuerySet</code> 调用 <code>len()</code> 函数。</li><li>将 <code>QuerySet</code> 的 <code>exists()</code> 方法的返回值用于 <code>if</code> 条件。</li><li>用 <code>DecimalField</code> 来存储货币相关数据而不是 <code>FloatField</code> 。</li><li>定义 <code>__str__</code> 方法。</li><li>不要将数据文件放在同一个目录中。</li></ol><blockquote><p><strong>说明</strong>：以上内容来自于 STEELKIWI 网站的<a target="_blank" rel="noopener" href="https://steelkiwi.com/blog/best-practices-working-django-models-python/"><em> Best Practice working with Django models in Python</em></a>，有兴趣的小伙伴可以阅读原文。</p></blockquote><h4 id="模型定义参考"><a class="anchor" href="#模型定义参考">#</a> 模型定义参考</h4><h5 id="字段"><a class="anchor" href="#字段">#</a> 字段</h5><p>对字段名称的限制</p><ul><li>字段名不能是 Python 的保留字，否则会导致语法错误</li><li>字段名不能有多个连续下划线，否则影响 ORM 查询操作</li></ul><p>Django 模型字段类</p><table><thead><tr><th>字段类</th><th>说明</th></tr></thead><tbody><tr><td><code>AutoField</code></td><td>自增 ID 字段</td></tr><tr><td><code>BigIntegerField</code></td><td>64 位有符号整数</td></tr><tr><td><code>BinaryField</code></td><td>存储二进制数据的字段，对应 Python 的 <code>bytes</code> 类型</td></tr><tr><td><code>BooleanField</code></td><td>存储 <code>True</code> 或 <code>False</code></td></tr><tr><td><code>CharField</code></td><td>长度较小的字符串</td></tr><tr><td><code>DateField</code></td><td>存储日期，有 <code>auto_now</code> 和 <code>auto_now_add</code> 属性</td></tr><tr><td><code>DateTimeField</code></td><td>存储日期和日期，两个附加属性同上</td></tr><tr><td><code>DecimalField</code></td><td>存储固定精度小数，有 <code>max_digits</code> （有效位数）和 <code>decimal_places</code> （小数点后面）两个必要的参数</td></tr><tr><td><code>DurationField</code></td><td>存储时间跨度</td></tr><tr><td><code>EmailField</code></td><td>与 <code>CharField</code> 相同，可以用 <code>EmailValidator</code> 验证</td></tr><tr><td><code>FileField</code></td><td>文件上传字段</td></tr><tr><td><code>FloatField</code></td><td>存储浮点数</td></tr><tr><td><code>ImageField</code></td><td>其他同 <code>FileFiled</code> ，要验证上传的是不是有效图像</td></tr><tr><td><code>IntegerField</code></td><td>存储 32 位有符号整数。</td></tr><tr><td><code>GenericIPAddressField</code></td><td>存储 IPv4 或 IPv6 地址</td></tr><tr><td><code>NullBooleanField</code></td><td>存储 <code>True</code> 、 <code>False</code> 或 <code>null</code> 值</td></tr><tr><td><code>PositiveIntegerField</code></td><td>存储无符号整数（只能存储正数）</td></tr><tr><td><code>SlugField</code></td><td>存储 slug（简短标注）</td></tr><tr><td><code>SmallIntegerField</code></td><td>存储 16 位有符号整数</td></tr><tr><td><code>TextField</code></td><td>存储数据量较大的文本</td></tr><tr><td><code>TimeField</code></td><td>存储时间</td></tr><tr><td><code>URLField</code></td><td>存储 URL 的 <code>CharField</code></td></tr><tr><td><code>UUIDField</code></td><td>存储全局唯一标识符</td></tr></tbody></table><h5 id="字段属性"><a class="anchor" href="#字段属性">#</a> 字段属性</h5><p>通用字段属性</p><table><thead><tr><th>选项</th><th>说明</th></tr></thead><tbody><tr><td><code>null</code></td><td>数据库中对应的字段是否允许为 <code>NULL</code> ，默认为 <code>False</code></td></tr><tr><td><code>blank</code></td><td>后台模型管理验证数据时，是否允许为 <code>NULL</code> ，默认为 <code>False</code></td></tr><tr><td><code>choices</code></td><td>设定字段的选项，各元组中的第一个值是设置在模型上的值，第二值是人类可读的值</td></tr><tr><td><code>db_column</code></td><td>字段对应到数据库表中的列名，未指定时直接使用字段的名称</td></tr><tr><td><code>db_index</code></td><td>设置为 <code>True</code> 时将在该字段创建索引</td></tr><tr><td><code>db_tablespace</code></td><td>为有索引的字段设置使用的表空间，默认为 <code>DEFAULT_INDEX_TABLESPACE</code></td></tr><tr><td><code>default</code></td><td>字段的默认值</td></tr><tr><td><code>editable</code></td><td>字段在后台模型管理或 <code>ModelForm</code> 中是否显示，默认为 <code>True</code></td></tr><tr><td><code>error_messages</code></td><td>设定字段抛出异常时的默认消息的字典，其中的键包括 <code>null</code> 、 <code>blank</code> 、 <code>invalid</code> 、 <code>invalid_choice</code> 、 <code>unique</code> 和 <code>unique_for_date</code></td></tr><tr><td><code>help_text</code></td><td>表单小组件旁边显示的额外的帮助文本。</td></tr><tr><td><code>primary_key</code></td><td>将字段指定为模型的主键，未指定时会自动添加 <code>AutoField</code> 用于主键，只读。</td></tr><tr><td><code>unique</code></td><td>设置为 <code>True</code> 时，表中字段的值必须是唯一的</td></tr><tr><td><code>verbose_name</code></td><td>字段在后台模型管理显示的名称，未指定时使用字段的名称</td></tr></tbody></table><p><code>ForeignKey</code> 属性</p><ol><li><code>limit_choices_to</code> ：值是一个 Q 对象或返回一个 Q 对象，用于限制后台显示哪些对象。</li><li><code>related_name</code> ：用于获取关联对象的关联管理器对象（反向查询），如果不允许反向，该属性应该被设置为 <code>'+'</code> ，或者以 <code>'+'</code> 结尾。</li><li><code>to_field</code> ：指定关联的字段，默认关联对象的主键字段。</li><li><code>db_constraint</code> ：是否为外键创建约束，默认值为 <code>True</code> 。</li><li><code>on_delete</code> ：外键关联的对象被删除时对应的动作，可取的值包括 <code>django.db.models</code> 中定义的：<ul><li><code>CASCADE</code> ：级联删除。</li><li><code>PROTECT</code> ：抛出 <code>ProtectedError</code> 异常，阻止删除引用的对象。</li><li><code>SET_NULL</code> ：把外键设置为 <code>null</code> ，当 <code>null</code> 属性被设置为 <code>True</code> 时才能这么做。</li><li><code>SET_DEFAULT</code> ：把外键设置为默认值，提供了默认值才能这么做。</li></ul></li></ol><p><code>ManyToManyField</code> 属性</p><ol><li><code>symmetrical</code> ：是否建立对称的多对多关系。</li><li><code>through</code> ：指定维持多对多关系的中间表的 Django 模型。</li><li><code>throughfields</code> ：定义了中间模型时可以指定建立多对多关系的字段。</li><li><code>db_table</code> ：指定维持多对多关系的中间表的表名。</li></ol><h5 id="模型元数据选项"><a class="anchor" href="#模型元数据选项">#</a> 模型元数据选项</h5><table><thead><tr><th>选项</th><th>说明</th></tr></thead><tbody><tr><td><code>abstract</code></td><td>设置为 True 时模型是抽象父类</td></tr><tr><td><code>app_label</code></td><td>如果定义模型的应用不在 INSTALLED_APPS 中可以用该属性指定</td></tr><tr><td><code>db_table</code></td><td>模型使用的数据表名称</td></tr><tr><td><code>db_tablespace</code></td><td>模型使用的数据表空间</td></tr><tr><td><code>default_related_name</code></td><td>关联对象回指这个模型时默认使用的名称，默认为 &lt;model_name&gt;_set</td></tr><tr><td><code>get_latest_by</code></td><td>模型中可排序字段的名称。</td></tr><tr><td><code>managed</code></td><td>设置为 True 时，Django 在迁移中创建数据表并在执行 flush 管理命令时把表移除</td></tr><tr><td><code>order_with_respect_to</code></td><td>标记对象为可排序的</td></tr><tr><td><code>ordering</code></td><td>对象的默认排序</td></tr><tr><td><code>permissions</code></td><td>创建对象时写入权限表的额外权限</td></tr><tr><td><code>default_permissions</code></td><td>默认为 <code>('add', 'change', 'delete')</code></td></tr><tr><td><code>unique_together</code></td><td>设定组合在一起时必须独一无二的字段名</td></tr><tr><td><code>index_together</code></td><td>设定一起建立索引的多个字段名</td></tr><tr><td><code>verbose_name</code></td><td>为对象设定人类可读的名称</td></tr><tr><td><code>verbose_name_plural</code></td><td>设定对象的复数名称</td></tr></tbody></table><h4 id="查询参考"><a class="anchor" href="#查询参考">#</a> 查询参考</h4><h5 id="按字段查找可以用的条件"><a class="anchor" href="#按字段查找可以用的条件">#</a> 按字段查找可以用的条件</h5><ol><li><code>exact</code> / <code>iexact</code> ：精确匹配 / 忽略大小写的精确匹配查询</li><li><code>contains</code> / <code>icontains</code> / <code>startswith</code> / <code>istartswith</code> / <code>endswith</code> / <code>iendswith</code> ：基于 <code>like</code> 的模糊查询</li><li><code>in</code> ：集合运算</li><li><code>gt</code> / <code>gte</code> / <code>lt</code> / <code>lte</code> ：大于 / 大于等于 / 小于 / 小于等于关系运算</li><li><code>range</code> ：指定范围查询（SQL 中的 <code>between…and…</code> ）</li><li><code>year</code> / <code>month</code> / <code>day</code> / <code>week_day</code> / <code>hour</code> / <code>minute</code> / <code>second</code> ：查询时间日期</li><li><code>isnull</code> ：查询空值（True）或非空值（False）</li><li><code>search</code> ：基于全文索引的全文检索（一般很少使用）</li><li><code>regex</code> / <code>iregex</code> ：基于正则表达式的模糊匹配查询</li></ol><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"><div class="tags"><a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="tag"><i class="ic i-tag"></i> 编程笔记</a> <a href="/tags/python/" rel="tag"><i class="ic i-tag"></i> python</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i> </span><span class="text">更新于</span> <time title="修改时间：2025-04-14 03:09:44" itemprop="dateModified" datetime="2025-04-14T03:09:44+08:00">2025-04-14</time> </span><span id="computer-science/python/basic/42.深入模型/" class="item leancloud_visitors" data-flag-title="深入模型" title="阅读次数"><span class="icon"><i class="ic i-eye"></i> </span><span class="text">阅读次数</span> <span class="leancloud-visitors-count"></span> <span class="text">次</span></span></div><div class="reward"><button><i class="ic i-heartbeat"></i> 赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img data-src="/images/wechatpay.png" alt="沉鱼 微信支付"><p>微信支付</p></div><div><img data-src="/images/alipay.png" alt="沉鱼 支付宝"><p>支付宝</p></div><div><img data-src="/images/paypal.png" alt="沉鱼 贝宝"><p>贝宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者： </strong>沉鱼 <i class="ic i-at"><em>@</em></i>沉鱼的博客</li><li class="link"><strong>本文链接：</strong> <a href="https://scottalive.github.io/computer-science/python/basic/42.%E6%B7%B1%E5%85%A5%E6%A8%A1%E5%9E%8B/" title="深入模型">https://scottalive.github.io/computer-science/python/basic/42.深入模型/</a></li><li class="license"><strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/computer-science/python/basic/41.Django%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;642523c5a682492fcce0324d.jpg" title="Django快速上手"><span class="type">上一篇</span> <span class="category"><i class="ic i-flag"></i> Python 基础</span><h3>Django快速上手</h3></a></div><div class="item right"><a href="/computer-science/python/basic/43.%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%92%8CAjax%E8%AF%B7%E6%B1%82/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;642523aba682492fcce0126e.jpg" title="静态资源和Ajax请求"><span class="type">下一篇</span> <span class="category"><i class="ic i-flag"></i> Python 基础</span><h3>静态资源和Ajax请求</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">深入模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E5%92%8C%E5%BA%94%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">创建项目和应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93mysql"><span class="toc-number">1.2.</span> <span class="toc-text">配置关系型数据库 MySQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8orm%E5%AE%8C%E6%88%90%E6%A8%A1%E5%9E%8B%E7%9A%84crud%E6%93%8D%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">使用 ORM 完成模型的 CRUD 操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E"><span class="toc-number">1.3.1.</span> <span class="toc-text">新增</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-number">1.3.2.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0"><span class="toc-number">1.3.3.</span> <span class="toc-text">更新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.3.4.</span> <span class="toc-text">查询</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8django%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.4.</span> <span class="toc-text">利用 Django 后台管理模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%AD%A6%E7%A7%91%E9%A1%B5%E5%92%8C%E8%80%81%E5%B8%88%E9%A1%B5%E6%95%88%E6%9E%9C"><span class="toc-number">1.5.</span> <span class="toc-text">实现学科页和老师页效果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">暂无该学科老师信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E5%86%85%E5%AE%B9"><span class="toc-number">2.1.</span> <span class="toc-text">补充内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#django%E6%A8%A1%E5%9E%8B%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="toc-number">2.1.1.</span> <span class="toc-text">Django 模型最佳实践</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%AE%9A%E4%B9%89%E5%8F%82%E8%80%83"><span class="toc-number">2.1.2.</span> <span class="toc-text">模型定义参考</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E6%AE%B5"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">字段</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E6%AE%B5%E5%B1%9E%E6%80%A7"><span class="toc-number">2.1.2.2.</span> <span class="toc-text">字段属性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%85%83%E6%95%B0%E6%8D%AE%E9%80%89%E9%A1%B9"><span class="toc-number">2.1.2.3.</span> <span class="toc-text">模型元数据选项</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%8F%82%E8%80%83"><span class="toc-number">2.1.3.</span> <span class="toc-text">查询参考</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8C%89%E5%AD%97%E6%AE%B5%E6%9F%A5%E6%89%BE%E5%8F%AF%E4%BB%A5%E7%94%A8%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">按字段查找可以用的条件</span></a></li></ol></li></ol></li></ol></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li><a href="/computer-science/python/basic/01.%E5%88%9D%E8%AF%86Python/" rel="bookmark" title="初识Python">初识Python</a></li><li><a href="/computer-science/python/basic/02.%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0/" rel="bookmark" title="语言元素">语言元素</a></li><li><a href="/computer-science/python/basic/NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%A5%E9%97%A8/" rel="bookmark" title="NoSQL入门">NoSQL入门</a></li><li><a href="/computer-science/python/basic/03.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/" rel="bookmark" title="分支结构">分支结构</a></li><li><a href="/computer-science/python/basic/04.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/" rel="bookmark" title="循环结构">循环结构</a></li><li><a href="/computer-science/python/basic/05.%E6%9E%84%E9%80%A0%E7%A8%8B%E5%BA%8F%E9%80%BB%E8%BE%91/" rel="bookmark" title="构造程序逻辑">构造程序逻辑</a></li><li><a href="/computer-science/python/basic/06.%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="bookmark" title="函数和模块的使用">函数和模块的使用</a></li><li><a href="/computer-science/python/basic/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="bookmark" title="字符串和常用数据结构">字符串和常用数据结构</a></li><li><a href="/computer-science/python/basic/08.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="bookmark" title="面向对象编程基础">面向对象编程基础</a></li><li><a href="/computer-science/python/basic/09.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/" rel="bookmark" title="面向对象进阶">面向对象进阶</a></li><li><a href="/computer-science/python/basic/10.%E5%9B%BE%E5%BD%A2%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="bookmark" title="图形用户界面和游戏开发">图形用户界面和游戏开发</a></li><li><a href="/computer-science/python/basic/11.%E6%96%87%E4%BB%B6%E5%92%8C%E5%BC%82%E5%B8%B8/" rel="bookmark" title="文件和异常">文件和异常</a></li><li><a href="/computer-science/python/basic/12.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="bookmark" title="使用正则表达式">使用正则表达式</a></li><li><a href="/computer-science/python/basic/13.%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" rel="bookmark" title="进程和线程">进程和线程</a></li><li><a href="/computer-science/python/basic/14.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" rel="bookmark" title="网络编程入门">网络编程入门</a></li><li><a href="/computer-science/python/basic/15.%E5%9B%BE%E5%83%8F%E5%92%8C%E5%8A%9E%E5%85%AC%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/" rel="bookmark" title="图像和办公文档处理">图像和办公文档处理</a></li><li><a href="/computer-science/python/basic/16-20.Python%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6/" rel="bookmark" title="Python语言进阶">Python语言进阶</a></li><li><a href="/computer-science/python/basic/21-30.Web%E5%89%8D%E7%AB%AF%E6%A6%82%E8%BF%B0/" rel="bookmark" title="Web前端概述">Web前端概述</a></li><li><a href="/computer-science/python/basic/31-35.%E7%8E%A9%E8%BD%ACLinux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="bookmark" title="玩转Linux操作系统">玩转Linux操作系统</a></li><li><a href="/computer-science/python/basic/36.%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8CMySQL%E6%A6%82%E8%BF%B0/" rel="bookmark" title="关系型数据库和MySQL概述">关系型数据库和MySQL概述</a></li><li><a href="/computer-science/python/basic/37.SQL%E8%AF%A6%E8%A7%A3/" rel="bookmark" title="SQL 和 MySQL 详解">SQL 和 MySQL 详解</a></li><li><a href="/computer-science/python/basic/38.%E6%B7%B1%E5%85%A5MySQL/" rel="bookmark" title="深入MySQL">深入MySQL</a></li><li><a href="/computer-science/python/basic/39.Python%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%85%A5MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="bookmark" title="Python程序接入MySQL数据库">Python程序接入MySQL数据库</a></li><li><a href="/computer-science/python/basic/40.%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E5%92%8CHiveSQL/" rel="bookmark" title="Hive简介">Hive简介</a></li><li><a href="/computer-science/python/basic/41.Django%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" rel="bookmark" title="Django快速上手">Django快速上手</a></li><li class="active"><a href="/computer-science/python/basic/42.%E6%B7%B1%E5%85%A5%E6%A8%A1%E5%9E%8B/" rel="bookmark" title="深入模型">深入模型</a></li><li><a href="/computer-science/python/basic/43.%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%92%8CAjax%E8%AF%B7%E6%B1%82/" rel="bookmark" title="静态资源和Ajax请求">静态资源和Ajax请求</a></li><li><a href="/computer-science/python/basic/44.Cookie%E5%92%8CSession/" rel="bookmark" title="Cookie和Session">Cookie和Session</a></li><li><a href="/computer-science/python/basic/45.%E5%88%B6%E4%BD%9C%E6%8A%A5%E8%A1%A8/" rel="bookmark" title="制作报表">制作报表</a></li><li><a href="/computer-science/python/basic/46.%E6%97%A5%E5%BF%97%E5%92%8C%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7%E6%A0%8F/" rel="bookmark" title="日志和调试工具栏">日志和调试工具栏</a></li><li><a href="/computer-science/python/basic/47.%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E5%BA%94%E7%94%A8/" rel="bookmark" title="中间件的应用">中间件的应用</a></li><li><a href="/computer-science/python/basic/48.%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/" rel="bookmark" title="前后端分离开发入门">前后端分离开发入门</a></li><li><a href="/computer-science/python/basic/49.RESTful%E6%9E%B6%E6%9E%84%E5%92%8CDRF%E5%85%A5%E9%97%A8/" rel="bookmark" title="RESTful架构和DRF入门">RESTful架构和DRF入门</a></li><li><a href="/computer-science/python/basic/50.RESTful%E6%9E%B6%E6%9E%84%E5%92%8CDRF%E8%BF%9B%E9%98%B6/" rel="bookmark" title="RESTful架构和DRF进阶">RESTful架构和DRF进阶</a></li><li><a href="/computer-science/python/basic/51.%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98/" rel="bookmark" title="使用缓存">使用缓存</a></li><li><a href="/computer-science/python/basic/52.%E6%8E%A5%E5%85%A5%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0/" rel="bookmark" title="接入三方平台">接入三方平台</a></li><li><a href="/computer-science/python/basic/53.%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="bookmark" title="异步任务和定时任务">异步任务和定时任务</a></li><li><a href="/computer-science/python/basic/54.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="bookmark" title="单元测试">单元测试</a></li><li><a href="/computer-science/python/basic/55.%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/" rel="bookmark" title="项目上线">项目上线</a></li><li><a href="/computer-science/python/basic/56-60.%E7%94%A8FastAPI%E5%BC%80%E5%8F%91%E6%95%B0%E6%8D%AE%E6%8E%A5%E5%8F%A3/" rel="bookmark" title="用FastAPI开发网络数据接口">用FastAPI开发网络数据接口</a></li><li><a href="/computer-science/python/basic/61.%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E6%A6%82%E8%BF%B0/" rel="bookmark" title="网络数据采集概述">网络数据采集概述</a></li><li><a href="/computer-science/python/basic/62.%E7%94%A8Python%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90-1/" rel="bookmark" title="用Python获取网络数据">用Python获取网络数据</a></li><li><a href="/computer-science/python/basic/62.%E7%94%A8Python%E8%A7%A3%E6%9E%90HTML%E9%A1%B5%E9%9D%A2-2/" rel="bookmark" title="用Python解析HTML页面">用Python解析HTML页面</a></li><li><a href="/computer-science/python/basic/63.%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9C%A8%E7%88%AC%E8%99%AB%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" rel="bookmark" title="并发编程在爬虫中的应用">并发编程在爬虫中的应用</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-1/" rel="bookmark" title="Python中的并发编程-1">Python中的并发编程-1</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-2/" rel="bookmark" title="Python中的并发编程-2">Python中的并发编程-2</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-3/" rel="bookmark" title="Python中的并发编程-3">Python中的并发编程-3</a></li><li><a href="/computer-science/python/basic/64.%E4%BD%BF%E7%94%A8Selenium%E6%8A%93%E5%8F%96%E7%BD%91%E9%A1%B5%E5%8A%A8%E6%80%81%E5%86%85%E5%AE%B9/" rel="bookmark" title="使用Selenium抓取网页动态内容">使用Selenium抓取网页动态内容</a></li><li><a href="/computer-science/python/basic/65.%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6Scrapy%E7%AE%80%E4%BB%8B/" rel="bookmark" title="爬虫框架Scrapy简介">爬虫框架Scrapy简介</a></li><li><a href="/computer-science/python/basic/66.%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0/" rel="bookmark" title="数据分析概述">数据分析概述</a></li><li><a href="/computer-science/python/basic/67.%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" rel="bookmark" title="环境准备">环境准备</a></li><li><a href="/computer-science/python/basic/68.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-1/" rel="bookmark" title="NumPy的应用-1">NumPy的应用-1</a></li><li><a href="/computer-science/python/basic/69.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-2/" rel="bookmark" title="NumPy的应用-2">NumPy的应用-2</a></li><li><a href="/computer-science/python/basic/70.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-1/" rel="bookmark" title="Pandas的应用-1">Pandas的应用-1</a></li><li><a href="/computer-science/python/basic/71.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-2/" rel="bookmark" title="Pandas的应用-2">Pandas的应用-2</a></li><li><a href="/computer-science/python/basic/72.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-3/" rel="bookmark" title="Pandas的应用-3">Pandas的应用-3</a></li><li><a href="/computer-science/python/basic/73.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-4/" rel="bookmark" title="Pandas的应用-4">Pandas的应用-4</a></li><li><a href="/computer-science/python/basic/74.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-5/" rel="bookmark" title="Pandas的应用-5">Pandas的应用-5</a></li><li><a href="/computer-science/python/basic/75.%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-1/" rel="bookmark" title="数据可视化-1">数据可视化-1</a></li><li><a href="/computer-science/python/basic/76.%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-2/" rel="bookmark" title="数据可视化-2">数据可视化-2</a></li><li><a href="/computer-science/python/basic/100.Python%E9%9D%A2%E8%AF%95%E9%A2%98%E5%AE%9E%E5%BD%95/" rel="bookmark" title="Python面试题实录">Python面试题实录</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="image" itemprop="image" alt="沉鱼" data-src="/images/avatar.jpg"><p class="name" itemprop="name">沉鱼</p><div class="description" itemprop="description">编程笔记 & 资料分享</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">95</span> <span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">14</span> <span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">18</span> <span class="name">标签</span></a></div></nav><div class="social"><span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1Njb3R0YWxpdmU=" title="https:&#x2F;&#x2F;github.com&#x2F;Scottalive"><i class="ic i-github"></i></span> <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9hbWVoaW1l" title="https:&#x2F;&#x2F;twitter.com&#x2F;amehime"><i class="ic i-twitter"></i></span> <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9ydXJpc216aw==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;rurismzk"><i class="ic i-zhihu"></i></span> <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTEyODg2ODIz" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;12886823"><i class="ic i-cloud-music"></i></span> <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vYW1laGltZQ==" title="https:&#x2F;&#x2F;weibo.com&#x2F;amehime"><i class="ic i-weibo"></i></span> <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS9hbWVoaW1l" title="https:&#x2F;&#x2F;about.me&#x2F;amehime"><i class="ic i-address-card"></i></span> <span class="exturl item email" data-url="bWFpbHRvOnlvdXJuYW1lQG1haWwuY29t" title="mailto:yourname@mail.com"><i class="ic i-envelope"></i></span> <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;yourname"><i class="ic i-facebook"></i></span> <span class="exturl item stackoverflow" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname"><i class="ic i-stack-overflow"></i></span> <span class="exturl item instagram" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;instagram.com&#x2F;yourname"><i class="ic i-instagram"></i></span> <span class="exturl item skype" data-url="c2t5cGU6eW91cm5hbWU/Y2FsbHxjaGF0" title="skype:yourname?call|chat"><i class="ic i-skype"></i></span> <span class="exturl item douban" data-url="aHR0cHM6Ly93d3cuZG91YmFuLmNvbS9wZW9wbGUveW91cm5hbWUv" title="https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;yourname&#x2F;"><i class="ic i-douban"></i></span></div><ul class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li><li class="item"><a href="/friends/" rel="section"><i class="ic i-heart"></i>友達</a></li><li class="item"><a href="/links/" rel="section"><i class="ic i-magic"></i>链接</a></li></ul></div></div></div><ul id="quick"><li class="prev pjax"><a href="/computer-science/python/basic/41.Django%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/computer-science/python/basic/43.%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%92%8CAjax%E8%AF%B7%E6%B1%82/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/66.%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0/" title="数据分析概述">数据分析概述</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/arithmetic/" title="分类于 算法">算法</a></div><span><a href="/computer-science/java/arithmetic/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" title="排序算法">排序算法</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/psychology/" title="分类于 心理学">心理学</a> <i class="ic i-angle-right"></i> <a href="/categories/psychology/%E6%93%8D%E7%BA%B5%E5%BF%83%E7%90%86%E5%AD%A6/" title="分类于 操纵心理学">操纵心理学</a></div><span><a href="/psychology/%E6%93%8D%E7%BA%B5%E5%BF%83%E7%90%86%E5%AD%A6/%E6%93%8D%E7%BA%B5%E6%80%A7%E7%90%86%E5%AD%A6/" title="操纵性理学">操纵性理学</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/65.%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6Scrapy%E7%AE%80%E4%BB%8B/" title="爬虫框架Scrapy简介">爬虫框架Scrapy简介</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/14.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" title="网络编程入门">网络编程入门</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/53.%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" title="异步任务和定时任务">异步任务和定时任务</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/76.%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-2/" title="数据可视化-2">数据可视化-2</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/45.%E5%88%B6%E4%BD%9C%E6%8A%A5%E8%A1%A8/" title="制作报表">制作报表</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/interview/" title="分类于 面试题">面试题</a></div><span><a href="/computer-science/java/interview/SpringBoot%E9%9D%A2%E8%AF%95%E9%A2%98/" title="SpringBoot面试题">SpringBoot面试题</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/notice/" title="分类于 开发规范">开发规范</a></div><span><a href="/computer-science/java/notice/%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E5%B9%82%E7%AD%89%E6%80%A7/" title="接口实现幂等性">接口实现幂等性</a></span></li></ul></div><div><h2>最新评论</h2><ul class="leancloud-recent-comment"></ul></div></div><div class="status"><div class="copyright">&copy; 2010 – <span itemprop="copyrightYear">2025</span> <span class="with-love"><i class="ic i-sakura rotate"></i> </span><span class="author" itemprop="copyrightHolder">沉鱼 @ Chrono Cross</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i> </span><span title="站点总字数">562k 字</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="ic i-coffee"></i> </span><span title="站点阅读时长">8:31</span></div><div class="powered-by">基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL={path:"computer-science/python/basic/42.深入模型/",favicon:{show:"（●´3｀●）やれやれだぜ",hide:"(´Д｀)大変だ！"},search:{placeholder:"文章搜索",empty:"关于 「 ${query} 」，什么也没搜到",stats:"${time} ms 内找到 ${hits} 条结果"},valine:!0,fancybox:!0,copyright:'复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',ignores:[function(e){return e.includes("#")},function(e){return new RegExp(LOCAL.path+"$").test(e)}]}</script><script src="https://cdn.polyfill.io/v2/polyfill.js"></script><script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script><script src="/js/app.js?v=0.2.5"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/shizuku.model.json"},display:{position:"right",width:200,height:400},mobile:{show:!0},react:{opacity:.7},log:!1})</script></body></html>

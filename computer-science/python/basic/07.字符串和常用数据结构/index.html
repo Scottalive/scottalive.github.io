@@ -1,0 +1,489 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#FFF"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="alternate" type="application/rss+xml" title="沉鱼的博客" href="https://scottalive.github.io/rss.xml"><link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="https://scottalive.github.io/atom.xml"><link rel="alternate" type="application/json" title="沉鱼的博客" href="https://scottalive.github.io/feed.json"><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext"><link rel="stylesheet" href="/css/app.css?v=0.2.5"><meta name="keywords" content="编程笔记,python"><link rel="canonical" href="https://scottalive.github.io/computer-science/python/basic/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><title>字符串和常用数据结构 - Python 基础 - Python - 计算机科学 | Chrono Cross = 沉鱼的博客 = 了解自我，超越自我</title><meta name="generator" content="Hexo 5.4.2"></head><body itemscope itemtype="http://schema.org/WebPage"><div id="loading"><div class="cat"><div class="body"></div><div class="head"><div class="face"></div></div><div class="foot"><div class="tummy-end"></div><div class="bottom"></div><div class="legs left"></div><div class="legs right"></div></div><div class="paw"><div class="hands left"></div><div class="hands right"></div></div></div></div><div id="container"><header id="header" itemscope itemtype="http://schema.org/WPHeader"><div class="inner"><div id="brand"><div class="pjax"><h1 itemprop="name headline">字符串和常用数据结构</h1><div class="meta"><span class="item" title="创建时间：2025-04-14 02:45:49"><span class="icon"><i class="ic i-calendar"></i> </span><span class="text">发表于</span> <time itemprop="dateCreated datePublished" datetime="2025-04-14T02:45:49+08:00">2025-04-14</time> </span><span class="item" title="本文字数"><span class="icon"><i class="ic i-pen"></i> </span><span class="text">本文字数</span> <span>12k</span> <span class="text">字</span> </span><span class="item" title="阅读时长"><span class="icon"><i class="ic i-clock"></i> </span><span class="text">阅读时长</span> <span>11 分钟</span></span></div></div></div><nav id="nav"><div class="inner"><div class="toggle"><div class="lines" aria-label="切换导航栏"><span class="line"></span> <span class="line"></span> <span class="line"></span></div></div><ul class="menu"><li class="item title"><a href="/" rel="start">Chrono Cross</a></li></ul><ul class="right"><li class="item theme"><i class="ic i-sun"></i></li><li class="item search"><i class="ic i-search"></i></li></ul></div></nav></div><div id="imgs" class="pjax"><ul><li class="item" data-background-image="https://pic.imgdb.cn/item/642523aba682492fcce0126e.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/642523aca682492fcce012c7.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/642523aba682492fcce0129d.jpg"></li><li class="item" data-background-image="https://1306263805.vod2.myqcloud.com/b5881d8bvodsh1306263805/0441a051243791580874345033/VDEnbO5GdRIA.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/642523fca682492fcce07831.jpg"></li><li class="item" data-background-image="https://pic.imgdb.cn/item/6425240da682492fcce08e98.jpg"></li></ul></div></header><div id="waves"><svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/></defs><g class="parallax"><use xlink:href="#gentle-wave" x="48" y="0"/><use xlink:href="#gentle-wave" x="48" y="3"/><use xlink:href="#gentle-wave" x="48" y="5"/><use xlink:href="#gentle-wave" x="48" y="7"/></g></svg></div><main><div class="inner"><div id="main" class="pjax"><div class="article wrap"><div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList"><i class="ic i-home"></i> <span><a href="/">首页</a></span><i class="ic i-angle-right"></i> <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/" itemprop="item" rel="index" title="分类于 计算机科学"><span itemprop="name">计算机科学</span></a><meta itemprop="position" content="1"></span><i class="ic i-angle-right"></i> <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/python/" itemprop="item" rel="index" title="分类于 Python"><span itemprop="name">Python</span></a><meta itemprop="position" content="2"></span><i class="ic i-angle-right"></i> <span class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/computer-science/python/basic/" itemprop="item" rel="index" title="分类于 Python 基础"><span itemprop="name">Python 基础</span></a><meta itemprop="position" content="3"></span></div><article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN"><link itemprop="mainEntityOfPage" href="https://scottalive.github.io/computer-science/python/basic/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="image" content="/images/avatar.jpg"><meta itemprop="name" content="沉鱼"><meta itemprop="description" content="了解自我，超越自我, 编程笔记 & 资料分享"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="沉鱼的博客"></span><div class="body md" itemprop="articleBody"><h2 id="字符串和常用数据结构"><a class="anchor" href="#字符串和常用数据结构">#</a> 字符串和常用数据结构</h2><h3 id="使用字符串"><a class="anchor" href="#使用字符串">#</a> 使用字符串</h3><p>第二次世界大战促使了现代电子计算机的诞生，最初计算机被应用于导弹弹道的计算，而在计算机诞生后的很多年时间里，计算机处理的信息基本上都是数值型的信息。世界上的第一台电子计算机叫 ENIAC（电子数值积分计算机），诞生于美国的宾夕法尼亚大学，每秒钟能够完成约 5000 次浮点运算。随着时间的推移，虽然数值运算仍然是计算机日常工作中最为重要的事情之一，但是今天的计算机处理得更多的数据可能都是以文本的方式存在的，如果我们希望通过 Python 程序操作这些文本信息，就必须要先了解字符串类型以及与它相关的知识。</p><p>所谓<strong>字符串</strong>，就是由零个或多个字符组成的有限序列，一般记为<img data-src="./res/formula_5.png" alt="$${\displaystyle s=a_{1}a_{2}\dots a_{n}(0\leq n \leq \infty)}$$">。在 Python 程序中，如果我们把单个或多个字符用单引号或者双引号包围起来，就可以表示一个字符串。</p><pre><code class="language-Python">s1 = 'hello, world!'
+s2 = &quot;hello, world!&quot;
+# 以三个双引号或单引号开头的字符串可以折行
+s3 = &quot;&quot;&quot;
+hello, 
+world!
+&quot;&quot;&quot;
+print(s1, s2, s3, end='')
+</code></pre><p>可以在字符串中使用 <code>\</code> （反斜杠）来表示转义，也就是说 <code>\</code> 后面的字符不再是它原来的意义，例如： <code>\n</code> 不是代表反斜杠和字符 n，而是表示换行；而 <code>\t</code> 也不是代表反斜杠和字符 t，而是表示制表符。所以如果想在字符串中表示 <code>'</code> 要写成 <code>\'</code> ，同理想表示 <code>\</code> 要写成 <code>\\</code> 。可以运行下面的代码看看会输出什么。</p><pre><code class="language-Python">s1 = '\'hello, world!\''
+s2 = '\n\\hello, world!\\\n'
+print(s1, s2, end='')
+</code></pre><p>在 <code>\</code> 后面还可以跟一个八进制或者十六进制数来表示字符，例如 <code>\141</code> 和 <code>\x61</code> 都代表小写字母 <code>a</code> ，前者是八进制的表示法，后者是十六进制的表示法。也可以在 <code>\</code> 后面跟 Unicode 字符编码来表示字符，例如 <code>\u9a86\u660a</code> 代表的是中文 “骆昊”。运行下面的代码，看看输出了什么。</p><pre><code class="language-Python">s1 = '\141\142\143\x61\x62\x63'
+s2 = '\u9a86\u660a'
+print(s1, s2)
+</code></pre><p>如果不希望字符串中的 <code>\</code> 表示转义，我们可以通过在字符串的最前面加上字母 <code>r</code> 来加以说明，再看看下面的代码又会输出什么。</p><pre><code class="language-Python">s1 = r'\'hello, world!\''
+s2 = r'\n\\hello, world!\\\n'
+print(s1, s2, end='')
+</code></pre><p>Python 为字符串类型提供了非常丰富的运算符，我们可以使用 <code>+</code> 运算符来实现字符串的拼接，可以使用 <code>*</code> 运算符来重复一个字符串的内容，可以使用 <code>in</code> 和 <code>not in</code> 来判断一个字符串是否包含另外一个字符串（成员运算），我们也可以用 <code>[]</code> 和 <code>[:]</code> 运算符从字符串取出某个字符或某些字符（切片运算），代码如下所示。</p><pre><code class="language-Python">s1 = 'hello ' * 3
+print(s1) # hello hello hello 
+s2 = 'world'
+s1 += s2
+print(s1) # hello hello hello world
+print('ll' in s1) # True
+print('good' in s1) # False
+str2 = 'abc123456'
+# 从字符串中取出指定位置的字符(下标运算)
+print(str2[2]) # c
+# 字符串切片(从指定的开始索引到指定的结束索引)
+print(str2[2:5]) # c12
+print(str2[2:]) # c123456
+print(str2[2::2]) # c246
+print(str2[::2]) # ac246
+print(str2[::-1]) # 654321cba
+print(str2[-3:-1]) # 45
+</code></pre><p>在 Python 中，我们还可以通过一系列的方法来完成对字符串的处理，代码如下所示。</p><pre><code class="language-Python">str1 = 'hello, world!'
+# 通过内置函数len计算字符串的长度
+print(len(str1)) # 13
+# 获得字符串首字母大写的拷贝
+print(str1.capitalize()) # Hello, world!
+# 获得字符串每个单词首字母大写的拷贝
+print(str1.title()) # Hello, World!
+# 获得字符串变大写后的拷贝
+print(str1.upper()) # HELLO, WORLD!
+# 从字符串中查找子串所在位置
+print(str1.find('or')) # 8
+print(str1.find('shit')) # -1
+# 与find类似但找不到子串时会引发异常
+# print(str1.index('or'))
+# print(str1.index('shit'))
+# 检查字符串是否以指定的字符串开头
+print(str1.startswith('He')) # False
+print(str1.startswith('hel')) # True
+# 检查字符串是否以指定的字符串结尾
+print(str1.endswith('!')) # True
+# 将字符串以指定的宽度居中并在两侧填充指定的字符
+print(str1.center(50, '*'))
+# 将字符串以指定的宽度靠右放置左侧填充指定的字符
+print(str1.rjust(50, ' '))
+str2 = 'abc123456'
+# 检查字符串是否由数字构成
+print(str2.isdigit())  # False
+# 检查字符串是否以字母构成
+print(str2.isalpha())  # False
+# 检查字符串是否以数字和字母构成
+print(str2.isalnum())  # True
+str3 = '  jackfrued@126.com '
+print(str3)
+# 获得字符串修剪左右两侧空格之后的拷贝
+print(str3.strip())
+</code></pre><p>我们之前讲过，可以用下面的方式来格式化输出字符串。</p><pre><code class="language-Python">a, b = 5, 10
+print('%d * %d = %d' % (a, b, a * b))
+</code></pre><p>当然，我们也可以用字符串提供的方法来完成字符串的格式，代码如下所示。</p><pre><code class="language-Python">a, b = 5, 10
+print('&#123;0&#125; * &#123;1&#125; = &#123;2&#125;'.format(a, b, a * b))
+</code></pre><p>Python 3.6 以后，格式化字符串还有更为简洁的书写方式，就是在字符串前加上字母 <code>f</code> ，我们可以使用下面的语法糖来简化上面的代码。</p><pre><code class="language-Python">a, b = 5, 10
+print(f'&#123;a&#125; * &#123;b&#125; = &#123;a * b&#125;')
+</code></pre><p>除了字符串，Python 还内置了多种类型的数据结构，如果要在程序中保存和操作数据，绝大多数时候可以利用现有的数据结构来实现，最常用的包括列表、元组、集合和字典。</p><h3 id="使用列表"><a class="anchor" href="#使用列表">#</a> 使用列表</h3><p>不知道大家是否注意到，刚才我们讲到的字符串类型（ <code>str</code> ）和之前我们讲到的数值类型（ <code>int</code> 和 <code>float</code> ）有一些区别。数值类型是标量类型，也就是说这种类型的对象没有可以访问的内部结构；而字符串类型是一种结构化的、非标量类型，所以才会有一系列的属性和方法。接下来我们要介绍的列表（ <code>list</code> ），也是一种结构化的、非标量类型，它是值的有序序列，每个值都可以通过索引进行标识，定义列表可以将列表的元素放在 <code>[]</code> 中，多个元素用 <code>,</code> 进行分隔，可以使用 <code>for</code> 循环对列表元素进行遍历，也可以使用 <code>[]</code> 或 <code>[:]</code> 运算符取出列表中的一个或多个元素。</p><p>下面的代码演示了如何定义列表、如何遍历列表以及列表的下标运算。</p><pre><code class="language-Python">list1 = [1, 3, 5, 7, 100]
+print(list1) # [1, 3, 5, 7, 100]
+# 乘号表示列表元素的重复
+list2 = ['hello'] * 3
+print(list2) # ['hello', 'hello', 'hello']
+# 计算列表长度(元素个数)
+print(len(list1)) # 5
+# 下标(索引)运算
+print(list1[0]) # 1
+print(list1[4]) # 100
+# print(list1[5])  # IndexError: list index out of range
+print(list1[-1]) # 100
+print(list1[-3]) # 5
+list1[2] = 300
+print(list1) # [1, 3, 300, 7, 100]
+# 通过循环用下标遍历列表元素
+for index in range(len(list1)):
+    print(list1[index])
+# 通过for循环遍历列表元素
+for elem in list1:
+    print(elem)
+# 通过enumerate函数处理列表之后再遍历可以同时获得元素索引和值
+for index, elem in enumerate(list1):
+    print(index, elem)
+</code></pre><p>下面的代码演示了如何向列表中添加元素以及如何从列表中移除元素。</p><pre><code class="language-Python">list1 = [1, 3, 5, 7, 100]
+# 添加元素
+list1.append(200)
+list1.insert(1, 400)
+# 合并两个列表
+# list1.extend([1000, 2000])
+list1 += [1000, 2000]
+print(list1) # [1, 400, 3, 5, 7, 100, 200, 1000, 2000]
+print(len(list1)) # 9
+# 先通过成员运算判断元素是否在列表中，如果存在就删除该元素
+if 3 in list1:
+	list1.remove(3)
+if 1234 in list1:
+    list1.remove(1234)
+print(list1) # [1, 400, 5, 7, 100, 200, 1000, 2000]
+# 从指定的位置删除元素
+list1.pop(0)
+list1.pop(len(list1) - 1)
+print(list1) # [400, 5, 7, 100, 200, 1000]
+# 清空列表元素
+list1.clear()
+print(list1) # []
+</code></pre><p>和字符串一样，列表也可以做切片操作，通过切片操作我们可以实现对列表的复制或者将列表中的一部分取出来创建出新的列表，代码如下所示。</p><pre><code class="language-Python">fruits = ['grape', 'apple', 'strawberry', 'waxberry']
+fruits += ['pitaya', 'pear', 'mango']
+# 列表切片
+fruits2 = fruits[1:4]
+print(fruits2) # apple strawberry waxberry
+# 可以通过完整切片操作来复制列表
+fruits3 = fruits[:]
+print(fruits3) # ['grape', 'apple', 'strawberry', 'waxberry', 'pitaya', 'pear', 'mango']
+fruits4 = fruits[-3:-1]
+print(fruits4) # ['pitaya', 'pear']
+# 可以通过反向切片操作来获得倒转后的列表的拷贝
+fruits5 = fruits[::-1]
+print(fruits5) # ['mango', 'pear', 'pitaya', 'waxberry', 'strawberry', 'apple', 'grape']
+</code></pre><p>下面的代码实现了对列表的排序操作。</p><pre><code class="language-Python">list1 = ['orange', 'apple', 'zoo', 'internationalization', 'blueberry']
+list2 = sorted(list1)
+# sorted函数返回列表排序后的拷贝不会修改传入的列表
+# 函数的设计就应该像sorted函数一样尽可能不产生副作用
+list3 = sorted(list1, reverse=True)
+# 通过key关键字参数指定根据字符串长度进行排序而不是默认的字母表顺序
+list4 = sorted(list1, key=len)
+print(list1)
+print(list2)
+print(list3)
+print(list4)
+# 给列表对象发出排序消息直接在列表对象上进行排序
+list1.sort(reverse=True)
+print(list1)
+</code></pre><h3 id="生成式和生成器"><a class="anchor" href="#生成式和生成器">#</a> 生成式和生成器</h3><p>我们还可以使用列表的生成式语法来创建列表，代码如下所示。</p><pre><code class="language-Python">f = [x for x in range(1, 10)]
+print(f)
+f = [x + y for x in 'ABCDE' for y in '1234567']
+print(f)
+# 用列表的生成表达式语法创建列表容器
+# 用这种语法创建列表之后元素已经准备就绪所以需要耗费较多的内存空间
+f = [x ** 2 for x in range(1, 1000)]
+print(sys.getsizeof(f))  # 查看对象占用内存的字节数
+print(f)
+# 请注意下面的代码创建的不是一个列表而是一个生成器对象
+# 通过生成器可以获取到数据但它不占用额外的空间存储数据
+# 每次需要数据的时候就通过内部的运算得到数据(需要花费额外的时间)
+f = (x ** 2 for x in range(1, 1000))
+print(sys.getsizeof(f))  # 相比生成式生成器不占用存储数据的空间
+print(f)
+for val in f:
+    print(val)
+</code></pre><p>除了上面提到的生成器语法，Python 中还有另外一种定义生成器的方式，就是通过 <code>yield</code> 关键字将一个普通函数改造成生成器函数。下面的代码演示了如何实现一个生成<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JTk2JTkwJUU2JUIzJUEyJUU5JTgyJUEzJUU1JUE1JTkxJUU2JTk1JUIwJUU1JTg4JTk3">斐波拉切数列</span>的生成器。所谓斐波拉切数列可以通过下面<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU5JTgwJTkyJUU1JUJEJTky">递归</span>的方法来进行定义：</p><p><img data-src="./res/formula_6.png" alt="$${\displaystyle F_{0}=0}$$"></p><p><img data-src="./res/formula_7.png" alt="$${\displaystyle F_{1}=1}$$"></p><p><img data-src="./res/formula_8.png" alt="$${\displaystyle F_{n}=F_{n-1}+F_{n-2}}({n}\geq{2})$$"></p><p><img data-src="./res/fibonacci-blocks.png" alt=""></p><pre><code class="language-Python">def fib(n):
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+        yield a
+
+
+def main():
+    for val in fib(20):
+        print(val)
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><h3 id="使用元组"><a class="anchor" href="#使用元组">#</a> 使用元组</h3><p>Python 中的元组与列表类似也是一种容器数据类型，可以用一个变量（对象）来存储多个数据，不同之处在于元组的元素不能修改，在前面的代码中我们已经不止一次使用过元组了。顾名思义，我们把多个元素组合到一起就形成了一个元组，所以它和列表一样可以保存多条数据。下面的代码演示了如何定义和使用元组。</p><pre><code class="language-Python"># 定义元组
+t = ('骆昊', 38, True, '四川成都')
+print(t)
+# 获取元组中的元素
+print(t[0])
+print(t[3])
+# 遍历元组中的值
+for member in t:
+    print(member)
+# 重新给元组赋值
+# t[0] = '王大锤'  # TypeError
+# 变量t重新引用了新的元组原来的元组将被垃圾回收
+t = ('王大锤', 20, True, '云南昆明')
+print(t)
+# 将元组转换成列表
+person = list(t)
+print(person)
+# 列表是可以修改它的元素的
+person[0] = '李小龙'
+person[1] = 25
+print(person)
+# 将列表转换成元组
+fruits_list = ['apple', 'banana', 'orange']
+fruits_tuple = tuple(fruits_list)
+print(fruits_tuple)
+</code></pre><p>这里有一个非常值得探讨的问题，我们已经有了列表这种数据结构，为什么还需要元组这样的类型呢？</p><ol><li>元组中的元素是无法修改的，事实上我们在项目中尤其是<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3poLWhhbnMvJUU1JUE0JTlBJUU3JUJBJUJGJUU3JUE4JThC">多线程</span>环境（后面会讲到）中可能更喜欢使用的是那些不变对象（一方面因为对象状态不能修改，所以可以避免由此引起的不必要的程序错误，简单的说就是一个不变的对象要比可变的对象更加容易维护；另一方面因为没有任何一个线程能够修改不变对象的内部状态，一个不变对象自动就是线程安全的，这样就可以省掉处理同步化的开销。一个不变对象可以方便的被共享访问）。所以结论就是：如果不需要对元素进行添加、删除、修改的时候，可以考虑使用元组，当然如果一个方法要返回多个值，使用元组也是不错的选择。</li><li>元组在创建时间和占用的空间上面都优于列表。我们可以使用 sys 模块的 getsizeof 函数来检查存储同样的元素的元组和列表各自占用了多少内存空间，这个很容易做到。我们也可以在 ipython 中使用魔法指令 % timeit 来分析创建同样内容的元组和列表所花费的时间，下图是我的 macOS 系统上测试的结果。</li></ol><p><img data-src="./res/ipython-timeit.png" alt=""></p><h3 id="使用集合"><a class="anchor" href="#使用集合">#</a> 使用集合</h3><p>Python 中的集合跟数学上的集合是一致的，不允许有重复元素，而且可以进行交集、并集、差集等运算。</p><p><img data-src="./res/python-set.png" alt=""></p><p>可以按照下面代码所示的方式来创建和使用集合。</p><pre><code class="language-Python"># 创建集合的字面量语法
+set1 = &#123;1, 2, 3, 3, 3, 2&#125;
+print(set1)
+print('Length =', len(set1))
+# 创建集合的构造器语法(面向对象部分会进行详细讲解)
+set2 = set(range(1, 10))
+set3 = set((1, 2, 3, 3, 2, 1))
+print(set2, set3)
+# 创建集合的推导式语法(推导式也可以用于推导集合)
+set4 = &#123;num for num in range(1, 100) if num % 3 == 0 or num % 5 == 0&#125;
+print(set4)
+</code></pre><p>向集合添加元素和从集合删除元素。</p><pre><code class="language-Python">set1.add(4)
+set1.add(5)
+set2.update([11, 12])
+set2.discard(5)
+if 4 in set2:
+    set2.remove(4)
+print(set1, set2)
+print(set3.pop())
+print(set3)
+</code></pre><p>集合的成员、交集、并集、差集等运算。</p><pre><code class="language-Python"># 集合的交集、并集、差集、对称差运算
+print(set1 &amp; set2)
+# print(set1.intersection(set2))
+print(set1 | set2)
+# print(set1.union(set2))
+print(set1 - set2)
+# print(set1.difference(set2))
+print(set1 ^ set2)
+# print(set1.symmetric_difference(set2))
+# 判断子集和超集
+print(set2 &lt;= set1)
+# print(set2.issubset(set1))
+print(set3 &lt;= set1)
+# print(set3.issubset(set1))
+print(set1 &gt;= set2)
+# print(set1.issuperset(set2))
+print(set1 &gt;= set3)
+# print(set1.issuperset(set3))
+</code></pre><blockquote><p><strong>说明：</strong> Python 中允许通过一些特殊的方法来为某种类型或数据结构自定义运算符（后面的章节中会讲到），上面的代码中我们对集合进行运算的时候可以调用集合对象的方法，也可以直接使用对应的运算符，例如 <code>&amp;</code> 运算符跟 intersection 方法的作用就是一样的，但是使用运算符让代码更加直观。</p></blockquote><h3 id="使用字典"><a class="anchor" href="#使用字典">#</a> 使用字典</h3><p>字典是另一种可变容器模型，Python 中的字典跟我们生活中使用的字典是一样一样的，它可以存储任意类型对象，与列表、集合不同的是，字典的每个元素都是由一个键和一个值组成的 “键值对”，键和值通过冒号分开。下面的代码演示了如何定义和使用字典。</p><pre><code class="language-Python"># 创建字典的字面量语法
+scores = &#123;'骆昊': 95, '白元芳': 78, '狄仁杰': 82&#125;
+print(scores)
+# 创建字典的构造器语法
+items1 = dict(one=1, two=2, three=3, four=4)
+# 通过zip函数将两个序列压成字典
+items2 = dict(zip(['a', 'b', 'c'], '123'))
+# 创建字典的推导式语法
+items3 = &#123;num: num ** 2 for num in range(1, 10)&#125;
+print(items1, items2, items3)
+# 通过键可以获取字典中对应的值
+print(scores['骆昊'])
+print(scores['狄仁杰'])
+# 对字典中所有键值对进行遍历
+for key in scores:
+    print(f'&#123;key&#125;: &#123;scores[key]&#125;')
+# 更新字典中的元素
+scores['白元芳'] = 65
+scores['诸葛王朗'] = 71
+scores.update(冷面=67, 方启鹤=85)
+print(scores)
+if '武则天' in scores:
+    print(scores['武则天'])
+print(scores.get('武则天'))
+# get方法也是通过键获取对应的值但是可以设置默认值
+print(scores.get('武则天', 60))
+# 删除字典中的元素
+print(scores.popitem())
+print(scores.popitem())
+print(scores.pop('骆昊', 100))
+# 清空字典
+scores.clear()
+print(scores)
+</code></pre><h3 id="练习"><a class="anchor" href="#练习">#</a> 练习</h3><h4 id="练习1在屏幕上显示跑马灯文字"><a class="anchor" href="#练习1在屏幕上显示跑马灯文字">#</a> 练习 1：在屏幕上显示跑马灯文字。</h4><p>参考答案：</p><pre><code class="language-Python">import os
+import time
+
+
+def main():
+    content = '北京欢迎你为你开天辟地…………'
+    while True:
+        # 清理屏幕上的输出
+        os.system('cls')  # os.system('clear')
+        print(content)
+        # 休眠200毫秒
+        time.sleep(0.2)
+        content = content[1:] + content[0]
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><h4 id="练习2设计一个函数产生指定长度的验证码验证码由大小写字母和数字构成"><a class="anchor" href="#练习2设计一个函数产生指定长度的验证码验证码由大小写字母和数字构成">#</a> 练习 2：设计一个函数产生指定长度的验证码，验证码由大小写字母和数字构成。</h4><p>参考答案：</p><pre><code class="language-Python">import random
+
+
+def generate_code(code_len=4):
+    &quot;&quot;&quot;
+    生成指定长度的验证码
+
+    :param code_len: 验证码的长度(默认4个字符)
+
+    :return: 由大小写英文字母和数字构成的随机验证码
+    &quot;&quot;&quot;
+    all_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    last_pos = len(all_chars) - 1
+    code = ''
+    for _ in range(code_len):
+        index = random.randint(0, last_pos)
+        code += all_chars[index]
+    return code
+</code></pre><h4 id="练习3设计一个函数返回给定文件名的后缀名"><a class="anchor" href="#练习3设计一个函数返回给定文件名的后缀名">#</a> 练习 3：设计一个函数返回给定文件名的后缀名。</h4><p>参考答案：</p><pre><code class="language-Python">def get_suffix(filename, has_dot=False):
+    &quot;&quot;&quot;
+    获取文件名的后缀名
+
+    :param filename: 文件名
+    :param has_dot: 返回的后缀名是否需要带点
+    :return: 文件的后缀名
+    &quot;&quot;&quot;
+    pos = filename.rfind('.')
+    if 0 &lt; pos &lt; len(filename) - 1:
+        index = pos if has_dot else pos + 1
+        return filename[index:]
+    else:
+        return ''
+</code></pre><h4 id="练习4设计一个函数返回传入的列表中最大和第二大的元素的值"><a class="anchor" href="#练习4设计一个函数返回传入的列表中最大和第二大的元素的值">#</a> 练习 4：设计一个函数返回传入的列表中最大和第二大的元素的值。</h4><p>参考答案：</p><pre><code class="language-Python">def max2(x):
+    m1, m2 = (x[0], x[1]) if x[0] &gt; x[1] else (x[1], x[0])
+    for index in range(2, len(x)):
+        if x[index] &gt; m1:
+            m2 = m1
+            m1 = x[index]
+        elif x[index] &gt; m2:
+            m2 = x[index]
+    return m1, m2
+</code></pre><h4 id="练习5计算指定的年月日是这一年的第几天"><a class="anchor" href="#练习5计算指定的年月日是这一年的第几天">#</a> 练习 5：计算指定的年月日是这一年的第几天。</h4><p>参考答案：</p><pre><code class="language-Python">def is_leap_year(year):
+    &quot;&quot;&quot;
+    判断指定的年份是不是闰年
+
+    :param year: 年份
+    :return: 闰年返回True平年返回False
+    &quot;&quot;&quot;
+    return year % 4 == 0 and year % 100 != 0 or year % 400 == 0
+
+
+def which_day(year, month, date):
+    &quot;&quot;&quot;
+    计算传入的日期是这一年的第几天
+
+    :param year: 年
+    :param month: 月
+    :param date: 日
+    :return: 第几天
+    &quot;&quot;&quot;
+    days_of_month = [
+        [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+        [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    ][is_leap_year(year)]
+    total = 0
+    for index in range(month - 1):
+        total += days_of_month[index]
+    return total + date
+
+
+def main():
+    print(which_day(1980, 11, 28))
+    print(which_day(1981, 12, 31))
+    print(which_day(2018, 1, 1))
+    print(which_day(2016, 3, 1))
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><h4 id="练习6打印杨辉三角"><a class="anchor" href="#练习6打印杨辉三角">#</a> 练习 6：打印<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU2JTlEJUE4JUU4JUJFJTg5JUU0JUI4JTg5JUU4JUE3JTkyJUU1JUJEJUEy">杨辉三角</span>。</h4><p>参考答案：</p><pre><code class="language-Python">def main():
+    num = int(input('Number of rows: '))
+    yh = [[]] * num
+    for row in range(len(yh)):
+        yh[row] = [None] * (row + 1)
+        for col in range(len(yh[row])):
+            if col == 0 or col == row:
+                yh[row][col] = 1
+            else:
+                yh[row][col] = yh[row - 1][col] + yh[row - 1][col - 1]
+            print(yh[row][col], end='\t')
+        print()
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><h3 id="综合案例"><a class="anchor" href="#综合案例">#</a> 综合案例</h3><h4 id="案例1双色球选号"><a class="anchor" href="#案例1双色球选号">#</a> 案例 1：双色球选号。</h4><pre><code class="language-Python">from random import randrange, randint, sample
+
+
+def display(balls):
+    &quot;&quot;&quot;
+    输出列表中的双色球号码
+    &quot;&quot;&quot;
+    for index, ball in enumerate(balls):
+        if index == len(balls) - 1:
+            print('|', end=' ')
+        print('%02d' % ball, end=' ')
+    print()
+
+
+def random_select():
+    &quot;&quot;&quot;
+    随机选择一组号码
+    &quot;&quot;&quot;
+    red_balls = [x for x in range(1, 34)]
+    selected_balls = []
+    selected_balls = sample(red_balls, 6)
+    selected_balls.sort()
+    selected_balls.append(randint(1, 16))
+    return selected_balls
+
+
+def main():
+    n = int(input('机选几注: '))
+    for _ in range(n):
+        display(random_select())
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><blockquote><p><strong>说明：</strong> 上面使用 random 模块的 sample 函数来实现从列表中选择不重复的 n 个元素。</p></blockquote><h4 id="综合案例2约瑟夫环问题"><a class="anchor" href="#综合案例2约瑟夫环问题">#</a> 综合案例 2：<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU3JUJBJUE2JUU3JTkxJTlGJUU1JUE0JUFCJUU2JTk2JUFGJUU5JTk3JUFFJUU5JUEyJTk4">约瑟夫环问题</span>。</h4><pre><code class="language-Python">&quot;&quot;&quot;
+《幸运的基督徒》
+有15个基督徒和15个非基督徒在海上遇险，为了能让一部分人活下来不得不将其中15个人扔到海里面去，有个人想了个办法就是大家围成一个圈，由某个人开始从1报数，报到9的人就扔到海里面，他后面的人接着从1开始报数，报到9的人继续扔到海里面，直到扔掉15个人。由于上帝的保佑，15个基督徒都幸免于难，问这些人最开始是怎么站的，哪些位置是基督徒哪些位置是非基督徒。
+&quot;&quot;&quot;
+
+
+def main():
+    persons = [True] * 30
+    counter, index, number = 0, 0, 0
+    while counter &lt; 15:
+        if persons[index]:
+            number += 1
+            if number == 9:
+                persons[index] = False
+                counter += 1
+                number = 0
+        index += 1
+        index %= 30
+    for person in persons:
+        print('基' if person else '非', end='')
+
+
+if __name__ == '__main__':
+    main()
+
+</code></pre><h4 id="综合案例3井字棋游戏"><a class="anchor" href="#综合案例3井字棋游戏">#</a> 综合案例 3：<span class="exturl" data-url="aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU0JUJBJTk1JUU1JUFEJTk3JUU2JUEzJThC">井字棋</span>游戏。</h4><pre><code class="language-Python">import os
+
+
+def print_board(board):
+    print(board['TL'] + '|' + board['TM'] + '|' + board['TR'])
+    print('-+-+-')
+    print(board['ML'] + '|' + board['MM'] + '|' + board['MR'])
+    print('-+-+-')
+    print(board['BL'] + '|' + board['BM'] + '|' + board['BR'])
+
+
+def main():
+    init_board = &#123;
+        'TL': ' ', 'TM': ' ', 'TR': ' ',
+        'ML': ' ', 'MM': ' ', 'MR': ' ',
+        'BL': ' ', 'BM': ' ', 'BR': ' '
+    &#125;
+    begin = True
+    while begin:
+        curr_board = init_board.copy()
+        begin = False
+        turn = 'x'
+        counter = 0
+        os.system('clear')
+        print_board(curr_board)
+        while counter &lt; 9:
+            move = input('轮到%s走棋, 请输入位置: ' % turn)
+            if curr_board[move] == ' ':
+                counter += 1
+                curr_board[move] = turn
+                if turn == 'x':
+                    turn = 'o'
+                else:
+                    turn = 'x'
+            os.system('clear')
+            print_board(curr_board)
+        choice = input('再玩一局?(yes|no)')
+        begin = choice == 'yes'
+
+
+if __name__ == '__main__':
+    main()
+</code></pre><blockquote><p><strong>说明：</strong> 最后这个案例来自<span class="exturl" data-url="aHR0cHM6Ly9pdGVtLmpkLmNvbS8xMTk0Mzg1My5odG1s">《Python 编程快速上手：让繁琐工作自动化》</span>一书（这本书对有编程基础想迅速使用 Python 将日常工作自动化的人来说还是不错的选择），对代码做了一点点的调整。</p></blockquote><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"><div class="tags"><a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="tag"><i class="ic i-tag"></i> 编程笔记</a> <a href="/tags/python/" rel="tag"><i class="ic i-tag"></i> python</a></div></div><footer><div class="meta"><span class="item"><span class="icon"><i class="ic i-calendar-check"></i> </span><span class="text">更新于</span> <time title="修改时间：2025-04-14 02:39:38" itemprop="dateModified" datetime="2025-04-14T02:39:38+08:00">2025-04-14</time> </span><span id="computer-science/python/basic/07.字符串和常用数据结构/" class="item leancloud_visitors" data-flag-title="字符串和常用数据结构" title="阅读次数"><span class="icon"><i class="ic i-eye"></i> </span><span class="text">阅读次数</span> <span class="leancloud-visitors-count"></span> <span class="text">次</span></span></div><div class="reward"><button><i class="ic i-heartbeat"></i> 赞赏</button><p>请我喝[茶]~(￣▽￣)~*</p><div id="qr"><div><img data-src="/images/wechatpay.png" alt="沉鱼 微信支付"><p>微信支付</p></div><div><img data-src="/images/alipay.png" alt="沉鱼 支付宝"><p>支付宝</p></div><div><img data-src="/images/paypal.png" alt="沉鱼 贝宝"><p>贝宝</p></div></div></div><div id="copyright"><ul><li class="author"><strong>本文作者： </strong>沉鱼 <i class="ic i-at"><em>@</em></i>沉鱼的博客</li><li class="link"><strong>本文链接：</strong> <a href="https://scottalive.github.io/computer-science/python/basic/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="字符串和常用数据结构">https://scottalive.github.io/computer-science/python/basic/07.字符串和常用数据结构/</a></li><li class="license"><strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！</li></ul></div></footer></article></div><div class="post-nav"><div class="item left"><a href="/computer-science/python/basic/06.%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;642523fca682492fcce07890.jpg" title="函数和模块的使用"><span class="type">上一篇</span> <span class="category"><i class="ic i-flag"></i> Python 基础</span><h3>函数和模块的使用</h3></a></div><div class="item right"><a href="/computer-science/python/basic/08.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;1306263805.vod2.myqcloud.com&#x2F;b5881d8bvodsh1306263805&#x2F;0441a051243791580874345033&#x2F;VDEnbO5GdRIA.jpg" title="面向对象编程基础"><span class="type">下一篇</span> <span class="category"><i class="ic i-flag"></i> Python 基础</span><h3>面向对象编程基础</h3></a></div></div><div class="wrap" id="comments"></div></div><div id="sidebar"><div class="inner"><div class="panels"><div class="inner"><div class="contents panel pjax" data-title="文章目录"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">字符串和常用数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.1.</span> <span class="toc-text">使用字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%88%97%E8%A1%A8"><span class="toc-number">1.2.</span> <span class="toc-text">使用列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">生成式和生成器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%85%83%E7%BB%84"><span class="toc-number">1.4.</span> <span class="toc-text">使用元组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E9%9B%86%E5%90%88"><span class="toc-number">1.5.</span> <span class="toc-text">使用集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%AD%97%E5%85%B8"><span class="toc-number">1.6.</span> <span class="toc-text">使用字典</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0"><span class="toc-number">1.7.</span> <span class="toc-text">练习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A01%E5%9C%A8%E5%B1%8F%E5%B9%95%E4%B8%8A%E6%98%BE%E7%A4%BA%E8%B7%91%E9%A9%AC%E7%81%AF%E6%96%87%E5%AD%97"><span class="toc-number">1.7.1.</span> <span class="toc-text">练习 1：在屏幕上显示跑马灯文字。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A02%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E4%BA%A7%E7%94%9F%E6%8C%87%E5%AE%9A%E9%95%BF%E5%BA%A6%E7%9A%84%E9%AA%8C%E8%AF%81%E7%A0%81%E9%AA%8C%E8%AF%81%E7%A0%81%E7%94%B1%E5%A4%A7%E5%B0%8F%E5%86%99%E5%AD%97%E6%AF%8D%E5%92%8C%E6%95%B0%E5%AD%97%E6%9E%84%E6%88%90"><span class="toc-number">1.7.2.</span> <span class="toc-text">练习 2：设计一个函数产生指定长度的验证码，验证码由大小写字母和数字构成。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A03%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E7%BB%99%E5%AE%9A%E6%96%87%E4%BB%B6%E5%90%8D%E7%9A%84%E5%90%8E%E7%BC%80%E5%90%8D"><span class="toc-number">1.7.3.</span> <span class="toc-text">练习 3：设计一个函数返回给定文件名的后缀名。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A04%E8%AE%BE%E8%AE%A1%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E4%BC%A0%E5%85%A5%E7%9A%84%E5%88%97%E8%A1%A8%E4%B8%AD%E6%9C%80%E5%A4%A7%E5%92%8C%E7%AC%AC%E4%BA%8C%E5%A4%A7%E7%9A%84%E5%85%83%E7%B4%A0%E7%9A%84%E5%80%BC"><span class="toc-number">1.7.4.</span> <span class="toc-text">练习 4：设计一个函数返回传入的列表中最大和第二大的元素的值。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A05%E8%AE%A1%E7%AE%97%E6%8C%87%E5%AE%9A%E7%9A%84%E5%B9%B4%E6%9C%88%E6%97%A5%E6%98%AF%E8%BF%99%E4%B8%80%E5%B9%B4%E7%9A%84%E7%AC%AC%E5%87%A0%E5%A4%A9"><span class="toc-number">1.7.5.</span> <span class="toc-text">练习 5：计算指定的年月日是这一年的第几天。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%83%E4%B9%A06%E6%89%93%E5%8D%B0%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92"><span class="toc-number">1.7.6.</span> <span class="toc-text">练习 6：打印杨辉三角。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B"><span class="toc-number">1.8.</span> <span class="toc-text">综合案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B1%E5%8F%8C%E8%89%B2%E7%90%83%E9%80%89%E5%8F%B7"><span class="toc-number">1.8.1.</span> <span class="toc-text">案例 1：双色球选号。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B2%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98"><span class="toc-number">1.8.2.</span> <span class="toc-text">综合案例 2：约瑟夫环问题。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B3%E4%BA%95%E5%AD%97%E6%A3%8B%E6%B8%B8%E6%88%8F"><span class="toc-number">1.8.3.</span> <span class="toc-text">综合案例 3：井字棋游戏。</span></a></li></ol></li></ol></li></ol></div><div class="related panel pjax" data-title="系列文章"><ul><li><a href="/computer-science/python/basic/01.%E5%88%9D%E8%AF%86Python/" rel="bookmark" title="初识Python">初识Python</a></li><li><a href="/computer-science/python/basic/02.%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0/" rel="bookmark" title="语言元素">语言元素</a></li><li><a href="/computer-science/python/basic/NoSQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%85%A5%E9%97%A8/" rel="bookmark" title="NoSQL入门">NoSQL入门</a></li><li><a href="/computer-science/python/basic/03.%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84/" rel="bookmark" title="分支结构">分支结构</a></li><li><a href="/computer-science/python/basic/04.%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84/" rel="bookmark" title="循环结构">循环结构</a></li><li><a href="/computer-science/python/basic/05.%E6%9E%84%E9%80%A0%E7%A8%8B%E5%BA%8F%E9%80%BB%E8%BE%91/" rel="bookmark" title="构造程序逻辑">构造程序逻辑</a></li><li><a href="/computer-science/python/basic/06.%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="bookmark" title="函数和模块的使用">函数和模块的使用</a></li><li class="active"><a href="/computer-science/python/basic/07.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="bookmark" title="字符串和常用数据结构">字符串和常用数据结构</a></li><li><a href="/computer-science/python/basic/08.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="bookmark" title="面向对象编程基础">面向对象编程基础</a></li><li><a href="/computer-science/python/basic/09.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BF%9B%E9%98%B6/" rel="bookmark" title="面向对象进阶">面向对象进阶</a></li><li><a href="/computer-science/python/basic/10.%E5%9B%BE%E5%BD%A2%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E5%92%8C%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="bookmark" title="图形用户界面和游戏开发">图形用户界面和游戏开发</a></li><li><a href="/computer-science/python/basic/11.%E6%96%87%E4%BB%B6%E5%92%8C%E5%BC%82%E5%B8%B8/" rel="bookmark" title="文件和异常">文件和异常</a></li><li><a href="/computer-science/python/basic/12.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="bookmark" title="使用正则表达式">使用正则表达式</a></li><li><a href="/computer-science/python/basic/13.%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/" rel="bookmark" title="进程和线程">进程和线程</a></li><li><a href="/computer-science/python/basic/14.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/" rel="bookmark" title="网络编程入门">网络编程入门</a></li><li><a href="/computer-science/python/basic/15.%E5%9B%BE%E5%83%8F%E5%92%8C%E5%8A%9E%E5%85%AC%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/" rel="bookmark" title="图像和办公文档处理">图像和办公文档处理</a></li><li><a href="/computer-science/python/basic/16-20.Python%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6/" rel="bookmark" title="Python语言进阶">Python语言进阶</a></li><li><a href="/computer-science/python/basic/21-30.Web%E5%89%8D%E7%AB%AF%E6%A6%82%E8%BF%B0/" rel="bookmark" title="Web前端概述">Web前端概述</a></li><li><a href="/computer-science/python/basic/31-35.%E7%8E%A9%E8%BD%ACLinux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="bookmark" title="玩转Linux操作系统">玩转Linux操作系统</a></li><li><a href="/computer-science/python/basic/36.%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8CMySQL%E6%A6%82%E8%BF%B0/" rel="bookmark" title="关系型数据库和MySQL概述">关系型数据库和MySQL概述</a></li><li><a href="/computer-science/python/basic/37.SQL%E8%AF%A6%E8%A7%A3/" rel="bookmark" title="SQL 和 MySQL 详解">SQL 和 MySQL 详解</a></li><li><a href="/computer-science/python/basic/38.%E6%B7%B1%E5%85%A5MySQL/" rel="bookmark" title="深入MySQL">深入MySQL</a></li><li><a href="/computer-science/python/basic/39.Python%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%85%A5MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="bookmark" title="Python程序接入MySQL数据库">Python程序接入MySQL数据库</a></li><li><a href="/computer-science/python/basic/40.%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E5%92%8CHiveSQL/" rel="bookmark" title="Hive简介">Hive简介</a></li><li><a href="/computer-science/python/basic/41.Django%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" rel="bookmark" title="Django快速上手">Django快速上手</a></li><li><a href="/computer-science/python/basic/42.%E6%B7%B1%E5%85%A5%E6%A8%A1%E5%9E%8B/" rel="bookmark" title="深入模型">深入模型</a></li><li><a href="/computer-science/python/basic/43.%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%92%8CAjax%E8%AF%B7%E6%B1%82/" rel="bookmark" title="静态资源和Ajax请求">静态资源和Ajax请求</a></li><li><a href="/computer-science/python/basic/44.Cookie%E5%92%8CSession/" rel="bookmark" title="Cookie和Session">Cookie和Session</a></li><li><a href="/computer-science/python/basic/45.%E5%88%B6%E4%BD%9C%E6%8A%A5%E8%A1%A8/" rel="bookmark" title="制作报表">制作报表</a></li><li><a href="/computer-science/python/basic/46.%E6%97%A5%E5%BF%97%E5%92%8C%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7%E6%A0%8F/" rel="bookmark" title="日志和调试工具栏">日志和调试工具栏</a></li><li><a href="/computer-science/python/basic/47.%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E5%BA%94%E7%94%A8/" rel="bookmark" title="中间件的应用">中间件的应用</a></li><li><a href="/computer-science/python/basic/48.%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E5%85%A5%E9%97%A8/" rel="bookmark" title="前后端分离开发入门">前后端分离开发入门</a></li><li><a href="/computer-science/python/basic/49.RESTful%E6%9E%B6%E6%9E%84%E5%92%8CDRF%E5%85%A5%E9%97%A8/" rel="bookmark" title="RESTful架构和DRF入门">RESTful架构和DRF入门</a></li><li><a href="/computer-science/python/basic/50.RESTful%E6%9E%B6%E6%9E%84%E5%92%8CDRF%E8%BF%9B%E9%98%B6/" rel="bookmark" title="RESTful架构和DRF进阶">RESTful架构和DRF进阶</a></li><li><a href="/computer-science/python/basic/51.%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98/" rel="bookmark" title="使用缓存">使用缓存</a></li><li><a href="/computer-science/python/basic/52.%E6%8E%A5%E5%85%A5%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0/" rel="bookmark" title="接入三方平台">接入三方平台</a></li><li><a href="/computer-science/python/basic/53.%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="bookmark" title="异步任务和定时任务">异步任务和定时任务</a></li><li><a href="/computer-science/python/basic/54.%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="bookmark" title="单元测试">单元测试</a></li><li><a href="/computer-science/python/basic/55.%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/" rel="bookmark" title="项目上线">项目上线</a></li><li><a href="/computer-science/python/basic/56-60.%E7%94%A8FastAPI%E5%BC%80%E5%8F%91%E6%95%B0%E6%8D%AE%E6%8E%A5%E5%8F%A3/" rel="bookmark" title="用FastAPI开发网络数据接口">用FastAPI开发网络数据接口</a></li><li><a href="/computer-science/python/basic/61.%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E6%A6%82%E8%BF%B0/" rel="bookmark" title="网络数据采集概述">网络数据采集概述</a></li><li><a href="/computer-science/python/basic/62.%E7%94%A8Python%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90-1/" rel="bookmark" title="用Python获取网络数据">用Python获取网络数据</a></li><li><a href="/computer-science/python/basic/62.%E7%94%A8Python%E8%A7%A3%E6%9E%90HTML%E9%A1%B5%E9%9D%A2-2/" rel="bookmark" title="用Python解析HTML页面">用Python解析HTML页面</a></li><li><a href="/computer-science/python/basic/63.%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%9C%A8%E7%88%AC%E8%99%AB%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" rel="bookmark" title="并发编程在爬虫中的应用">并发编程在爬虫中的应用</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-1/" rel="bookmark" title="Python中的并发编程-1">Python中的并发编程-1</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-2/" rel="bookmark" title="Python中的并发编程-2">Python中的并发编程-2</a></li><li><a href="/computer-science/python/basic/63.Python%E4%B8%AD%E7%9A%84%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-3/" rel="bookmark" title="Python中的并发编程-3">Python中的并发编程-3</a></li><li><a href="/computer-science/python/basic/64.%E4%BD%BF%E7%94%A8Selenium%E6%8A%93%E5%8F%96%E7%BD%91%E9%A1%B5%E5%8A%A8%E6%80%81%E5%86%85%E5%AE%B9/" rel="bookmark" title="使用Selenium抓取网页动态内容">使用Selenium抓取网页动态内容</a></li><li><a href="/computer-science/python/basic/65.%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6Scrapy%E7%AE%80%E4%BB%8B/" rel="bookmark" title="爬虫框架Scrapy简介">爬虫框架Scrapy简介</a></li><li><a href="/computer-science/python/basic/66.%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A6%82%E8%BF%B0/" rel="bookmark" title="数据分析概述">数据分析概述</a></li><li><a href="/computer-science/python/basic/67.%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87/" rel="bookmark" title="环境准备">环境准备</a></li><li><a href="/computer-science/python/basic/68.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-1/" rel="bookmark" title="NumPy的应用-1">NumPy的应用-1</a></li><li><a href="/computer-science/python/basic/69.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-2/" rel="bookmark" title="NumPy的应用-2">NumPy的应用-2</a></li><li><a href="/computer-science/python/basic/70.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-1/" rel="bookmark" title="Pandas的应用-1">Pandas的应用-1</a></li><li><a href="/computer-science/python/basic/71.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-2/" rel="bookmark" title="Pandas的应用-2">Pandas的应用-2</a></li><li><a href="/computer-science/python/basic/72.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-3/" rel="bookmark" title="Pandas的应用-3">Pandas的应用-3</a></li><li><a href="/computer-science/python/basic/73.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-4/" rel="bookmark" title="Pandas的应用-4">Pandas的应用-4</a></li><li><a href="/computer-science/python/basic/74.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-5/" rel="bookmark" title="Pandas的应用-5">Pandas的应用-5</a></li><li><a href="/computer-science/python/basic/75.%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-1/" rel="bookmark" title="数据可视化-1">数据可视化-1</a></li><li><a href="/computer-science/python/basic/76.%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-2/" rel="bookmark" title="数据可视化-2">数据可视化-2</a></li><li><a href="/computer-science/python/basic/100.Python%E9%9D%A2%E8%AF%95%E9%A2%98%E5%AE%9E%E5%BD%95/" rel="bookmark" title="Python面试题实录">Python面试题实录</a></li></ul></div><div class="overview panel" data-title="站点概览"><div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="image" itemprop="image" alt="沉鱼" data-src="/images/avatar.jpg"><p class="name" itemprop="name">沉鱼</p><div class="description" itemprop="description">编程笔记 & 资料分享</div></div><nav class="state"><div class="item posts"><a href="/archives/"><span class="count">95</span> <span class="name">文章</span></a></div><div class="item categories"><a href="/categories/"><span class="count">14</span> <span class="name">分类</span></a></div><div class="item tags"><a href="/tags/"><span class="count">18</span> <span class="name">标签</span></a></div></nav><div class="social"><span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1Njb3R0YWxpdmU=" title="https:&#x2F;&#x2F;github.com&#x2F;Scottalive"><i class="ic i-github"></i></span> <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS9hbWVoaW1l" title="https:&#x2F;&#x2F;twitter.com&#x2F;amehime"><i class="ic i-twitter"></i></span> <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9ydXJpc216aw==" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;rurismzk"><i class="ic i-zhihu"></i></span> <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTEyODg2ODIz" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;12886823"><i class="ic i-cloud-music"></i></span> <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20vYW1laGltZQ==" title="https:&#x2F;&#x2F;weibo.com&#x2F;amehime"><i class="ic i-weibo"></i></span> <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS9hbWVoaW1l" title="https:&#x2F;&#x2F;about.me&#x2F;amehime"><i class="ic i-address-card"></i></span> <span class="exturl item email" data-url="bWFpbHRvOnlvdXJuYW1lQG1haWwuY29t" title="mailto:yourname@mail.com"><i class="ic i-envelope"></i></span> <span class="exturl item facebook" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;www.facebook.com&#x2F;yourname"><i class="ic i-facebook"></i></span> <span class="exturl item stackoverflow" data-url="aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname"><i class="ic i-stack-overflow"></i></span> <span class="exturl item instagram" data-url="aHR0cHM6Ly9pbnN0YWdyYW0uY29tL3lvdXJuYW1l" title="https:&#x2F;&#x2F;instagram.com&#x2F;yourname"><i class="ic i-instagram"></i></span> <span class="exturl item skype" data-url="c2t5cGU6eW91cm5hbWU/Y2FsbHxjaGF0" title="skype:yourname?call|chat"><i class="ic i-skype"></i></span> <span class="exturl item douban" data-url="aHR0cHM6Ly93d3cuZG91YmFuLmNvbS9wZW9wbGUveW91cm5hbWUv" title="https:&#x2F;&#x2F;www.douban.com&#x2F;people&#x2F;yourname&#x2F;"><i class="ic i-douban"></i></span></div><ul class="menu"><li class="item"><a href="/" rel="section"><i class="ic i-home"></i>首页</a></li><li class="item dropdown"><a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a><ul class="submenu"><li class="item"><a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a></li><li class="item"><a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a></li><li class="item"><a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a></li></ul></li><li class="item"><a href="/friends/" rel="section"><i class="ic i-heart"></i>友達</a></li><li class="item"><a href="/links/" rel="section"><i class="ic i-magic"></i>链接</a></li></ul></div></div></div><ul id="quick"><li class="prev pjax"><a href="/computer-science/python/basic/06.%E5%87%BD%E6%95%B0%E5%92%8C%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a></li><li class="up"><i class="ic i-arrow-up"></i></li><li class="down"><i class="ic i-arrow-down"></i></li><li class="next pjax"><a href="/computer-science/python/basic/08.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a></li><li class="percent"></li></ul></div></div><div class="dimmer"></div></div></main><footer id="footer"><div class="inner"><div class="widgets"><div class="rpost pjax"><h2>随机文章</h2><ul><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/55.%E9%A1%B9%E7%9B%AE%E4%B8%8A%E7%BA%BF/" title="项目上线">项目上线</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/springcloud/" title="分类于 微服务">微服务</a></div><span><a href="/computer-science/java/springcloud/Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/" title="Eureka注册中心">Eureka注册中心</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/68.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-1/" title="NumPy的应用-1">NumPy的应用-1</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/psychology/" title="分类于 心理学">心理学</a> <i class="ic i-angle-right"></i> <a href="/categories/psychology/%E6%93%8D%E7%BA%B5%E5%BF%83%E7%90%86%E5%AD%A6/" title="分类于 操纵心理学">操纵心理学</a></div><span><a href="/psychology/%E6%93%8D%E7%BA%B5%E5%BF%83%E7%90%86%E5%AD%A6/%E6%93%8D%E7%BA%B5%E6%80%A7%E7%90%86%E5%AD%A6/" title="操纵性理学">操纵性理学</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/" title="分类于 Java">Java</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/java/interview/" title="分类于 面试题">面试题</a></div><span><a href="/computer-science/java/interview/10%E6%9C%8830%E6%97%A5%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/" title="10月30日面试失败复盘">10月30日面试失败复盘</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/65.%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6Scrapy%E7%AE%80%E4%BB%8B/" title="爬虫框架Scrapy简介">爬虫框架Scrapy简介</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/62.%E7%94%A8Python%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E8%B5%84%E6%BA%90-1/" title="用Python获取网络数据">用Python获取网络数据</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/46.%E6%97%A5%E5%BF%97%E5%92%8C%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7%E6%A0%8F/" title="日志和调试工具栏">日志和调试工具栏</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/69.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-2/" title="NumPy的应用-2">NumPy的应用-2</a></span></li><li class="item"><div class="breadcrumb"><a href="/categories/computer-science/" title="分类于 计算机科学">计算机科学</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/" title="分类于 Python">Python</a> <i class="ic i-angle-right"></i> <a href="/categories/computer-science/python/basic/" title="分类于 Python 基础">Python 基础</a></div><span><a href="/computer-science/python/basic/02.%E8%AF%AD%E8%A8%80%E5%85%83%E7%B4%A0/" title="语言元素">语言元素</a></span></li></ul></div><div><h2>最新评论</h2><ul class="leancloud-recent-comment"></ul></div></div><div class="status"><div class="copyright">&copy; 2010 – <span itemprop="copyrightYear">2025</span> <span class="with-love"><i class="ic i-sakura rotate"></i> </span><span class="author" itemprop="copyrightHolder">沉鱼 @ Chrono Cross</span></div><div class="count"><span class="post-meta-item-icon"><i class="ic i-chart-area"></i> </span><span title="站点总字数">562k 字</span> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="ic i-coffee"></i> </span><span title="站点阅读时长">8:31</span></div><div class="powered-by">基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span></div></div></div></footer></div><script data-config type="text/javascript">var LOCAL={path:"computer-science/python/basic/07.字符串和常用数据结构/",favicon:{show:"（●´3｀●）やれやれだぜ",hide:"(´Д｀)大変だ！"},search:{placeholder:"文章搜索",empty:"关于 「 ${query} 」，什么也没搜到",stats:"${time} ms 内找到 ${hits} 条结果"},valine:!0,fancybox:!0,copyright:'复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',ignores:[function(e){return e.includes("#")},function(e){return new RegExp(LOCAL.path+"$").test(e)}]}</script><script src="https://cdn.polyfill.io/v2/polyfill.js"></script><script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script><script src="/js/app.js?v=0.2.5"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({pluginRootPath:"live2dw/",pluginJsPath:"lib/",pluginModelPath:"assets/",tagMode:!1,debug:!1,model:{jsonPath:"/live2dw/assets/shizuku.model.json"},display:{position:"right",width:200,height:400},mobile:{show:!0},react:{opacity:.7},log:!1})</script></body></html>
