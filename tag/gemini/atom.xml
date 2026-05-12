@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://scottalive.github.io</id>
+    <title>沉鱼的博客 • Posts by &#34;gemini&#34; tag</title>
+    <link href="https://scottalive.github.io" />
+    <updated>2026-04-30T15:30:00.000Z</updated>
+    <category term="AI日报" />
+    <category term="AI" />
+    <category term="GitHub热门" />
+    <category term="人工智能" />
+    <category term="技术趋势" />
+    <category term="原则" />
+    <category term="个人详情" />
+    <category term="个人分享" />
+    <category term="坏习惯" />
+    <category term="Kubernetes" />
+    <category term="Helm" />
+    <category term="学习计划" />
+    <category term="心理学知识" />
+    <category term="网络安全" />
+    <category term="SQL注入" />
+    <category term="XSS" />
+    <category term="CSRF" />
+    <category term="DDoS" />
+    <category term="渗透测试" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
+    <category term="GPT-5.5" />
+    <category term="OpenAI" />
+    <category term="Codex" />
+    <category term="ClaudeCode" />
+    <category term="Gemini" />
+    <category term="开发工具" />
+    <category term="开源" />
+    <category term="编程笔记" />
+    <category term="Hermes" />
+    <category term="Agent" />
+    <category term="NousResearch" />
+    <category term="进阶" />
+    <category term="配置" />
+    <category term="高阶" />
+    <category term="自动化" />
+    <category term="LLM" />
+    <category term="RAG" />
+    <category term="知识库" />
+    <category term="OpenSRE" />
+    <category term="SRE" />
+    <category term="运维" />
+    <category term="故障排查" />
+    <category term="SSE" />
+    <category term="HTTP" />
+    <category term="接口开发" />
+    <category term="开发注意事项" />
+    <category term="力扣算法题" />
+    <category term="算法" />
+    <category term="动态规划" />
+    <category term="微服务" />
+    <category term="JavaSE" />
+    <category term="Java开发面试题" />
+    <category term="SpringBoot" />
+    <category term="Spring" />
+    <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/CC-Switch-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</id>
+        <title>CC Switch 安装与使用指南 —— AI 编程助手全能管理器</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/CC-Switch-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
+        <content type="html">&lt;h2 id=&#34;什么是-CC-Switch？&#34;&gt;&lt;a href=&#34;#什么是-CC-Switch？&#34; class=&#34;headerlink&#34; title=&#34;什么是 CC Switch？&#34;&gt;&lt;/a&gt;什么是 CC Switch？&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/farion1231/cc-switch&#34;&gt;CC Switch&lt;/a&gt; 是一款&lt;strong&gt;跨平台桌面应用&lt;/strong&gt;，一站式管理 Claude Code、Codex、Gemini CLI、OpenCode 和 OpenClaw 等多款 AI 编程助手。基于 Tauri 2 构建，支持 Windows &amp;#x2F; macOS &amp;#x2F; Linux，当前最新版本为 &lt;strong&gt;v3.14.1&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;如果你同时使用多款 AI 编程工具——比如用 Claude Code 做架构设计、用 Codex 写代码、用 Gemini 做代码审查——CC Switch 能让你在一个统一的界面里切换、配置和管理它们，不用在多个终端窗口之间来回折腾。&lt;/p&gt;
+&lt;h3 id=&#34;核心能力一览&#34;&gt;&lt;a href=&#34;#核心能力一览&#34; class=&#34;headerlink&#34; title=&#34;核心能力一览&#34;&gt;&lt;/a&gt;核心能力一览&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;功能&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;🔄 多工具管理&lt;/td&gt;
+&lt;td&gt;统一管理 Claude Code &amp;#x2F; Codex &amp;#x2F; Gemini CLI &amp;#x2F; OpenCode &amp;#x2F; OpenClaw&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;⚙️ 提供商切换&lt;/td&gt;
+&lt;td&gt;支持 Anthropic 官方、AWS Bedrock、Google Vertex、Azure Foundry 及各类中转 API&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;📊 用量监控&lt;/td&gt;
+&lt;td&gt;系统托盘实时显示各工具用量、订阅配额、颜色编码利用率&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🔐 OAuth 反向代理&lt;/td&gt;
+&lt;td&gt;内置 Codex OAuth 代理，支持 FAST 模式切换&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🧩 Skills 管理&lt;/td&gt;
+&lt;td&gt;导入、安装、更新各类 Agent Skills&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;📝 会话管理&lt;/td&gt;
+&lt;td&gt;查看、恢复、切换各工具的历史会话&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🌐 MCP 配置&lt;/td&gt;
+&lt;td&gt;图形化管理 Model Context Protocol 服务器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🏠 Hermes 集成&lt;/td&gt;
+&lt;td&gt;提供商管理、记忆编辑、Web UI 启动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;安装指南&#34;&gt;&lt;a href=&#34;#安装指南&#34; class=&#34;headerlink&#34; title=&#34;安装指南&#34;&gt;&lt;/a&gt;安装指南&lt;/h2&gt;&lt;h3 id=&#34;下载安装包&#34;&gt;&lt;a href=&#34;#下载安装包&#34; class=&#34;headerlink&#34; title=&#34;下载安装包&#34;&gt;&lt;/a&gt;下载安装包&lt;/h3&gt;&lt;p&gt;访问 &lt;a href=&#34;https://github.com/farion1231/cc-switch/releases/latest&#34;&gt;Releases 页面&lt;/a&gt; 下载对应平台的安装包：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;平台&lt;/th&gt;
+&lt;th&gt;安装包格式&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;Windows&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;.msi&lt;/code&gt; 安装程序 &amp;#x2F; &lt;code&gt;.exe&lt;/code&gt; 便携版&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;macOS&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;.dmg&lt;/code&gt;（Apple Silicon &amp;#x2F; Intel）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Linux&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;.AppImage&lt;/code&gt; &amp;#x2F; &lt;code&gt;.deb&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;Windows-安装&#34;&gt;&lt;a href=&#34;#Windows-安装&#34; class=&#34;headerlink&#34; title=&#34;Windows 安装&#34;&gt;&lt;/a&gt;Windows 安装&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;下载最新版 &lt;code&gt;.msi&lt;/code&gt; 安装包&lt;/li&gt;
+&lt;li&gt;双击运行，按向导完成安装&lt;/li&gt;
+&lt;li&gt;安装完成后，桌面和开始菜单会出现 CC Switch 图标&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;或者使用便携版（无需安装），直接运行 &lt;code&gt;.exe&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;macOS-安装&#34;&gt;&lt;a href=&#34;#macOS-安装&#34; class=&#34;headerlink&#34; title=&#34;macOS 安装&#34;&gt;&lt;/a&gt;macOS 安装&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 下载 .dmg 后双击挂载，将 CC Switch 拖入 Applications&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 或通过 Homebrew（如有）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;首次打开时，macOS 可能提示”无法验证开发者”，去&lt;strong&gt;系统设置 → 隐私与安全性&lt;/strong&gt;中点击”仍要打开”即可。&lt;/p&gt;
+&lt;h3 id=&#34;Linux-安装&#34;&gt;&lt;a href=&#34;#Linux-安装&#34; class=&#34;headerlink&#34; title=&#34;Linux 安装&#34;&gt;&lt;/a&gt;Linux 安装&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# AppImage（推荐）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;chmod&lt;/span&gt; +x CC-Switch-*.AppImage&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;./CC-Switch-*.AppImage&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# deb 包&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo dpkg -i cc-switch_*.deb&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;使用指南&#34;&gt;&lt;a href=&#34;#使用指南&#34; class=&#34;headerlink&#34; title=&#34;使用指南&#34;&gt;&lt;/a&gt;使用指南&lt;/h2&gt;&lt;h3 id=&#34;1-初始配置&#34;&gt;&lt;a href=&#34;#1-初始配置&#34; class=&#34;headerlink&#34; title=&#34;1. 初始配置&#34;&gt;&lt;/a&gt;1. 初始配置&lt;/h3&gt;&lt;p&gt;首次打开 CC Switch 后，你会看到主界面。左侧是工具列表（Claude Code &amp;#x2F; Codex &amp;#x2F; Gemini CLI 等），右侧是配置面板。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一步：添加 AI 工具&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;点击左侧工具图标（如 Claude Code）&lt;/li&gt;
+&lt;li&gt;在右侧面板中配置：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;提供商&lt;/strong&gt;：选择 Anthropic（官方）&amp;#x2F; Bedrock &amp;#x2F; Vertex &amp;#x2F; 自定义 API 中转&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API 地址&lt;/strong&gt;：如果用中转服务，填入对应的 &lt;code&gt;ANTHROPIC_BASE_URL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API Key&lt;/strong&gt;：填入你的密钥&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型&lt;/strong&gt;：选择默认使用的模型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;点击「测试连接」确认配置正确&lt;/li&gt;
+&lt;li&gt;点击「保存」&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;CC Switch 支持&lt;strong&gt;同时配置多个提供商&lt;/strong&gt;，你可以为 Claude Code 配一个 Anthropic 官方、一个 Bedrock、一个便宜的中转站，随时切换。&lt;/p&gt;
+&lt;h3 id=&#34;2-切换工具和提供商&#34;&gt;&lt;a href=&#34;#2-切换工具和提供商&#34; class=&#34;headerlink&#34; title=&#34;2. 切换工具和提供商&#34;&gt;&lt;/a&gt;2. 切换工具和提供商&lt;/h3&gt;&lt;p&gt;在左侧工具栏点击对应图标即可切换不同的 AI 编程工具。&lt;/p&gt;
+&lt;p&gt;对于同一工具的不同提供商，在主界面顶部或设置面板的提供商下拉菜单中一键切换。CC Switch 会自动更新对应的环境变量和配置文件。&lt;/p&gt;
+&lt;h3 id=&#34;3-启动对话会话&#34;&gt;&lt;a href=&#34;#3-启动对话会话&#34; class=&#34;headerlink&#34; title=&#34;3. 启动对话会话&#34;&gt;&lt;/a&gt;3. 启动对话会话&lt;/h3&gt;&lt;p&gt;配置好工具后，可以：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;直接启动&lt;/strong&gt;：点击「启动」按钮，CC Switch 会在新终端窗口中打开对应工具&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;恢复历史会话&lt;/strong&gt;：在会话列表中双击之前的会话，自动恢复到上次的对话状态&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;继续最近会话&lt;/strong&gt;：点击工具旁边的「继续」图标&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于 Gemini CLI，CC Switch 会读取 &lt;code&gt;.project_root&lt;/code&gt; 元数据，确保恢复到正确的项目目录。&lt;/p&gt;
+&lt;h3 id=&#34;4-用量监控（系统托盘）&#34;&gt;&lt;a href=&#34;#4-用量监控（系统托盘）&#34; class=&#34;headerlink&#34; title=&#34;4. 用量监控（系统托盘）&#34;&gt;&lt;/a&gt;4. 用量监控（系统托盘）&lt;/h3&gt;&lt;p&gt;CC Switch 最小化后会驻留在系统托盘中，右键托盘图标可以看到：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;当前工具的用量概览&lt;/strong&gt;：Claude &amp;#x2F; Codex &amp;#x2F; Gemini 各自的消耗情况&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;订阅配额摘要&lt;/strong&gt;：显示配额的百分比和颜色标记（🟢 正常 &amp;#x2F; 🟡 警告 &amp;#x2F; 🔴 耗尽）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用量脚本摘要&lt;/strong&gt;：基于自定义 usage_script 的详细统计&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于国内的 Kimi &amp;#x2F; 智谱 &amp;#x2F; MiniMax 等编码套餐，托盘还会显示 &lt;strong&gt;5 小时 + 周度&lt;/strong&gt;双窗口用量，格式类似 &lt;code&gt;🟢 h12% w80%&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;5-Skills（技能）管理&#34;&gt;&lt;a href=&#34;#5-Skills（技能）管理&#34; class=&#34;headerlink&#34; title=&#34;5. Skills（技能）管理&#34;&gt;&lt;/a&gt;5. Skills（技能）管理&lt;/h3&gt;&lt;p&gt;CC Switch 内置了 Skills 管理功能，可以导入和安装社区分享的 Agent Skills：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;进入 Skills 管理页面&lt;/li&gt;
+&lt;li&gt;点击「导入」→ 输入 Skills 的 GitHub URL&lt;/li&gt;
+&lt;li&gt;CC Switch 自动下载并安装到对应工具的配置目录&lt;/li&gt;
+&lt;li&gt;支持一键更新已安装的 Skills&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;导入过程中会自动去重，防止重复安装。&lt;/p&gt;
+&lt;h3 id=&#34;6-MCP-服务器配置&#34;&gt;&lt;a href=&#34;#6-MCP-服务器配置&#34; class=&#34;headerlink&#34; title=&#34;6. MCP 服务器配置&#34;&gt;&lt;/a&gt;6. MCP 服务器配置&lt;/h3&gt;&lt;p&gt;在 MCP 配置页面，你可以图形化管理 Model Context Protocol 服务器：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;添加新的 MCP 服务器（本地或远程）&lt;/li&gt;
+&lt;li&gt;配置环境变量和启动参数&lt;/li&gt;
+&lt;li&gt;测试 MCP 连接状态&lt;/li&gt;
+&lt;li&gt;一键启用&amp;#x2F;禁用特定服务器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;7-Hermes-集成&#34;&gt;&lt;a href=&#34;#7-Hermes-集成&#34; class=&#34;headerlink&#34; title=&#34;7. Hermes 集成&#34;&gt;&lt;/a&gt;7. Hermes 集成&lt;/h3&gt;&lt;p&gt;Hermes 是 CC Switch 内置的配置管理中心：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;提供商展示&lt;/strong&gt;：查看所有已配置的 AI 提供商&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;默认切换&lt;/strong&gt;：设置默认使用的提供商&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;记忆编辑&lt;/strong&gt;：编辑 Agent 的持久化记忆&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Web UI 启动&lt;/strong&gt;：一键跳转到 Hermes Web 控制台，进行深度配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：v3.14.1 起移除了应用内的 Hermes 配置健康扫描功能，深度配置诊断请使用 Hermes Web UI。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;Codex-OAuth-反向代理&#34;&gt;&lt;a href=&#34;#Codex-OAuth-反向代理&#34; class=&#34;headerlink&#34; title=&#34;Codex OAuth 反向代理&#34;&gt;&lt;/a&gt;Codex OAuth 反向代理&lt;/h2&gt;&lt;p&gt;CC Switch 内置了 Codex OAuth 反向代理功能，主要特性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;缓存路由&lt;/strong&gt;：使用客户端提供的会话 ID 作为缓存键，保持缓存一致性&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FAST 模式&lt;/strong&gt;：可选择开启 &lt;code&gt;service_tier=&amp;quot;priority&amp;quot;&lt;/code&gt;，降低延迟（会消耗更多 ChatGPT 配额，默认关闭）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stream Check&lt;/strong&gt;：代理请求使用与实际请求相同的配置参数，确保连接测试结果与实际使用一致&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SSE 聚合&lt;/strong&gt;：非流式请求也能正确处理上游的 SSE 响应&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在 Codex 提供商的设置面板中，可以找到 OAuth 代理的开关和 FAST 模式选项。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;常见问题&#34;&gt;&lt;a href=&#34;#常见问题&#34; class=&#34;headerlink&#34; title=&#34;常见问题&#34;&gt;&lt;/a&gt;常见问题&lt;/h2&gt;&lt;h3 id=&#34;Q-CC-Switch-收费吗？&#34;&gt;&lt;a href=&#34;#Q-CC-Switch-收费吗？&#34; class=&#34;headerlink&#34; title=&#34;Q: CC Switch 收费吗？&#34;&gt;&lt;/a&gt;Q: CC Switch 收费吗？&lt;/h3&gt;&lt;p&gt;完全免费开源（MIT 协议），从 &lt;a href=&#34;https://github.com/farion1231/cc-switch/releases&#34;&gt;GitHub Release&lt;/a&gt; 直接下载。&lt;/p&gt;
+&lt;h3 id=&#34;Q-需要自己安装-Claude-Code-Codex-Gemini-CLI-吗？&#34;&gt;&lt;a href=&#34;#Q-需要自己安装-Claude-Code-Codex-Gemini-CLI-吗？&#34; class=&#34;headerlink&#34; title=&#34;Q: 需要自己安装 Claude Code &amp;#x2F; Codex &amp;#x2F; Gemini CLI 吗？&#34;&gt;&lt;/a&gt;Q: 需要自己安装 Claude Code &amp;#x2F; Codex &amp;#x2F; Gemini CLI 吗？&lt;/h3&gt;&lt;p&gt;需要。CC Switch 是管理工具，不是这些 AI 工具本身的安装器。请确保你要使用的工具已经安装在系统中。&lt;/p&gt;
+&lt;h3 id=&#34;Q-支持哪些-API-中转服务？&#34;&gt;&lt;a href=&#34;#Q-支持哪些-API-中转服务？&#34; class=&#34;headerlink&#34; title=&#34;Q: 支持哪些 API 中转服务？&#34;&gt;&lt;/a&gt;Q: 支持哪些 API 中转服务？&lt;/h3&gt;&lt;p&gt;CC Switch 本身不限制中转服务。任何兼容 Anthropic &amp;#x2F; OpenAI 接口规范的中转 API 都可以配置使用。项目 README 中列出了一批赞助商（PackyCode、AIGoCode、Cubence、Crazyrouter 等），使用 CC Switch 专属优惠码充值有折扣。&lt;/p&gt;
+&lt;h3 id=&#34;Q-数据安全吗？&#34;&gt;&lt;a href=&#34;#Q-数据安全吗？&#34; class=&#34;headerlink&#34; title=&#34;Q: 数据安全吗？&#34;&gt;&lt;/a&gt;Q: 数据安全吗？&lt;/h3&gt;&lt;p&gt;CC Switch 是本地桌面应用，所有配置和密钥保存在本地，不会上传到任何服务器。OAuth 代理也在本地运行。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;CC Switch 解决了一个真实痛点：&lt;strong&gt;开发者同时使用多款 AI 编程工具时的管理混乱&lt;/strong&gt;。它把 Claude Code、Codex、Gemini CLI 等工具的配置、切换、监控、会话管理都整合到了一个桌面应用里，配合系统托盘用量监控和 Skills&amp;#x2F;MCP 管理，是目前这个细分领域最成熟的工具之一。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GitHub：&lt;a href=&#34;https://github.com/farion1231/cc-switch&#34;&gt;https://github.com/farion1231/cc-switch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;最新版本：v3.14.1（2026-04-23）&lt;/li&gt;
+&lt;li&gt;协议：MIT 开源&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="AI" />
+        <category term="Codex" />
+        <category term="ClaudeCode" />
+        <category term="Gemini" />
+        <category term="开发工具" />
+        <category term="开源" />
+        <updated>2026-04-30T15:30:00.000Z</updated>
+    </entry>
+</feed>

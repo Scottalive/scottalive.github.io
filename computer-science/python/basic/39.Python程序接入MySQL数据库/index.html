@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>Python程序接入MySQL数据库 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">Python程序接入MySQL数据库</h1>
+    <div class="post-meta">
+      <span class="post-date">2025-04-14 07:07</span>
+      <span class="post-word-count">2799 字</span>
+      <span class="post-reading-time">约 10 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记</a>
+      
+      <a href="/tags/python/">python</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#python程序接入mysql数据库">Python程序接入MySQL数据库</a>
+      
+      <a class="toc-level-3" href="#建库建表">建库建表</a>
+      
+      <a class="toc-level-3" href="#接入mysql">接入MySQL</a>
+      
+      <a class="toc-level-3" href="#代码实操">代码实操</a>
+      
+      <a class="toc-level-3" href="#案例讲解">案例讲解</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="python程序接入mysql数据库"><a href="#Python程序接入MySQL数据库" class="headerlink" title="Python程序接入MySQL数据库"></a>Python程序接入MySQL数据库</h2><p>在 Python3 中，我们可以使用<code>mysqlclient</code>或者<code>pymysql</code>三方库来接入 MySQL 数据库并实现数据持久化操作。二者的用法完全相同，只是导入的模块名不一样。我们推荐大家使用纯 Python 的三方库<code>pymysql</code>，因为它更容易安装成功。下面我们仍然以之前创建的名为<code>hrs</code>的数据库为例，为大家演示如何通过 Python 程序操作 MySQL 数据库实现数据持久化操作。</p>
+<h3 id="建库建表"><a href="#建库建表" class="headerlink" title="建库建表"></a>建库建表</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 创建名为hrs的数据库并指定默认的字符集</span></span><br><span class="line"><span class="keyword">create</span> database `hrs` <span class="keyword">default</span> <span class="type">character</span> <span class="keyword">set</span> utf8mb4;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 切换到hrs数据库</span></span><br><span class="line">use `hrs`;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建部门表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> `tb_dept`</span><br><span class="line">(</span><br><span class="line">`dno` <span class="type">int</span> <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;编号&#x27;</span>,</span><br><span class="line">`dname` <span class="type">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;名称&#x27;</span>,</span><br><span class="line">`dloc` <span class="type">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;所在地&#x27;</span>,</span><br><span class="line"><span class="keyword">primary</span> key (`dno`)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 插入4个部门</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> `tb_dept` <span class="keyword">values</span> </span><br><span class="line">    (<span class="number">10</span>, <span class="string">&#x27;会计部&#x27;</span>, <span class="string">&#x27;北京&#x27;</span>),</span><br><span class="line">    (<span class="number">20</span>, <span class="string">&#x27;研发部&#x27;</span>, <span class="string">&#x27;成都&#x27;</span>),</span><br><span class="line">    (<span class="number">30</span>, <span class="string">&#x27;销售部&#x27;</span>, <span class="string">&#x27;重庆&#x27;</span>),</span><br><span class="line">    (<span class="number">40</span>, <span class="string">&#x27;运维部&#x27;</span>, <span class="string">&#x27;深圳&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 创建员工表</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> `tb_emp`</span><br><span class="line">(</span><br><span class="line">`eno` <span class="type">int</span> <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;员工编号&#x27;</span>,</span><br><span class="line">`ename` <span class="type">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;员工姓名&#x27;</span>,</span><br><span class="line">`job` <span class="type">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;员工职位&#x27;</span>,</span><br><span class="line">`mgr` <span class="type">int</span> comment <span class="string">&#x27;主管编号&#x27;</span>,</span><br><span class="line">`sal` <span class="type">int</span> <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;员工月薪&#x27;</span>,</span><br><span class="line">`comm` <span class="type">int</span> comment <span class="string">&#x27;每月补贴&#x27;</span>,</span><br><span class="line">`dno` <span class="type">int</span> <span class="keyword">not</span> <span class="keyword">null</span> comment <span class="string">&#x27;所在部门编号&#x27;</span>,</span><br><span class="line"><span class="keyword">primary</span> key (`eno`),</span><br><span class="line"><span class="keyword">constraint</span> `fk_emp_mgr` <span class="keyword">foreign</span> key (`mgr`) <span class="keyword">references</span> tb_emp (`eno`),</span><br><span class="line"><span class="keyword">constraint</span> `fk_emp_dno` <span class="keyword">foreign</span> key (`dno`) <span class="keyword">references</span> tb_dept (`dno`)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 插入14个员工</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> `tb_emp` <span class="keyword">values</span> </span><br><span class="line">    (<span class="number">7800</span>, <span class="string">&#x27;张三丰&#x27;</span>, <span class="string">&#x27;总裁&#x27;</span>, <span class="keyword">null</span>, <span class="number">9000</span>, <span class="number">1200</span>, <span class="number">20</span>),</span><br><span class="line">    (<span class="number">2056</span>, <span class="string">&#x27;乔峰&#x27;</span>, <span class="string">&#x27;分析师&#x27;</span>, <span class="number">7800</span>, <span class="number">5000</span>, <span class="number">1500</span>, <span class="number">20</span>),</span><br><span class="line">    (<span class="number">3088</span>, <span class="string">&#x27;李莫愁&#x27;</span>, <span class="string">&#x27;设计师&#x27;</span>, <span class="number">2056</span>, <span class="number">3500</span>, <span class="number">800</span>, <span class="number">20</span>),</span><br><span class="line">    (<span class="number">3211</span>, <span class="string">&#x27;张无忌&#x27;</span>, <span class="string">&#x27;程序员&#x27;</span>, <span class="number">2056</span>, <span class="number">3200</span>, <span class="keyword">null</span>, <span class="number">20</span>),</span><br><span class="line">    (<span class="number">3233</span>, <span class="string">&#x27;丘处机&#x27;</span>, <span class="string">&#x27;程序员&#x27;</span>, <span class="number">2056</span>, <span class="number">3400</span>, <span class="keyword">null</span>, <span class="number">20</span>),</span><br><span class="line">    (<span class="number">3251</span>, <span class="string">&#x27;张翠山&#x27;</span>, <span class="string">&#x27;程序员&#x27;</span>, <span class="number">2056</span>, <span class="number">4000</span>, <span class="keyword">null</span>, <span class="number">20</span>),</span><br><span class="line">    (<span class="number">5566</span>, <span class="string">&#x27;宋远桥&#x27;</span>, <span class="string">&#x27;会计师&#x27;</span>, <span class="number">7800</span>, <span class="number">4000</span>, <span class="number">1000</span>, <span class="number">10</span>),</span><br><span class="line">    (<span class="number">5234</span>, <span class="string">&#x27;郭靖&#x27;</span>, <span class="string">&#x27;出纳&#x27;</span>, <span class="number">5566</span>, <span class="number">2000</span>, <span class="keyword">null</span>, <span class="number">10</span>),</span><br><span class="line">    (<span class="number">3344</span>, <span class="string">&#x27;黄蓉&#x27;</span>, <span class="string">&#x27;销售主管&#x27;</span>, <span class="number">7800</span>, <span class="number">3000</span>, <span class="number">800</span>, <span class="number">30</span>),</span><br><span class="line">    (<span class="number">1359</span>, <span class="string">&#x27;胡一刀&#x27;</span>, <span class="string">&#x27;销售员&#x27;</span>, <span class="number">3344</span>, <span class="number">1800</span>, <span class="number">200</span>, <span class="number">30</span>),</span><br><span class="line">    (<span class="number">4466</span>, <span class="string">&#x27;苗人凤&#x27;</span>, <span class="string">&#x27;销售员&#x27;</span>, <span class="number">3344</span>, <span class="number">2500</span>, <span class="keyword">null</span>, <span class="number">30</span>),</span><br><span class="line">    (<span class="number">3244</span>, <span class="string">&#x27;欧阳锋&#x27;</span>, <span class="string">&#x27;程序员&#x27;</span>, <span class="number">3088</span>, <span class="number">3200</span>, <span class="keyword">null</span>, <span class="number">20</span>),</span><br><span class="line">    (<span class="number">3577</span>, <span class="string">&#x27;杨过&#x27;</span>, <span class="string">&#x27;会计&#x27;</span>, <span class="number">5566</span>, <span class="number">2200</span>, <span class="keyword">null</span>, <span class="number">10</span>),</span><br><span class="line">    (<span class="number">3588</span>, <span class="string">&#x27;朱九真&#x27;</span>, <span class="string">&#x27;会计&#x27;</span>, <span class="number">5566</span>, <span class="number">2500</span>, <span class="keyword">null</span>, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="接入mysql"><a href="#接入MySQL" class="headerlink" title="接入MySQL"></a>接入MySQL</h3><p>首先，我们可以在命令行或者 PyCharm 的终端中通过下面的命令安装<code>pymysql</code>，如果需要接入 MySQL 8，还需要安装一个名为<code>cryptography</code>的三方库来支持 MySQL 8 的密码认证方式。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install pymysql cryptography</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>pymysql</code>操作 MySQL 的步骤如下所示：</p>
+<ol>
+<li>创建连接。MySQL 服务器启动后，提供了基于 TCP （传输控制协议）的网络服务。我们可以通过<code>pymysql</code>模块的<code>connect</code>函数连接 MySQL 服务器。在调用<code>connect</code>函数时，需要指定主机（<code>host</code>）、端口（<code>port</code>）、用户名（<code>user</code>）、口令（<code>password</code>）、数据库（<code>database</code>）、字符集（<code>charset</code>）等参数，该函数会返回一个<code>Connection</code>对象。</li>
+<li>获取游标。连接 MySQL 服务器成功后，接下来要做的就是向数据库服务器发送 SQL 语句，MySQL 会执行接收到的 SQL 并将执行结果通过网络返回。要实现这项操作，需要先通过连接对象的<code>cursor</code>方法获取游标（<code>Cursor</code>）对象。</li>
+<li>发出 SQL。通过游标对象的<code>execute</code>方法，我们可以向数据库发出 SQL 语句。</li>
+<li>如果执行<code>insert</code>、<code>delete</code>或<code>update</code>操作，需要根据实际情况提交或回滚事务。因为创建连接时，默认开启了事务环境，在操作完成后，需要使用连接对象的<code>commit</code>或<code>rollback</code>方法，实现事务的提交或回滚，<code>rollback</code>方法通常会放在异常捕获代码块<code>except</code>中。如果执行<code>select</code>操作，需要通过游标对象抓取查询的结果，对应的方法有三个，分别是：<code>fetchone</code>、<code>fetchmany</code>和<code>fetchall</code>。其中<code>fetchone</code>方法会抓取到一条记录，并以元组或字典的方式返回；<code>fetchmany</code>和<code>fetchall</code>方法会抓取到多条记录，以嵌套元组或列表装字典的方式返回。</li>
+<li>关闭连接。在完成持久化操作后，请不要忘记关闭连接，释放外部资源。我们通常会在<code>finally</code>代码块中使用连接对象的<code>close</code>方法来关闭连接。</li>
+</ol>
+<h3 id="代码实操"><a href="#代码实操" class="headerlink" title="代码实操"></a>代码实操</h3><p>下面，我们通过代码实操的方式为大家演示上面说的五个步骤。</p>
+<h4 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">no = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;部门编号: &#x27;</span>))</span><br><span class="line">name = <span class="built_in">input</span>(<span class="string">&#x27;部门名称: &#x27;</span>)</span><br><span class="line">location = <span class="built_in">input</span>(<span class="string">&#x27;部门所在地: &#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 创建连接（Connection）</span></span><br><span class="line">conn = pymysql.connect(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">3306</span>,</span><br><span class="line">                       user=<span class="string">&#x27;guest&#x27;</span>, password=<span class="string">&#x27;Guest.618&#x27;</span>,</span><br><span class="line">                       database=<span class="string">&#x27;hrs&#x27;</span>, charset=<span class="string">&#x27;utf8mb4&#x27;</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># 2. 获取游标对象（Cursor）</span></span><br><span class="line">    <span class="keyword">with</span> conn.cursor() <span class="keyword">as</span> cursor:</span><br><span class="line">        <span class="comment"># 3. 通过游标对象向数据库服务器发出SQL语句</span></span><br><span class="line">        affected_rows = cursor.execute(</span><br><span class="line">            <span class="string">&#x27;insert into `tb_dept` values (%s, %s, %s)&#x27;</span>,</span><br><span class="line">            (no, name, location)</span><br><span class="line">        )</span><br><span class="line">        <span class="keyword">if</span> affected_rows == <span class="number">1</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;新增部门成功!!!&#x27;</span>)</span><br><span class="line">    <span class="comment"># 4. 提交事务（transaction）</span></span><br><span class="line">    conn.commit()</span><br><span class="line"><span class="keyword">except</span> pymysql.MySQLError <span class="keyword">as</span> err:</span><br><span class="line">    <span class="comment"># 4. 回滚事务</span></span><br><span class="line">    conn.rollback()</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(err), err)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="comment"># 5. 关闭连接释放资源</span></span><br><span class="line">    conn.close()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：上面的<code>127.0.0.1</code>称为回环地址，它代表的是本机。下面的<code>guest</code>是我提前创建好的用户，该用户拥有对<code>hrs</code>数据库的<code>insert</code>、<code>delete</code>、<code>update</code>和<code>select</code>权限。我们不建议大家在项目中直接使用<code>root</code>超级管理员账号访问数据库，这样做实在是太危险了。我们可以使用下面的命令创建名为<code>guest</code>的用户并为其授权。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> <span class="string">&#x27;guest&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;Guest.618&#x27;</span>;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">insert</span>, <span class="keyword">delete</span>, <span class="keyword">update</span>, <span class="keyword">select</span> <span class="keyword">on</span> `hrs`.<span class="operator">*</span> <span class="keyword">to</span> <span class="string">&#x27;guest&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br></pre></td></tr></table></figure></blockquote>
+<p>如果要插入大量数据，建议使用游标对象的<code>executemany</code>方法做批处理（一个<code>insert</code>操作后面跟上多组数据），大家可以尝试向一张表插入10000条记录，然后看看不使用批处理一条条的插入和使用批处理有什么差别。游标对象的<code>executemany</code>方法第一个参数仍然是 SQL 语句，第二个参数可以是包含多组数据的列表或元组。</p>
+<h4 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">no = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;部门编号: &#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 创建连接（Connection）</span></span><br><span class="line">conn = pymysql.connect(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">3306</span>,</span><br><span class="line">                       user=<span class="string">&#x27;guest&#x27;</span>, password=<span class="string">&#x27;Guest.618&#x27;</span>,</span><br><span class="line">                       database=<span class="string">&#x27;hrs&#x27;</span>, charset=<span class="string">&#x27;utf8mb4&#x27;</span>,</span><br><span class="line">                       autocommit=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># 2. 获取游标对象（Cursor）</span></span><br><span class="line">    <span class="keyword">with</span> conn.cursor() <span class="keyword">as</span> cursor:</span><br><span class="line">        <span class="comment"># 3. 通过游标对象向数据库服务器发出SQL语句</span></span><br><span class="line">        affected_rows = cursor.execute(</span><br><span class="line">            <span class="string">&#x27;delete from `tb_dept` where `dno`=%s&#x27;</span>,</span><br><span class="line">            (no, )</span><br><span class="line">        )</span><br><span class="line">        <span class="keyword">if</span> affected_rows == <span class="number">1</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;删除部门成功!!!&#x27;</span>)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="comment"># 5. 关闭连接释放资源</span></span><br><span class="line">    conn.close()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：如果不希望每次 SQL 操作之后手动提交或回滚事务，可以<code>connect</code>函数中加一个名为<code>autocommit</code>的参数并将它的值设置为<code>True</code>，表示每次执行 SQL 成功后自动提交。但是我们建议大家手动提交或回滚，这样可以根据实际业务需要来构造事务环境。如果不愿意捕获异常并进行处理，可以在<code>try</code>代码块后直接跟<code>finally</code>块，省略<code>except</code>意味着发生异常时，代码会直接崩溃并将异常栈显示在终端中。</p>
+</blockquote>
+<h4 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">no = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;部门编号: &#x27;</span>))</span><br><span class="line">name = <span class="built_in">input</span>(<span class="string">&#x27;部门名称: &#x27;</span>)</span><br><span class="line">location = <span class="built_in">input</span>(<span class="string">&#x27;部门所在地: &#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 创建连接（Connection）</span></span><br><span class="line">conn = pymysql.connect(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">3306</span>,</span><br><span class="line">                       user=<span class="string">&#x27;guest&#x27;</span>, password=<span class="string">&#x27;Guest.618&#x27;</span>,</span><br><span class="line">                       database=<span class="string">&#x27;hrs&#x27;</span>, charset=<span class="string">&#x27;utf8mb4&#x27;</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># 2. 获取游标对象（Cursor）</span></span><br><span class="line">    <span class="keyword">with</span> conn.cursor() <span class="keyword">as</span> cursor:</span><br><span class="line">        <span class="comment"># 3. 通过游标对象向数据库服务器发出SQL语句</span></span><br><span class="line">        affected_rows = cursor.execute(</span><br><span class="line">            <span class="string">&#x27;update `tb_dept` set `dname`=%s, `dloc`=%s where `dno`=%s&#x27;</span>,</span><br><span class="line">            (name, location, no)</span><br><span class="line">        )</span><br><span class="line">        <span class="keyword">if</span> affected_rows == <span class="number">1</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;更新部门信息成功!!!&#x27;</span>)</span><br><span class="line">    <span class="comment"># 4. 提交事务</span></span><br><span class="line">    conn.commit()</span><br><span class="line"><span class="keyword">except</span> pymysql.MySQLError <span class="keyword">as</span> err:</span><br><span class="line">    <span class="comment"># 4. 回滚事务</span></span><br><span class="line">    conn.rollback()</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(err), err)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="comment"># 5. 关闭连接释放资源</span></span><br><span class="line">    conn.close()</span><br></pre></td></tr></table></figure>
+
+<h4 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h4><ol>
+<li>查询部门表的数据。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 创建连接（Connection）</span></span><br><span class="line">conn = pymysql.connect(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">3306</span>,</span><br><span class="line">                       user=<span class="string">&#x27;guest&#x27;</span>, password=<span class="string">&#x27;Guest.618&#x27;</span>,</span><br><span class="line">                       database=<span class="string">&#x27;hrs&#x27;</span>, charset=<span class="string">&#x27;utf8mb4&#x27;</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># 2. 获取游标对象（Cursor）</span></span><br><span class="line">    <span class="keyword">with</span> conn.cursor() <span class="keyword">as</span> cursor:</span><br><span class="line">        <span class="comment"># 3. 通过游标对象向数据库服务器发出SQL语句</span></span><br><span class="line">        cursor.execute(<span class="string">&#x27;select `dno`, `dname`, `dloc` from `tb_dept`&#x27;</span>)</span><br><span class="line">        <span class="comment"># 4. 通过游标对象抓取数据</span></span><br><span class="line">        row = cursor.fetchone()</span><br><span class="line">        <span class="keyword">while</span> row:</span><br><span class="line">            <span class="built_in">print</span>(row)</span><br><span class="line">            row = cursor.fetchone()</span><br><span class="line"><span class="keyword">except</span> pymysql.MySQLError <span class="keyword">as</span> err:</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(err), err)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="comment"># 5. 关闭连接释放资源</span></span><br><span class="line">    conn.close()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>说明</strong>：上面的代码中，我们通过构造一个<code>while</code>循环实现了逐行抓取查询结果的操作。这种方式特别适合查询结果有非常多行的场景。因为如果使用<code>fetchall</code>一次性将所有记录抓取到一个嵌套元组中，会造成非常大的内存开销，这在很多场景下并不是一个好主意。如果不愿意使用<code>while</code>循环，还可以考虑使用<code>iter</code>函数构造一个迭代器来逐行抓取数据，有兴趣的读者可以自行研究。</p>
+</blockquote>
+<ol start="2">
+<li>分页查询员工表的数据。</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">page = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;页码: &#x27;</span>))</span><br><span class="line">size = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;大小: &#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 创建连接（Connection）</span></span><br><span class="line">con = pymysql.connect(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">3306</span>,</span><br><span class="line">                      user=<span class="string">&#x27;guest&#x27;</span>, password=<span class="string">&#x27;Guest.618&#x27;</span>,</span><br><span class="line">                      database=<span class="string">&#x27;hrs&#x27;</span>, charset=<span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># 2. 获取游标对象（Cursor）</span></span><br><span class="line">    <span class="keyword">with</span> con.cursor(pymysql.cursors.DictCursor) <span class="keyword">as</span> cursor:</span><br><span class="line">        <span class="comment"># 3. 通过游标对象向数据库服务器发出SQL语句</span></span><br><span class="line">        cursor.execute(</span><br><span class="line">            <span class="string">&#x27;select `eno`, `ename`, `job`, `sal` from `tb_emp` order by `sal` desc limit %s,%s&#x27;</span>,</span><br><span class="line">            ((page - <span class="number">1</span>) * size, size)</span><br><span class="line">        )</span><br><span class="line">        <span class="comment"># 4. 通过游标对象抓取数据</span></span><br><span class="line">        <span class="keyword">for</span> emp_dict <span class="keyword">in</span> cursor.fetchall():</span><br><span class="line">            <span class="built_in">print</span>(emp_dict)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="comment"># 5. 关闭连接释放资源</span></span><br><span class="line">    con.close()</span><br></pre></td></tr></table></figure>
+
+<h3 id="案例讲解"><a href="#案例讲解" class="headerlink" title="案例讲解"></a>案例讲解</h3><p>下面我们为大家讲解一个将数据库表数据导出到 Excel 文件的例子，我们需要先安装<code>openpyxl</code>三方库，命令如下所示。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install openpyxl</span><br></pre></td></tr></table></figure>
+
+<p>接下来，我们通过下面的代码实现了将数据库<code>hrs</code>中所有员工的编号、姓名、职位、月薪、补贴和部门名称导出到一个 Excel 文件中。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> openpyxl</span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建工作簿对象</span></span><br><span class="line">workbook = openpyxl.Workbook()</span><br><span class="line"><span class="comment"># 获得默认的工作表</span></span><br><span class="line">sheet = workbook.active</span><br><span class="line"><span class="comment"># 修改工作表的标题</span></span><br><span class="line">sheet.title = <span class="string">&#x27;员工基本信息&#x27;</span></span><br><span class="line"><span class="comment"># 给工作表添加表头</span></span><br><span class="line">sheet.append((<span class="string">&#x27;工号&#x27;</span>, <span class="string">&#x27;姓名&#x27;</span>, <span class="string">&#x27;职位&#x27;</span>, <span class="string">&#x27;月薪&#x27;</span>, <span class="string">&#x27;补贴&#x27;</span>, <span class="string">&#x27;部门&#x27;</span>))</span><br><span class="line"><span class="comment"># 创建连接（Connection）</span></span><br><span class="line">conn = pymysql.connect(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">3306</span>,</span><br><span class="line">                       user=<span class="string">&#x27;guest&#x27;</span>, password=<span class="string">&#x27;Guest.618&#x27;</span>,</span><br><span class="line">                       database=<span class="string">&#x27;hrs&#x27;</span>, charset=<span class="string">&#x27;utf8mb4&#x27;</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="comment"># 获取游标对象（Cursor）</span></span><br><span class="line">    <span class="keyword">with</span> conn.cursor() <span class="keyword">as</span> cursor:</span><br><span class="line">        <span class="comment"># 通过游标对象执行SQL语句</span></span><br><span class="line">        cursor.execute(</span><br><span class="line">            <span class="string">&#x27;select `eno`, `ename`, `job`, `sal`, coalesce(`comm`, 0), `dname` &#x27;</span></span><br><span class="line">            <span class="string">&#x27;from `tb_emp` natural join `tb_dept`&#x27;</span></span><br><span class="line">        )</span><br><span class="line">        <span class="comment"># 通过游标抓取数据</span></span><br><span class="line">        row = cursor.fetchone()</span><br><span class="line">        <span class="keyword">while</span> row:</span><br><span class="line">            <span class="comment"># 将数据逐行写入工作表中</span></span><br><span class="line">            sheet.append(row)</span><br><span class="line">            row = cursor.fetchone()</span><br><span class="line">    <span class="comment"># 保存工作簿</span></span><br><span class="line">    workbook.save(<span class="string">&#x27;hrs.xlsx&#x27;</span>)</span><br><span class="line"><span class="keyword">except</span> pymysql.MySQLError <span class="keyword">as</span> err:</span><br><span class="line">    <span class="built_in">print</span>(err)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="comment"># 关闭连接释放资源</span></span><br><span class="line">    conn.close()</span><br></pre></td></tr></table></figure>
+
+<p>大家可以参考上面的例子，试一试把 Excel 文件的数据导入到指定数据库的指定表中，看看是否可以成功。</p>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/python/basic/40.%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E5%92%8CHiveSQL/">上一篇：Hive简介</a>
+  
+  
+  <a class="next" href="/computer-science/python/basic/38.%E6%B7%B1%E5%85%A5MySQL/">下一篇：深入MySQL</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

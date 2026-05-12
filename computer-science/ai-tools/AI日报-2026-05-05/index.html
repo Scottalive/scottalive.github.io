@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>AI 日报 2026-05-05 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">AI 日报 2026-05-05</h1>
+    <div class="post-meta">
+      <span class="post-date">2026-05-05 22:00</span>
+      <span class="post-word-count">2645 字</span>
+      <span class="post-reading-time">约 9 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/AI%E6%97%A5%E6%8A%A5/">AI日报</a>
+      
+      <a href="/tags/AI/">AI</a>
+      
+      <a href="/tags/GitHub%E7%83%AD%E9%97%A8/">GitHub热门</a>
+      
+      <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+      
+      <a href="/tags/%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF/">技术趋势</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#今日热点">📌 今日热点</a>
+      
+      <a class="toc-level-2" href="#github-热门-ai-项目">🔥 GitHub 热门 AI 项目</a>
+      
+      <a class="toc-level-3" href="#1-ruflo-多-agent-编排平台">1. 🌊 ruflo — 多 Agent 编排平台</a>
+      
+      <a class="toc-level-3" href="#2-deepseek-tui-终端的-coding-agent">2. 🧠 DeepSeek-TUI — 终端的 Coding Agent</a>
+      
+      <a class="toc-level-3" href="#3-dexter-自主金融研究-agent">3. 📊 dexter — 自主金融研究 Agent</a>
+      
+      <a class="toc-level-3" href="#4-context-mode-上下文窗口优化">4. 🔧 Context Mode — 上下文窗口优化</a>
+      
+      <a class="toc-level-3" href="#5-pixelle-video-ai-全自动短视频引擎">5. 🎬 Pixelle-Video — AI 全自动短视频引擎</a>
+      
+      <a class="toc-level-3" href="#6-local-deep-research-本地化深度研究">6. 🏠 Local Deep Research — 本地化深度研究</a>
+      
+      <a class="toc-level-3" href="#7-scrapling-自适应-web-爬虫框架">7. 🕷️ Scrapling — 自适应 Web 爬虫框架</a>
+      
+      <a class="toc-level-3" href="#8-cocoindex-长时-agent-增量引擎">8. 🧩 CocoIndex — 长时 Agent 增量引擎</a>
+      
+      <a class="toc-level-2" href="#新工具-x2f-产品速览">🛠️ 新工具 &amp;#x2F; 产品速览</a>
+      
+      <a class="toc-level-2" href="#行业动态">📰 行业动态</a>
+      
+      <a class="toc-level-3" href="#openai-筹备-ipo讨论剥离硬件与机器人部门">OpenAI 筹备 IPO，讨论剥离硬件与机器人部门</a>
+      
+      <a class="toc-level-3" href="#musk-诉-openai-案持续发酵">Musk 诉 OpenAI 案持续发酵</a>
+      
+      <a class="toc-level-3" href="#google-gemini-ios-应用全面改版">Google Gemini iOS 应用全面改版</a>
+      
+      <a class="toc-level-3" href="#white-house-考虑-ai-安全行政令">White House 考虑 AI 安全行政令</a>
+      
+      <a class="toc-level-2" href="#技术洞见">💡 技术洞见</a>
+      
+      <a class="toc-level-3" href="#洞见一agent-工程化的三件套已经成型">洞见一：Agent 工程化的”三件套”已经成型</a>
+      
+      <a class="toc-level-3" href="#洞见二实时金融-agent-打开了高价值垂直场景的大门">洞见二：实时金融 Agent 打开了高价值垂直场景的大门</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="今日热点"><a href="#📌-今日热点" class="headerlink" title="📌 今日热点"></a>📌 今日热点</h2><p>今日 AI 领域最值得关注的事件：<strong>Agent 编排与上下文优化成为核心战场</strong>。GitHub 上 ruflo（Agent 编排平台，单日 2,441 Star）与 Context Mode（上下文窗口优化，98% 压缩率）双双爆发，标志着行业焦点从”模型能力”转向”工程化落地”。OpenAI 筹备 IPO 前夕讨论剥离硬件与机器人部门，引发对其战略聚焦的讨论。此外，DeepSeek-TUI（终端 Coding Agent）与 Pixelle-Video（全自动短视频引擎）分别代表 CLI 工具与 AI 视频两条热门赛道持续升温。</p>
+<hr>
+<h2 id="github-热门-ai-项目"><a href="#🔥-GitHub-热门-AI-项目" class="headerlink" title="🔥 GitHub 热门 AI 项目"></a>🔥 GitHub 热门 AI 项目</h2><h3 id="1-ruflo-多-agent-编排平台"><a href="#1-🌊-ruflo-—-多-Agent-编排平台" class="headerlink" title="1. 🌊 ruflo — 多 Agent 编排平台"></a>1. 🌊 ruflo — 多 Agent 编排平台</h3><ul>
+<li><strong>仓库</strong>: <a target="_blank" rel="noopener" href="https://github.com/ruvnet/ruflo">ruvnet&#x2F;ruflo</a></li>
+<li><strong>语言</strong>: TypeScript | <strong>Star</strong>: 42,860 | <strong>今日增长</strong>: 2,441</li>
+<li><strong>描述</strong>: Claude 生态的 Agent 编排平台，支持 100+ 专业化 Agent 的集群管理与协调调度</li>
+</ul>
+<p>ruflo 的核心价值在于<strong>让 Agent 从单兵作战走向群体协作</strong>。它给 Claude Code 装上了一套”神经系统”：</p>
+<ul>
+<li><strong>Swarm 架构</strong> — Agent 自动组织为群体，按任务动态分配</li>
+<li><strong>自学习循环</strong> — 每次执行的结果反馈回 Memory，持续优化</li>
+<li><strong>联邦通信</strong> — 跨机器、跨信任边界的 Agent 安全通信</li>
+<li><strong>WASM 内核</strong> — 策略引擎、嵌入、证明系统由 Rust 编写的 WASM 内核驱动</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    User[用户/开发者] --&gt; CLI[Ruflo CLI / MCP]</span><br><span class="line">    CLI --&gt; Router[智能路由器]</span><br><span class="line">    Router --&gt; Swarm[Agent Swarm 集群]</span><br><span class="line">    Swarm --&gt; A1[Agent 1: 代码生成]</span><br><span class="line">    Swarm --&gt; A2[Agent 2: 测试验证]</span><br><span class="line">    Swarm --&gt; A3[Agent 3: 文档编写]</span><br><span class="line">    Swarm --&gt; A4[Agent 4: 部署运维]</span><br><span class="line">    Swarm --&gt; Memory[共享记忆层]</span><br><span class="line">    Memory --&gt; LLM[LLM 提供商]</span><br><span class="line">    LLM --&gt; |反馈循环| Memory</span><br><span class="line">    Memory --&gt; |持续学习| Swarm</span><br><span class="line"></span><br><span class="line">    style CLI fill:#4a90d9,color:#fff</span><br><span class="line">    style Router fill:#e67e22,color:#fff</span><br><span class="line">    style Swarm fill:#27ae60,color:#fff</span><br><span class="line">    style Memory fill:#8e44ad,color:#fff</span><br></pre></td></tr></table></figure>
+
+<p><strong>为什么火？</strong> Claude Code 火遍开发者圈后，单 Agent 已经不够用了——复杂的工程任务需要多人协作式的 Agent 团队。ruflo 抓住了这个结构性需求，提供了一条”给 Claude Code 加协作能力”的路径，定位极其精准。</p>
+<p><strong>评价</strong>: ⭐⭐⭐⭐⭐ — 代表了 Agent 开发从”写单个 prompt”到”编排 Agent 团队”的范式跃迁。</p>
+<hr>
+<h3 id="2-deepseek-tui-终端的-coding-agent"><a href="#2-🧠-DeepSeek-TUI-—-终端的-Coding-Agent" class="headerlink" title="2. 🧠 DeepSeek-TUI — 终端的 Coding Agent"></a>2. 🧠 DeepSeek-TUI — 终端的 Coding Agent</h3><ul>
+<li><strong>仓库</strong>: <a target="_blank" rel="noopener" href="https://github.com/Hmbown/DeepSeek-TUI">Hmbown&#x2F;DeepSeek-TUI</a></li>
+<li><strong>语言</strong>: Rust | <strong>Star</strong>: 6,179 | <strong>今日增长</strong>: 477 (2,389 stars&#x2F;day)</li>
+<li><strong>描述</strong>: 基于 DeepSeek 模型的 Coding Agent，运行在终端中</li>
+</ul>
+<p>DeepSeek 模型以极高的性价比著称，DeepSeek-TUI 将其带入了开发者最熟悉的终端环境。Rust 保证了性能和跨平台一致性。</p>
+<p><strong>核心优势</strong>:</p>
+<ul>
+<li>纯终端交互，无 Electron 包袱</li>
+<li>利用 DeepSeek 的长上下文与代码能力</li>
+<li>Rust 编写，轻量且高效</li>
+</ul>
+<p><strong>评价</strong>: ⭐⭐⭐⭐ — “DeepSeek + Rust + TUI”的组合精准切中开发者社区的偏好。</p>
+<hr>
+<h3 id="3-dexter-自主金融研究-agent"><a href="#3-📊-dexter-—-自主金融研究-Agent" class="headerlink" title="3. 📊 dexter — 自主金融研究 Agent"></a>3. 📊 dexter — 自主金融研究 Agent</h3><ul>
+<li><strong>仓库</strong>: <a target="_blank" rel="noopener" href="https://github.com/virattt/dexter">virattt&#x2F;dexter</a></li>
+<li><strong>语言</strong>: TypeScript | <strong>Star</strong>: 23,559 | <strong>今日增长</strong>: 660</li>
+<li><strong>描述</strong>: 面向深度金融研究的自主 Agent，支持任务规划、自我反思与实时市场数据</li>
+</ul>
+<p>dexter 将 AI Agent 范式引入了<strong>金融研究</strong>这个高价值垂直领域：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    Q[金融问题] --&gt; Planner[任务规划器]</span><br><span class="line">    Planner --&gt; S1[步骤1: 获取财报]</span><br><span class="line">    Planner --&gt; S2[步骤2: 分析现金流]</span><br><span class="line">    Planner --&gt; S3[步骤3: 行业对比]</span><br><span class="line">    S1 --&gt; Exec[执行引擎]</span><br><span class="line">    S2 --&gt; Exec</span><br><span class="line">    S3 --&gt; Exec</span><br><span class="line">    Exec --&gt; Data[实时市场数据]</span><br><span class="line">    Data --&gt; Checker[自验证模块]</span><br><span class="line">    Checker --&gt; |通过| Result[数据驱动的答案]</span><br><span class="line">    Checker --&gt; |不通过| Planner</span><br><span class="line"></span><br><span class="line">    style Q fill:#f39c12,color:#fff</span><br><span class="line">    style Planner fill:#3498db,color:#fff</span><br><span class="line">    style Data fill:#2ecc71,color:#fff</span><br><span class="line">    style Checker fill:#e74c3c,color:#fff</span><br><span class="line">    style Result fill:#9b59b6,color:#fff</span><br></pre></td></tr></table></figure>
+
+<p><strong>为什么火？</strong> 23K+ Star 说明金融领域对 AI 分析工具有巨大的真实需求。dexter 的自验证循环（self-reflection）解决了 Agent 最让人头疼的问题——幻觉——至少在数字领域有明确的验证标准。</p>
+<p><strong>评价</strong>: ⭐⭐⭐⭐ — 垂直领域的 Agent 化尝试，实用价值高。</p>
+<hr>
+<h3 id="4-context-mode-上下文窗口优化"><a href="#4-🔧-Context-Mode-—-上下文窗口优化" class="headerlink" title="4. 🔧 Context Mode — 上下文窗口优化"></a>4. 🔧 Context Mode — 上下文窗口优化</h3><ul>
+<li><strong>仓库</strong>: <a target="_blank" rel="noopener" href="https://github.com/mksglu/context-mode">mksglu&#x2F;context-mode</a></li>
+<li><strong>语言</strong>: TypeScript | <strong>Star</strong>: 12,799 | <strong>今日增长</strong>: 306</li>
+<li><strong>描述</strong>: 将 AI Coding Agent 的上下文占用降低 98%，支持 14 个平台</li>
+</ul>
+<p>这是<strong>今日最值得关注的基础设施级项目</strong>。Context Mode 解决了 AI Coding Agent 的核心痛点：</p>
+<p><strong>四维优化</strong>:</p>
+<ol>
+<li><strong>上下文节省</strong> — 沙箱化工具输出，315KB → 5.4KB，98% 压缩率</li>
+<li><strong>会话连续性</strong> — 用 SQLite 追踪文件编辑、Git 操作、任务状态</li>
+<li><strong>Token 管理</strong> — 减少端侧的 filler 和冗余解释</li>
+<li><strong>多平台支持</strong> — 覆盖 14 个平台</li>
+</ol>
+<blockquote>
+<p>“Every MCP tool call dumps raw data into your context window. A Playwright snapshot costs 56 KB. Twenty GitHub issues cost 59 KB.” — Context Mode 团队</p>
+</blockquote>
+<p><strong>评价</strong>: ⭐⭐⭐⭐⭐ — 解决了一个每个人都知道但没人彻底解决的问题。</p>
+<hr>
+<h3 id="5-pixelle-video-ai-全自动短视频引擎"><a href="#5-🎬-Pixelle-Video-—-AI-全自动短视频引擎" class="headerlink" title="5. 🎬 Pixelle-Video — AI 全自动短视频引擎"></a>5. 🎬 Pixelle-Video — AI 全自动短视频引擎</h3><ul>
+<li><strong>仓库</strong>: <a target="_blank" rel="noopener" href="https://github.com/AIDC-AI/Pixelle-Video">AIDC-AI&#x2F;Pixelle-Video</a></li>
+<li><strong>语言</strong>: Python | <strong>Star</strong>: 热门趋势</li>
+<li><strong>描述</strong>: AI 全自动短视频引擎，从文案到旁白到配图一条龙</li>
+</ul>
+<p>这个国产项目提供了<strong>一站式短视频生成</strong>能力：</p>
+<ul>
+<li><strong>AI 文案</strong> — 支持通义千问、GPT-4o、DeepSeek 等多种 LLM</li>
+<li><strong>TTS 配音</strong> — 支持声音克隆（Edge-TTS、Index-TTS）</li>
+<li><strong>AI 配图</strong> — 集成 ComfyUI 工作流</li>
+<li><strong>Windows 一键包</strong> — 无需 Python&#x2F;ffmpeg</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">    Prompt[输入主题] --&gt; AI[AI 生成文案]</span><br><span class="line">    AI --&gt; TTS[TTS 语音合成]</span><br><span class="line">    AI --&gt; Image[AI 配图生成]</span><br><span class="line">    TTS --&gt; Compose[合成器]</span><br><span class="line">    Image --&gt; Compose</span><br><span class="line">    BGM[背景音乐] --&gt; Compose</span><br><span class="line">    Compose --&gt; Video[完整短视频]</span><br><span class="line"></span><br><span class="line">    subgraph 输入</span><br><span class="line">        Prompt</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    subgraph AI引擎</span><br><span class="line">        AI</span><br><span class="line">        TTS</span><br><span class="line">        Image</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    subgraph 输出</span><br><span class="line">        Video</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    style AI fill:#e74c3c,color:#fff</span><br><span class="line">    style TTS fill:#3498db,color:#fff</span><br><span class="line">    style Image fill:#2ecc71,color:#fff</span><br><span class="line">    style Compose fill:#f39c12,color:#fff</span><br></pre></td></tr></table></figure>
+
+<p><strong>评价</strong>: ⭐⭐⭐⭐ — 低门槛的 AI 视频工具，一键整合包是杀手锏。</p>
+<hr>
+<h3 id="6-local-deep-research-本地化深度研究"><a href="#6-🏠-Local-Deep-Research-—-本地化深度研究" class="headerlink" title="6. 🏠 Local Deep Research — 本地化深度研究"></a>6. 🏠 Local Deep Research — 本地化深度研究</h3><ul>
+<li><strong>仓库</strong>: <a target="_blank" rel="noopener" href="https://github.com/LearningCircuit/local-deep-research">LearningCircuit&#x2F;local-deep-research</a></li>
+<li><strong>语言</strong>: Python | <strong>Star</strong>: 4,966 | <strong>今日增长</strong>: 200</li>
+<li><strong>描述</strong>: 在本地运行的 AI 研究助手，在 SimpleQA 上达到 ~95% 准确率</li>
+</ul>
+<p>支持所有本地和云端 LLM（llama.cpp、Ollama、Google…），10+ 搜索引擎、完全本地加密。在 Qwen3.6-27B（3090 显卡）上即可达到 95% 的 SimpleQA 得分。</p>
+<p><strong>评价</strong>: ⭐⭐⭐⭐ — 隐私优先 + 本地运行的AI研究工具，是”去 OpenAI”运动的代表。</p>
+<hr>
+<h3 id="7-scrapling-自适应-web-爬虫框架"><a href="#7-🕷️-Scrapling-—-自适应-Web-爬虫框架" class="headerlink" title="7. 🕷️ Scrapling — 自适应 Web 爬虫框架"></a>7. 🕷️ Scrapling — 自适应 Web 爬虫框架</h3><ul>
+<li><strong>仓库</strong>: <a target="_blank" rel="noopener" href="https://github.com/D4Vinci/Scrapling">D4Vinci&#x2F;Scrapling</a></li>
+<li><strong>语言</strong>: Python | <strong>Star</strong>: 热门趋势</li>
+<li><strong>描述</strong>: 自适应 Web 爬虫框架，从单请求到全量爬取</li>
+</ul>
+<p>AI Agent 需要大量数据输入，Scrapling 为 Agent 提供了高质量的 web 数据获取能力，是 Agent 生态的重要基础设施组件。</p>
+<p><strong>评价</strong>: ⭐⭐⭐ — 实用工具，与 Agent 需求紧密结合。</p>
+<hr>
+<h3 id="8-cocoindex-长时-agent-增量引擎"><a href="#8-🧩-CocoIndex-—-长时-Agent-增量引擎" class="headerlink" title="8. 🧩 CocoIndex — 长时 Agent 增量引擎"></a>8. 🧩 CocoIndex — 长时 Agent 增量引擎</h3><ul>
+<li><strong>仓库</strong>: <a target="_blank" rel="noopener" href="https://github.com/cocoindex-io/cocoindex">cocoindex-io&#x2F;cocoindex</a></li>
+<li><strong>语言</strong>: Python | <strong>Star</strong>: 8,253 | <strong>今日增长</strong>: 434</li>
+<li><strong>描述</strong>: 为长期任务 Agent 提供增量数据引擎，只重新计算增量变化</li>
+</ul>
+<p>将代码库、会议记录、Slack 消息、PDF、视频转化为实时更新的 Agent 上下文。受 React 启发，采用声明式范式——<strong>声明目标状态，CocoIndex 持续同步增量变更</strong>。</p>
+<p><strong>评价</strong>: ⭐⭐⭐⭐⭐ — “Agent 的 React”，声明式增量更新的设计理念极具前瞻性。</p>
+<hr>
+<h2 id="新工具-x2f-产品速览"><a href="#🛠️-新工具-产品速览" class="headerlink" title="🛠️ 新工具 &#x2F; 产品速览"></a>🛠️ 新工具 &#x2F; 产品速览</h2><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>类型</th>
+<th>一句话点评</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Ruflo</strong></td>
+<td>Agent 编排</td>
+<td>给 Claude Code 装上”神经系统”</td>
+</tr>
+<tr>
+<td><strong>Context Mode</strong></td>
+<td>上下文优化</td>
+<td>解决 98% 的上下文浪费问题</td>
+</tr>
+<tr>
+<td><strong>DeepSeek-TUI</strong></td>
+<td>Coding Agent</td>
+<td>高性价比的终端 Agent</td>
+</tr>
+<tr>
+<td><strong>dexter</strong></td>
+<td>金融 Agent</td>
+<td>垂直场景 Agent 的标杆</td>
+</tr>
+<tr>
+<td><strong>Pixelle-Video</strong></td>
+<td>视频生成</td>
+<td>全自动短视频工厂</td>
+</tr>
+<tr>
+<td><strong>Local Deep Research</strong></td>
+<td>本地研究</td>
+<td>隐私优先的 Deep Research</td>
+</tr>
+<tr>
+<td><strong>CocoIndex</strong></td>
+<td>Agent 数据层</td>
+<td>增量更新的上下文引擎</td>
+</tr>
+<tr>
+<td><strong>Scrapling</strong></td>
+<td>爬虫框架</td>
+<td>Agent 的数据触手</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="行业动态"><a href="#📰-行业动态" class="headerlink" title="📰 行业动态"></a>📰 行业动态</h2><h3 id="openai-筹备-ipo讨论剥离硬件与机器人部门"><a href="#OpenAI-筹备-IPO，讨论剥离硬件与机器人部门" class="headerlink" title="OpenAI 筹备 IPO，讨论剥离硬件与机器人部门"></a>OpenAI 筹备 IPO，讨论剥离硬件与机器人部门</h3><p>据 WSJ 报道，OpenAI 在 IPO 前讨论了剥离硬件和机器人部门，考虑类似 Google&#x2F;Alphabet 的集团架构。OpenAI 一直在削减”副业”（side quests），为可能的上市铺路。Sam Altman 曾考虑将硬件（如 AI 芯片）和机器人团队分拆为独立实体。</p>
+<h3 id="musk-诉-openai-案持续发酵"><a href="#Musk-诉-OpenAI-案持续发酵" class="headerlink" title="Musk 诉 OpenAI 案持续发酵"></a>Musk 诉 OpenAI 案持续发酵</h3><p>Musk 与 OpenAI 的法律纠纷持续在法庭展开。OpenAI 联合创始人 Greg Brockman 在法庭上表示”我们已经完成了 80% 的 AGI”，引发了业界热议。Brockman 描述了他与 Altman 早期的合作经历——从 Stripe 离职时两人”都在想着做 AI 的事”。</p>
+<h3 id="google-gemini-ios-应用全面改版"><a href="#Google-Gemini-iOS-应用全面改版" class="headerlink" title="Google Gemini iOS 应用全面改版"></a>Google Gemini iOS 应用全面改版</h3><p>Google 的 Gemini 应用在 iOS 上推送了全新设计：渐变背景、药丸形提示框、整合所有扩展功能至一个”+”按钮。该设计此前已在 macOS 端上线。</p>
+<h3 id="white-house-考虑-ai-安全行政令"><a href="#White-House-考虑-AI-安全行政令" class="headerlink" title="White House 考虑 AI 安全行政令"></a>White House 考虑 AI 安全行政令</h3><p>据报道，白宫正在制定 AI 监管方面的行政令。在 Anthropic 发布 Mythos 后，官员们对”AI 驱动的毁灭性网络攻击”的潜在政治后果表示担忧。一些官员希望政府在 AI 模型公开发布前获得优先访问权。</p>
+<hr>
+<h2 id="技术洞见"><a href="#💡-技术洞见" class="headerlink" title="💡 技术洞见"></a>💡 技术洞见</h2><h3 id="洞见一agent-工程化的三件套已经成型"><a href="#洞见一：Agent-工程化的”三件套”已经成型" class="headerlink" title="洞见一：Agent 工程化的”三件套”已经成型"></a>洞见一：Agent 工程化的”三件套”已经成型</h3><p>从今天的 GitHub Trending 可以清晰看到一个趋势：<strong>AI Coding Agent 正在从”能跑”走向”能协作、保持久、省上下文”</strong>。</p>
+<p>三件基础设施正在快速成熟：</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">┌─────────────────────┐</span><br><span class="line">│   Agent 编排层       │</span><br><span class="line">│  (ruflo, 多Agent)    │</span><br><span class="line">└──────────┬──────────┘</span><br><span class="line">           │</span><br><span class="line">┌──────────▼──────────┐</span><br><span class="line">│   上下文优化层       │</span><br><span class="line">│(Context Mode, <span class="number">98%</span>↓)│</span><br><span class="line">└──────────┬──────────┘</span><br><span class="line">           │</span><br><span class="line">┌──────────▼──────────┐</span><br><span class="line">│    数据增量层        │</span><br><span class="line">│ (CocoIndex, 实时同步)│</span><br><span class="line">└─────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<p>这三层分别解决了：</p>
+<ol>
+<li><strong>编排层</strong> — 多 Agent 如何分工协作（ruflo、agency-agents）</li>
+<li><strong>上下文层</strong> — Token 水位如何控制（Context Mode）</li>
+<li><strong>数据层</strong> — Agent 记忆如何持续更新（CocoIndex）</li>
+</ol>
+<p><strong>结论：</strong> 接下来的半年，Coding Agent 的”好用程度”会在这三个方面快速改善，开发效率将迎来新一轮提升。</p>
+<hr>
+<h3 id="洞见二实时金融-agent-打开了高价值垂直场景的大门"><a href="#洞见二：实时金融-Agent-打开了高价值垂直场景的大门" class="headerlink" title="洞见二：实时金融 Agent 打开了高价值垂直场景的大门"></a>洞见二：实时金融 Agent 打开了高价值垂直场景的大门</h3><p>dexter 的爆火（23K+ Star）不仅仅是又一个 Agent 项目——它标志着 <strong>Agent 从通用场景向高价值垂直领域渗透</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    subgraph 通用Agent</span><br><span class="line">        G1[编程助手]</span><br><span class="line">        G2[通用问答]</span><br><span class="line">        G3[文档总结]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    subgraph 垂直Agent</span><br><span class="line">        V1[金融研究 dexter]</span><br><span class="line">        V2[法律分析]</span><br><span class="line">        V3[医学诊断]</span><br><span class="line">        V4[工程仿真]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    G1 --&gt; |技术溢出| V1</span><br><span class="line">    G1 --&gt; |范式迁移| V2</span><br><span class="line">    G2 --&gt; |能力迁移| V3</span><br><span class="line">    G2 --&gt; |推理升级| V4</span><br><span class="line"></span><br><span class="line">    V1 --&gt; |验证成功| I[行业Agent化浪潮]</span><br></pre></td></tr></table></figure>
+
+<p>dexter 的成功证明：<strong>在特定领域内，Agent 可以做得比人类分析师更快、更全面、更低成本</strong>。而且金融领域的数据可验证性天然适合 Agent 的自验证循环——不像写作类任务，”对不对”有客观标准。</p>
+<p><strong>接下来的看点</strong>：法律、医疗、教育等领域会出现更多 dexter 级别的 Agent 项目。</p>
+<hr>
+<blockquote>
+<p>📊 今日收录：<strong>8 个热门项目</strong> + <strong>6 条行业动态</strong> + <strong>2 篇技术洞见</strong></p>
+<p>核心信号：Agent 工程化基础设施正在加速成型，垂直领域 Agent 即将爆发。</p>
+</blockquote>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/ai-daily/AI%E6%97%A5%E6%8A%A5-2026-05-05/">上一篇：AI 日报 2026-05-05</a>
+  
+  
+  <a class="next" href="/computer-science/java/arithmetic/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/">下一篇：动态规划算法详解</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

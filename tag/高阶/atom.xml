@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://scottalive.github.io</id>
+    <title>沉鱼的博客 • Posts by &#34;高阶&#34; tag</title>
+    <link href="https://scottalive.github.io" />
+    <updated>2026-05-08T14:39:00.000Z</updated>
+    <category term="AI日报" />
+    <category term="AI" />
+    <category term="GitHub热门" />
+    <category term="人工智能" />
+    <category term="技术趋势" />
+    <category term="原则" />
+    <category term="个人详情" />
+    <category term="个人分享" />
+    <category term="坏习惯" />
+    <category term="Kubernetes" />
+    <category term="Helm" />
+    <category term="学习计划" />
+    <category term="心理学知识" />
+    <category term="网络安全" />
+    <category term="SQL注入" />
+    <category term="XSS" />
+    <category term="CSRF" />
+    <category term="DDoS" />
+    <category term="渗透测试" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
+    <category term="GPT-5.5" />
+    <category term="OpenAI" />
+    <category term="Codex" />
+    <category term="ClaudeCode" />
+    <category term="Gemini" />
+    <category term="开发工具" />
+    <category term="开源" />
+    <category term="编程笔记" />
+    <category term="Hermes" />
+    <category term="Agent" />
+    <category term="NousResearch" />
+    <category term="进阶" />
+    <category term="配置" />
+    <category term="高阶" />
+    <category term="自动化" />
+    <category term="LLM" />
+    <category term="RAG" />
+    <category term="知识库" />
+    <category term="OpenSRE" />
+    <category term="SRE" />
+    <category term="运维" />
+    <category term="故障排查" />
+    <category term="SSE" />
+    <category term="HTTP" />
+    <category term="接口开发" />
+    <category term="开发注意事项" />
+    <category term="力扣算法题" />
+    <category term="算法" />
+    <category term="动态规划" />
+    <category term="微服务" />
+    <category term="JavaSE" />
+    <category term="Java开发面试题" />
+    <category term="SpringBoot" />
+    <category term="Spring" />
+    <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/Hermes-Agent-%E9%AB%98%E9%98%B6%E7%94%A8%E6%B3%95/</id>
+        <title>Hermes Agent 高阶用法 —— 打造你的专属 AI 工作流</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/Hermes-Agent-%E9%AB%98%E9%98%B6%E7%94%A8%E6%B3%95/"/>
+        <content type="html">&lt;blockquote&gt;
+&lt;p&gt;本文是 Hermes Agent 系列的第三篇。如果你还没看过前两篇，建议先阅读 &lt;a href=&#34;/Hermes-Agent-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/&#34;&gt;《安装与使用指南》&lt;/a&gt; 和 &lt;a href=&#34;/Hermes-Agent-%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/&#34;&gt;《配置与进阶使用》&lt;/a&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;概览&#34;&gt;&lt;a href=&#34;#概览&#34; class=&#34;headerlink&#34; title=&#34;概览&#34;&gt;&lt;/a&gt;概览&lt;/h2&gt;&lt;p&gt;前两篇覆盖了安装、基础配置和部署。这一篇聚焦&lt;strong&gt;实战中的高阶技巧&lt;/strong&gt;：如何用 SOUL.md 塑造 Agent 人格、如何设计多代理协作管线、如何用 Cron 做自动化、以及生产环境的加固策略。读完你就能把一个”能用”的 Agent 变成一个”好用且懂你”的 Agent。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph &amp;quot;人格层&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A[SOUL.md] --&amp;gt; B[AGENTS.md]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B --&amp;gt; C[IDENTITY.md]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph &amp;quot;能力层&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        D[自定义 Skill]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        E[多代理管线]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        F[Cron 工作流]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph &amp;quot;运维层&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        G[安全加固]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        H[日志监控]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        I[性能调优]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; I&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style A fill:#7C3AED,color:#fff&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style D fill:#F59E0B,color:#000&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style G fill:#10B981,color:#fff&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;1-人格系统：比你想象的更强大&#34;&gt;&lt;a href=&#34;#1-人格系统：比你想象的更强大&#34; class=&#34;headerlink&#34; title=&#34;1. 人格系统：比你想象的更强大&#34;&gt;&lt;/a&gt;1. 人格系统：比你想象的更强大&lt;/h2&gt;&lt;p&gt;Hermes Agent 最大的差异化能力不是工具调用，而是&lt;strong&gt;持续进化的个性系统&lt;/strong&gt;。三个核心文件构成它的”灵魂”：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;文件&lt;/th&gt;
+&lt;th&gt;作用&lt;/th&gt;
+&lt;th&gt;加载时机&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;SOUL.md&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;人格定义：说话风格、价值观、边界&lt;/td&gt;
+&lt;td&gt;每次会话启动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;AGENTS.md&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;行为规范：工作流、工具使用规则、红线和自由区&lt;/td&gt;
+&lt;td&gt;每次会话启动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;IDENTITY.md&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;身份名片：名字、emoji、头像&lt;/td&gt;
+&lt;td&gt;仅首次&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;1-1-SOUL-md-高阶写法&#34;&gt;&lt;a href=&#34;#1-1-SOUL-md-高阶写法&#34; class=&#34;headerlink&#34; title=&#34;1.1 SOUL.md 高阶写法&#34;&gt;&lt;/a&gt;1.1 SOUL.md 高阶写法&lt;/h3&gt;&lt;p&gt;普通的 SOUL.md 只写”你是一个友善的助手”。高阶写法让 Agent 真正理解&lt;strong&gt;在什么场景下用什么样的表达&lt;/strong&gt;：&lt;/p&gt;
+&lt;figure class=&#34;highlight markdown&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;# SOUL.md —— 范例&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## Core Truths&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;strong&#34;&gt;**先行动后解释。**&lt;/span&gt; 能直接做的事不要先问&amp;quot;要不要做&amp;quot;。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;你的用户是技术背景，默认跳过入门解释，直接给方案。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;strong&#34;&gt;**有立场。**&lt;/span&gt; 你可以反对、有偏好、觉得无聊。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;和一个只会说&amp;quot;好主意&amp;quot;的助手相处很累。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;strong&#34;&gt;**知道何时闭嘴。**&lt;/span&gt; 群聊里别人没 @ 你，就安静待着。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;不是每条消息你都需要参与。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## 场景感知&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 私聊：直接执行，给结论不啰嗦&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 群聊：只在被 @ 或能提供关键信息时发言&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 定时任务：除非失败或产出重要结果，否则不发消息&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 深夜 (23:00-07:00)：只处理紧急事务，不闲聊&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## 边界&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 不帮写钓鱼邮件、不帮猜密码&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 外部动作（发邮件、发帖、发消息）先确认&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 文件操作默认用 trash，不直接 rm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;关键技巧：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用&lt;strong&gt;场景分隔&lt;/strong&gt;让 Agent 在不同上下文切换行为模式&lt;/li&gt;
+&lt;li&gt;写清楚&lt;strong&gt;不做什么&lt;/strong&gt;往往比写”做什么”更重要&lt;/li&gt;
+&lt;li&gt;每 2-4 周回顾并迭代 SOUL.md，像打磨产品一样打磨它&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;1-2-AGENTS-md-工作流模板&#34;&gt;&lt;a href=&#34;#1-2-AGENTS-md-工作流模板&#34; class=&#34;headerlink&#34; title=&#34;1.2 AGENTS.md 工作流模板&#34;&gt;&lt;/a&gt;1.2 AGENTS.md 工作流模板&lt;/h3&gt;&lt;p&gt;AGENTS.md 是 Agent 的”标准作业程序”。好的 AGENTS.md 能让每次会话开头的上下文加载自动建立正确的工作姿态：&lt;/p&gt;
+&lt;figure class=&#34;highlight markdown&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;# AGENTS.md —— 工作流规范&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## 会话启动（自动）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;1.&lt;/span&gt; 读取 SOUL.md → 了解我是谁&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;2.&lt;/span&gt; 读取 memory/YYYY-MM-DD.md → 回顾最近对话&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;3.&lt;/span&gt; 如果是主会话：读取 MEMORY.md → 加载长期记忆&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## 写文章的流程&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;1.&lt;/span&gt; 先用 &lt;span class=&#34;code&#34;&gt;`exec`&lt;/span&gt; 检查工作区状态（git status）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;2.&lt;/span&gt; 确认分类和标签（参考已有文章的前置元数据）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;3.&lt;/span&gt; 写完后本地 &lt;span class=&#34;code&#34;&gt;`hexo generate`&lt;/span&gt; 验证构建&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;4.&lt;/span&gt; 通知用户确认，不自动 deploy&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## 记忆管理&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 当日事件 → memory/YYYY-MM-DD.md（按小时记录）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 重要决策/模式 → MEMORY.md（人工提炼）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 不要&amp;quot;心里记住&amp;quot;任何事——写文件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## 工具使用原则&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 读文件永远比问用户快&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 并行工具调用优先（可并行的查询一次发出）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 长时间操作用 &lt;span class=&#34;code&#34;&gt;`exec`&lt;/span&gt; + &lt;span class=&#34;code&#34;&gt;`yieldMs`&lt;/span&gt;，不阻塞&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;关键技巧：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;把&lt;strong&gt;流程性知识&lt;/strong&gt;固化到 AGENTS.md，减少每次对话的开销&lt;/li&gt;
+&lt;li&gt;持续更新——从每次”我要是早知道”中学习&lt;/li&gt;
+&lt;li&gt;参考 &lt;a href=&#34;https://clawhub.ai/&#34;&gt;skill-creator&lt;/a&gt; 生态已有的 AGENTS.md 模板&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2-自定义-Skill-开发实战&#34;&gt;&lt;a href=&#34;#2-自定义-Skill-开发实战&#34; class=&#34;headerlink&#34; title=&#34;2. 自定义 Skill 开发实战&#34;&gt;&lt;/a&gt;2. 自定义 Skill 开发实战&lt;/h2&gt;&lt;p&gt;Skill 是 Hermes Agent 的能力插件。每个 Skill 一个目录，包含 &lt;code&gt;SKILL.md&lt;/code&gt; 定义文件。&lt;/p&gt;
+&lt;h3 id=&#34;2-1-Skill-结构&#34;&gt;&lt;a href=&#34;#2-1-Skill-结构&#34; class=&#34;headerlink&#34; title=&#34;2.1 Skill 结构&#34;&gt;&lt;/a&gt;2.1 Skill 结构&lt;/h3&gt;&lt;figure class=&#34;highlight awk&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;~&lt;span class=&#34;regexp&#34;&gt;/.hermes/&lt;/span&gt;skills&lt;span class=&#34;regexp&#34;&gt;/my-skill/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;├── SKILL.md          &lt;span class=&#34;comment&#34;&gt;# 触发条件 + 执行指令&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└── scripts/          &lt;span class=&#34;comment&#34;&gt;# 可选的辅助脚本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    └── helper.py&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;2-2-SKILL-md-模板&#34;&gt;&lt;a href=&#34;#2-2-SKILL-md-模板&#34; class=&#34;headerlink&#34; title=&#34;2.2 SKILL.md 模板&#34;&gt;&lt;/a&gt;2.2 SKILL.md 模板&lt;/h3&gt;&lt;figure class=&#34;highlight markdown&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;# SKILL.md&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## 触发条件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 用户提到&amp;quot;生成周报&amp;quot; 或 &amp;quot;weekly report&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 每周五自动触发（配合 Cron）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## 执行步骤&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;1.&lt;/span&gt; 读取 ~/workspace/notes/ 下本周的所有 .md 文件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;2.&lt;/span&gt; 用 LLM 提取每条笔记的关键行动项&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;3.&lt;/span&gt; 按项目分组，生成 Markdown 表格&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;4.&lt;/span&gt; 保存到 ~/reports/weekly-&amp;#123;date&amp;#125;.md&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;5.&lt;/span&gt; 通知用户报告已生成&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## 依赖&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 需要 workspace/notes/ 目录存在&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 需要写入权限到 reports/ 目录&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;2-3-实战：自动代码审查-Skill&#34;&gt;&lt;a href=&#34;#2-3-实战：自动代码审查-Skill&#34; class=&#34;headerlink&#34; title=&#34;2.3 实战：自动代码审查 Skill&#34;&gt;&lt;/a&gt;2.3 实战：自动代码审查 Skill&lt;/h3&gt;&lt;p&gt;以下是一个真实可用的代码审查 Skill：&lt;/p&gt;
+&lt;figure class=&#34;highlight markdown&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;# SKILL.md —— code-review&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## 触发&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 用户消息包含&amp;quot;review&amp;quot; + 文件路径&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 或 git push 后自动触发（需配置 webhook）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## 步骤&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;1.&lt;/span&gt; &lt;span class=&#34;code&#34;&gt;`git diff HEAD~1 --name-only`&lt;/span&gt; 获取变更文件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;2.&lt;/span&gt; 对每个 .py/.ts/.js 文件执行：&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   a. 读取文件内容&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   b. 检查：类型注解、异常处理、SQL 注入、硬编码密钥&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;   c. 生成审查意见（严重 / 建议 / 风格）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;3.&lt;/span&gt; 汇总输出 Markdown 审查报告&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;4.&lt;/span&gt; 如果发现严重问题，阻止后续部署流程&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## 输出格式&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;| 文件 | 严重度 | 问题 | 建议修复 |&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;|------|--------|------|---------|&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;| api.py:42 | 🔴 严重 | SQL 拼接 | 使用参数化查询 |&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;| utils.ts:17 | 🟡 建议 | 缺少类型注解 | 添加 &lt;span class=&#34;code&#34;&gt;`: string`&lt;/span&gt; |&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;3-多代理协作管线&#34;&gt;&lt;a href=&#34;#3-多代理协作管线&#34; class=&#34;headerlink&#34; title=&#34;3. 多代理协作管线&#34;&gt;&lt;/a&gt;3. 多代理协作管线&lt;/h2&gt;&lt;p&gt;当单个 Agent 不够用时，用 &lt;code&gt;sessions_spawn&lt;/code&gt; 派生子代理并行工作。&lt;/p&gt;
+&lt;h3 id=&#34;3-1-基础模式：分而治之&#34;&gt;&lt;a href=&#34;#3-1-基础模式：分而治之&#34; class=&#34;headerlink&#34; title=&#34;3.1 基础模式：分而治之&#34;&gt;&lt;/a&gt;3.1 基础模式：分而治之&lt;/h3&gt;&lt;figure class=&#34;highlight css&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;主 Agent（协调者）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;├── 子代理 &lt;span class=&#34;selector-tag&#34;&gt;A&lt;/span&gt;：分析需求文档&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;├── 子代理 &lt;span class=&#34;selector-tag&#34;&gt;B&lt;/span&gt;：检查现有代码库&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└── 子代理 C：搜索最佳实践&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          ↓&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    主 Agent 汇总输出&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;3-2-实战：多代理文章写作管线&#34;&gt;&lt;a href=&#34;#3-2-实战：多代理文章写作管线&#34; class=&#34;headerlink&#34; title=&#34;3.2 实战：多代理文章写作管线&#34;&gt;&lt;/a&gt;3.2 实战：多代理文章写作管线&lt;/h3&gt;&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 这不是 YAML 配置，而是概念示意——&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Hermes Agent 通过自然语言就能编排这个管线&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;主&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Agent&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;指令:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;string&#34;&gt;&amp;quot;我要写一篇关于 Kubernetes 自动扩缩容的技术文章。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;   请同时启动 3 个子代理：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;   &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;   子代理 1：搜索 HPA/VPA/KEDA 最新文档和最佳实践&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;   子代理 2：回顾我 blog 中已有的 K8s 文章，避免内容重复&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;   子代理 3：找 3 个生产环境扩缩容的真实案例&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;   &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;   全部完成后汇总，生成文章大纲给我审核。&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;每个子代理的用法：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 子代理在独立 session 中运行，不污染主会话上下文&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 主 Agent 用 sessions_spawn 启动：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sessions_spawn(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  task: &lt;span class=&#34;string&#34;&gt;&amp;quot;搜索 Kubernetes HPA 最新文档、版本变化和最佳实践，输出结构化摘要&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  mode: &lt;span class=&#34;string&#34;&gt;&amp;quot;run&amp;quot;&lt;/span&gt;  &lt;span class=&#34;comment&#34;&gt;# 一次性任务，执行完自动返回结果&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sessions_spawn(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  task: &lt;span class=&#34;string&#34;&gt;&amp;quot;读取 ~/blog/source/_posts/computer-science/devops/ 下所有文章，&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;         提取已覆盖的 K8s 主题，输出已覆盖主题列表和可扩展的空白领域&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  mode: &lt;span class=&#34;string&#34;&gt;&amp;quot;run&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;关键决策：什么时候用子代理？&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;场景&lt;/th&gt;
+&lt;th&gt;直接用&lt;/th&gt;
+&lt;th&gt;子代理&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;简单查询&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;单个文件操作&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3+ 个独立搜索任务&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;需要不同模型处理不同任务&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;长时间运行的任务&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;3-3-子代理的上下文管理&#34;&gt;&lt;a href=&#34;#3-3-子代理的上下文管理&#34; class=&#34;headerlink&#34; title=&#34;3.3 子代理的上下文管理&#34;&gt;&lt;/a&gt;3.3 子代理的上下文管理&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 默认：isolated，子代理从零开始&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sessions_spawn(&amp;#123; task: &lt;span class=&#34;string&#34;&gt;&amp;quot;...&amp;quot;&lt;/span&gt;, context: &lt;span class=&#34;string&#34;&gt;&amp;quot;isolated&amp;quot;&lt;/span&gt; &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# fork：继承当前会话上下文（慎用，token 消耗大）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 仅在子代理需要理解当前对话时才用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sessions_spawn(&amp;#123; task: &lt;span class=&#34;string&#34;&gt;&amp;quot;...&amp;quot;&lt;/span&gt;, context: &lt;span class=&#34;string&#34;&gt;&amp;quot;fork&amp;quot;&lt;/span&gt; &amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;经验法则：&lt;/strong&gt; 能用 &lt;code&gt;isolated&lt;/code&gt; 就用 &lt;code&gt;isolated&lt;/code&gt;。&lt;code&gt;fork&lt;/code&gt; 虽然方便但会成倍消耗 token，而且是子代理的 token 加上主会话的 token 双份计费。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;4-Cron-高级编排&#34;&gt;&lt;a href=&#34;#4-Cron-高级编排&#34; class=&#34;headerlink&#34; title=&#34;4. Cron 高级编排&#34;&gt;&lt;/a&gt;4. Cron 高级编排&lt;/h2&gt;&lt;p&gt;Hermes Agent 的 Cron 不只是”每天 9 点发送天气预报”。配合子代理和条件逻辑，它能构建复杂的工作流。&lt;/p&gt;
+&lt;h3 id=&#34;4-1-基础-Cron-语法&#34;&gt;&lt;a href=&#34;#4-1-基础-Cron-语法&#34; class=&#34;headerlink&#34; title=&#34;4.1 基础 Cron 语法&#34;&gt;&lt;/a&gt;4.1 基础 Cron 语法&lt;/h3&gt;&lt;figure class=&#34;highlight javascript&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 每天 8:00 生成 AI 热点文章&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cron.&lt;span class=&#34;title function_&#34;&gt;add&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;schedule&lt;/span&gt;: &amp;#123; &lt;span class=&#34;attr&#34;&gt;kind&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;cron&amp;quot;&lt;/span&gt;, &lt;span class=&#34;attr&#34;&gt;expr&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;0 8 * * *&amp;quot;&lt;/span&gt;, &lt;span class=&#34;attr&#34;&gt;tz&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;Asia/Shanghai&amp;quot;&lt;/span&gt; &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;payload&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;kind&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;agentTurn&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;message&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;运行 _scripts/generate-hotspots.js，如果生成了新文件则通知我&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 每 30 分钟检查一次邮件（合并到心跳）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cron.&lt;span class=&#34;title function_&#34;&gt;add&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;schedule&lt;/span&gt;: &amp;#123; &lt;span class=&#34;attr&#34;&gt;kind&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;every&amp;quot;&lt;/span&gt;, &lt;span class=&#34;attr&#34;&gt;everyMs&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;60&lt;/span&gt; * &lt;span class=&#34;number&#34;&gt;1000&lt;/span&gt; &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;payload&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;kind&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;systemEvent&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;text&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;HEARTBEAT: 检查邮件、日历、天气&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;4-2-实战：智能日报生成管线&#34;&gt;&lt;a href=&#34;#4-2-实战：智能日报生成管线&#34; class=&#34;headerlink&#34; title=&#34;4.2 实战：智能日报生成管线&#34;&gt;&lt;/a&gt;4.2 实战：智能日报生成管线&lt;/h3&gt;&lt;figure class=&#34;highlight javascript&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 每天 18:00 执行 AI 日报生成&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cron.&lt;span class=&#34;title function_&#34;&gt;add&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;name&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;ai-daily-generator&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;schedule&lt;/span&gt;: &amp;#123; &lt;span class=&#34;attr&#34;&gt;kind&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;cron&amp;quot;&lt;/span&gt;, &lt;span class=&#34;attr&#34;&gt;expr&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;0 18 * * *&amp;quot;&lt;/span&gt;, &lt;span class=&#34;attr&#34;&gt;tz&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;Asia/Shanghai&amp;quot;&lt;/span&gt; &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;sessionTarget&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;isolated&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;payload&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;kind&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;agentTurn&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;message&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;`请执行以下步骤：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;1. 抓取 ArXiv 今日 AI 领域新论文（cs.AI, cs.CL, cs.CV）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;2. 抓取 Hacker News 和 Twitter AI 趋势&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;3. 抓取 GitHub Trending AI 项目&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;4. 汇总为一篇 Markdown 文章，格式参考 source/_posts/ai-daily/ 现有文章&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;5. 保存到 ~/blog/source/_posts/ai-daily/AI日报-&amp;#123;today&amp;#125;.md&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;6. 如果生成成功，提醒我去飞书审核发布`&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;model&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;deepseek/deepseek-chat&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;timeoutSeconds&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;300&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;delivery&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;mode&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;announce&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;channel&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;feishu&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;4-3-故障转移与告警&#34;&gt;&lt;a href=&#34;#4-3-故障转移与告警&#34; class=&#34;headerlink&#34; title=&#34;4.3 故障转移与告警&#34;&gt;&lt;/a&gt;4.3 故障转移与告警&lt;/h3&gt;&lt;figure class=&#34;highlight javascript&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cron.&lt;span class=&#34;title function_&#34;&gt;add&lt;/span&gt;(&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;name&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;critical-backup&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;schedule&lt;/span&gt;: &amp;#123; &lt;span class=&#34;attr&#34;&gt;kind&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;cron&amp;quot;&lt;/span&gt;, &lt;span class=&#34;attr&#34;&gt;expr&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;0 2 * * *&amp;quot;&lt;/span&gt; &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;payload&lt;/span&gt;: &amp;#123; &lt;span class=&#34;attr&#34;&gt;kind&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;agentTurn&amp;quot;&lt;/span&gt;, &lt;span class=&#34;attr&#34;&gt;message&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;执行数据库备份...&amp;quot;&lt;/span&gt; &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;failureAlert&lt;/span&gt;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;after&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;,           &lt;span class=&#34;comment&#34;&gt;// 连续失败 2 次后告警&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;channel&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;feishu&amp;quot;&lt;/span&gt;,  &lt;span class=&#34;comment&#34;&gt;// 通过飞书通知&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;cooldownMs&lt;/span&gt;: &lt;span class=&#34;number&#34;&gt;3600000&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;// 1 小时内不重复告警&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;5-安全加固清单&#34;&gt;&lt;a href=&#34;#5-安全加固清单&#34; class=&#34;headerlink&#34; title=&#34;5. 安全加固清单&#34;&gt;&lt;/a&gt;5. 安全加固清单&lt;/h2&gt;&lt;h3 id=&#34;5-1-审批模式&#34;&gt;&lt;a href=&#34;#5-1-审批模式&#34; class=&#34;headerlink&#34; title=&#34;5.1 审批模式&#34;&gt;&lt;/a&gt;5.1 审批模式&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 开启智能审批——高危命令需要人工确认&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;openclaw config &lt;span class=&#34;built_in&#34;&gt;set&lt;/span&gt; approvals.mode smart&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;审批模式对照：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;模式&lt;/th&gt;
+&lt;th&gt;行为&lt;/th&gt;
+&lt;th&gt;适用场景&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;manual&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;纯文本 &lt;code&gt;/approve&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;所有平台可用，无依赖&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;smart&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;可点击卡片按钮&lt;/td&gt;
+&lt;td&gt;飞书需配事件订阅，交互更友好&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;5-2-工具白名单&#34;&gt;&lt;a href=&#34;#5-2-工具白名单&#34; class=&#34;headerlink&#34; title=&#34;5.2 工具白名单&#34;&gt;&lt;/a&gt;5.2 工具白名单&lt;/h3&gt;&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# config.yaml&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;tools:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;comment&#34;&gt;# 禁止执行列表（黑名单）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;deny:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;rm&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;sudo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;curl.*pipe.*bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;eval&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;comment&#34;&gt;# 特定路径只读&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;readonly_paths:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;/etc/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;~/.ssh/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;5-3-生产环境检查清单&#34;&gt;&lt;a href=&#34;#5-3-生产环境检查清单&#34; class=&#34;headerlink&#34; title=&#34;5.3 生产环境检查清单&#34;&gt;&lt;/a&gt;5.3 生产环境检查清单&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 用内置健康检查审计当前配置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 在 Hermes Agent 对话中直接说：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;帮我运行 healthcheck&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;会自动检查：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SSH 配置与暴露面&lt;/li&gt;
+&lt;li&gt;防火墙规则&lt;/li&gt;
+&lt;li&gt;未使用的开放端口&lt;/li&gt;
+&lt;li&gt;Cron 定时任务安全&lt;/li&gt;
+&lt;li&gt;文件权限异常&lt;/li&gt;
+&lt;li&gt;依赖版本过期&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;6-性能优化&#34;&gt;&lt;a href=&#34;#6-性能优化&#34; class=&#34;headerlink&#34; title=&#34;6. 性能优化&#34;&gt;&lt;/a&gt;6. 性能优化&lt;/h2&gt;&lt;h3 id=&#34;6-1-上下文精简&#34;&gt;&lt;a href=&#34;#6-1-上下文精简&#34; class=&#34;headerlink&#34; title=&#34;6.1 上下文精简&#34;&gt;&lt;/a&gt;6.1 上下文精简&lt;/h3&gt;&lt;figure class=&#34;highlight markdown&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;# 在 AGENTS.md 中加入上下文预算意识&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## Token 预算&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 每次对话的上下文加载控制在 3000 token 以内&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 超过 30 天未更新的 memory 文件归档到 memory/archive/&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; 定期清理 HEARTBEAT.md 中的残留任务&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;6-2-模型路由策略&#34;&gt;&lt;a href=&#34;#6-2-模型路由策略&#34; class=&#34;headerlink&#34; title=&#34;6.2 模型路由策略&#34;&gt;&lt;/a&gt;6.2 模型路由策略&lt;/h3&gt;&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# config.yaml —— 按任务分配模型&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;model_routing:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;default:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;deepseek/deepseek-chat&lt;/span&gt;     &lt;span class=&#34;comment&#34;&gt;# 日常对话&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;reasoning:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;deepseek/deepseek-reasoner&lt;/span&gt;  &lt;span class=&#34;comment&#34;&gt;# 需要深度推理时&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;fast:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;minimax-portal/MiniMax-M2.7-highspeed&lt;/span&gt;  &lt;span class=&#34;comment&#34;&gt;# 简单任务、心跳&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;vision:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;openai/gpt-4o&lt;/span&gt;               &lt;span class=&#34;comment&#34;&gt;# 图片分析&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;comment&#34;&gt;# 规则：匹配到关键词自动切换&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;rules:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;keywords:&lt;/span&gt; [&lt;span class=&#34;string&#34;&gt;&amp;quot;代码审查&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;review&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;安全审计&amp;quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;model:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;anthropic/claude-sonnet-4-20250514&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;keywords:&lt;/span&gt; [&lt;span class=&#34;string&#34;&gt;&amp;quot;翻译&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;translate&amp;quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;model:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;deepseek/deepseek-chat&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;6-3-并行化策略&#34;&gt;&lt;a href=&#34;#6-3-并行化策略&#34; class=&#34;headerlink&#34; title=&#34;6.3 并行化策略&#34;&gt;&lt;/a&gt;6.3 并行化策略&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 同时读取多个文件——并行工具调用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ✅ 好的做法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;read&lt;/span&gt;(~/file-a.md) + &lt;span class=&#34;built_in&#34;&gt;read&lt;/span&gt;(~/file-b.md) + &lt;span class=&#34;built_in&#34;&gt;read&lt;/span&gt;(~/file-c.md)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 三个请求同时发出&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ❌ 不好的做法  &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;read&lt;/span&gt;(~/file-a.md) → 等结果 → &lt;span class=&#34;built_in&#34;&gt;read&lt;/span&gt;(~/file-b.md) → 等结果 → ...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 串行等待，浪费时间&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;7-实战模式总结&#34;&gt;&lt;a href=&#34;#7-实战模式总结&#34; class=&#34;headerlink&#34; title=&#34;7. 实战模式总结&#34;&gt;&lt;/a&gt;7. 实战模式总结&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;模式&lt;/th&gt;
+&lt;th&gt;场景&lt;/th&gt;
+&lt;th&gt;核心配置&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;私教模式&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;编程教练、面试陪练&lt;/td&gt;
+&lt;td&gt;SOUL.md 写严厉导师人设，AGENTS.md 写教学 SOP&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;编辑模式&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;博客写作、文档维护&lt;/td&gt;
+&lt;td&gt;Skill 定义写作流程，子代理并行调研&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;巡检模式&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;服务器监控、定时检查&lt;/td&gt;
+&lt;td&gt;Cron + systemEvent，failureAlert 配置告警&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;秘书模式&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;邮件筛选、日历管理、信息汇总&lt;/td&gt;
+&lt;td&gt;Cron 定时拉取，子代理分类筛选&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;安全模式&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;代码审查、漏洞扫描&lt;/td&gt;
+&lt;td&gt;工具白名单 + approval smart + healthcheck&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;结语&#34;&gt;&lt;a href=&#34;#结语&#34; class=&#34;headerlink&#34; title=&#34;结语&#34;&gt;&lt;/a&gt;结语&lt;/h2&gt;&lt;p&gt;Hermes Agent 的可塑性远超普通聊天机器人。它的核心差异不在于某一个功能，而在于&lt;strong&gt;三个系统的叠加效应&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;人格系统&lt;/strong&gt;（SOUL.md &amp;#x2F; AGENTS.md）—— 让它越来越懂你&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;能力系统&lt;/strong&gt;（Skills &amp;#x2F; Cron &amp;#x2F; 子代理）—— 让它能做越来越多的事  &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安全系统&lt;/strong&gt;（审批 &amp;#x2F; 白名单 &amp;#x2F; 审计）—— 让你放心让它做越来越多的事&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这三层不是一次性配置，而是&lt;strong&gt;持续迭代&lt;/strong&gt;的。每两周回头看看 SOUL.md 是不是还符合你的期待，每月检查一次 Cron 任务是不是还合理，每次犯错都在 AGENTS.md 里加一条规则。&lt;/p&gt;
+&lt;p&gt;最终目标不是”一个更聪明的聊天机器人”，而是”一个真正理解你工作方式的数字搭档”。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;Hermes Agent 系列：&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;第一篇：&lt;a href=&#34;/Hermes-Agent-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/&#34;&gt;安装与使用指南&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;第二篇：&lt;a href=&#34;/Hermes-Agent-%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/&#34;&gt;配置与进阶使用&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;第三篇：本文&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="AI" />
+        <category term="开发工具" />
+        <category term="Hermes" />
+        <category term="Agent" />
+        <category term="高阶" />
+        <category term="自动化" />
+        <updated>2026-05-08T14:39:00.000Z</updated>
+    </entry>
+</feed>

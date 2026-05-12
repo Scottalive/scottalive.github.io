@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>初识Python | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">初识Python</h1>
+    <div class="post-meta">
+      <span class="post-date">2023-03-29 23:51</span>
+      <span class="post-word-count">2883 字</span>
+      <span class="post-reading-time">约 9 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记</a>
+      
+      <a href="/tags/python/">python</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-3" href="#python简介">Python简介</a>
+      
+      <a class="toc-level-3" href="#安装python解释器">安装Python解释器</a>
+      
+      <a class="toc-level-3" href="#运行python程序">运行Python程序</a>
+      
+      <a class="toc-level-3" href="#python开发工具">Python开发工具</a>
+      
+      <a class="toc-level-3" href="#练习">练习</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h3 id="python简介"><a href="#Python简介" class="headerlink" title="Python简介"></a>Python简介</h3><h4 id="Python的历史"><a href="#Python的历史" class="headerlink" title="Python的历史"></a>Python的历史</h4><ol>
+<li><p>1989年圣诞节：<code>Guido von Rossum</code>开始写<code>Python</code>语言的编译器。</p>
+<ol>
+<li>1991年2月：第一个<code>Python</code>编译器（同时也是解释器）诞生，它是用C语言实现的（后面），可以调用C语言的库函数。在最早的版本中，<code>Python</code>已经提供了对“类”，“函数”，“异常处理”等构造块的支持，还有对列表、字典等核心数据类型，同时支持以模块为基础来构造应用程序。</li>
+</ol>
+</li>
+<li><p>1994年1月：<code>Python 1.0</code>正式发布。</p>
+</li>
+<li><p>2000年10月16日：<code>Python 2.0</code>发布，增加了完整的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6_(%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8)">垃圾回收</a>，提供了对<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Unicode">Unicode</a>的支持。与此同时，<code>Python</code>的整个开发过程更加透明，社区对开发进度的影响逐渐扩大，生态圈开始慢慢形成。</p>
+</li>
+<li><p>2008年12月3日：<code>Python 3.0</code>发布，它并不完全兼容之前的Python代码，不过因为目前还有不少公司在项目和运维中使用Python 2.x版本，所以<code>Python 3.x</code>的很多新特性后来也被移植到<code>Python 2.6/2.7</code>版本中。</p>
+</li>
+</ol>
+<p>目前我使用的<code>Python 3.7.x</code>的版本是在2018年发布的，<code>Python</code>的版本号分为三段，形如A.B.C。其中A表示大版本号，一般当整体重写，或出现不向后兼容的改变时，增加A；B表示功能更新，出现新功能时增加B；C表示小的改动（例如：修复了某个<code>Bug</code>），只要有修改就增加C。如果对<code>Python</code>的历史感兴趣，可以阅读名为<a target="_blank" rel="noopener" href="http://www.cnblogs.com/vamei/archive/2013/02/06/2892628.html">《Python简史》</a>的网络文章。</p>
+<h4 id="Python的优缺点"><a href="#Python的优缺点" class="headerlink" title="Python的优缺点"></a>Python的优缺点</h4><p><code>Python</code>的优点很多，简单的可以总结为以下几点。</p>
+<ol>
+<li>简单明了，学习曲线低，比很多编程语言都容易上手。</li>
+<li>开放源代码，拥有强大的社区和生态圈，尤其是在数据分析和机器学习领域。</li>
+<li>解释型语言，天生具有平台可移植性，代码可以工作于不同的操作系统。</li>
+<li>对两种主流的编程范式（面向对象编程和函数式编程）都提供了支持。</li>
+<li>代码规范程度高，可读性强，适合有代码洁癖和强迫症的人群。</li>
+</ol>
+<p><code>Python</code>的缺点主要集中在以下几点。</p>
+<ol>
+<li>执行效率稍低，对执行效率要求高的部分可以由其他语言（如：C、C++）编写。</li>
+<li>代码无法加密，但是现在很多公司都不销售卖软件而是销售服务，这个问题会被弱化。</li>
+<li>在开发时可以选择的框架太多（如Web框架就有100多个），有选择的地方就有错误。</li>
+</ol>
+<h4 id="Python的应用领域"><a href="#Python的应用领域" class="headerlink" title="Python的应用领域"></a>Python的应用领域</h4><p>目前<code>Python</code>在<code>Web</code>应用后端开发、云基础设施建设、<code>DevOps</code>、网络数据采集（爬虫）、自动化测试、数据分析、机器学习等领域都有着广泛的应用。</p>
+<h3 id="安装python解释器"><a href="#安装Python解释器" class="headerlink" title="安装Python解释器"></a>安装Python解释器</h3><p>想要开始<code>Python</code>编程之旅，首先得在自己使用的计算机上安装<code>Python</code>解释器环境，下面将以安装官方的<code>Python</code>解释器为例，讲解如何在不同的操作系统上安装<code>Python</code>环境。官方的<code>Python</code>解释器是用C语言实现的，也是使用最为广泛的Python解释器，通常称之为<code>CPython</code>。除此之外，<code>Python</code>解释器还有<code>Java</code>语言实现的<code>Jython</code>、C#语言实现的<code>IronPython</code>以及<code>PyPy</code>、<code>Brython</code>、<code>Pyston</code>等版本，有兴趣的读者可以自行了解。</p>
+<h4 id="Windows环境"><a href="#Windows环境" class="headerlink" title="Windows环境"></a>Windows环境</h4><p>可以在<a target="_blank" rel="noopener" href="https://www.python.org/">Python官方网站</a>下载到<code>Python</code>的<code>Windows</code>安装程序（exe文件），需要注意的是如果在Windows 7环境下安装<code>Python 3.x</code>，需要先安装<code>Service Pack 1</code>补丁包（可以通过一些工具软件自动安装系统补丁的功能来安装），安装过程建议勾选“<code>Add Python 3.x to PATH</code>”（将Python 3.x添加到PATH环境变量）并选择自定义安装，在设置“<code>Optional Features</code>”界面最好将“<code>pip</code>”、“<code>tcl/tk</code>”、“<code>Python test suite</code>”等项全部勾选上。强烈建议选择自定义的安装路径并保证路径中没有中文。安装完成会看到“<code>Setup was successful</code>”的提示。如果稍后运行Python程序时，出现因为缺失一些动态链接库文件而导致Python解释器无法工作的问题，可以按照下面的方法加以解决。</p>
+<p>如果系统显示api-ms-win-crt*.dll文件缺失，可以参照<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/32087135">《api-ms-win-crt*.dll缺失原因分析和解决方法》</a>一文讲解的方法进行处理或者直接在<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/download/details.aspx?id=48145">微软官网</a>下载<code>Visual C++ Redistributable for Visual Studio 2015</code>文件进行修复；如果是因为更新Windows的DirectX之后导致某些动态链接库文件缺失问题，可以下载一个<a target="_blank" rel="noopener" href="https://dl.pconline.com.cn/download/360074-1.html">DirectX修复工具</a>进行修复。</p>
+<h4 id="Linux环境"><a href="#Linux环境" class="headerlink" title="Linux环境"></a>Linux环境</h4><p><code>Linux</code>环境自带了<code>Python 2.x</code>版本，但是如果要更新到3.x的版本，可以在<a target="_blank" rel="noopener" href="https://www.python.org/">Python的官方网站</a>下载<code>Python</code>的源代码并通过源代码构建安装的方式进行安装，具体的步骤如下所示（以<code>CentOS</code>为例）。</p>
+<ol>
+<li>安装依赖库（因为没有这些依赖库可能在源代码构件安装时因为缺失底层依赖库而失败）。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum -y install wget gcc zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>下载<code>Python</code>源代码并解压缩到指定目录。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.7.6/Python-3.7.6.tar.xz</span><br><span class="line">xz -d Python-3.7.6.tar.xz</span><br><span class="line">tar -xvf Python-3.7.6.tar</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>切换至Python源代码目录并执行下面的命令进行配置和安装。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd Python-3.7.6</span><br><span class="line">./configure --prefix=/usr/local/python37 --enable-optimizations</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>修改用户主目录下名为.bash_profile的文件，配置PATH环境变量并使其生效。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ~</span><br><span class="line">vim .bash_profile</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">... 此处省略上面的代码 ...</span></span><br><span class="line"></span><br><span class="line">export PATH=$PATH:/usr/local/python37/bin</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">... 此处省略下面的代码 ...</span></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>激活环境变量。</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure>
+
+<h4 id="macOS环境"><a href="#macOS环境" class="headerlink" title="macOS环境"></a>macOS环境</h4><p><code>macOS</code>也自带了<code>Python 2.x</code>版本，可以通过<a target="_blank" rel="noopener" href="https://www.python.org/">Python的官方网站</a>提供的安装文件（pkg文件）安装<code>Python 3.x</code>的版本。默认安装完成后，可以通过在终端执行<code>python</code>命令来启动2.x版本的<code>Python</code>解释器，启动3.x版本的<code>Python</code>解释器需要执行<code>python3</code>命令。</p>
+<h3 id="运行python程序"><a href="#运行Python程序" class="headerlink" title="运行Python程序"></a>运行Python程序</h3><h4 id="确认Python的版本"><a href="#确认Python的版本" class="headerlink" title="确认Python的版本"></a>确认Python的版本</h4><p>可以Windows的命令行提示符中键入下面的命令。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python --version</span><br></pre></td></tr></table></figure>
+<p>在Linux或macOS系统的终端中键入下面的命令。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 --version</span><br></pre></td></tr></table></figure>
+
+<p>当然也可以先输入<code>python</code>或<code>python3</code>进入交互式环境，再执行以下的代码检查Python的版本。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sys.version_info)</span><br><span class="line"><span class="built_in">print</span>(sys.version)</span><br></pre></td></tr></table></figure>
+
+<h4 id="编写Python源代码"><a href="#编写Python源代码" class="headerlink" title="编写Python源代码"></a>编写Python源代码</h4><p>可以用文本编辑工具（推荐使用<a target="_blank" rel="noopener" href="https://www.sublimetext.com/">Sublime</a>、<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Visual Studio Code</a>等高级文本编辑工具）编写Python源代码并用py作为后缀名保存该文件，代码内容如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello, world!&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="运行程序"><a href="#运行程序" class="headerlink" title="运行程序"></a>运行程序</h4><p>切换到源代码所在的目录并执行下面的命令，看看屏幕上是否输出了”hello, world!”。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python hello.py</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 hello.py</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码中的注释"><a href="#代码中的注释" class="headerlink" title="代码中的注释"></a>代码中的注释</h4><p>注释是编程语言的一个重要组成部分，用于在源代码中解释代码的作用从而增强程序的可读性和可维护性，当然也可以将源代码中不需要参与运行的代码段通过注释来去掉，这一点在调试程序的时候经常用到。注释在随源代码进入预处理器或编译时会被移除，不会在目标代码中保留也不会影响程序的执行结果。</p>
+<ol>
+<li>单行注释 - 以#和空格开头的部分</li>
+<li>多行注释 - 三个引号开头，三个引号结尾</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">第一个Python程序 - hello, world!</span></span><br><span class="line"><span class="string">向伟大的Dennis M. Ritchie先生致敬</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Version: 0.1</span></span><br><span class="line"><span class="string">Author: 骆昊</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello, world!&#x27;</span>)</span><br><span class="line"><span class="comment"># print(&quot;你好, 世界！&quot;)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="python开发工具"><a href="#Python开发工具" class="headerlink" title="Python开发工具"></a>Python开发工具</h3><h4 id="IDLE-自带的集成开发工具"><a href="#IDLE-自带的集成开发工具" class="headerlink" title="IDLE - 自带的集成开发工具"></a>IDLE - 自带的集成开发工具</h4><p><code>IDLE</code>是安装<code>Python</code>环境时自带的集成开发工具，如下图所示。但是由于<code>IDLE</code>的用户体验并不是那么好所以很少在实际开发中被采用。</p>
+<p><img src="/./res/python-idle.png"></p>
+<h4 id="IPython-更好的交互式编程工具"><a href="#IPython-更好的交互式编程工具" class="headerlink" title="IPython - 更好的交互式编程工具"></a>IPython - 更好的交互式编程工具</h4><p><code>IPython</code>是一种基于<code>Python</code>的交互式解释器。相较于原生的Python交互式环境，<code>IPython</code>提供了更为强大的编辑和交互功能。可以通过Python的包管理工具pip安装<code>IPython</code>，具体的操作如下所示。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install ipython</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip3 install ipython</span><br></pre></td></tr></table></figure>
+
+<p>安装成功后，可以通过下面的ipython命令启动<code>IPython</code>，如下图所示。</p>
+<p><img src="/./res/python-ipython.png"></p>
+<h4 id="Sublime-Text-高级文本编辑器"><a href="#Sublime-Text-高级文本编辑器" class="headerlink" title="Sublime Text - 高级文本编辑器"></a>Sublime Text - 高级文本编辑器</h4><p><img src="/./res/python-sublime.png"></p>
+<ul>
+<li><p>首先可以通过<a target="_blank" rel="noopener" href="https://www.sublimetext.com/">官方网站</a>下载安装程序安装<code>Sublime Text 3</code>或<code>Sublime Text 2</code>。</p>
+</li>
+<li><p>安装包管理工具。</p>
+<ol>
+<li>通过快捷键<code>Ctrl+</code>或者在View菜单中选择<code>Show Console</code>打开控制台，输入下面的代码。</li>
+</ol>
+<ul>
+<li><code>Sublime 3</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span>  urllib.request,os;</span><br><span class="line">pf=<span class="string">&#x27;Package Control.sublime-package&#x27;</span>;</span><br><span class="line">ipp=sublime.installed_packages_path();</span><br><span class="line">urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));</span><br><span class="line"><span class="built_in">open</span>(os.path.join(ipp,pf),<span class="string">&#x27;wb&#x27;</span>).write(urllib.request.urlopen(<span class="string">&#x27;http://sublime.wbond.net/&#x27;</span>+pf.replace(<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;%20&#x27;</span>)).read())</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Sublime 2</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span>  urllib2,os;</span><br><span class="line">pf=<span class="string">&#x27;Package Control.sublime-package&#x27;</span>;</span><br><span class="line">ipp=sublime.installed_packages_path();</span><br><span class="line">os.makedirs(ipp)</span><br><span class="line"><span class="keyword">if</span> notos.path.exists(ipp):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="literal">None</span></span><br><span class="line">urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler()));</span><br><span class="line"><span class="built_in">open</span>(os.path.join(ipp,pf),<span class="string">&#x27;wb&#x27;</span>).write(urllib2.urlopen(<span class="string">&#x27;http://sublime.wbond.net/&#x27;</span>+pf.replace(<span class="string">&#x27; &#x27;</span>,<span class="string">&#x27;%20&#x27;</span>)).read());</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Please restart Sublime Text to finish installation&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在浏览器中输入  <a target="_blank" rel="noopener" href="https://sublime.wbond.net/Package%20Control.sublime-package">https://sublime.wbond.net/Package%20Control.sublime-package</a> 下载包管理工具的安装包，并找到安装Sublime目录下名为&quot;Installed Packages&quot;的目录，把刚才下载的文件放到这个文件加下，然后重启Sublime Text就搞定了。</li>
+</ol>
+</li>
+<li><p>安装插件。通过<code>Preference</code>菜单的<code>Package Control</code>或快捷键<code>Ctrl+Shift+P</code>打开命令面板，在面板中输入<code>Install Package</code>就可以找到安装插件的工具，然后再查找需要的插件。我们推荐大家安装以下几个插件：</p>
+<ul>
+<li><code>SublimeCodeIntel</code> - 代码自动补全工具插件。</li>
+<li><code>Emmet</code> - 前端开发代码模板插件。</li>
+<li><code>Git</code> - 版本控制工具插件。</li>
+<li><code>Python PEP8 Autoformat</code> - <code>PEP8</code>规范自动格式化插件。</li>
+<li><code>ConvertToUTF8</code> - 将本地编码转换为<code>UTF-8</code>。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>说明</strong>：事实上<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Visual Studio Code</a>可能是更好的选择，它不用花钱并提供了更为完整和强大的功能，有兴趣的读者可以自行研究。</p>
+</blockquote>
+<h4 id="PyCharm-Python开发神器"><a href="#PyCharm-Python开发神器" class="headerlink" title="PyCharm - Python开发神器"></a>PyCharm - Python开发神器</h4><p>PyCharm的安装、配置和使用在<a href="../%E7%95%AA%E5%A4%96%E7%AF%87/%E7%8E%A9%E8%BD%ACPyCharm.md">《玩转PyCharm》</a>进行了介绍，有兴趣的读者可以选择阅读。</p>
+<p><img src="/./res/python-pycharm.png"></p>
+<h3 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h3><ol>
+<li><p>在<code>Python</code>交互式环境中输入下面的代码并查看结果，请尝试将看到的内容翻译成中文。</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> this</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：输入上面的代码，在<code>Python</code>的交互式环境中可以看到Tim Peter撰写的<a href="../Python%E4%B9%8B%E7%A6%85.md">“Python之禅”</a>，里面讲述的道理不仅仅适用于Python，也适用于其他编程语言。</p>
+</blockquote>
+</li>
+<li><p>学习使用turtle在屏幕上绘制图形。</p>
+<blockquote>
+<p><strong>说明</strong>：turtle是Python内置的一个非常有趣的模块，特别适合对计算机程序设计进行初体验的小伙伴，它最早是Logo语言的一部分，Logo语言是Wally Feurzig和Seymour Papert在1966发明的编程语言。</p>
+</blockquote>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line"></span><br><span class="line">turtle.pensize(<span class="number">4</span>)</span><br><span class="line">turtle.pencolor(<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line"></span><br><span class="line">turtle.forward(<span class="number">100</span>)</span><br><span class="line">turtle.right(<span class="number">90</span>)</span><br><span class="line">turtle.forward(<span class="number">100</span>)</span><br><span class="line">turtle.right(<span class="number">90</span>)</span><br><span class="line">turtle.forward(<span class="number">100</span>)</span><br><span class="line">turtle.right(<span class="number">90</span>)</span><br><span class="line">turtle.forward(<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">turtle.mainloop()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>提示</strong>：本章提供的代码中还有画国旗和画小猪佩奇的代码，有兴趣的读者请自行研究。</p>
+</blockquote>
+</li>
+</ol>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/java/javase/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">上一篇：Java面对对象程序设计</a>
+  
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

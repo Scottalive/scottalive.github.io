@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>Django快速上手 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">Django快速上手</h1>
+    <div class="post-meta">
+      <span class="post-date">2025-04-14 09:07</span>
+      <span class="post-word-count">5243 字</span>
+      <span class="post-reading-time">约 16 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记</a>
+      
+      <a href="/tags/python/">python</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#django快速上手">Django快速上手</a>
+      
+      <a class="toc-level-3" href="#web应用机制和术语">Web应用机制和术语</a>
+      
+      <a class="toc-level-3" href="#django概述">Django概述</a>
+      
+      <a class="toc-level-3" href="#快速上手">快速上手</a>
+      
+      <a class="toc-level-3" href="#总结">总结</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="django快速上手"><a href="#Django快速上手" class="headerlink" title="Django快速上手"></a>Django快速上手</h2><p>Web开发的早期阶段，开发者需要手动编写每个页面，例如一个新闻门户网站，每天都要修改它的HTML页面，随着网站规模和体量的增大，这种做法一定是非常糟糕的。为了解决这个问题，开发人员想到了用程序来为Web服务器生成动态内容，也就是说网页中的动态内容不再通过手动编写而是通过程序自动生成。最早的时候，这项技术被称为CGI（公共网关接口），当然随着时间的推移，CGI暴露出的问题也越来越多，例如大量重复的样板代码，总体性能较为低下等。在时代呼唤新英雄的背景下，PHP、ASP、JSP这类Web应用开发技术在上世纪90年代中后期如雨后春笋般涌现。通常我们说的Web应用是指通过浏览器来访问网络资源的应用程序，因为浏览器的普及性以及易用性，Web应用使用起来方便简单，免除了安装和更新应用程序带来的麻烦；站在开发者的角度，也不用关心用户使用什么样的操作系统，甚至不用区分是PC端还是移动端。</p>
+<h3 id="web应用机制和术语"><a href="#Web应用机制和术语" class="headerlink" title="Web应用机制和术语"></a>Web应用机制和术语</h3><p>下图向我们展示了Web应用的工作流程，其中涉及到的术语如下表所示。</p>
+<p><img src="/./res/web-application.png"></p>
+<blockquote>
+<p>说明：相信有经验的读者会发现，这张图中其实还少了很多东西，例如反向代理服务器、数据库服务器、防火墙等，而且图中的每个节点在实际项目部署时可能是一组节点组成的集群。当然，如果你对这些没有什么概念也不要紧，继续下去就行了，后面会给大家一一讲解的。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>术语</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>URL&#x2F;URI</strong></td>
+<td>统一资源定位符&#x2F;统一资源标识符，网络资源的唯一标识</td>
+</tr>
+<tr>
+<td><strong>域名</strong></td>
+<td>与Web服务器地址对应的一个易于记忆的字符串名字</td>
+</tr>
+<tr>
+<td><strong>DNS</strong></td>
+<td>域名解析服务，可以将域名转换成对应的IP地址</td>
+</tr>
+<tr>
+<td><strong>IP地址</strong></td>
+<td>网络上的主机的身份标识，通过IP地址可以区分不同的主机</td>
+</tr>
+<tr>
+<td><strong>HTTP</strong></td>
+<td>超文本传输协议，构建在TCP之上的应用级协议，万维网数据通信的基础</td>
+</tr>
+<tr>
+<td><strong>反向代理</strong></td>
+<td>代理客户端向服务器发出请求，然后将服务器返回的资源返回给客户端</td>
+</tr>
+<tr>
+<td><strong>Web服务器</strong></td>
+<td>接受HTTP请求，然后返回HTML文件、纯文本文件、图像等资源给请求者</td>
+</tr>
+<tr>
+<td><strong>Nginx</strong></td>
+<td>高性能的Web服务器，也可以用作<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86">反向代理</a>，<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">负载均衡</a> 和 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTTP%E7%BC%93%E5%AD%98">HTTP缓存</a></td>
+</tr>
+</tbody></table>
+<h4 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h4><p>这里我们先费一些笔墨来说说HTTP这个协议。HTTP（超文本传输协议）是构建于TCP（传输控制协议）之上应用级协议，它利用了TCP提供的可靠的传输服务实现了Web应用中的数据交换。按照维基百科上的介绍，设计HTTP最初的目的是为了提供一种发布和接收<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/HTML">HTML</a>页面的方法，也就是说这个协议是浏览器和Web服务器之间传输的数据的载体。关于这个协议的详细信息以及目前的发展状况，大家可以阅读<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/08/http.html">《HTTP 协议入门》</a>、<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2012/05/internet_protocol_suite_part_i.html">《互联网协议入门》</a>系列以及<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html">《图解HTTPS协议》</a>这几篇文章进行了解。下图是我在四川省网络通信技术重点实验室学习和工作期间使用开源协议分析工具Ethereal（抓包工具WireShark的前身）截取的访问百度首页时的HTTP请求和响应的报文（协议数据），由于Ethereal截取的是经过网络适配器的数据，因此可以清晰的看到从物理链路层到应用层的协议数据。</p>
+<p>HTTP请求（请求行+请求头+空行+[消息体]）：</p>
+<p><img src="/./res/http-request.png"></p>
+<p>HTTP响应（响应行+响应头+空行+消息体）：</p>
+<p><img src="/./res/http-response.png"></p>
+<blockquote>
+<p> <strong>说明</strong>：这两张图是在2009年9月10日凌晨获得的，但愿这两张如同泛黄的照片般的截图能帮助你了解HTTP到底是什么样子的。当然，如果没有专业的抓包工具，也可以通过浏览器提供的“开发者工具”来查看HTTP请求和响应的数据格式。</p>
+</blockquote>
+<h3 id="django概述"><a href="#Django概述" class="headerlink" title="Django概述"></a>Django概述</h3><p>Python的Web框架有上百个，比它的关键字还要多。所谓Web框架，就是用于开发Web服务器端应用的基础设施，说得通俗一点就是一系列封装好的模块和工具。事实上，即便没有Web框架，我们仍然可以通过socket或<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%80%9A%E7%94%A8%E7%BD%91%E5%85%B3%E6%8E%A5%E5%8F%A3">CGI</a>来开发Web服务器端应用，但是这样做的成本和代价在商业项目中通常是不能接受的。通过Web框架，我们可以化繁为简，降低创建、更新、扩展应用程序的工作量。刚才我们说到Python有上百个Web框架，这些框架包括Django、Flask、Tornado、Sanic、Pyramid、Bottle、Web2py、web.py等。</p>
+<p>在上述Python的Web框架中，Django无疑是最有代表性的重量级选手，开发者可以基于Django快速的开发可靠的Web应用程序，因为它减少了Web开发中不必要的开销，对常用的设计和开发模式进行了封装，并对MVC架构提供了支持（Django中称之为MTV架构）。MVC是软件系统开发领域中一种放之四海而皆准的架构，它将系统中的组件分为模型（Model）、视图（View）和控制器（Controller）三个部分并借此实现模型（数据）和视图（显示）的解耦合。由于模型和视图进行了分离，所以需要一个中间人将解耦合的模型和视图联系起来，扮演这个角色的就是控制器。稍具规模的软件系统都会使用MVC架构（或者是从MVC演进出的其他架构），Django项目中我们称之为MTV，MTV中的M跟MVC中的M没有区别，就是代表数据的模型，T代表了网页模板（显示数据的视图），而V代表了视图函数，在Django框架中，视图函数和Django框架本身一起扮演了MVC中C的角色。</p>
+<p><img src="/./res/mvc.png"></p>
+<p>Django框架诞生于2003年，它是一个在真正的应用中成长起来的项目，由劳伦斯出版集团旗下在线新闻网站的内容管理系统（CMS）研发团队（主要是Adrian Holovaty和Simon Willison）开发，以比利时的吉普赛爵士吉他手Django Reinhardt来命名。Django框架在2005年夏天作为开源框架发布，使用Django框架能用很短的时间构建出功能完备的网站，因为它代替程序员完成了那些重复乏味的劳动，剩下真正有意义的核心业务给程序员来开发，这一点就是对DRY（Don’t Repeat Yourself）理念的最好践行。许多成功的网站和应用都是基于Python语言进行开发的，国内比较有代表性的网站包括：知乎、豆瓣网、果壳网、搜狐闪电邮箱、101围棋网、海报时尚网、背书吧、堆糖、手机搜狐网、咕咚、爱福窝、果库等，其中不乏使用了Django框架的产品。</p>
+<h3 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h3><h4 id="第一个Django项目"><a href="#第一个Django项目" class="headerlink" title="第一个Django项目"></a>第一个Django项目</h4><ol>
+<li><p>检查Python环境：Django 1.11需要Python 2.7或Python 3.4以上的版本；Django 2.0需要Python 3.4以上的版本；Django 2.1和2.2需要Python 3.5以上的版本；Django 3.0需要Python 3.6以上版本。</p>
+<blockquote>
+<p><strong>说明</strong>：Django框架不同版本所需的Python解释器环境，可以在Django官方文档的<a target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/3.0/faq/install/#faq-python-version-support">FAQ</a>中找到。</p>
+</blockquote>
+<p>可以在macOS的终端中输入下面的命令检查Python解释器版本，Windows系统可以在命令行提示符中输入<code>python --version</code>。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 --version</span><br></pre></td></tr></table></figure>
+
+<p>也可以在Python的交互式环境中执行下面的代码来查看Python解释器的版本。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">import sys</span><br><span class="line">sys.version</span><br><span class="line">sys.version_info</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新包管理工具并安装Django环境（用于创建Django项目）。</p>
+<blockquote>
+<p><strong>说明</strong>：在更新这个文档时，Django最新的正式版本是3.0.7，Django 3.0提供了对ASGI的支持，可以实现全双工的异步通信，但是目前的使用体验一般，所以暂时不推荐大家使用Django 3.0，下面我们安装的是Django 2.2.13版本。使用<code>pip</code>安装三方库和工具时，可以通过<code>==</code>来指定安装的版本。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip3 install -U pip</span><br><span class="line">pip3 install django==2.2.13</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查Django环境并使用<code>django-admin</code>命令创建Django项目（项目名称为hellodjango）。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">django-admin --version</span><br><span class="line">django-admin startproject hellodjango</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用PyCharm打开创建好的Djang项目，并为其添加虚拟环境。</p>
+<p><img src="/res/pycharm-django-project.png"></p>
+<p>如上图所示，PyCharm的项目浏览器中，最顶层的文件夹<code>hellodjango</code>是Python项目文件夹，这个文件夹的名字并不重要，Django项目也不关心这个文件夹叫什么名字。该文件夹下有一个同名的文件夹，它是Django项目文件夹，其中包含了<code>__init__.py</code>、<code>settings.py</code>、<code>urls.py</code>、<code>wsgi.py</code>四个文件，与名为<code>hellodjango</code>的Django项目文件夹同级的还有一个名为<code>manage.py</code> 的文件，这些文件的作用如下所示：</p>
+<ul>
+<li><code>hellodjango/__init__.py</code>：空文件，告诉Python解释器这个目录应该被视为一个Python的包。</li>
+<li><code>hellodjango/settings.py</code>：Django项目的配置文件。</li>
+<li><code>hellodjango/urls.py</code>：Django项目的URL映射声明，就像是网站的“目录”。</li>
+<li><code>hellodjango/wsgi.py</code>：项目运行在WSGI兼容Web服务器上的入口文件。</li>
+<li><code>manage.py</code>： 管理Django项目的脚本程序。</li>
+</ul>
+<blockquote>
+<p>说明：WSGI全称是Web服务器网关接口，维基百科上给出的解释是“为Python语言定义的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E9%A0%81%E4%BC%BA%E6%9C%8D%E5%99%A8">Web服务器</a>和<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F">Web应用程序</a>或框架之间的一种简单而通用的接口”。</p>
+</blockquote>
+<p>创建虚拟环境的界面如下图所示。</p>
+<p><img src="/res/pycharm-django-virtual-environment.png" alt="pycharm-django-virtual-environment"></p>
+</li>
+<li><p>安装项目依赖项。</p>
+<p>方法一：打开PyCharm的终端，在终端中通过<code>pip</code>命令安装Django项目的依赖项。</p>
+<blockquote>
+<p><strong>说明</strong>：由于已经基于Python 3解释器环境为项目创建了虚拟环境，所以虚拟环境中的<code>python</code>命令对应的是Python 3的解释器，而<code>pip</code>命令对应的是Python 3的包管理工具。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pip install django==2.2.13</span><br></pre></td></tr></table></figure>
+
+<p>方法二：在PyCharm的偏好设置中，可以找到项目的解释器环境和已经安装的三方库，可以通过点击添加按钮来安装新的依赖项，需要提醒大家的是在安装Django依赖项时，需要指定版本号，否则将默认安装更新本文时最新的3.0.7版本。</p>
+<p><img src="/res/pycharm-install-django.png"></p>
+<p>下图展示了Django版本和Python版本的对应关系，请大家自行对号入座。</p>
+<table>
+<thead>
+<tr>
+<th>Django版本</th>
+<th>Python版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1.8</td>
+<td>2.7、3.2、3.3、3.4、3.5</td>
+</tr>
+<tr>
+<td>1.9、1.10</td>
+<td>2.7、3.4、3.5</td>
+</tr>
+<tr>
+<td>1.11</td>
+<td>2.7、3.4、3.5、3.6、3.7（Django 1.11.17）</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>3.4、3.5、3.6、3.7</td>
+</tr>
+<tr>
+<td>2.1</td>
+<td>3.5、3.6、3.7</td>
+</tr>
+<tr>
+<td>2.2</td>
+<td>3.5、3.6、3.7、3.8（Django 2.2.8）</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>3.6、3.7、3.8</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>启动Django自带的服务器运行项目。</p>
+<p>方法一：在“Run”菜单选择“Edit Configuration”，配置“Django server”运行项目（适用于专业版PyCharm）。</p>
+<p><img src="/res/pycharm-django-server.png"></p>
+<p>方法二：在“Run”菜单选择“Edit Configuration”，配置运行“Python”程序运行项目（适用于专业版和社区版PyCharm）。</p>
+<p><img src="/res/pycharm-python-manage.png"></p>
+<p>方法三：在PyCharm的终端（Terminal）中通过命令运行项目（适用于专业版和社区版PyCharm）。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python manage.py runserver</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看运行效果。</p>
+</li>
+</ol>
+<p>  在浏览器中输入<code>http://127.0.0.1:8000</code>访问我们的服务器，效果如下图所示。</p>
+<p>   <img src="/./res/django-index-1.png"></p>
+<blockquote>
+<p><strong>说明</strong>：</p>
+<ol>
+<li>刚刚启动的Django自带的服务器只能用于开发和测试环境，因为这个服务器是纯Python编写的轻量级Web服务器，不适合在生产环境中使用。</li>
+<li>如果修改了代码，不需要为了让修改的代码生效而重新启动Django自带的服务器。但是，在添加新的项目文件时，该服务器不会自动重新加载，这个时候就得手动重启服务器。</li>
+<li>可以在终端中通过<code>python manage.py help</code>命令查看Django管理脚本程序可用的命令参数。</li>
+<li>使用<code>python manage.py runserver</code>启动服务器时，可以在后面添加参数来指定IP地址和端口号，默认情况下启动的服务器将运行在本机的<code>8000</code>端口。</li>
+<li>在终端中运行的服务器，可以通过Ctrl+C来停止它 。通过PyCharm的“运行配置”运行的服务器直接点击窗口上的关闭按钮就可以终止服务器的运行。</li>
+<li>不能在同一个端口上启动多个服务器，因为会导致地址的冲突（端口是对IP地址的扩展，也是计算机网络地址的一部分）。</li>
+<li>修改项目的配置文件<code>settings.py</code>。</li>
+</ol>
+</blockquote>
+<p>   Django是一个支持国际化和本地化的框架，因此刚才我们看到的Django项目的默认首页也是支持国际化的，我们可以通过修改配置文件将默认语言修改为中文，时区设置为东八区。</p>
+<p>   找到修改前的配置（在<code>settings.py</code>文件第100行以后）。</p>
+   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">LANGUAGE_CODE = <span class="string">&#x27;en-us&#x27;</span></span><br><span class="line">TIME_ZONE = <span class="string">&#x27;UTC&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>   修改为以下内容。</p>
+   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">LANGUAGE_CODE = <span class="string">&#x27;zh-hans&#x27;</span></span><br><span class="line">TIME_ZONE = <span class="string">&#x27;Asia/Chongqing&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>   刷新刚才的页面，可以看到修改语言代码和时区之后的结果。</p>
+<p>   <img src="/./res/django-index-2.png"></p>
+<h4 id="创建自己的应用"><a href="#创建自己的应用" class="headerlink" title="创建自己的应用"></a>创建自己的应用</h4><p>如果要开发自己的Web应用，需要先在Django项目中创建“应用”，一个Django项目可以包含一个或多个应用。</p>
+<ol>
+<li><p>在PyCharm的终端中执行下面的命令，创建名为<code>first</code>的应用。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python manage.py startapp first</span><br></pre></td></tr></table></figure>
+
+<p>执行上面的命令会在当前路径下创建<code>first</code>目录，其目录结构如下所示：</p>
+<ul>
+<li><code>__init__.py</code>：一个空文件，告诉Python解释器这个目录应该被视为一个Python的包。</li>
+<li><code>admin.py</code>：可以用来注册模型，用于在Django框架自带的管理后台中管理模型。</li>
+<li><code>apps.py</code>：当前应用的配置文件。</li>
+<li><code>migrations</code>：存放与模型有关的数据库迁移信息。<ul>
+<li><code>__init__.py</code>：一个空文件，告诉Python解释器这个目录应该被视为一个Python的包。</li>
+</ul>
+</li>
+<li><code>models.py</code>：存放应用的数据模型（MTV中的M）。</li>
+<li><code>tests.py</code>：包含测试应用各项功能的测试类和测试函数。</li>
+<li><code>views.py</code>：处理用户HTTP请求并返回HTTP响应的函数或类（MTV中的V）。</li>
+</ul>
+</li>
+<li><p>修改应用目录下的视图文件<code>views.py</code>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">show_index</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">&#x27;&lt;h1&gt;Hello, Django!&lt;/h1&gt;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改Django项目目录下的<code>urls.py</code>文件，将视图函数和用户在浏览器中请求的路径对应。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path, include</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> first.views <span class="keyword">import</span> show_index</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">&#x27;hello/&#x27;</span>, show_index),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新运行项目，并打开浏览器中访问<code>http://127.0.0.1:8000/hello/</code>。</p>
+</li>
+<li><p>上面我们通过代码为浏览器生成了内容，但仍然是静态内容，如果要生成动态内容，可以修改<code>views.py</code>文件并添加如下所示的代码。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> sample</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">show_index</span>(<span class="params">request</span>):</span><br><span class="line">    fruits = [</span><br><span class="line">        <span class="string">&#x27;Apple&#x27;</span>, <span class="string">&#x27;Orange&#x27;</span>, <span class="string">&#x27;Pitaya&#x27;</span>, <span class="string">&#x27;Durian&#x27;</span>, <span class="string">&#x27;Waxberry&#x27;</span>, <span class="string">&#x27;Blueberry&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Grape&#x27;</span>, <span class="string">&#x27;Peach&#x27;</span>, <span class="string">&#x27;Pear&#x27;</span>, <span class="string">&#x27;Banana&#x27;</span>, <span class="string">&#x27;Watermelon&#x27;</span>, <span class="string">&#x27;Mango&#x27;</span></span><br><span class="line">    ]</span><br><span class="line">    selected_fruits = sample(fruits, <span class="number">3</span>)</span><br><span class="line">    content = <span class="string">&#x27;&lt;h3&gt;今天推荐的水果是：&lt;/h3&gt;&#x27;</span></span><br><span class="line">    content += <span class="string">&#x27;&lt;hr&gt;&#x27;</span></span><br><span class="line">    content += <span class="string">&#x27;&lt;ul&gt;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> fruit <span class="keyword">in</span> selected_fruits:</span><br><span class="line">        content += <span class="string">f&#x27;&lt;li&gt;<span class="subst">&#123;fruit&#125;</span>&lt;/li&gt;&#x27;</span></span><br><span class="line">    content += <span class="string">&#x27;&lt;/ul&gt;&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(content)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>刷新页面查看程序的运行结果，看看每次刷新的网页的时候，是不是可以看到不一样的内容。</p>
+</li>
+</ol>
+<h4 id="使用模板"><a href="#使用模板" class="headerlink" title="使用模板"></a>使用模板</h4><p>上面通过拼接HTML代码的方式为浏览器生成动态内容的做法在实际开发中是无能接受的，因为实际项目中的前端页面可能非常复杂，无法用这种拼接动态内容的方式来完成，这一点大家一定能够想到。为了解决这个问题，我们可以提前准备一个模板页（MTV中的T），所谓模板页就是一个带占位符和模板指令的HTML页面。</p>
+<p>Django框架中有一个名为<code>render</code>的便捷函数可以来完成渲染模板的操作。所谓的渲染就是用数据替换掉模板页中的模板指令和占位符，当然这里的渲染称为后端渲染，即在服务器端完成页面的渲染再输出到浏览器中。后端渲染的做法在Web应用的访问量较大时，会让服务器承受较大的负担，所以越来越多的Web应用会选择前端渲染的方式，即服务器只提供页面所需的数据（通常是JSON格式），在浏览器中通过JavaScript代码获取这些数据并渲染页面上。关于前端渲染的内容，我们会在后续的课程中为大家讲解，目前我们使用的是通过模板页进行后端渲染的做法，具体步骤如下所示。</p>
+<p>使用模板页的步骤如下所示。</p>
+<ol>
+<li><p>在项目目录下创建名为templates文件夹。</p>
+<p><img src="/res/pycharm-django-template.png"></p>
+</li>
+<li><p>添加模板页<code>index.html</code>。</p>
+<blockquote>
+<p><strong>说明</strong>：实际项目开发中，静态页由前端开发者提供，后端开发者需要将静态页修改为模板页，以便通过Python程序对其进行渲染，这种做法就是上面提到的后端渲染。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-id">#fruits</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">font-size</span>: <span class="number">1.25em</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>今天推荐的水果是：<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;fruits&quot;</span>&gt;</span></span><br><span class="line">            &#123;% for fruit in fruits %&#125;</span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;&#123; fruit &#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            &#123;% endfor %&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在上面的模板页中我们使用了<code>&#123;&#123; fruit &#125;&#125;</code>这样的模板占位符语法，也使用了<code>&#123;% for %&#125;</code>这样的模板指令，这些都是Django模板语言（DTL）的一部分。关于模板语法和指令，大家可以看看官方文档，相信这些内容还是很容易理解的，并不需要过多的赘述，大家也可以参考<a href="">官方文档</a>了解模板指令和语法。</p>
+</li>
+<li><p>修改<code>views.py</code>文件，调用<code>render</code>函数渲染模板页。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> sample</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">show_index</span>(<span class="params">request</span>):</span><br><span class="line">    fruits = [</span><br><span class="line">        <span class="string">&#x27;Apple&#x27;</span>, <span class="string">&#x27;Orange&#x27;</span>, <span class="string">&#x27;Pitaya&#x27;</span>, <span class="string">&#x27;Durian&#x27;</span>, <span class="string">&#x27;Waxberry&#x27;</span>, <span class="string">&#x27;Blueberry&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Grape&#x27;</span>, <span class="string">&#x27;Peach&#x27;</span>, <span class="string">&#x27;Pear&#x27;</span>, <span class="string">&#x27;Banana&#x27;</span>, <span class="string">&#x27;Watermelon&#x27;</span>, <span class="string">&#x27;Mango&#x27;</span></span><br><span class="line">    ]</span><br><span class="line">    selected_fruits = sample(fruits, <span class="number">3</span>)</span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">&#x27;index.html&#x27;</span>, &#123;<span class="string">&#x27;fruits&#x27;</span>: selected_fruits&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><code>render</code>函数的第一个参数是请求对象request，第二个参数是我们要渲染的模板页的名字，第三个参数是要渲染到页面上的数据，我们通过一个字典将数据交给模板页，字典中的键就是模板页中使用的模板指令或占位符中的变量名。</p>
+</li>
+<li><p>到此为止，视图函数中的<code>render</code>还无法找到模板文件<code>index.html</code>，需要修改<code>settings.py</code>文件，配置模板文件所在的路径。修改<code>settings.py</code>文件，找到<code>TEMPLATES</code>配置，修改其中的<code>DIRS</code>配置。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">TEMPLATES = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&#x27;BACKEND&#x27;</span>: <span class="string">&#x27;django.template.backends.django.DjangoTemplates&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;DIRS&#x27;</span>: [os.path.join(BASE_DIR, <span class="string">&#x27;templates&#x27;</span>), ],</span><br><span class="line">        <span class="string">&#x27;APP_DIRS&#x27;</span>: <span class="literal">True</span>,</span><br><span class="line">        <span class="string">&#x27;OPTIONS&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;context_processors&#x27;</span>: [</span><br><span class="line">                <span class="string">&#x27;django.template.context_processors.debug&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.template.context_processors.request&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.contrib.auth.context_processors.auth&#x27;</span>,</span><br><span class="line">                <span class="string">&#x27;django.contrib.messages.context_processors.messages&#x27;</span>,</span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新运行项目或直接刷新页面查看结果。</p>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>至此，我们已经利用Django框架完成了一个非常小的Web应用，虽然它并没有任何的实际价值，但是可以通过这个项目对Django框架有一个感性的认识。学习Django最好的资料肯定是它的<a target="_blank" rel="noopener" href="https://docs.djangoproject.com/zh-hans/2.0/">官方文档</a>，官方文档提供了对多国语言的支持，而且有新手教程引导初学者学习使用Django框架，建议大家通过阅读Django的官方文档来学习和使用这个框架。当然图灵社区出版的<a target="_blank" rel="noopener" href="http://www.ituring.com.cn/book/2630">《Django基础教程》</a>也是非常适合初学者的入门级读物，有兴趣的读者可以点击链接进行购买。 </p>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/python/basic/42.%E6%B7%B1%E5%85%A5%E6%A8%A1%E5%9E%8B/">上一篇：深入模型</a>
+  
+  
+  <a class="next" href="/computer-science/python/basic/40.%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E5%92%8CHiveSQL/">下一篇：Hive简介</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

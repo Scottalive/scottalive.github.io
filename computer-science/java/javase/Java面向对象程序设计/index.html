@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>Java面对对象程序设计 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">Java面对对象程序设计</h1>
+    <div class="post-meta">
+      <span class="post-date">2023-03-29 23:51</span>
+      <span class="post-word-count">6826 字</span>
+      <span class="post-reading-time">约 20 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Java/">Java</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Java/JavaSE/">JavaSE</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记</a>
+      
+      <a href="/tags/JavaSE/">JavaSE</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-3" href="#static关键字">static关键字</a>
+      
+      <a class="toc-level-3" href="#final关键字">final关键字</a>
+      
+      <a class="toc-level-3" href="#抽象类">抽象类</a>
+      
+      <a class="toc-level-3" href="#接口">接口</a>
+      
+      <a class="toc-level-3" href="#对象转型">对象转型</a>
+      
+      <a class="toc-level-3" href="#抽象类和接口的区别">抽象类和接口的区别</a>
+      
+      <a class="toc-level-3" href="#内部类">内部类</a>
+      
+      <a class="toc-level-3" href="#java包">Java包</a>
+      
+      <a class="toc-level-3" href="#package与import关键字">package与import关键字</a>
+      
+      <a class="toc-level-3" href="#访问控制符">访问控制符</a>
+      
+      <a class="toc-level-3" href="#枚举">枚举</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h4 id="Java面对对象编程的概念"><a href="#Java面对对象编程的概念" class="headerlink" title="Java面对对象编程的概念"></a>Java面对对象编程的概念</h4><h5 id="类"><a href="#类" class="headerlink" title="类"></a>类</h5><h5 id="类的概念"><a href="#类的概念" class="headerlink" title="类的概念"></a>类的概念</h5><p>类是描述世间万物的框架，在java中世间万物都可以用类来定义。</p>
+<p>将数据及对数据的操作封装在一起，成为一个不可分割的整体。</p>
+<p> 同时将具有相同特征的对象抽象成一种新的数据类型———-类; </p>
+<p> 通过对象间的消息传递使整个系统运转，通过类的继承实现代码重用。</p>
+<h5 id="类的创建格式"><a href="#类的创建格式" class="headerlink" title="类的创建格式"></a>类的创建格式</h5><p>  [public] [修饰符] class [类名] extends(可选) [父类名] implements [接口1名],[接口2名],…{<br>      &#x2F;&#x2F;类的成员<br>  }</p>
+<h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><p>  1.public 可选，当java文件名跟类名一致时，public必须有<br>  2.第二个可选关键字有final(子类不可继承)、abstract(无法实例化)<br>  3.第三个参数类名是定义的类名(要符合Java类名命名规范)</p>
+<h5 id="类的初始化"><a href="#类的初始化" class="headerlink" title="类的初始化"></a>类的初始化</h5><p>  【类名】 对象名 &#x3D; new 【类名】();<br>  【类名】 对象名 &#x3D; new 【类名】(参数一…);</p>
+<h5 id="类的组成"><a href="#类的组成" class="headerlink" title="类的组成"></a>类的组成</h5><p>  类 &#x3D; 字段 + 方法 ;</p>
+<ol>
+<li>字段（属性）</li>
+</ol>
+<pre><code>描述一类对象的特征值。比如，人拥有姓名、性别、年龄等特征。
+</code></pre>
+<ol start="2">
+<li>方法</li>
+</ol>
+<pre><code>描述一类对象的行为。比如，人会说话，会学习，会唱歌等行为。
+</code></pre>
+<h5 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h5><p>对象是类的实例。在Java中万物皆可看成是对象</p>
+<h5 id="类与对象的区别"><a href="#类与对象的区别" class="headerlink" title="类与对象的区别"></a>类与对象的区别</h5><p>类是同等对象的集合与抽象。它是一块创建现实<strong>对象的模板</strong>。<strong>对象是类的实例</strong>，对象是面向对象编程的核心部分，是实际存在的具体实体，具有明确定义的状态和行为。</p>
+<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age ;<span class="comment">//字段</span></span><br><span class="line">    <span class="keyword">private</span> String name ;</span><br><span class="line">    <span class="keyword">private</span> String sex ;</span><br><span class="line">    <span class="comment">//方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">study</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(name+<span class="string">&quot;同学在学习&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//类 = 方法 + 字段 </span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String []args)</span>&#123;</span><br><span class="line">        <span class="type">Student</span> <span class="variable">student</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();<span class="comment">//声明类的对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h5 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h5><p>构造函数是特殊的函数，函数名与类名一致，不能有返回值，包括void；</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">声明格式为：[修饰符] 类名(参数列表)&#123; //... &#125;</span><br></pre></td></tr></table></figure>
+<p>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">()</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h5><h5 id="无参构造"><a href="#无参构造" class="headerlink" title="无参构造"></a>无参构造</h5><p>  如果类中没有有参构造，也没有无参构造，则系统会默认给该类添加一个无参构造</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Teacher</span>&#123;</span><br><span class="line">    Teacher()&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="有参构造"><a href="#有参构造" class="headerlink" title="有参构造"></a>有参构造</h5><p>  如果没有无参构造，则有参构造函数则是初始化对象的构造函数（即必须传入参数才能完成初始化）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name ;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age ;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(String name,<span class="type">int</span> age)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name ;</span><br><span class="line">        <span class="built_in">this</span>.age = age ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="构造函数的重载"><a href="#构造函数的重载" class="headerlink" title="构造函数的重载"></a>构造函数的重载</h5><p>  构造函数允许重载，可以根据需求重载构造函数。<br>  <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span>&#123;</span><br><span class="line">      <span class="keyword">private</span> String name ;</span><br><span class="line">      <span class="keyword">private</span> <span class="type">int</span> age ;</span><br><span class="line">      <span class="keyword">public</span> <span class="title function_">Studnet</span><span class="params">()</span>&#123;</span><br><span class="line">          </span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(String name)</span>&#123;</span><br><span class="line">          </span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(String name ,<span class="type">int</span> age)</span>&#123;</span><br><span class="line">          </span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="面对对象的三大特征"><a href="#面对对象的三大特征" class="headerlink" title="面对对象的三大特征"></a>面对对象的三大特征</h5><ul>
+<li><p><strong>封装</strong><br> 把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。<br>在一个对象内部，某些代码或某些数据可以是私有的，不能被外界访问。通过这种方式，现实世界可以被描绘成一系列完全自治、封装的对象，这些对象通过一个受保护的接口访问其他对象<br>封装的作用<br> 封装把过程和数据包围起来，对数据的访问只能通过已定义的接口。面向对象编程始于这个基本概念，即现实世界可以被描绘成一系列完全自治、封装的对象，这些对象通过一个受保护的接口访问其他对象。封装是一种信息隐藏技术，在java中通过控制成员的访问权限实现封装，即使用方法将类的数据隐藏起来，控制用户对类的修改和访问数据的程度。 **适当的封装可以让代码更容易理解和维护，也加强了代码的安全性。</p>
+</li>
+<li><p><strong>继承</strong></p>
+<ul>
+<li>继承是一种联结类的层次模型，并且允许和鼓励类的重用，它提供了一种明确表述共性的方法</li>
+<li>一个新类可以从现有的类中派生，这个过程称为类继承，新类继承了原始类的特性，新类称为原始类的派生类（子类），而原始类称为新类的基类（父类） </li>
+<li>派生类可以从它的基类那里继承方法和实例变量，并且类可以修改或增加新的方法使之更适合特殊的需要</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Person</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Teacher</span> <span class="keyword">extends</span> <span class="title class_">Person</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>多态</strong></p>
+<ul>
+<li>多态性是指允许不同类的对象对同一消息作出响应</li>
+<li>多态性语言具有灵活、抽象、行为共享、代码共享的优势</li>
+</ul>
+</li>
+</ul>
+<h3 id="static关键字"><a href="#static关键字" class="headerlink" title="static关键字"></a>static关键字</h3><p><code>static</code>修饰符只能修饰类的成员</p>
+<ul>
+<li>特点<ul>
+<li><code>static</code>只能修饰类成员（字段，方法）,另外构造函数不允许<code>static</code>修饰</li>
+<li><code>static</code>修饰的类成员是属于所有类对象，这些成员所有对象共享(即所有对象的该成员都在同一块内存区域)</li>
+<li><code>static</code>在类初始化前就已经加载完成了，所以它不能使用对象级别的其他成员</li>
+<li><code>staitc</code>表示静态成员，而静态成员只能使用静态成员(无法在类中直接调用类的普通成员)</li>
+</ul>
+</li>
+</ul>
+<h3 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h3><p><code>final</code>在Java的原意是不可变，很多场合下都会和<code>static</code>一起使用，表示静态不可变成员</p>
+<ul>
+<li><code>final</code>修饰的字段称为常量；常量在声明的时候就必须初始化完；常量一经确定无法更改；</li>
+<li><code>final</code>修饰的方法无法被重写<ul>
+<li><code>final</code>修饰的类无法被继承(如<code>String</code>类、<code>LocalDate</code>类等等)</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>()&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name ;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age ;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">()</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(String name ,<span class="type">int</span> age)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name ;</span><br><span class="line">        <span class="built_in">this</span>.age = age ;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><ul>
+<li><p><strong>抽象类对多态的实现</strong></p>
+<ul>
+<li>接口</li>
+<li>抽象类</li>
+<li>重写父类方法</li>
+</ul>
+</li>
+<li><p><strong>抽象类的特点</strong></p>
+<ul>
+<li>抽象类中没有实例，即不能声明调用自己的构造方法</li>
+<li>抽象类中可以有普通方法，抽象方法不能在抽象类中实现</li>
+<li>继承了抽象类的子类必须实现该抽象类中所有的抽象方法，如果不实现，子类也必须定义为抽象类</li>
+</ul>
+</li>
+</ul>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><ul>
+<li><p><strong>接口对多态的实现</strong></p>
+</li>
+<li><p><strong>接口的特征</strong></p>
+<ul>
+<li>接口没有构造方法，也不能实例化。</li>
+<li>接口中的抽象方法和默认为公开的，变量默认为公开静态常量（建议不要再写这些修饰符）</li>
+<li>接口中允许静态方法和默认(<code>default</code>)方法（JDK1.8）</li>
+<li>接口可以多继承（只允许接口之间）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Action</span>&#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">go</span><span class="params">()</span> ;</span><br><span class="line">    <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">100</span> ;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    *下面的方法写法是在JDK1.8开始有的</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">default</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">()</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">see</span><span class="params">()</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="对象转型"><a href="#对象转型" class="headerlink" title="对象转型"></a>对象转型</h3><ul>
+<li><p><strong>向上转型</strong></p>
+<p>父类对象或者实现类对象使用子类的引用</p>
+<p>特点：</p>
+<ol>
+<li>使用子类或实现类引用的父类对象或接口对象无法调用子类或实现类的方法，只能调用父类或接口中的方法和字段。</li>
+<li>编译时引用是父类对象或接口对象，运行时引用是子类对象或实现类对象</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Action</span>&#123;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">act</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Person</span> <span class="keyword">implements</span> <span class="title class_">Action</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String args[])</span>&#123;</span><br><span class="line">        <span class="type">Person</span> <span class="variable">person</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();<span class="comment">//父类对象使用子类的引用</span></span><br><span class="line">        <span class="type">Action</span> <span class="variable">action</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();<span class="comment">//接口对象使用子类的引用</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="抽象类和接口的区别"><a href="#抽象类和接口的区别" class="headerlink" title="抽象类和接口的区别"></a>抽象类和接口的区别</h3><ul>
+<li>抽象类对属性没有限制，而接口的属性只能是公开静态常量</li>
+<li>抽象类和接口都不能实例化，但是抽象类可以有构造方法(仅供子类使用)，而接口不能有构造方法</li>
+<li>抽象类可以有普通方法，但接口不能有普通方法，接口只能有静态方法(JDK8)和默认方法(JDK8)</li>
+<li>抽象类只能单继承，而接口之间可以多继承(只能接口之间)</li>
+</ul>
+<h3 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h3><p>​    <strong>什么是内部类？</strong></p>
+<p>​    内部类就是嵌套在<strong>类或者方法代码块</strong>内部的类</p>
+<ul>
+<li><p><strong>内部类的作用</strong></p>
+<p>我们为什么需要内部类？或者说内部类为啥要存在？其主要原因有如下几点：</p>
+<ul>
+<li><p><strong>内部类方法可以访问该类定义所在作用域中的数据，包括被 private 修饰的私有数据</strong></p>
+<p><strong>为什么内部类可以无条件地访问外围类的所有元素</strong>？</p>
+<p>解答：</p>
+<p><strong>为什么可以引用？：</strong></p>
+<p><strong>内部类虽然和外部类写在同一个文件中， 但是编译完成后， 还是生成各自的class文件，内部类通过this访问外部类的成员。</strong></p>
+<ol>
+<li>编译器自动为内部类添加一个成员变量， 这个成员变量的类型和外部类的类型相同， 这个成员变量就是指向外部类对象this的引用；</li>
+<li>编译器自动为内部类的构造方法添加一个参数， 参数的类型是外部类的类型， 在构造方法内部使用这个参数为内部类中添加的成员变量赋值；</li>
+<li>在调用内部类的构造函数初始化内部类对象时，会默认传入外部类的引用。</li>
+</ol>
+<p>编译指令 javac classpath(.java文件的路径)<br>反编译指令 javap -v(详细信息) classpath(.class文件的路径)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Outer</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> a ;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> b ;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Inner</span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="type">int</span> a ;</span><br><span class="line">        <span class="keyword">private</span> <span class="type">int</span> b ;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">print</span><span class="params">()</span>&#123;</span><br><span class="line">            System.out.println(a);</span><br><span class="line">            System.out.println(<span class="built_in">this</span>.a);</span><br><span class="line">            System.out.println(Outer.<span class="built_in">this</span>.a);<span class="comment">//通过 外部类名.this.字段名 来访问外部重名字段</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>内部类可以对同一包中的其他类隐藏起来</strong></p>
+<p><strong>实现隐藏</strong></p>
+<p>​    关于内部类的第二个好处其实很显而易见，我们都知道外部类即普通的类不能使用 <code>private</code>,<code>protected</code>访问权限符来修饰的，而内部类则可以使用 <code>private</code> 和 <code>protected </code>来修饰。当我们使用<code>private</code>来修饰内部类的时候这个类就对外隐藏了。这看起来没什么作用，但是当内部类实现某个接口的时候，在进行<strong>向上转型</strong>，对外部来说，就完全隐藏了接口的实现了</p>
+<ul>
+<li><strong>内部类可以解决 java 单继承的缺陷</strong><br>当我们想要<strong>定义一个回调函数却不想写大量代码的时候</strong>我们可以选择使用<strong>匿名内部类</strong>来实现<br>我们知道 java 是不允许使用 <code>extends</code> 去继承多个类的。内部类的引入可以很好的解决这个事情。<br>我的理解 Java只能继承一个类这个学过基本语法的人都知道，而在有内部类之前它的多重继承方式是用接口来实现的。但使用接口有时候有很多不方便的地方。<strong>比如我们实现一个接口就必须实现它里面的所有方法</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>内部类和外部类的关系</strong></p>
+<ul>
+<li><strong>对于非静态内部类，内部类的创建依赖外部类的实例对象，在没有外部类实例之前是无法创建内部类的</strong></li>
+<li><strong>内部类是一个相对独立的实体，与外部类不是is-a(依赖)关系</strong></li>
+<li><strong>创建内部类的时刻 并不依赖于 外部类 的创建</strong></li>
+</ul>
+</li>
+<li><p><strong>内部类的分类</strong></p>
+<ul>
+<li><p><strong>静态内部类</strong></p>
+</li>
+<li><p><strong>非静态内部类</strong></p>
+<ul>
+<li><p><strong>非静态内部类访问权限的问题</strong></p>
+</li>
+<li><p><strong>非静态内部类和静态内部类的区别</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>静态内部类</th>
+<th>非静态内部类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>是否可以拥有静态成员</strong></td>
+<td><strong>是</strong></td>
+<td><strong>否</strong></td>
+</tr>
+<tr>
+<td><strong>是否可以访问外部类的静态成员</strong></td>
+<td><strong>是</strong></td>
+<td><strong>是</strong></td>
+</tr>
+<tr>
+<td><strong>是否可以访问外部类的非静态成员</strong></td>
+<td><strong>否</strong></td>
+<td><strong>是</strong></td>
+</tr>
+<tr>
+<td><strong>创建是否依赖外部类</strong></td>
+<td><strong>否</strong></td>
+<td><strong>是</strong></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p><strong>匿名内部类(属于非静态内部类)</strong></p>
+<p>在定义时，要么给出<strong>类的超类</strong>，要么给出<strong>类要实现的接口（只能有一个）</strong>；对外部类的访问权限同本地内部类相同；常见的用途是在建立GUI应用程序时为组件添加事件监听器对象</p>
+<ul>
+<li><p>匿名内部类是没有访问修饰符的。</p>
+</li>
+<li><p><strong>匿名内部类必须继承一个抽象类或者实现一个接口</strong></p>
+</li>
+<li><p>匿名内部类中<strong>不能存在任何静态成员或方法</strong></p>
+</li>
+<li><p>匿名内部类是<strong>没有构造方法的</strong>，因为它没有类名。</p>
+</li>
+<li><p>与局部内部类相同匿名内部类也可以引用局部变量。此变量也必须声明为<code> final</code></p>
+<p><strong>为什么局部变量需要final修饰呢？</strong></p>
+<ul>
+<li><p>因为局部变量和匿名内部类的生命周期不同。</p>
+</li>
+<li><p>匿名内部类是创建后是存储在堆中的，而方法中的局部变量是存储在Java栈中，当方法执行完毕后，就进行退栈，同时局部变量也会消失。</p>
+</li>
+</ul>
+<p><strong>那么此时匿名内部类还有可能在堆中存储着，那么匿名内部类要到哪里去找这个局部变量呢？</strong></p>
+<p>为了解决这个问题编译器为自动地帮我们在匿名内部类中创建了一个局部变量的备份，也就是说即使方法执结束，匿名内部类中还有一个备份，自然就不怕找不到了。<br>但是问题又来了。<br>如果局部变量中的<code>a</code>不停的在变化。那么岂不是也要让备份的<code>a</code>变量无时无刻的变化。为了保持局部变量与匿名内部类中备份域保持一致。编译器不得不规定死这些局部域必须是常量，一旦赋值不能再发生变化了。<br>所以为什么匿名内部类应用外部方法的域必须是常量域的原因所在了。<br><strong>特别注意</strong><br>在Java8中已经去掉要对final的修饰限制，但其实只要在匿名内部类使用了，该变量还是会自动变为final类型（<strong>只能使用，不能赋值</strong>）。</p>
+</li>
+</ul>
+<p><strong>匿名类的创建示例</strong>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NickClass</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Outer</span>()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">void</span> <span class="title function_">play</span><span class="params">()</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;匿名内部类的抽象类无参构造创建方式&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.play();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Outer1</span>(<span class="number">10</span>)&#123;</span><br><span class="line">            <span class="keyword">void</span> <span class="title function_">play</span><span class="params">()</span>&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;匿名内部类的抽象有参构造创建方式&quot;</span>+i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.play();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Outer2</span>()&#123;</span><br><span class="line">            <span class="comment">//这里的接口匿名类创建方式，重写时必须将public修饰符加上，否则报错</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">play</span><span class="params">()</span>&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;匿名内部类的接口创建方式&quot;</span>+i);<span class="comment">//匿名内部类中可以访问原</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.play();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Outer</span>&#123;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">play</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Outer1</span>&#123;</span><br><span class="line">    <span class="type">int</span> i ;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Outer1</span><span class="params">(<span class="type">int</span> i)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.i = i ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getI</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> i ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">play</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Outer2</span>&#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">100</span> ;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">play</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>匿名类使用局部变量</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">NickClassTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">100</span> ;<span class="comment">//匿名类允许使用常量</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">10</span>;<span class="comment">//匿名类可以使用局部变量，但是不能改变其值</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Listener</span>()&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">void</span> <span class="title function_">listen</span><span class="params">(<span class="type">int</span> i1)</span> &#123;</span><br><span class="line"><span class="comment">//                j = j+ 1;编译错误，不能改变局部变量的值</span></span><br><span class="line">                System.out.println(<span class="string">&quot;使用局部变量i=&quot;</span>+i+<span class="string">&quot;,j=&quot;</span>+j);</span><br><span class="line">                System.out.println(<span class="string">&quot;i1=&quot;</span>+i1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;.listen(j);<span class="comment">//这里可以将需要传入方法的实参传入</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">Listener</span>&#123;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title function_">listen</span><span class="params">(<span class="type">int</span> i)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>成员内部类(属于非静态内部类)</strong></p>
+</li>
+<li><p><strong>本地内部类(局部内部类)(属于非静态内部类)</strong></p>
+<p>如果一个内部类只在一个方法中使用到了，那么我们可以将这个类定义在方法内部，这种内部类被称为局部内部类。其作用域仅限于该方法。</p>
+<p>局部内部类有两点值得我们注意的地方：</p>
+<ul>
+<li>局部内类不允许使用访问权限修饰符<code> public</code>,<code>private</code>,<code>protected </code>均不允许</li>
+<li>局部内部类对外完全隐藏，除了创建这个类的方法可以访问它其他的地方是不允许访问的。</li>
+<li>局部内部类与成员内部类不同之处是他可以引用成员变量，但该成员必须声明为 final，并内部不允许修改该变量的值。（这句话并不准确，因为如果不是基本数据类型的时候，只是不允许修改引用指向的对象，而对象本身是可以被就修改的）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>内部类可能造成的问题</strong></p>
+<p><strong>内部类会造成程序的内存泄漏</strong><br>相信做 Android 的朋友看到这个例子一定不会陌生，我们经常使用的 Handler 就无时无刻不给我们提示着这样的警告。</p>
+<p>我们先来看下内部类为什么会造成内存泄漏。</p>
+<p>​    要想了解为啥内部类为什么会造成内存泄漏我们就必须了解 <strong>java 虚拟机的回收机制</strong>，但是我们这里不会详尽的介绍 java 的内存回收机制，我们只需要了解 java 的内存回收机制通过「可达性分析」来实现的。</p>
+<p>即 java 虚拟机会通过内存回收机制来判定引用是否可达，如果不可达就会在某些时刻去回收这些引用。</p>
+<p>那么内部类在什么情况下会造成内存泄漏的可能呢？</p>
+<ul>
+<li>如果一个匿名内部类没有被任何引用持有，那么匿名内部类对象用完就有机会被回收。</li>
+<li>如果内部类仅仅只是在外部类中被引用，当外部类的不再被引用时，外部类和内部类就可以都被GC回收。</li>
+<li>如果当内部类的引用被外部类以外的其他类引用时，就会造成内部类和外部类无法被GC回收的情况，即使外部类没有被引用，<strong>因为内部类持有指向外部类的引用）</strong>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="java包"><a href="#Java包" class="headerlink" title="Java包"></a>Java包</h3><ul>
+<li><p>为了更好地组织类，Java 提供了包机制，用于区别类名的命名空间</p>
+</li>
+<li><p><strong>包的作用：</strong> </p>
+<ul>
+<li>把功能相似或相关的类或接口组织在同一个包中，方便类的查找和使用</li>
+<li>如同<strong>文件夹一样</strong>，包也采用了树形目录的存储方式。同一个包中的类名字是不同的，不同的包中的类的名字是可以相同的，当同时调用两个不同包中相同类名的类时，应该加上包名加以区别。因此，包可以避免名字冲突。 </li>
+<li>包也提供了限定了访问权限的一个控制范围，拥有包访问权限的类才能访问某个包中的类</li>
+</ul>
+</li>
+<li><p>Java 使用包这种机制是为了防止命名冲突，访问控制，提供搜索和定位类、接口、枚举和注</p>
+<p>解等，它把不同的 java 程序分类保存，更方便的被其他 java 程序调用</p>
+<ul>
+<li>以下是一些JDK中的包：</li>
+<li>java.lang：打包基础的类</li>
+<li>java.io：包含输入输出功能的函数</li>
+<li>java.util：包含一些重要的工具类</li>
+<li>…</li>
+</ul>
+</li>
+<li><p>开发者可以自己把一组类等组合定义自己的包。而且在实际开发中这样做是值得提倡的，将</p>
+</li>
+</ul>
+<p>相关的类分组，可以让其他的编程者更容易地确定哪些类、接口、枚举和注解等是相关的 。</p>
+<ul>
+<li>由于包创建了新的命名空间，所以不会跟其他包中的任何名字产生命名冲突。使用包这种机</li>
+</ul>
+<p>制，更容易实现访问控制，并且让定位相关类更加简单。</p>
+<h3 id="package与import关键字"><a href="#package与import关键字" class="headerlink" title="package与import关键字"></a>package与import关键字</h3><ul>
+<li><p>Java中用package语句来将一个Java源文件中的类打成一个包 </p>
+</li>
+<li><p>package语句必须作为Java源文件的第一条语句，指明该文件中定义的类</p>
+<p>所在的包。(若忽略该语句，则指定为无名包)。它的格式为： </p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">package pkg1[.pkg2[.pkg3…]];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Java编译器把包对应于<strong>文件系统的目录</strong>管理</p>
+</li>
+<li><p>package语句中，用“ .” 来指明目录的层次</p>
+</li>
+<li><p>包声明应该在源文件的第一行，每个源文件只能有一个包声明，这个文件中的每个类型都应用于它</p>
+</li>
+<li><p>为了能够使用其他包的成员，需要在 Java 程序中明确导入该包 </p>
+</li>
+<li><p>使用 “<strong>import</strong>“ 语句可完成此功能</p>
+</li>
+<li><p>在 java 源文件中 import 语句应位于 package 语句之后，所有类的定义之前，可以没有，也可以有多条，其语法格式为：</p>
+</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">import package1[.package2…].(classname|);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>如果在一个包中，一个类想要使用本包中的另一个类，那么该包名可以省略</p>
+</li>
+<li><p>import语句中类名部分可以使用通配符“*” </p>
+</li>
+<li><p>符号*表示直接导入包中所有的类</p>
+</li>
+<li><p>如：<code>import java.util.*;</code>表示导入<code>java.util</code>包中所有的类</p>
+</li>
+<li><p>注意：包和子包之间不存在继承关系，只要两个类不直接在同一个文件中即认为位于不同的包，因此*号只能包含本包中的类而不能包含子包中的类</p>
+</li>
+<li><p><strong>包的命名规则</strong></p>
+<ul>
+<li><p>创建包的时候，你需要为这个包取一个合适的名字，根据Java包的约定，名字内的所有字母都应小写，之后，如果非同包的其他的一个源文件使用了这个包提供的类、接口、枚举或者注释类型的时候，都必须在这个源文件的开头说明所引用的包名</p>
+</li>
+<li><p>通常，一个公司使用它互联网域名的颠倒形式来作为它的包名.例如：互联网域名是 chinasofti.com，所有的包名都以 com.chinasofti 开头</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="访问控制符"><a href="#访问控制符" class="headerlink" title="访问控制符"></a>访问控制符</h3><ul>
+<li><p><strong>private</strong></p>
+<p>本类友好</p>
+</li>
+<li><p><strong>public</strong></p>
+<p>所有友好</p>
+</li>
+<li><p><strong>缺省的</strong></p>
+<p>同包类友好</p>
+</li>
+<li><p><strong>protected</strong></p>
+<p>同包类友好，不同包的子类友好</p>
+</li>
+<li><p><strong>访问权限示意图</strong></p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>本类</th>
+<th>同包类</th>
+<th>不同包子类</th>
+<th>不同包类</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>private</td>
+<td>√</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>缺省的</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>protected</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td></td>
+</tr>
+<tr>
+<td>public</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+</tbody></table>
+<h3 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h3><p>​		<code>Java</code>枚举（<code>Enum</code>）是一种特殊的类，用于表示一组相关的常量。枚举常量是预定义的，不允许添加或删除。枚举在<code>Java</code>中是一种基本数据类型，可以单独定义或嵌套在类或接口中。</p>
+<h4 id="枚举示例"><a href="#枚举示例" class="headerlink" title="枚举示例"></a>枚举示例</h4><p>​		以下是一个枚举类的示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">DayOfWeek</span> &#123;</span><br><span class="line">    MONDAY,</span><br><span class="line">    TUESDAY,</span><br><span class="line">    WEDNESDAY,</span><br><span class="line">    THURSDAY,</span><br><span class="line">    FRIDAY,</span><br><span class="line">    SATURDAY,</span><br><span class="line">    SUNDAY;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​		这个枚举类表示一周中的每一天，包括星期一至星期日。枚举常量（例如MONDAY）是DayOfWeek类的实例，它们是final、static和public类型的。这意味着它们是不可修改的常量，可以在没有类实例的情况下访问。</p>
+<p>​		枚举常量可以有属性和方法。以下是一个带有属性和方法的示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">Gender</span> &#123;</span><br><span class="line">    MALE(<span class="string">&quot;男&quot;</span>),</span><br><span class="line">    FEMALE(<span class="string">&quot;女&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    Gender(String name) &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​		这个枚举类表示性别，包括男和女。枚举常量MALE和FEMALE都有一个名为name的属性，它们在构造函数中被初始化。此外，Gender类还有一个名为getName的方法，用于返回枚举常量的name属性。</p>
+<p>​		枚举可以用于switch语句。以下是一个使用switch语句的示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">printDay</span><span class="params">(DayOfWeek day)</span> &#123;</span><br><span class="line">    <span class="keyword">switch</span> (day) &#123;</span><br><span class="line">        <span class="keyword">case</span> MONDAY:</span><br><span class="line">            System.out.println(<span class="string">&quot;星期一&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> TUESDAY:</span><br><span class="line">            System.out.println(<span class="string">&quot;星期二&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> WEDNESDAY:</span><br><span class="line">            System.out.println(<span class="string">&quot;星期三&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> THURSDAY:</span><br><span class="line">            System.out.println(<span class="string">&quot;星期四&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> FRIDAY:</span><br><span class="line">            System.out.println(<span class="string">&quot;星期五&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> SATURDAY:</span><br><span class="line">            System.out.println(<span class="string">&quot;星期六&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> SUNDAY:</span><br><span class="line">            System.out.println(<span class="string">&quot;星期日&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            System.out.println(<span class="string">&quot;无效的日期&quot;</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​		这个方法使用switch语句打印给定日期的星期几。使用枚举作为switch语句的参数可以使代码更清晰易读。</p>
+<p>​		枚举类也可以实现接口、继承其他类或枚举，或者被其他类继承。这使得枚举类更加灵活和可扩展。</p>
+<ul>
+<li><strong>为什么要有枚举？枚举的作用</strong></li>
+</ul>
+<p>​	<code>Java</code>引入枚举是为了提高代码的可读性和可维护性。枚举类型在<code>Java</code>中表示一组固定的常量，可以在代码中使用这些常量，而不必担心拼写错误或者传递无效的参数。这样可以减少由于错误参数而引起的问题，同时也使代码更加清晰和易于维护。</p>
+<p>​	枚举的主要用处包括：</p>
+<ol>
+<li>限制变量的取值范围，提高代码的可读性和可维护性。</li>
+<li>枚举常量在代码中使用时具有类型安全性，可以防止类型转换错误。</li>
+<li>枚举常量可以拥有自己的属性和行为，类似于类的实例，可以实现更复杂的功能。</li>
+<li>枚举常量可以作为参数传递给方法，可以提高代码的可读性和可维护性，同时也可以防止传递无效的参数。</li>
+<li>枚举常量可以作为集合类型的元素，可以更方便地对集合进行操作。</li>
+</ol>
+<p>  总之，<code>Java</code>中的枚举类型可以帮助程序员编写更可读、更可维护、更类型安全和更清晰的代码，提高程序的可靠性和可维护性。</p>
+<ul>
+<li><strong>枚举的使用</strong></li>
+</ul>
+<p>​		Java枚举的使用可以分为以下几个方面：</p>
+<ol>
+<li>定义枚举类型</li>
+</ol>
+<p>​		Java枚举类型通过关键字<code>enum</code>定义，语法如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">EnumName</span> &#123;</span><br><span class="line">    ENUM_VALUE1,</span><br><span class="line">    ENUM_VALUE2,</span><br><span class="line">    ENUM_VALUE3,</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>EnumName</code>表示枚举类型的名称，<code>ENUM_VALUE1</code>、<code>ENUM_VALUE2</code>、<code>ENUM_VALUE3</code>等表示枚举常量。</p>
+<ol>
+<li>枚举常量的使用</li>
+</ol>
+<p>枚举常量通过<code>EnumName.ENUM_VALUE</code>的方式访问，例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">EnumName</span> <span class="variable">enumValue</span> <span class="operator">=</span> EnumName.ENUM_VALUE1;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>枚举类型的方法</li>
+</ol>
+<p>枚举类型可以定义自己的方法，例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">EnumName</span> &#123;</span><br><span class="line">    ENUM_VALUE1,</span><br><span class="line">    ENUM_VALUE2,</span><br><span class="line">    ENUM_VALUE3;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">myMethod</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;This is my method.&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在枚举类型中，每个枚举常量都是一个实例对象，因此可以在枚举常量上调用枚举类型中的方法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">EnumName</span> <span class="variable">enumValue</span> <span class="operator">=</span> EnumName.ENUM_VALUE1;</span><br><span class="line">enumValue.myMethod(); <span class="comment">// 输出 &quot;This is my method.&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>枚举类型的构造函数</li>
+</ol>
+<p>​		枚举类型也可以有自己的构造函数，但是枚举常量必须在枚举类型定义的最开始处定义。例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">EnumName</span> &#123;</span><br><span class="line">    ENUM_VALUE1(<span class="string">&quot;value1&quot;</span>),</span><br><span class="line">    ENUM_VALUE2(<span class="string">&quot;value2&quot;</span>),</span><br><span class="line">    ENUM_VALUE3(<span class="string">&quot;value3&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String value;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">EnumName</span><span class="params">(String value)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.value = value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getValue</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​		在这个例子中，枚举类型<code>EnumName</code>有一个私有成员变量<code>value</code>，并且定义了一个有参数的构造函数，每个枚举常量都必须在定义时指定对应的参数。在枚举类型中，可以通过调用<code>getValue()</code>方法获取枚举常量对应的参数值。</p>
+<ol>
+<li>枚举类型的比较</li>
+</ol>
+<p>​		枚举类型可以通过<code>==</code>符号进行比较，例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">EnumName</span> <span class="variable">enumValue1</span> <span class="operator">=</span> EnumName.ENUM_VALUE1;</span><br><span class="line"><span class="type">EnumName</span> <span class="variable">enumValue2</span> <span class="operator">=</span> EnumName.ENUM_VALUE1;</span><br><span class="line"></span><br><span class="line">System.out.println(enumValue1 == enumValue2); <span class="comment">// 输出 &quot;true&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>以上是Java枚举的基本使用方法。</p>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/">上一篇：Java发展历程</a>
+  
+  
+  <a class="next" href="/computer-science/python/basic/01.%E5%88%9D%E8%AF%86Python/">下一篇：初识Python</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>关系型数据库和MySQL概述 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">关系型数据库和MySQL概述</h1>
+    <div class="post-meta">
+      <span class="post-date">2025-04-14 04:07</span>
+      <span class="post-word-count">3276 字</span>
+      <span class="post-reading-time">约 10 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记</a>
+      
+      <a href="/tags/python/">python</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#关系型数据库和mysql概述">关系型数据库和MySQL概述</a>
+      
+      <a class="toc-level-3" href="#关系型数据库概述">关系型数据库概述</a>
+      
+      <a class="toc-level-3" href="#mysql-简介">MySQL 简介</a>
+      
+      <a class="toc-level-3" href="#安装-mysql">安装 MySQL</a>
+      
+      <a class="toc-level-3" href="#mysql-基本命令">MySQL 基本命令</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="关系型数据库和mysql概述"><a href="#关系型数据库和MySQL概述" class="headerlink" title="关系型数据库和MySQL概述"></a>关系型数据库和MySQL概述</h2><h3 id="关系型数据库概述"><a href="#关系型数据库概述" class="headerlink" title="关系型数据库概述"></a>关系型数据库概述</h3><ol>
+<li><p>数据持久化 - 将数据保存到能够长久保存数据的存储介质中，在掉电的情况下数据也不会丢失。</p>
+</li>
+<li><p>数据库发展史 - 网状数据库、层次数据库、关系数据库、NoSQL 数据库、NewSQL 数据库。</p>
+<blockquote>
+<p>1970年，IBM的研究员E.F.Codd在<em>Communication of the ACM</em>上发表了名为<em>A Relational Model of Data for Large Shared Data Banks</em>的论文，提出了<strong>关系模型</strong>的概念，奠定了关系模型的理论基础。后来Codd又陆续发表多篇文章，论述了范式理论和衡量关系系统的12条标准，用数学理论奠定了关系数据库的基础。</p>
+</blockquote>
+</li>
+<li><p>关系数据库特点。</p>
+<ul>
+<li><p>理论基础：<strong>关系代数</strong>（关系运算、集合论、一阶谓词逻辑）。</p>
+</li>
+<li><p>具体表象：用<strong>二维表</strong>（有行和列）组织数据。</p>
+</li>
+<li><p>编程语言：<strong>结构化查询语言</strong>（SQL）。</p>
+</li>
+</ul>
+</li>
+<li><p>ER模型（实体关系模型）和概念模型图。</p>
+<p><strong>ER模型</strong>，全称为<strong>实体关系模型</strong>（Entity-Relationship Model），由美籍华裔计算机科学家陈品山先生提出，是概念数据模型的高层描述方式，如下图所示。</p>
+<img src="https://gitee.com/jackfrued/mypic/raw/master/20210826003119.png" width="75%">
+
+<ul>
+<li>实体 - 矩形框</li>
+<li>属性 - 椭圆框</li>
+<li>关系 - 菱形框</li>
+<li>重数 - 1:1（一对一） &#x2F; 1:N（一对多） &#x2F; M:N（多对多）</li>
+</ul>
+<p>实际项目开发中，我们可以利用数据库建模工具（如：PowerDesigner）来绘制概念数据模型（其本质就是 ER 模型），然后再设置好目标数据库系统，将概念模型转换成物理模型，最终生成创建二维表的 SQL（很多工具都可以根据我们设计的物理模型图以及设定的目标数据库来导出 SQL 或直接生成数据表）。</p>
+<p><img src="https://gitee.com/jackfrued/mypic/raw/master/20210826003212.png"></p>
+</li>
+<li><p>关系数据库产品。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.oracle.com/index.html">Oracle</a> - 目前世界上使用最为广泛的数据库管理系统，作为一个通用的数据库系统，它具有完整的数据管理功能；作为一个关系数据库，它是一个完备关系的产品；作为分布式数据库，它实现了分布式处理的功能。在 Oracle 最新的 12c 版本中，还引入了多承租方架构，使用该架构可轻松部署和管理数据库云。</li>
+<li><a target="_blank" rel="noopener" href="https://www.ibm.com/analytics/us/en/db2/">DB2</a> - IBM 公司开发的、主要运行于 Unix（包括 IBM 自家的 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/AIX">AIX</a>）、Linux、以及 Windows 服务器版等系统的关系数据库产品。DB2 历史悠久且被认为是最早使用 SQL 的数据库产品，它拥有较为强大的商业智能功能。</li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/sql-server/">SQL Server</a> - 由 Microsoft 开发和推广的关系型数据库产品，最初适用于中小企业的数据管理，但是近年来它的应用范围有所扩展，部分大企业甚至是跨国公司也开始基于它来构建自己的数据管理系统。</li>
+<li><a target="_blank" rel="noopener" href="https://www.mysql.com/">MySQL</a> - MySQL 是开放源代码的，任何人都可以在 GPL（General Public License）的许可下下载并根据个性化的需要对其进行修改。MySQL 因为其速度、可靠性和适应性而备受关注。</li>
+<li><a href="">PostgreSQL</a> - 在 BSD 许可证下发行的开放源代码的关系数据库产品。</li>
+</ul>
+</li>
+</ol>
+<h3 id="mysql-简介"><a href="#MySQL-简介" class="headerlink" title="MySQL 简介"></a>MySQL 简介</h3><p>MySQL 最早是由瑞典的 MySQL AB 公司开发的一个开放源码的关系数据库管理系统，该公司于2008年被昇阳微系统公司（Sun Microsystems）收购。在2009年，甲骨文公司（Oracle）收购昇阳微系统公司，因此 MySQL 目前也是 Oracle 旗下产品。</p>
+<p>MySQL 在过去由于性能高、成本低、可靠性好，已经成为最流行的开源数据库，因此被广泛地应用于中小型网站开发。随着 MySQL 的不断成熟，它也逐渐被应用于更多大规模网站和应用，比如维基百科、谷歌（Google）、脸书（Facebook）、淘宝网等网站都使用了 MySQL 来提供数据持久化服务。</p>
+<p>甲骨文公司收购后昇阳微系统公司，大幅调涨 MySQL 商业版的售价，且甲骨文公司不再支持另一个自由软件项目 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/OpenSolaris">OpenSolaris </a> 的发展，因此导致自由软件社区对于 Oracle 是否还会持续支持 MySQL 社区版（MySQL 的各个发行版本中唯一免费的版本）有所担忧，MySQL 的创始人麦克尔·维德纽斯以 MySQL 为基础，创建了 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/MariaDB">MariaDB</a>（以他女儿的名字命名的数据库）分支。有许多原来使用 MySQL 数据库的公司（例如：维基百科）已经陆续完成了从 MySQL 数据库到 MariaDB 数据库的迁移。</p>
+<h3 id="安装-mysql"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h3><h4 id="Windows-环境"><a href="#Windows-环境" class="headerlink" title="Windows 环境"></a>Windows 环境</h4><ol>
+<li><p>通过<a target="_blank" rel="noopener" href="https://www.mysql.com/">官方网站</a>提供的<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/windows/installer/8.0.html">下载链接</a>下载“MySQL社区版服务器”安装程序，如下图所示，建议大家下载离线安装版的MySQL Installer。</p>
+ <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105230905.png" style="zoom:50%">
+</li>
+<li><p>运行 Installer，按照下面的步骤进行安装。</p>
+<ul>
+<li>选择自定义安装。</li>
+</ul>
+ <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105231152.jpg" style="zoom:35%">
+
+<ul>
+<li>选择需要安装的组件。</li>
+</ul>
+ <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105231255.jpg" style="zoom:35%">
+
+<ul>
+<li>如果缺少依赖项，需要先安装依赖项。</li>
+</ul>
+ <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105231620.png" style="zoom:35%">
+
+<ul>
+<li>准备开始安装。</li>
+</ul>
+ <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105231719.jpg" style="zoom:35%">
+
+<ul>
+<li>安装完成。</li>
+</ul>
+ <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105232024.jpg" style="zoom:35%">
+
+<ul>
+<li>准备执行配置向导。</li>
+</ul>
+ <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105231815.jpg" style="zoom:35%">
+</li>
+<li><p>执行安装后的配置向导。</p>
+<ul>
+<li>配置服务器类型和网络。</li>
+</ul>
+ <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105232109.jpg" style="zoom:35%">
+
+<ul>
+<li><p>配置认证方法（保护密码的方式）。</p>
+  <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105232408.jpg" style="zoom:35%">
+</li>
+<li><p>配置用户和角色。</p>
+  <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105232521.jpg" style="zoom:35%">
+</li>
+<li><p>配置Windows服务名以及是否开机自启。</p>
+  <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105232608.jpg" style="zoom:35%">
+</li>
+<li><p>配置日志。</p>
+  <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105232641.jpg" style="zoom:35%">
+</li>
+<li><p>配置高级选项。</p>
+  <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105232724.jpg" alt="ACAC15B8633133B65476286A49BFBD7E" style="zoom:35%">
+</li>
+<li><p>应用配置。</p>
+  <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105232800.jpg" style="zoom:35%"></li>
+</ul>
+</li>
+<li><p>可以在 Windows 系统的“服务”窗口中启动或停止 MySQL。</p>
+ <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105232926.jpg" style="zoom:50%">
+</li>
+<li><p>配置 PATH 环境变量，以便在命令行提示符窗口使用 MySQL 客户端工具。</p>
+<ul>
+<li><p>打开 Windows 的“系统”窗口并点击“高级系统设置”。</p>
+  <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105233054.jpg" style="zoom:50%">
+</li>
+<li><p>在“系统属性”的“高级”窗口，点击“环境变量”按钮。</p>
+  <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105233312.jpg" style="zoom:50%">
+</li>
+<li><p>修改PATH环境变量，将MySQL安装路径下的<code>bin</code>文件夹的路径配置到PATH环境变量中。</p>
+  <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105233359.jpg" style="zoom:50%">
+</li>
+<li><p>配置完成后，可以尝试在“命令提示符”下使用 MySQL 的命令行工具。</p>
+  <img src="https://gitee.com/jackfrued/mypic/raw/master/20211105233643.jpg" style="zoom:50%"></li>
+</ul>
+</li>
+</ol>
+<h4 id="Linux-环境"><a href="#Linux-环境" class="headerlink" title="Linux 环境"></a>Linux 环境</h4><p>下面以 CentOS 7.x 环境为例，演示如何安装 MySQL 5.7.x，如果需要在其他 Linux 系统下安装其他版本的 MySQL，请读者自行在网络上查找对应的安装教程。</p>
+<ol>
+<li><p>安装 MySQL。</p>
+<p>可以在 <a target="_blank" rel="noopener" href="https://www.mysql.com/">MySQL 官方网站</a>下载安装文件。首先在下载页面中选择平台和版本，然后找到对应的下载链接，直接下载包含所有安装文件的归档文件，解归档之后通过包管理工具进行安装。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.26-1.el7.x86_64.rpm-bundle.tar</span><br><span class="line">tar -xvf mysql-5.7.26-1.el7.x86_64.rpm-bundle.tar</span><br></pre></td></tr></table></figure>
+
+<p>如果系统上有 MariaDB 相关的文件，需要先移除 MariaDB 相关的文件。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum list installed | grep mariadb | awk &#x27;&#123;print $1&#125;&#x27; | xargs yum erase -y</span><br></pre></td></tr></table></figure>
+
+<p>更新和安装可能用到的底层依赖库。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum update</span><br><span class="line">yum install -y libaio libaio-devel</span><br></pre></td></tr></table></figure>
+
+<p>接下来可以按照如下所示的顺序用 RPM（Redhat Package Manager）工具安装 MySQL。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rpm -ivh mysql-community-common-5.7.26-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-libs-5.7.26-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-libs-compat-5.7.26-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-devel-5.7.26-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-client-5.7.26-1.el7.x86_64.rpm</span><br><span class="line">rpm -ivh mysql-community-server-5.7.26-1.el7.x86_64.rpm</span><br></pre></td></tr></table></figure>
+
+<p>可以使用下面的命令查看已经安装的 MySQL 相关的包。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rpm -qa | grep mysql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置 MySQL。</p>
+<p>MySQL 的配置文件在<code>/etc</code>目录下，名为<code>my.cnf</code>，默认的配置文件内容如下所示。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat /etc/my.cnf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="comment"># For advice on how to change settings please see</span></span><br><span class="line"><span class="comment"># http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html</span></span><br><span class="line"></span><br><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Remove leading # and set to the amount of RAM for the most important data</span></span><br><span class="line"><span class="comment"># cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.</span></span><br><span class="line"><span class="comment"># innodb_buffer_pool_size = 128M</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Remove leading # to turn on a very important data integrity option: logging</span></span><br><span class="line"><span class="comment"># changes to the binary log between backups.</span></span><br><span class="line"><span class="comment"># log_bin</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Remove leading # to set options mainly useful for reporting servers.</span></span><br><span class="line"><span class="comment"># The server defaults are faster for transactions and fast SELECTs.</span></span><br><span class="line"><span class="comment"># Adjust sizes as needed, experiment to find the optimal values.</span></span><br><span class="line"><span class="comment"># join_buffer_size = 128M</span></span><br><span class="line"><span class="comment"># sort_buffer_size = 2M</span></span><br><span class="line"><span class="comment"># read_rnd_buffer_size = 2M</span></span><br><span class="line"><span class="attr">datadir</span>=/var/lib/mysql</span><br><span class="line"><span class="attr">socket</span>=/var/lib/mysql/mysql.sock</span><br><span class="line"></span><br><span class="line"><span class="comment"># Disabling symbolic-links is recommended to prevent assorted security risks</span></span><br><span class="line"><span class="attr">symbolic-links</span>=<span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="attr">log-error</span>=/var/log/mysqld.log</span><br><span class="line"><span class="attr">pid-file</span>=/var/run/mysqld/mysqld.pid</span><br></pre></td></tr></table></figure>
+
+<p>通过配置文件，我们可以修改 MySQL 服务使用的端口、字符集、最大连接数、套接字队列大小、最大数据包大小、日志文件的位置、日志过期时间等配置。当然，我们还可以通过修改配置文件来对 MySQL 服务器进行性能调优和安全管控。</p>
+</li>
+<li><p>启动 MySQL 服务。</p>
+<p>可以使用下面的命令来启动 MySQL。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">service mysqld start</span><br></pre></td></tr></table></figure>
+
+<p>在 CentOS 7 中，更推荐使用下面的命令来启动 MySQL。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl start mysqld</span><br></pre></td></tr></table></figure>
+
+<p>启动 MySQL 成功后，可以通过下面的命令来检查网络端口使用情况，MySQL 默认使用<code>3306</code>端口。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">netstat -ntlp | grep mysql</span><br></pre></td></tr></table></figure>
+
+<p>也可以使用下面的命令查找是否有名为<code>mysqld</code>的进程。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">pgrep mysqld</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 MySQL 客户端工具连接服务器。</p>
+<p>命令行工具：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>说明：启动客户端时，<code>-u</code>参数用来指定用户名，MySQL 默认的超级管理账号为<code>root</code>；<code>-p</code>表示要输入密码（用户口令）；如果连接的是其他主机而非本机，可以用<code>-h</code>来指定连接主机的主机名或IP地址。</p>
+</blockquote>
+<p>如果是首次安装 MySQL，可以使用下面的命令来找到默认的初始密码。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cat /var/log/mysqld.log | grep password</span><br></pre></td></tr></table></figure>
+
+<p>上面的命令会查看 MySQL 的日志带有<code>password</code>的行，在显示的结果中<code>root@localhost:</code>后面的部分就是默认设置的初始密码。</p>
+<p>进入客户端工具后，可以通过下面的指令来修改超级管理员（root）的访问口令为<code>123456</code>。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> validate_password_policy<span class="operator">=</span><span class="number">0</span>;</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">global</span> validate_password_length<span class="operator">=</span><span class="number">6</span>;</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">user</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;123456&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：MySQL 较新的版本默认不允许使用弱口令作为用户口令，所以上面的代码修改了验证用户口令的策略和口令的长度。事实上我们不应该使用弱口令，因为存在用户口令被暴力破解的风险。近年来，<strong>攻击数据库窃取数据和劫持数据库勒索比特币</strong>的事件屡见不鲜，要避免这些潜在的风险，最为重要的一点是<strong>不要让数据库服务器暴露在公网上</strong>（最好的做法是将数据库置于内网，至少要做到不向公网开放数据库服务器的访问端口），另外要保管好<code>root</code>账号的口令，应用系统需要访问数据库时，通常不使用<code>root</code>账号进行访问，而是<strong>创建其他拥有适当权限的账号来访问</strong>。</p>
+</blockquote>
+<p>再次使用客户端工具连接 MySQL 服务器时，就可以使用新设置的口令了。在实际开发中，为了方便用户操作，可以选择图形化的客户端工具来连接 MySQL 服务器，包括：</p>
+<ul>
+<li><p>MySQL Workbench（官方工具）</p>
+  <img src="https://gitee.com/jackfrued/mypic/raw/master/20211106063939.png" style="zoom:50%">
+</li>
+<li><p>Navicat for MySQL（界面简单友好）</p>
+  <img src="https://gitee.com/jackfrued/mypic/raw/master/20210521152457.png" style="zoom:50%;"></li>
+</ul>
+</li>
+</ol>
+<h4 id="macOS环境"><a href="#macOS环境" class="headerlink" title="macOS环境"></a>macOS环境</h4><p>macOS 系统安装 MySQL 是比较简单的，只需要从刚才说到的官方网站下载 DMG 安装文件并运行就可以了，下载的时候需要根据自己使用的是 Intel 的芯片还是苹果的 M1 芯片选择下载链接，如下图所示。</p>
+<img src="https://gitee.com/jackfrued/mypic/raw/master/20211121215901.png" style="zoom:50%;">
+
+<p>安装成功后，可以在“系统偏好设置”中找到“MySQL”，在如下所示的画面中，可以启动和停止 MySQL 服务器，也可以对 MySQL 核心文件的路径进行配置。</p>
+<img src="https://gitee.com/jackfrued/mypic/raw/master/20211121215153.png" style="zoom:40%;">
+
+<h3 id="mysql-基本命令"><a href="#MySQL-基本命令" class="headerlink" title="MySQL 基本命令"></a>MySQL 基本命令</h3><h4 id="查看命令"><a href="#查看命令" class="headerlink" title="查看命令"></a>查看命令</h4><ol>
+<li>查看所有数据库</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> databases;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>查看所有字符集</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="type">character</span> <span class="keyword">set</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>查看所有的排序规则</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">collation</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>查看所有的引擎</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> engines;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>查看所有日志文件</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="type">binary</span> logs;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>查看数据库下所有表</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> tables;</span><br></pre></td></tr></table></figure>
+
+<h4 id="获取帮助"><a href="#获取帮助" class="headerlink" title="获取帮助"></a>获取帮助</h4><p>在 MySQL 命令行工具中，可以使用<code>help</code>命令或<code>?</code>来获取帮助，如下所示。</p>
+<ol>
+<li><p>查看<code>show</code>命令的帮助。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">? show</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看有哪些帮助内容。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">? contents</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取函数的帮助。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">? functions</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取数据类型的帮助。</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">? data types</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h4><ol>
+<li><p>新建&#x2F;重建服务器连接 - <code>connect</code> &#x2F; <code>resetconnection</code>。</p>
+</li>
+<li><p>清空当前输入 - <code>\c</code>。在输入错误时，可以及时使用<code>\c</code>清空当前输入并重新开始。</p>
+</li>
+<li><p>修改终止符（定界符）- <code>delimiter</code>。默认的终止符是<code>;</code>，可以使用该命令修改成其他的字符，例如修改为<code>$</code>符号，可以用<code>delimiter $</code>命令。</p>
+</li>
+<li><p>打开系统默认编辑器 - <code>edit</code>。编辑完成保存关闭之后，命令行会自动执行编辑的内容。</p>
+</li>
+<li><p>查看服务器状态 - <code>status</code>。</p>
+</li>
+<li><p>修改默认提示符 - <code>prompt</code>。</p>
+</li>
+<li><p>执行系统命令 - <code>system</code>。可以将系统命令跟在<code>system</code>命令的后面执行，<code>system</code>命令也可以缩写为<code>\!</code>。</p>
+</li>
+<li><p>执行 SQL 文件 - <code>source</code>。<code>source</code>命令后面跟 SQL 文件路径。</p>
+</li>
+<li><p>重定向输出 - <code>tee</code> &#x2F; <code>notee</code>。可以将命令的输出重定向到指定的文件中。</p>
+</li>
+<li><p>切换数据库 - <code>use</code>。</p>
+</li>
+<li><p>显示警告信息 - <code>warnings</code>。</p>
+</li>
+<li><p>退出命令行 - <code>quit</code>或<code>exit</code>。</p>
+</li>
+</ol>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/python/basic/37.SQL%E8%AF%A6%E8%A7%A3/">上一篇：SQL 和 MySQL 详解</a>
+  
+  
+  <a class="next" href="/computer-science/python/basic/31-35.%E7%8E%A9%E8%BD%ACLinux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">下一篇：玩转Linux操作系统</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

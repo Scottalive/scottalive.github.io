@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>Spring面试题 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">Spring面试题</h1>
+    <div class="post-meta">
+      <span class="post-date">2023-10-12 00:59</span>
+      <span class="post-word-count">3634 字</span>
+      <span class="post-reading-time">约 11 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Java/">Java</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Java/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/Java%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/">Java开发面试题</a>
+      
+      <a href="/tags/Spring/">Spring</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#spring面试题">Spring面试题</a>
+      
+      <a class="toc-level-3" href="#1spring原理">1.Spring原理</a>
+      
+      <a class="toc-level-3" href="#2什么是控制反转什么是依赖注入">2.什么是控制反转？什么是依赖注入</a>
+      
+      <a class="toc-level-3" href="#控制反转ioc">控制反转（IoC）：</a>
+      
+      <a class="toc-level-3" href="#依赖注入di">依赖注入（DI）：</a>
+      
+      <a class="toc-level-3" href="#3spring的生命周期">3.Spring的生命周期</a>
+      
+      <a class="toc-level-3" href="#4spring事务">4.Spring事务</a>
+      
+      <a class="toc-level-3" href="#5aop是什么aop代理方式有哪些">5.AOP是什么？AOP代理方式有哪些？</a>
+      
+      <a class="toc-level-3" href="#6spring的bean有哪些创建方式">6.Spring的Bean有哪些创建方式？</a>
+      
+      <a class="toc-level-3" href="#7spring的bean作用域有哪些">7.Spring的Bean作用域有哪些？</a>
+      
+      <a class="toc-level-3" href="#8spring如何解决bean循环依赖问题">8.Spring如何解决Bean循环依赖问题？</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="spring面试题"><a href="#Spring面试题" class="headerlink" title="Spring面试题"></a>Spring面试题</h2><h3 id="1spring原理"><a href="#1-Spring原理" class="headerlink" title="1.Spring原理"></a>1.Spring原理</h3><ol>
+<li><strong>IoC（控制反转）和 DI（依赖注入）：</strong><ul>
+<li><strong>IoC（Inversion of Control）</strong>：IoC是一种设计思想，它将程序的控制权交给容器或框架，由容器来负责对象的创建和管理。Spring的IoC容器，即ApplicationContext，负责管理Bean的生命周期。</li>
+<li><strong>DI（Dependency Injection）</strong>：DI是IoC的一种实现方式，它通过注入的方式将一个对象的依赖关系交给容器管理，而不是在对象内部直接创建依赖对象。这样做提高了组件的可重用性和可测试性。</li>
+</ul>
+</li>
+<li><strong>AOP（面向切面编程）：</strong><ul>
+<li><strong>AOP（Aspect-Oriented Programming）</strong>：AOP是一种编程范式，它允许将横切关注点（如日志、安全、事务管理等）从业务逻辑中剥离出来，使得系统关注点的变化不影响业务逻辑。在Spring中，AOP通过代理机制实现，常见的代理方式有基于JDK动态代理和基于CGLIB的代理。</li>
+</ul>
+</li>
+<li><strong>Bean的生命周期和作用域：</strong><ul>
+<li><strong>Bean的生命周期</strong>：Bean的生命周期包括实例化、初始化、使用和销毁四个阶段。Spring容器负责Bean的实例化和初始化，而销毁阶段则由容器负责。你可以提及<code>InitializingBean</code>和<code>DisposableBean</code>接口以及<code>@PostConstruct</code>和<code>@PreDestroy</code>注解来控制Bean的初始化和销毁操作。</li>
+<li><strong>Bean的作用域</strong>：Spring定义了多种Bean的作用域，包括singleton（单例，默认）、prototype（原型）、request（每个HTTP请求一个实例）、session（每个HTTP Session一个实例）和global session（全局HTTP Session一个实例）等。</li>
+</ul>
+</li>
+<li><strong>Spring的事务管理：</strong><ul>
+<li><strong>声明式事务管理</strong>：通过使用<code>@Transactional</code>注解或XML配置来声明事务，使得事务的控制更加方便。Spring提供了对编程式事务管理的支持，可以通过<code>PlatformTransactionManager</code>接口进行编程式事务控制。</li>
+</ul>
+</li>
+<li><strong>Spring的数据访问与集成：</strong><ul>
+<li><strong>数据访问</strong>：Spring提供了JdbcTemplate等模板类，简化了JDBC的操作，同时支持ORM框架（如Hibernate、MyBatis）的集成，提供了对持久层的支持。</li>
+<li><strong>集成其他技术</strong>：Spring能够与其他技术（如消息队列、缓存、搜索引擎等）进行集成，提供了丰富的集成方案。</li>
+</ul>
+</li>
+<li><strong>Spring框架的核心组件：</strong><ul>
+<li><strong>ApplicationContext</strong>：Spring的IoC容器，负责管理Bean的生命周期。</li>
+<li><strong>BeanFactory</strong>：是IoC容器的基础接口，提供了基本的IoC功能。</li>
+<li><strong>BeanPostProcessor</strong>：在Bean初始化前后执行一些操作。</li>
+<li><strong>BeanDefinition</strong>：定义了Bean的配置信息。</li>
+</ul>
+</li>
+</ol>
+<h3 id="2什么是控制反转什么是依赖注入"><a href="#2-什么是控制反转？什么是依赖注入" class="headerlink" title="2.什么是控制反转？什么是依赖注入"></a>2.什么是控制反转？什么是依赖注入</h3><p>​	控制反转（IoC，Inversion of Control）和依赖注入（DI，Dependency Injection）是面向对象编程中两个重要的概念，它们是实现松耦合（Loose Coupling）的关键。</p>
+<h3 id="控制反转ioc"><a href="#控制反转（IoC）：" class="headerlink" title="控制反转（IoC）："></a>控制反转（IoC）：</h3><p>控制反转是一种设计原则，它将程序的控制权从程序代码本身转移到了外部容器或框架。在传统的程序设计中，程序代码通常负责对象的创建、依赖关系的管理以及资源的释放。而在IoC中，这些职责被反转，由外部容器负责。IoC使得系统更加灵活，易于扩展和维护。</p>
+<p>在IoC中，对象的创建和管理由IoC容器负责。Spring的ApplicationContext就是一个经典的IoC容器。它负责实例化Bean、注入Bean之间的依赖关系、管理Bean的生命周期等。开发者只需定义好Bean和它们之间的关系，由容器负责具体的实例化和管理。</p>
+<h3 id="依赖注入di"><a href="#依赖注入（DI）：" class="headerlink" title="依赖注入（DI）："></a>依赖注入（DI）：</h3><p>依赖注入是IoC的一种具体实现方式。在依赖注入中，组件的依赖关系由外部容器在组件被创建时注入。依赖关系通常以构造函数、Setter方法或接口注入的方式实现。</p>
+<p>假设有一个类<code>UserService</code>依赖于<code>UserRepository</code>，传统的做法是在<code>UserService</code>类内部创建<code>UserRepository</code>的实例。但在依赖注入中，<code>UserService</code>不再负责创建<code>UserRepository</code>，而是通过构造函数或Setter方法接受一个<code>UserRepository</code>的实例。容器在创建<code>UserService</code>时，将<code>UserRepository</code>的实例注入到<code>UserService</code>中。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过构造函数注入依赖</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UserService</span><span class="params">(UserRepository userRepository)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.userRepository = userRepository;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 或者通过Setter方法注入依赖</span></span><br><span class="line">    <span class="comment">// public void setUserRepository(UserRepository userRepository) &#123;</span></span><br><span class="line">    <span class="comment">//     this.userRepository = userRepository;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>依赖注入使得对象之间的关系更加灵活，容易被替换和测试。Spring框架提供了多种依赖注入的方式，包括构造函数注入、Setter方法注入、接口注入等。</p>
+<h3 id="3spring的生命周期"><a href="#3-Spring的生命周期" class="headerlink" title="3.Spring的生命周期"></a>3.Spring的生命周期</h3><p>​	Spring框架中的Bean（Java对象）的生命周期由Spring容器来管理，包括Bean的创建、初始化、使用和销毁等阶段。以下是Spring Bean的生命周期：</p>
+<ol>
+<li><strong>实例化（Instantiation）</strong>： 当Spring容器接收到Bean的定义后，它会通过构造函数或工厂方法来实例化Bean对象。</li>
+<li><strong>设定Bean的属性（Population of Properties）</strong>： Spring容器将配置文件或注解中定义的属性值或引用注入到Bean中。</li>
+<li><strong>Bean的初始化（Bean Initialization）</strong>： 如果Bean实现了<code>InitializingBean</code>接口，Spring将调用其<code>afterPropertiesSet</code>方法进行初始化。另外，如果在配置文件中使用了<code>init-method</code>属性，指定了初始化方法，Spring容器会在属性设置完成后调用这个指定的方法。</li>
+<li><strong>Bean的使用（Bean is ready to use）</strong>： 此时，Bean已经可以被应用程序使用了。</li>
+<li><strong>Bean的销毁（Bean Destruction）</strong>： 如果Bean实现了<code>DisposableBean</code>接口，Spring容器在Bean不再需要时调用其<code>destroy</code>方法进行销毁。或者，如果在配置文件中使用了<code>destroy-method</code>属性，指定了销毁方法，Spring容器在需要销毁Bean时调用这个指定的方法。</li>
+</ol>
+<p>在整个生命周期中，Spring容器负责管理Bean的创建、依赖注入、初始化和销毁等工作，确保Bean在应用程序中的正确运作。</p>
+<h3 id="4spring事务"><a href="#4-Spring事务" class="headerlink" title="4.Spring事务"></a>4.Spring事务</h3><p>​	Spring框架提供了丰富的事务管理功能，支持编程式事务和声明式事务两种方式。事务是用来保持数据库的一致性和完整性的机制，当一组相关的操作要么全部成功，要么全部失败。</p>
+<p>在Spring中，你可以使用注解或XML配置来声明式地管理事务。以下是一些关于Spring事务的关键概念：</p>
+<ol>
+<li><p><strong>事务管理器（Transaction Manager）</strong>： 事务管理器负责实际管理事务。Spring支持各种事务管理器，如<code>DataSourceTransactionManager</code>（针对关系型数据库）、<code>JtaTransactionManager</code>（用于分布式事务）等。</p>
+</li>
+<li><p><strong>事务定义（Transaction Definition）</strong>： 事务定义定义了事务的隔离级别、传播行为、超时等属性。Spring使用<code>org.springframework.transaction.TransactionDefinition</code>接口来表示事务定义。</p>
+</li>
+<li><p><strong>事务传播行为（Transaction Propagation）</strong>： 事务传播行为定义了在方法调用中的事务如何传播。例如，一个方法A调用另一个方法B，B是否应该加入A的事务。Spring定义了多种传播行为，例如<code>REQUIRED</code>、<code>REQUIRES_NEW</code>、<code>NESTED</code>等。</p>
+</li>
+<li><p><strong>隔离级别（Isolation Level）</strong>： 隔离级别定义了多个事务并发执行时，彼此之间的可见性。Spring支持不同的隔离级别，包括<code>DEFAULT</code>（使用数据库默认隔离级别）、<code>READ_UNCOMMITTED</code>（允许读取未提交的数据）、<code>READ_COMMITTED</code>（只能读取已提交的数据）、<code>REPEATABLE_READ</code>（可重复读取）、<code>SERIALIZABLE</code>（串行化）等。</p>
+</li>
+<li><p><strong>声明式事务管理</strong>： 通过注解或XML配置，你可以在方法上声明事务的属性。例如，使用<code>@Transactional</code>注解来标识一个方法应该在事务中执行。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.READ_COMMITTED)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">someTransactionalMethod</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 事务性操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>编程式事务管理</strong>： 在代码中通过编程的方式控制事务。Spring提供了<code>TransactionTemplate</code>来简化编程式事务管理。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">transactionTemplate.execute(<span class="keyword">new</span> <span class="title class_">TransactionCallbackWithoutResult</span>() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doInTransactionWithoutResult</span><span class="params">(TransactionStatus status)</span> &#123;</span><br><span class="line">        <span class="comment">// 事务性操作</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>通过合适的配置，Spring事务管理器可以确保事务的正确性和一致性，保障了数据操作的可靠性。</p>
+<h3 id="5aop是什么aop代理方式有哪些"><a href="#5-AOP是什么？AOP代理方式有哪些？" class="headerlink" title="5.AOP是什么？AOP代理方式有哪些？"></a>5.AOP是什么？AOP代理方式有哪些？</h3><p>​		AOP（Aspect-Oriented Programming）是一种编程范式，它允许你定义横切关注点（cross-cutting concerns），如日志记录、性能监控、事务管理等，并将这些关注点模块化，然后将它们自动应用到应用程序的特定部分，而无需修改这些部分的代码。AOP的目的是提高代码的模块性，降低耦合度，使代码更易于维护和扩展。</p>
+<p>在AOP中，关注点（Aspect）是一个模块化的、可重用的模块，它包含了通知（Advice）和切点（Pointcut）两个主要概念。通知是关注点的具体行为，例如在方法执行前后执行的操作，而切点是指在何处应用通知的定义。</p>
+<p>AOP代理方式主要有两种：</p>
+<ol>
+<li><strong>基于代理的AOP（Proxy-Based AOP）</strong>： 这是最常见的AOP代理方式。在基于代理的AOP中，AOP框架创建一个目标对象（被代理的对象）的代理对象，并将通知织入到代理对象的方法调用中。Spring的AOP默认采用基于代理的AOP实现。基于代理的AOP主要有两种代理方式：<ul>
+<li><strong>JDK动态代理</strong>：如果目标对象实现了接口，Spring将使用JDK动态代理来创建代理对象。</li>
+<li><strong>CGLIB代理</strong>：如果目标对象没有实现接口，Spring将使用CGLIB库来创建代理对象。</li>
+</ul>
+</li>
+<li><strong>基于字节码的AOP（AspectJ AOP）</strong>： 基于字节码的AOP通过直接在类的字节码上织入切面，因此不需要代理对象。这种方式更为强大和灵活，但也更复杂，通常需要使用特定的编译器或者在运行时进行字节码操纵。AspectJ是一个常用的基于字节码的AOP框架。</li>
+</ol>
+<h3 id="6spring的bean有哪些创建方式"><a href="#6-Spring的Bean有哪些创建方式？" class="headerlink" title="6.Spring的Bean有哪些创建方式？"></a>6.Spring的Bean有哪些创建方式？</h3><p>​	在Spring框架中，有多种方式可以创建Bean：</p>
+<ol>
+<li><p><strong>XML配置方式</strong>：在XML配置文件中使用<code>&lt;bean&gt;</code>标签定义Bean的配置信息。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;myBean&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.example.MyBean&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>注解方式</strong>：使用注解标记类，然后在配置类中使用<code>@ComponentScan</code>或者<code>@Component</code>等注解进行扫描和定义Bean。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyBean</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Java配置方式</strong>：通过Java类配置Bean，使用<code>@Configuration</code>和<code>@Bean</code>注解。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AppConfig</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> MyBean <span class="title function_">myBean</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MyBean</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>工厂方法方式</strong>：使用工厂方法创建Bean，即在XML配置文件或者Java配置类中定义工厂方法。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;myBean&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.example.MyBeanFactory&quot;</span> <span class="attr">factory-method</span>=<span class="string">&quot;createInstance&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyBeanFactory</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> MyBean <span class="title function_">createInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MyBean</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>实例工厂方法方式</strong>：使用实例工厂方法创建Bean，需要定义一个实例工厂，然后在XML配置文件或Java配置类中引用该工厂。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;myBean&quot;</span> <span class="attr">factory-bean</span>=<span class="string">&quot;myBeanFactory&quot;</span> <span class="attr">factory-method</span>=<span class="string">&quot;createInstance&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyBeanFactory</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> MyBean <span class="title function_">createInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MyBean</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>以上是常见的Spring Bean创建方式，选择适合项目需求的方式可以提高代码的灵活性和可维护性。</p>
+<h3 id="7spring的bean作用域有哪些"><a href="#7-Spring的Bean作用域有哪些？" class="headerlink" title="7.Spring的Bean作用域有哪些？"></a>7.Spring的Bean作用域有哪些？</h3><p>在Spring框架中，Bean的作用域（Scope）定义了Bean实例的生命周期范围。Spring支持以下几种Bean的作用域：</p>
+<ol>
+<li><p><strong>Singleton（单例）</strong>：在整个Spring容器中，只存在一个Bean实例。无论有多少个Bean的定义，Spring容器都只会创建一个Bean实例，并在需要时返回给每个请求。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;myBean&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.example.MyBean&quot;</span> <span class="attr">scope</span>=<span class="string">&quot;singleton&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Prototype（原型）</strong>：每次请求Bean时，容器都会创建一个新的Bean实例。每个请求都会得到一个全新的Bean对象。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;myBean&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.example.MyBean&quot;</span> <span class="attr">scope</span>=<span class="string">&quot;prototype&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Request（请求）</strong>：在一次HTTP请求中，容器会返回同一个Bean实例。该作用域仅在使用Spring Web应用时有效。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;myBean&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.example.MyBean&quot;</span> <span class="attr">scope</span>=<span class="string">&quot;request&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Session（会话）</strong>：在一个HTTP会话中，容器会返回同一个Bean实例。该作用域同样只在Spring Web应用时有效。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;myBean&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.example.MyBean&quot;</span> <span class="attr">scope</span>=<span class="string">&quot;session&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Global Session（全局会话）</strong>：在一个全局HTTP会话中，容器会返回同一个Bean实例。该作用域通常用于Portlet应用环境。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;myBean&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.example.MyBean&quot;</span> <span class="attr">scope</span>=<span class="string">&quot;globalSession&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Application（应用）</strong>：在整个Web应用中，容器会返回同一个Bean实例。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;myBean&quot;</span> <span class="attr">class</span>=<span class="string">&quot;com.example.MyBean&quot;</span> <span class="attr">scope</span>=<span class="string">&quot;application&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>这些作用域允许你控制Bean实例的生命周期和共享程度，根据需求选择合适的作用域可以提高系统的性能和资源利用率。</p>
+<h3 id="8spring如何解决bean循环依赖问题"><a href="#8-Spring如何解决Bean循环依赖问题？" class="headerlink" title="8.Spring如何解决Bean循环依赖问题？"></a>8.Spring如何解决Bean循环依赖问题？</h3><p>​	在Spring中，Bean的循环依赖是指两个或多个Bean相互依赖，形成一个循环引用的关系。Spring容器默认是不支持循环依赖的，但是它提供了一种机制来处理部分循环依赖情况。</p>
+<p>Spring使用了三级缓存解决Bean的循环依赖问题：</p>
+<ol>
+<li><strong>SingletonObjects缓存</strong>：Spring容器创建Bean时，会将正在创建的Bean放入SingletonObjects缓存中，标记为正在创建中。</li>
+<li><strong>EarlySingletonObjects缓存</strong>：当发现循环依赖时，Spring会将早期暴露的Bean放入EarlySingletonObjects缓存中，标记为早期暴露的Bean。</li>
+<li><strong>SingletonFactories缓存</strong>：当Bean创建完成后，会放入SingletonFactories缓存中，表示该Bean可以被其他Bean引用。</li>
+</ol>
+<p>Spring容器在创建Bean时，会先从SingletonObjects缓存中查找是否存在Bean的实例。如果存在，直接返回。如果不存在，会先创建一个ObjectFactory，用于生成Bean的实例。然后，将该ObjectFactory放入SingletonFactories缓存中。接着，Spring会递归地创建Bean的依赖关系。如果在创建依赖关系的过程中，发现了循环依赖，Spring会从EarlySingletonObjects缓存中获取早期暴露的Bean，而不是直接创建新的实例。这样，就避免了循环依赖的问题。</p>
+<p>需要注意的是，虽然Spring提供了这种机制来处理部分循环依赖情况，但是过多的循环依赖可能会导致系统设计存在问题，因此在设计时，尽量避免复杂的循环依赖关系。</p>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/java/interview/SpringBoot%E9%9D%A2%E8%AF%95%E9%A2%98/">上一篇：SpringBoot面试题</a>
+  
+  
+  <a class="next" href="/computer-science/java/interview/%E9%9D%A2%E8%AF%95%E9%A2%98%E5%B8%B8%E9%97%AE%E5%9B%9E%E7%AD%94/">下一篇：面试题常问回答</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

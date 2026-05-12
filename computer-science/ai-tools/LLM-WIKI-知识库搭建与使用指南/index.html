@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>从零搭建 LLM + 知识库：RAG 完全入门指南 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">从零搭建 LLM + 知识库：RAG 完全入门指南</h1>
+    <div class="post-meta">
+      <span class="post-date">2026-05-01 23:30</span>
+      <span class="post-word-count">3776 字</span>
+      <span class="post-reading-time">约 11 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/AI/">AI</a>
+      
+      <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
+      
+      <a href="/tags/%E5%BC%80%E6%BA%90/">开源</a>
+      
+      <a href="/tags/LLM/">LLM</a>
+      
+      <a href="/tags/RAG/">RAG</a>
+      
+      <a href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/">知识库</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#前言你为什么要读这篇文章">前言：你为什么要读这篇文章？</a>
+      
+      <a class="toc-level-2" href="#第一章理解-rag-的基本原理">第一章：理解 RAG 的基本原理</a>
+      
+      <a class="toc-level-3" href="#11-不用-rag-的-llm-有什么问题">1.1 不用 RAG 的 LLM 有什么问题？</a>
+      
+      <a class="toc-level-3" href="#12-rag-是怎么工作的">1.2 RAG 是怎么工作的？</a>
+      
+      <a class="toc-level-3" href="#13-关键概念解释">1.3 关键概念解释</a>
+      
+      <a class="toc-level-2" href="#第二章选型对比">第二章：选型对比</a>
+      
+      <a class="toc-level-3" href="#21-主流方案一览">2.1 主流方案一览</a>
+      
+      <a class="toc-level-3" href="#22-新手推荐dify">2.2 新手推荐：Dify</a>
+      
+      <a class="toc-level-2" href="#第三章环境准备">第三章：环境准备</a>
+      
+      <a class="toc-level-3" href="#31-硬件要求">3.1 硬件要求</a>
+      
+      <a class="toc-level-3" href="#32-安装-docker">3.2 安装 Docker</a>
+      
+      <a class="toc-level-3" href="#33-获取-api-key">3.3 获取 API Key</a>
+      
+      <a class="toc-level-2" href="#第四章部署-dify">第四章：部署 Dify</a>
+      
+      <a class="toc-level-3" href="#41-一条命令启动">4.1 一条命令启动</a>
+      
+      <a class="toc-level-3" href="#42-初始化设置">4.2 初始化设置</a>
+      
+      <a class="toc-level-3" href="#43-配置模型">4.3 配置模型</a>
+      
+      <a class="toc-level-2" href="#第五章创建你的第一个知识库">第五章：创建你的第一个知识库</a>
+      
+      <a class="toc-level-3" href="#51-上传文档">5.1 上传文档</a>
+      
+      <a class="toc-level-3" href="#52-文档处理设置">5.2 文档处理设置</a>
+      
+      <a class="toc-level-3" href="#53-等待处理">5.3 等待处理</a>
+      
+      <a class="toc-level-2" href="#第六章创建知识库问答应用">第六章：创建知识库问答应用</a>
+      
+      <a class="toc-level-3" href="#61-创建应用">6.1 创建应用</a>
+      
+      <a class="toc-level-3" href="#62-关联知识库">6.2 关联知识库</a>
+      
+      <a class="toc-level-3" href="#63-编写系统提示词prompt">6.3 编写系统提示词（Prompt）</a>
+      
+      <a class="toc-level-3" href="#64-调试测试">6.4 调试测试</a>
+      
+      <a class="toc-level-2" href="#第七章发布与使用">第七章：发布与使用</a>
+      
+      <a class="toc-level-3" href="#71-发布应用">7.1 发布应用</a>
+      
+      <a class="toc-level-3" href="#72-api-集成示例">7.2 API 集成示例</a>
+      
+      <a class="toc-level-3" href="#73-对话日志与分析">7.3 对话日志与分析</a>
+      
+      <a class="toc-level-2" href="#第八章进阶技巧">第八章：进阶技巧</a>
+      
+      <a class="toc-level-3" href="#81-多知识库联合检索">8.1 多知识库联合检索</a>
+      
+      <a class="toc-level-3" href="#82-元数据过滤">8.2 元数据过滤</a>
+      
+      <a class="toc-level-3" href="#83-工作流编排workflow">8.3 工作流编排（Workflow）</a>
+      
+      <a class="toc-level-3" href="#84-本地模型部署省钱-隐私">8.4 本地模型部署（省钱 + 隐私）</a>
+      
+      <a class="toc-level-3" href="#85-持续优化知识库">8.5 持续优化知识库</a>
+      
+      <a class="toc-level-2" href="#第九章常见问题与排错">第九章：常见问题与排错</a>
+      
+      <a class="toc-level-3" href="#q1检索结果不准确怎么办">Q1：检索结果不准确怎么办？</a>
+      
+      <a class="toc-level-3" href="#q2docker-启动失败">Q2：Docker 启动失败？</a>
+      
+      <a class="toc-level-3" href="#q3embedding-处理很慢">Q3：Embedding 处理很慢？</a>
+      
+      <a class="toc-level-3" href="#q4中文效果不好">Q4：中文效果不好？</a>
+      
+      <a class="toc-level-2" href="#总结">总结</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="前言你为什么要读这篇文章"><a href="#前言：你为什么要读这篇文章？" class="headerlink" title="前言：你为什么要读这篇文章？"></a>前言：你为什么要读这篇文章？</h2><p>假设你有几百份 PDF 合同、几十篇技术文档、一堆内部 Wiki 页面。每次想查个信息，要么翻半天文件夹，要么在几个系统之间来回切换。</p>
+<p>大语言模型（LLM）很强，但它有个致命缺陷：<strong>不知道自己不知道什么</strong>。你问 ChatGPT “我们公司上季度的销售政策是什么”，它要么编一个答案，要么说”我没有这方面的信息”。</p>
+<p><strong>RAG（Retrieval-Augmented Generation，检索增强生成）</strong> 就是解决这个问题的。简单说：</p>
+<blockquote>
+<p>先把你的文档”喂”给系统 → 系统理解并存储 → 你提问时，系统先检索相关文档片段 → 再让 LLM 基于这些片段生成答案。</p>
+</blockquote>
+<p>就像一个<strong>随身带着你全部文档的新员工</strong>——记性好、不编造、有问必答。</p>
+<p>本文从零开始，带你用最主流的方式搭建一个属于自己的 LLM 知识库。</p>
+<hr>
+<h2 id="第一章理解-rag-的基本原理"><a href="#第一章：理解-RAG-的基本原理" class="headerlink" title="第一章：理解 RAG 的基本原理"></a>第一章：理解 RAG 的基本原理</h2><h3 id="11-不用-rag-的-llm-有什么问题"><a href="#1-1-不用-RAG-的-LLM-有什么问题？" class="headerlink" title="1.1 不用 RAG 的 LLM 有什么问题？"></a>1.1 不用 RAG 的 LLM 有什么问题？</h3><table>
+<thead>
+<tr>
+<th>问题</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>❌ 知识截止</td>
+<td>训练数据有时间限制，不知道之后的事</td>
+</tr>
+<tr>
+<td>❌ 幻觉</td>
+<td>不知道的问题会编造答案，还编得一本正经</td>
+</tr>
+<tr>
+<td>❌ 领域盲区</td>
+<td>不懂你公司内部的术语、流程、文档</td>
+</tr>
+<tr>
+<td>❌ 上下文窗口</td>
+<td>一次能塞进去的文档量有限</td>
+</tr>
+</tbody></table>
+<h3 id="12-rag-是怎么工作的"><a href="#1-2-RAG-是怎么工作的？" class="headerlink" title="1.2 RAG 是怎么工作的？"></a>1.2 RAG 是怎么工作的？</h3><p>整个流程分两步：</p>
+<p><strong>离线阶段（准备知识）——只做一次：</strong></p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">你的文档（PDF<span class="regexp">/Word/</span>Markdown/网页）</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">┌──────────────────┐</span><br><span class="line">│  文档解析 &amp; 切分   │  把长文档切成合适大小的小块（chunk）</span><br><span class="line">└──────────────────┘</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">┌──────────────────┐</span><br><span class="line">│  向量化（Embedding）│  用 Embedding 模型把文字变成数学向量</span><br><span class="line">└──────────────────┘</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">┌──────────────────┐</span><br><span class="line">│  存入向量数据库     │  向量 + 原文一起存</span><br><span class="line">└──────────────────┘</span><br></pre></td></tr></table></figure>
+
+<p><strong>在线阶段（回答问题）——每次提问都执行：</strong></p>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">用户提问：<span class="string">&quot;合同里违约金怎么算？&quot;</span></span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">┌──────────────────┐</span><br><span class="line">│  问题向量化        │  把问题也变成向量</span><br><span class="line">└──────────────────┘</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">┌──────────────────┐</span><br><span class="line">│  语义检索          │  在向量数据库中找最相关的文档片段</span><br><span class="line">└──────────────────┘</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">┌──────────────────┐</span><br><span class="line">│  组装 Prompt       │  把检索到的片段 + 问题拼成完整提示词</span><br><span class="line">└──────────────────┘</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">┌──────────────────┐</span><br><span class="line">│  <span class="keyword">LLM </span>生成答案      │  基于提供的文档内容回答问题</span><br><span class="line">└──────────────────┘</span><br></pre></td></tr></table></figure>
+
+<h3 id="13-关键概念解释"><a href="#1-3-关键概念解释" class="headerlink" title="1.3 关键概念解释"></a>1.3 关键概念解释</h3><p><strong>Embedding（向量化）</strong></p>
+<p>把一段文字转换成一串数字（向量）。语义相近的文字，向量也相近。比如”苹果很好吃”和”这个水果真甜”在向量空间中距离很近，”苹果发布了新手机”则离得很远。</p>
+<p><strong>Chunk（文档分块）</strong></p>
+<p>LLM 一次能处理的文字有限（上下文窗口），而且检索粒度太粗也没用。所以把长文档切成小块，每块通常 300-1000 个字符，块与块之间可以有重叠（防止一句话被拦腰截断）。</p>
+<p><strong>向量数据库</strong></p>
+<p>专门存储和检索向量的数据库。流行的有：</p>
+<table>
+<thead>
+<tr>
+<th>数据库</th>
+<th>特点</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Chroma</td>
+<td>轻量、Python 原生、零配置</td>
+<td>本地开发 &#x2F; 小项目</td>
+</tr>
+<tr>
+<td>Milvus</td>
+<td>高性能、分布式</td>
+<td>企业级 &#x2F; 百万级文档</td>
+</tr>
+<tr>
+<td>Qdrant</td>
+<td>Rust 编写、性能好</td>
+<td>中大型项目</td>
+</tr>
+<tr>
+<td>Weaviate</td>
+<td>GraphQL 接口、功能全</td>
+<td>有复杂查询需求</td>
+</tr>
+<tr>
+<td>FAISS</td>
+<td>Meta 开源、纯向量搜索</td>
+<td>嵌入式 &#x2F; 高性能场景</td>
+</tr>
+<tr>
+<td>pgvector</td>
+<td>PostgreSQL 插件</td>
+<td>已有 PG 技术栈的团队</td>
+</tr>
+</tbody></table>
+<p><strong>重排序（Rerank）</strong></p>
+<p>第一次检索返回的文档片段不一定是最相关的（粗排），可以用 Rerank 模型做二次精排，提高准确率。</p>
+<hr>
+<h2 id="第二章选型对比"><a href="#第二章：选型对比" class="headerlink" title="第二章：选型对比"></a>第二章：选型对比</h2><p>市面上的 LLM 知识库方案很多，先做一个快速对比帮你选型。</p>
+<h3 id="21-主流方案一览"><a href="#2-1-主流方案一览" class="headerlink" title="2.1 主流方案一览"></a>2.1 主流方案一览</h3><table>
+<thead>
+<tr>
+<th>方案</th>
+<th>定位</th>
+<th>上手难度</th>
+<th>适合谁</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Dify</strong></td>
+<td>全能 LLM 应用平台</td>
+<td>⭐ 简单</td>
+<td>所有人，首选</td>
+</tr>
+<tr>
+<td><strong>FastGPT</strong></td>
+<td>专注知识库问答</td>
+<td>⭐ 简单</td>
+<td>只想做知识库</td>
+</tr>
+<tr>
+<td><strong>AnythingLLM</strong></td>
+<td>桌面端一键部署</td>
+<td>⭐ 最简单</td>
+<td>个人用户、不想折腾</td>
+</tr>
+<tr>
+<td><strong>MaxKB</strong></td>
+<td>国产知识库问答</td>
+<td>⭐ 简单</td>
+<td>中文场景、企业用</td>
+</tr>
+<tr>
+<td><strong>LangChain</strong></td>
+<td>开发框架</td>
+<td>⭐⭐⭐ 中等</td>
+<td>开发者、需要定制</td>
+</tr>
+<tr>
+<td><strong>LlamaIndex</strong></td>
+<td>数据索引框架</td>
+<td>⭐⭐⭐ 中等</td>
+<td>复杂数据管道</td>
+</tr>
+</tbody></table>
+<h3 id="22-新手推荐dify"><a href="#2-2-新手推荐：Dify" class="headerlink" title="2.2 新手推荐：Dify"></a>2.2 新手推荐：Dify</h3><p>推荐理由：</p>
+<ul>
+<li><strong>开箱即用</strong>：Docker 一条命令启动，有 Web 管理界面</li>
+<li><strong>功能完整</strong>：不只是知识库，还包括工作流编排、Agent、对话日志</li>
+<li><strong>社区活跃</strong>：GitHub 6 万+ Star，中文文档完善</li>
+<li><strong>模型灵活</strong>：支持 OpenAI &#x2F; Claude &#x2F; 本地模型 &#x2F; 各种国产模型</li>
+<li><strong>有云版本</strong>：不想自己部署可以用 Dify Cloud 直接开始</li>
+</ul>
+<p>本文以 <strong>Dify 自部署版</strong>为主进行实操讲解。其他方案思路类似，一通百通。</p>
+<hr>
+<h2 id="第三章环境准备"><a href="#第三章：环境准备" class="headerlink" title="第三章：环境准备"></a>第三章：环境准备</h2><h3 id="31-硬件要求"><a href="#3-1-硬件要求" class="headerlink" title="3.1 硬件要求"></a>3.1 硬件要求</h3><table>
+<thead>
+<tr>
+<th>配置</th>
+<th>最低要求</th>
+<th>推荐配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CPU</td>
+<td>2 核</td>
+<td>4 核+</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>4 GB</td>
+<td>8 GB+</td>
+</tr>
+<tr>
+<td>磁盘</td>
+<td>20 GB</td>
+<td>50 GB+ (看文档量)</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>不需要</td>
+<td>本地跑模型时建议</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>如果你只是用云端 API（OpenAI &#x2F; Claude &#x2F; 国产模型），<strong>不需要 GPU</strong>。只有当你打算本地部署开源模型时才需要。</p>
+</blockquote>
+<h3 id="32-安装-docker"><a href="#3-2-安装-Docker" class="headerlink" title="3.2 安装 Docker"></a>3.2 安装 Docker</h3><p>Dify 通过 Docker 部署，先安装 Docker：</p>
+<p><strong>Windows：</strong></p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 方式一：直接下载 Docker Desktop</span></span><br><span class="line"><span class="comment"># https://www.docker.com/products/docker-desktop/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二：WinGet</span></span><br><span class="line">winget install Docker.DockerDesktop</span><br></pre></td></tr></table></figure>
+
+<p><strong>macOS：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">brew install --cask docker</span><br></pre></td></tr></table></figure>
+
+<p><strong>Linux（Ubuntu&#x2F;Debian）：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash</span><br><span class="line">sudo usermod -aG docker <span class="variable">$USER</span>  <span class="comment"># 免 sudo</span></span><br></pre></td></tr></table></figure>
+
+<p>验证安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker --version</span><br><span class="line">docker compose version</span><br></pre></td></tr></table></figure>
+
+<h3 id="33-获取-api-key"><a href="#3-3-获取-API-Key" class="headerlink" title="3.3 获取 API Key"></a>3.3 获取 API Key</h3><p>你需要至少一个 LLM 的 API Key。可选方案：</p>
+<table>
+<thead>
+<tr>
+<th>提供商</th>
+<th>获取方式</th>
+<th>费用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OpenAI</td>
+<td><a target="_blank" rel="noopener" href="https://platform.openai.com/">platform.openai.com</a> → API Keys</td>
+<td>按量付费</td>
+</tr>
+<tr>
+<td>Anthropic</td>
+<td><a target="_blank" rel="noopener" href="https://console.anthropic.com/">console.anthropic.com</a> → API Keys</td>
+<td>按量付费</td>
+</tr>
+<tr>
+<td>智谱 (GLM)</td>
+<td><a target="_blank" rel="noopener" href="https://open.bigmodel.cn/">open.bigmodel.cn</a> → API Keys</td>
+<td>有免费额度</td>
+</tr>
+<tr>
+<td>DeepSeek</td>
+<td><a target="_blank" rel="noopener" href="https://platform.deepseek.com/">platform.deepseek.com</a> → API Keys</td>
+<td>极便宜</td>
+</tr>
+<tr>
+<td>阿里通义</td>
+<td><a target="_blank" rel="noopener" href="https://dashscope.aliyun.com/">dashscope.aliyun.com</a> → API Keys</td>
+<td>有免费额度</td>
+</tr>
+<tr>
+<td>SiliconFlow</td>
+<td><a target="_blank" rel="noopener" href="https://siliconflow.cn/">siliconflow.cn</a> → API Keys</td>
+<td>聚合多模型</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>新手建议</strong>：先用 DeepSeek 或智谱，有免费额度，够你学完整套流程。</p>
+</blockquote>
+<hr>
+<h2 id="第四章部署-dify"><a href="#第四章：部署-Dify" class="headerlink" title="第四章：部署 Dify"></a>第四章：部署 Dify</h2><h3 id="41-一条命令启动"><a href="#4-1-一条命令启动" class="headerlink" title="4.1 一条命令启动"></a>4.1 一条命令启动</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 克隆项目</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/langgenius/dify.git</span><br><span class="line"><span class="built_in">cd</span> dify/docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制环境变量配置</span></span><br><span class="line"><span class="built_in">cp</span> .env.example .<span class="built_in">env</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动所有服务</span></span><br><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
+
+<p>Docker 会自动拉取并启动以下服务：</p>
+<ul>
+<li><code>api</code> — Dify 后端 API</li>
+<li><code>web</code> — Dify 前端界面</li>
+<li><code>db</code> — PostgreSQL 数据库</li>
+<li><code>redis</code> — 缓存</li>
+<li><code>weaviate</code> — 向量数据库</li>
+<li><code>nginx</code> — 反向代理</li>
+<li><code>sandbox</code> — 代码执行沙箱</li>
+</ul>
+<p>等几分钟后，浏览器打开 <code>http://localhost</code>，你会看到初始化页面。</p>
+<h3 id="42-初始化设置"><a href="#4-2-初始化设置" class="headerlink" title="4.2 初始化设置"></a>4.2 初始化设置</h3><ol>
+<li>设置管理员邮箱和密码</li>
+<li>点击「初始化」</li>
+<li>登录后进入 Dify 主界面</li>
+</ol>
+<h3 id="43-配置模型"><a href="#4-3-配置模型" class="headerlink" title="4.3 配置模型"></a>4.3 配置模型</h3><p>登录后第一步：<strong>设置 → 模型供应商</strong>，添加你的 LLM。</p>
+<p>以 DeepSeek 为例：</p>
+<ol>
+<li>点击「DeepSeek」→「设置」</li>
+<li>填入 API Key</li>
+<li>点击「保存」</li>
+</ol>
+<p>以 OpenAI 为例：</p>
+<ol>
+<li>点击「OpenAI」→「设置」</li>
+<li>填入 API Key</li>
+<li>可选：填入自定义 API 地址（如果你用中转服务）</li>
+<li>保存</li>
+</ol>
+<p>同样方式添加 Embedding 模型。Dify 会自动使用与 LLM 同提供商的 Embedding 模型，也可以单独配置。</p>
+<blockquote>
+<p><strong>省钱技巧</strong>：LLM 用 DeepSeek（便宜），Embedding 用智谱或 SiliconFlow 的免费额度。一个大模型回答 + 一个向量化模型，分开配置，成本极低。</p>
+</blockquote>
+<hr>
+<h2 id="第五章创建你的第一个知识库"><a href="#第五章：创建你的第一个知识库" class="headerlink" title="第五章：创建你的第一个知识库"></a>第五章：创建你的第一个知识库</h2><h3 id="51-上传文档"><a href="#5-1-上传文档" class="headerlink" title="5.1 上传文档"></a>5.1 上传文档</h3><ol>
+<li>顶部导航 → <strong>「知识库」</strong> → <strong>「创建知识库」</strong></li>
+<li>填写名称（如”公司制度知识库”）</li>
+<li>点击创建</li>
+</ol>
+<p>进入知识库后，你可以上传文档：</p>
+<ul>
+<li><strong>支持格式</strong>：PDF、TXT、Markdown、Word (.docx)、Excel (.xlsx)、HTML、CSV</li>
+<li><strong>上传方式</strong>：拖拽文件 &#x2F; 从 URL 导入 &#x2F; 粘贴文本 &#x2F; 对接 Notion</li>
+<li><strong>批量上传</strong>：支持一次性上传多个文件</li>
+</ul>
+<h3 id="52-文档处理设置"><a href="#5-2-文档处理设置" class="headerlink" title="5.2 文档处理设置"></a>5.2 文档处理设置</h3><p>上传前可以调整关键参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>建议值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>分段最大长度</strong></td>
+<td>每个 chunk 的字符数上限</td>
+<td>500-800</td>
+</tr>
+<tr>
+<td><strong>分段重叠长度</strong></td>
+<td>相邻 chunk 的重叠字符数</td>
+<td>50-100</td>
+</tr>
+<tr>
+<td><strong>索引方式</strong></td>
+<td>高质量（推荐） &#x2F; 经济 &#x2F; 自定义</td>
+<td>高质量</td>
+</tr>
+<tr>
+<td><strong>检索方式</strong></td>
+<td>向量检索 &#x2F; 全文检索 &#x2F; 混合检索</td>
+<td>混合检索</td>
+</tr>
+</tbody></table>
+<p><strong>分段长度怎么选？</strong></p>
+<ul>
+<li>合同、法律文档：偏长（800-1000），一个条款不能断</li>
+<li>FAQ、问答对：偏短（300-500），问题答案各自独立</li>
+<li>技术文档：中等（500-800），一个知识点一块</li>
+</ul>
+<h3 id="53-等待处理"><a href="#5-3-等待处理" class="headerlink" title="5.3 等待处理"></a>5.3 等待处理</h3><p>上传后 Dify 自动执行：</p>
+<ol>
+<li>文档解析（提取文字）</li>
+<li>文本分块（按设置切分）</li>
+<li>向量化（调用 Embedding 模型）</li>
+<li>存入向量数据库</li>
+</ol>
+<p>处理速度取决于文档大小和 API 响应速度，一般几兆 PDF 几十秒就完成。</p>
+<p>处理完后你可以：</p>
+<ul>
+<li>查看分段结果（每个 chunk 的内容）</li>
+<li>手动编辑或删除某些分段</li>
+<li>在检索测试中直接搜索，看返回结果质量</li>
+</ul>
+<hr>
+<h2 id="第六章创建知识库问答应用"><a href="#第六章：创建知识库问答应用" class="headerlink" title="第六章：创建知识库问答应用"></a>第六章：创建知识库问答应用</h2><p>知识库准备好后，把它变成一个可交互的聊天应用。</p>
+<h3 id="61-创建应用"><a href="#6-1-创建应用" class="headerlink" title="6.1 创建应用"></a>6.1 创建应用</h3><ol>
+<li>顶部导航 → <strong>「工作室」</strong> → <strong>「创建空白应用」</strong></li>
+<li>选择 <strong>「聊天助手」</strong> 类型</li>
+<li>命名（如”合同助手”）</li>
+<li>点击创建</li>
+</ol>
+<h3 id="62-关联知识库"><a href="#6-2-关联知识库" class="headerlink" title="6.2 关联知识库"></a>6.2 关联知识库</h3><p>在应用编辑界面：</p>
+<ol>
+<li>左侧 <strong>「上下文」</strong> → 点击 <strong>「添加」</strong></li>
+<li>选择你刚创建的知识库</li>
+<li>设置参数：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>建议</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Top K</td>
+<td>每次检索返回多少个 chunk</td>
+<td>3-5</td>
+</tr>
+<tr>
+<td>相似度阈值</td>
+<td>低于此分值的 chunk 不采用</td>
+<td>0.5-0.7</td>
+</tr>
+</tbody></table>
+<h3 id="63-编写系统提示词prompt"><a href="#6-3-编写系统提示词（Prompt）" class="headerlink" title="6.3 编写系统提示词（Prompt）"></a>6.3 编写系统提示词（Prompt）</h3><p>在 <strong>「提示词」</strong> 编辑框中，这是最关键的一步。一个模板：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">你是一个专业的知识库助手，专门回答关于[你的领域]的问题。</span><br><span class="line"></span><br><span class="line"><span class="section">## 规则</span></span><br><span class="line"><span class="bullet">1.</span> 只根据「参考文档」中的内容回答问题</span><br><span class="line"><span class="bullet">2.</span> 如果文档中没有相关信息，直接说&quot;文档中未找到相关内容&quot;，不要编造</span><br><span class="line"><span class="bullet">3.</span> 回答时尽量引用文档原文，并注明来源</span><br><span class="line"><span class="bullet">4.</span> 保持回答简洁专业，用中文回复</span><br><span class="line"></span><br><span class="line"><span class="section">## 参考文档</span></span><br><span class="line">&#123;&#123;context&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>&#123;&#123;context&#125;&#125;</code> 是变量占位符，RAG 检索到的文档片段会自动填入。</p>
+<h3 id="64-调试测试"><a href="#6-4-调试测试" class="headerlink" title="6.4 调试测试"></a>6.4 调试测试</h3><p>右侧有一个 <strong>「调试与预览」</strong> 面板，可以直接测试。</p>
+<p>先确认右上角选择了正确的模型（比如 DeepSeek V3 或 GPT-4o），然后输入问题：</p>
+<blockquote>
+<p>“合同中提前解约需要提前多少天通知？”</p>
+</blockquote>
+<p>你会看到 Dify 先展示了检索到的文档片段（可以展开查看哪些 chunk 被命中），然后基于这些片段生成回答。</p>
+<p><strong>如果回答质量不好？</strong></p>
+<table>
+<thead>
+<tr>
+<th>症状</th>
+<th>可能原因</th>
+<th>调整方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>答非所问</td>
+<td>检索不准</td>
+<td>调高 Top K、换混合检索</td>
+</tr>
+<tr>
+<td>信息不全</td>
+<td>分段太碎</td>
+<td>增大 chunk 长度</td>
+</tr>
+<tr>
+<td>答了无关内容</td>
+<td>阈值太低</td>
+<td>提高相似度阈值</td>
+</tr>
+<tr>
+<td>回答太啰嗦</td>
+<td>Prompt 太弱</td>
+<td>优化系统提示词</td>
+</tr>
+<tr>
+<td>幻觉严重</td>
+<td>文档覆盖不足</td>
+<td>补充文档、优化提示词</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="第七章发布与使用"><a href="#第七章：发布与使用" class="headerlink" title="第七章：发布与使用"></a>第七章：发布与使用</h2><h3 id="71-发布应用"><a href="#7-1-发布应用" class="headerlink" title="7.1 发布应用"></a>7.1 发布应用</h3><p>调试满意后，点击右上角 <strong>「发布」</strong>。</p>
+<p>Dify 提供多种使用方式：</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>网页链接</strong></td>
+<td>生成一个公开 URL，直接分享</td>
+</tr>
+<tr>
+<td><strong>嵌入网页</strong></td>
+<td>提供 iframe &#x2F; script 代码，嵌入到你的网站</td>
+</tr>
+<tr>
+<td><strong>API 调用</strong></td>
+<td>提供 REST API，集成到自己的系统</td>
+</tr>
+<tr>
+<td><strong>企业微信&#x2F;飞书&#x2F;钉钉</strong></td>
+<td>对接办公 IM</td>
+</tr>
+</tbody></table>
+<h3 id="72-api-集成示例"><a href="#7-2-API-集成示例" class="headerlink" title="7.2 API 集成示例"></a>7.2 API 集成示例</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://localhost/v1/chat-messages&quot;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;Authorization&quot;</span>: <span class="string">&quot;Bearer app-YOUR_APP_API_KEY&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;application/json&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&quot;inputs&quot;</span>: &#123;&#125;,</span><br><span class="line">    <span class="string">&quot;query&quot;</span>: <span class="string">&quot;员工年假有多少天？&quot;</span>,</span><br><span class="line">    <span class="string">&quot;response_mode&quot;</span>: <span class="string">&quot;blocking&quot;</span>,</span><br><span class="line">    <span class="string">&quot;conversation_id&quot;</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    <span class="string">&quot;user&quot;</span>: <span class="string">&quot;employee-001&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">response = requests.post(url, json=data, headers=headers)</span><br><span class="line"><span class="built_in">print</span>(response.json()[<span class="string">&quot;answer&quot;</span>])</span><br></pre></td></tr></table></figure>
+
+<h3 id="73-对话日志与分析"><a href="#7-3-对话日志与分析" class="headerlink" title="7.3 对话日志与分析"></a>7.3 对话日志与分析</h3><p>应用发布后，Dify 自动记录所有对话：</p>
+<ul>
+<li><strong>「日志与标注」</strong>：查看每条对话的问题、回答、检索到的文档</li>
+<li><strong>标注功能</strong>：标记好的回答，用于后续优化</li>
+<li><strong>用量统计</strong>：查看 API 调用次数、Token 消耗</li>
+</ul>
+<hr>
+<h2 id="第八章进阶技巧"><a href="#第八章：进阶技巧" class="headerlink" title="第八章：进阶技巧"></a>第八章：进阶技巧</h2><h3 id="81-多知识库联合检索"><a href="#8-1-多知识库联合检索" class="headerlink" title="8.1 多知识库联合检索"></a>8.1 多知识库联合检索</h3><p>一个应用可以关联多个知识库。比如：</p>
+<ul>
+<li>知识库 A：产品手册</li>
+<li>知识库 B：客服 FAQ</li>
+<li>知识库 C：内部流程文档</li>
+</ul>
+<p>用户问一个问题，Dify 同时检索三个知识库，取最相关的 Top K 条。</p>
+<h3 id="82-元数据过滤"><a href="#8-2-元数据过滤" class="headerlink" title="8.2 元数据过滤"></a>8.2 元数据过滤</h3><p>上传文档时可以加元数据标签（如 <code>category:财务</code>、<code>year:2025</code>），检索时按标签过滤：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">只检索「2025年」的「财务类」文档 → 精确度和速度大幅提升</span><br></pre></td></tr></table></figure>
+
+<h3 id="83-工作流编排workflow"><a href="#8-3-工作流编排（Workflow）" class="headerlink" title="8.3 工作流编排（Workflow）"></a>8.3 工作流编排（Workflow）</h3><p>Dify 不只是问答。你可以用可视化的拖拽方式创建处理流程：</p>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">用户输入 → 意图识别 → </span><br><span class="line">  ├─ 查资料 → 检索知识库 → <span class="keyword">LLM </span>回答</span><br><span class="line">  ├─ 查数据 → 调用 API → 格式化返回</span><br><span class="line">  └─ 闲聊 → 直接 <span class="keyword">LLM </span>回复</span><br></pre></td></tr></table></figure>
+
+<h3 id="84-本地模型部署省钱-隐私"><a href="#8-4-本地模型部署（省钱-隐私）" class="headerlink" title="8.4 本地模型部署（省钱 + 隐私）"></a>8.4 本地模型部署（省钱 + 隐私）</h3><p>如果你有一定量的文档，不想每次调用都花 API 费用，或者文档涉密不能上云，可以本地部署开源模型。</p>
+<p><strong>Embedding 模型（向量化）：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 用 Ollama 部署</span></span><br><span class="line">ollama pull nomic-embed-text</span><br><span class="line">ollama pull bge-m3</span><br></pre></td></tr></table></figure>
+
+<p><strong>LLM 模型（生成回答）：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Qwen2.5 系列（中文友好）</span></span><br><span class="line">ollama pull qwen2.5:7b</span><br><span class="line">ollama pull qwen2.5:14b</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或 DeepSeek</span></span><br><span class="line">ollama pull deepseek-r1:8b</span><br></pre></td></tr></table></figure>
+
+<p>然后在 Dify 中配置模型供应商为「Ollama」，地址填 <code>http://localhost:11434</code>。</p>
+<blockquote>
+<p><strong>7B 模型最低要求</strong>：16GB 内存，无 GPU 也能跑（慢但能用）<br><strong>14B 模型</strong>：建议 32GB+ 内存或有 8GB+ 显存的 GPU</p>
+</blockquote>
+<h3 id="85-持续优化知识库"><a href="#8-5-持续优化知识库" class="headerlink" title="8.5 持续优化知识库"></a>8.5 持续优化知识库</h3><p>知识库不是建完就完事了：</p>
+<ul>
+<li><strong>定期更新</strong>：文档变了要重新上传新版本</li>
+<li><strong>分析失败案例</strong>：看日志里哪些问题没回答好，补文档或调参数</li>
+<li><strong>用户反馈</strong>：用标注功能收集好评&#x2F;差评，针对性改进</li>
+<li><strong>A&#x2F;B 测试</strong>：同一问题用不同 chunk 大小或检索策略，对比效果</li>
+</ul>
+<hr>
+<h2 id="第九章常见问题与排错"><a href="#第九章：常见问题与排错" class="headerlink" title="第九章：常见问题与排错"></a>第九章：常见问题与排错</h2><h3 id="q1检索结果不准确怎么办"><a href="#Q1：检索结果不准确怎么办？" class="headerlink" title="Q1：检索结果不准确怎么办？"></a>Q1：检索结果不准确怎么办？</h3><ol>
+<li>先检查检索到的 chunk 是否包含答案（可能是 chunk 里有但没有被 LLM 用上 → 优化 Prompt）</li>
+<li>如果 chunk 里就没有答案 → 你的文档覆盖不足，或 chunk 切分有问题</li>
+<li>尝试切换检索方式：向量检索 → 混合检索 → 全文检索轮着试</li>
+<li>启用 Rerank 模型做二次精排</li>
+</ol>
+<h3 id="q2docker-启动失败"><a href="#Q2：Docker-启动失败？" class="headerlink" title="Q2：Docker 启动失败？"></a>Q2：Docker 启动失败？</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看日志</span></span><br><span class="line">docker compose logs -f</span><br><span class="line"></span><br><span class="line"><span class="comment"># 常见问题：端口冲突</span></span><br><span class="line"><span class="comment"># 修改 .env 中的端口配置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">docker compose down</span><br><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
+
+<h3 id="q3embedding-处理很慢"><a href="#Q3：Embedding-处理很慢？" class="headerlink" title="Q3：Embedding 处理很慢？"></a>Q3：Embedding 处理很慢？</h3><ul>
+<li>检查 API 是否限速（免费额度通常有 RPM 限制）</li>
+<li>大批量文档分批上传</li>
+<li>换成更快的 Embedding 模型（如 <code>text-embedding-3-small</code>）</li>
+</ul>
+<h3 id="q4中文效果不好"><a href="#Q4：中文效果不好？" class="headerlink" title="Q4：中文效果不好？"></a>Q4：中文效果不好？</h3><ul>
+<li>Embedding 模型选中文优化的（<code>bge-large-zh</code>、<code>text-embedding-3</code>、智谱 Embedding）</li>
+<li>LLM 选中文能力强的（DeepSeek、Qwen、GLM）</li>
+<li>分段时不要切断中文字符（Dify 默认会处理）</li>
+</ul>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>你需要做什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>准备</td>
+<td>装 Docker、搞一个 LLM API Key</td>
+</tr>
+<tr>
+<td>部署</td>
+<td><code>docker compose up -d</code> 一条命令</td>
+</tr>
+<tr>
+<td>建知识库</td>
+<td>上传文档，调整分段参数</td>
+</tr>
+<tr>
+<td>建应用</td>
+<td>关联知识库 + 写系统提示词</td>
+</tr>
+<tr>
+<td>上线</td>
+<td>发布 → 生成链接&#x2F;嵌入网页&#x2F;API 调用</td>
+</tr>
+</tbody></table>
+<p>整个流程从零到能用，新手一般 <strong>一个下午</strong> 可以搞定。</p>
+<p>最后提醒一句：<strong>知识库的核心不是技术，是你的文档质量</strong>。垃圾文档进 → 垃圾答案出。花时间整理好你的文档，比调任何参数都管用。</p>
+<ul>
+<li>Dify 官方文档：<a target="_blank" rel="noopener" href="https://docs.dify.ai/">https://docs.dify.ai</a></li>
+<li>Dify GitHub：<a target="_blank" rel="noopener" href="https://github.com/langgenius/dify">https://github.com/langgenius/dify</a></li>
+<li>Ollama（本地模型）：<a target="_blank" rel="noopener" href="https://ollama.com/">https://ollama.com</a></li>
+</ul>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/ai-tools/SSE-%E6%B5%81%E5%BC%8F%E8%BE%93%E5%87%BA%E4%B8%8EAI%E5%BA%94%E7%94%A8%E8%AF%A6%E8%A7%A3/">上一篇：SSE 流式输出详解 —— 从原理到 AI 实战</a>
+  
+  
+  <a class="next" href="/computer-science/ai-tools/CC-Switch-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">下一篇：CC Switch 安装与使用指南 —— AI 编程助手全能管理器</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://scottalive.github.io</id>
+    <title>沉鱼的博客 • Posts by &#34;微服务&#34; category</title>
+    <link href="https://scottalive.github.io" />
+    <updated>2023-09-01T01:17:00.000Z</updated>
+    <category term="AI日报" />
+    <category term="AI" />
+    <category term="GitHub热门" />
+    <category term="人工智能" />
+    <category term="技术趋势" />
+    <category term="原则" />
+    <category term="个人详情" />
+    <category term="个人分享" />
+    <category term="坏习惯" />
+    <category term="Kubernetes" />
+    <category term="Helm" />
+    <category term="学习计划" />
+    <category term="心理学知识" />
+    <category term="网络安全" />
+    <category term="SQL注入" />
+    <category term="XSS" />
+    <category term="CSRF" />
+    <category term="DDoS" />
+    <category term="渗透测试" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
+    <category term="GPT-5.5" />
+    <category term="OpenAI" />
+    <category term="Codex" />
+    <category term="ClaudeCode" />
+    <category term="Gemini" />
+    <category term="开发工具" />
+    <category term="开源" />
+    <category term="编程笔记" />
+    <category term="Hermes" />
+    <category term="Agent" />
+    <category term="NousResearch" />
+    <category term="进阶" />
+    <category term="配置" />
+    <category term="高阶" />
+    <category term="自动化" />
+    <category term="LLM" />
+    <category term="RAG" />
+    <category term="知识库" />
+    <category term="OpenSRE" />
+    <category term="SRE" />
+    <category term="运维" />
+    <category term="故障排查" />
+    <category term="SSE" />
+    <category term="HTTP" />
+    <category term="接口开发" />
+    <category term="开发注意事项" />
+    <category term="力扣算法题" />
+    <category term="算法" />
+    <category term="动态规划" />
+    <category term="微服务" />
+    <category term="JavaSE" />
+    <category term="Java开发面试题" />
+    <category term="SpringBoot" />
+    <category term="Spring" />
+    <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/java/springcloud/%E5%88%9D%E8%AF%86Nacos/</id>
+        <title>初识Nacos</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/java/springcloud/%E5%88%9D%E8%AF%86Nacos/"/>
+        <content type="html">&lt;h2 id=&#34;初识Nacos&#34;&gt;&lt;a href=&#34;#初识Nacos&#34; class=&#34;headerlink&#34; title=&#34;初识Nacos&#34;&gt;&lt;/a&gt;初识Nacos&lt;/h2&gt;&lt;h3 id=&#34;Nacos安装&#34;&gt;&lt;a href=&#34;#Nacos安装&#34; class=&#34;headerlink&#34; title=&#34;Nacos安装&#34;&gt;&lt;/a&gt;Nacos安装&lt;/h3&gt;</content>
+        <category term="编程笔记" />
+        <category term="微服务" />
+        <updated>2023-09-01T01:17:00.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://scottalive.github.io/computer-science/java/springcloud/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</id>
+        <title>Ribbon负载均衡</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/java/springcloud/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
+        <content type="html">&lt;h2 id=&#34;Ribbon负载均衡&#34;&gt;&lt;a href=&#34;#Ribbon负载均衡&#34; class=&#34;headerlink&#34; title=&#34;Ribbon负载均衡&#34;&gt;&lt;/a&gt;Ribbon负载均衡&lt;/h2&gt;&lt;h3 id=&#34;负载均衡原理&#34;&gt;&lt;a href=&#34;#负载均衡原理&#34; class=&#34;headerlink&#34; title=&#34;负载均衡原理&#34;&gt;&lt;/a&gt;负载均衡原理&lt;/h3&gt;&lt;p&gt;规则接口是&lt;strong&gt;IRule&lt;/strong&gt;&lt;br&gt;默认实现是&lt;strong&gt;ZoneAvoidanceRule&lt;/strong&gt;，根据&lt;strong&gt;zone&lt;/strong&gt;选择服务列表，然后轮询&lt;/p&gt;
+&lt;h3 id=&#34;负载均衡策略&#34;&gt;&lt;a href=&#34;#负载均衡策略&#34; class=&#34;headerlink&#34; title=&#34;负载均衡策略&#34;&gt;&lt;/a&gt;负载均衡策略&lt;/h3&gt;&lt;p&gt;代码方式：配置灵活，但修改时需要重新打包布&lt;br&gt;配置方式：直观，方便，无需重新打包发布但是无法做全局配置&lt;/p&gt;
+&lt;h3 id=&#34;懒加载&#34;&gt;&lt;a href=&#34;#懒加载&#34; class=&#34;headerlink&#34; title=&#34;懒加载&#34;&gt;&lt;/a&gt;懒加载&lt;/h3&gt;&lt;p&gt;开启饥饿加载&lt;br&gt;指定饥饿加载的微服务名称&lt;/p&gt;
+</content>
+        <category term="编程笔记" />
+        <category term="微服务" />
+        <updated>2023-08-30T02:17:00.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://scottalive.github.io/computer-science/java/springcloud/Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/</id>
+        <title>Eureka注册中心</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/java/springcloud/Eureka%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83/"/>
+        <content type="html">&lt;h2 id=&#34;Eureka注册中心&#34;&gt;&lt;a href=&#34;#Eureka注册中心&#34; class=&#34;headerlink&#34; title=&#34;Eureka注册中心&#34;&gt;&lt;/a&gt;Eureka注册中心&lt;/h2&gt;&lt;h3 id=&#34;服务调用出现的问题&#34;&gt;&lt;a href=&#34;#服务调用出现的问题&#34; class=&#34;headerlink&#34; title=&#34;服务调用出现的问题&#34;&gt;&lt;/a&gt;服务调用出现的问题&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;服务消费者该如何获取服务提供这的地址信息？&lt;/li&gt;
+&lt;li&gt;如果有多个服务提供者，消费者该如何选择？&lt;/li&gt;
+&lt;li&gt;消费者如何得知服务提供这的健康状态？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;Eureka的作用&#34;&gt;&lt;a href=&#34;#Eureka的作用&#34; class=&#34;headerlink&#34; title=&#34;Eureka的作用&#34;&gt;&lt;/a&gt;Eureka的作用&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;消费者该如何获取服务提供者的具体信息？&lt;ul&gt;
+&lt;li&gt;服务提供者启动时向Eureka注册自己的信息&lt;/li&gt;
+&lt;li&gt;eureka保存这些信息&lt;/li&gt;
+&lt;li&gt;消费者根据服务名称向eureka拉取提供者信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;如果有多个服务提供者，消费者该如何选择？&lt;ul&gt;
+&lt;li&gt;服务消费者利用负载均衡算法，从服务列表中挑选一个&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;消费者该如何感知服务提供者健康状态？&lt;ul&gt;
+&lt;li&gt;服务提供者会每30秒向EurekaServer发送心跳请求，报告健康状态&lt;/li&gt;
+&lt;li&gt;eureka会更新服务列表信息，心跳不正常会被剔除&lt;/li&gt;
+&lt;li&gt;消费者就可以拉取到最新的信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;搭建Eureka服务注册中心&#34;&gt;&lt;a href=&#34;#搭建Eureka服务注册中心&#34; class=&#34;headerlink&#34; title=&#34;搭建Eureka服务注册中心&#34;&gt;&lt;/a&gt;搭建Eureka服务注册中心&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;引入依赖&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;     &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;     &amp;lt;artifactId&amp;gt;spring-cloud-starter-netflix-eureka-server&amp;lt;/artifactId&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;编写启动类，并在启动类添加**@EnableEurekaServer**注解&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;@SpringBootApplication&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;@EnableEurekaServer&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;// 添加注解&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;EurekaApplication&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(String[] args)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        SpringApplication.run(EurekaApplication.class);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;配置文件上添加eureka服务器地址信息&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;eureka:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;client:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;service-url:&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;defaultZone:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;http://127.0.0.1:10086/eureka&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;#注册中心地址&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;搭建Eureka客户端中心&#34;&gt;&lt;a href=&#34;#搭建Eureka客户端中心&#34; class=&#34;headerlink&#34; title=&#34;搭建Eureka客户端中心&#34;&gt;&lt;/a&gt;搭建Eureka客户端中心&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;引入依赖&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &amp;lt;artifactId&amp;gt;spring-cloud-starter-netflix-eureka-client&amp;lt;/artifactId&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;编写启动类，并在启动类上添加**@EnableEurekaClient**注解&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;@MapperScan(&amp;quot;cn.itcast.user.mapper&amp;quot;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;@SpringBootApplication&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;@EnableEurekaClient&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;// 添加注解开启服务注册&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;UserApplication&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(String[] args)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        SpringApplication.run(UserApplication.class, args);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;配置文件上写明Eureka服务端的地址信息&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;spring:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; &lt;span class=&#34;attr&#34;&gt;application:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;userservice&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;# user服务的名称&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;## eureka服务中心&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;eureka:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;client:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;service-url:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;defaultZone:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;http://127.0.0.1:10086/eureka&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;Eureka服务发现-拉取&#34;&gt;&lt;a href=&#34;#Eureka服务发现-拉取&#34; class=&#34;headerlink&#34; title=&#34;Eureka服务发现&amp;#x2F;拉取&#34;&gt;&lt;/a&gt;Eureka服务发现&amp;#x2F;拉取&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;前提：完成Eureka服务端和Eureka客户端的搭建，并且服务中心可以看到这些注册到Eureka的服务&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在原来&lt;strong&gt;RestTemplate&lt;/strong&gt;上加入**@LoadBalanced**注解&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;@Bean&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;@LoadBalanced&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; RestTemplate &lt;span class=&#34;title function_&#34;&gt;restTemplate&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;RestTemplate&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;将原来使用RestTemplate发送http请求时写入的ip地址替换成eureka服务端中的服务名，即spring.application.name字段的名称&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 2.利用restTemplate发起http请求，查询用户 这里原来是ip地址，替换成服务名称&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;url&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;http://userservice/user/&amp;quot;&lt;/span&gt; + order.getUserId();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;User&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;user&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; restTemplate.getForObject(url, User.class);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <category term="编程笔记" />
+        <category term="微服务" />
+        <updated>2023-08-30T01:17:00.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://scottalive.github.io/computer-science/java/springcloud/%E8%AE%A4%E8%AF%86%E5%BE%AE%E6%9C%8D%E5%8A%A1/</id>
+        <title>认识微服务</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/java/springcloud/%E8%AE%A4%E8%AF%86%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+        <content type="html">&lt;h2 id=&#34;认识微服务&#34;&gt;&lt;a href=&#34;#认识微服务&#34; class=&#34;headerlink&#34; title=&#34;认识微服务&#34;&gt;&lt;/a&gt;认识微服务&lt;/h2&gt;&lt;p&gt;微服务是一种经过良好架构设计的&lt;strong&gt;分布式&lt;/strong&gt;架构方案，微服务架构特征：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单一职责：微服务拆分力度更小，每一个服务都对应唯一的业务能力，做到单一职责，避免重复业务开发。&lt;/li&gt;
+&lt;li&gt;面向服务：微服务对外暴露业务接口。&lt;/li&gt;
+&lt;li&gt;自治：团队独立、技术独立、数据独立、部署独立。&lt;/li&gt;
+&lt;li&gt;隔离性强：服务调用做好隔离、容错、降级、避免级联现象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;面试题：&#34;&gt;&lt;a href=&#34;#面试题：&#34; class=&#34;headerlink&#34; title=&#34;面试题：&#34;&gt;&lt;/a&gt;面试题：&lt;/h3&gt;&lt;p&gt;单体架构与分布式架构的区别？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单体架构特点：简单方便，高度耦合，扩展性差，适合小型项目。例如：学生管理系统&lt;/li&gt;
+&lt;li&gt;分布式架构特点：松耦合，扩展性好，但架构复杂，难度大。适合大型互联网项目，例如：京东，淘宝。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;微服务：一种良好的分布式架构&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;优点：拆分力度更小、服务更独立、耦合度更低&lt;/li&gt;
+&lt;li&gt;缺点：架构非常复杂，运维、监控、部署难度提高&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;微服务结构&#34;&gt;&lt;a href=&#34;#微服务结构&#34; class=&#34;headerlink&#34; title=&#34;微服务结构&#34;&gt;&lt;/a&gt;微服务结构&lt;/h3&gt;&lt;p&gt;微服务这种方案需要技术框架来落地，全球的互联网公司都在积极尝试自己的微服务落地技术。在国内最知名的就是SpringCloud和阿里巴巴的Dubbo。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic.imgdb.cn/item/64ee8d49661c6c8e54729987.jpg&#34; alt=&#34;image-20230830082645810&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;微服务技术对比&#34;&gt;&lt;a href=&#34;#微服务技术对比&#34; class=&#34;headerlink&#34; title=&#34;微服务技术对比&#34;&gt;&lt;/a&gt;微服务技术对比&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://pic.imgdb.cn/item/64ee8ec5661c6c8e547347d2.jpg[&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;企业需求&#34;&gt;&lt;a href=&#34;#企业需求&#34; class=&#34;headerlink&#34; title=&#34;企业需求&#34;&gt;&lt;/a&gt;企业需求&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;https://pic.imgdb.cn/item/64ee8f18661c6c8e5473504b.jpg&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;SpringCloud&#34;&gt;&lt;a href=&#34;#SpringCloud&#34; class=&#34;headerlink&#34; title=&#34;SpringCloud&#34;&gt;&lt;/a&gt;SpringCloud&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SpringCloud&lt;/strong&gt;是目前国内使用最广泛的微服务架构。官网地址：&lt;a href=&#34;https://spring.io/projects/spring-cloud&#34;&gt;Spring Cloud&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SpringCloud&lt;/strong&gt;集成了各种微服务功能组件，并基于&lt;strong&gt;SpringBoot&lt;/strong&gt;实现了这些组件的自动装配，从而提供了良好的开箱即用体验：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;https://pic.imgdb.cn/item/64ee90d0661c6c8e54740733.jpg&#34; alt=&#34;微服务技术体系&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;服务拆分与远程调用&#34;&gt;&lt;a href=&#34;#服务拆分与远程调用&#34; class=&#34;headerlink&#34; title=&#34;服务拆分与远程调用&#34;&gt;&lt;/a&gt;服务拆分与远程调用&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;服务拆分注意事项&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;不同微服务，不要重复开发相同业务&lt;/li&gt;
+&lt;li&gt;微服务数据独立，不要访问其他微服务的数据库&lt;/li&gt;
+&lt;li&gt;微服务可以将自己的业务暴露为接口，供其他微服务调用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;微服务远程调用&#34;&gt;&lt;a href=&#34;#微服务远程调用&#34; class=&#34;headerlink&#34; title=&#34;微服务远程调用&#34;&gt;&lt;/a&gt;微服务远程调用&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;提供者与消费者&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;服务提供者：一次业务中，被其他为服务调用的服务。（提供接口给其他微服务）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;服务消费者：一次业务中，调用其他为服务的服务。（调用其他微服务提供的接口）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="编程笔记" />
+        <category term="微服务" />
+        <updated>2023-08-30T00:04:00.000Z</updated>
+    </entry>
+</feed>

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>Claude Code 安装与使用指南 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">Claude Code 安装与使用指南</h1>
+    <div class="post-meta">
+      <span class="post-date">2026-04-29 20:39</span>
+      <span class="post-word-count">1673 字</span>
+      <span class="post-reading-time">约 5 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/AI/">AI</a>
+      
+      <a href="/tags/ClaudeCode/">ClaudeCode</a>
+      
+      <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
+      
+      <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#什么是-claude-code">什么是 Claude Code？</a>
+      
+      <a class="toc-level-2" href="#安装指南">安装指南</a>
+      
+      <a class="toc-level-3" href="#macos-x2f-linux-终端安装">macOS &amp;#x2F; Linux 终端安装</a>
+      
+      <a class="toc-level-3" href="#windows-终端安装">Windows 终端安装</a>
+      
+      <a class="toc-level-3" href="#vs-code-插件安装">VS Code 插件安装</a>
+      
+      <a class="toc-level-3" href="#jetbrains-ide-安装">JetBrains IDE 安装</a>
+      
+      <a class="toc-level-2" href="#初次配置">初次配置</a>
+      
+      <a class="toc-level-2" href="#基本使用">基本使用</a>
+      
+      <a class="toc-level-3" href="#终端模式">终端模式</a>
+      
+      <a class="toc-level-3" href="#vs-code-模式">VS Code 模式</a>
+      
+      <a class="toc-level-3" href="#常用指令速查">常用指令速查</a>
+      
+      <a class="toc-level-3" href="#上下文管理">上下文管理</a>
+      
+      <a class="toc-level-2" href="#核心功能">核心功能</a>
+      
+      <a class="toc-level-3" href="#1-代码生成与修改">1. 代码生成与修改</a>
+      
+      <a class="toc-level-3" href="#2-代码审查code-review">2. 代码审查（Code Review）</a>
+      
+      <a class="toc-level-3" href="#3-调试辅助">3. 调试辅助</a>
+      
+      <a class="toc-level-3" href="#4-git-操作">4. Git 操作</a>
+      
+      <a class="toc-level-3" href="#5-终端命令执行">5. 终端命令执行</a>
+      
+      <a class="toc-level-2" href="#实战示例">实战示例</a>
+      
+      <a class="toc-level-3" href="#场景一为新功能写代码">场景一：为新功能写代码</a>
+      
+      <a class="toc-level-3" href="#场景二重构旧代码">场景二：重构旧代码</a>
+      
+      <a class="toc-level-3" href="#场景三写测试">场景三：写测试</a>
+      
+      <a class="toc-level-2" href="#常见问题">常见问题</a>
+      
+      <a class="toc-level-2" href="#小结">小结</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="什么是-claude-code"><a href="#什么是-Claude-Code？" class="headerlink" title="什么是 Claude Code？"></a>什么是 Claude Code？</h2><p>Claude Code 是 Anthropic 推出的<strong>智能编程助手</strong>，以大语言模型为驱动，能够理解代码库、编辑文件、运行终端命令，并深度集成到你的开发流程中。它不仅仅是一个聊天窗口——它能直接在代码上下文里帮你分析问题、重构代码、调试错误，甚至自动化重复任务。</p>
+<p>目前 Claude Code 支持四种使用形态：</p>
+<ul>
+<li><strong>终端 CLI</strong>：在命令行中直接使用</li>
+<li><strong>Desktop 桌面应用</strong>：macOS &#x2F; Windows 独立应用</li>
+<li><strong>VS Code 扩展</strong>：在编辑器中侧栏对话</li>
+<li><strong>JetBrains 插件</strong>：支持 IntelliJ、PyCharm、WebStorm 等</li>
+</ul>
+<h2 id="安装指南"><a href="#安装指南" class="headerlink" title="安装指南"></a>安装指南</h2><h3 id="macos-x2f-linux-终端安装"><a href="#macOS-Linux-终端安装" class="headerlink" title="macOS &#x2F; Linux 终端安装"></a>macOS &#x2F; Linux 终端安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 官方一键安装脚本</span></span><br><span class="line">curl -fsSL https://claude.ai/install.sh | bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或通过 Homebrew 安装</span></span><br><span class="line">brew install --cask claude-code</span><br></pre></td></tr></table></figure>
+
+<h3 id="windows-终端安装"><a href="#Windows-终端安装" class="headerlink" title="Windows 终端安装"></a>Windows 终端安装</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PowerShell 中执行</span></span><br><span class="line"><span class="built_in">irm</span> https://claude.ai/install.ps1 | <span class="built_in">iex</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或通过 WinGet 安装</span></span><br><span class="line">winget install Anthropic.ClaudeCode</span><br></pre></td></tr></table></figure>
+
+<p>如果使用 CMD 命令行：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://claude.ai/install.<span class="built_in">cmd</span> -o install.<span class="built_in">cmd</span> &amp;&amp; install.<span class="built_in">cmd</span> &amp;&amp; <span class="built_in">del</span> install.<span class="built_in">cmd</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="vs-code-插件安装"><a href="#VS-Code-插件安装" class="headerlink" title="VS Code 插件安装"></a>VS Code 插件安装</h3><p>直接在 VS Code 扩展商店搜索 <strong>“Claude Code”</strong>，或通过命令行安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">code --install-extension anthropic.claude-code</span><br></pre></td></tr></table></figure>
+
+<h3 id="jetbrains-ide-安装"><a href="#JetBrains-IDE-安装" class="headerlink" title="JetBrains IDE 安装"></a>JetBrains IDE 安装</h3><p>在 JetBrains 插件市场搜索 <strong>“Claude Code”</strong> 安装即可，支持 IntelliJ IDEA、PyCharm、WebStorm 等主流 IDE。</p>
+<h2 id="初次配置"><a href="#初次配置" class="headerlink" title="初次配置"></a>初次配置</h2><p>安装完成后，第一次启动需要完成以下配置：</p>
+<p><strong>1. 认证</strong></p>
+<p>Claude Code 使用 Anthropic API Key 进行身份认证。如果你已有账号，可通过如下方式设置：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置环境变量</span></span><br><span class="line"><span class="built_in">export</span> ANTHROPIC_API_KEY=<span class="string">&quot;your-api-key-here&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以在首次运行 Claude Code 时，按照提示完成 OAuth 认证流程。</p>
+<p><strong>2. 选择模型</strong></p>
+<p>Claude Code 支持多种底层模型提供商：</p>
+<table>
+<thead>
+<tr>
+<th>提供商</th>
+<th>模型</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Anthropic</strong></td>
+<td>Claude Sonnet &#x2F; Opus</td>
+<td>默认推荐，通用开发</td>
+</tr>
+<tr>
+<td><strong>Amazon Bedrock</strong></td>
+<td>Claude 系列</td>
+<td>AWS 用户可管控数据</td>
+</tr>
+<tr>
+<td><strong>Google Vertex AI</strong></td>
+<td>Claude 系列</td>
+<td>GCP 用户可管控数据</td>
+</tr>
+<tr>
+<td><strong>Microsoft Foundry</strong></td>
+<td>Claude 系列</td>
+<td>Azure 用户可管控数据</td>
+</tr>
+</tbody></table>
+<p>如果不做特殊配置，默认使用 Anthropic 直连。</p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><h3 id="终端模式"><a href="#终端模式" class="headerlink" title="终端模式"></a>终端模式</h3><p>安装后在任何项目目录中运行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">claude</span><br></pre></td></tr></table></figure>
+
+<p>进入交互式会话后，你可以用自然语言描述需求，比如：</p>
+<figure class="highlight node-repl"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">帮我把这个函数的异常处理加上重试逻辑</span></span><br><span class="line"></span><br><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">这段代码有 bug，帮我定位一下</span></span><br><span class="line"></span><br><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">生成这个 <span class="variable constant_">API</span> 的单元测试</span></span><br></pre></td></tr></table></figure>
+
+<p>Claude Code 会读取当前项目的文件，理解代码结构后给出修改建议或直接编辑文件。</p>
+<h3 id="vs-code-模式"><a href="#VS-Code-模式" class="headerlink" title="VS Code 模式"></a>VS Code 模式</h3><p>在 VS Code 中打开 Claude Code 侧栏（快捷键 <code>Ctrl+Shift+P</code> → <code>Claude Code: Open</code>），即可在编辑器中对话。VS Code 模式下，你还可以：</p>
+<ul>
+<li>直接 @ 引用文件</li>
+<li>用 <code>/</code> 唤起快捷指令</li>
+<li>通过 diff 预览代码变更</li>
+</ul>
+<h3 id="常用指令速查"><a href="#常用指令速查" class="headerlink" title="常用指令速查"></a>常用指令速查</h3><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>claude</code></td>
+<td>启动交互式会话</td>
+</tr>
+<tr>
+<td><code>claude &quot;你的问题&quot;</code></td>
+<td>一次性问答模式</td>
+</tr>
+<tr>
+<td><code>claude --file path/to/file</code></td>
+<td>针对特定文件分析</td>
+</tr>
+<tr>
+<td><code>claude --print</code></td>
+<td>非交互模式，输出到标准输出</td>
+</tr>
+<tr>
+<td><code>claude commit</code></td>
+<td>自动生成 commit message</td>
+</tr>
+</tbody></table>
+<h3 id="上下文管理"><a href="#上下文管理" class="headerlink" title="上下文管理"></a>上下文管理</h3><p>Claude Code 会自动分析你的项目结构。你也可以手动管理上下文：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加文件到上下文</span></span><br><span class="line">/extra *.ts src/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前上下文</span></span><br><span class="line">/context</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示</strong>：上下文窗口有限，建议一次不要包含太多无关文件，保持问题和代码集中。</p>
+<h2 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h2><h3 id="1-代码生成与修改"><a href="#1-代码生成与修改" class="headerlink" title="1. 代码生成与修改"></a>1. 代码生成与修改</h3><p>Claude Code 不仅能生成新代码，还能深度理解现有代码并给出修改建议。它会：</p>
+<ul>
+<li>读取项目文件和目录结构</li>
+<li>理解代码的风格和惯例</li>
+<li>直接编辑文件并展示 diff</li>
+<li>按你的要求运行测试验证</li>
+</ul>
+<h3 id="2-代码审查code-review"><a href="#2-代码审查（Code-Review）" class="headerlink" title="2. 代码审查（Code Review）"></a>2. 代码审查（Code Review）</h3><p>你可以让 Claude Code 审查你的 PR 或某段代码：</p>
+<figure class="highlight node-repl"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript"><span class="title class_">Review</span> the changes <span class="keyword">in</span> src/utils.<span class="property">ts</span> and suggest improvements</span></span><br></pre></td></tr></table></figure>
+
+<p>它会给出具体的改进建议，涵盖逻辑、安全性、性能、代码风格等方面。</p>
+<h3 id="3-调试辅助"><a href="#3-调试辅助" class="headerlink" title="3. 调试辅助"></a>3. 调试辅助</h3><p>粘贴错误信息，Claude Code 能帮你追踪根因：</p>
+<figure class="highlight node-repl"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">运行 npm test 时报了这个错：<span class="title class_">TypeError</span>: <span class="title class_">Cannot</span> read properties <span class="keyword">of</span> <span class="literal">undefined</span>...</span></span><br><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">帮我看下是在哪里引入的</span></span><br></pre></td></tr></table></figure>
+
+<p>它会读取相关代码，定位问题并给出修复方案。</p>
+<h3 id="4-git-操作"><a href="#4-Git-操作" class="headerlink" title="4. Git 操作"></a>4. Git 操作</h3><p>Claude Code 与 Git 深度集成：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生成提交信息</span></span><br><span class="line">claude commit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解释最近变更</span></span><br><span class="line">&gt; 帮我解释下最近 3 次 commit 做了什么</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-终端命令执行"><a href="#5-终端命令执行" class="headerlink" title="5. 终端命令执行"></a>5. 终端命令执行</h3><p>你可以让 Claude Code 代劳执行命令：</p>
+<figure class="highlight node-repl"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">帮我查下当前机器上哪个进程占了 <span class="number">8080</span> 端口</span></span><br><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">把这个项目跑起来</span></span><br></pre></td></tr></table></figure>
+
+<p>它会根据系统环境选择合适的命令并执行。</p>
+<h2 id="实战示例"><a href="#实战示例" class="headerlink" title="实战示例"></a>实战示例</h2><h3 id="场景一为新功能写代码"><a href="#场景一：为新功能写代码" class="headerlink" title="场景一：为新功能写代码"></a>场景一：为新功能写代码</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&gt; 我现在要增加一个用户登录接口，使用 Express + JWT，按照项目现有风格来写。</span><br></pre></td></tr></table></figure>
+
+<p>Claude Code 会读取项目现有结构，按照一致的风格生成路由、中间件、错误处理。</p>
+<h3 id="场景二重构旧代码"><a href="#场景二：重构旧代码" class="headerlink" title="场景二：重构旧代码"></a>场景二：重构旧代码</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&gt; 帮我把这个回调地狱的代码改成 async/await 风格，别改逻辑。</span><br></pre></td></tr></table></figure>
+
+<h3 id="场景三写测试"><a href="#场景三：写测试" class="headerlink" title="场景三：写测试"></a>场景三：写测试</h3><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">&gt; 帮我把 src/service/order.ts 里的所有公开方法写一遍单元测试。</span><br></pre></td></tr></table></figure>
+
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><p><strong>Q: Claude Code 免费吗？</strong></p>
+<p>Claude Code 工具本身免费使用，但需要有效的 Anthropic API Key（付费）。API 费用取决于使用的模型和 token 量。</p>
+<p><strong>Q: 支持哪些语言？</strong></p>
+<p>几乎全部主流语言：JavaScript &#x2F; TypeScript、Python、Java、Go、Rust、C&#x2F;C++、SQL 等，前端后端通吃。</p>
+<p><strong>Q: 代码安全吗？</strong></p>
+<p>通过 Anthropic 直连时，代码会发送到 Anthropic 服务器处理。如果对数据安全有更高要求，可以使用 Amazon Bedrock 或 Google Vertex AI 等企业级部署方案，数据不离开你的云环境。</p>
+<p><strong>Q: 和 GitHub Copilot 有什么区别？</strong></p>
+<table>
+<thead>
+<tr>
+<th>对比维度</th>
+<th>Claude Code</th>
+<th>GitHub Copilot</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>工作方式</td>
+<td>对话式 Agent，可读整个项目</td>
+<td>以代码补全为主+聊天</td>
+</tr>
+<tr>
+<td>上下文范围</td>
+<td>整个代码库</td>
+<td>当前文件 + 少量上下文</td>
+</tr>
+<tr>
+<td>编辑方式</td>
+<td>直接修改文件</td>
+<td>建议片段</td>
+</tr>
+<tr>
+<td>命令执行</td>
+<td>✅ 可执行终端命令</td>
+<td>❌ 不支持</td>
+</tr>
+</tbody></table>
+<p>两者的定位不同：Copilot 更侧重于实时编码时的行级补全，Claude Code 更像一个能帮你完成整个任务的开发搭档。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>Claude Code 是目前 AI 编程工具中能力最为全面的一款，从代码生成、审查、调试到 Git 操作一应俱全。它真正的价值在于<strong>深度理解你的项目</strong>，而不是简单拼接代码片段。</p>
+<p>如果你还没试过，不妨装一个，让它帮你处理那些重复又耗神的编码工作，把精力留给真正需要思考的事。</p>
+<blockquote>
+<p><strong>进一步阅读：</strong> <a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/overview">Claude Code 官方文档</a> | <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code">VS Code 插件</a></p>
+</blockquote>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/ai-tools/CC-Switch-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">上一篇：CC Switch 安装与使用指南 —— AI 编程助手全能管理器</a>
+  
+  
+  <a class="next" href="/computer-science/java/javase/Java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/">下一篇：Java异常处理机制</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

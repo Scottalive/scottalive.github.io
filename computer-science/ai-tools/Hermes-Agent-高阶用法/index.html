@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>Hermes Agent 高阶用法 —— 打造你的专属 AI 工作流 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">Hermes Agent 高阶用法 —— 打造你的专属 AI 工作流</h1>
+    <div class="post-meta">
+      <span class="post-date">2026-05-08 22:39</span>
+      <span class="post-word-count">3151 字</span>
+      <span class="post-reading-time">约 10 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/AI/">AI</a>
+      
+      <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
+      
+      <a href="/tags/Hermes/">Hermes</a>
+      
+      <a href="/tags/Agent/">Agent</a>
+      
+      <a href="/tags/%E9%AB%98%E9%98%B6/">高阶</a>
+      
+      <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/">自动化</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#概览">概览</a>
+      
+      <a class="toc-level-2" href="#1-人格系统比你想象的更强大">1. 人格系统：比你想象的更强大</a>
+      
+      <a class="toc-level-3" href="#11-soulmd-高阶写法">1.1 SOUL.md 高阶写法</a>
+      
+      <a class="toc-level-3" href="#12-agentsmd-工作流模板">1.2 AGENTS.md 工作流模板</a>
+      
+      <a class="toc-level-2" href="#2-自定义-skill-开发实战">2. 自定义 Skill 开发实战</a>
+      
+      <a class="toc-level-3" href="#21-skill-结构">2.1 Skill 结构</a>
+      
+      <a class="toc-level-3" href="#22-skillmd-模板">2.2 SKILL.md 模板</a>
+      
+      <a class="toc-level-3" href="#23-实战自动代码审查-skill">2.3 实战：自动代码审查 Skill</a>
+      
+      <a class="toc-level-2" href="#3-多代理协作管线">3. 多代理协作管线</a>
+      
+      <a class="toc-level-3" href="#31-基础模式分而治之">3.1 基础模式：分而治之</a>
+      
+      <a class="toc-level-3" href="#32-实战多代理文章写作管线">3.2 实战：多代理文章写作管线</a>
+      
+      <a class="toc-level-3" href="#33-子代理的上下文管理">3.3 子代理的上下文管理</a>
+      
+      <a class="toc-level-2" href="#4-cron-高级编排">4. Cron 高级编排</a>
+      
+      <a class="toc-level-3" href="#41-基础-cron-语法">4.1 基础 Cron 语法</a>
+      
+      <a class="toc-level-3" href="#42-实战智能日报生成管线">4.2 实战：智能日报生成管线</a>
+      
+      <a class="toc-level-3" href="#43-故障转移与告警">4.3 故障转移与告警</a>
+      
+      <a class="toc-level-2" href="#5-安全加固清单">5. 安全加固清单</a>
+      
+      <a class="toc-level-3" href="#51-审批模式">5.1 审批模式</a>
+      
+      <a class="toc-level-3" href="#52-工具白名单">5.2 工具白名单</a>
+      
+      <a class="toc-level-3" href="#53-生产环境检查清单">5.3 生产环境检查清单</a>
+      
+      <a class="toc-level-2" href="#6-性能优化">6. 性能优化</a>
+      
+      <a class="toc-level-3" href="#61-上下文精简">6.1 上下文精简</a>
+      
+      <a class="toc-level-3" href="#62-模型路由策略">6.2 模型路由策略</a>
+      
+      <a class="toc-level-3" href="#63-并行化策略">6.3 并行化策略</a>
+      
+      <a class="toc-level-2" href="#7-实战模式总结">7. 实战模式总结</a>
+      
+      <a class="toc-level-2" href="#结语">结语</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <blockquote>
+<p>本文是 Hermes Agent 系列的第三篇。如果你还没看过前两篇，建议先阅读 <a href="/Hermes-Agent-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">《安装与使用指南》</a> 和 <a href="/Hermes-Agent-%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/">《配置与进阶使用》</a>。</p>
+</blockquote>
+<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>前两篇覆盖了安装、基础配置和部署。这一篇聚焦<strong>实战中的高阶技巧</strong>：如何用 SOUL.md 塑造 Agent 人格、如何设计多代理协作管线、如何用 Cron 做自动化、以及生产环境的加固策略。读完你就能把一个”能用”的 Agent 变成一个”好用且懂你”的 Agent。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    subgraph &quot;人格层&quot;</span><br><span class="line">        A[SOUL.md] --&gt; B[AGENTS.md]</span><br><span class="line">        B --&gt; C[IDENTITY.md]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph &quot;能力层&quot;</span><br><span class="line">        D[自定义 Skill]</span><br><span class="line">        E[多代理管线]</span><br><span class="line">        F[Cron 工作流]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph &quot;运维层&quot;</span><br><span class="line">        G[安全加固]</span><br><span class="line">        H[日志监控]</span><br><span class="line">        I[性能调优]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    C --&gt; D</span><br><span class="line">    D --&gt; E</span><br><span class="line">    E --&gt; F</span><br><span class="line">    F --&gt; G</span><br><span class="line">    G --&gt; H</span><br><span class="line">    H --&gt; I</span><br><span class="line">    </span><br><span class="line">    style A fill:#7C3AED,color:#fff</span><br><span class="line">    style D fill:#F59E0B,color:#000</span><br><span class="line">    style G fill:#10B981,color:#fff</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="1-人格系统比你想象的更强大"><a href="#1-人格系统：比你想象的更强大" class="headerlink" title="1. 人格系统：比你想象的更强大"></a>1. 人格系统：比你想象的更强大</h2><p>Hermes Agent 最大的差异化能力不是工具调用，而是<strong>持续进化的个性系统</strong>。三个核心文件构成它的”灵魂”：</p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>作用</th>
+<th>加载时机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>SOUL.md</code></td>
+<td>人格定义：说话风格、价值观、边界</td>
+<td>每次会话启动</td>
+</tr>
+<tr>
+<td><code>AGENTS.md</code></td>
+<td>行为规范：工作流、工具使用规则、红线和自由区</td>
+<td>每次会话启动</td>
+</tr>
+<tr>
+<td><code>IDENTITY.md</code></td>
+<td>身份名片：名字、emoji、头像</td>
+<td>仅首次</td>
+</tr>
+</tbody></table>
+<h3 id="11-soulmd-高阶写法"><a href="#1-1-SOUL-md-高阶写法" class="headerlink" title="1.1 SOUL.md 高阶写法"></a>1.1 SOUL.md 高阶写法</h3><p>普通的 SOUL.md 只写”你是一个友善的助手”。高阶写法让 Agent 真正理解<strong>在什么场景下用什么样的表达</strong>：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># SOUL.md —— 范例</span></span><br><span class="line"></span><br><span class="line"><span class="section">## Core Truths</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**先行动后解释。**</span> 能直接做的事不要先问&quot;要不要做&quot;。</span><br><span class="line">你的用户是技术背景，默认跳过入门解释，直接给方案。</span><br><span class="line"></span><br><span class="line"><span class="strong">**有立场。**</span> 你可以反对、有偏好、觉得无聊。</span><br><span class="line">和一个只会说&quot;好主意&quot;的助手相处很累。</span><br><span class="line"></span><br><span class="line"><span class="strong">**知道何时闭嘴。**</span> 群聊里别人没 @ 你，就安静待着。</span><br><span class="line">不是每条消息你都需要参与。</span><br><span class="line"></span><br><span class="line"><span class="section">## 场景感知</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 私聊：直接执行，给结论不啰嗦</span><br><span class="line"><span class="bullet">-</span> 群聊：只在被 @ 或能提供关键信息时发言</span><br><span class="line"><span class="bullet">-</span> 定时任务：除非失败或产出重要结果，否则不发消息</span><br><span class="line"><span class="bullet">-</span> 深夜 (23:00-07:00)：只处理紧急事务，不闲聊</span><br><span class="line"></span><br><span class="line"><span class="section">## 边界</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 不帮写钓鱼邮件、不帮猜密码</span><br><span class="line"><span class="bullet">-</span> 外部动作（发邮件、发帖、发消息）先确认</span><br><span class="line"><span class="bullet">-</span> 文件操作默认用 trash，不直接 rm</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键技巧：</strong></p>
+<ul>
+<li>用<strong>场景分隔</strong>让 Agent 在不同上下文切换行为模式</li>
+<li>写清楚<strong>不做什么</strong>往往比写”做什么”更重要</li>
+<li>每 2-4 周回顾并迭代 SOUL.md，像打磨产品一样打磨它</li>
+</ul>
+<h3 id="12-agentsmd-工作流模板"><a href="#1-2-AGENTS-md-工作流模板" class="headerlink" title="1.2 AGENTS.md 工作流模板"></a>1.2 AGENTS.md 工作流模板</h3><p>AGENTS.md 是 Agent 的”标准作业程序”。好的 AGENTS.md 能让每次会话开头的上下文加载自动建立正确的工作姿态：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># AGENTS.md —— 工作流规范</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 会话启动（自动）</span></span><br><span class="line"><span class="bullet">1.</span> 读取 SOUL.md → 了解我是谁</span><br><span class="line"><span class="bullet">2.</span> 读取 memory/YYYY-MM-DD.md → 回顾最近对话</span><br><span class="line"><span class="bullet">3.</span> 如果是主会话：读取 MEMORY.md → 加载长期记忆</span><br><span class="line"></span><br><span class="line"><span class="section">## 写文章的流程</span></span><br><span class="line"><span class="bullet">1.</span> 先用 <span class="code">`exec`</span> 检查工作区状态（git status）</span><br><span class="line"><span class="bullet">2.</span> 确认分类和标签（参考已有文章的前置元数据）</span><br><span class="line"><span class="bullet">3.</span> 写完后本地 <span class="code">`hexo generate`</span> 验证构建</span><br><span class="line"><span class="bullet">4.</span> 通知用户确认，不自动 deploy</span><br><span class="line"></span><br><span class="line"><span class="section">## 记忆管理</span></span><br><span class="line"><span class="bullet">-</span> 当日事件 → memory/YYYY-MM-DD.md（按小时记录）</span><br><span class="line"><span class="bullet">-</span> 重要决策/模式 → MEMORY.md（人工提炼）</span><br><span class="line"><span class="bullet">-</span> 不要&quot;心里记住&quot;任何事——写文件</span><br><span class="line"></span><br><span class="line"><span class="section">## 工具使用原则</span></span><br><span class="line"><span class="bullet">-</span> 读文件永远比问用户快</span><br><span class="line"><span class="bullet">-</span> 并行工具调用优先（可并行的查询一次发出）</span><br><span class="line"><span class="bullet">-</span> 长时间操作用 <span class="code">`exec`</span> + <span class="code">`yieldMs`</span>，不阻塞</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键技巧：</strong></p>
+<ul>
+<li>把<strong>流程性知识</strong>固化到 AGENTS.md，减少每次对话的开销</li>
+<li>持续更新——从每次”我要是早知道”中学习</li>
+<li>参考 <a target="_blank" rel="noopener" href="https://clawhub.ai/">skill-creator</a> 生态已有的 AGENTS.md 模板</li>
+</ul>
+<hr>
+<h2 id="2-自定义-skill-开发实战"><a href="#2-自定义-Skill-开发实战" class="headerlink" title="2. 自定义 Skill 开发实战"></a>2. 自定义 Skill 开发实战</h2><p>Skill 是 Hermes Agent 的能力插件。每个 Skill 一个目录，包含 <code>SKILL.md</code> 定义文件。</p>
+<h3 id="21-skill-结构"><a href="#2-1-Skill-结构" class="headerlink" title="2.1 Skill 结构"></a>2.1 Skill 结构</h3><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">~<span class="regexp">/.hermes/</span>skills<span class="regexp">/my-skill/</span></span><br><span class="line">├── SKILL.md          <span class="comment"># 触发条件 + 执行指令</span></span><br><span class="line">└── scripts/          <span class="comment"># 可选的辅助脚本</span></span><br><span class="line">    └── helper.py</span><br></pre></td></tr></table></figure>
+
+<h3 id="22-skillmd-模板"><a href="#2-2-SKILL-md-模板" class="headerlink" title="2.2 SKILL.md 模板"></a>2.2 SKILL.md 模板</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># SKILL.md</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 触发条件</span></span><br><span class="line"><span class="bullet">-</span> 用户提到&quot;生成周报&quot; 或 &quot;weekly report&quot;</span><br><span class="line"><span class="bullet">-</span> 每周五自动触发（配合 Cron）</span><br><span class="line"></span><br><span class="line"><span class="section">## 执行步骤</span></span><br><span class="line"><span class="bullet">1.</span> 读取 ~/workspace/notes/ 下本周的所有 .md 文件</span><br><span class="line"><span class="bullet">2.</span> 用 LLM 提取每条笔记的关键行动项</span><br><span class="line"><span class="bullet">3.</span> 按项目分组，生成 Markdown 表格</span><br><span class="line"><span class="bullet">4.</span> 保存到 ~/reports/weekly-&#123;date&#125;.md</span><br><span class="line"><span class="bullet">5.</span> 通知用户报告已生成</span><br><span class="line"></span><br><span class="line"><span class="section">## 依赖</span></span><br><span class="line"><span class="bullet">-</span> 需要 workspace/notes/ 目录存在</span><br><span class="line"><span class="bullet">-</span> 需要写入权限到 reports/ 目录</span><br></pre></td></tr></table></figure>
+
+<h3 id="23-实战自动代码审查-skill"><a href="#2-3-实战：自动代码审查-Skill" class="headerlink" title="2.3 实战：自动代码审查 Skill"></a>2.3 实战：自动代码审查 Skill</h3><p>以下是一个真实可用的代码审查 Skill：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># SKILL.md —— code-review</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 触发</span></span><br><span class="line"><span class="bullet">-</span> 用户消息包含&quot;review&quot; + 文件路径</span><br><span class="line"><span class="bullet">-</span> 或 git push 后自动触发（需配置 webhook）</span><br><span class="line"></span><br><span class="line"><span class="section">## 步骤</span></span><br><span class="line"><span class="bullet">1.</span> <span class="code">`git diff HEAD~1 --name-only`</span> 获取变更文件</span><br><span class="line"><span class="bullet">2.</span> 对每个 .py/.ts/.js 文件执行：</span><br><span class="line">   a. 读取文件内容</span><br><span class="line">   b. 检查：类型注解、异常处理、SQL 注入、硬编码密钥</span><br><span class="line">   c. 生成审查意见（严重 / 建议 / 风格）</span><br><span class="line"><span class="bullet">3.</span> 汇总输出 Markdown 审查报告</span><br><span class="line"><span class="bullet">4.</span> 如果发现严重问题，阻止后续部署流程</span><br><span class="line"></span><br><span class="line"><span class="section">## 输出格式</span></span><br><span class="line">| 文件 | 严重度 | 问题 | 建议修复 |</span><br><span class="line">|------|--------|------|---------|</span><br><span class="line">| api.py:42 | 🔴 严重 | SQL 拼接 | 使用参数化查询 |</span><br><span class="line">| utils.ts:17 | 🟡 建议 | 缺少类型注解 | 添加 <span class="code">`: string`</span> |</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-多代理协作管线"><a href="#3-多代理协作管线" class="headerlink" title="3. 多代理协作管线"></a>3. 多代理协作管线</h2><p>当单个 Agent 不够用时，用 <code>sessions_spawn</code> 派生子代理并行工作。</p>
+<h3 id="31-基础模式分而治之"><a href="#3-1-基础模式：分而治之" class="headerlink" title="3.1 基础模式：分而治之"></a>3.1 基础模式：分而治之</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">主 Agent（协调者）</span><br><span class="line">├── 子代理 <span class="selector-tag">A</span>：分析需求文档</span><br><span class="line">├── 子代理 <span class="selector-tag">B</span>：检查现有代码库</span><br><span class="line">└── 子代理 C：搜索最佳实践</span><br><span class="line">          ↓</span><br><span class="line">    主 Agent 汇总输出</span><br></pre></td></tr></table></figure>
+
+<h3 id="32-实战多代理文章写作管线"><a href="#3-2-实战：多代理文章写作管线" class="headerlink" title="3.2 实战：多代理文章写作管线"></a>3.2 实战：多代理文章写作管线</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 这不是 YAML 配置，而是概念示意——</span></span><br><span class="line"><span class="comment"># Hermes Agent 通过自然语言就能编排这个管线</span></span><br><span class="line"></span><br><span class="line"><span class="string">主</span> <span class="string">Agent</span> <span class="string">指令:</span></span><br><span class="line">  <span class="string">&quot;我要写一篇关于 Kubernetes 自动扩缩容的技术文章。</span></span><br><span class="line"><span class="string">   请同时启动 3 个子代理：</span></span><br><span class="line"><span class="string">   </span></span><br><span class="line"><span class="string">   子代理 1：搜索 HPA/VPA/KEDA 最新文档和最佳实践</span></span><br><span class="line"><span class="string">   子代理 2：回顾我 blog 中已有的 K8s 文章，避免内容重复</span></span><br><span class="line"><span class="string">   子代理 3：找 3 个生产环境扩缩容的真实案例</span></span><br><span class="line"><span class="string">   </span></span><br><span class="line"><span class="string">   全部完成后汇总，生成文章大纲给我审核。&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>每个子代理的用法：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 子代理在独立 session 中运行，不污染主会话上下文</span></span><br><span class="line"><span class="comment"># 主 Agent 用 sessions_spawn 启动：</span></span><br><span class="line"></span><br><span class="line">sessions_spawn(&#123;</span><br><span class="line">  task: <span class="string">&quot;搜索 Kubernetes HPA 最新文档、版本变化和最佳实践，输出结构化摘要&quot;</span>,</span><br><span class="line">  mode: <span class="string">&quot;run&quot;</span>  <span class="comment"># 一次性任务，执行完自动返回结果</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">sessions_spawn(&#123;</span><br><span class="line">  task: <span class="string">&quot;读取 ~/blog/source/_posts/computer-science/devops/ 下所有文章，</span></span><br><span class="line"><span class="string">         提取已覆盖的 K8s 主题，输出已覆盖主题列表和可扩展的空白领域&quot;</span>,</span><br><span class="line">  mode: <span class="string">&quot;run&quot;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键决策：什么时候用子代理？</strong></p>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>直接用</th>
+<th>子代理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简单查询</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>单个文件操作</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>3+ 个独立搜索任务</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>需要不同模型处理不同任务</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>长时间运行的任务</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody></table>
+<h3 id="33-子代理的上下文管理"><a href="#3-3-子代理的上下文管理" class="headerlink" title="3.3 子代理的上下文管理"></a>3.3 子代理的上下文管理</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 默认：isolated，子代理从零开始</span></span><br><span class="line">sessions_spawn(&#123; task: <span class="string">&quot;...&quot;</span>, context: <span class="string">&quot;isolated&quot;</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># fork：继承当前会话上下文（慎用，token 消耗大）</span></span><br><span class="line"><span class="comment"># 仅在子代理需要理解当前对话时才用</span></span><br><span class="line">sessions_spawn(&#123; task: <span class="string">&quot;...&quot;</span>, context: <span class="string">&quot;fork&quot;</span> &#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>⚠️ <strong>经验法则：</strong> 能用 <code>isolated</code> 就用 <code>isolated</code>。<code>fork</code> 虽然方便但会成倍消耗 token，而且是子代理的 token 加上主会话的 token 双份计费。</p>
+</blockquote>
+<hr>
+<h2 id="4-cron-高级编排"><a href="#4-Cron-高级编排" class="headerlink" title="4. Cron 高级编排"></a>4. Cron 高级编排</h2><p>Hermes Agent 的 Cron 不只是”每天 9 点发送天气预报”。配合子代理和条件逻辑，它能构建复杂的工作流。</p>
+<h3 id="41-基础-cron-语法"><a href="#4-1-基础-Cron-语法" class="headerlink" title="4.1 基础 Cron 语法"></a>4.1 基础 Cron 语法</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 每天 8:00 生成 AI 热点文章</span></span><br><span class="line">cron.<span class="title function_">add</span>(&#123;</span><br><span class="line">  <span class="attr">schedule</span>: &#123; <span class="attr">kind</span>: <span class="string">&quot;cron&quot;</span>, <span class="attr">expr</span>: <span class="string">&quot;0 8 * * *&quot;</span>, <span class="attr">tz</span>: <span class="string">&quot;Asia/Shanghai&quot;</span> &#125;,</span><br><span class="line">  <span class="attr">payload</span>: &#123;</span><br><span class="line">    <span class="attr">kind</span>: <span class="string">&quot;agentTurn&quot;</span>,</span><br><span class="line">    <span class="attr">message</span>: <span class="string">&quot;运行 _scripts/generate-hotspots.js，如果生成了新文件则通知我&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 每 30 分钟检查一次邮件（合并到心跳）</span></span><br><span class="line">cron.<span class="title function_">add</span>(&#123;</span><br><span class="line">  <span class="attr">schedule</span>: &#123; <span class="attr">kind</span>: <span class="string">&quot;every&quot;</span>, <span class="attr">everyMs</span>: <span class="number">30</span> * <span class="number">60</span> * <span class="number">1000</span> &#125;,</span><br><span class="line">  <span class="attr">payload</span>: &#123;</span><br><span class="line">    <span class="attr">kind</span>: <span class="string">&quot;systemEvent&quot;</span>,</span><br><span class="line">    <span class="attr">text</span>: <span class="string">&quot;HEARTBEAT: 检查邮件、日历、天气&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="42-实战智能日报生成管线"><a href="#4-2-实战：智能日报生成管线" class="headerlink" title="4.2 实战：智能日报生成管线"></a>4.2 实战：智能日报生成管线</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 每天 18:00 执行 AI 日报生成</span></span><br><span class="line">cron.<span class="title function_">add</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;ai-daily-generator&quot;</span>,</span><br><span class="line">  <span class="attr">schedule</span>: &#123; <span class="attr">kind</span>: <span class="string">&quot;cron&quot;</span>, <span class="attr">expr</span>: <span class="string">&quot;0 18 * * *&quot;</span>, <span class="attr">tz</span>: <span class="string">&quot;Asia/Shanghai&quot;</span> &#125;,</span><br><span class="line">  <span class="attr">sessionTarget</span>: <span class="string">&quot;isolated&quot;</span>,</span><br><span class="line">  <span class="attr">payload</span>: &#123;</span><br><span class="line">    <span class="attr">kind</span>: <span class="string">&quot;agentTurn&quot;</span>,</span><br><span class="line">    <span class="attr">message</span>: <span class="string">`请执行以下步骤：</span></span><br><span class="line"><span class="string">1. 抓取 ArXiv 今日 AI 领域新论文（cs.AI, cs.CL, cs.CV）</span></span><br><span class="line"><span class="string">2. 抓取 Hacker News 和 Twitter AI 趋势</span></span><br><span class="line"><span class="string">3. 抓取 GitHub Trending AI 项目</span></span><br><span class="line"><span class="string">4. 汇总为一篇 Markdown 文章，格式参考 source/_posts/ai-daily/ 现有文章</span></span><br><span class="line"><span class="string">5. 保存到 ~/blog/source/_posts/ai-daily/AI日报-&#123;today&#125;.md</span></span><br><span class="line"><span class="string">6. 如果生成成功，提醒我去飞书审核发布`</span>,</span><br><span class="line">    <span class="attr">model</span>: <span class="string">&quot;deepseek/deepseek-chat&quot;</span>,</span><br><span class="line">    <span class="attr">timeoutSeconds</span>: <span class="number">300</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">delivery</span>: &#123;</span><br><span class="line">    <span class="attr">mode</span>: <span class="string">&quot;announce&quot;</span>,</span><br><span class="line">    <span class="attr">channel</span>: <span class="string">&quot;feishu&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="43-故障转移与告警"><a href="#4-3-故障转移与告警" class="headerlink" title="4.3 故障转移与告警"></a>4.3 故障转移与告警</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">cron.<span class="title function_">add</span>(&#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;critical-backup&quot;</span>,</span><br><span class="line">  <span class="attr">schedule</span>: &#123; <span class="attr">kind</span>: <span class="string">&quot;cron&quot;</span>, <span class="attr">expr</span>: <span class="string">&quot;0 2 * * *&quot;</span> &#125;,</span><br><span class="line">  <span class="attr">payload</span>: &#123; <span class="attr">kind</span>: <span class="string">&quot;agentTurn&quot;</span>, <span class="attr">message</span>: <span class="string">&quot;执行数据库备份...&quot;</span> &#125;,</span><br><span class="line">  <span class="attr">failureAlert</span>: &#123;</span><br><span class="line">    <span class="attr">after</span>: <span class="number">2</span>,           <span class="comment">// 连续失败 2 次后告警</span></span><br><span class="line">    <span class="attr">channel</span>: <span class="string">&quot;feishu&quot;</span>,  <span class="comment">// 通过飞书通知</span></span><br><span class="line">    <span class="attr">cooldownMs</span>: <span class="number">3600000</span> <span class="comment">// 1 小时内不重复告警</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="5-安全加固清单"><a href="#5-安全加固清单" class="headerlink" title="5. 安全加固清单"></a>5. 安全加固清单</h2><h3 id="51-审批模式"><a href="#5-1-审批模式" class="headerlink" title="5.1 审批模式"></a>5.1 审批模式</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 开启智能审批——高危命令需要人工确认</span></span><br><span class="line">openclaw config <span class="built_in">set</span> approvals.mode smart</span><br></pre></td></tr></table></figure>
+
+<p>审批模式对照：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>行为</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>manual</code></td>
+<td>纯文本 <code>/approve</code></td>
+<td>所有平台可用，无依赖</td>
+</tr>
+<tr>
+<td><code>smart</code></td>
+<td>可点击卡片按钮</td>
+<td>飞书需配事件订阅，交互更友好</td>
+</tr>
+</tbody></table>
+<h3 id="52-工具白名单"><a href="#5-2-工具白名单" class="headerlink" title="5.2 工具白名单"></a>5.2 工具白名单</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># config.yaml</span></span><br><span class="line"><span class="attr">tools:</span></span><br><span class="line">  <span class="comment"># 禁止执行列表（黑名单）</span></span><br><span class="line">  <span class="attr">deny:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">rm</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">sudo</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">curl.*pipe.*bash</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">eval</span></span><br><span class="line">    </span><br><span class="line">  <span class="comment"># 特定路径只读</span></span><br><span class="line">  <span class="attr">readonly_paths:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">/etc/</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">~/.ssh/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="53-生产环境检查清单"><a href="#5-3-生产环境检查清单" class="headerlink" title="5.3 生产环境检查清单"></a>5.3 生产环境检查清单</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 用内置健康检查审计当前配置</span></span><br><span class="line"><span class="comment"># 在 Hermes Agent 对话中直接说：</span></span><br><span class="line"><span class="string">&quot;帮我运行 healthcheck&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>会自动检查：</p>
+<ul>
+<li>SSH 配置与暴露面</li>
+<li>防火墙规则</li>
+<li>未使用的开放端口</li>
+<li>Cron 定时任务安全</li>
+<li>文件权限异常</li>
+<li>依赖版本过期</li>
+</ul>
+<hr>
+<h2 id="6-性能优化"><a href="#6-性能优化" class="headerlink" title="6. 性能优化"></a>6. 性能优化</h2><h3 id="61-上下文精简"><a href="#6-1-上下文精简" class="headerlink" title="6.1 上下文精简"></a>6.1 上下文精简</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 在 AGENTS.md 中加入上下文预算意识</span></span><br><span class="line"></span><br><span class="line"><span class="section">## Token 预算</span></span><br><span class="line"><span class="bullet">-</span> 每次对话的上下文加载控制在 3000 token 以内</span><br><span class="line"><span class="bullet">-</span> 超过 30 天未更新的 memory 文件归档到 memory/archive/</span><br><span class="line"><span class="bullet">-</span> 定期清理 HEARTBEAT.md 中的残留任务</span><br></pre></td></tr></table></figure>
+
+<h3 id="62-模型路由策略"><a href="#6-2-模型路由策略" class="headerlink" title="6.2 模型路由策略"></a>6.2 模型路由策略</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># config.yaml —— 按任务分配模型</span></span><br><span class="line"><span class="attr">model_routing:</span></span><br><span class="line">  <span class="attr">default:</span> <span class="string">deepseek/deepseek-chat</span>     <span class="comment"># 日常对话</span></span><br><span class="line">  <span class="attr">reasoning:</span> <span class="string">deepseek/deepseek-reasoner</span>  <span class="comment"># 需要深度推理时</span></span><br><span class="line">  <span class="attr">fast:</span> <span class="string">minimax-portal/MiniMax-M2.7-highspeed</span>  <span class="comment"># 简单任务、心跳</span></span><br><span class="line">  <span class="attr">vision:</span> <span class="string">openai/gpt-4o</span>               <span class="comment"># 图片分析</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 规则：匹配到关键词自动切换</span></span><br><span class="line">  <span class="attr">rules:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">keywords:</span> [<span class="string">&quot;代码审查&quot;</span>, <span class="string">&quot;review&quot;</span>, <span class="string">&quot;安全审计&quot;</span>]</span><br><span class="line">      <span class="attr">model:</span> <span class="string">anthropic/claude-sonnet-4-20250514</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">keywords:</span> [<span class="string">&quot;翻译&quot;</span>, <span class="string">&quot;translate&quot;</span>]</span><br><span class="line">      <span class="attr">model:</span> <span class="string">deepseek/deepseek-chat</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="63-并行化策略"><a href="#6-3-并行化策略" class="headerlink" title="6.3 并行化策略"></a>6.3 并行化策略</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 同时读取多个文件——并行工具调用</span></span><br><span class="line"><span class="comment"># ✅ 好的做法</span></span><br><span class="line"><span class="built_in">read</span>(~/file-a.md) + <span class="built_in">read</span>(~/file-b.md) + <span class="built_in">read</span>(~/file-c.md)</span><br><span class="line"><span class="comment"># 三个请求同时发出</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ❌ 不好的做法  </span></span><br><span class="line"><span class="built_in">read</span>(~/file-a.md) → 等结果 → <span class="built_in">read</span>(~/file-b.md) → 等结果 → ...</span><br><span class="line"><span class="comment"># 串行等待，浪费时间</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="7-实战模式总结"><a href="#7-实战模式总结" class="headerlink" title="7. 实战模式总结"></a>7. 实战模式总结</h2><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>场景</th>
+<th>核心配置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>私教模式</strong></td>
+<td>编程教练、面试陪练</td>
+<td>SOUL.md 写严厉导师人设，AGENTS.md 写教学 SOP</td>
+</tr>
+<tr>
+<td><strong>编辑模式</strong></td>
+<td>博客写作、文档维护</td>
+<td>Skill 定义写作流程，子代理并行调研</td>
+</tr>
+<tr>
+<td><strong>巡检模式</strong></td>
+<td>服务器监控、定时检查</td>
+<td>Cron + systemEvent，failureAlert 配置告警</td>
+</tr>
+<tr>
+<td><strong>秘书模式</strong></td>
+<td>邮件筛选、日历管理、信息汇总</td>
+<td>Cron 定时拉取，子代理分类筛选</td>
+</tr>
+<tr>
+<td><strong>安全模式</strong></td>
+<td>代码审查、漏洞扫描</td>
+<td>工具白名单 + approval smart + healthcheck</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>Hermes Agent 的可塑性远超普通聊天机器人。它的核心差异不在于某一个功能，而在于<strong>三个系统的叠加效应</strong>：</p>
+<ol>
+<li><strong>人格系统</strong>（SOUL.md &#x2F; AGENTS.md）—— 让它越来越懂你</li>
+<li><strong>能力系统</strong>（Skills &#x2F; Cron &#x2F; 子代理）—— 让它能做越来越多的事  </li>
+<li><strong>安全系统</strong>（审批 &#x2F; 白名单 &#x2F; 审计）—— 让你放心让它做越来越多的事</li>
+</ol>
+<p>这三层不是一次性配置，而是<strong>持续迭代</strong>的。每两周回头看看 SOUL.md 是不是还符合你的期待，每月检查一次 Cron 任务是不是还合理，每次犯错都在 AGENTS.md 里加一条规则。</p>
+<p>最终目标不是”一个更聪明的聊天机器人”，而是”一个真正理解你工作方式的数字搭档”。</p>
+<hr>
+<p><em>Hermes Agent 系列：</em></p>
+<ul>
+<li><em>第一篇：<a href="/Hermes-Agent-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">安装与使用指南</a></em></li>
+<li><em>第二篇：<a href="/Hermes-Agent-%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/">配置与进阶使用</a></em></li>
+<li><em>第三篇：本文</em></li>
+</ul>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-09/">上一篇：AI 日报 2026-05-09</a>
+  
+  
+  <a class="next" href="/computer-science/network-security/common-attack-defense/">下一篇：常见网络安全攻防技术</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>使用缓存 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">使用缓存</h1>
+    <div class="post-meta">
+      <span class="post-date">2025-04-14 19:07</span>
+      <span class="post-word-count">3244 字</span>
+      <span class="post-reading-time">约 10 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记</a>
+      
+      <a href="/tags/python/">python</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#使用缓存">使用缓存</a>
+      
+      <a class="toc-level-3" href="#django项目接入redis">Django项目接入Redis</a>
+      
+      <a class="toc-level-3" href="#为视图提供缓存服务">为视图提供缓存服务</a>
+      
+      <a class="toc-level-3" href="#缓存相关问题">缓存相关问题</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="使用缓存"><a href="#使用缓存" class="headerlink" title="使用缓存"></a>使用缓存</h2><p>通常情况下，Web应用的性能瓶颈都会出现在关系型数据库上，当并发访问量较大时，如果所有的请求都需要通过关系型数据库完成数据持久化操作，那么数据库一定会不堪重负。优化Web应用性能最为重要的一点就是使用缓存，把那些数据体量不大但访问频率非常高的数据提前加载到缓存服务器中，这又是典型的空间换时间的方法。通常缓存服务器都是直接将数据置于内存中而且使用了非常高效的数据存取策略（哈希存储、键值对方式等），在读写性能上远远优于关系型数据库的，因此我们可以让Web应用接入缓存服务器来优化其性能，其中一个非常好的选择就是使用Redis。</p>
+<p>Web应用的缓存架构大致如下图所示。</p>
+<p><img src="/res/redis-cache-service.png"></p>
+<h3 id="django项目接入redis"><a href="#Django项目接入Redis" class="headerlink" title="Django项目接入Redis"></a>Django项目接入Redis</h3><p>在此前的课程中，我们介绍过Redis的安装和使用，此处不再进行赘述。如果需要在Django项目中接入Redis，可以使用三方库<code>django-redis</code>，这个三方库又依赖了一个名为<code>redis</code> 的三方库，它封装了对Redis的各种操作。</p>
+<p>安装<code>django-redis</code>。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install django-redis</span><br></pre></td></tr></table></figure>
+
+<p>修改Django配置文件中关于缓存的配置。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">CACHES = &#123;</span><br><span class="line">    <span class="string">&#x27;default&#x27;</span>: &#123;</span><br><span class="line">        <span class="comment"># 指定通过django-redis接入Redis服务</span></span><br><span class="line">        <span class="string">&#x27;BACKEND&#x27;</span>: <span class="string">&#x27;django_redis.cache.RedisCache&#x27;</span>,</span><br><span class="line">        <span class="comment"># Redis服务器的URL</span></span><br><span class="line">        <span class="string">&#x27;LOCATION&#x27;</span>: [<span class="string">&#x27;redis://1.2.3.4:6379/0&#x27;</span>, ],</span><br><span class="line">        <span class="comment"># Redis中键的前缀（解决命名冲突）</span></span><br><span class="line">        <span class="string">&#x27;KEY_PREFIX&#x27;</span>: <span class="string">&#x27;vote&#x27;</span>,</span><br><span class="line">        <span class="comment"># 其他的配置选项</span></span><br><span class="line">        <span class="string">&#x27;OPTIONS&#x27;</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;CLIENT_CLASS&#x27;</span>: <span class="string">&#x27;django_redis.client.DefaultClient&#x27;</span>,</span><br><span class="line">            <span class="comment"># 连接池（预置若干备用的Redis连接）参数</span></span><br><span class="line">            <span class="string">&#x27;CONNECTION_POOL_KWARGS&#x27;</span>: &#123;</span><br><span class="line">                <span class="comment"># 最大连接数</span></span><br><span class="line">                <span class="string">&#x27;max_connections&#x27;</span>: <span class="number">512</span>,</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment"># 连接Redis的用户口令</span></span><br><span class="line">            <span class="string">&#x27;PASSWORD&#x27;</span>: <span class="string">&#x27;foobared&#x27;</span>,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>至此，我们的Django项目已经可以接入Redis，接下来我们修改项目代码，用Redis为之写的获取学科数据的接口提供缓存服务。</p>
+<h3 id="为视图提供缓存服务"><a href="#为视图提供缓存服务" class="headerlink" title="为视图提供缓存服务"></a>为视图提供缓存服务</h3><h4 id="声明式缓存"><a href="#声明式缓存" class="headerlink" title="声明式缓存"></a>声明式缓存</h4><p>所谓声明式缓存是指不修改原来的代码，通过Python中的装饰器（代理）为原有的代码增加缓存功能。对于FBV，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.views.decorators.cache <span class="keyword">import</span> cache_page</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@api_view(<span class="params">(<span class="params"><span class="string">&#x27;GET&#x27;</span>, </span>)</span>)</span></span><br><span class="line"><span class="meta">@cache_page(<span class="params">timeout=<span class="number">86400</span>, cache=<span class="string">&#x27;default&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">show_subjects</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;获取学科数据&quot;&quot;&quot;</span></span><br><span class="line">    queryset = Subject.objects.<span class="built_in">all</span>()</span><br><span class="line">    data = SubjectSerializer(queryset, many=<span class="literal">True</span>).data</span><br><span class="line">    <span class="keyword">return</span> Response(&#123;<span class="string">&#x27;code&#x27;</span>: <span class="number">20000</span>, <span class="string">&#x27;subjects&#x27;</span>: data&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码通过Django封装的<code>cache_page</code>装饰器缓存了视图函数的返回值（响应对象），<code>cache_page</code>的本意是缓存视图函数渲染的页面，对于返回JSON数据的视图函数，相当于是缓存了JSON数据。在使用<code>cache_page</code>装饰器时，可以传入<code>timeout</code>参数来指定缓存过期时间，还可以使用<code>cache</code>参数来指定需要使用哪一组缓存服务来缓存数据。Django项目允许在配置文件中配置多组缓存服务，上面的<code>cache=&#39;default&#39;</code>指定了使用默认的缓存服务（因为之前的配置文件中我们也只配置了名为<code>default</code>的缓存服务）。视图函数的返回值会被序列化成字节串放到Redis中（Redis中的str类型可以接收字节串），缓存数据的序列化和反序列化也不需要我们自己处理，因为<code>cache_page</code>装饰器会调用<code>django-redis</code>库中的<code>RedisCache</code>来对接Redis，该类使用了<code>DefaultClient</code>来连接Redis并使用了<a target="_blank" rel="noopener" href="https://python3-cookbook.readthedocs.io/zh_CN/latest/c05/p21_serializing_python_objects.html">pickle序列化</a>，<code>django_redis.serializers.pickle.PickleSerializer</code>是默认的序列化类。</p>
+<p>如果缓存中没有学科的数据，那么通过接口访问学科数据时，我们的视图函数会通过执行<code>Subject.objects.all()</code>向数据库发出SQL语句来获得数据，视图函数的返回值会被缓存，因此下次请求该视图函数如果缓存没有过期，可以直接从缓存中获取视图函数的返回值，无需再次查询数据库。如果想了解缓存的使用情况，可以配置数据库日志或者使用Django-Debug-Toolbar来查看，第一次访问学科数据接口时会看到查询学科数据的SQL语句，再次获取学科数据时，不会再向数据库发出SQL语句，因为可以直接从缓存中获取数据。</p>
+<p>对于CBV，可以利用Django中名为<code>method_decorator</code>的装饰器将<code>cache_page</code>这个装饰函数的装饰器放到类中的方法上，效果跟上面的代码是一样的。需要提醒大家注意的是，<code>cache_page</code>装饰器不能直接放在类上，因为它是装饰函数的装饰器，所以Django框架才提供了<code>method_decorator</code>来解决这个问题，很显然，<code>method_decorator</code>是一个装饰类的装饰器。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.utils.decorators <span class="keyword">import</span> method_decorator</span><br><span class="line"><span class="keyword">from</span> django.views.decorators.cache <span class="keyword">import</span> cache_page</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@method_decorator(<span class="params">decorator=cache_page(<span class="params">timeout=<span class="number">86400</span>, cache=<span class="string">&#x27;default&#x27;</span></span>), name=<span class="string">&#x27;get&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SubjectView</span>(<span class="title class_ inherited__">ListAPIView</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;获取学科数据的视图类&quot;&quot;&quot;</span></span><br><span class="line">    queryset = Subject.objects.<span class="built_in">all</span>()</span><br><span class="line">    serializer_class = SubjectSerializer</span><br></pre></td></tr></table></figure>
+
+<h4 id="编程式缓存"><a href="#编程式缓存" class="headerlink" title="编程式缓存"></a>编程式缓存</h4><p>所谓编程式缓存是指通过自己编写的代码来使用缓存服务，这种方式虽然代码量会稍微大一些，但是相较于声明式缓存，它对缓存的操作和使用更加灵活，在实际开发中使用得更多。下面的代码去掉了之前使用的<code>cache_page</code>装饰器，通过<code>django-redis</code>提供的<code>get_redis_connection</code>函数直接获取Redis连接来操作Redis。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">show_subjects</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;获取学科数据&quot;&quot;&quot;</span></span><br><span class="line">    redis_cli = get_redis_connection()</span><br><span class="line">    <span class="comment"># 先尝试从缓存中获取学科数据</span></span><br><span class="line">    data = redis_cli.get(<span class="string">&#x27;vote:polls:subjects&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> data:</span><br><span class="line">        <span class="comment"># 如果获取到学科数据就进行反序列化操作</span></span><br><span class="line">        data = json.loads(data)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 如果缓存中没有获取到学科数据就查询数据库</span></span><br><span class="line">        queryset = Subject.objects.<span class="built_in">all</span>()</span><br><span class="line">        data = SubjectSerializer(queryset, many=<span class="literal">True</span>).data</span><br><span class="line">        <span class="comment"># 将查到的学科数据序列化后放到缓存中</span></span><br><span class="line">        redis_cli.<span class="built_in">set</span>(<span class="string">&#x27;vote:polls:subjects&#x27;</span>, json.dumps(data), ex=<span class="number">86400</span>)</span><br><span class="line">    <span class="keyword">return</span> Response(&#123;<span class="string">&#x27;code&#x27;</span>: <span class="number">20000</span>, <span class="string">&#x27;subjects&#x27;</span>: data&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>需要说明的是，Django框架提供了<code>cache</code>和<code>caches</code>两个现成的变量来支持缓存操作，前者访问的是默认的缓存（名为<code>default</code>的缓存），后者可以通过索引运算获取指定的缓存服务（例如：<code>caches[&#39;default&#39;]</code>）。向<code>cache</code>对象发送<code>get</code>和<code>set</code>消息就可以实现对缓存的读和写操作，但是这种方式能做的操作有限，不如上面代码中使用的方式灵活。还有一个值得注意的地方，由于可以通过<code>get_redis_connection</code>函数获得的Redis连接对象向Redis发起各种操作，包括<code>FLUSHDB</code>、<code>SHUTDOWN</code>等危险的操作，所以在实际商业项目开发中，一般都会对<code>django-redis</code>再做一次封装，例如封装一个工具类，其中只提供了项目需要用到的缓存操作的方法，从而避免了直接使用<code>get_redis_connection</code>的潜在风险。当然，自己封装对缓存的操作还可以使用“Read Through”和“Write Through”的方式实现对缓存的更新，这个在下面会介绍到。</p>
+<h3 id="缓存相关问题"><a href="#缓存相关问题" class="headerlink" title="缓存相关问题"></a>缓存相关问题</h3><h4 id="缓存数据的更新"><a href="#缓存数据的更新" class="headerlink" title="缓存数据的更新"></a>缓存数据的更新</h4><p>在使用缓存时，一个必须搞清楚的问题就是，当数据改变时，如何更新缓存中的数据。通常更新缓存有如下几种套路，分别是：</p>
+<ol>
+<li>Cache Aside Pattern</li>
+<li>Read&#x2F;Write Through Pattern</li>
+<li>Write Behind Caching Pattern</li>
+</ol>
+<p>第1种方式的具体做法就是，当数据更新时，先更新数据库，再删除缓存。注意，不能够使用先更新数据库再更新缓存的方式，也不能够使用先删除缓存再更新数据库的方式，大家可以自己想一想为什么（考虑一下有并发的读操作和写操作的场景）。当然，先更新数据库再删除缓存的做法在理论上也存在风险，但是发生问题的概率是极低的，所以不少的项目都使用了这种方式。</p>
+<p>第1种方式相当于编写业务代码的开发者要自己负责对两套存储系统（缓存和关系型数据库）的操作，代码写起来非常的繁琐。第2种方式的主旨是将后端的存储系统变成一套代码，对缓存的维护封装在这套代码中。其中，Read Through指在查询操作中更新缓存，也就是说，当缓存失效的时候，由缓存服务自己负责对数据的加载，从而对应用方是透明的；而Write Through是指在更新数据时，如果没有命中缓存，直接更新数据库，然后返回。如果命中了缓存，则更新缓存，然后再由缓存服务自己更新数据库（同步更新）。刚才我们说过，如果自己对项目中的Redis操作再做一次封装，就可以实现“Read Through”和“Write Through”模式，这样做虽然会增加工作量，但无疑是一件“一劳永逸”且“功在千秋”的事情。</p>
+<p>第3种方式是在更新数据的时候，只更新缓存，不更新数据库，而缓存服务这边会<strong>异步的批量更新</strong>数据库。这种做法会大幅度提升性能，但代价是牺牲数据的<strong>强一致性</strong>。第3种方式的实现逻辑比较复杂，因为他需要追踪有哪数据是被更新了的，然后再批量的刷新到持久层上。</p>
+<h4 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h4><p>缓存是为了缓解数据库压力而添加的一个中间层，如果恶意的访问者频繁的访问缓存中没有的数据，那么缓存就失去了存在的意义，瞬间所有请求的压力都落在了数据库上，这样会导致数据库承载着巨大的压力甚至连接异常，类似于分布式拒绝服务攻击（DDoS）的做法。解决缓存穿透的一个办法是约定如果查询返回为空值，把这个空值也缓存起来，但是需要为这个空值的缓存设置一个较短的超时时间，毕竟缓存这样的值就是对缓存空间的浪费。另一个解决缓存穿透的办法是使用布隆过滤器，具体的做法大家可以自行了解。</p>
+<h4 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h4><p>在实际的项目中，可能存在某个缓存的key某个时间点过期，但恰好在这个时间点对有对该key的大量的并发请求过来，这些请求没有从缓存中找到key对应的数据，就会直接从数据库中获取数据并写回到缓存，这个时候大并发的请求可能会瞬间把数据库压垮，这种现象称为缓存击穿。比较常见的解决缓存击穿的办法是使用互斥锁，简单的说就是在缓存失效的时候，不是立即去数据库加载数据，而是先设置互斥锁（例如：Redis中的setnx），只有设置互斥锁的操作成功的请求，才能执行查询从数据库中加载数据并写入缓存，其他设置互斥锁失败的请求，可以先执行一个短暂的休眠，然后尝试重新从缓存中获取数据，如果缓存还没有数据，则重复刚才的设置互斥锁的操作，大致的参考代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">data = redis_cli.get(key)</span><br><span class="line"><span class="keyword">while</span> <span class="keyword">not</span> data:</span><br><span class="line">    <span class="keyword">if</span> redis_cli.setnx(<span class="string">&#x27;mutex&#x27;</span>, <span class="string">&#x27;x&#x27;</span>):</span><br><span class="line">        redis.expire(<span class="string">&#x27;mutex&#x27;</span>, timeout)</span><br><span class="line">        data = db.query(...)</span><br><span class="line">        redis.<span class="built_in">set</span>(key, data)</span><br><span class="line">        redis.delete(<span class="string">&#x27;mutex&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        time.sleep(<span class="number">0.1</span>)</span><br><span class="line">        data = redis_cli.get(key)</span><br></pre></td></tr></table></figure>
+
+<h4 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h4><p>缓存雪崩是指在将数据放入缓存时采用了相同的过期时间，这样就导致缓存在某一时刻同时失效，请求全部转发到数据库，导致数据库瞬时压力过大而崩溃。解决缓存雪崩问题的方法也比较简单，可以在既定的缓存过期时间上加一个随机时间，这样可以从一定程度上避免不同的key在同一时间集体失效。还有一种办法就是使用多级缓存，每一级缓存的过期时间都不一样，这样的话即便某个级别的缓存集体失效，但是其他级别的缓存还能够提供数据，避免所有的请求都落到数据库上。</p>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/python/basic/52.%E6%8E%A5%E5%85%A5%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0/">上一篇：接入三方平台</a>
+  
+  
+  <a class="next" href="/computer-science/python/basic/50.RESTful%E6%9E%B6%E6%9E%84%E5%92%8CDRF%E8%BF%9B%E9%98%B6/">下一篇：RESTful架构和DRF进阶</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

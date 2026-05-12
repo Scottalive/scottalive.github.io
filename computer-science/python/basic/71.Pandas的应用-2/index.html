@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>Pandas的应用-2 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">Pandas的应用-2</h1>
+    <div class="post-meta">
+      <span class="post-date">2025-04-24 08:07</span>
+      <span class="post-word-count">4380 字</span>
+      <span class="post-reading-time">约 15 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记</a>
+      
+      <a href="/tags/python/">python</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#pandas的应用-2">Pandas的应用-2</a>
+      
+      <a class="toc-level-3" href="#dataframe的应用">DataFrame的应用</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="pandas的应用-2"><a href="#Pandas的应用-2" class="headerlink" title="Pandas的应用-2"></a>Pandas的应用-2</h2><h3 id="dataframe的应用"><a href="#DataFrame的应用" class="headerlink" title="DataFrame的应用"></a>DataFrame的应用</h3><h4 id="创建DataFrame对象"><a href="#创建DataFrame对象" class="headerlink" title="创建DataFrame对象"></a>创建DataFrame对象</h4><h5 id="通过二维数组创建DataFrame对象"><a href="#通过二维数组创建DataFrame对象" class="headerlink" title="通过二维数组创建DataFrame对象"></a>通过二维数组创建<code>DataFrame</code>对象</h5><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scores = np.random.randint(<span class="number">60</span>, <span class="number">101</span>, (<span class="number">5</span>, <span class="number">3</span>))</span><br><span class="line">courses = [<span class="string">&#x27;语文&#x27;</span>, <span class="string">&#x27;数学&#x27;</span>, <span class="string">&#x27;英语&#x27;</span>]</span><br><span class="line">ids = [<span class="number">1001</span>, <span class="number">1002</span>, <span class="number">1003</span>, <span class="number">1004</span>, <span class="number">1005</span>]</span><br><span class="line">df1 = pd.DataFrame(data=scores, columns=courses, index=ids)</span><br><span class="line">df1</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line">		<span class="string">语文</span>	<span class="string">数学</span>	<span class="string">英语</span></span><br><span class="line"><span class="number">1001    </span><span class="number">69</span>    <span class="number">80</span>	<span class="number">79</span></span><br><span class="line"><span class="number">1002    </span><span class="number">71</span>	  <span class="number">60</span>	<span class="number">100</span></span><br><span class="line"><span class="number">1003    </span><span class="number">94</span>    <span class="number">81</span>	<span class="number">93</span></span><br><span class="line"><span class="number">1004    </span><span class="number">88</span>	  <span class="number">88</span>	<span class="number">67</span></span><br><span class="line"><span class="number">1005    </span><span class="number">82</span>	  <span class="number">66</span>    <span class="number">60</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="通过字典创建DataFrame对象"><a href="#通过字典创建DataFrame对象" class="headerlink" title="通过字典创建DataFrame对象"></a>通过字典创建<code>DataFrame</code>对象</h5><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">scores = &#123;</span><br><span class="line">    <span class="string">&#x27;语文&#x27;</span>: [<span class="number">62</span>, <span class="number">72</span>, <span class="number">93</span>, <span class="number">88</span>, <span class="number">93</span>],</span><br><span class="line">    <span class="string">&#x27;数学&#x27;</span>: [<span class="number">95</span>, <span class="number">65</span>, <span class="number">86</span>, <span class="number">66</span>, <span class="number">87</span>],</span><br><span class="line">    <span class="string">&#x27;英语&#x27;</span>: [<span class="number">66</span>, <span class="number">75</span>, <span class="number">82</span>, <span class="number">69</span>, <span class="number">82</span>],</span><br><span class="line">&#125;</span><br><span class="line">ids = [<span class="number">1001</span>, <span class="number">1002</span>, <span class="number">1003</span>, <span class="number">1004</span>, <span class="number">1005</span>]</span><br><span class="line">df2 = pd.DataFrame(data=scores, index=ids)</span><br><span class="line">df2</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line">		<span class="string">语文</span>	<span class="string">数学</span>	<span class="string">英语</span></span><br><span class="line"><span class="number">1001    </span><span class="number">69</span>    <span class="number">80</span>	<span class="number">79</span></span><br><span class="line"><span class="number">1002    </span><span class="number">71</span>	  <span class="number">60</span>	<span class="number">100</span></span><br><span class="line"><span class="number">1003    </span><span class="number">94</span>    <span class="number">81</span>	<span class="number">93</span></span><br><span class="line"><span class="number">1004    </span><span class="number">88</span>	  <span class="number">88</span>	<span class="number">67</span></span><br><span class="line"><span class="number">1005    </span><span class="number">82</span>	  <span class="number">66</span>    <span class="number">60</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="读取-CSV-文件创建DataFrame对象"><a href="#读取-CSV-文件创建DataFrame对象" class="headerlink" title="读取 CSV 文件创建DataFrame对象"></a>读取 CSV 文件创建<code>DataFrame</code>对象</h5><p>可以通过<code>pandas</code> 模块的<code>read_csv</code>函数来读取 CSV 文件，<code>read_csv</code>函数的参数非常多，下面接受几个比较重要的参数。</p>
+<ul>
+<li><code>sep</code> &#x2F; <code>delimiter</code>：分隔符，默认是<code>,</code>。</li>
+<li><code>header</code>：表头（列索引）的位置，默认值是<code>infer</code>，用第一行的内容作为表头（列索引）。</li>
+<li><code>index_col</code>：用作行索引（标签）的列。</li>
+<li><code>usecols</code>：需要加载的列，可以使用序号或者列名。</li>
+<li><code>true_values</code> &#x2F; <code>false_values</code>：哪些值被视为布尔值<code>True</code> &#x2F; <code>False</code>。</li>
+<li><code>skiprows</code>：通过行号、索引或函数指定需要跳过的行。</li>
+<li><code>skipfooter</code>：要跳过的末尾行数。</li>
+<li><code>nrows</code>：需要读取的行数。</li>
+<li><code>na_values</code>：哪些值被视为空值。</li>
+</ul>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df3 = pd.read_csv(<span class="string">&#x27;2018年北京积分落户数据.csv&#x27;</span>, index_col=<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">df3</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line">     <span class="string">name</span>   <span class="string">birthday</span>    <span class="string">company</span>       <span class="string">score</span></span><br><span class="line"><span class="string">id</span>				</span><br><span class="line"><span class="number">1</span>    <span class="string">杨x</span>    <span class="number">1972-12</span>    <span class="string">北京利德xxxx</span>	  <span class="number">122.59</span></span><br><span class="line"><span class="number">2</span>    <span class="string">纪x</span>    <span class="number">1974-12</span>    <span class="string">北京航天xxxx</span>	  <span class="number">121.25</span></span><br><span class="line"><span class="number">3</span>    <span class="string">王x</span>    <span class="number">1974-05</span>	  <span class="string">品牌联盟xxxx</span>    <span class="number">118.96</span></span><br><span class="line"><span class="number">4</span>    <span class="string">杨x</span>    <span class="number">1975-07</span>	  <span class="string">中科专利xxxx</span>    <span class="number">118.21</span></span><br><span class="line"><span class="number">5</span>    <span class="string">张x</span>    <span class="number">1974-11</span>	  <span class="string">北京阿里xxxx</span>    <span class="number">117.79</span></span><br><span class="line"><span class="string">...</span>  <span class="string">...</span>    <span class="string">...</span>        <span class="string">...</span>            <span class="string">...</span></span><br><span class="line"><span class="number">6015</span> <span class="string">孙x</span>    <span class="number">1978-08</span>	  <span class="string">华为海洋xxxx</span>	  <span class="number">90.75</span></span><br><span class="line"><span class="number">6016</span> <span class="string">刘x</span>    <span class="number">1976-11</span>	  <span class="string">福斯流体xxxx</span>    <span class="number">90.75</span></span><br><span class="line"><span class="number">6017</span> <span class="string">周x</span>    <span class="number">1977-10</span>	  <span class="string">赢创德固xxxx</span>    <span class="number">90.75</span></span><br><span class="line"><span class="number">6018</span> <span class="string">赵x</span>	   <span class="number">1979-07</span>	  <span class="string">澳科利耳xxxx</span>    <span class="number">90.75</span></span><br><span class="line"><span class="number">6019</span> <span class="string">贺x</span>	   <span class="number">1981-06</span>	  <span class="string">北京宝洁xxxx</span>    <span class="number">90.75</span></span><br><span class="line"><span class="number">6019 </span><span class="string">rows</span> <span class="string">×</span> <span class="number">4</span> <span class="string">columns</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：如果需要上面例子中的 CSV 文件，可以通过下面的百度云盘地址进行获取，数据在《从零开始学数据分析》目录中。链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1rQujl5RQn9R7PadB2Z5g_g%EF%BC%8C%E6%8F%90%E5%8F%96%E7%A0%81%EF%BC%9Ae7b4%E3%80%82">https://pan.baidu.com/s/1rQujl5RQn9R7PadB2Z5g_g，提取码：e7b4。</a></p>
+</blockquote>
+<h5 id="读取Excel文件创建DataFrame对象"><a href="#读取Excel文件创建DataFrame对象" class="headerlink" title="读取Excel文件创建DataFrame对象"></a>读取Excel文件创建<code>DataFrame</code>对象</h5><p>可以通过<code>pandas</code> 模块的<code>read_excel</code>函数来读取 Exce l文件，该函数与上面的<code>read_csv</code>非常相近，多了一个<code>sheet_name</code>参数来指定数据表的名称，但是不同于 CSV 文件，没有<code>sep</code>或<code>delimiter</code>这样的参数。下面的代码中，<code>read_excel</code>函数的<code>skiprows</code>参数是一个 Lambda 函数，通过该 Lambda 函数指定只读取 Excel 文件的表头和其中10%的数据，跳过其他的数据。</p>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">df4 = pd.read_excel(</span><br><span class="line">    io=<span class="string">&#x27;小宝剑大药房2018年销售数据.xlsx&#x27;</span>,</span><br><span class="line">    usecols=[<span class="string">&#x27;购药时间&#x27;</span>, <span class="string">&#x27;社保卡号&#x27;</span>, <span class="string">&#x27;商品名称&#x27;</span>, <span class="string">&#x27;销售数量&#x27;</span>, <span class="string">&#x27;应收金额&#x27;</span>, <span class="string">&#x27;实收金额&#x27;</span>],</span><br><span class="line">    skiprows=<span class="keyword">lambda</span> x: x &gt; <span class="number">0</span> <span class="keyword">and</span> random.random() &gt; <span class="number">0.1</span></span><br><span class="line">)</span><br><span class="line">df4</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：如果需要上面例子中的 Excel 文件，可以通过下面的百度云盘地址进行获取，数据在《从零开始学数据分析》目录中。链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1rQujl5RQn9R7PadB2Z5g_g%EF%BC%8C%E6%8F%90%E5%8F%96%E7%A0%81%EF%BC%9Ae7b4%E3%80%82">https://pan.baidu.com/s/1rQujl5RQn9R7PadB2Z5g_g，提取码：e7b4。</a></p>
+</blockquote>
+<p>输出：</p>
+<figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">    购药时间			社保卡号	    商品名称    销售数量	应收金额	实收金额</span><br><span class="line"><span class="number">0	2018-03</span>-<span class="number">23</span> 星期三	<span class="number">10012157328</span>		强力xx片	 <span class="number">1</span>			<span class="number">13</span>.<span class="number">8</span>		<span class="number">13</span>.<span class="number">80</span></span><br><span class="line"><span class="number">1	2018-07</span>-<span class="number">12</span> 星期二	<span class="number">108207828</span>	    强力xx片	 <span class="number">1</span>	        <span class="number">13</span>.<span class="number">8</span>		<span class="number">13</span>.<span class="number">80</span></span><br><span class="line"><span class="number">2	2018-01</span>-<span class="number">17</span> 星期日	<span class="number">13358228</span>	    清热xx液	 <span class="number">1</span>		    <span class="number">28</span>.<span class="number">0</span>		<span class="number">28</span>.<span class="number">00</span></span><br><span class="line"><span class="number">3	2018-07</span>-<span class="number">11</span> 星期一	<span class="number">10031402228</span>		三九xx灵	 <span class="number">5</span>			<span class="number">149</span>.<span class="number">0</span>		<span class="number">130</span>.<span class="number">00</span></span><br><span class="line"><span class="number">4	2018-01</span>-<span class="number">20</span> 星期三	<span class="number">10013340328</span>		三九xx灵	 <span class="number">3</span>			<span class="number">84</span>.<span class="number">0</span>		<span class="number">73</span>.<span class="number">92</span></span><br><span class="line">...	...					...				...		...			...			...</span><br><span class="line"><span class="number">618	2018</span>-<span class="number">03</span>-<span class="number">05</span> 星期六	<span class="number">10066059228</span>		开博xx通	 <span class="number">2</span>			<span class="number">56</span>.<span class="number">0</span>		<span class="number">49</span>.<span class="number">28</span></span><br><span class="line"><span class="number">619	2018</span>-<span class="number">03</span>-<span class="number">22</span> 星期二	<span class="number">10035514928</span>		开博xx通	 <span class="number">1</span>			<span class="number">28</span>.<span class="number">0</span>		<span class="number">25</span>.<span class="number">00</span></span><br><span class="line"><span class="number">620	2018</span>-<span class="number">04</span>-<span class="number">15</span> 星期五	<span class="number">1006668328</span>	    开博xx通	 <span class="number">2</span>			<span class="number">56</span>.<span class="number">0</span>		<span class="number">50</span>.<span class="number">00</span></span><br><span class="line"><span class="number">621	2018</span>-<span class="number">04</span>-<span class="number">24</span> 星期日	<span class="number">10073294128</span>		高特xx灵	 <span class="number">1</span>			<span class="number">5</span>.<span class="number">6</span>			<span class="number">5</span>.<span class="number">60</span></span><br><span class="line"><span class="number">622	2018</span>-<span class="number">04</span>-<span class="number">24</span> 星期日	<span class="number">10073294128</span>		高特xx灵	 <span class="number">10</span>			<span class="number">56</span>.<span class="number">0</span>		<span class="number">56</span>.<span class="number">0</span></span><br><span class="line"><span class="number">623</span> rows × <span class="number">6</span> columns</span><br></pre></td></tr></table></figure>
+
+<h5 id="通过SQL从数据库读取数据创建DataFrame对象"><a href="#通过SQL从数据库读取数据创建DataFrame对象" class="headerlink" title="通过SQL从数据库读取数据创建DataFrame对象"></a>通过SQL从数据库读取数据创建<code>DataFrame</code>对象</h5><p><code>pandas</code>模块的<code>read_sql</code>函数可以通过 SQL 语句从数据库中读取数据创建<code>DataFrame</code>对象，该函数的第二个参数代表了需要连接的数据库。对于 MySQL 数据库，我们可以通过<code>pymysql</code>或<code>mysqlclient</code>来创建数据库连接，得到一个<code>Connection</code> 对象，而这个对象就是<code>read_sql</code>函数需要的第二个参数，代码如下所示。</p>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个MySQL数据库的连接对象</span></span><br><span class="line">conn = pymysql.connect(</span><br><span class="line">    host=<span class="string">&#x27;47.104.31.138&#x27;</span>, port=<span class="number">3306</span>,</span><br><span class="line">    user=<span class="string">&#x27;guest&#x27;</span>, password=<span class="string">&#x27;Guest.618&#x27;</span>,</span><br><span class="line">    database=<span class="string">&#x27;hrs&#x27;</span>, charset=<span class="string">&#x27;utf8mb4&#x27;</span></span><br><span class="line">)</span><br><span class="line"><span class="comment"># 通过SQL从数据库读取数据创建DataFrame</span></span><br><span class="line">df5 = pd.read_sql(<span class="string">&#x27;select * from tb_emp&#x27;</span>, conn, index_col=<span class="string">&#x27;eno&#x27;</span>)</span><br><span class="line">df5</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>提示</strong>：执行上面的代码需要先安装<code>pymysql</code>库，如果尚未安装，可以先在 Notebook 的单元格中先执行<code>!pip install pymysql</code>，然后再运行上面的代码。上面的代码连接的是我部署在阿里云上的 MySQL 数据库，公网 IP 地址：<code>47.104.31.138</code>，用户名：<code>guest</code>，密码：<code>Guest.618</code>，数据库：<code>hrs</code>，表名：<code>tb_emp</code>，字符集：<code>utf8mb4</code>，大家可以使用这个数据库，但是不要进行恶意的访问。</p>
+</blockquote>
+<p>输出：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line">        <span class="attribute">ename</span>    job     mgr      sal    comm    dno</span><br><span class="line"><span class="attribute">eno</span>						</span><br><span class="line"><span class="attribute">1359</span>	胡一刀   销售员	<span class="number">3344</span>.<span class="number">0</span>   <span class="number">1800</span>   <span class="number">200</span>.<span class="number">0</span>   <span class="number">30</span></span><br><span class="line"><span class="attribute">2056</span>	乔峰	   分析师	 <span class="number">7800</span>.<span class="number">0</span>   <span class="number">5000</span>   <span class="number">1500</span>.<span class="number">0</span>	 <span class="number">20</span></span><br><span class="line"><span class="attribute">3088</span>	李莫愁	  设计师	<span class="number">2056</span>.<span class="number">0</span>   <span class="number">3500</span>   <span class="number">800</span>.<span class="number">0</span>   <span class="number">20</span></span><br><span class="line"><span class="attribute">3211</span>	张无忌	  程序员	<span class="number">2056</span>.<span class="number">0</span>   <span class="number">3200</span>   NaN     <span class="number">20</span></span><br><span class="line"><span class="attribute">3233</span>	丘处机	  程序员	<span class="number">2056</span>.<span class="number">0</span>   <span class="number">3400</span>	NaN     <span class="number">20</span></span><br><span class="line"><span class="attribute">3244</span>	欧阳锋	  程序员	<span class="number">3088</span>.<span class="number">0</span>   <span class="number">3200</span>	NaN     <span class="number">20</span></span><br><span class="line"><span class="attribute">3251</span>	张翠山	  程序员	<span class="number">2056</span>.<span class="number">0</span>   <span class="number">4000</span>	NaN     <span class="number">20</span></span><br><span class="line"><span class="attribute">3344</span>	黄蓉	   销售主管	<span class="number">7800</span>.<span class="number">0</span>   <span class="number">3000</span>	<span class="number">800</span>.<span class="number">0</span>   <span class="number">30</span></span><br><span class="line"><span class="attribute">3577</span>	杨过	   会计	  <span class="number">5566</span>.<span class="number">0</span>   <span class="number">2200</span>   NaN	  <span class="number">10</span></span><br><span class="line"><span class="attribute">3588</span>	朱九真	  会计	 <span class="number">5566</span>.<span class="number">0</span>   <span class="number">2500</span>   NaN	 <span class="number">10</span></span><br><span class="line"><span class="attribute">4466</span>	苗人凤	  销售员	<span class="number">3344</span>.<span class="number">0</span>   <span class="number">2500</span>	NaN     <span class="number">30</span></span><br><span class="line"><span class="attribute">5234</span>	郭靖	   出纳	  <span class="number">5566</span>.<span class="number">0</span>   <span class="number">2000</span>   NaN	  <span class="number">10</span></span><br><span class="line"><span class="attribute">5566</span>	宋远桥	  会计师	<span class="number">7800</span>.<span class="number">0</span>   <span class="number">4000</span>   <span class="number">1000</span>.<span class="number">0</span>  <span class="number">10</span></span><br><span class="line"><span class="attribute">7800</span>	张三丰	  总裁	 NaN      <span class="number">9000</span>   <span class="number">1200</span>.<span class="number">0</span>  <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="基本属性和方法"><a href="#基本属性和方法" class="headerlink" title="基本属性和方法"></a>基本属性和方法</h4><p>在开始讲解<code>DataFrame</code>的属性和方法前，我们先从之前提到的<code>hrs</code>数据库中读取三张表的数据，创建出三个<code>DataFrame</code>对象，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">conn = pymysql.connect(</span><br><span class="line">    host=<span class="string">&#x27;47.104.31.138&#x27;</span>, port=<span class="number">3306</span>, </span><br><span class="line">    user=<span class="string">&#x27;guest&#x27;</span>, password=<span class="string">&#x27;Guest.618&#x27;</span>, </span><br><span class="line">    database=<span class="string">&#x27;hrs&#x27;</span>, charset=<span class="string">&#x27;utf8mb4&#x27;</span></span><br><span class="line">)</span><br><span class="line">dept_df = pd.read_sql(<span class="string">&#x27;select * from tb_dept&#x27;</span>, conn, index_col=<span class="string">&#x27;dno&#x27;</span>)</span><br><span class="line">emp_df = pd.read_sql(<span class="string">&#x27;select * from tb_emp&#x27;</span>, conn, index_col=<span class="string">&#x27;eno&#x27;</span>)</span><br><span class="line">emp2_df = pd.read_sql(<span class="string">&#x27;select * from tb_emp2&#x27;</span>, conn, index_col=<span class="string">&#x27;eno&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>得到的三个<code>DataFrame</code>对象如下所示。</p>
+<p>部门表（<code>dept_df</code>），其中<code>dno</code>是部门的编号，<code>dname</code>和<code>dloc</code>分别是部门的名称和所在地。</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line">    <span class="attribute">dname</span>  dloc</span><br><span class="line">dno</span><br><span class="line"><span class="number">10</span>	会计部	北京</span><br><span class="line"><span class="number">20</span>	研发部	成都</span><br><span class="line"><span class="number">30</span>	销售部	重庆</span><br><span class="line"><span class="number">40</span>	运维部	天津</span><br></pre></td></tr></table></figure>
+
+<p>员工表（<code>emp_df</code>），其中<code>eno</code>是员工编号，<code>ename</code>、<code>job</code>、<code>mgr</code>、<code>sal</code>、<code>comm</code>和<code>dno</code>分别代表员工的姓名、职位、主管编号、月薪、补贴和部门编号。</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line">        <span class="attribute">ename</span>    job        mgr      sal     comm    dno</span><br><span class="line"><span class="attribute">eno</span></span><br><span class="line"><span class="attribute">1359</span>	胡一刀    销售员	   <span class="number">3344</span>.<span class="number">0</span>	<span class="number">1800</span>	<span class="number">200</span>.<span class="number">0</span>	<span class="number">30</span></span><br><span class="line"><span class="attribute">2056</span>	乔峰	    分析师	    <span class="number">7800</span>.<span class="number">0</span>	 <span class="number">5000</span>	 <span class="number">1500</span>.<span class="number">0</span>	 <span class="number">20</span></span><br><span class="line"><span class="attribute">3088</span>	李莫愁	   设计师	   <span class="number">2056</span>.<span class="number">0</span>	<span class="number">3500</span>	<span class="number">800</span>.<span class="number">0</span>	<span class="number">20</span></span><br><span class="line"><span class="attribute">3211</span>	张无忌	   程序员	   <span class="number">2056</span>.<span class="number">0</span>	<span class="number">3200</span>	NaN     <span class="number">20</span></span><br><span class="line"><span class="attribute">3233</span>	丘处机	   程序员	   <span class="number">2056</span>.<span class="number">0</span>	<span class="number">3400</span>	NaN	    <span class="number">20</span></span><br><span class="line"><span class="attribute">3244</span>	欧阳锋	   程序员	   <span class="number">3088</span>.<span class="number">0</span>	<span class="number">3200</span>	NaN     <span class="number">20</span></span><br><span class="line"><span class="attribute">3251</span>	张翠山	   程序员	   <span class="number">2056</span>.<span class="number">0</span>	<span class="number">4000</span>	NaN	    <span class="number">20</span></span><br><span class="line"><span class="attribute">3344</span>	黄蓉	    销售主管   <span class="number">7800</span>.<span class="number">0</span>	<span class="number">3000</span>	<span class="number">800</span>.<span class="number">0</span>	<span class="number">30</span></span><br><span class="line"><span class="attribute">3577</span>	杨过	    会计	     <span class="number">5566</span>.<span class="number">0</span>	  <span class="number">2200</span>	  NaN	  <span class="number">10</span></span><br><span class="line"><span class="attribute">3588</span>	朱九真	   会计	    <span class="number">5566</span>.<span class="number">0</span>	 <span class="number">2500</span>	 NaN	 <span class="number">10</span></span><br><span class="line"><span class="attribute">4466</span>	苗人凤	   销售员	   <span class="number">3344</span>.<span class="number">0</span>	<span class="number">2500</span>	NaN	    <span class="number">30</span></span><br><span class="line"><span class="attribute">5234</span>	郭靖	    出纳	     <span class="number">5566</span>.<span class="number">0</span>	  <span class="number">2000</span>	  NaN	  <span class="number">10</span></span><br><span class="line"><span class="attribute">5566</span>	宋远桥	   会计师	   <span class="number">7800</span>.<span class="number">0</span>	<span class="number">4000</span>	<span class="number">1000</span>.<span class="number">0</span>	<span class="number">10</span></span><br><span class="line"><span class="attribute">7800</span>	张三丰	   总裁	    NaN      <span class="number">9000</span>	 <span class="number">1200</span>.<span class="number">0</span>	 <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：在数据库中<code>mgr</code>和<code>comm</code>两个列的数据类型是<code>int</code>，但是因为有缺失值（空值），读取到<code>DataFrame</code>之后，列的数据类型变成了<code>float</code>，因为我们通常会用<code>float</code>类型的<code>NaN</code>来表示空值。</p>
+</blockquote>
+<p>员工表（<code>emp2_df</code>），跟上面的员工表结构相同，但是保存了不同的员工数据。</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line">        <span class="attribute">ename</span>    job    mgr     sal      comm    dno</span><br><span class="line"><span class="attribute">eno</span></span><br><span class="line"><span class="attribute">9800</span>	骆昊	   架构师	<span class="number">7800</span>	<span class="number">30000</span>	 <span class="number">5000</span>	 <span class="number">20</span></span><br><span class="line"><span class="attribute">9900</span>	王小刀	  程序员  <span class="number">9800</span>	   <span class="number">10000</span>	<span class="number">1200</span>	<span class="number">20</span></span><br><span class="line"><span class="attribute">9700</span>	王大锤	  程序员  <span class="number">9800</span>    <span class="number">8000</span> 	<span class="number">600</span>	    <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<p><code>DataFrame</code>对象的属性如下表所示。</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>at</code> &#x2F; <code>iat</code></td>
+<td>通过标签获取<code>DataFrame</code>中的单个值。</td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td><code>DataFrame</code>对象列的索引</td>
+</tr>
+<tr>
+<td><code>dtypes</code></td>
+<td><code>DataFrame</code>对象每一列的数据类型</td>
+</tr>
+<tr>
+<td><code>empty</code></td>
+<td><code>DataFrame</code>对象是否为空</td>
+</tr>
+<tr>
+<td><code>loc</code> &#x2F; <code>iloc</code></td>
+<td>通过标签获取<code>DataFrame</code>中的一组值。</td>
+</tr>
+<tr>
+<td><code>ndim</code></td>
+<td><code>DataFrame</code>对象的维度</td>
+</tr>
+<tr>
+<td><code>shape</code></td>
+<td><code>DataFrame</code>对象的形状（行数和列数）</td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td><code>DataFrame</code>对象中元素的个数</td>
+</tr>
+<tr>
+<td><code>values</code></td>
+<td><code>DataFrame</code>对象的数据对应的二维数组</td>
+</tr>
+</tbody></table>
+<p>关于<code>DataFrame</code>的方法，首先需要了解的是<code>info()</code>方法，它可以帮助我们了解<code>DataFrame</code>的相关信息，如下所示。</p>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">emp_df.info()</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;pandas.core.frame.DataFrame&#x27;</span>&gt;</span><br><span class="line">Int64Index: <span class="number">14</span> entries, <span class="number">1359</span> <span class="keyword">to</span> <span class="number">7800</span></span><br><span class="line">Data <span class="keyword">columns</span> (total <span class="number">6</span> <span class="keyword">columns</span>):</span><br><span class="line"> #   <span class="keyword">Column</span>  Non-<span class="keyword">Null</span> Count  Dtype  </span><br><span class="line"><span class="comment">---  ------  --------------  -----  </span></span><br><span class="line"> <span class="number">0</span>   ename   <span class="number">14</span> non-<span class="keyword">null</span>     <span class="keyword">object</span> </span><br><span class="line"> <span class="number">1</span>   job     <span class="number">14</span> non-<span class="keyword">null</span>     <span class="keyword">object</span> </span><br><span class="line"> <span class="number">2</span>   mgr     <span class="number">13</span> non-<span class="keyword">null</span>     float64</span><br><span class="line"> <span class="number">3</span>   sal     <span class="number">14</span> non-<span class="keyword">null</span>     int64  </span><br><span class="line"> <span class="number">4</span>   comm    <span class="number">6</span> non-<span class="keyword">null</span>      float64</span><br><span class="line"> <span class="number">5</span>   dno     <span class="number">14</span> non-<span class="keyword">null</span>     int64  </span><br><span class="line">dtypes: float64(<span class="number">2</span>), int64(<span class="number">2</span>), <span class="keyword">object</span>(<span class="number">2</span>)</span><br><span class="line">memory <span class="keyword">usage</span>: <span class="number">1.3</span>+ KB</span><br></pre></td></tr></table></figure>
+
+<p>如果需要查看<code>DataFrame</code>的头部或尾部的数据，可以使用<code>head()</code>或<code>tail()</code>方法，这两个方法的默认参数是<code>5</code>，表示获取<code>DataFrame</code>最前面5行或最后面5行的数据，如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">emp_df.head()</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line">        <span class="attribute">ename</span>    job    mgr    sal    comm  dno</span><br><span class="line"><span class="attribute">eno</span>						</span><br><span class="line"><span class="attribute">1359</span>	胡一刀   销售员	<span class="number">3344</span>   <span class="number">1800</span>  <span class="number">200</span>   <span class="number">30</span></span><br><span class="line"><span class="attribute">2056</span>	乔峰	   分析师	 <span class="number">7800</span>   <span class="number">5000</span>  <span class="number">1500</span>	<span class="number">20</span></span><br><span class="line"><span class="attribute">3088</span>	李莫愁	  设计师	<span class="number">2056</span>   <span class="number">3500</span>  <span class="number">800</span>   <span class="number">20</span></span><br><span class="line"><span class="attribute">3211</span>	张无忌	  程序员	<span class="number">2056</span>   <span class="number">3200</span>  NaN   <span class="number">20</span></span><br><span class="line"><span class="attribute">3233</span>	丘处机	  程序员	<span class="number">2056</span>   <span class="number">3400</span>	 NaN   <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="获取数据"><a href="#获取数据" class="headerlink" title="获取数据"></a>获取数据</h4><h5 id="索引和切片"><a href="#索引和切片" class="headerlink" title="索引和切片"></a>索引和切片</h5><p>如果要获取<code>DataFrame</code>的某一列，例如取出上面<code>emp_df</code>的<code>ename</code>列，可以使用下面的两种方式。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">emp_df.ename</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">emp_df[<span class="string">&#x27;ename&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>执行上面的代码可以发现，我们获得的是一个<code>Series</code>对象。事实上，<code>DataFrame</code>对象就是将多个<code>Series</code>对象组合到一起的结果。</p>
+<p>如果要获取<code>DataFrame</code>的某一行，可以使用整数索引或我们设置的索引，例如取出员工编号为<code>2056</code>的员工数据，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">emp_df.iloc[<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">emp_df.loc[<span class="number">2056</span>]</span><br></pre></td></tr></table></figure>
+
+<p>通过执行上面的代码我们发现，单独取<code>DataFrame</code> 的某一行或某一列得到的都是<code>Series</code>对象。我们当然也可以通过花式索引来获取多个行或多个列的数据，花式索引的结果仍然是一个<code>DataFrame</code>对象。</p>
+<p>获取多个列：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">emp_df[[<span class="string">&#x27;ename&#x27;</span>, <span class="string">&#x27;job&#x27;</span>]]</span><br></pre></td></tr></table></figure>
+
+<p>获取多个行：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">emp_df.loc[[<span class="number">2056</span>, <span class="number">7800</span>, <span class="number">3344</span>]]</span><br></pre></td></tr></table></figure>
+
+<p>如果要获取或修改<code>DataFrame</code> 对象某个单元格的数据，需要同时指定行和列的索引，例如要获取员工编号为<code>2056</code>的员工的职位信息，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">emp_df[<span class="string">&#x27;job&#x27;</span>][<span class="number">2056</span>]</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">emp_df.loc[<span class="number">2056</span>][<span class="string">&#x27;job&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">emp_df.loc[<span class="number">2056</span>, <span class="string">&#x27;job&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>我们推荐大家使用第三种做法，因为它只做了一次索引运算。如果要将该员工的职位修改为“架构师”，可以使用下面的代码。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">emp_df.loc[<span class="number">2056</span>, <span class="string">&#x27;job&#x27;</span>] = <span class="string">&#x27;架构师&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>当然，我们也可以通过切片操作来获取多行多列，相信大家一定已经想到了这一点。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">emp_df.loc[<span class="number">2056</span>:<span class="number">3344</span>]</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line">        <span class="attribute">ename</span>    job        mgr      sal     comm    dno</span><br><span class="line"><span class="attribute">eno</span></span><br><span class="line"><span class="attribute">2056</span>	乔峰	    分析师	    <span class="number">7800</span>.<span class="number">0</span>	 <span class="number">5000</span>	 <span class="number">1500</span>.<span class="number">0</span>	 <span class="number">20</span></span><br><span class="line"><span class="attribute">3088</span>	李莫愁	   设计师	   <span class="number">2056</span>.<span class="number">0</span>	<span class="number">3500</span>	<span class="number">800</span>.<span class="number">0</span>	<span class="number">20</span></span><br><span class="line"><span class="attribute">3211</span>	张无忌	   程序员	   <span class="number">2056</span>.<span class="number">0</span>	<span class="number">3200</span>	NaN     <span class="number">20</span></span><br><span class="line"><span class="attribute">3233</span>	丘处机	   程序员	   <span class="number">2056</span>.<span class="number">0</span>	<span class="number">3400</span>	NaN	    <span class="number">20</span></span><br><span class="line"><span class="attribute">3244</span>	欧阳锋	   程序员	   <span class="number">3088</span>.<span class="number">0</span>	<span class="number">3200</span>	NaN     <span class="number">20</span></span><br><span class="line"><span class="attribute">3251</span>	张翠山	   程序员	   <span class="number">2056</span>.<span class="number">0</span>	<span class="number">4000</span>	NaN	    <span class="number">20</span></span><br><span class="line"><span class="attribute">3344</span>	黄蓉	    销售主管   <span class="number">7800</span>.<span class="number">0</span>	<span class="number">3000</span>	<span class="number">800</span>.<span class="number">0</span>	<span class="number">30</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="数据筛选"><a href="#数据筛选" class="headerlink" title="数据筛选"></a>数据筛选</h5><p>上面我们提到了花式索引，相信大家已经联想到了布尔索引。跟<code>ndarray</code>和<code>Series</code>一样，我们可以通过布尔索引对<code>DataFrame</code>对象进行数据筛选，例如我们要从<code>emp_df</code>中筛选出月薪超过<code>3500</code>的员工，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">emp_df[emp_df.sal &gt; <span class="number">3500</span>]</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line">        <span class="attribute">ename</span>    job        mgr      sal     comm    dno</span><br><span class="line"><span class="attribute">eno</span></span><br><span class="line"><span class="attribute">2056</span>	乔峰	    分析师	    <span class="number">7800</span>.<span class="number">0</span>	 <span class="number">5000</span>	 <span class="number">1500</span>.<span class="number">0</span>	 <span class="number">20</span></span><br><span class="line"><span class="attribute">3251</span>	张翠山	   程序员	   <span class="number">2056</span>.<span class="number">0</span>	<span class="number">4000</span>	NaN	    <span class="number">20</span></span><br><span class="line"><span class="attribute">5566</span>	宋远桥	   会计师	   <span class="number">7800</span>.<span class="number">0</span>	<span class="number">4000</span>	<span class="number">1000</span>.<span class="number">0</span>	<span class="number">10</span></span><br><span class="line"><span class="attribute">7800</span>	张三丰	   总裁	    NaN      <span class="number">9000</span>	 <span class="number">1200</span>.<span class="number">0</span>	 <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<p>当然，我们也可以组合多个条件来进行数据筛选，例如从<code>emp_df</code>中筛选出月薪超过<code>3500</code>且部门编号为<code>20</code>的员工，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">emp_df[(emp_df.sal &gt; <span class="number">3500</span>) &amp; (emp_df.dno == <span class="number">20</span>)]</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line">        <span class="attribute">ename</span>    job        mgr      sal     comm    dno</span><br><span class="line"><span class="attribute">eno</span></span><br><span class="line"><span class="attribute">2056</span>	乔峰	    分析师	    <span class="number">7800</span>.<span class="number">0</span>	 <span class="number">5000</span>	 <span class="number">1500</span>.<span class="number">0</span>	 <span class="number">20</span></span><br><span class="line"><span class="attribute">3251</span>	张翠山	   程序员	   <span class="number">2056</span>.<span class="number">0</span>	<span class="number">4000</span>	NaN	    <span class="number">20</span></span><br><span class="line"><span class="attribute">7800</span>	张三丰	   总裁	    NaN      <span class="number">9000</span>	 <span class="number">1200</span>.<span class="number">0</span>	 <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<p>除了使用布尔索引，<code>DataFrame</code>对象的<code>query</code>方法也可以实现数据筛选，<code>query</code>方法的参数是一个字符串，它代表了筛选数据使用的表达式，而且更符合 Python 程序员的使用习惯。下面我们使用<code>query</code>方法将上面的效果重新实现一遍，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">emp_df.query(<span class="string">&#x27;sal &gt; 3500 and dno == 20&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="重塑数据"><a href="#重塑数据" class="headerlink" title="重塑数据"></a>重塑数据</h4><p>有的时候，我们做数据分析需要的原始数据可能并不是来自一个地方，就像上面的例子中，我们从关系型数据库中读取了三张表，得到了三个<code>DataFrame</code>对象，但实际工作可能需要我们把他们的数据整合到一起。例如：<code>emp_df</code>和<code>emp2_df</code>其实都是员工的数据，而且数据结构完全一致，我们可以使用<code>pandas</code>提供的<code>concat</code>函数实现两个或多个<code>DataFrame</code>的数据拼接，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">all_emp_df = pd.concat([emp_df, emp2_df])</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line">        <span class="attribute">ename</span>    job        mgr      sal     comm    dno</span><br><span class="line"><span class="attribute">eno</span></span><br><span class="line"><span class="attribute">1359</span>    胡一刀    销售员	   <span class="number">3344</span>.<span class="number">0</span>	<span class="number">1800</span>	<span class="number">200</span>.<span class="number">0</span>	<span class="number">30</span></span><br><span class="line"><span class="attribute">2056</span>    乔峰	    分析师	    <span class="number">7800</span>.<span class="number">0</span>	 <span class="number">5000</span>	 <span class="number">1500</span>.<span class="number">0</span>	 <span class="number">20</span></span><br><span class="line"><span class="attribute">3088</span>    李莫愁	   设计师	   <span class="number">2056</span>.<span class="number">0</span>	<span class="number">3500</span>	<span class="number">800</span>.<span class="number">0</span>	<span class="number">20</span></span><br><span class="line"><span class="attribute">3211</span>    张无忌	   程序员	   <span class="number">2056</span>.<span class="number">0</span>	<span class="number">3200</span>	NaN     <span class="number">20</span></span><br><span class="line"><span class="attribute">3233</span>    丘处机	   程序员	   <span class="number">2056</span>.<span class="number">0</span>	<span class="number">3400</span>	NaN	    <span class="number">20</span></span><br><span class="line"><span class="attribute">3244</span>    欧阳锋	   程序员	   <span class="number">3088</span>.<span class="number">0</span>	<span class="number">3200</span>	NaN     <span class="number">20</span></span><br><span class="line"><span class="attribute">3251</span>    张翠山	   程序员	   <span class="number">2056</span>.<span class="number">0</span>	<span class="number">4000</span>	NaN	    <span class="number">20</span></span><br><span class="line"><span class="attribute">3344</span>    黄蓉	    销售主管   <span class="number">7800</span>.<span class="number">0</span>	<span class="number">3000</span>	<span class="number">800</span>.<span class="number">0</span>	<span class="number">30</span></span><br><span class="line"><span class="attribute">3577</span>    杨过	    会计	     <span class="number">5566</span>.<span class="number">0</span>	  <span class="number">2200</span>	  NaN	  <span class="number">10</span></span><br><span class="line"><span class="attribute">3588</span>    朱九真	   会计	    <span class="number">5566</span>.<span class="number">0</span>	 <span class="number">2500</span>	 NaN	 <span class="number">10</span></span><br><span class="line"><span class="attribute">4466</span>    苗人凤	   销售员	   <span class="number">3344</span>.<span class="number">0</span>	<span class="number">2500</span>	NaN	    <span class="number">30</span></span><br><span class="line"><span class="attribute">5234</span>    郭靖	    出纳	     <span class="number">5566</span>.<span class="number">0</span>	  <span class="number">2000</span>	  NaN	  <span class="number">10</span></span><br><span class="line"><span class="attribute">5566</span>    宋远桥	   会计师	   <span class="number">7800</span>.<span class="number">0</span>	<span class="number">4000</span>	<span class="number">1000</span>.<span class="number">0</span>	<span class="number">10</span></span><br><span class="line"><span class="attribute">7800</span>    张三丰	   总裁	    NaN      <span class="number">9000</span>	 <span class="number">1200</span>.<span class="number">0</span>	 <span class="number">20</span></span><br><span class="line"><span class="attribute">9800</span>    骆昊	    架构师     <span class="number">7800</span>.<span class="number">0</span>	 <span class="number">30000</span>	 <span class="number">5000</span>.<span class="number">0</span>	 <span class="number">20</span></span><br><span class="line"><span class="attribute">9900</span>    王小刀	   程序员     <span class="number">9800</span>.<span class="number">0</span>	<span class="number">10000</span>	<span class="number">1200</span>.<span class="number">0</span>	<span class="number">20</span></span><br><span class="line"><span class="attribute">9700</span>    王大锤	   程序员     <span class="number">9800</span>.<span class="number">0</span>	<span class="number">8000</span>	<span class="number">600</span>.<span class="number">0</span>	<span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的代码将两个代表员工数据的<code>DataFrame</code>拼接到了一起，接下来我们使用<code>merge</code>函数将员工表和部门表的数据合并到一张表中，代码如下所示。</p>
+<p>先使用<code>reset_index</code>方法重新设置<code>all_emp_df</code>的索引，这样<code>eno</code> 不再是索引而是一个普通列，<code>reset_index</code>方法的<code>inplace</code>参数设置为<code>True</code>表示，重置索引的操作直接在<code>all_emp_df</code>上执行，而不是返回修改后的新对象。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">all_emp_df.reset_index(inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>通过<code>merge</code>函数合并数据，当然，也可以调用<code>DataFrame</code>对象的<code>merge</code>方法来达到同样的效果。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.merge(dept_df, all_emp_df, how=<span class="string">&#x27;inner&#x27;</span>, on=<span class="string">&#x27;dno&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line">    <span class="attribute">dno</span> dname  dloc eno   ename  job      mgr     sal    comm</span><br><span class="line"><span class="attribute">0</span>   <span class="number">10</span>	会计部	北京	<span class="number">3577</span>  杨过	会计	   <span class="number">5566</span>.<span class="number">0</span>  <span class="number">2200</span>   NaN</span><br><span class="line"><span class="attribute">1</span>   <span class="number">10</span>	会计部	北京	<span class="number">3588</span>  朱九真  会计     <span class="number">5566</span>.<span class="number">0</span>  <span class="number">2500</span>   NaN</span><br><span class="line"><span class="attribute">2</span>   <span class="number">10</span>	会计部	北京	<span class="number">5234</span>  郭靖	出纳	   <span class="number">5566</span>.<span class="number">0</span>  <span class="number">2000</span>   NaN</span><br><span class="line"><span class="attribute">3</span>   <span class="number">10</span>	会计部	北京	<span class="number">5566</span>  宋远桥  会计师   <span class="number">7800</span>.<span class="number">0</span>	 <span class="number">4000</span>   <span class="number">1000</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">4</span>   <span class="number">20</span>	研发部	成都	<span class="number">2056</span>  乔峰	架构师   <span class="number">7800</span>.<span class="number">0</span>  <span class="number">5000</span>	 <span class="number">1500</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">5</span>   <span class="number">20</span>	研发部	成都	<span class="number">3088</span>  李莫愁  设计师   <span class="number">2056</span>.<span class="number">0</span>	 <span class="number">3500</span>   <span class="number">800</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">6</span>   <span class="number">20</span>	研发部	成都	<span class="number">3211</span>  张无忌  程序员   <span class="number">2056</span>.<span class="number">0</span>	 <span class="number">3200</span>   NaN</span><br><span class="line"><span class="attribute">7</span>   <span class="number">20</span>	研发部	成都	<span class="number">3233</span>  丘处机  程序员   <span class="number">2056</span>.<span class="number">0</span>	 <span class="number">3400</span>   NaN</span><br><span class="line"><span class="attribute">8</span>   <span class="number">20</span>	研发部	成都	<span class="number">3244</span>  欧阳锋  程序员   <span class="number">3088</span>.<span class="number">0</span>	 <span class="number">3200</span>   NaN</span><br><span class="line"><span class="attribute">9</span>   <span class="number">20</span>	研发部	成都	<span class="number">3251</span>  张翠山  程序员   <span class="number">2056</span>.<span class="number">0</span>	 <span class="number">4000</span>   NaN</span><br><span class="line"><span class="attribute">10</span>  <span class="number">20</span>	研发部	成都	<span class="number">7800</span>  张三丰  总裁     NaN     <span class="number">9000</span>   <span class="number">1200</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">11</span>  <span class="number">20</span>	研发部	成都	<span class="number">9800</span>  骆昊    架构师   <span class="number">7800</span>.<span class="number">0</span>  <span class="number">30000</span>	 <span class="number">5000</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">12</span>  <span class="number">20</span>	研发部	成都	<span class="number">9900</span>  王小刀  程序员	 <span class="number">9800</span>.<span class="number">0</span>	 <span class="number">10000</span>  <span class="number">1200</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">13</span>  <span class="number">20</span>	研发部	成都	<span class="number">9700</span>  王大锤  程序员	 <span class="number">9800</span>.<span class="number">0</span>	 <span class="number">8000</span>   <span class="number">600</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">14</span>  <span class="number">30</span>	销售部	重庆	<span class="number">1359</span>  胡一刀  销售员	 <span class="number">3344</span>.<span class="number">0</span>	 <span class="number">1800</span>   <span class="number">200</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">15</span>  <span class="number">30</span>	销售部	重庆	<span class="number">3344</span>  黄蓉    销售主管 <span class="number">7800</span>.<span class="number">0</span>	 <span class="number">3000</span>   <span class="number">800</span>.<span class="number">0</span></span><br><span class="line"><span class="attribute">16</span>  <span class="number">30</span>	销售部	重庆	<span class="number">4466</span>  苗人凤  销售员   <span class="number">3344</span>.<span class="number">0</span>	 <span class="number">2500</span>   NaN</span><br></pre></td></tr></table></figure>
+
+<p><code>merge</code>函数的一个参数代表合并的左表、第二个参数代表合并的右表，有SQL编程经验的同学对这两个词是不是感觉到非常亲切。正如大家猜想的那样，<code>DataFrame</code>对象的合并跟数据库中的表连接非常类似，所以上面代码中的<code>how</code>代表了合并两张表的方式，有<code>left</code>、<code>right</code>、<code>inner</code>、<code>outer</code>四个选项；而<code>on</code>则代表了基于哪个列实现表的合并，相当于 SQL 表连接中的连表条件，如果左右两表对应的列列名不同，可以用<code>left_on</code>和<code>right_on</code>参数取代<code>on</code>参数分别进行指定。</p>
+<p>如果对上面的代码稍作修改，将<code>how</code>参数修改为<code>left</code>，大家可以思考一下代码执行的结果。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.merge(dept_df, all_emp_df, how=<span class="string">&#x27;left&#x27;</span>, on=<span class="string">&#x27;dno&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果比之前的输出多出了如下所示的一行，这是因为<code>left</code>代表左外连接，也就意味着左表<code>dept_df</code>中的数据会被完整的查出来，但是在<code>all_emp_df</code>中又没有编号为<code>40</code> 部门的员工，所以对应的位置都被填入了空值。</p>
+<figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="symbol">17 </span> <span class="number">40</span>  运维部  天津  NaN  NaN  NaN  NaN  NaN  NaN</span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/python/basic/72.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-3/">上一篇：Pandas的应用-3</a>
+  
+  
+  <a class="next" href="/computer-science/python/basic/70.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-1/">下一篇：Pandas的应用-1</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

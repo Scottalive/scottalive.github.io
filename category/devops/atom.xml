@@ -1,0 +1,605 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://scottalive.github.io</id>
+    <title>沉鱼的博客 • Posts by &#34;devops&#34; category</title>
+    <link href="https://scottalive.github.io" />
+    <updated>2026-05-08T04:18:00.000Z</updated>
+    <category term="AI日报" />
+    <category term="AI" />
+    <category term="GitHub热门" />
+    <category term="人工智能" />
+    <category term="技术趋势" />
+    <category term="原则" />
+    <category term="个人详情" />
+    <category term="个人分享" />
+    <category term="坏习惯" />
+    <category term="Kubernetes" />
+    <category term="Helm" />
+    <category term="学习计划" />
+    <category term="心理学知识" />
+    <category term="网络安全" />
+    <category term="SQL注入" />
+    <category term="XSS" />
+    <category term="CSRF" />
+    <category term="DDoS" />
+    <category term="渗透测试" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
+    <category term="GPT-5.5" />
+    <category term="OpenAI" />
+    <category term="Codex" />
+    <category term="ClaudeCode" />
+    <category term="Gemini" />
+    <category term="开发工具" />
+    <category term="开源" />
+    <category term="编程笔记" />
+    <category term="Hermes" />
+    <category term="Agent" />
+    <category term="NousResearch" />
+    <category term="进阶" />
+    <category term="配置" />
+    <category term="高阶" />
+    <category term="自动化" />
+    <category term="LLM" />
+    <category term="RAG" />
+    <category term="知识库" />
+    <category term="OpenSRE" />
+    <category term="SRE" />
+    <category term="运维" />
+    <category term="故障排查" />
+    <category term="SSE" />
+    <category term="HTTP" />
+    <category term="接口开发" />
+    <category term="开发注意事项" />
+    <category term="力扣算法题" />
+    <category term="算法" />
+    <category term="动态规划" />
+    <category term="微服务" />
+    <category term="JavaSE" />
+    <category term="Java开发面试题" />
+    <category term="SpringBoot" />
+    <category term="Spring" />
+    <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/devops/k8s-helm-study-plan/</id>
+        <title>K8s + Helm 每日学习计划</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/devops/k8s-helm-study-plan/"/>
+        <content type="html">&lt;blockquote&gt;
+&lt;p&gt;一份贴合上班族节奏的 K8s + Helm 学习计划。&lt;br&gt;总周期约 6-8 周，每天投入 1-2h，碎片时间利用到位即可。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;一、你的时间拼图&#34;&gt;&lt;a href=&#34;#一、你的时间拼图&#34; class=&#34;headerlink&#34; title=&#34;一、你的时间拼图&#34;&gt;&lt;/a&gt;一、你的时间拼图&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;时段&lt;/th&gt;
+&lt;th&gt;非加班日 (周三&amp;#x2F;周五)&lt;/th&gt;
+&lt;th&gt;加班日 (周一&amp;#x2F;二&amp;#x2F;四)&lt;/th&gt;
+&lt;th&gt;周末&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;🚇 通勤早 (8:00-9:00)&lt;/td&gt;
+&lt;td&gt;听播客&amp;#x2F;看文档&lt;/td&gt;
+&lt;td&gt;同上&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;💼 工作 (9:00-18:00)&lt;/td&gt;
+&lt;td&gt;上班&lt;/td&gt;
+&lt;td&gt;上班&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🚇 通勤晚 (18:00-19:00)&lt;/td&gt;
+&lt;td&gt;回顾&amp;#x2F;默写概念&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🌙 晚间自由&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;19:00-21:30&lt;/strong&gt; 黄金 2.5h&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;21:00-22:30&lt;/strong&gt; 仅 1.5h&lt;/td&gt;
+&lt;td&gt;全天可安排 3-4h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;😴 睡觉&lt;/td&gt;
+&lt;td&gt;23:00 前&lt;/td&gt;
+&lt;td&gt;23:00 前&lt;/td&gt;
+&lt;td&gt;自由&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;策略总结：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🚇 &lt;strong&gt;通勤&lt;/strong&gt; → 理论输入（听、看、记）&lt;/li&gt;
+&lt;li&gt;🌙 &lt;strong&gt;晚间&lt;/strong&gt; → 动手实践（敲命令、写 YAML、搭集群）&lt;/li&gt;
+&lt;li&gt;🎯 &lt;strong&gt;加班日只做”最小动作”&lt;/strong&gt;（复习 + 1 个知识点）&lt;/li&gt;
+&lt;li&gt;📅 &lt;strong&gt;周末集中攻坚&lt;/strong&gt;（打通周中没消化的硬骨头）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;二、学习路线总览（6-8-周）&#34;&gt;&lt;a href=&#34;#二、学习路线总览（6-8-周）&#34; class=&#34;headerlink&#34; title=&#34;二、学习路线总览（6-8 周）&#34;&gt;&lt;/a&gt;二、学习路线总览（6-8 周）&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;阶段&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;th&gt;周期&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;第 1 周&lt;/td&gt;
+&lt;td&gt;K8s 核心概念 + 环境搭建&lt;/td&gt;
+&lt;td&gt;7 天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第 2 周&lt;/td&gt;
+&lt;td&gt;Pod、Workload 资源&lt;/td&gt;
+&lt;td&gt;7 天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第 3 周&lt;/td&gt;
+&lt;td&gt;网络、Service、Ingress&lt;/td&gt;
+&lt;td&gt;7 天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第 4 周&lt;/td&gt;
+&lt;td&gt;存储、ConfigMap、Secret&lt;/td&gt;
+&lt;td&gt;7 天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第 5 周&lt;/td&gt;
+&lt;td&gt;Helm 基础（Chart、模板、 values）&lt;/td&gt;
+&lt;td&gt;7 天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第 6 周&lt;/td&gt;
+&lt;td&gt;Helm 进阶（依赖、Hook、测试）&lt;/td&gt;
+&lt;td&gt;7 天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第 7 周&lt;/td&gt;
+&lt;td&gt;综合项目：用 Helm 部署一套微服务&lt;/td&gt;
+&lt;td&gt;7 天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第 8 周&lt;/td&gt;
+&lt;td&gt;复习 + 面试&amp;#x2F;认证备考&lt;/td&gt;
+&lt;td&gt;7 天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;三、通勤时间利用指南（每日必做）&#34;&gt;&lt;a href=&#34;#三、通勤时间利用指南（每日必做）&#34; class=&#34;headerlink&#34; title=&#34;三、通勤时间利用指南（每日必做）&#34;&gt;&lt;/a&gt;三、通勤时间利用指南（每日必做）&lt;/h2&gt;&lt;h3 id=&#34;🚇-早通勤（1h）—-新知识输入&#34;&gt;&lt;a href=&#34;#🚇-早通勤（1h）—-新知识输入&#34; class=&#34;headerlink&#34; title=&#34;🚇 早通勤（1h）— 新知识输入&#34;&gt;&lt;/a&gt;🚇 早通勤（1h）— 新知识输入&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;推荐资源（提前下载离线）：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;播客/音频:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Kubernetes Podcast from Google&amp;quot;&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;—&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;每周一集，了解业界动态&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;The Podlets Podcast&amp;quot;&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;—&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;深入&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;K8s&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;原理&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;视频（提前缓存）:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;B站：CloudNative&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;实战系列&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;YouTube:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Kubernetes in 1 Hour&amp;quot;&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;等速通视频&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;文档:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;官方文档第一遍过概念：kubernetes.io/docs/concepts/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;使用&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;k8s&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;cheat&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;sheet&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;PDF&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;作为随身参考&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;每日任务清单：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;早通勤任务&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周一&lt;/td&gt;
+&lt;td&gt;听 1 集 K8s 播客 + 记 3 个关键词&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二&lt;/td&gt;
+&lt;td&gt;看 1 段 K8s 视频（15-20min）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;读官方文档一节 + 画思维导图（手机备忘录）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四&lt;/td&gt;
+&lt;td&gt;复习这周前三天学过的概念&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周五&lt;/td&gt;
+&lt;td&gt;整理本周知识点到笔记 App&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;🚇-晚通勤（1h）—-回顾与巩固&#34;&gt;&lt;a href=&#34;#🚇-晚通勤（1h）—-回顾与巩固&#34; class=&#34;headerlink&#34; title=&#34;🚇 晚通勤（1h）— 回顾与巩固&#34;&gt;&lt;/a&gt;🚇 晚通勤（1h）— 回顾与巩固&lt;/h3&gt;&lt;p&gt;不加班 → 回顾当天所学，用手机写总结笔记。&lt;br&gt;加班 → 闭眼休息或听轻音乐，不硬学。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;四、晚间学习计划&#34;&gt;&lt;a href=&#34;#四、晚间学习计划&#34; class=&#34;headerlink&#34; title=&#34;四、晚间学习计划&#34;&gt;&lt;/a&gt;四、晚间学习计划&lt;/h2&gt;&lt;h3 id=&#34;非加班日晚间（19-00-21-30）—-黄金-2-5h&#34;&gt;&lt;a href=&#34;#非加班日晚间（19-00-21-30）—-黄金-2-5h&#34; class=&#34;headerlink&#34; title=&#34;非加班日晚间（19:00-21:30）— 黄金 2.5h&#34;&gt;&lt;/a&gt;非加班日晚间（19:00-21:30）— &lt;strong&gt;黄金 2.5h&lt;/strong&gt;&lt;/h3&gt;&lt;figure class=&#34;highlight apache&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;19&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;00&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;19&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;30&lt;/span&gt;  晚饭 + 放松&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;19&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;30&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;19&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;45&lt;/span&gt;  回顾通勤笔记（激活记忆）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;19&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;45&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;21&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;00&lt;/span&gt;  动手实践（核心时间段）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;21&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;00&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;21&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;15&lt;/span&gt;  写学习日志 / 记 bug 和心得&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;21&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;15&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;21&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;30&lt;/span&gt;  放松、准备睡觉&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;加班日晚间（21-00-22-30）—-轻量-1h&#34;&gt;&lt;a href=&#34;#加班日晚间（21-00-22-30）—-轻量-1h&#34; class=&#34;headerlink&#34; title=&#34;加班日晚间（21:00-22:30）— 轻量 1h&#34;&gt;&lt;/a&gt;加班日晚间（21:00-22:30）— &lt;strong&gt;轻量 1h&lt;/strong&gt;&lt;/h3&gt;&lt;figure class=&#34;highlight apache&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;21&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;00&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;21&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;30&lt;/span&gt;  到家 + 快速收拾&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;21&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;30&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;22&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;00&lt;/span&gt;  只做 &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; 个&lt;span class=&#34;string&#34;&gt;&amp;quot;最小动作&amp;quot;&lt;/span&gt;（看 &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; 个命令效果/改 &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; 个 YAML）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;22&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;00&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;22&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;15&lt;/span&gt;  记录当天学到的 &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; 个知识点&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;22&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;15&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;22&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;30&lt;/span&gt;  准备睡觉&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ 加班日不要贪多，保持连续性的 1h 比硬撑 3h 效果好。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;五、每日学习内容（按周展开）&#34;&gt;&lt;a href=&#34;#五、每日学习内容（按周展开）&#34; class=&#34;headerlink&#34; title=&#34;五、每日学习内容（按周展开）&#34;&gt;&lt;/a&gt;五、每日学习内容（按周展开）&lt;/h2&gt;&lt;h3 id=&#34;第-1-周：K8s-基础-环境&#34;&gt;&lt;a href=&#34;#第-1-周：K8s-基础-环境&#34; class=&#34;headerlink&#34; title=&#34;第 1 周：K8s 基础 + 环境&#34;&gt;&lt;/a&gt;第 1 周：K8s 基础 + 环境&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;晚间动手内容&lt;/th&gt;
+&lt;th&gt;时间预算&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周五（今晚）&lt;/td&gt;
+&lt;td&gt;安装 minikube &amp;#x2F; kind &amp;#x2F; Docker Desktop（带 K8s）✅&lt;/td&gt;
+&lt;td&gt;1h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周六&lt;/td&gt;
+&lt;td&gt;跑通 &lt;code&gt;kubectl get nodes&lt;/code&gt;，熟悉命令行；了解 Pod 概念&lt;/td&gt;
+&lt;td&gt;2h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周日&lt;/td&gt;
+&lt;td&gt;跑第一个 Nginx Pod：&lt;code&gt;kubectl run nginx --image=nginx&lt;/code&gt; + expose&lt;/td&gt;
+&lt;td&gt;2h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周一 🕐&lt;/td&gt;
+&lt;td&gt;看 kubectl 常用命令：get&amp;#x2F;describe&amp;#x2F;logs&amp;#x2F;exec&amp;#x2F;delete&lt;/td&gt;
+&lt;td&gt;1h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二 🕐&lt;/td&gt;
+&lt;td&gt;了解 namespace 概念，创建&amp;#x2F;切换 namespace&lt;/td&gt;
+&lt;td&gt;1h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;理解 YAML 格式，手写第一个 pod.yaml&lt;/td&gt;
+&lt;td&gt;2h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四 🕐&lt;/td&gt;
+&lt;td&gt;用 &lt;code&gt;kubectl apply -f&lt;/code&gt; 部署并对比 &lt;code&gt;run&lt;/code&gt; 的区别&lt;/td&gt;
+&lt;td&gt;1h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;第-2-周：Pod-与-Workload&#34;&gt;&lt;a href=&#34;#第-2-周：Pod-与-Workload&#34; class=&#34;headerlink&#34; title=&#34;第 2 周：Pod 与 Workload&#34;&gt;&lt;/a&gt;第 2 周：Pod 与 Workload&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周五&lt;/td&gt;
+&lt;td&gt;ReplicaSet + Deployment：滚动更新、回滚&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周六&lt;/td&gt;
+&lt;td&gt;StatefulSet：有状态应用部署&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周日&lt;/td&gt;
+&lt;td&gt;DaemonSet + Job&amp;#x2F;CronJob：守护进程与批处理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周一 🕐&lt;/td&gt;
+&lt;td&gt;复习：三种 Workload 的适用场景对比&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二 🕐&lt;/td&gt;
+&lt;td&gt;实战：用 Deployment 部署一个 Web 应用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;Pod 生命周期：InitContainer、探针（liveness&amp;#x2F;readiness&amp;#x2F;startup）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四 🕐&lt;/td&gt;
+&lt;td&gt;手写一个带健康检查的 Deployment&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;第-3-周：网络&#34;&gt;&lt;a href=&#34;#第-3-周：网络&#34; class=&#34;headerlink&#34; title=&#34;第 3 周：网络&#34;&gt;&lt;/a&gt;第 3 周：网络&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周五&lt;/td&gt;
+&lt;td&gt;Service 类型：ClusterIP &amp;#x2F; NodePort &amp;#x2F; LoadBalancer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周六&lt;/td&gt;
+&lt;td&gt;Ingress + Ingress Controller&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周日&lt;/td&gt;
+&lt;td&gt;网络策略 NetworkPolicy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周一 🕐&lt;/td&gt;
+&lt;td&gt;复习 Service 和 Ingress 区别&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二 🕐&lt;/td&gt;
+&lt;td&gt;实战：用 Service + Ingress 暴露应用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;DNS 与服务发现（CoreDNS 原理）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四 🕐&lt;/td&gt;
+&lt;td&gt;画一个完整的 K8s 网络流转图&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;第-4-周：存储与配置&#34;&gt;&lt;a href=&#34;#第-4-周：存储与配置&#34; class=&#34;headerlink&#34; title=&#34;第 4 周：存储与配置&#34;&gt;&lt;/a&gt;第 4 周：存储与配置&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周五&lt;/td&gt;
+&lt;td&gt;ConfigMap + Secret：配置与敏感信息管理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周六&lt;/td&gt;
+&lt;td&gt;Volume：emptyDir、hostPath、PVC&amp;#x2F;PV&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周日&lt;/td&gt;
+&lt;td&gt;StorageClass + 动态供给&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周一 🕐&lt;/td&gt;
+&lt;td&gt;复习 ConfigMap&amp;#x2F;Secret 注入方式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二 🕐&lt;/td&gt;
+&lt;td&gt;实战：用 ConfigMap 配置 Nginx&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;手写一个有状态应用（MySQL + PV）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四 🕐&lt;/td&gt;
+&lt;td&gt;对比 static PV 和 dynamic PV 的差异&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;第-5-周：Helm-基础&#34;&gt;&lt;a href=&#34;#第-5-周：Helm-基础&#34; class=&#34;headerlink&#34; title=&#34;第 5 周：Helm 基础&#34;&gt;&lt;/a&gt;第 5 周：Helm 基础&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周五&lt;/td&gt;
+&lt;td&gt;Helm 安装 + 核心概念（Chart &amp;#x2F; Release &amp;#x2F; Repository）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周六&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;helm search / install / upgrade / rollback&lt;/code&gt; 基本操作&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周日&lt;/td&gt;
+&lt;td&gt;Chart 目录结构解析：Chart.yaml &amp;#x2F; values.yaml &amp;#x2F; templates&amp;#x2F;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周一 🕐&lt;/td&gt;
+&lt;td&gt;用 Helm 部署一个应用（如 nginx ingress）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二 🕐&lt;/td&gt;
+&lt;td&gt;values.yaml 覆盖：&lt;code&gt;--set&lt;/code&gt; &amp;#x2F; &lt;code&gt;-f&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;模板语法（一）：内置对象、Values、模板函数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四 🕐&lt;/td&gt;
+&lt;td&gt;读一个开源 Chart（如 bitnami&amp;#x2F;nginx）的 templates 目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;第-6-周：Helm-进阶&#34;&gt;&lt;a href=&#34;#第-6-周：Helm-进阶&#34; class=&#34;headerlink&#34; title=&#34;第 6 周：Helm 进阶&#34;&gt;&lt;/a&gt;第 6 周：Helm 进阶&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周五&lt;/td&gt;
+&lt;td&gt;模板语法（二）：条件判断 &lt;code&gt;if/else&lt;/code&gt;、循环 &lt;code&gt;range&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周六&lt;/td&gt;
+&lt;td&gt;命名模板（define&amp;#x2F;template）与 include&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周日&lt;/td&gt;
+&lt;td&gt;Chart 依赖管理（dependencies &amp;#x2F; subcharts）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周一 🕐&lt;/td&gt;
+&lt;td&gt;复习 Helm 模板语法要点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二 🕐&lt;/td&gt;
+&lt;td&gt;写一个自定义 Chart（简单 Web 应用）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;Helm Hook：预&amp;#x2F;后置任务（migration、验证）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四 🕐&lt;/td&gt;
+&lt;td&gt;写一个有 Hook 的 Chart（数据库 Migrate 场景）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;第-7-周：综合项目&#34;&gt;&lt;a href=&#34;#第-7-周：综合项目&#34; class=&#34;headerlink&#34; title=&#34;第 7 周：综合项目&#34;&gt;&lt;/a&gt;第 7 周：综合项目&lt;/h3&gt;&lt;p&gt;这一周动手搭建一个完整的微服务应用，并用 Helm 管理全部组件。&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;项目:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;博客系统微服务化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;架构:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;Frontend:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Nginx&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;React&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;(Deployment&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Service&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Ingress)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;Backend:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Spring&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Boot&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Go&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;(Deployment&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;ConfigMap)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;Database:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;MySQL&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;(StatefulSet&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;PVC)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;Cache:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Redis&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;(Deployment&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Service)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;日志:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;EFK&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;LPL&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;(可选)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;管理方式:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;一个&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;umbrella&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Chart&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;包含以上所有子&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Chart&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周五&lt;/td&gt;
+&lt;td&gt;设计架构 + 搭建基础 Chart 骨架&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周六&lt;/td&gt;
+&lt;td&gt;实现前端服务 Chart&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周日&lt;/td&gt;
+&lt;td&gt;实现后端服务 Chart（带 ConfigMap）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周一 🕐&lt;/td&gt;
+&lt;td&gt;配置 Service 和 Ingress 暴露&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二 🕐&lt;/td&gt;
+&lt;td&gt;加上 MySQL 和 Redis 子 Chart&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;联调测试：&lt;code&gt;helm install&lt;/code&gt; 一键部署&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四 🕐&lt;/td&gt;
+&lt;td&gt;优化：制作覆盖 values、增加健康检查&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;第-8-周：复习-备考&#34;&gt;&lt;a href=&#34;#第-8-周：复习-备考&#34; class=&#34;headerlink&#34; title=&#34;第 8 周：复习 + 备考&#34;&gt;&lt;/a&gt;第 8 周：复习 + 备考&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周五&lt;/td&gt;
+&lt;td&gt;整理所有学习笔记，形成自己的知识图谱&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周六&lt;/td&gt;
+&lt;td&gt;刷题：K8s 面试题 &amp;#x2F; CKAD 模拟题&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周日&lt;/td&gt;
+&lt;td&gt;模拟面试：用自己的话讲一遍核心概念&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周一 🕐&lt;/td&gt;
+&lt;td&gt;查漏补缺：翻看还没掌握的点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二 🕐&lt;/td&gt;
+&lt;td&gt;总结学习心得，写一篇博客输出&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;整理自己的 Helm Chart 到 GitHub&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四 🕐&lt;/td&gt;
+&lt;td&gt;写学习复盘，规划下一步方向&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;六、环境搭建&#34;&gt;&lt;a href=&#34;#六、环境搭建&#34; class=&#34;headerlink&#34; title=&#34;六、环境搭建&#34;&gt;&lt;/a&gt;六、环境搭建&lt;/h2&gt;&lt;h3 id=&#34;本地环境要求&#34;&gt;&lt;a href=&#34;#本地环境要求&#34; class=&#34;headerlink&#34; title=&#34;本地环境要求&#34;&gt;&lt;/a&gt;本地环境要求&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;工具&lt;/th&gt;
+&lt;th&gt;最低版本&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;Docker Desktop&lt;/td&gt;
+&lt;td&gt;20.10+&lt;/td&gt;
+&lt;td&gt;自带 K8s 集群（macOS&amp;#x2F;Windows）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;minikube&lt;/td&gt;
+&lt;td&gt;v1.30+&lt;/td&gt;
+&lt;td&gt;轻量本地集群&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;kubectl&lt;/td&gt;
+&lt;td&gt;v1.28+&lt;/td&gt;
+&lt;td&gt;K8s 命令行工具&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Helm&lt;/td&gt;
+&lt;td&gt;v3.12+&lt;/td&gt;
+&lt;td&gt;K8s 包管理器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;推荐一键安装&#34;&gt;&lt;a href=&#34;#推荐一键安装&#34; class=&#34;headerlink&#34; title=&#34;推荐一键安装&#34;&gt;&lt;/a&gt;推荐一键安装&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Windows (choco)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;choco install kubernetes-cli helm minikube&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# macOS (brew)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;brew install kubectl helm minikube&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Linux&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -LO &lt;span class=&#34;string&#34;&gt;&amp;quot;https://dl.k8s.io/release/&lt;span class=&#34;subst&#34;&gt;$(curl -L -s https://dl.k8s.io/release/stable.txt)&lt;/span&gt;/bin/linux/amd64/kubectl&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;快速启动集群&#34;&gt;&lt;a href=&#34;#快速启动集群&#34; class=&#34;headerlink&#34; title=&#34;快速启动集群&#34;&gt;&lt;/a&gt;快速启动集群&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# minikube&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;minikube start --cpus=4 --memory=8g&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get nodes&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Helm 初始化（v3 不需要 tiller）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;helm repo add bitnami https://charts.bitnami.com/bitnami&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;helm repo update&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;helm search repo bitnami/nginx&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;七、学习工具推荐&#34;&gt;&lt;a href=&#34;#七、学习工具推荐&#34; class=&#34;headerlink&#34; title=&#34;七、学习工具推荐&#34;&gt;&lt;/a&gt;七、学习工具推荐&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;用途&lt;/th&gt;
+&lt;th&gt;工具&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;笔记&lt;/td&gt;
+&lt;td&gt;Obsidian &amp;#x2F; Notion &amp;#x2F; 飞书文档&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;思维导图&lt;/td&gt;
+&lt;td&gt;XMind &amp;#x2F; 飞书思维导图&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;命令行录屏&lt;/td&gt;
+&lt;td&gt;asciinema（记录实操回放）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;K8s 可视化&lt;/td&gt;
+&lt;td&gt;k9s（终端 UI） &amp;#x2F; Lens（桌面端）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;YAML 校验&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl explain&lt;/code&gt; &amp;#x2F; &lt;code&gt;helm lint&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;在线实验&lt;/td&gt;
+&lt;td&gt;Play with Kubernetes (killer.sh)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;刷题&lt;/td&gt;
+&lt;td&gt;CKAD 模拟题 &amp;#x2F; killer.sh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;八、小技巧&#34;&gt;&lt;a href=&#34;#八、小技巧&#34; class=&#34;headerlink&#34; title=&#34;八、小技巧&#34;&gt;&lt;/a&gt;八、小技巧&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;学一个做一个&lt;/strong&gt;：看完一个概念，立刻 &lt;code&gt;kubectl&lt;/code&gt; 敲一遍，不要光看不练&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用别名省时间&lt;/strong&gt;：&lt;code&gt;alias k=kubectl&lt;/code&gt;，&lt;code&gt;alias kgp=&amp;#39;kubectl get pods&amp;#39;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;日报驱动学习&lt;/strong&gt;：每周写一篇 K8s 学习笔记发博客，输出倒逼输入&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;加班日稳住节奏&lt;/strong&gt;：哪怕只看 10 分钟文档也要保持每日连续性&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;善用 &lt;code&gt;kubectl explain&lt;/code&gt;&lt;/strong&gt;：比查文档快，随时随地查资源字段&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 必设别名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; k=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kgp=&lt;span class=&#34;string&#34;&gt;&amp;#x27;k get pods&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kgs=&lt;span class=&#34;string&#34;&gt;&amp;#x27;k get svc&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kgd=&lt;span class=&#34;string&#34;&gt;&amp;#x27;k get deployment&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kaf=&lt;span class=&#34;string&#34;&gt;&amp;#x27;k apply -f&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kdf=&lt;span class=&#34;string&#34;&gt;&amp;#x27;k delete -f&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;九、学习计划时间表（日历视图）&#34;&gt;&lt;a href=&#34;#九、学习计划时间表（日历视图）&#34; class=&#34;headerlink&#34; title=&#34;九、学习计划时间表（日历视图）&#34;&gt;&lt;/a&gt;九、学习计划时间表（日历视图）&lt;/h2&gt;&lt;h3 id=&#34;每周重复节奏&#34;&gt;&lt;a href=&#34;#每周重复节奏&#34; class=&#34;headerlink&#34; title=&#34;每周重复节奏&#34;&gt;&lt;/a&gt;每周重复节奏&lt;/h3&gt;&lt;figure class=&#34;highlight x86asm&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;周一 🕐 加班日 → 最小动作（复习 + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; 知识点）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;周二 🕐 加班日 → 最小动作&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;周三 🌟 自由日 → 动手实践（&lt;span class=&#34;number&#34;&gt;2h&lt;/span&gt;）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;周四 🕐 加班日 → 最小动作&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;周五 🌟 自由日 → 动手实践（&lt;span class=&#34;number&#34;&gt;2h&lt;/span&gt;）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;周六 🎯 → 集中攻坚（&lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;4h&lt;/span&gt;）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;周日 🎯 → 集中攻坚（&lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;4h&lt;/span&gt;）&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;每周保底投入：&lt;/strong&gt; 4 天×1h（加班日） + 2 天×2h（自由日晚） + 2 天×3h（周末） ≈ &lt;strong&gt;14h&amp;#x2F;周&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;坚持这个节奏，6 周就能从零到上手干活 💪&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+        <category term="Kubernetes" />
+        <category term="Helm" />
+        <category term="学习计划" />
+        <updated>2026-05-08T04:18:00.000Z</updated>
+    </entry>
+</feed>

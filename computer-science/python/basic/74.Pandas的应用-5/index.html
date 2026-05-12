@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>Pandas的应用-5 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">Pandas的应用-5</h1>
+    <div class="post-meta">
+      <span class="post-date">2025-04-24 11:07</span>
+      <span class="post-word-count">2885 字</span>
+      <span class="post-reading-time">约 11 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记</a>
+      
+      <a href="/tags/python/">python</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#pandas的应用-5">Pandas的应用-5</a>
+      
+      <a class="toc-level-3" href="#dataframe的应用">DataFrame的应用</a>
+      
+      <a class="toc-level-3" href="#index的应用">Index的应用</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="pandas的应用-5"><a href="#Pandas的应用-5" class="headerlink" title="Pandas的应用-5"></a>Pandas的应用-5</h2><h3 id="dataframe的应用"><a href="#DataFrame的应用" class="headerlink" title="DataFrame的应用"></a>DataFrame的应用</h3><h4 id="窗口计算"><a href="#窗口计算" class="headerlink" title="窗口计算"></a>窗口计算</h4><p><code>DataFrame</code>对象的<code>rolling</code>方法允许我们将数据置于窗口中，然后就可以使用函数对窗口中的数据进行运算和处理。例如，我们获取了某只股票近期的数据，想制作5日均线和10日均线，那么就需要先设置窗口再进行运算。我们可以使用三方库<code>pandas-datareader</code>来获取指定的股票在某个时间段内的数据，具体的操作如下所示。</p>
+<p>安装<code>pandas-datareader</code>三方库。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install pandas-datareader</span><br></pre></td></tr></table></figure>
+
+<p>通过<code>pandas-datareader</code> 提供的<code>get_data_stooq</code>从 Stooq 网站获取百度（股票代码：BIDU）近期股票数据。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas_datareader <span class="keyword">as</span> pdr</span><br><span class="line"></span><br><span class="line">baidu_df = pdr.get_data_stooq(<span class="string">&#x27;BIDU&#x27;</span>, start=<span class="string">&#x27;2021-11-22&#x27;</span>, end=<span class="string">&#x27;2021-12-7&#x27;</span>)</span><br><span class="line">baidu_df.sort_index(inplace=<span class="literal">True</span>)</span><br><span class="line">baidu_df</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<img src="https://github.com/jackfrued/mypic/raw/master/20211208205710.png" style="zoom:38%;">
+
+<p>上面的<code>DataFrame</code>有<code>Open</code>、<code>High</code>、<code>Low</code>、<code>Close</code>、<code>Volume</code>五个列，分别代码股票的开盘价、最高价、最低价、收盘价和成交量，接下来我们对百度的股票数据进行窗口计算。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">baidu_df.rolling(<span class="number">5</span>).mean()</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<img src="https://github.com/jackfrued/mypic/raw/master/20211208205932.png" style="zoom:38%;">
+
+<p>上面的<code>Close</code> 列的数据就是我们需要的5日均线，当然，我们也可以用下面的方法，直接在<code>Close</code>列对应的<code>Series</code>对象上计算5日均线。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">baidu_df.Close.rolling(<span class="number">5</span>).mean()</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">Date</span></span><br><span class="line"><span class="attribute">2021</span>-<span class="number">11</span>-<span class="number">22</span>        NaN</span><br><span class="line"><span class="attribute">2021</span>-<span class="number">11</span>-<span class="number">23</span>        NaN</span><br><span class="line"><span class="attribute">2021</span>-<span class="number">11</span>-<span class="number">24</span>        NaN</span><br><span class="line"><span class="attribute">2021</span>-<span class="number">11</span>-<span class="number">26</span>        NaN</span><br><span class="line"><span class="attribute">2021</span>-<span class="number">11</span>-<span class="number">29</span>    <span class="number">150</span>.<span class="number">608</span></span><br><span class="line"><span class="attribute">2021</span>-<span class="number">11</span>-<span class="number">30</span>    <span class="number">151</span>.<span class="number">014</span></span><br><span class="line"><span class="attribute">2021</span>-<span class="number">12</span>-<span class="number">01</span>    <span class="number">150</span>.<span class="number">682</span></span><br><span class="line"><span class="attribute">2021</span>-<span class="number">12</span>-<span class="number">02</span>    <span class="number">150</span>.<span class="number">196</span></span><br><span class="line"><span class="attribute">2021</span>-<span class="number">12</span>-<span class="number">03</span>    <span class="number">147</span>.<span class="number">062</span></span><br><span class="line"><span class="attribute">2021</span>-<span class="number">12</span>-<span class="number">06</span>    <span class="number">146</span>.<span class="number">534</span></span><br><span class="line"><span class="attribute">2021</span>-<span class="number">12</span>-<span class="number">07</span>    <span class="number">146</span>.<span class="number">544</span></span><br><span class="line"><span class="attribute">Name</span>: Close, dtype: float64</span><br></pre></td></tr></table></figure>
+
+<h4 id="相关性判定"><a href="#相关性判定" class="headerlink" title="相关性判定"></a>相关性判定</h4><p>在统计学中，我们通常使用协方差（covariance）来衡量两个随机变量的联合变化程度。如果变量 $X$ 的较大值主要与另一个变量 $Y$ 的较大值相对应，而两者较小值也相对应，那么两个变量倾向于表现出相似的行为，协方差为正。如果一个变量的较大值主要对应于另一个变量的较小值，则两个变量倾向于表现出相反的行为，协方差为负。简单的说，协方差的正负号显示着两个变量的相关性。方差是协方差的一种特殊情况，即变量与自身的协方差。</p>
+<p>$$<br>cov(X,Y) &#x3D; E((X - \mu)(Y - \upsilon)) &#x3D; E(X \cdot Y) - \mu\upsilon<br>$$</p>
+<p>如果 $X$ 和 $Y$ 是统计独立的，那么二者的协方差为0，这是因为在 $X$ 和 $Y$ 独立的情况下：</p>
+<p>$$<br>E(X \cdot Y) &#x3D; E(X) \cdot E(Y) &#x3D; \mu\upsilon<br>$$</p>
+<p>协方差的数值大小取决于变量的大小，通常是不容易解释的，但是正态形式的协方差大小可以显示两变量线性关系的强弱。在统计学中，皮尔逊积矩相关系数就是正态形式的协方差，它用于度量两个变量 $X$ 和 $Y$ 之间的相关程度（线性相关），其值介于<code>-1</code>到<code>1</code>之间。</p>
+<p>$$<br>\rho{X,Y} &#x3D; \frac {cov(X, Y)} {\sigma_{X}\sigma_{Y}}<br>$$</p>
+<p>估算样本的协方差和标准差，可以得到样本皮尔逊系数，通常用希腊字母 $\rho$ 表示。</p>
+<p>$$<br>\rho &#x3D; \frac {\sum_{i&#x3D;1}^{n}(X_i - \bar{X})(Y_i - \bar{Y})} {\sqrt{\sum_{i&#x3D;1}^{n}(X_i - \bar{X})^2} \sqrt{\sum_{i&#x3D;1}^{n}(Y_i - \bar{Y})^2}}<br>$$</p>
+<p>我们用 $\rho$ 值判断指标的相关性时遵循以下两个步骤。</p>
+<ol>
+<li>判断指标间是正相关、负相关，还是不相关。<ul>
+<li>当 $ \rho \gt 0 $，认为变量之间是正相关，也就是两者的趋势一致。</li>
+<li>当 $ \rho \lt 0 $，认为变量之间是负相关，也就是两者的趋势相反。</li>
+<li>当 $ \rho &#x3D; 0 $，认为变量之间是不相关的，但并不代表两个指标是统计独立的。</li>
+</ul>
+</li>
+<li>判断指标间的相关程度。<ul>
+<li>当 $ \rho $ 的绝对值在 $ [0.6,1] $ 之间，认为变量之间是强相关的。</li>
+<li>当 $ \rho $ 的绝对值在 $ [0.1,0.6) $ 之间，认为变量之间是弱相关的。</li>
+<li>当 $ \rho $ 的绝对值在 $ [0,0.1) $ 之间，认为变量之间没有相关性。</li>
+</ul>
+</li>
+</ol>
+<p>皮尔逊相关系数适用于：</p>
+<ol>
+<li>两个变量之间是线性关系，都是连续数据。</li>
+<li>两个变量的总体是正态分布，或接近正态的单峰分布。</li>
+<li>两个变量的观测值是成对的，每对观测值之间相互独立。</li>
+</ol>
+<p><code>DataFrame</code>对象的<code>cov</code>方法和<code>corr</code>方法分别用于计算协方差和相关系数，<code>corr</code>方法的第一个参数<code>method</code>的默认值是<code>pearson</code>，表示计算皮尔逊相关系数；除此之外，还可以指定<code>kendall</code>或<code>spearman</code>来获得肯德尔系数或斯皮尔曼等级相关系数。</p>
+<p>接下来，我们从名为<code>boston_house_price.csv</code>的文件中获取著名的<a target="_blank" rel="noopener" href="https://www.heywhale.com/mw/dataset/590bd595812ede32b73f55f2">波士顿房价数据集</a>来创建一个<code>DataFrame</code>，我们通过<code>corr</code>方法计算可能影响房价的<code>13</code>个因素中，哪些跟房价是正相关或负相关的，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">boston_df = pd.read_csv(<span class="string">&#x27;data/csv/boston_house_price.csv&#x27;</span>)</span><br><span class="line">boston_df.corr()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：如果需要上面例子中的 CSV 文件，可以通过下面的百度云盘地址进行获取，数据在《从零开始学数据分析》目录中。链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1rQujl5RQn9R7PadB2Z5g_g">https://pan.baidu.com/s/1rQujl5RQn9R7PadB2Z5g_g</a>，提取码：e7b4。</p>
+</blockquote>
+<p>输出：</p>
+<img src="https://github.com/jackfrued/mypic/raw/master/20211208213325.png">
+
+<p>斯皮尔曼相关系数对数据条件的要求没有皮尔逊相关系数严格，只要两个变量的观测值是成对的等级评定资料，或者是由连续变量观测资料转化得到的等级资料，不论两个变量的总体分布形态、样本容量的大小如何，都可以用斯皮尔曼等级相关系数来进行研究。我们通过下面的方式来计算斯皮尔曼相关系数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">boston_df.corr(<span class="string">&#x27;spearman&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p> 输出：</p>
+<img src="https://github.com/jackfrued/mypic/raw/master/20211208213518.png">
+
+<p>在 Notebook 或 JupyterLab 中，我们可以为<code>PRICE</code>列添加渐变色，用颜色直观的展示出跟房价负相关、正相关、不相关的列，<code>DataFrame</code>对象<code>style</code>属性的<code>background_gradient</code>方法可以完成这个操作，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">boston_df.corr(<span class="string">&#x27;spearman&#x27;</span>).style.background_gradient(<span class="string">&#x27;RdYlBu&#x27;</span>, subset=[<span class="string">&#x27;PRICE&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<img src="https://github.com/jackfrued/mypic/raw/master/20211208215228.png">
+
+<p>上面代码中的<code>RdYlBu</code>代表的颜色如下所示，相关系数的数据值越接近<code>1</code>，颜色越接近红色；数据值越接近<code>1</code>，颜色越接近蓝色；数据值在<code>0</code>附件则是黄色。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">plt.get_cmap(<span class="string">&#x27;RdYlBu&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<img src="https://github.com/jackfrued/mypic/raw/master/20211208215057.png">
+
+<h3 id="index的应用"><a href="#Index的应用" class="headerlink" title="Index的应用"></a>Index的应用</h3><p>我们再来看看<code>Index</code>类型，它为<code>Series</code>和<code>DataFrame</code>对象提供了索引服务，常用的<code>Index</code>有以下几种。</p>
+<h4 id="范围索引（RangeIndex）"><a href="#范围索引（RangeIndex）" class="headerlink" title="范围索引（RangeIndex）"></a>范围索引（RangeIndex）</h4><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sales_data = np.random.randint(<span class="number">400</span>, <span class="number">1000</span>, <span class="number">12</span>)</span><br><span class="line">month_index = pd.RangeIndex(<span class="number">1</span>, <span class="number">13</span>, name=<span class="string">&#x27;月份&#x27;</span>)</span><br><span class="line">ser = pd.Series(data=sales_data, index=month_index)</span><br><span class="line">ser</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">月份</span><br><span class="line"><span class="number">1</span>     <span class="number">703</span></span><br><span class="line"><span class="number">2</span>     <span class="number">705</span></span><br><span class="line"><span class="number">3</span>     <span class="number">557</span></span><br><span class="line"><span class="number">4</span>     <span class="number">943</span></span><br><span class="line"><span class="number">5</span>     <span class="number">961</span></span><br><span class="line"><span class="number">6</span>     <span class="number">615</span></span><br><span class="line"><span class="number">7</span>     <span class="number">788</span></span><br><span class="line"><span class="number">8</span>     <span class="number">985</span></span><br><span class="line"><span class="number">9</span>     <span class="number">921</span></span><br><span class="line"><span class="number">10</span>    <span class="number">951</span></span><br><span class="line"><span class="number">11</span>    <span class="number">874</span></span><br><span class="line"><span class="number">12</span>    <span class="number">609</span></span><br><span class="line">dtype: <span class="built_in">int64</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="分类索引（CategoricalIndex）"><a href="#分类索引（CategoricalIndex）" class="headerlink" title="分类索引（CategoricalIndex）"></a>分类索引（CategoricalIndex）</h4><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">cate_index = pd.CategoricalIndex(</span><br><span class="line">    [<span class="string">&#x27;苹果&#x27;</span>, <span class="string">&#x27;香蕉&#x27;</span>, <span class="string">&#x27;苹果&#x27;</span>, <span class="string">&#x27;苹果&#x27;</span>, <span class="string">&#x27;桃子&#x27;</span>, <span class="string">&#x27;香蕉&#x27;</span>],</span><br><span class="line">    ordered=<span class="literal">True</span>,</span><br><span class="line">    categories=[<span class="string">&#x27;苹果&#x27;</span>, <span class="string">&#x27;香蕉&#x27;</span>, <span class="string">&#x27;桃子&#x27;</span>]</span><br><span class="line">)</span><br><span class="line">ser = pd.Series(data=amount, index=cate_index)</span><br><span class="line">ser</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">苹果    <span class="number">6</span></span><br><span class="line">香蕉    <span class="number">6</span></span><br><span class="line">苹果    <span class="number">7</span></span><br><span class="line">苹果    <span class="number">6</span></span><br><span class="line">桃子    <span class="number">8</span></span><br><span class="line">香蕉    <span class="number">6</span></span><br><span class="line">dtype: <span class="built_in">int64</span></span><br></pre></td></tr></table></figure>
+
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ser.groupby(level=<span class="number">0</span>).<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">苹果    <span class="number">19</span></span><br><span class="line">香蕉    <span class="number">12</span></span><br><span class="line">桃子     <span class="number">8</span></span><br><span class="line">dtype: <span class="built_in">int64</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="多级索引（MultiIndex）"><a href="#多级索引（MultiIndex）" class="headerlink" title="多级索引（MultiIndex）"></a>多级索引（MultiIndex）</h4><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ids = np.arange(<span class="number">1001</span>, <span class="number">1006</span>)</span><br><span class="line">sms = [<span class="string">&#x27;期中&#x27;</span>, <span class="string">&#x27;期末&#x27;</span>]</span><br><span class="line">index = pd.MultiIndex.from_product((ids, sms), names=[<span class="string">&#x27;学号&#x27;</span>, <span class="string">&#x27;学期&#x27;</span>])</span><br><span class="line">courses = [<span class="string">&#x27;语文&#x27;</span>, <span class="string">&#x27;数学&#x27;</span>, <span class="string">&#x27;英语&#x27;</span>]</span><br><span class="line">scores = np.random.randint(<span class="number">60</span>, <span class="number">101</span>, (<span class="number">10</span>, <span class="number">3</span>))</span><br><span class="line">df = pd.DataFrame(data=scores, columns=courses, index=index)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：上面的代码使用了<code>MultiIndex</code>的类方法<code>from_product</code>，该方法通过<code>ids</code>和<code>sms</code>两组数据的笛卡尔积构造了多级索引。</p>
+</blockquote>
+<p>输出：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line">             <span class="string">语文</span> <span class="string">数学</span> <span class="string">英语</span></span><br><span class="line"><span class="string">学号</span>	<span class="string">学期</span>			</span><br><span class="line"><span class="number">1001</span>  <span class="string">期中</span>	<span class="number">93</span>	<span class="number">77</span>	<span class="number">60</span></span><br><span class="line">      <span class="string">期末</span>	<span class="number">93</span>	<span class="number">98</span>	<span class="number">84</span></span><br><span class="line"><span class="number">1002</span>  <span class="string">期中</span>	<span class="number">64</span>	<span class="number">78</span>	<span class="number">71</span></span><br><span class="line">      <span class="string">期末</span>	<span class="number">70</span>	<span class="number">71</span>	<span class="number">97</span></span><br><span class="line"><span class="number">1003</span>  <span class="string">期中</span>	<span class="number">72</span>	<span class="number">88</span>	<span class="number">97</span></span><br><span class="line">      <span class="string">期末</span>	<span class="number">99</span>	<span class="number">100</span>	<span class="number">63</span></span><br><span class="line"><span class="number">1004</span>  <span class="string">期中</span>	<span class="number">80</span>	<span class="number">71</span>	<span class="number">61</span></span><br><span class="line">      <span class="string">期末</span>	<span class="number">91</span>	<span class="number">62</span>	<span class="number">72</span></span><br><span class="line"><span class="number">1005</span>  <span class="string">期中</span>	<span class="number">82</span>	<span class="number">95</span>	<span class="number">67</span></span><br><span class="line">      <span class="string">期末</span>	<span class="number">84</span>	<span class="number">78</span>	<span class="number">86</span></span><br></pre></td></tr></table></figure>
+
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 计算每个学生的成绩，期中占25%，期末占75%</span></span><br><span class="line">df.groupby(level=<span class="number">0</span>).agg(<span class="keyword">lambda</span> x: x.values[<span class="number">0</span>] * <span class="number">0.25</span> + x.values[<span class="number">1</span>] * <span class="number">0.75</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">        语文    数学    英语</span><br><span class="line">学号			</span><br><span class="line"><span class="number">1001	93.00</span>	<span class="number">92.75	78.00</span></span><br><span class="line"><span class="number">1002	68.50</span>	<span class="number">72.75	90.50</span></span><br><span class="line"><span class="number">1003	92.25</span>	<span class="number">97.00	71.50</span></span><br><span class="line"><span class="number">1004	88.25</span>	<span class="number">64.25	69.25</span></span><br><span class="line"><span class="number">1005	83.50</span>	<span class="number">82.25	81.25</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="日期时间索引（DatetimeIndex）"><a href="#日期时间索引（DatetimeIndex）" class="headerlink" title="日期时间索引（DatetimeIndex）"></a>日期时间索引（DatetimeIndex）</h4><ol>
+<li><p>通过<code>date_range()</code>函数，我们可以创建日期时间索引，代码如下所示。</p>
+<p> 代码：</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.date_range(<span class="string">&#x27;2021-1-1&#x27;</span>, <span class="string">&#x27;2021-6-1&#x27;</span>, periods=<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<p> 输出：</p>
+ <figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">DatetimeIndex([&#x27;<span class="number">2021-01-01</span> 00:00:00&#x27;, &#x27;<span class="number">2021-01-17</span> 18:40:00&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-02-03</span> 13:20:00&#x27;, &#x27;<span class="number">2021-02-20</span> 08:00:00&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-03-09</span> 02:40:00&#x27;, &#x27;<span class="number">2021-03-25</span> 21:20:00&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-04-11</span> 16:00:00&#x27;, &#x27;<span class="number">2021-04-28</span> 10:40:00&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-05-15</span> 05:20:00&#x27;, &#x27;<span class="number">2021-06-01</span> 00:00:00&#x27;],</span><br><span class="line">              dtype=&#x27;datetime64[ns]&#x27;, freq=None)</span><br></pre></td></tr></table></figure>
+
+<p> 代码：</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.date_range(<span class="string">&#x27;2021-1-1&#x27;</span>, <span class="string">&#x27;2021-6-1&#x27;</span>, freq=<span class="string">&#x27;W&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p> 输出：</p>
+ <figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">DatetimeIndex([&#x27;<span class="number">2021-01-03</span>&#x27;, &#x27;<span class="number">2021-01-10</span>&#x27;, &#x27;<span class="number">2021-01-17</span>&#x27;, &#x27;<span class="number">2021-01-24</span>&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-01-31</span>&#x27;, &#x27;<span class="number">2021-02-07</span>&#x27;, &#x27;<span class="number">2021-02-14</span>&#x27;, &#x27;<span class="number">2021-02-21</span>&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-02-28</span>&#x27;, &#x27;<span class="number">2021-03-07</span>&#x27;, &#x27;<span class="number">2021-03-14</span>&#x27;, &#x27;<span class="number">2021-03-21</span>&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-03-28</span>&#x27;, &#x27;<span class="number">2021-04-04</span>&#x27;, &#x27;<span class="number">2021-04-11</span>&#x27;, &#x27;<span class="number">2021-04-18</span>&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-04-25</span>&#x27;, &#x27;<span class="number">2021-05-02</span>&#x27;, &#x27;<span class="number">2021-05-09</span>&#x27;, &#x27;<span class="number">2021-05-16</span>&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-05-23</span>&#x27;, &#x27;<span class="number">2021-05-30</span>&#x27;],</span><br><span class="line">              dtype=&#x27;datetime64[ns]&#x27;, freq=&#x27;W-SUN&#x27;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过<code>DateOffset</code>类型，我们可以设置时间差并和<code>DatetimeIndex</code>进行运算，具体的操作如下所示。</p>
+<p> 代码：</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">index = pd.date_range(<span class="string">&#x27;2021-1-1&#x27;</span>, <span class="string">&#x27;2021-6-1&#x27;</span>, freq=<span class="string">&#x27;W&#x27;</span>)</span><br><span class="line">index - pd.DateOffset(days=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p> 输出：</p>
+ <figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">DatetimeIndex([&#x27;<span class="number">2021-01-01</span>&#x27;, &#x27;<span class="number">2021-01-08</span>&#x27;, &#x27;<span class="number">2021-01-15</span>&#x27;, &#x27;<span class="number">2021-01-22</span>&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-01-29</span>&#x27;, &#x27;<span class="number">2021-02-05</span>&#x27;, &#x27;<span class="number">2021-02-12</span>&#x27;, &#x27;<span class="number">2021-02-19</span>&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-02-26</span>&#x27;, &#x27;<span class="number">2021-03-05</span>&#x27;, &#x27;<span class="number">2021-03-12</span>&#x27;, &#x27;<span class="number">2021-03-19</span>&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-03-26</span>&#x27;, &#x27;<span class="number">2021-04-02</span>&#x27;, &#x27;<span class="number">2021-04-09</span>&#x27;, &#x27;<span class="number">2021-04-16</span>&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-04-23</span>&#x27;, &#x27;<span class="number">2021-04-30</span>&#x27;, &#x27;<span class="number">2021-05-07</span>&#x27;, &#x27;<span class="number">2021-05-14</span>&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-05-21</span>&#x27;, &#x27;<span class="number">2021-05-28</span>&#x27;],</span><br><span class="line">              dtype=&#x27;datetime64[ns]&#x27;, freq=None)</span><br></pre></td></tr></table></figure>
+
+<p> 代码：</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">index + pd.DateOffset(days=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p> 输出：</p>
+ <figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line">DatetimeIndex([&#x27;<span class="number">2021-01-05</span>&#x27;, &#x27;<span class="number">2021-01-12</span>&#x27;, &#x27;<span class="number">2021-01-19</span>&#x27;, &#x27;<span class="number">2021-01-26</span>&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-02-02</span>&#x27;, &#x27;<span class="number">2021-02-09</span>&#x27;, &#x27;<span class="number">2021-02-16</span>&#x27;, &#x27;<span class="number">2021-02-23</span>&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-03-02</span>&#x27;, &#x27;<span class="number">2021-03-09</span>&#x27;, &#x27;<span class="number">2021-03-16</span>&#x27;, &#x27;<span class="number">2021-03-23</span>&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-03-30</span>&#x27;, &#x27;<span class="number">2021-04-06</span>&#x27;, &#x27;<span class="number">2021-04-13</span>&#x27;, &#x27;<span class="number">2021-04-20</span>&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-04-27</span>&#x27;, &#x27;<span class="number">2021-05-04</span>&#x27;, &#x27;<span class="number">2021-05-11</span>&#x27;, &#x27;<span class="number">2021-05-18</span>&#x27;,</span><br><span class="line">               &#x27;<span class="number">2021-05-25</span>&#x27;, &#x27;<span class="number">2021-06-01</span>&#x27;],</span><br><span class="line">              dtype=&#x27;datetime64[ns]&#x27;, freq=None)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以使用<code>DatatimeIndex</code>类型的相关方法来处理数据，具体包括：</p>
+<ul>
+<li><p><code>shift()</code>方法：通过时间前移或后移数据，我们仍然以上面百度股票数据为例，代码如下所示。</p>
+<p>  代码：</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">baidu_df.shift(<span class="number">3</span>, fill_value=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>  输出：</p>
+  <img src="https://github.com/jackfrued/mypic/raw/master/20211208220551.png" style="zoom:150%;">
+
+<p>  代码：</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">baidu_df.shift(-<span class="number">1</span>, fill_value=<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>  输出：</p>
+  <img src="https://github.com/jackfrued/mypic/raw/master/20211208220713.png" style="zoom:150%;">
+</li>
+<li><p><code>asfreq()</code>方法：指定一个时间频率抽取对应的数据，代码如下所示。</p>
+<p>  代码：</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">baidu_df.asfreq(<span class="string">&#x27;5D&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>  输出：</p>
+  <img src="https://github.com/jackfrued/mypic/raw/master/20211208221202.png">
+
+<p>  代码：</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">baidu_df.asfreq(<span class="string">&#x27;5D&#x27;</span>, method=<span class="string">&#x27;ffill&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>  输出：</p>
+  <img src="https://github.com/jackfrued/mypic/raw/master/20211208221249.png" style="zoom:150%;">
+</li>
+<li><p><code>resample()</code>方法：基于时间对数据进行重采样，相当于根据时间周期对数据进行了分组操作，代码如下所示。</p>
+<p>  代码：</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">baidu_df.resample(<span class="string">&#x27;1M&#x27;</span>).mean()</span><br></pre></td></tr></table></figure>
+
+<p>  输出：</p>
+  <img src="https://github.com/jackfrued/mypic/raw/master/20211208221429.png"></li>
+</ul>
+<blockquote>
+<p><strong>说明</strong>：上面的代码中，<code>W</code>表示一周，<code>5D</code>表示<code>5</code>天，<code>1M</code>表示<code>1</code>个月。</p>
+</blockquote>
+</li>
+<li><p>时区转换</p>
+<ul>
+<li><p>获取时区信息。</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pytz</span><br><span class="line"></span><br><span class="line">pytz.common_timezones</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>tz_localize()</code>方法：将日期时间本地化。</p>
+<p>  代码：</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">baidu_df = baidu_df.tz_localize(<span class="string">&#x27;Asia/Chongqing&#x27;</span>)</span><br><span class="line">baidu_df</span><br></pre></td></tr></table></figure>
+
+<p>  输出：</p>
+  <img src="https://github.com/jackfrued/mypic/raw/master/20211208221947.png">
+</li>
+<li><p><code>tz_convert()</code>方法：转换时区。</p>
+<p>  代码：</p>
+  <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">baidu_df.tz_convert(<span class="string">&#x27;America/New_York&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>  输出：</p>
+  <img src="https://github.com/jackfrued/mypic/raw/master/20211208222404.png"></li>
+</ul>
+</li>
+</ol>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/python/basic/75.%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96-1/">上一篇：数据可视化-1</a>
+  
+  
+  <a class="next" href="/computer-science/python/basic/73.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-4/">下一篇：Pandas的应用-4</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

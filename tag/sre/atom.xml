@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://scottalive.github.io</id>
+    <title>沉鱼的博客 • Posts by &#34;sre&#34; tag</title>
+    <link href="https://scottalive.github.io" />
+    <updated>2026-05-10T16:50:00.000Z</updated>
+    <category term="AI日报" />
+    <category term="AI" />
+    <category term="GitHub热门" />
+    <category term="人工智能" />
+    <category term="技术趋势" />
+    <category term="原则" />
+    <category term="个人详情" />
+    <category term="个人分享" />
+    <category term="坏习惯" />
+    <category term="Kubernetes" />
+    <category term="Helm" />
+    <category term="学习计划" />
+    <category term="心理学知识" />
+    <category term="网络安全" />
+    <category term="SQL注入" />
+    <category term="XSS" />
+    <category term="CSRF" />
+    <category term="DDoS" />
+    <category term="渗透测试" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
+    <category term="GPT-5.5" />
+    <category term="OpenAI" />
+    <category term="Codex" />
+    <category term="ClaudeCode" />
+    <category term="Gemini" />
+    <category term="开发工具" />
+    <category term="开源" />
+    <category term="编程笔记" />
+    <category term="Hermes" />
+    <category term="Agent" />
+    <category term="NousResearch" />
+    <category term="进阶" />
+    <category term="配置" />
+    <category term="高阶" />
+    <category term="自动化" />
+    <category term="LLM" />
+    <category term="RAG" />
+    <category term="知识库" />
+    <category term="OpenSRE" />
+    <category term="SRE" />
+    <category term="运维" />
+    <category term="故障排查" />
+    <category term="SSE" />
+    <category term="HTTP" />
+    <category term="接口开发" />
+    <category term="开发注意事项" />
+    <category term="力扣算法题" />
+    <category term="算法" />
+    <category term="动态规划" />
+    <category term="微服务" />
+    <category term="JavaSE" />
+    <category term="Java开发面试题" />
+    <category term="SpringBoot" />
+    <category term="Spring" />
+    <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/OpenSRE-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</id>
+        <title>OpenSRE 安装与使用指南</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/OpenSRE-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
+        <content type="html">&lt;h2 id=&#34;概述&#34;&gt;&lt;a href=&#34;#概述&#34; class=&#34;headerlink&#34; title=&#34;概述&#34;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;OpenSRE&lt;/strong&gt; 是一个开源的 AI SRE（站点可靠性工程）Agent 框架，能够帮助你构建属于自己的 AI 运维助手。它能够连接 60+ 常用工具，自动进行生产故障调查、根因分析，并生成结构化的调查报告。&lt;/p&gt;
+&lt;p&gt;项目地址：&lt;a href=&#34;https://github.com/Tracer-Cloud/OpenSRE&#34;&gt;GitHub - Tracer-Cloud&amp;#x2F;OpenSRE&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当前状态：Public Alpha，核心工作流可用，API 和集成仍在积极演进中。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;核心特性&#34;&gt;&lt;a href=&#34;#核心特性&#34; class=&#34;headerlink&#34; title=&#34;核心特性&#34;&gt;&lt;/a&gt;核心特性&lt;/h2&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[故障告警] --&amp;gt; B[OpenSRE]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[拉取日志/指标/链路]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; D[跨系统推理分析]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; E[生成根因分析报告]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; F[建议修复方案]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; G[推送总结到 Slack/PagerDuty]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;🔍 结构化事故调查&lt;/strong&gt; — 跨信号源的关联根因分析&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📋 Runbook 感知推理&lt;/strong&gt; — 自动读取并应用你的 Runbook&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔮 预测性故障检测&lt;/strong&gt; — 在告警触发前捕捉异常&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔗 证据驱动根因&lt;/strong&gt; — 每个结论都链接着背后的数据&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🤖 全 LLM 灵活支持&lt;/strong&gt; — 支持 Anthropic、OpenAI、Ollama、Gemini、OpenRouter、NVIDIA NIM 等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;安装&#34;&gt;&lt;a href=&#34;#安装&#34; class=&#34;headerlink&#34; title=&#34;安装&#34;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;h3 id=&#34;macOS-Linux&#34;&gt;&lt;a href=&#34;#macOS-Linux&#34; class=&#34;headerlink&#34; title=&#34;macOS &amp;#x2F; Linux&#34;&gt;&lt;/a&gt;macOS &amp;#x2F; Linux&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 方式一：一键安装脚本（推荐）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -fsSL https://install.opensre.com | bash&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 安装 main 分支最新构建&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -fsSL https://install.opensre.com | bash -s -- --main&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 方式二：Homebrew&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;brew tap tracer-cloud/tap&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;brew install tracer-cloud/tap/opensre&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;Windows（PowerShell）&#34;&gt;&lt;a href=&#34;#Windows（PowerShell）&#34; class=&#34;headerlink&#34; title=&#34;Windows（PowerShell）&#34;&gt;&lt;/a&gt;Windows（PowerShell）&lt;/h3&gt;&lt;figure class=&#34;highlight powershell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 一键安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;irm&lt;/span&gt; https://install.opensre.com | &lt;span class=&#34;built_in&#34;&gt;iex&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;开发者模式（源码安装）&#34;&gt;&lt;a href=&#34;#开发者模式（源码安装）&#34; class=&#34;headerlink&#34; title=&#34;开发者模式（源码安装）&#34;&gt;&lt;/a&gt;开发者模式（源码安装）&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 前提：Python 3.12+、Git、uv&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;git &lt;span class=&#34;built_in&#34;&gt;clone&lt;/span&gt; https://github.com/YOUR_USERNAME/opensre.git&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;cd&lt;/span&gt; opensre&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 安装 uv（macOS/Linux）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -LsSf https://astral.sh/uv/install.sh | sh&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 安装 uv（Windows PowerShell）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;irm https://astral.sh/uv/install.ps1 | iex&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 安装依赖&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;make install&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 或无 Make：uv sync --frozen --extra dev&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#            uv run python -m app.analytics.install&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 验证安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;make lint &amp;amp;&amp;amp; make format-check &amp;amp;&amp;amp; make typecheck &amp;amp;&amp;amp; make test-cov&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;快速上手&#34;&gt;&lt;a href=&#34;#快速上手&#34; class=&#34;headerlink&#34; title=&#34;快速上手&#34;&gt;&lt;/a&gt;快速上手&lt;/h2&gt;&lt;h3 id=&#34;1-初始化配置&#34;&gt;&lt;a href=&#34;#1-初始化配置&#34; class=&#34;headerlink&#34; title=&#34;1. 初始化配置&#34;&gt;&lt;/a&gt;1. 初始化配置&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;opensre onboard&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;启动交互式向导，配置以下内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;LLM 提供商&lt;/strong&gt; — 选择你使用的 AI 模型（Anthropic、OpenAI、Ollama 等）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API Key&lt;/strong&gt; — 输入对应提供商密钥&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;集成服务&lt;/strong&gt; — 连接 Grafana、Datadog、Slack、AWS、Sentry 等工具&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-交互式-Shell&#34;&gt;&lt;a href=&#34;#2-交互式-Shell&#34; class=&#34;headerlink&#34; title=&#34;2. 交互式 Shell&#34;&gt;&lt;/a&gt;2. 交互式 Shell&lt;/h3&gt;&lt;p&gt;不带任何参数启动 OpenSRE，进入交互式探索模式（需 TTY）：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;opensre&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;支持斜杠命令：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;th&gt;功能&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/help&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;查看帮助&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/status&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;查看当前状态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/clear&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;清屏&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/reset&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;重置会话&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/trust&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;信任模式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/effort low|medium|high|xhigh|max&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设置推理深度（OpenAI&amp;#x2F;Codex 提供商）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/exit&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;退出&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;提示：&lt;code&gt;Ctrl+C&lt;/code&gt; 可取消正在进行的调查，不会丢失会话状态。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;3-单次调查&#34;&gt;&lt;a href=&#34;#3-单次调查&#34; class=&#34;headerlink&#34; title=&#34;3. 单次调查&#34;&gt;&lt;/a&gt;3. 单次调查&lt;/h3&gt;&lt;p&gt;直接传入告警文件执行一次性调查：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;opensre investigate -i tests/e2e/kubernetes/fixtures/datadog_k8s_alert.json&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;4-常用命令&#34;&gt;&lt;a href=&#34;#4-常用命令&#34; class=&#34;headerlink&#34; title=&#34;4. 常用命令&#34;&gt;&lt;/a&gt;4. 常用命令&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 更新 OpenSRE&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;opensre update&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 卸载（清除所有本地数据）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;opensre uninstall&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;opensre uninstall --&lt;span class=&#34;built_in&#34;&gt;yes&lt;/span&gt;  &lt;span class=&#34;comment&#34;&gt;# 跳过确认&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;部署方案&#34;&gt;&lt;a href=&#34;#部署方案&#34; class=&#34;headerlink&#34; title=&#34;部署方案&#34;&gt;&lt;/a&gt;部署方案&lt;/h2&gt;&lt;h3 id=&#34;方案一：LangGraph-Platform（官方推荐）&#34;&gt;&lt;a href=&#34;#方案一：LangGraph-Platform（官方推荐）&#34; class=&#34;headerlink&#34; title=&#34;方案一：LangGraph Platform（官方推荐）&#34;&gt;&lt;/a&gt;方案一：LangGraph Platform（官方推荐）&lt;/h3&gt;&lt;p&gt;适用于生产环境部署：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[GitHub 仓库] --&amp;gt; B[LangGraph Platform]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[LLM Provider]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; D[Postgres + Redis]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; E[集成服务]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; F[Anthropic/OpenAI/Gemini...]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol&gt;
+&lt;li&gt;在 LangGraph Platform 中创建新部署，连接该仓库&lt;/li&gt;
+&lt;li&gt;保留根目录的 &lt;code&gt;langgraph.json&lt;/code&gt; 配置文件&lt;/li&gt;
+&lt;li&gt;配置环境变量：&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;LLM_PROVIDER=anthropic&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ANTHROPIC_API_KEY=your-api-key-here&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;添加集成所需的环境变量并部署&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;方案二：Railway（自托管）&#34;&gt;&lt;a href=&#34;#方案二：Railway（自托管）&#34; class=&#34;headerlink&#34; title=&#34;方案二：Railway（自托管）&#34;&gt;&lt;/a&gt;方案二：Railway（自托管）&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 前提：已创建 Railway 项目并配置 Postgres 和 Redis&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;opensre deploy railway --project &amp;lt;project&amp;gt; --service &amp;lt;service&amp;gt; --&lt;span class=&#34;built_in&#34;&gt;yes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;需要设置以下环境变量：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;DATABASE_URI&lt;/code&gt; — Railway Postgres 实例地址&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;REDIS_URI&lt;/code&gt; — Railway Redis 实例地址&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;集成能力&#34;&gt;&lt;a href=&#34;#集成能力&#34; class=&#34;headerlink&#34; title=&#34;集成能力&#34;&gt;&lt;/a&gt;集成能力&lt;/h2&gt;&lt;p&gt;OpenSRE 连接 &lt;strong&gt;60+&lt;/strong&gt; 工具和服务，涵盖以下类别：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;类别&lt;/th&gt;
+&lt;th&gt;支持的工具&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;AI&amp;#x2F;LLM&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Anthropic · OpenAI · Ollama · Gemini · OpenRouter · NVIDIA NIM · Bedrock&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;可观测性&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Grafana · Datadog · Prometheus · CloudWatch · Honeycomb · Coralogix · Sentry&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;云基础设施&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;AWS (EC2&amp;#x2F;ECS&amp;#x2F;Lambda) · Kubernetes · Azure · ArgoCD&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;数据处理&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Kafka · Flink · Airflow · ClickHouse&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;告警&amp;#x2F;事件&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;PagerDuty · Alertmanager · Opsgenie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;协作&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Slack · Discord · Google Docs&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;协议&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;MCP · ACP · OpenClaw&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h2 id=&#34;与-OpenClaw-集成&#34;&gt;&lt;a href=&#34;#与-OpenClaw-集成&#34; class=&#34;headerlink&#34; title=&#34;与 OpenClaw 集成&#34;&gt;&lt;/a&gt;与 OpenClaw 集成&lt;/h2&gt;&lt;p&gt;OpenSRE 原生支持通过 MCP 协议与 OpenClaw 协同工作：&lt;/p&gt;
+&lt;h3 id=&#34;1-添加-MCP-Server&#34;&gt;&lt;a href=&#34;#1-添加-MCP-Server&#34; class=&#34;headerlink&#34; title=&#34;1. 添加 MCP Server&#34;&gt;&lt;/a&gt;1. 添加 MCP Server&lt;/h3&gt;&lt;p&gt;在 OpenClaw 的 &lt;strong&gt;Settings → MCP Servers&lt;/strong&gt; 中添加：&lt;/p&gt;
+&lt;figure class=&#34;highlight json&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;mcpServers&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;&amp;quot;opensre&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;&amp;quot;command&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;opensre-mcp&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;&amp;quot;args&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;如果 &lt;code&gt;opensre-mcp&lt;/code&gt; 不在 PATH 中：&lt;/p&gt;
+&lt;figure class=&#34;highlight json&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;command&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;uv&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;args&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;run&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;opensre-mcp&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;2-运行测试调查&#34;&gt;&lt;a href=&#34;#2-运行测试调查&#34; class=&#34;headerlink&#34; title=&#34;2. 运行测试调查&#34;&gt;&lt;/a&gt;2. 运行测试调查&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;opensre investigate -i tests/fixtures/openclaw_test_alert.json&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;3-可选：OpenSRE-调用-OpenClaw&#34;&gt;&lt;a href=&#34;#3-可选：OpenSRE-调用-OpenClaw&#34; class=&#34;headerlink&#34; title=&#34;3. 可选：OpenSRE 调用 OpenClaw&#34;&gt;&lt;/a&gt;3. 可选：OpenSRE 调用 OpenClaw&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; OPENCLAW_MCP_MODE=stdio&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; OPENCLAW_MCP_COMMAND=openclaw&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; OPENCLAW_MCP_ARGS=&lt;span class=&#34;string&#34;&gt;&amp;quot;mcp serve&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;验证集成：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;opensre integrations verify openclaw&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;OpenSRE 为 AI 驱动的运维提供了一个强大的开源框架。无论是作为个人开发者的调查助手，还是作为团队的生产环境故障排查平台，它都能显著缩短 MTTR（平均故障修复时间）。&lt;/p&gt;
+&lt;h3 id=&#34;适合场景&#34;&gt;&lt;a href=&#34;#适合场景&#34; class=&#34;headerlink&#34; title=&#34;适合场景&#34;&gt;&lt;/a&gt;适合场景&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;个人开发者&lt;/strong&gt; — 本地安装，快速定位开发环境问题&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;运维团队&lt;/strong&gt; — 部署到生产环境，自动响应告警&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SRE 团队&lt;/strong&gt; — 结合现有可观测性栈，提升根因分析效率&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;参考链接&#34;&gt;&lt;a href=&#34;#参考链接&#34; class=&#34;headerlink&#34; title=&#34;参考链接&#34;&gt;&lt;/a&gt;参考链接&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.opensre.com/docs&#34;&gt;OpenSRE 官方文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Tracer-Cloud/OpenSRE&#34;&gt;GitHub 仓库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://opensre.com/docs/faq&#34;&gt;OpenSRE FAQ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://discord.gg/7NTpevXf7w&#34;&gt;Discord 社区&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="AI" />
+        <category term="OpenSRE" />
+        <category term="SRE" />
+        <category term="运维" />
+        <category term="故障排查" />
+        <updated>2026-05-10T16:50:00.000Z</updated>
+    </entry>
+</feed>

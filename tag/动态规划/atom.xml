@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://scottalive.github.io</id>
+    <title>沉鱼的博客 • Posts by &#34;动态规划&#34; tag</title>
+    <link href="https://scottalive.github.io" />
+    <updated>2026-05-02T13:40:00.000Z</updated>
+    <category term="AI日报" />
+    <category term="AI" />
+    <category term="GitHub热门" />
+    <category term="人工智能" />
+    <category term="技术趋势" />
+    <category term="原则" />
+    <category term="个人详情" />
+    <category term="个人分享" />
+    <category term="坏习惯" />
+    <category term="Kubernetes" />
+    <category term="Helm" />
+    <category term="学习计划" />
+    <category term="心理学知识" />
+    <category term="网络安全" />
+    <category term="SQL注入" />
+    <category term="XSS" />
+    <category term="CSRF" />
+    <category term="DDoS" />
+    <category term="渗透测试" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
+    <category term="GPT-5.5" />
+    <category term="OpenAI" />
+    <category term="Codex" />
+    <category term="ClaudeCode" />
+    <category term="Gemini" />
+    <category term="开发工具" />
+    <category term="开源" />
+    <category term="编程笔记" />
+    <category term="Hermes" />
+    <category term="Agent" />
+    <category term="NousResearch" />
+    <category term="进阶" />
+    <category term="配置" />
+    <category term="高阶" />
+    <category term="自动化" />
+    <category term="LLM" />
+    <category term="RAG" />
+    <category term="知识库" />
+    <category term="OpenSRE" />
+    <category term="SRE" />
+    <category term="运维" />
+    <category term="故障排查" />
+    <category term="SSE" />
+    <category term="HTTP" />
+    <category term="接口开发" />
+    <category term="开发注意事项" />
+    <category term="力扣算法题" />
+    <category term="算法" />
+    <category term="动态规划" />
+    <category term="微服务" />
+    <category term="JavaSE" />
+    <category term="Java开发面试题" />
+    <category term="SpringBoot" />
+    <category term="Spring" />
+    <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/java/arithmetic/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/</id>
+        <title>动态规划算法详解</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/java/arithmetic/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/"/>
+        <content type="html">&lt;h2 id=&#34;什么是动态规划&#34;&gt;&lt;a href=&#34;#什么是动态规划&#34; class=&#34;headerlink&#34; title=&#34;什么是动态规划&#34;&gt;&lt;/a&gt;什么是动态规划&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;动态规划（Dynamic Programming，简称 DP）&lt;/strong&gt; 是一种通过将原问题分解为若干重叠子问题，并存储子问题的解以避免重复计算，从而高效求解最优化问题的算法思想。&lt;/p&gt;
+&lt;p&gt;动态规划的核心在于 &lt;strong&gt;「记住求过的解」&lt;/strong&gt;—— 用空间换时间。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[原问题] --&amp;gt; B[子问题 1]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; C[子问题 2]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; D[子问题 n]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; E((存储))&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; E&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F[组合子问题解]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G[得到原问题最优解]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style E fill:#f96,stroke:#333,stroke-width:2px&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;适用条件&#34;&gt;&lt;a href=&#34;#适用条件&#34; class=&#34;headerlink&#34; title=&#34;适用条件&#34;&gt;&lt;/a&gt;适用条件&lt;/h3&gt;&lt;p&gt;一个问题能用动态规划求解，需要满足两个关键性质：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;性质&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;th&gt;反例&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;最优子结构&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;原问题的最优解包含子问题的最优解&lt;/td&gt;
+&lt;td&gt;无权最长简单路径（NP-hard）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;重叠子问题&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;子问题被反复求解，而非每次独立&lt;/td&gt;
+&lt;td&gt;二分查找（子问题不重叠）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;💡 如果子问题不重叠，用分治法即可（如归并排序）；只有子问题&lt;strong&gt;重叠&lt;/strong&gt;时，DP 才比分治更有优势。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;动态规划的解题步骤&#34;&gt;&lt;a href=&#34;#动态规划的解题步骤&#34; class=&#34;headerlink&#34; title=&#34;动态规划的解题步骤&#34;&gt;&lt;/a&gt;动态规划的解题步骤&lt;/h2&gt;&lt;p&gt;解决 DP 问题通常遵循一个固定的思维框架：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[1. 定义状态] --&amp;gt; B[2. 确定状态转移方程]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[3. 初始化边界条件]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[4. 确定遍历顺序]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[5. 返回最终结果]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A -.-&amp;gt; A1[&amp;quot;dp[i] 或 dp[i][j] 表示什么&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B -.-&amp;gt; B1[&amp;quot;dp[i] = f(dp[i-1], dp[i-2], ...)&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C -.-&amp;gt; C1[&amp;quot;dp[0], dp[1] 等初始值&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D -.-&amp;gt; D1[&amp;quot;从左到右 / 从上到下&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E -.-&amp;gt; E1[&amp;quot;返回 dp[n] 或 dp[m][n]&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style A1 fill:#e8f4fd,stroke:#4a90d9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style B1 fill:#e8f4fd,stroke:#4a90d9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style C1 fill:#e8f4fd,stroke:#4a90d9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style D1 fill:#e8f4fd,stroke:#4a90d9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style E1 fill:#e8f4fd,stroke:#4a90d9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;下面通过三个递进的例题来掌握这些步骤。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;例题一：斐波那契数列（入门）&#34;&gt;&lt;a href=&#34;#例题一：斐波那契数列（入门）&#34; class=&#34;headerlink&#34; title=&#34;例题一：斐波那契数列（入门）&#34;&gt;&lt;/a&gt;例题一：斐波那契数列（入门）&lt;/h2&gt;&lt;h3 id=&#34;问题&#34;&gt;&lt;a href=&#34;#问题&#34; class=&#34;headerlink&#34; title=&#34;问题&#34;&gt;&lt;/a&gt;问题&lt;/h3&gt;&lt;p&gt;计算斐波那契数列的第 n 项：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;F(0) &amp;#x3D; 0, F(1) &amp;#x3D; 1&lt;/li&gt;
+&lt;li&gt;F(n) &amp;#x3D; F(n-1) + F(n-2)（n ≥ 2）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;递归-vs-DP（为什么需要-DP？）&#34;&gt;&lt;a href=&#34;#递归-vs-DP（为什么需要-DP？）&#34; class=&#34;headerlink&#34; title=&#34;递归 vs DP（为什么需要 DP？）&#34;&gt;&lt;/a&gt;递归 vs DP（为什么需要 DP？）&lt;/h3&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 递归树&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        F5[F5] --&amp;gt; F4[F4]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        F5 --&amp;gt; F3a[F3]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        F4 --&amp;gt; F3b[F3]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        F4 --&amp;gt; F2a[F2]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        F3a --&amp;gt; F2b[F2]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        F3a --&amp;gt; F1a[F1]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        F3b --&amp;gt; F2c[F2]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        F3b --&amp;gt; F1b[F1]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        F2a --&amp;gt; F1c[F1]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        F2a --&amp;gt; F0a[F0]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        F2b --&amp;gt; F1d[F1]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        F2b --&amp;gt; F0b[F0]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        F2c --&amp;gt; F1e[F1]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        F2c --&amp;gt; F0c[F0]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style F3a fill:#fdd,stroke:#e74c3c&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style F3b fill:#fdd,stroke:#e74c3c&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style F2a fill:#fdd,stroke:#e74c3c&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style F2b fill:#fdd,stroke:#e74c3c&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style F2c fill:#fdd,stroke:#e74c3c&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;纯递归计算 F(5) 时，F(3) 被计算 2 次、F(2) 被计算 3 次——大量重复！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DP 解法：&lt;/strong&gt; 用一个数组把算过的值存起来，遇到直接取，不再重复计算。&lt;/p&gt;
+&lt;h3 id=&#34;状态定义与转移&#34;&gt;&lt;a href=&#34;#状态定义与转移&#34; class=&#34;headerlink&#34; title=&#34;状态定义与转移&#34;&gt;&lt;/a&gt;状态定义与转移&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;状态定义：&lt;/strong&gt; &lt;code&gt;dp[i]&lt;/code&gt; 表示斐波那契数列第 i 项的值&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;状态转移方程：&lt;/strong&gt; &lt;code&gt;dp[i] = dp[i-1] + dp[i-2]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;边界条件：&lt;/strong&gt; &lt;code&gt;dp[0] = 0&lt;/code&gt;, &lt;code&gt;dp[1] = 1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;遍历顺序：&lt;/strong&gt; 从左到右&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;代码实现&#34;&gt;&lt;a href=&#34;#代码实现&#34; class=&#34;headerlink&#34; title=&#34;代码实现&#34;&gt;&lt;/a&gt;代码实现&lt;/h3&gt;&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;Fibonacci&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 1. 递归（指数级 O(2^n)，不推荐）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;fibRecursive&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; n)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (n &amp;lt;= &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;) &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; n;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; fibRecursive(n - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;) + fibRecursive(n - &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 2. DP 自底向上（O(n) 时间，O(n) 空间）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;fibDP&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; n)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (n &amp;lt;= &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;) &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; n;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt;[] dp = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;int&lt;/span&gt;[n + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        dp[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;] = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        dp[&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;] = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;; i &amp;lt;= n; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            dp[i] = dp[i - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;] + dp[i - &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; dp[n];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 3. DP 空间优化（O(n) 时间，O(1) 空间）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;fibOptimized&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; n)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (n &amp;lt;= &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;) &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; n;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;prev2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, prev1 = &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;; i &amp;lt;= n; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;cur&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; prev1 + prev2;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            prev2 = prev1;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            prev1 = cur;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; prev1;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;复杂度分析&#34;&gt;&lt;a href=&#34;#复杂度分析&#34; class=&#34;headerlink&#34; title=&#34;复杂度分析&#34;&gt;&lt;/a&gt;复杂度分析&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;方法&lt;/th&gt;
+&lt;th&gt;时间复杂度&lt;/th&gt;
+&lt;th&gt;空间复杂度&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;纯递归&lt;/td&gt;
+&lt;td&gt;O(2ⁿ)&lt;/td&gt;
+&lt;td&gt;O(n)（调用栈）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DP 数组&lt;/td&gt;
+&lt;td&gt;O(n)&lt;/td&gt;
+&lt;td&gt;O(n)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DP 空间优化&lt;/td&gt;
+&lt;td&gt;O(n)&lt;/td&gt;
+&lt;td&gt;O(1)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;例题二：0-1-背包问题（经典）&#34;&gt;&lt;a href=&#34;#例题二：0-1-背包问题（经典）&#34; class=&#34;headerlink&#34; title=&#34;例题二：0-1 背包问题（经典）&#34;&gt;&lt;/a&gt;例题二：0-1 背包问题（经典）&lt;/h2&gt;&lt;h3 id=&#34;问题-1&#34;&gt;&lt;a href=&#34;#问题-1&#34; class=&#34;headerlink&#34; title=&#34;问题&#34;&gt;&lt;/a&gt;问题&lt;/h3&gt;&lt;p&gt;给定 n 件物品和一个容量为 C 的背包。每件物品 i 有重量 w[i] 和价值 v[i]。&lt;br&gt;&lt;strong&gt;每件物品只能选一次（0 或 1 次），&lt;/strong&gt; 求不超过背包容量的前提下能装的最大总价值。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;物品&lt;/th&gt;
+&lt;th&gt;重量&lt;/th&gt;
+&lt;th&gt;价值&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;A&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;B&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;C&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;D&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;背包容量 C &amp;#x3D; 8&lt;/p&gt;
+&lt;h3 id=&#34;决策过程&#34;&gt;&lt;a href=&#34;#决策过程&#34; class=&#34;headerlink&#34; title=&#34;决策过程&#34;&gt;&lt;/a&gt;决策过程&lt;/h3&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 对每件物品做决策&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        direction LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        S[物品 i] --&amp;gt; Choice&amp;#123;选 or 不选?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Choice --&amp;gt;|不选| Skip[&amp;quot;dp[i][j] = dp[i-1][j]&amp;lt;br/&amp;gt;继承上一行的结果&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Choice --&amp;gt;|选| Take[&amp;quot;dp[i][j] = dp[i-1][j-w[i]] + v[i]&amp;lt;br/&amp;gt;腾出重量再放&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;状态定义与转移-1&#34;&gt;&lt;a href=&#34;#状态定义与转移-1&#34; class=&#34;headerlink&#34; title=&#34;状态定义与转移&#34;&gt;&lt;/a&gt;状态定义与转移&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;状态定义：&lt;/strong&gt; &lt;code&gt;dp[i][j]&lt;/code&gt; 表示前 i 件物品中选，容量为 j 的背包能装的最大价值&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;状态转移方程：&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight stylus&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;dp&lt;span class=&#34;selector-attr&#34;&gt;[i]&lt;/span&gt;&lt;span class=&#34;selector-attr&#34;&gt;[j]&lt;/span&gt; = &lt;span class=&#34;built_in&#34;&gt;max&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    dp&lt;span class=&#34;selector-attr&#34;&gt;[i-1]&lt;/span&gt;&lt;span class=&#34;selector-attr&#34;&gt;[j]&lt;/span&gt;,                ← 不选第 &lt;span class=&#34;selector-tag&#34;&gt;i&lt;/span&gt; 件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    dp&lt;span class=&#34;selector-attr&#34;&gt;[i-1]&lt;/span&gt;&lt;span class=&#34;selector-attr&#34;&gt;[j-w[i]&lt;/span&gt;] + v&lt;span class=&#34;selector-attr&#34;&gt;[i]&lt;/span&gt;     ← 选第 &lt;span class=&#34;selector-tag&#34;&gt;i&lt;/span&gt; 件（前提：j ≥ w&lt;span class=&#34;selector-attr&#34;&gt;[i]&lt;/span&gt;）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;边界条件：&lt;/strong&gt; &lt;code&gt;dp[0][j] = 0&lt;/code&gt; 且 &lt;code&gt;dp[i][0] = 0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;遍历顺序：&lt;/strong&gt; 先遍历物品，再遍历容量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;DP-表格演算&#34;&gt;&lt;a href=&#34;#DP-表格演算&#34; class=&#34;headerlink&#34; title=&#34;DP 表格演算&#34;&gt;&lt;/a&gt;DP 表格演算&lt;/h3&gt;&lt;figure class=&#34;highlight tap&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;容量 j →  &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 1 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 2 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 3 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 4 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 5 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 6 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 7 &lt;/span&gt;  8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;物品 ↓   ┌─────────────────────────────────&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt;     │&lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt;  0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  A(w=2) │&lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 3 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 3 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 3 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 3 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 3 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 3 &lt;/span&gt;  3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  B(w=3) │&lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 3 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 4 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 4 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 7 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 7 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 7 &lt;/span&gt;  7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  C(w=4) │&lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 3 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 4 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 5 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 7 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 8 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 9 &lt;/span&gt;  9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  D(w=5) │&lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 3 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 4 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 5 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 7 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 8 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 9 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 9 &lt;/span&gt; ← 最大价值 9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;红色箭头表示做出「选」决策的位置：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 最优解回溯&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        D4[&amp;quot;D(w=5,v=6) 不选&amp;lt;br/&amp;gt;j=8 不变&amp;quot;] --&amp;gt; C4[&amp;quot;C(w=4,v=5) 选 ✓&amp;lt;br/&amp;gt;容量 -&amp;gt; 8-4=4&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C4 --&amp;gt; B4[&amp;quot;B(w=3,v=4) 不选&amp;lt;br/&amp;gt;j=4 不变&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B4 --&amp;gt; A4[&amp;quot;A(w=2,v=3) 选 ✓&amp;lt;br/&amp;gt;容量 -&amp;gt; 4-2=2&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A4 --&amp;gt; END[&amp;quot;剩余容量 2，结束&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style C4 fill:#cfc,stroke:#27ae60&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style A4 fill:#cfc,stroke:#27ae60&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;最优解：&lt;/strong&gt; 选 A + C，总重量 2 + 4 &amp;#x3D; 6 ≤ 8，总价值 3 + 5 &amp;#x3D; 9&lt;/p&gt;
+&lt;h3 id=&#34;代码实现-1&#34;&gt;&lt;a href=&#34;#代码实现-1&#34; class=&#34;headerlink&#34; title=&#34;代码实现&#34;&gt;&lt;/a&gt;代码实现&lt;/h3&gt;&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;Knapsack01&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;knapsack&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; C, &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt;[] w, &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt;[] v)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; w.length;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt;[][] dp = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;int&lt;/span&gt;[n + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;][C + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= n; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; j &amp;lt;= C; j++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &lt;span class=&#34;comment&#34;&gt;// 不选第 i 件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                dp[i][j] = dp[i - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;][j];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &lt;span class=&#34;comment&#34;&gt;// 如果能装下，尝试选&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (j &amp;gt;= w[i - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;]) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                    dp[i][j] = Math.max(dp[i][j],&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                        dp[i - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;][j - w[i - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;]] + v[i - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; dp[n][C];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 空间优化（一维数组，容量逆序遍历）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;knapsackOptimized&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; C, &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt;[] w, &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt;[] v)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;n&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; w.length;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt;[] dp = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;int&lt;/span&gt;[C + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; n; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;comment&#34;&gt;// 逆序保证每个物品只选一次&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; C; j &amp;gt;= w[i]; j--) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                dp[j] = Math.max(dp[j], dp[j - w[i]] + v[i]);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; dp[C];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;为什么一维优化要逆序遍历容量？&lt;/strong&gt;&lt;br&gt;因为 &lt;code&gt;dp[j-w[i]]&lt;/code&gt; 读取的是上一轮（未选当前物品）的值，如果正序就会读到本轮已经更新过的「选了一次」的值，变成完全背包问题了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;复杂度分析-1&#34;&gt;&lt;a href=&#34;#复杂度分析-1&#34; class=&#34;headerlink&#34; title=&#34;复杂度分析&#34;&gt;&lt;/a&gt;复杂度分析&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;维度&lt;/th&gt;
+&lt;th&gt;二维 DP&lt;/th&gt;
+&lt;th&gt;一维优化&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;时间复杂度&lt;/td&gt;
+&lt;td&gt;O(n×C)&lt;/td&gt;
+&lt;td&gt;O(n×C)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;空间复杂度&lt;/td&gt;
+&lt;td&gt;O(n×C)&lt;/td&gt;
+&lt;td&gt;O(C)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;例题三：最长公共子序列（进阶）&#34;&gt;&lt;a href=&#34;#例题三：最长公共子序列（进阶）&#34; class=&#34;headerlink&#34; title=&#34;例题三：最长公共子序列（进阶）&#34;&gt;&lt;/a&gt;例题三：最长公共子序列（进阶）&lt;/h2&gt;&lt;h3 id=&#34;问题-2&#34;&gt;&lt;a href=&#34;#问题-2&#34; class=&#34;headerlink&#34; title=&#34;问题&#34;&gt;&lt;/a&gt;问题&lt;/h3&gt;&lt;p&gt;给定两个字符串 text1 和 text2，返回它们的最长公共子序列（LCS）的长度。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;子序列：&lt;/strong&gt; 不要求连续，但相对顺序不变。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;text1 &amp;#x3D; “abcde”, text2 &amp;#x3D; “ace” → LCS &amp;#x3D; “ace”（长度 3）&lt;/li&gt;
+&lt;li&gt;text1 &amp;#x3D; “abc”, text2 &amp;#x3D; “def” → LCS &amp;#x3D; “”（长度 0）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;决策分析&#34;&gt;&lt;a href=&#34;#决策分析&#34; class=&#34;headerlink&#34; title=&#34;决策分析&#34;&gt;&lt;/a&gt;决策分析&lt;/h3&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 比较 s1[i] 和 s2[j]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        direction LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        CMP[字符相等?] --&amp;gt;|Yes| MATCH[&amp;quot;dp[i][j] = dp[i-1][j-1] + 1&amp;lt;br/&amp;gt;匹配上，各退一步 +1&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        CMP --&amp;gt;|No| SKIPA[&amp;quot;方案A: 跳过 s1[i]&amp;lt;br/&amp;gt;dp[i-1][j]&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        CMP --&amp;gt;|No| SKIPB[&amp;quot;方案B: 跳过 s2[j]&amp;lt;br/&amp;gt;dp[i][j-1]&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        SKIPA --&amp;gt; MAX[&amp;quot;取较大值&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        SKIPB --&amp;gt; MAX&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;状态定义与转移-2&#34;&gt;&lt;a href=&#34;#状态定义与转移-2&#34; class=&#34;headerlink&#34; title=&#34;状态定义与转移&#34;&gt;&lt;/a&gt;状态定义与转移&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;状态定义：&lt;/strong&gt; &lt;code&gt;dp[i][j]&lt;/code&gt; 表示 text1 前 i 个字符与 text2 前 j 个字符的 LCS 长度&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;状态转移方程：&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight stylus&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; text1&lt;span class=&#34;selector-attr&#34;&gt;[i-1]&lt;/span&gt; == text2&lt;span class=&#34;selector-attr&#34;&gt;[j-1]&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    dp&lt;span class=&#34;selector-attr&#34;&gt;[i]&lt;/span&gt;&lt;span class=&#34;selector-attr&#34;&gt;[j]&lt;/span&gt; = dp&lt;span class=&#34;selector-attr&#34;&gt;[i-1]&lt;/span&gt;&lt;span class=&#34;selector-attr&#34;&gt;[j-1]&lt;/span&gt; + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;          ← 字符匹配&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    dp&lt;span class=&#34;selector-attr&#34;&gt;[i]&lt;/span&gt;&lt;span class=&#34;selector-attr&#34;&gt;[j]&lt;/span&gt; = &lt;span class=&#34;built_in&#34;&gt;max&lt;/span&gt;(dp&lt;span class=&#34;selector-attr&#34;&gt;[i-1]&lt;/span&gt;&lt;span class=&#34;selector-attr&#34;&gt;[j]&lt;/span&gt;, dp&lt;span class=&#34;selector-attr&#34;&gt;[i]&lt;/span&gt;&lt;span class=&#34;selector-attr&#34;&gt;[j-1]&lt;/span&gt;)  ← 不匹配，取较大子问题&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;边界条件：&lt;/strong&gt; &lt;code&gt;dp[0][j] = 0&lt;/code&gt; 且 &lt;code&gt;dp[i][0] = 0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;遍历顺序：&lt;/strong&gt; 从左到右、从上到下&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;DP-表格演算-1&#34;&gt;&lt;a href=&#34;#DP-表格演算-1&#34; class=&#34;headerlink&#34; title=&#34;DP 表格演算&#34;&gt;&lt;/a&gt;DP 表格演算&lt;/h3&gt;&lt;figure class=&#34;highlight tap&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;text1 = &amp;quot;abcde&amp;quot;, text2 = &amp;quot;ace&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;     &amp;quot;&amp;quot;   a   c   e&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;quot;&amp;quot;   &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt;  0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;a    &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 1 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 1 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 1 &lt;/span&gt;  ← a 匹配&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;b    &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 1 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 1 &lt;/span&gt;  1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;c    &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 1 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 2 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 2 &lt;/span&gt;  ← c 匹配&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;d    &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 1 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 2 &lt;/span&gt;  2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;e    &lt;span class=&#34;number&#34;&gt; 0 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 1 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 2 &lt;/span&gt; &lt;span class=&#34;number&#34;&gt; 3 &lt;/span&gt;  ← e 匹配 → 答案 3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;代码实现-2&#34;&gt;&lt;a href=&#34;#代码实现-2&#34; class=&#34;headerlink&#34; title=&#34;代码实现&#34;&gt;&lt;/a&gt;代码实现&lt;/h3&gt;&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;LCS&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;longestCommonSubsequence&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(String text1, String text2)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; text1.length(), n = text2.length();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt;[][] dp = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;int&lt;/span&gt;[m + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;][n + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= m; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; j &amp;lt;= n; j++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (text1.charAt(i - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;) == text2.charAt(j - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                    dp[i][j] = dp[i - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;][j - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;] + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                    dp[i][j] = Math.max(dp[i - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;][j], dp[i][j - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; dp[m][n];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 还原出具体的 LCS 字符串&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;static&lt;/span&gt; String &lt;span class=&#34;title function_&#34;&gt;getLCS&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(String text1, String text2)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; text1.length(), n = text2.length();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt;[][] dp = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;int&lt;/span&gt;[m + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;][n + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt;= m; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; j &amp;lt;= n; j++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (text1.charAt(i - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;) == text2.charAt(j - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                    dp[i][j] = dp[i - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;][j - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;] + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                    dp[i][j] = Math.max(dp[i - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;][j], dp[i][j - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;comment&#34;&gt;// 回溯还原&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;type&#34;&gt;StringBuilder&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;sb&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;StringBuilder&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; m, j = n;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (i &amp;gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; &amp;amp;&amp;amp; j &amp;gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (text1.charAt(i - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;) == text2.charAt(j - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                sb.append(text1.charAt(i - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                i--; j--;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (dp[i - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;][j] &amp;gt; dp[i][j - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;]) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                i--;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;#125; &lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                j--;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; sb.reverse().toString();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;复杂度分析-2&#34;&gt;&lt;a href=&#34;#复杂度分析-2&#34; class=&#34;headerlink&#34; title=&#34;复杂度分析&#34;&gt;&lt;/a&gt;复杂度分析&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;维度&lt;/th&gt;
+&lt;th&gt;值&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;时间复杂度&lt;/td&gt;
+&lt;td&gt;O(m × n)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;空间复杂度&lt;/td&gt;
+&lt;td&gt;O(m × n)（可优化至 O(min(m, n))）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;动态规划解题套路总结&#34;&gt;&lt;a href=&#34;#动态规划解题套路总结&#34; class=&#34;headerlink&#34; title=&#34;动态规划解题套路总结&#34;&gt;&lt;/a&gt;动态规划解题套路总结&lt;/h2&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TB&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Start[拿到问题] --&amp;gt; Q1&amp;#123;是否求最值?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Q1 --&amp;gt;|是| Q2&amp;#123;能分解为子问题?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Q2 --&amp;gt;|是| Q3&amp;#123;子问题重叠?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Q3 --&amp;gt;|是| DP[用 DP 求解]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Q3 --&amp;gt;|否| DIV[用分治法]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Q2 --&amp;gt;|否| GREEDY[试试贪心]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    DP --&amp;gt; STEP1[定义 dp 数组含义]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    STEP1 --&amp;gt; STEP2[写转移方程]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    STEP2 --&amp;gt; STEP3[确定边界]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    STEP3 --&amp;gt; STEP4[确定遍历顺序]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    STEP4 --&amp;gt; DONE[输出结果]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style DP fill:#4a90d9,color:#fff&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style DONE fill:#27ae60,color:#fff&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;常见-DP-题型速查&#34;&gt;&lt;a href=&#34;#常见-DP-题型速查&#34; class=&#34;headerlink&#34; title=&#34;常见 DP 题型速查&#34;&gt;&lt;/a&gt;常见 DP 题型速查&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th&gt;状态定义特征&lt;/th&gt;
+&lt;th&gt;典型题&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;线性 DP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;dp[i]&lt;/code&gt; 与前 i 项有关&lt;/td&gt;
+&lt;td&gt;斐波那契、爬楼梯、最大子数组和&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;区间 DP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;dp[i][j]&lt;/code&gt; 表示区间 [i, j]&lt;/td&gt;
+&lt;td&gt;最长回文子串、石子合并&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;背包 DP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;dp[i][j]&lt;/code&gt; 前 i 件物品容量 j&lt;/td&gt;
+&lt;td&gt;0-1 背包、完全背包、多重背包&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;树形 DP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;dp[node]&lt;/code&gt; 以 node 为根的子树&lt;/td&gt;
+&lt;td&gt;打家劫舍 III、树的最大独立集&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;数位 DP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;dp[pos][state]&lt;/code&gt; 在数位上做 DP&lt;/td&gt;
+&lt;td&gt;数字 1 的个数、不包含 49 的数字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;刷题推荐顺序&#34;&gt;&lt;a href=&#34;#刷题推荐顺序&#34; class=&#34;headerlink&#34; title=&#34;刷题推荐顺序&#34;&gt;&lt;/a&gt;刷题推荐顺序&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;爬楼梯&lt;/strong&gt; → &lt;code&gt;dp[i] = dp[i-1] + dp[i-2]&lt;/code&gt;（入门）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;打家劫舍&lt;/strong&gt; → &lt;code&gt;dp[i] = max(dp[i-1], dp[i-2] + nums[i])&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;最大子数组和&lt;/strong&gt; → &lt;code&gt;dp[i] = max(nums[i], dp[i-1] + nums[i])&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;0-1 背包&lt;/strong&gt; → 二维 DP 表格理解透彻&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;最长递增子序列&lt;/strong&gt; → O(n²) 入门 → O(n log n) 进阶&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;最长公共子序列&lt;/strong&gt; → 两个维度的 DP 训练&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;编辑距离&lt;/strong&gt; → LCS 的进阶版&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;完全平方数&lt;/strong&gt; → 背包思想的变体&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;动态规划的难点不在于代码实现，而在于 &lt;strong&gt;识别问题类型&lt;/strong&gt; 和 &lt;strong&gt;定义合适的状态&lt;/strong&gt;。掌握了状态定义和转移方程，代码往往只有几行。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关键记忆：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ 最优子结构 + 重叠子问题 &amp;#x3D; DP&lt;/li&gt;
+&lt;li&gt;✅ 状态定义是 DP 的灵魂，转移方程是骨架&lt;/li&gt;
+&lt;li&gt;✅ 先二维理解，再一维优化（不要一上来就优化）&lt;/li&gt;
+&lt;li&gt;✅ 多画 DP 表格，演算两三组数据就能发现规律&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多刷题，形成「状态直觉」&lt;/strong&gt; —— 看到题目就知道该用一维还是二维 DP&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 学习路径&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        FIB[斐波那契&amp;lt;br/&amp;gt;入门] --&amp;gt; HOUSE[打家劫舍&amp;lt;br/&amp;gt;简单一维]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        HOUSE --&amp;gt; KNAPSACK[0-1 背包&amp;lt;br/&amp;gt;二维经典]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        KNAPSACK --&amp;gt; LCS[&amp;quot;LCS/LIS&amp;lt;br/&amp;gt;序列DP&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        LCS --&amp;gt; EDIT[编辑距离&amp;lt;br/&amp;gt;二维进阶]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        EDIT --&amp;gt; TREE[树形DP&amp;lt;br/&amp;gt;高阶]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style FIB fill:#e8f4fd,stroke:#4a90d9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style HOUSE fill:#e8f4fd,stroke:#4a90d9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style KNAPSACK fill:#d4edda,stroke:#27ae60&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style LCS fill:#d4edda,stroke:#27ae60&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style EDIT fill:#fce4ec,stroke:#e74c3c&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style TREE fill:#fce4ec,stroke:#e74c3c&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+        <category term="编程笔记" />
+        <category term="算法" />
+        <category term="动态规划" />
+        <updated>2026-05-02T13:40:00.000Z</updated>
+    </entry>
+</feed>

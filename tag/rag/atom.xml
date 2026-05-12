@@ -1,0 +1,608 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://scottalive.github.io</id>
+    <title>沉鱼的博客 • Posts by &#34;rag&#34; tag</title>
+    <link href="https://scottalive.github.io" />
+    <updated>2026-05-01T15:30:00.000Z</updated>
+    <category term="AI日报" />
+    <category term="AI" />
+    <category term="GitHub热门" />
+    <category term="人工智能" />
+    <category term="技术趋势" />
+    <category term="原则" />
+    <category term="个人详情" />
+    <category term="个人分享" />
+    <category term="坏习惯" />
+    <category term="Kubernetes" />
+    <category term="Helm" />
+    <category term="学习计划" />
+    <category term="心理学知识" />
+    <category term="网络安全" />
+    <category term="SQL注入" />
+    <category term="XSS" />
+    <category term="CSRF" />
+    <category term="DDoS" />
+    <category term="渗透测试" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
+    <category term="GPT-5.5" />
+    <category term="OpenAI" />
+    <category term="Codex" />
+    <category term="ClaudeCode" />
+    <category term="Gemini" />
+    <category term="开发工具" />
+    <category term="开源" />
+    <category term="编程笔记" />
+    <category term="Hermes" />
+    <category term="Agent" />
+    <category term="NousResearch" />
+    <category term="进阶" />
+    <category term="配置" />
+    <category term="高阶" />
+    <category term="自动化" />
+    <category term="LLM" />
+    <category term="RAG" />
+    <category term="知识库" />
+    <category term="OpenSRE" />
+    <category term="SRE" />
+    <category term="运维" />
+    <category term="故障排查" />
+    <category term="SSE" />
+    <category term="HTTP" />
+    <category term="接口开发" />
+    <category term="开发注意事项" />
+    <category term="力扣算法题" />
+    <category term="算法" />
+    <category term="动态规划" />
+    <category term="微服务" />
+    <category term="JavaSE" />
+    <category term="Java开发面试题" />
+    <category term="SpringBoot" />
+    <category term="Spring" />
+    <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/LLM-WIKI-%E7%9F%A5%E8%AF%86%E5%BA%93%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</id>
+        <title>从零搭建 LLM + 知识库：RAG 完全入门指南</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/LLM-WIKI-%E7%9F%A5%E8%AF%86%E5%BA%93%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
+        <content type="html">&lt;h2 id=&#34;前言：你为什么要读这篇文章？&#34;&gt;&lt;a href=&#34;#前言：你为什么要读这篇文章？&#34; class=&#34;headerlink&#34; title=&#34;前言：你为什么要读这篇文章？&#34;&gt;&lt;/a&gt;前言：你为什么要读这篇文章？&lt;/h2&gt;&lt;p&gt;假设你有几百份 PDF 合同、几十篇技术文档、一堆内部 Wiki 页面。每次想查个信息，要么翻半天文件夹，要么在几个系统之间来回切换。&lt;/p&gt;
+&lt;p&gt;大语言模型（LLM）很强，但它有个致命缺陷：&lt;strong&gt;不知道自己不知道什么&lt;/strong&gt;。你问 ChatGPT “我们公司上季度的销售政策是什么”，它要么编一个答案，要么说”我没有这方面的信息”。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;RAG（Retrieval-Augmented Generation，检索增强生成）&lt;/strong&gt; 就是解决这个问题的。简单说：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;先把你的文档”喂”给系统 → 系统理解并存储 → 你提问时，系统先检索相关文档片段 → 再让 LLM 基于这些片段生成答案。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;就像一个&lt;strong&gt;随身带着你全部文档的新员工&lt;/strong&gt;——记性好、不编造、有问必答。&lt;/p&gt;
+&lt;p&gt;本文从零开始，带你用最主流的方式搭建一个属于自己的 LLM 知识库。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第一章：理解-RAG-的基本原理&#34;&gt;&lt;a href=&#34;#第一章：理解-RAG-的基本原理&#34; class=&#34;headerlink&#34; title=&#34;第一章：理解 RAG 的基本原理&#34;&gt;&lt;/a&gt;第一章：理解 RAG 的基本原理&lt;/h2&gt;&lt;h3 id=&#34;1-1-不用-RAG-的-LLM-有什么问题？&#34;&gt;&lt;a href=&#34;#1-1-不用-RAG-的-LLM-有什么问题？&#34; class=&#34;headerlink&#34; title=&#34;1.1 不用 RAG 的 LLM 有什么问题？&#34;&gt;&lt;/a&gt;1.1 不用 RAG 的 LLM 有什么问题？&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;问题&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;❌ 知识截止&lt;/td&gt;
+&lt;td&gt;训练数据有时间限制，不知道之后的事&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;❌ 幻觉&lt;/td&gt;
+&lt;td&gt;不知道的问题会编造答案，还编得一本正经&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;❌ 领域盲区&lt;/td&gt;
+&lt;td&gt;不懂你公司内部的术语、流程、文档&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;❌ 上下文窗口&lt;/td&gt;
+&lt;td&gt;一次能塞进去的文档量有限&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;1-2-RAG-是怎么工作的？&#34;&gt;&lt;a href=&#34;#1-2-RAG-是怎么工作的？&#34; class=&#34;headerlink&#34; title=&#34;1.2 RAG 是怎么工作的？&#34;&gt;&lt;/a&gt;1.2 RAG 是怎么工作的？&lt;/h3&gt;&lt;p&gt;整个流程分两步：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;离线阶段（准备知识）——只做一次：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight awk&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;你的文档（PDF&lt;span class=&#34;regexp&#34;&gt;/Word/&lt;/span&gt;Markdown/网页）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;┌──────────────────┐&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  文档解析 &amp;amp; 切分   │  把长文档切成合适大小的小块（chunk）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└──────────────────┘&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;┌──────────────────┐&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  向量化（Embedding）│  用 Embedding 模型把文字变成数学向量&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└──────────────────┘&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;┌──────────────────┐&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  存入向量数据库     │  向量 + 原文一起存&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└──────────────────┘&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;在线阶段（回答问题）——每次提问都执行：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight mipsasm&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;用户提问：&lt;span class=&#34;string&#34;&gt;&amp;quot;合同里违约金怎么算？&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;┌──────────────────┐&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  问题向量化        │  把问题也变成向量&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└──────────────────┘&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;┌──────────────────┐&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  语义检索          │  在向量数据库中找最相关的文档片段&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└──────────────────┘&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;┌──────────────────┐&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  组装 Prompt       │  把检索到的片段 + 问题拼成完整提示词&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└──────────────────┘&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;┌──────────────────┐&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  &lt;span class=&#34;keyword&#34;&gt;LLM &lt;/span&gt;生成答案      │  基于提供的文档内容回答问题&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└──────────────────┘&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;1-3-关键概念解释&#34;&gt;&lt;a href=&#34;#1-3-关键概念解释&#34; class=&#34;headerlink&#34; title=&#34;1.3 关键概念解释&#34;&gt;&lt;/a&gt;1.3 关键概念解释&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Embedding（向量化）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;把一段文字转换成一串数字（向量）。语义相近的文字，向量也相近。比如”苹果很好吃”和”这个水果真甜”在向量空间中距离很近，”苹果发布了新手机”则离得很远。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Chunk（文档分块）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;LLM 一次能处理的文字有限（上下文窗口），而且检索粒度太粗也没用。所以把长文档切成小块，每块通常 300-1000 个字符，块与块之间可以有重叠（防止一句话被拦腰截断）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;向量数据库&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;专门存储和检索向量的数据库。流行的有：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;数据库&lt;/th&gt;
+&lt;th&gt;特点&lt;/th&gt;
+&lt;th&gt;适用场景&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;Chroma&lt;/td&gt;
+&lt;td&gt;轻量、Python 原生、零配置&lt;/td&gt;
+&lt;td&gt;本地开发 &amp;#x2F; 小项目&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Milvus&lt;/td&gt;
+&lt;td&gt;高性能、分布式&lt;/td&gt;
+&lt;td&gt;企业级 &amp;#x2F; 百万级文档&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Qdrant&lt;/td&gt;
+&lt;td&gt;Rust 编写、性能好&lt;/td&gt;
+&lt;td&gt;中大型项目&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Weaviate&lt;/td&gt;
+&lt;td&gt;GraphQL 接口、功能全&lt;/td&gt;
+&lt;td&gt;有复杂查询需求&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;FAISS&lt;/td&gt;
+&lt;td&gt;Meta 开源、纯向量搜索&lt;/td&gt;
+&lt;td&gt;嵌入式 &amp;#x2F; 高性能场景&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pgvector&lt;/td&gt;
+&lt;td&gt;PostgreSQL 插件&lt;/td&gt;
+&lt;td&gt;已有 PG 技术栈的团队&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;重排序（Rerank）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;第一次检索返回的文档片段不一定是最相关的（粗排），可以用 Rerank 模型做二次精排，提高准确率。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第二章：选型对比&#34;&gt;&lt;a href=&#34;#第二章：选型对比&#34; class=&#34;headerlink&#34; title=&#34;第二章：选型对比&#34;&gt;&lt;/a&gt;第二章：选型对比&lt;/h2&gt;&lt;p&gt;市面上的 LLM 知识库方案很多，先做一个快速对比帮你选型。&lt;/p&gt;
+&lt;h3 id=&#34;2-1-主流方案一览&#34;&gt;&lt;a href=&#34;#2-1-主流方案一览&#34; class=&#34;headerlink&#34; title=&#34;2.1 主流方案一览&#34;&gt;&lt;/a&gt;2.1 主流方案一览&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;方案&lt;/th&gt;
+&lt;th&gt;定位&lt;/th&gt;
+&lt;th&gt;上手难度&lt;/th&gt;
+&lt;th&gt;适合谁&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Dify&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;全能 LLM 应用平台&lt;/td&gt;
+&lt;td&gt;⭐ 简单&lt;/td&gt;
+&lt;td&gt;所有人，首选&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;FastGPT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;专注知识库问答&lt;/td&gt;
+&lt;td&gt;⭐ 简单&lt;/td&gt;
+&lt;td&gt;只想做知识库&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;AnythingLLM&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;桌面端一键部署&lt;/td&gt;
+&lt;td&gt;⭐ 最简单&lt;/td&gt;
+&lt;td&gt;个人用户、不想折腾&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MaxKB&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;国产知识库问答&lt;/td&gt;
+&lt;td&gt;⭐ 简单&lt;/td&gt;
+&lt;td&gt;中文场景、企业用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;LangChain&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;开发框架&lt;/td&gt;
+&lt;td&gt;⭐⭐⭐ 中等&lt;/td&gt;
+&lt;td&gt;开发者、需要定制&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;LlamaIndex&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;数据索引框架&lt;/td&gt;
+&lt;td&gt;⭐⭐⭐ 中等&lt;/td&gt;
+&lt;td&gt;复杂数据管道&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;2-2-新手推荐：Dify&#34;&gt;&lt;a href=&#34;#2-2-新手推荐：Dify&#34; class=&#34;headerlink&#34; title=&#34;2.2 新手推荐：Dify&#34;&gt;&lt;/a&gt;2.2 新手推荐：Dify&lt;/h3&gt;&lt;p&gt;推荐理由：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;开箱即用&lt;/strong&gt;：Docker 一条命令启动，有 Web 管理界面&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;功能完整&lt;/strong&gt;：不只是知识库，还包括工作流编排、Agent、对话日志&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;社区活跃&lt;/strong&gt;：GitHub 6 万+ Star，中文文档完善&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型灵活&lt;/strong&gt;：支持 OpenAI &amp;#x2F; Claude &amp;#x2F; 本地模型 &amp;#x2F; 各种国产模型&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;有云版本&lt;/strong&gt;：不想自己部署可以用 Dify Cloud 直接开始&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文以 &lt;strong&gt;Dify 自部署版&lt;/strong&gt;为主进行实操讲解。其他方案思路类似，一通百通。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第三章：环境准备&#34;&gt;&lt;a href=&#34;#第三章：环境准备&#34; class=&#34;headerlink&#34; title=&#34;第三章：环境准备&#34;&gt;&lt;/a&gt;第三章：环境准备&lt;/h2&gt;&lt;h3 id=&#34;3-1-硬件要求&#34;&gt;&lt;a href=&#34;#3-1-硬件要求&#34; class=&#34;headerlink&#34; title=&#34;3.1 硬件要求&#34;&gt;&lt;/a&gt;3.1 硬件要求&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;配置&lt;/th&gt;
+&lt;th&gt;最低要求&lt;/th&gt;
+&lt;th&gt;推荐配置&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;CPU&lt;/td&gt;
+&lt;td&gt;2 核&lt;/td&gt;
+&lt;td&gt;4 核+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;内存&lt;/td&gt;
+&lt;td&gt;4 GB&lt;/td&gt;
+&lt;td&gt;8 GB+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;磁盘&lt;/td&gt;
+&lt;td&gt;20 GB&lt;/td&gt;
+&lt;td&gt;50 GB+ (看文档量)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GPU&lt;/td&gt;
+&lt;td&gt;不需要&lt;/td&gt;
+&lt;td&gt;本地跑模型时建议&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你只是用云端 API（OpenAI &amp;#x2F; Claude &amp;#x2F; 国产模型），&lt;strong&gt;不需要 GPU&lt;/strong&gt;。只有当你打算本地部署开源模型时才需要。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;3-2-安装-Docker&#34;&gt;&lt;a href=&#34;#3-2-安装-Docker&#34; class=&#34;headerlink&#34; title=&#34;3.2 安装 Docker&#34;&gt;&lt;/a&gt;3.2 安装 Docker&lt;/h3&gt;&lt;p&gt;Dify 通过 Docker 部署，先安装 Docker：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Windows：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight powershell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 方式一：直接下载 Docker Desktop&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# https://www.docker.com/products/docker-desktop/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 方式二：WinGet&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;winget install Docker.DockerDesktop&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;macOS：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;brew install --cask docker&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Linux（Ubuntu&amp;#x2F;Debian）：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;curl -fsSL https://get.docker.com | bash&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo usermod -aG docker &lt;span class=&#34;variable&#34;&gt;$USER&lt;/span&gt;  &lt;span class=&#34;comment&#34;&gt;# 免 sudo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;验证安装：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;docker --version&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker compose version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;3-3-获取-API-Key&#34;&gt;&lt;a href=&#34;#3-3-获取-API-Key&#34; class=&#34;headerlink&#34; title=&#34;3.3 获取 API Key&#34;&gt;&lt;/a&gt;3.3 获取 API Key&lt;/h3&gt;&lt;p&gt;你需要至少一个 LLM 的 API Key。可选方案：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;提供商&lt;/th&gt;
+&lt;th&gt;获取方式&lt;/th&gt;
+&lt;th&gt;费用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;OpenAI&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://platform.openai.com/&#34;&gt;platform.openai.com&lt;/a&gt; → API Keys&lt;/td&gt;
+&lt;td&gt;按量付费&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Anthropic&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://console.anthropic.com/&#34;&gt;console.anthropic.com&lt;/a&gt; → API Keys&lt;/td&gt;
+&lt;td&gt;按量付费&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;智谱 (GLM)&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://open.bigmodel.cn/&#34;&gt;open.bigmodel.cn&lt;/a&gt; → API Keys&lt;/td&gt;
+&lt;td&gt;有免费额度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DeepSeek&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://platform.deepseek.com/&#34;&gt;platform.deepseek.com&lt;/a&gt; → API Keys&lt;/td&gt;
+&lt;td&gt;极便宜&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;阿里通义&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://dashscope.aliyun.com/&#34;&gt;dashscope.aliyun.com&lt;/a&gt; → API Keys&lt;/td&gt;
+&lt;td&gt;有免费额度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SiliconFlow&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://siliconflow.cn/&#34;&gt;siliconflow.cn&lt;/a&gt; → API Keys&lt;/td&gt;
+&lt;td&gt;聚合多模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;新手建议&lt;/strong&gt;：先用 DeepSeek 或智谱，有免费额度，够你学完整套流程。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第四章：部署-Dify&#34;&gt;&lt;a href=&#34;#第四章：部署-Dify&#34; class=&#34;headerlink&#34; title=&#34;第四章：部署 Dify&#34;&gt;&lt;/a&gt;第四章：部署 Dify&lt;/h2&gt;&lt;h3 id=&#34;4-1-一条命令启动&#34;&gt;&lt;a href=&#34;#4-1-一条命令启动&#34; class=&#34;headerlink&#34; title=&#34;4.1 一条命令启动&#34;&gt;&lt;/a&gt;4.1 一条命令启动&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 克隆项目&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;git &lt;span class=&#34;built_in&#34;&gt;clone&lt;/span&gt; https://github.com/langgenius/dify.git&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;cd&lt;/span&gt; dify/docker&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 复制环境变量配置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;cp&lt;/span&gt; .env.example .&lt;span class=&#34;built_in&#34;&gt;env&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 启动所有服务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker compose up -d&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;Docker 会自动拉取并启动以下服务：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;api&lt;/code&gt; — Dify 后端 API&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;web&lt;/code&gt; — Dify 前端界面&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;db&lt;/code&gt; — PostgreSQL 数据库&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;redis&lt;/code&gt; — 缓存&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;weaviate&lt;/code&gt; — 向量数据库&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nginx&lt;/code&gt; — 反向代理&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sandbox&lt;/code&gt; — 代码执行沙箱&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;等几分钟后，浏览器打开 &lt;code&gt;http://localhost&lt;/code&gt;，你会看到初始化页面。&lt;/p&gt;
+&lt;h3 id=&#34;4-2-初始化设置&#34;&gt;&lt;a href=&#34;#4-2-初始化设置&#34; class=&#34;headerlink&#34; title=&#34;4.2 初始化设置&#34;&gt;&lt;/a&gt;4.2 初始化设置&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;设置管理员邮箱和密码&lt;/li&gt;
+&lt;li&gt;点击「初始化」&lt;/li&gt;
+&lt;li&gt;登录后进入 Dify 主界面&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;4-3-配置模型&#34;&gt;&lt;a href=&#34;#4-3-配置模型&#34; class=&#34;headerlink&#34; title=&#34;4.3 配置模型&#34;&gt;&lt;/a&gt;4.3 配置模型&lt;/h3&gt;&lt;p&gt;登录后第一步：&lt;strong&gt;设置 → 模型供应商&lt;/strong&gt;，添加你的 LLM。&lt;/p&gt;
+&lt;p&gt;以 DeepSeek 为例：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;点击「DeepSeek」→「设置」&lt;/li&gt;
+&lt;li&gt;填入 API Key&lt;/li&gt;
+&lt;li&gt;点击「保存」&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以 OpenAI 为例：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;点击「OpenAI」→「设置」&lt;/li&gt;
+&lt;li&gt;填入 API Key&lt;/li&gt;
+&lt;li&gt;可选：填入自定义 API 地址（如果你用中转服务）&lt;/li&gt;
+&lt;li&gt;保存&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;同样方式添加 Embedding 模型。Dify 会自动使用与 LLM 同提供商的 Embedding 模型，也可以单独配置。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;省钱技巧&lt;/strong&gt;：LLM 用 DeepSeek（便宜），Embedding 用智谱或 SiliconFlow 的免费额度。一个大模型回答 + 一个向量化模型，分开配置，成本极低。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第五章：创建你的第一个知识库&#34;&gt;&lt;a href=&#34;#第五章：创建你的第一个知识库&#34; class=&#34;headerlink&#34; title=&#34;第五章：创建你的第一个知识库&#34;&gt;&lt;/a&gt;第五章：创建你的第一个知识库&lt;/h2&gt;&lt;h3 id=&#34;5-1-上传文档&#34;&gt;&lt;a href=&#34;#5-1-上传文档&#34; class=&#34;headerlink&#34; title=&#34;5.1 上传文档&#34;&gt;&lt;/a&gt;5.1 上传文档&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;顶部导航 → &lt;strong&gt;「知识库」&lt;/strong&gt; → &lt;strong&gt;「创建知识库」&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;填写名称（如”公司制度知识库”）&lt;/li&gt;
+&lt;li&gt;点击创建&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;进入知识库后，你可以上传文档：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支持格式&lt;/strong&gt;：PDF、TXT、Markdown、Word (.docx)、Excel (.xlsx)、HTML、CSV&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;上传方式&lt;/strong&gt;：拖拽文件 &amp;#x2F; 从 URL 导入 &amp;#x2F; 粘贴文本 &amp;#x2F; 对接 Notion&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;批量上传&lt;/strong&gt;：支持一次性上传多个文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-2-文档处理设置&#34;&gt;&lt;a href=&#34;#5-2-文档处理设置&#34; class=&#34;headerlink&#34; title=&#34;5.2 文档处理设置&#34;&gt;&lt;/a&gt;5.2 文档处理设置&lt;/h3&gt;&lt;p&gt;上传前可以调整关键参数：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;th&gt;建议值&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;分段最大长度&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;每个 chunk 的字符数上限&lt;/td&gt;
+&lt;td&gt;500-800&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;分段重叠长度&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;相邻 chunk 的重叠字符数&lt;/td&gt;
+&lt;td&gt;50-100&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;索引方式&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;高质量（推荐） &amp;#x2F; 经济 &amp;#x2F; 自定义&lt;/td&gt;
+&lt;td&gt;高质量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;检索方式&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;向量检索 &amp;#x2F; 全文检索 &amp;#x2F; 混合检索&lt;/td&gt;
+&lt;td&gt;混合检索&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;分段长度怎么选？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;合同、法律文档：偏长（800-1000），一个条款不能断&lt;/li&gt;
+&lt;li&gt;FAQ、问答对：偏短（300-500），问题答案各自独立&lt;/li&gt;
+&lt;li&gt;技术文档：中等（500-800），一个知识点一块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-3-等待处理&#34;&gt;&lt;a href=&#34;#5-3-等待处理&#34; class=&#34;headerlink&#34; title=&#34;5.3 等待处理&#34;&gt;&lt;/a&gt;5.3 等待处理&lt;/h3&gt;&lt;p&gt;上传后 Dify 自动执行：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;文档解析（提取文字）&lt;/li&gt;
+&lt;li&gt;文本分块（按设置切分）&lt;/li&gt;
+&lt;li&gt;向量化（调用 Embedding 模型）&lt;/li&gt;
+&lt;li&gt;存入向量数据库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;处理速度取决于文档大小和 API 响应速度，一般几兆 PDF 几十秒就完成。&lt;/p&gt;
+&lt;p&gt;处理完后你可以：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;查看分段结果（每个 chunk 的内容）&lt;/li&gt;
+&lt;li&gt;手动编辑或删除某些分段&lt;/li&gt;
+&lt;li&gt;在检索测试中直接搜索，看返回结果质量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第六章：创建知识库问答应用&#34;&gt;&lt;a href=&#34;#第六章：创建知识库问答应用&#34; class=&#34;headerlink&#34; title=&#34;第六章：创建知识库问答应用&#34;&gt;&lt;/a&gt;第六章：创建知识库问答应用&lt;/h2&gt;&lt;p&gt;知识库准备好后，把它变成一个可交互的聊天应用。&lt;/p&gt;
+&lt;h3 id=&#34;6-1-创建应用&#34;&gt;&lt;a href=&#34;#6-1-创建应用&#34; class=&#34;headerlink&#34; title=&#34;6.1 创建应用&#34;&gt;&lt;/a&gt;6.1 创建应用&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;顶部导航 → &lt;strong&gt;「工作室」&lt;/strong&gt; → &lt;strong&gt;「创建空白应用」&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;选择 &lt;strong&gt;「聊天助手」&lt;/strong&gt; 类型&lt;/li&gt;
+&lt;li&gt;命名（如”合同助手”）&lt;/li&gt;
+&lt;li&gt;点击创建&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;6-2-关联知识库&#34;&gt;&lt;a href=&#34;#6-2-关联知识库&#34; class=&#34;headerlink&#34; title=&#34;6.2 关联知识库&#34;&gt;&lt;/a&gt;6.2 关联知识库&lt;/h3&gt;&lt;p&gt;在应用编辑界面：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;左侧 &lt;strong&gt;「上下文」&lt;/strong&gt; → 点击 &lt;strong&gt;「添加」&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;选择你刚创建的知识库&lt;/li&gt;
+&lt;li&gt;设置参数：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;th&gt;建议&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;Top K&lt;/td&gt;
+&lt;td&gt;每次检索返回多少个 chunk&lt;/td&gt;
+&lt;td&gt;3-5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;相似度阈值&lt;/td&gt;
+&lt;td&gt;低于此分值的 chunk 不采用&lt;/td&gt;
+&lt;td&gt;0.5-0.7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;6-3-编写系统提示词（Prompt）&#34;&gt;&lt;a href=&#34;#6-3-编写系统提示词（Prompt）&#34; class=&#34;headerlink&#34; title=&#34;6.3 编写系统提示词（Prompt）&#34;&gt;&lt;/a&gt;6.3 编写系统提示词（Prompt）&lt;/h3&gt;&lt;p&gt;在 &lt;strong&gt;「提示词」&lt;/strong&gt; 编辑框中，这是最关键的一步。一个模板：&lt;/p&gt;
+&lt;figure class=&#34;highlight markdown&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;你是一个专业的知识库助手，专门回答关于[你的领域]的问题。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## 规则&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;1.&lt;/span&gt; 只根据「参考文档」中的内容回答问题&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;2.&lt;/span&gt; 如果文档中没有相关信息，直接说&amp;quot;文档中未找到相关内容&amp;quot;，不要编造&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;3.&lt;/span&gt; 回答时尽量引用文档原文，并注明来源&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;4.&lt;/span&gt; 保持回答简洁专业，用中文回复&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## 参考文档&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#123;&amp;#123;context&amp;#125;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;其中 &lt;code&gt;&amp;#123;&amp;#123;context&amp;#125;&amp;#125;&lt;/code&gt; 是变量占位符，RAG 检索到的文档片段会自动填入。&lt;/p&gt;
+&lt;h3 id=&#34;6-4-调试测试&#34;&gt;&lt;a href=&#34;#6-4-调试测试&#34; class=&#34;headerlink&#34; title=&#34;6.4 调试测试&#34;&gt;&lt;/a&gt;6.4 调试测试&lt;/h3&gt;&lt;p&gt;右侧有一个 &lt;strong&gt;「调试与预览」&lt;/strong&gt; 面板，可以直接测试。&lt;/p&gt;
+&lt;p&gt;先确认右上角选择了正确的模型（比如 DeepSeek V3 或 GPT-4o），然后输入问题：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“合同中提前解约需要提前多少天通知？”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;你会看到 Dify 先展示了检索到的文档片段（可以展开查看哪些 chunk 被命中），然后基于这些片段生成回答。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如果回答质量不好？&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;症状&lt;/th&gt;
+&lt;th&gt;可能原因&lt;/th&gt;
+&lt;th&gt;调整方向&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;答非所问&lt;/td&gt;
+&lt;td&gt;检索不准&lt;/td&gt;
+&lt;td&gt;调高 Top K、换混合检索&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;信息不全&lt;/td&gt;
+&lt;td&gt;分段太碎&lt;/td&gt;
+&lt;td&gt;增大 chunk 长度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;答了无关内容&lt;/td&gt;
+&lt;td&gt;阈值太低&lt;/td&gt;
+&lt;td&gt;提高相似度阈值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;回答太啰嗦&lt;/td&gt;
+&lt;td&gt;Prompt 太弱&lt;/td&gt;
+&lt;td&gt;优化系统提示词&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;幻觉严重&lt;/td&gt;
+&lt;td&gt;文档覆盖不足&lt;/td&gt;
+&lt;td&gt;补充文档、优化提示词&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第七章：发布与使用&#34;&gt;&lt;a href=&#34;#第七章：发布与使用&#34; class=&#34;headerlink&#34; title=&#34;第七章：发布与使用&#34;&gt;&lt;/a&gt;第七章：发布与使用&lt;/h2&gt;&lt;h3 id=&#34;7-1-发布应用&#34;&gt;&lt;a href=&#34;#7-1-发布应用&#34; class=&#34;headerlink&#34; title=&#34;7.1 发布应用&#34;&gt;&lt;/a&gt;7.1 发布应用&lt;/h3&gt;&lt;p&gt;调试满意后，点击右上角 &lt;strong&gt;「发布」&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;Dify 提供多种使用方式：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;方式&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;网页链接&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;生成一个公开 URL，直接分享&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;嵌入网页&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;提供 iframe &amp;#x2F; script 代码，嵌入到你的网站&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;API 调用&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;提供 REST API，集成到自己的系统&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;企业微信&amp;#x2F;飞书&amp;#x2F;钉钉&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;对接办公 IM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;7-2-API-集成示例&#34;&gt;&lt;a href=&#34;#7-2-API-集成示例&#34; class=&#34;headerlink&#34; title=&#34;7.2 API 集成示例&#34;&gt;&lt;/a&gt;7.2 API 集成示例&lt;/h3&gt;&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; requests&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;url = &lt;span class=&#34;string&#34;&gt;&amp;quot;http://localhost/v1/chat-messages&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;headers = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;Authorization&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;Bearer app-YOUR_APP_API_KEY&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;Content-Type&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;application/json&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;data = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;inputs&amp;quot;&lt;/span&gt;: &amp;#123;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;query&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;员工年假有多少天？&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;response_mode&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;blocking&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;conversation_id&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;employee-001&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;response = requests.post(url, json=data, headers=headers)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(response.json()[&lt;span class=&#34;string&#34;&gt;&amp;quot;answer&amp;quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;7-3-对话日志与分析&#34;&gt;&lt;a href=&#34;#7-3-对话日志与分析&#34; class=&#34;headerlink&#34; title=&#34;7.3 对话日志与分析&#34;&gt;&lt;/a&gt;7.3 对话日志与分析&lt;/h3&gt;&lt;p&gt;应用发布后，Dify 自动记录所有对话：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;「日志与标注」&lt;/strong&gt;：查看每条对话的问题、回答、检索到的文档&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;标注功能&lt;/strong&gt;：标记好的回答，用于后续优化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用量统计&lt;/strong&gt;：查看 API 调用次数、Token 消耗&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第八章：进阶技巧&#34;&gt;&lt;a href=&#34;#第八章：进阶技巧&#34; class=&#34;headerlink&#34; title=&#34;第八章：进阶技巧&#34;&gt;&lt;/a&gt;第八章：进阶技巧&lt;/h2&gt;&lt;h3 id=&#34;8-1-多知识库联合检索&#34;&gt;&lt;a href=&#34;#8-1-多知识库联合检索&#34; class=&#34;headerlink&#34; title=&#34;8.1 多知识库联合检索&#34;&gt;&lt;/a&gt;8.1 多知识库联合检索&lt;/h3&gt;&lt;p&gt;一个应用可以关联多个知识库。比如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;知识库 A：产品手册&lt;/li&gt;
+&lt;li&gt;知识库 B：客服 FAQ&lt;/li&gt;
+&lt;li&gt;知识库 C：内部流程文档&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;用户问一个问题，Dify 同时检索三个知识库，取最相关的 Top K 条。&lt;/p&gt;
+&lt;h3 id=&#34;8-2-元数据过滤&#34;&gt;&lt;a href=&#34;#8-2-元数据过滤&#34; class=&#34;headerlink&#34; title=&#34;8.2 元数据过滤&#34;&gt;&lt;/a&gt;8.2 元数据过滤&lt;/h3&gt;&lt;p&gt;上传文档时可以加元数据标签（如 &lt;code&gt;category:财务&lt;/code&gt;、&lt;code&gt;year:2025&lt;/code&gt;），检索时按标签过滤：&lt;/p&gt;
+&lt;figure class=&#34;highlight&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;只检索「2025年」的「财务类」文档 → 精确度和速度大幅提升&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;8-3-工作流编排（Workflow）&#34;&gt;&lt;a href=&#34;#8-3-工作流编排（Workflow）&#34; class=&#34;headerlink&#34; title=&#34;8.3 工作流编排（Workflow）&#34;&gt;&lt;/a&gt;8.3 工作流编排（Workflow）&lt;/h3&gt;&lt;p&gt;Dify 不只是问答。你可以用可视化的拖拽方式创建处理流程：&lt;/p&gt;
+&lt;figure class=&#34;highlight mipsasm&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;用户输入 → 意图识别 → &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ├─ 查资料 → 检索知识库 → &lt;span class=&#34;keyword&#34;&gt;LLM &lt;/span&gt;回答&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ├─ 查数据 → 调用 API → 格式化返回&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  └─ 闲聊 → 直接 &lt;span class=&#34;keyword&#34;&gt;LLM &lt;/span&gt;回复&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;8-4-本地模型部署（省钱-隐私）&#34;&gt;&lt;a href=&#34;#8-4-本地模型部署（省钱-隐私）&#34; class=&#34;headerlink&#34; title=&#34;8.4 本地模型部署（省钱 + 隐私）&#34;&gt;&lt;/a&gt;8.4 本地模型部署（省钱 + 隐私）&lt;/h3&gt;&lt;p&gt;如果你有一定量的文档，不想每次调用都花 API 费用，或者文档涉密不能上云，可以本地部署开源模型。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Embedding 模型（向量化）：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 用 Ollama 部署&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ollama pull nomic-embed-text&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ollama pull bge-m3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;LLM 模型（生成回答）：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Qwen2.5 系列（中文友好）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ollama pull qwen2.5:7b&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ollama pull qwen2.5:14b&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 或 DeepSeek&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ollama pull deepseek-r1:8b&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;然后在 Dify 中配置模型供应商为「Ollama」，地址填 &lt;code&gt;http://localhost:11434&lt;/code&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;7B 模型最低要求&lt;/strong&gt;：16GB 内存，无 GPU 也能跑（慢但能用）&lt;br&gt;&lt;strong&gt;14B 模型&lt;/strong&gt;：建议 32GB+ 内存或有 8GB+ 显存的 GPU&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;8-5-持续优化知识库&#34;&gt;&lt;a href=&#34;#8-5-持续优化知识库&#34; class=&#34;headerlink&#34; title=&#34;8.5 持续优化知识库&#34;&gt;&lt;/a&gt;8.5 持续优化知识库&lt;/h3&gt;&lt;p&gt;知识库不是建完就完事了：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定期更新&lt;/strong&gt;：文档变了要重新上传新版本&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分析失败案例&lt;/strong&gt;：看日志里哪些问题没回答好，补文档或调参数&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用户反馈&lt;/strong&gt;：用标注功能收集好评&amp;#x2F;差评，针对性改进&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;A&amp;#x2F;B 测试&lt;/strong&gt;：同一问题用不同 chunk 大小或检索策略，对比效果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第九章：常见问题与排错&#34;&gt;&lt;a href=&#34;#第九章：常见问题与排错&#34; class=&#34;headerlink&#34; title=&#34;第九章：常见问题与排错&#34;&gt;&lt;/a&gt;第九章：常见问题与排错&lt;/h2&gt;&lt;h3 id=&#34;Q1：检索结果不准确怎么办？&#34;&gt;&lt;a href=&#34;#Q1：检索结果不准确怎么办？&#34; class=&#34;headerlink&#34; title=&#34;Q1：检索结果不准确怎么办？&#34;&gt;&lt;/a&gt;Q1：检索结果不准确怎么办？&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;先检查检索到的 chunk 是否包含答案（可能是 chunk 里有但没有被 LLM 用上 → 优化 Prompt）&lt;/li&gt;
+&lt;li&gt;如果 chunk 里就没有答案 → 你的文档覆盖不足，或 chunk 切分有问题&lt;/li&gt;
+&lt;li&gt;尝试切换检索方式：向量检索 → 混合检索 → 全文检索轮着试&lt;/li&gt;
+&lt;li&gt;启用 Rerank 模型做二次精排&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;Q2：Docker-启动失败？&#34;&gt;&lt;a href=&#34;#Q2：Docker-启动失败？&#34; class=&#34;headerlink&#34; title=&#34;Q2：Docker 启动失败？&#34;&gt;&lt;/a&gt;Q2：Docker 启动失败？&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看日志&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker compose logs -f&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 常见问题：端口冲突&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 修改 .env 中的端口配置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 重启&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker compose down&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker compose up -d&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;Q3：Embedding-处理很慢？&#34;&gt;&lt;a href=&#34;#Q3：Embedding-处理很慢？&#34; class=&#34;headerlink&#34; title=&#34;Q3：Embedding 处理很慢？&#34;&gt;&lt;/a&gt;Q3：Embedding 处理很慢？&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;检查 API 是否限速（免费额度通常有 RPM 限制）&lt;/li&gt;
+&lt;li&gt;大批量文档分批上传&lt;/li&gt;
+&lt;li&gt;换成更快的 Embedding 模型（如 &lt;code&gt;text-embedding-3-small&lt;/code&gt;）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;Q4：中文效果不好？&#34;&gt;&lt;a href=&#34;#Q4：中文效果不好？&#34; class=&#34;headerlink&#34; title=&#34;Q4：中文效果不好？&#34;&gt;&lt;/a&gt;Q4：中文效果不好？&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Embedding 模型选中文优化的（&lt;code&gt;bge-large-zh&lt;/code&gt;、&lt;code&gt;text-embedding-3&lt;/code&gt;、智谱 Embedding）&lt;/li&gt;
+&lt;li&gt;LLM 选中文能力强的（DeepSeek、Qwen、GLM）&lt;/li&gt;
+&lt;li&gt;分段时不要切断中文字符（Dify 默认会处理）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;阶段&lt;/th&gt;
+&lt;th&gt;你需要做什么&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;准备&lt;/td&gt;
+&lt;td&gt;装 Docker、搞一个 LLM API Key&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;部署&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;docker compose up -d&lt;/code&gt; 一条命令&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;建知识库&lt;/td&gt;
+&lt;td&gt;上传文档，调整分段参数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;建应用&lt;/td&gt;
+&lt;td&gt;关联知识库 + 写系统提示词&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;上线&lt;/td&gt;
+&lt;td&gt;发布 → 生成链接&amp;#x2F;嵌入网页&amp;#x2F;API 调用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;整个流程从零到能用，新手一般 &lt;strong&gt;一个下午&lt;/strong&gt; 可以搞定。&lt;/p&gt;
+&lt;p&gt;最后提醒一句：&lt;strong&gt;知识库的核心不是技术，是你的文档质量&lt;/strong&gt;。垃圾文档进 → 垃圾答案出。花时间整理好你的文档，比调任何参数都管用。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dify 官方文档：&lt;a href=&#34;https://docs.dify.ai/&#34;&gt;https://docs.dify.ai&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Dify GitHub：&lt;a href=&#34;https://github.com/langgenius/dify&#34;&gt;https://github.com/langgenius/dify&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ollama（本地模型）：&lt;a href=&#34;https://ollama.com/&#34;&gt;https://ollama.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="AI" />
+        <category term="开发工具" />
+        <category term="开源" />
+        <category term="LLM" />
+        <category term="RAG" />
+        <category term="知识库" />
+        <updated>2026-05-01T15:30:00.000Z</updated>
+    </entry>
+</feed>

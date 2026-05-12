@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>NumPy的应用-2 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">NumPy的应用-2</h1>
+    <div class="post-meta">
+      <span class="post-date">2025-04-24 06:07</span>
+      <span class="post-word-count">3476 字</span>
+      <span class="post-reading-time">约 12 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记</a>
+      
+      <a href="/tags/python/">python</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#numpy的应用-2">NumPy的应用-2</a>
+      
+      <a class="toc-level-3" href="#数组的运算">数组的运算</a>
+      
+      <a class="toc-level-3" href="#其他常用函数">其他常用函数</a>
+      
+      <a class="toc-level-3" href="#矩阵运算">矩阵运算</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="numpy的应用-2"><a href="#NumPy的应用-2" class="headerlink" title="NumPy的应用-2"></a>NumPy的应用-2</h2><h3 id="数组的运算"><a href="#数组的运算" class="headerlink" title="数组的运算"></a>数组的运算</h3><p>使用 NumPy 最为方便的是当需要对数组元素进行运算时，不用编写循环代码遍历每个元素，所有的运算都会自动的<strong>矢量化</strong>（使用高效的、提前编译的底层代码来对数据序列进行数学操作）。简单的说就是，NumPy 中的数学运算和数学函数会自动作用于数组中的每个成员。</p>
+<h4 id="数组跟标量的运算"><a href="#数组跟标量的运算" class="headerlink" title="数组跟标量的运算"></a>数组跟标量的运算</h4><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">array35 = np.arange(<span class="number">1</span>, <span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(array35 + <span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(array35 * <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight tap"><table><tr><td class="code"><pre><span class="line">[11<span class="number"> 12 </span>13<span class="number"> 14 </span>15<span class="number"> 16 </span>17<span class="number"> 18 </span>19]</span><br><span class="line">[10<span class="number"> 20 </span>30<span class="number"> 40 </span>50<span class="number"> 60 </span>70<span class="number"> 80 </span>90]</span><br></pre></td></tr></table></figure>
+
+<h4 id="数组跟数组的运算"><a href="#数组跟数组的运算" class="headerlink" title="数组跟数组的运算"></a>数组跟数组的运算</h4><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">array36 = np.array([<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(array35 + array36)</span><br><span class="line"><span class="built_in">print</span>(array35 * array36)</span><br><span class="line"><span class="built_in">print</span>(array35 ** array36)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight tap"><table><tr><td class="code"><pre><span class="line">[<span class="number"> 2 </span><span class="number"> 3 </span><span class="number"> 4 </span><span class="number"> 6 </span><span class="number"> 7 </span><span class="number"> 8 </span>10<span class="number"> 11 </span>12]</span><br><span class="line">[<span class="number"> 1 </span><span class="number"> 2 </span><span class="number"> 3 </span><span class="number"> 8 </span>10<span class="number"> 12 </span>21<span class="number"> 24 </span>27]</span><br><span class="line">[ <span class="number"> 1 </span> <span class="number"> 2 </span> <span class="number"> 3 </span><span class="number"> 16 </span><span class="number"> 25 </span><span class="number"> 36 </span>343<span class="number"> 512 </span>729]</span><br></pre></td></tr></table></figure>
+
+<h4 id="通用一元函数"><a href="#通用一元函数" class="headerlink" title="通用一元函数"></a>通用一元函数</h4><p>通用函数是对<code>ndarray</code>中的数据执行元素级运算的函数。你可以将其看做普通函数（接收一个标量值作为参数，返回一个标量值）的矢量化包装器，如下所示。</p>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(np.sqrt(array35))</span><br><span class="line"><span class="built_in">print</span>(np.log2(array35))</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">[<span class="number">1</span>.         <span class="number">1.41421356</span> <span class="number">1.73205081</span> <span class="number">2</span>.         <span class="number">2.23606798</span> <span class="number">2.44948974</span></span><br><span class="line"> <span class="number">2.64575131</span> <span class="number">2.82842712</span> <span class="number">3</span>.        ]</span><br><span class="line">[<span class="number">0</span>.         <span class="number">1</span>.         <span class="number">1.5849625</span>  <span class="number">2</span>.         <span class="number">2.32192809</span> <span class="number">2.5849625</span></span><br><span class="line"> <span class="number">2.80735492</span> <span class="number">3</span>.         <span class="number">3.169925</span>  ]</span><br></pre></td></tr></table></figure>
+
+<p><strong>表1：通用一元函数</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>abs</code> &#x2F; <code>fabs</code></td>
+<td>求绝对值的函数</td>
+</tr>
+<tr>
+<td><code>sqrt</code></td>
+<td>求平方根的函数，相当于<code>array ** 0.5 </code></td>
+</tr>
+<tr>
+<td><code>square</code></td>
+<td>求平方的函数，相当于<code>array ** 2</code></td>
+</tr>
+<tr>
+<td><code>exp</code></td>
+<td>计算$e^x$的函数</td>
+</tr>
+<tr>
+<td><code>log</code> &#x2F; <code>log10</code> &#x2F; <code>log2</code></td>
+<td>对数函数（<code>e</code>为底 &#x2F; <code>10</code>为底 &#x2F; <code>2</code>为底）</td>
+</tr>
+<tr>
+<td><code>sign</code></td>
+<td>符号函数（<code>1</code> - 正数；<code>0</code> - 零；<code>-1</code> - 负数）</td>
+</tr>
+<tr>
+<td><code>ceil</code> &#x2F; <code>floor</code></td>
+<td>上取整 &#x2F;  下取整</td>
+</tr>
+<tr>
+<td><code>isnan</code></td>
+<td>返回布尔数组，NaN对应<code>True</code>，非NaN对应<code>False</code></td>
+</tr>
+<tr>
+<td><code>isfinite</code> &#x2F; <code>isinf</code></td>
+<td>判断数值是否为无穷大的函数</td>
+</tr>
+<tr>
+<td><code>cos</code> &#x2F; <code>cosh</code> &#x2F; <code>sin</code></td>
+<td>三角函数</td>
+</tr>
+<tr>
+<td><code>sinh</code> &#x2F; <code>tan</code> &#x2F; <code>tanh</code></td>
+<td>三角函数</td>
+</tr>
+<tr>
+<td><code>arccos</code> &#x2F; <code>arccosh</code> &#x2F; <code>arcsin</code></td>
+<td>反三角函数</td>
+</tr>
+<tr>
+<td><code>arcsinh</code> &#x2F; <code>arctan</code> &#x2F; <code>arctanh</code></td>
+<td>反三角函数</td>
+</tr>
+<tr>
+<td><code>rint</code> &#x2F; <code>round</code></td>
+<td>四舍五入函数</td>
+</tr>
+</tbody></table>
+<h4 id="通用二元函数"><a href="#通用二元函数" class="headerlink" title="通用二元函数"></a>通用二元函数</h4><p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">array37 = np.array([[<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]])</span><br><span class="line">array38 = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]])</span><br><span class="line"><span class="built_in">print</span>(array37 ** array38)</span><br><span class="line"><span class="built_in">print</span>(np.power(array37, array38))</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line"><span class="string">[[  4  25 216]</span></span><br><span class="line"><span class="string"> [343  64   9]]</span></span><br><span class="line"><span class="string">[[  4  25 216]</span></span><br><span class="line"><span class="string"> [343  64   9]]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>表2：通用二元函数</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>add(x, y)</code> &#x2F; <code>substract(x, y)</code></td>
+<td>加法函数 &#x2F; 减法函数</td>
+</tr>
+<tr>
+<td><code>multiply(x, y)</code> &#x2F; <code>divide(x, y)</code></td>
+<td>乘法函数 &#x2F; 除法函数</td>
+</tr>
+<tr>
+<td><code>floor_divide(x, y)</code> &#x2F; <code>mod(x, y)</code></td>
+<td>整除函数 &#x2F; 求模函数</td>
+</tr>
+<tr>
+<td><code>allclose(x, y)</code></td>
+<td>检查数组<code>x</code>和<code>y</code>元素是否几乎相等</td>
+</tr>
+<tr>
+<td><code>power(x, y)</code></td>
+<td>数组$x$的元素$x_i$和数组$y$的元素$y_i$，计算$x_i^{y_i}$</td>
+</tr>
+<tr>
+<td><code>maximum(x, y)</code> &#x2F; <code>fmax(x, y)</code></td>
+<td>两两比较元素获取最大值 &#x2F; 获取最大值（忽略NaN）</td>
+</tr>
+<tr>
+<td><code>minimum(x, y)</code> &#x2F; <code>fmin(x, y)</code></td>
+<td>两两比较元素获取最小值 &#x2F; 获取最小值（忽略NaN）</td>
+</tr>
+<tr>
+<td><code>dot(x, y)</code></td>
+<td>点积运算（数量积，通常记为$\cdots$，用于欧几里得空间（Euclidean space））</td>
+</tr>
+<tr>
+<td><code>inner(x, y)</code></td>
+<td>内积运算（内积的含义要高于点积，点积相当于是内积在欧几里得空间$$的特例，而内积可以推广到<strong>赋范向量空间</strong>，只要它满足平行四边形法则即可）</td>
+</tr>
+<tr>
+<td><code>cross(x, y) </code></td>
+<td>叉积运算（向量积，通常记为$\times$，运算结果是一个向量）</td>
+</tr>
+<tr>
+<td><code>outer(x, y)</code></td>
+<td>外积运算（张量积，通常记为$\bigotimes$，运算结果通常是一个矩阵）</td>
+</tr>
+<tr>
+<td><code>intersect1d(x, y)</code></td>
+<td>计算<code>x</code>和<code>y</code>的交集，返回这些元素构成的有序数组</td>
+</tr>
+<tr>
+<td><code>union1d(x, y)</code></td>
+<td>计算<code>x</code>和<code>y</code>的并集，返回这些元素构成的有序数组</td>
+</tr>
+<tr>
+<td><code>in1d(x, y)</code></td>
+<td>返回由判断<code>x</code> 的元素是否在<code>y</code>中得到的布尔值构成的数组</td>
+</tr>
+<tr>
+<td><code>setdiff1d(x, y)</code></td>
+<td>计算<code>x</code>和<code>y</code>的差集，返回这些元素构成的数组</td>
+</tr>
+<tr>
+<td><code>setxor1d(x, y)</code></td>
+<td>计算<code>x</code>和<code>y</code>的对称差，返回这些元素构成的数组</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>补充说明</strong>：在二维空间内，两个向量$\boldsymbol{A}&#x3D;\begin{bmatrix} a_1 \ a_2 \end{bmatrix}$和$\boldsymbol{B}&#x3D;\begin{bmatrix} b_1 \ b_2 \end{bmatrix}$的叉积是这样定义的：$\boldsymbol{A}\times \boldsymbol{B}&#x3D;\begin{vmatrix} a_1 \quad a_2 \ b_1 \quad b_2 \end{vmatrix}&#x3D;a_1b_2 - a_2b_1$，其中$\begin{vmatrix} a_1 \quad a_2 \ b_1 \quad b_2 \end{vmatrix}$称为行列式。但是一定要注意，叉积并不等同于行列式，行列式的运算结果是一个标量，而叉积运算的结果是一个向量。如果不明白，我们可以看看三维空间两个向量，$\boldsymbol{A}&#x3D;\begin{bmatrix} a_1 \ a_2 \ a_3 \end{bmatrix}$和$\boldsymbol{B}&#x3D;\begin{bmatrix} b_1 \ b_2 \ b_3 \end{bmatrix}$的叉积是$\left&lt; \hat{i} \begin{vmatrix} a_2 \quad a_3 \ b_2 \quad b_3 \end{vmatrix}, -\hat{j} \begin{vmatrix} a_1 \quad a_3 \ b_1 \quad b_3 \end{vmatrix}, \hat{k} \begin{vmatrix} a_1 \quad a_2 \ b_1 \quad b_2 \end{vmatrix} \right&gt;$，其中$\hat{i}, \hat{j}, \hat{k}$代表每个维度的单位向量。</p>
+</blockquote>
+<h4 id="广播机制"><a href="#广播机制" class="headerlink" title="广播机制"></a>广播机制</h4><p>上面的例子中，两个二元运算的数组形状是完全相同的，我们再来研究一下，两个形状不同的数组是否可以直接做二元运算或使用二元函数进行运算，请看下面的例子。</p>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">array39 = np.array([[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>]])</span><br><span class="line">array40 = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">array39 + array40</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight inform7"><table><tr><td class="code"><pre><span class="line">array(<span class="comment">[<span class="comment">[1, 2, 3]</span>,</span></span><br><span class="line"><span class="comment">       <span class="comment">[2, 3, 4]</span>,</span></span><br><span class="line"><span class="comment">       <span class="comment">[3, 4, 5]</span>,</span></span><br><span class="line"><span class="comment">       <span class="comment">[4, 5, 6]</span>]</span>)</span><br></pre></td></tr></table></figure>
+
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">array41 = np.array([[<span class="number">1</span>], [<span class="number">2</span>], [<span class="number">3</span>], [<span class="number">4</span>]])</span><br><span class="line">array39 + array41</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight inform7"><table><tr><td class="code"><pre><span class="line">array(<span class="comment">[<span class="comment">[1, 1, 1]</span>,</span></span><br><span class="line"><span class="comment">       <span class="comment">[3, 3, 3]</span>,</span></span><br><span class="line"><span class="comment">       <span class="comment">[5, 5, 5]</span>,</span></span><br><span class="line"><span class="comment">       <span class="comment">[7, 7, 7]</span>]</span>)</span><br></pre></td></tr></table></figure>
+
+<p>通过上面的例子，我们发现形状不同的数组仍然有机会进行二元运算，但也绝对不是任意的数组都可以进行二元运算。简单的说，只有两个数组后缘维度相同或者其中一个数组后缘维度为1时，广播机制会被触发，而通过广播机制如果能够使两个数组的形状一致，才能进行二元运算。所谓后缘维度，指的是数组<code>shape</code>属性对应的元组中最后一个元素的值（从后往前数最后一个维度的值），例如，我们之前打开的图像对应的数组后缘维度为3，3行4列的二维数组后缘维度为4，而有5个元素的一维数组后缘维度为5。简单的说就是，后缘维度相同或者其中一个数组的后缘维度为1，就可以应用广播机制；而广播机制如果能够使得数组的形状一致，就满足了两个数组对应元素做运算的需求，如下图所示。</p>
+<p><img src="https://github.com/jackfrued/mypic/raw/master/20211005115640.png"></p>
+<p><img src="https://github.com/jackfrued/mypic/raw/master/20211005115658.png"></p>
+<p><img src="https://github.com/jackfrued/mypic/raw/master/20211005115800.png"></p>
+<h3 id="其他常用函数"><a href="#其他常用函数" class="headerlink" title="其他常用函数"></a>其他常用函数</h3><p>除了上面讲到的函数外，NumPy 中还提供了很多用于处理数组的函数，<code>ndarray</code>对象的很多方法也可以通过直接调用函数来实现，下表给出了一些常用的函数。</p>
+<p><strong>表3：NumPy其他常用函数</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>unique</code></td>
+<td>去除数组重复元素，返回唯一元素构成的有序数组</td>
+</tr>
+<tr>
+<td><code>copy</code></td>
+<td>返回拷贝数组得到的数组</td>
+</tr>
+<tr>
+<td><code>sort</code></td>
+<td>返回数组元素排序后的拷贝</td>
+</tr>
+<tr>
+<td><code>split</code> &#x2F; <code>hsplit</code> &#x2F; <code>vsplit</code></td>
+<td>将数组拆成若干个子数组</td>
+</tr>
+<tr>
+<td><code>stack</code> &#x2F; <code>hstack</code> &#x2F; <code>vstack</code></td>
+<td>将多个数组堆叠成新数组</td>
+</tr>
+<tr>
+<td><code>concatenate</code></td>
+<td>沿着指定的轴连接多个数组构成新数组</td>
+</tr>
+<tr>
+<td><code>append</code> &#x2F; <code>insert</code></td>
+<td>向数组末尾追加元素 &#x2F; 在数组指定位置插入元素</td>
+</tr>
+<tr>
+<td><code>argwhere</code></td>
+<td>找出数组中非0元素的位置</td>
+</tr>
+<tr>
+<td><code>extract</code> &#x2F; <code>select</code> &#x2F; <code>where</code></td>
+<td>按照指定的条件从数组中抽取或处理数组元素</td>
+</tr>
+<tr>
+<td><code>flip</code></td>
+<td>沿指定的轴翻转数组中的元素</td>
+</tr>
+<tr>
+<td><code>fromiter</code></td>
+<td>通过迭代器创建数组对象</td>
+</tr>
+<tr>
+<td><code>fromregex</code></td>
+<td>通过读取文件和正则表达式解析获取数据创建数组对象</td>
+</tr>
+<tr>
+<td><code>repeat</code> &#x2F; <code>tile</code></td>
+<td>通过对元素的重复来创建新数组</td>
+</tr>
+<tr>
+<td><code>roll</code></td>
+<td>沿指定轴对数组元素进行移位</td>
+</tr>
+<tr>
+<td><code>resize</code></td>
+<td>重新调整数组的大小</td>
+</tr>
+<tr>
+<td><code>place</code> &#x2F; <code>put</code></td>
+<td>将数组中满足条件的元素&#x2F;指定的元素替换为指定的值</td>
+</tr>
+<tr>
+<td><code>partition</code></td>
+<td>用选定的元素对数组进行一次划分并返回划分后的数组</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>提示</strong>：上面的<code>resize</code>函数和<code>ndarray</code>对象的<code>resize</code>方法是有区别的，<code>resize</code>函数在调整数组大小时会重复数组中的元素作为填补多出来的元素的值，而<code>ndarry</code>对象的<code>resize</code>方法是用0来填补多出来的元素。这些小细节不清楚暂时也不要紧，但是如果用到对应的功能了就要引起注意。</p>
+</blockquote>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">array42 = np.array([[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>, <span class="number">3</span>]])</span><br><span class="line">array43 = np.array([[<span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>], [<span class="number">5</span>, <span class="number">5</span>, <span class="number">5</span>], [<span class="number">6</span>, <span class="number">6</span>, <span class="number">6</span>]])</span><br><span class="line">np.hstack((array42, array43))</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">array(<span class="string">[[1, 1, 1, 4, 4, 4],</span></span><br><span class="line"><span class="string">       [2, 2, 2, 5, 5, 5],</span></span><br><span class="line"><span class="string">       [3, 3, 3, 6, 6, 6]]</span>)</span><br></pre></td></tr></table></figure>
+
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">np.vstack((array42, array43))</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight inform7"><table><tr><td class="code"><pre><span class="line">array(<span class="comment">[<span class="comment">[1, 1, 1]</span>,</span></span><br><span class="line"><span class="comment">       <span class="comment">[2, 2, 2]</span>,</span></span><br><span class="line"><span class="comment">       <span class="comment">[3, 3, 3]</span>,</span></span><br><span class="line"><span class="comment">       <span class="comment">[4, 4, 4]</span>,</span></span><br><span class="line"><span class="comment">       <span class="comment">[5, 5, 5]</span>,</span></span><br><span class="line"><span class="comment">       <span class="comment">[6, 6, 6]</span>]</span>)</span><br></pre></td></tr></table></figure>
+
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">np.concatenate((array42, array43))</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight inform7"><table><tr><td class="code"><pre><span class="line">array(<span class="comment">[<span class="comment">[1, 1, 1]</span>,</span></span><br><span class="line"><span class="comment">       <span class="comment">[2, 2, 2]</span>,</span></span><br><span class="line"><span class="comment">       <span class="comment">[3, 3, 3]</span>,</span></span><br><span class="line"><span class="comment">       <span class="comment">[4, 4, 4]</span>,</span></span><br><span class="line"><span class="comment">       <span class="comment">[5, 5, 5]</span>,</span></span><br><span class="line"><span class="comment">       <span class="comment">[6, 6, 6]</span>]</span>)</span><br></pre></td></tr></table></figure>
+
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">np.concatenate((array42, array43), axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">array(<span class="string">[[1, 1, 1, 4, 4, 4],</span></span><br><span class="line"><span class="string">       [2, 2, 2, 5, 5, 5],</span></span><br><span class="line"><span class="string">       [3, 3, 3, 6, 6, 6]]</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h3><p>NumPy 中提供了专门用于线性代数（linear algebra）的模块和表示矩阵的类型<code>matrix</code>，当然我们通过二维数组也可以表示一个矩阵，官方并不推荐使用<code>matrix</code>类而是建议使用二维数组，而且有可能在将来的版本中会移除<code>matrix</code>类。无论如何，利用这些已经封装好的类和函数，我们可以轻松愉快的实现线性代数中很多的操作。</p>
+<h4 id="线性代数快速回顾"><a href="#线性代数快速回顾" class="headerlink" title="线性代数快速回顾"></a>线性代数快速回顾</h4><ol>
+<li><strong>向量</strong>也叫<strong>矢量</strong>，是一个同时具有大小和方向，且满足平行四边形法则的几何对象。与向量相对的概念叫<strong>标量</strong>或<strong>数量</strong>，标量只有大小、绝大多数情况下没有方向。</li>
+<li>向量可以进行<strong>加</strong>、<strong>减</strong>、<strong>数乘</strong>、<strong>点积</strong>、<strong>叉积</strong>等运算。</li>
+<li><strong>行列式</strong>由向量组成，它的性质可以由向量解释。</li>
+<li>行列式可以使用<strong>行列式公式</strong>计算：$det(\boldsymbol{A})&#x3D;\sum_{n!} \pm {a_{1\alpha}a_{2\beta} \cdots a_{n\omega}}$。</li>
+<li>高阶行列式可以用<strong>代数余子式</strong>展开成多个低阶行列式，如：$det(\boldsymbol{A})&#x3D;a_{11}C_{11}+a_{12}C_{12}+ \cdots +a_{1n}C_{1n}$。</li>
+<li><strong>矩阵</strong>是由一系列元素排成的矩形阵列，矩阵里的元素可以是数字、符号或数学公式。</li>
+<li>矩阵可以进行<strong>加法</strong>、<strong>减法</strong>、<strong>数乘</strong>、<strong>乘法</strong>、<strong>转置</strong>等运算。</li>
+<li><strong>逆矩阵</strong>用$\boldsymbol{A^{-1}}$表示，$\boldsymbol{A}\boldsymbol{A^{-1}}&#x3D;\boldsymbol{A^{-1}}\boldsymbol{A}&#x3D;\boldsymbol{I}$；没有逆矩阵的方阵是<strong>奇异矩阵</strong>。</li>
+<li>如果一个方阵是<strong>满秩矩阵</strong>(矩阵的秩等于矩阵的阶数)，该方阵对应的线性方程有唯一解。</li>
+</ol>
+<blockquote>
+<p><strong>说明</strong>：<strong>矩阵的秩</strong>是指矩阵中线性无关的行&#x2F;列向量的最大个数，同时也是矩阵对应的线性变换的像空间的维度。</p>
+</blockquote>
+<h4 id="NumPy中矩阵相关函数"><a href="#NumPy中矩阵相关函数" class="headerlink" title="NumPy中矩阵相关函数"></a>NumPy中矩阵相关函数</h4><ol>
+<li><p>创建矩阵对象。</p>
+<p> 代码：</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># matrix构造函数可以传入类数组对象也可以传入字符串</span></span><br><span class="line">m1 = np.matrix(<span class="string">&#x27;1 2 3; 4 5 6&#x27;</span>)</span><br><span class="line">m1</span><br></pre></td></tr></table></figure>
+
+<p> 输出：</p>
+ <figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">matrix(<span class="string">[[1, 2, 3],</span></span><br><span class="line"><span class="string">        [4, 5, 6]]</span>)</span><br></pre></td></tr></table></figure>
+
+<p> 代码：</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># asmatrix函数也可以写成mat函数，它们其实是同一个函数</span></span><br><span class="line">m2 = np.asmatrix(np.array([[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">3</span>]]))</span><br><span class="line">m2</span><br></pre></td></tr></table></figure>
+
+<p> 输出：</p>
+ <figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">matrix(<span class="string">[[1, 1],</span></span><br><span class="line"><span class="string">        [2, 2],</span></span><br><span class="line"><span class="string">        [3, 3]]</span>)</span><br></pre></td></tr></table></figure>
+
+<p> 代码：</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">m1 * m2</span><br></pre></td></tr></table></figure>
+
+<p> 输出：</p>
+ <figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">matrix(<span class="string">[[14, 14],</span></span><br><span class="line"><span class="string">        [32, 32]]</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：注意<code>matrix</code>对象和<code>ndarray</code>对象乘法运算的差别，如果两个二维数组要做矩阵乘法运算，应该使用<code>@</code>运算符或<code>matmul</code>函数，而不是<code>*</code>运算符。</p>
+</blockquote>
+</li>
+<li><p>矩阵对象的属性。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>A</code></td>
+<td>获取矩阵对象对应的<code>ndarray</code>对象</td>
+</tr>
+<tr>
+<td><code>A1</code></td>
+<td>获取矩阵对象对应的扁平化后的<code>ndarray</code>对象</td>
+</tr>
+<tr>
+<td><code>I</code></td>
+<td>可逆矩阵的逆矩阵</td>
+</tr>
+<tr>
+<td><code>T</code></td>
+<td>矩阵的转置</td>
+</tr>
+<tr>
+<td><code>H</code></td>
+<td>矩阵的共轭转置</td>
+</tr>
+<tr>
+<td><code>shape</code></td>
+<td>矩阵的形状</td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td>矩阵元素的个数</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>矩阵对象的方法。</p>
+</li>
+</ol>
+<p>  矩阵对象的方法跟之前讲过的<code>ndarray</code>数组对象的方法基本差不多，此处不再进行赘述。</p>
+<h4 id="NumPy的线性代数模块"><a href="#NumPy的线性代数模块" class="headerlink" title="NumPy的线性代数模块"></a>NumPy的线性代数模块</h4><p>NumPy 的<code>linalg</code>模块中有一组标准的矩阵分解运算以及诸如求逆和行列式之类的函数，它们跟 MATLAB 和 R 等语言所使用的是相同的行业标准线性代数库，下面的表格列出了<code>numpy</code>以及<code>linalg</code>模块中常用的跟线性代数相关的函数。</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>diag</code></td>
+<td>以一维数组的形式返回方阵的对角线元素或将一维数组转换为方阵（非对角元素元素为0）</td>
+</tr>
+<tr>
+<td><code>vdot</code></td>
+<td>向量的点积</td>
+</tr>
+<tr>
+<td><code>dot</code></td>
+<td>数组的点积</td>
+</tr>
+<tr>
+<td><code>inner</code></td>
+<td>数组的内积</td>
+</tr>
+<tr>
+<td><code>outer</code></td>
+<td>数组的叉积</td>
+</tr>
+<tr>
+<td><code>trace</code></td>
+<td>计算对角线元素的和</td>
+</tr>
+<tr>
+<td><code>norm</code></td>
+<td>求模（范数）运算</td>
+</tr>
+<tr>
+<td><code>det</code></td>
+<td>计算行列式的值（在方阵上计算会得到一个标量）</td>
+</tr>
+<tr>
+<td><code>matrix_rank</code></td>
+<td>计算矩阵的秩</td>
+</tr>
+<tr>
+<td><code>eig</code></td>
+<td>计算矩阵的特征值（eigenvalue）和特征向量（eigenvector）</td>
+</tr>
+<tr>
+<td><code>inv</code></td>
+<td>计算非奇异矩阵（$n$阶方阵）的逆矩阵</td>
+</tr>
+<tr>
+<td><code>pinv</code></td>
+<td>计算矩阵的摩尔-彭若斯（Moore-Penrose）广义逆</td>
+</tr>
+<tr>
+<td><code>qr</code></td>
+<td>QR分解（把矩阵分解成一个正交矩阵与一个上三角矩阵的积）</td>
+</tr>
+<tr>
+<td><code>svd</code></td>
+<td>计算奇异值分解（singular value decomposition）</td>
+</tr>
+<tr>
+<td><code>solve</code></td>
+<td>解线性方程组$\boldsymbol{A}\boldsymbol{x}&#x3D;\boldsymbol{b}$，其中$\boldsymbol{A}$是一个方阵</td>
+</tr>
+<tr>
+<td><code>lstsq</code></td>
+<td>计算$\boldsymbol{A}\boldsymbol{x}&#x3D;\boldsymbol{b}$的最小二乘解</td>
+</tr>
+</tbody></table>
+<p>大家如果有兴趣可以用下面的代码验证上面的函数。</p>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">m3 = np.array([[<span class="number">1.</span>, <span class="number">2.</span>], [<span class="number">3.</span>, <span class="number">4.</span>]])</span><br><span class="line">np.linalg.inv(m3)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">array(<span class="string">[[-2. ,  1. ],</span></span><br><span class="line"><span class="string">       [ 1.5, -0.5]]</span>)</span><br></pre></td></tr></table></figure>
+
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">m4 = np.array([[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>], [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>], [<span class="number">4</span>, <span class="number">7</span>, <span class="number">9</span>]])</span><br><span class="line">np.linalg.det(m4)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 解线性方程组ax=b</span></span><br><span class="line"><span class="comment"># 3*x1 + x2= 9，x1 + 2*x2 = 8</span></span><br><span class="line">a = np.array([[<span class="number">3</span>,<span class="number">1</span>], [<span class="number">1</span>,<span class="number">2</span>]])</span><br><span class="line">b = np.array([<span class="number">9</span>, <span class="number">8</span>])</span><br><span class="line">np.linalg.solve(a, b)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">array</span><span class="params">([<span class="number">2</span>., <span class="number">3</span>.])</span></span></span><br></pre></td></tr></table></figure>
+
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/python/basic/70.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-1/">上一篇：Pandas的应用-1</a>
+  
+  
+  <a class="next" href="/computer-science/python/basic/68.NumPy%E7%9A%84%E5%BA%94%E7%94%A8-1/">下一篇：NumPy的应用-1</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

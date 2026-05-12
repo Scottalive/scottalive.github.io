@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>日期类 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">日期类</h1>
+    <div class="post-meta">
+      <span class="post-date">2023-03-31 09:37</span>
+      <span class="post-word-count">3539 字</span>
+      <span class="post-reading-time">约 12 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Java/">Java</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Java/JavaSE/">JavaSE</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记</a>
+      
+      <a href="/tags/JavaSE/">JavaSE</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#java日期类">Java日期类</a>
+      
+      <a class="toc-level-3" href="#date">Date</a>
+      
+      <a class="toc-level-3" href="#calender">Calender</a>
+      
+      <a class="toc-level-2" href="#jdk8新增的日期类">JDK8新增的日期类</a>
+      
+      <a class="toc-level-3" href="#localdate">LocalDate</a>
+      
+      <a class="toc-level-3" href="#localdatetime">LocalDateTime</a>
+      
+      <a class="toc-level-3" href="#instant">Instant</a>
+      
+      <a class="toc-level-3" href="#timestamp">Timestamp</a>
+      
+      <a class="toc-level-3" href="#locale">Locale</a>
+      
+      <a class="toc-level-3" href="#zone相关的类">Zone相关的类</a>
+      
+      <a class="toc-level-3" href="#日期格式化">日期格式化</a>
+      
+      <a class="toc-level-3" href="#日期类的相互转化">日期类的相互转化</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="java日期类"><a href="#Java日期类" class="headerlink" title="Java日期类"></a>Java日期类</h2><p>​		<code>Java</code>日期类主要包括<code>java.util.Date</code>、<code>java.util.Calendar</code>和<code>java.time</code>包下的类。</p>
+<p>​		<code>java.util.Date</code>类是<code>Java</code>提供的最早的日期类，它表示自1970年1月1日0时0分0秒(GMT)起的毫秒数。但是它的设计存在缺陷，所以在<code>Java 8</code>之后，推荐使用java.time包下的日期类。</p>
+<p>​		<code>java.util.Calendar</code>类是一个抽象类，提供了一些基本的日期操作，比如获取某一时间的年、月、日、时、分、秒等。但是该类使用起来比较繁琐。</p>
+<p>​		<code>Java 8</code>之后推出了全新的日期时间<code>API</code>，<code>java.time</code>包下的类，包括<code>LocalDate</code>、<code>LocalTime</code>、<code>LocalDateTime</code>、<code>ZonedDateTime</code>等，这些类提供了更简单易用的方法和更好的可读性，能够更方便地进行日期和时间的计算和格式化。</p>
+<p>下面是一些常用的Java日期类的方法：</p>
+<h3 id="date"><a href="#Date" class="headerlink" title="Date"></a>Date</h3><ul>
+<li><code>Date()</code>：创建一个表示当前时间的Date对象。</li>
+<li><code>getTime()</code>：返回自1970年1月1日0时0分0秒(GMT)起的毫秒数。</li>
+<li><code>toString()</code>：返回一个String类型的表示形式，格式为<code>EEE MMM dd HH:mm:ss zzz yyyy</code>。</li>
+</ul>
+<h3 id="calender"><a href="#Calender" class="headerlink" title="Calender"></a>Calender</h3><ul>
+<li><code>getInstance()</code>：返回一个Calendar对象，表示当前时间。</li>
+<li><code>get(int field)</code>：获取指定的日期字段值，如<code>Calendar.YEAR</code>、<code>Calendar.MONTH</code>、<code>Calendar.DAY_OF_MONTH</code>等。</li>
+<li><code>set(int field, int value)</code>：设置指定的日期字段值。</li>
+<li><code>getTime()</code>：返回一个Date对象，表示当前时间。</li>
+</ul>
+<h2 id="jdk8新增的日期类"><a href="#JDK8新增的日期类" class="headerlink" title="JDK8新增的日期类"></a>JDK8新增的日期类</h2><p>​		Java 8 中引入了 <code>java.time</code> 包，该包提供了一组全新的日期和时间 API，其中包括 <code>LocalDate</code>、<code>LocalDateTime</code>、<code>ZonedDateTime</code> 等类，它们比旧的 <code>java.util.Date</code> 和 <code>java.util.Calendar</code> 更加方便易用，同时也更加安全和健壮。</p>
+<p>以下是 <code>LocalDate</code>、<code>LocalDateTime</code> 的详细介绍：</p>
+<h3 id="localdate"><a href="#LocalDate" class="headerlink" title="LocalDate"></a>LocalDate</h3><p><code>LocalDate</code> 表示一个日期，不包含时间和时区信息。它可以用来表示一个生日、节日、合同签订日期等等。</p>
+<p>创建 <code>LocalDate</code> 对象有多种方式，比如使用 <code>now()</code> 方法获取当前日期，或者使用 <code>of()</code> 方法指定年、月、日：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">LocalDate</span> <span class="variable">today</span> <span class="operator">=</span> LocalDate.now();</span><br><span class="line"><span class="type">LocalDate</span> <span class="variable">date</span> <span class="operator">=</span> LocalDate.of(<span class="number">2023</span>, <span class="number">2</span>, <span class="number">24</span>);</span><br></pre></td></tr></table></figure>
+
+<p>我们可以通过 <code>getYear()</code>、<code>getMonth()</code>、<code>getDayOfMonth()</code> 等方法获取日期的年、月、日等信息：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">year</span> <span class="operator">=</span> date.getYear();</span><br><span class="line"><span class="type">int</span> <span class="variable">month</span> <span class="operator">=</span> date.getMonthValue();</span><br><span class="line"><span class="type">int</span> <span class="variable">day</span> <span class="operator">=</span> date.getDayOfMonth();</span><br></pre></td></tr></table></figure>
+
+<p><code>LocalDate</code> 还提供了很多方法，比如 <code>plusDays()</code>、<code>minusMonths()</code> 等，用于对日期进行加减操作。例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">LocalDate</span> <span class="variable">tomorrow</span> <span class="operator">=</span> today.plusDays(<span class="number">1</span>);</span><br><span class="line"><span class="type">LocalDate</span> <span class="variable">previousMonthSameDay</span> <span class="operator">=</span> today.minusMonths(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>LocalDate</code> 也支持一些常用的比较方法，比如 <code>isBefore()</code>、<code>isAfter()</code>、<code>isEqual()</code>，用于比较两个日期的先后顺序：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="variable">isBefore</span> <span class="operator">=</span> today.isBefore(tomorrow);</span><br><span class="line"><span class="type">boolean</span> <span class="variable">isAfter</span> <span class="operator">=</span> today.isAfter(previousMonthSameDay);</span><br><span class="line"><span class="type">boolean</span> <span class="variable">isEqual</span> <span class="operator">=</span> today.isEqual(date);</span><br></pre></td></tr></table></figure>
+
+<h3 id="localdatetime"><a href="#LocalDateTime" class="headerlink" title="LocalDateTime"></a>LocalDateTime</h3><p><code>LocalDateTime</code> 表示一个日期时间，不包含时区信息。它可以用来表示一个会议时间、发布时间、交易时间等等。</p>
+<p>创建 <code>LocalDateTime</code> 对象有多种方式，比如使用 <code>now()</code> 方法获取当前日期时间，或者使用 <code>of()</code> 方法指定年、月、日、时、分、秒等：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">now</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">dateTime</span> <span class="operator">=</span> LocalDateTime.of(<span class="number">2023</span>, <span class="number">2</span>, <span class="number">24</span>, <span class="number">10</span>, <span class="number">30</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<p>我们可以通过 <code>getYear()</code>、<code>getMonth()</code>、<code>getDayOfMonth()</code>、<code>getHour()</code>、<code>getMinute()</code>、<code>getSecond()</code> 等方法获取日期时间的年、月、日、时、分、秒等信息：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">year</span> <span class="operator">=</span> dateTime.getYear();</span><br><span class="line"><span class="type">int</span> <span class="variable">month</span> <span class="operator">=</span> dateTime.getMonthValue();</span><br><span class="line"><span class="type">int</span> <span class="variable">day</span> <span class="operator">=</span> dateTime.getDayOfMonth();</span><br><span class="line"><span class="type">int</span> <span class="variable">hour</span> <span class="operator">=</span> dateTime.getHour();</span><br><span class="line"><span class="type">int</span> <span class="variable">minute</span> <span class="operator">=</span> dateTime.getMinute();</span><br><span class="line"><span class="type">int</span> <span class="variable">second</span> <span class="operator">=</span> dateTime.getSecond();</span><br></pre></td></tr></table></figure>
+
+<p><code>LocalDateTime</code>类是Java 8中的日期时间类，表示日期和时间，不带时区信息。下面是<code>LocalDateTime</code>类中常用的一些方法：</p>
+<ol>
+<li><code>now()</code>：获取当前日期时间。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">now</span> <span class="operator">=</span> LocalDateTime.now();</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>of()</code>：根据指定的年、月、日、时、分、秒、毫秒等参数创建一个<code>LocalDateTime</code>实例。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">dateTime</span> <span class="operator">=</span> LocalDateTime.of(<span class="number">2022</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">12</span>, <span class="number">30</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><code>plusXxx()</code>：在当前<code>LocalDateTime</code>的基础上增加指定的时间量，其中Xxx可以是<code>Years、Months、Weeks、Days、Hours、Minutes、Seconds</code>等。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">dateTime</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">plusOneDay</span> <span class="operator">=</span> dateTime.plusDays(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><code>minusXxx()</code>：在当前<code>LocalDateTime</code>的基础上减少指定的时间量，其中Xxx可以是<code>Years、Months、Weeks、Days、Hours、Minutes、Seconds</code>等。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">dateTime</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">minusOneHour</span> <span class="operator">=</span> dateTime.minusHours(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><code>getXxx()</code>：获取<code>LocalDateTime</code>的指定部分，其中Xxx可以是<code>Year、Month、DayOfMonth、DayOfWeek、DayOfYear、Hour、Minute、Second、NanoOfSecond</code>等。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">dateTime</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line"><span class="type">int</span> <span class="variable">year</span> <span class="operator">=</span> dateTime.getYear();</span><br><span class="line"><span class="type">Month</span> <span class="variable">month</span> <span class="operator">=</span> dateTime.getMonth();</span><br><span class="line"><span class="type">int</span> <span class="variable">dayOfMonth</span> <span class="operator">=</span> dateTime.getDayOfMonth();</span><br><span class="line"><span class="type">DayOfWeek</span> <span class="variable">dayOfWeek</span> <span class="operator">=</span> dateTime.getDayOfWeek();</span><br><span class="line"><span class="type">int</span> <span class="variable">hour</span> <span class="operator">=</span> dateTime.getHour();</span><br><span class="line"><span class="type">int</span> <span class="variable">minute</span> <span class="operator">=</span> dateTime.getMinute();</span><br><span class="line"><span class="type">int</span> <span class="variable">second</span> <span class="operator">=</span> dateTime.getSecond();</span><br><span class="line"><span class="type">int</span> <span class="variable">nano</span> <span class="operator">=</span> dateTime.getNano();</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li><code>withXxx()</code>：设置<code>LocalDateTime</code>的指定部分，其中Xxx可以是<code>Year、Month、DayOfMonth、DayOfWeek、DayOfYear、Hour、Minute、Second、NanoOfSecond</code>等。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">dateTime</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">withYear2023</span> <span class="operator">=</span> dateTime.withYear(<span class="number">2023</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li><code>isXxx()</code>：判断<code>LocalDateTime</code>的指定部分是否满足某个条件，其中Xxx可以是<code>LeapYear、After、Before</code>等。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">dateTime</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line"><span class="type">boolean</span> <span class="variable">isLeapYear</span> <span class="operator">=</span> dateTime.toLocalDate().isLeapYear();</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li><code>toXxx()</code>：将<code>LocalDateTime</code>转换为其他日期时间类，其中Xxx可以是<code>LocalDate</code>、<code>LocalTime</code>、<code>Instant</code>等。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">dateTime</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line"><span class="type">LocalDate</span> <span class="variable">date</span> <span class="operator">=</span> dateTime.toLocalDate();</span><br><span class="line"><span class="type">LocalTime</span> <span class="variable">time</span> <span class="operator">=</span> dateTime.toLocalTime();</span><br><span class="line"><span class="type">Instant</span> <span class="variable">instant</span> <span class="operator">=</span> dateTime.toInstant(ZoneOffset.UTC);</span><br></pre></td></tr></table></figure>
+
+<p>这些是<code>LocalDateTime</code>类中比较常用的方法，可以方便地对日期时间进行操作和计算。</p>
+<h3 id="instant"><a href="#Instant" class="headerlink" title="Instant"></a>Instant</h3><p>Java的<code>Instant</code>类是用来表示时刻的类，可以精确到纳秒级别。它是不可变的，线程安全的。<code>Instant</code>类是在Java 8中引入的，它提供了与时区无关的机制来处理日期和时间。</p>
+<p><code>Instant</code>类的实例可以从时钟获取当前时间，也可以从另一个<code>Instant</code>实例中创建，或者通过解析表示ISO-8601格式的字符串来创建。<code>Instant</code>类的API提供了许多方法来操作<code>Instant</code>实例，以下是一些常用方法：</p>
+<ol>
+<li><code>now()</code>：获取当前时间戳的<code>Instant</code>实例。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Instant</span> <span class="variable">now</span> <span class="operator">=</span> Instant.now();</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>ofEpochSecond()</code>：根据秒数创建<code>Instant</code>实例。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Instant</span> <span class="variable">instant</span> <span class="operator">=</span> Instant.ofEpochSecond(<span class="number">1614305156</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><code>ofEpochMilli()</code>：根据毫秒数创建<code>Instant</code>实例。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Instant</span> <span class="variable">instant</span> <span class="operator">=</span> Instant.ofEpochMilli(<span class="number">1614305156000L</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><code>getEpochSecond()</code>：获取秒数。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="variable">epochSecond</span> <span class="operator">=</span> instant.getEpochSecond();</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><code>getNano()</code>：获取纳秒数。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">nano</span> <span class="operator">=</span> instant.getNano();</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li><code>plusSeconds()</code>：添加指定的秒数。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Instant</span> <span class="variable">newInstant</span> <span class="operator">=</span> instant.plusSeconds(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li><code>minusSeconds()</code>：减去指定的秒数。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Instant</span> <span class="variable">newInstant</span> <span class="operator">=</span> instant.minusSeconds(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li><code>isAfter()</code>：判断是否在指定的Instant实例之后。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="variable">isAfter</span> <span class="operator">=</span> instant.isAfter(anotherInstant);</span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li><code>isBefore()</code>：判断是否在指定的<code>Instant</code>实例之前。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="variable">isBefore</span> <span class="operator">=</span> instant.isBefore(anotherInstant);</span><br></pre></td></tr></table></figure>
+
+<ol start="10">
+<li><code>toString()</code>：将<code>Instant</code>实例转换为字符串。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">str</span> <span class="operator">=</span> instant.toString();</span><br></pre></td></tr></table></figure>
+
+<p>总之，<code>Instant</code>类提供了一种简单而灵活的方式来处理日期和时间，它适用于需要精确处理时间戳的应用程序。</p>
+<h3 id="timestamp"><a href="#Timestamp" class="headerlink" title="Timestamp"></a>Timestamp</h3><p>Java中的<code>Timestamp</code>类是用于处理数据库中日期时间类型的类，继承自<code>java.util.Date</code>类，但是它的精度要高于<code>Date</code>类，可以精确到纳秒级别。<code>Timestamp</code>类在<code>JDBC</code>程序中很常用，它可以表示精确到秒的时间戳。</p>
+<p><code>Timestamp</code>类的构造方法有以下几种：</p>
+<ol>
+<li><code>Timestamp(long time)</code>：根据指定的时间创建一个<code>Timestamp</code>对象。</li>
+<li><code>Timestamp(String s)</code>：根据字符串表示的时间创建一个<code>Timestamp</code>对象。</li>
+<li><code>Timestamp(int year, int month, int date, int hour, int minute, int second, int nano)</code>：根据指定的年、月、日、时、分、秒和纳秒数创建一个<code>Timestamp</code>对象。</li>
+</ol>
+<p><code>Timestamp</code>类中的常用方法包括：</p>
+<ol>
+<li><code>getTime()</code>：返回以毫秒表示的<code>Timestamp</code>值。</li>
+<li><code>valueOf(String s)</code>：将指定的字符串转换为<code>Timestamp</code>类型。</li>
+<li><code>valueOf(LocalDateTime dateTime)</code>：将指定的<code>LocalDateTime</code>转换为<code>Timestamp</code>类型。</li>
+<li><code>toLocalDateTime()</code>：将<code>Timestamp</code>对象转换为<code>LocalDateTime</code>对象。</li>
+<li><code>compareTo(Timestamp ts)</code>：比较两个<code>Timestamp</code>对象的大小。</li>
+<li><code>equals(Object ts)</code>：判断当前<code>Timestamp</code>对象是否与指定对象相等。</li>
+<li><code>toString()</code>：将<code>Timestamp</code>对象转换为字符串表示。</li>
+<li><code>setNanos(int n)</code>：设置<code>Timestamp</code>对象的纳秒数。</li>
+<li><code>setYear(int year)</code>：设置<code>Timestamp</code>对象的年份。</li>
+<li><code>setMonth(int month)</code>：设置<code>Timestamp</code>对象的月份。</li>
+<li><code>setDate(int date)</code>：设置<code>Timestamp</code>对象的日期。</li>
+<li><code>setHours(int hours)</code>：设置<code>Timestamp</code>对象的小时。</li>
+<li><code>setMinutes(int minutes)</code>：设置<code>Timestamp</code>对象的分钟。</li>
+<li><code>setSeconds(int seconds)</code>：设置<code>Timestamp</code>对象的秒数。</li>
+</ol>
+<p>总之，<code>Timestamp</code>类是Java中处理时间戳的一个重要类，它可以很方便地将时间戳转换为日期时间类型，或者将日期时间类型转换为时间戳。在开发中，我们通常会使用<code>Timestamp</code>来操作数据库中的时间类型数据。</p>
+<h3 id="locale"><a href="#Locale" class="headerlink" title="Locale"></a>Locale</h3><p>Java中的<code>Locale</code>类表示了特定地理、政治或文化区域的信息，比如国家、语言、货币等。通过<code>Locale</code>类，Java程序可以获取与地区相关的信息，例如日期和时间格式、货币符号、语言环境等。<code>Locale</code>类的实例表示一个特定的地理、政治或文化区域，由语言代码和国家（或地区）代码组成，例如“en_US”表示美国英语环境。</p>
+<p><code>Locale</code>类提供了多个构造函数和静态方法，用于创建和获取特定的地理、政治或文化区域。常用的构造函数和方法包括：</p>
+<ol>
+<li><code>Locale(String language) </code>通过指定的语言代码创建一个<code>Locale</code>实例，国家代码默认为””。</li>
+<li><code>Locale(String language, String country)</code> 通过指定的语言代码和国家代码创建一个<code>Locale</code>实例。</li>
+<li><code>Locale(String language, String country, String variant)</code> 通过指定的语言代码、国家代码和变量创建一个<code>Locale</code>实例。</li>
+<li><code>Locale.getDefault() </code>获取当前默认的<code>Locale</code>实例。</li>
+<li><code>Locale.getAvailableLocales()</code> 获取所有可用的<code>Locale</code>实例。</li>
+<li><code>getCountry()</code> 获取<code>Locale</code>实例的国家代码。</li>
+<li><code>getLanguage() </code>获取<code>Locale</code>实例的语言代码。</li>
+<li><code>getDisplayName() </code>获取<code>Locale</code>实例的显示名称。</li>
+<li><code>getDisplayName(Locale inLocale) </code>获取在指定Locale环境下的<code>Locale</code>实例的显示名称。</li>
+</ol>
+<p><code>Locale</code>类的应用场景包括但不限于以下几种：</p>
+<ol>
+<li>本地化日期、时间、货币等格式</li>
+<li>国际化应用程序的开发</li>
+<li>区域性数据的处理</li>
+<li>多语言文本的翻译和处理</li>
+</ol>
+<h3 id="zone相关的类"><a href="#Zone相关的类" class="headerlink" title="Zone相关的类"></a>Zone相关的类</h3><p>在 Java 中，关于时区的相关操作主要是通过 <code>java.time.Zone</code> 相关的类来完成的。</p>
+<p>首先，<code>ZoneId</code> 类表示了一个时区标识符，可以使用 <code>ZoneId.of()</code> 方法来获取。比如，以下代码可以获取表示 “Asia&#x2F;Shanghai” 时区的 <code>ZoneId</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">ZoneId</span> <span class="variable">zoneId</span> <span class="operator">=</span> ZoneId.of(<span class="string">&quot;Asia/Shanghai&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>ZoneOffset</code> 类表示了一个以秒为单位的时间偏移量，可以使用 <code>ZoneOffset.ofTotalSeconds()</code> 方法来获取。比如，以下代码可以获取表示东八区的 <code>ZoneOffset</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">ZoneOffset</span> <span class="variable">offset</span> <span class="operator">=</span> ZoneOffset.ofTotalSeconds(<span class="number">8</span> * <span class="number">3600</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>ZonedDateTime</code> 类表示了一个带时区的日期和时间。可以使用 <code>ZonedDateTime.of()</code> 方法来创建一个 <code>ZonedDateTime</code> 对象。比如，以下代码可以创建表示当前时间在东八区的 <code>ZonedDateTime</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">zonedDateTime</span> <span class="operator">=</span> ZonedDateTime.now(ZoneId.of(<span class="string">&quot;Asia/Shanghai&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>另外，Java 还提供了一些方便的方法来进行时区转换。比如，<code>LocalDateTime</code> 可以使用 <code>atZone()</code> 方法将其转换为 <code>ZonedDateTime</code>，然后使用 <code>withZoneSameInstant()</code> 方法将其转换为另一个时区的 <code>ZonedDateTime</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">localDateTime</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">shanghaiTime</span> <span class="operator">=</span> localDateTime.atZone(ZoneId.of(<span class="string">&quot;Asia/Shanghai&quot;</span>));</span><br><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">newYorkTime</span> <span class="operator">=</span> shanghaiTime.withZoneSameInstant(ZoneId.of(<span class="string">&quot;America/New_York&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>类似的，<code>Instant</code> 可以使用 <code>atZone()</code> 方法将其转换为 <code>ZonedDateTime</code>，然后使用 <code>toInstant()</code> 方法将其转换为 <code>Instant</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Instant</span> <span class="variable">instant</span> <span class="operator">=</span> Instant.now();</span><br><span class="line"><span class="type">ZonedDateTime</span> <span class="variable">zonedDateTime</span> <span class="operator">=</span> instant.atZone(ZoneId.of(<span class="string">&quot;Asia/Shanghai&quot;</span>));</span><br><span class="line"><span class="type">Instant</span> <span class="variable">newYorkTime</span> <span class="operator">=</span> zonedDateTime.toInstant();</span><br></pre></td></tr></table></figure>
+
+<p>最后，需要注意的是，在处理时区相关的操作时，一定要注意时间的格式化和解析。比如，在使用 <code>SimpleDateFormat</code> 进行时间格式化时，应该使用带时区的格式化器来避免时区转换时的问题。</p>
+<h3 id="日期格式化"><a href="#日期格式化" class="headerlink" title="日期格式化"></a>日期格式化</h3><p>在Java中，可以使用格式化来将日期对象格式化为字符串。Java提供了两种格式化方式：</p>
+<ol>
+<li>使用<code>java.text.SimpleDateFormat</code>类，该类可以根据指定的格式将日期格式化为字符串。</li>
+</ol>
+<p>例如，下面的代码将<code>Date</code>对象格式化为字符串：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DateFormatExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Date</span> <span class="variable">now</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">        <span class="type">SimpleDateFormat</span> <span class="variable">dateFormat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleDateFormat</span>(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">strDate</span> <span class="operator">=</span> dateFormat.format(now);</span><br><span class="line">        System.out.println(strDate);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="number">2022-08-22 16:32:11</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用<code>java.time.format.DateTimeFormatter</code>类，该类是Java 8新引入的日期时间格式化类，使用方式类似于<code>SimpleDateFormat</code>。</li>
+</ol>
+<p>例如，下面的代码将<code>LocalDateTime</code>对象格式化为字符串：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.time.LocalDateTime;</span><br><span class="line"><span class="keyword">import</span> java.time.format.DateTimeFormatter;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DateTimeFormatterExample</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">LocalDateTime</span> <span class="variable">now</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line">        <span class="type">DateTimeFormatter</span> <span class="variable">formatter</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">strDate</span> <span class="operator">=</span> now.format(formatter);</span><br><span class="line">        System.out.println(strDate);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="number">2022-08-22 16:32:11</span></span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，在使用<code>DateTimeFormatter</code>格式化<code>java.time</code>包中的日期时间类时，要使用对应的格式化模式，例如年份用大写的<code>yyyy</code>表示，月份用小写的<code>mm</code>表示等。</p>
+<p>另外，如果需要将字符串转换为日期对象，可以使用<code>SimpleDateFormat</code>或<code>DateTimeFormatter</code>中的<code>parse</code>方法，例如：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">strDate</span> <span class="operator">=</span> <span class="string">&quot;2022-08-22 16:32:11&quot;</span>;</span><br><span class="line"><span class="type">SimpleDateFormat</span> <span class="variable">dateFormat</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleDateFormat</span>(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line"><span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> dateFormat.parse(strDate);</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">strDate</span> <span class="operator">=</span> <span class="string">&quot;2022-08-22 16:32:11&quot;</span>;</span><br><span class="line"><span class="type">DateTimeFormatter</span> <span class="variable">formatter</span> <span class="operator">=</span> DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>);</span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">dateTime</span> <span class="operator">=</span> LocalDateTime.parse(strDate, formatter);</span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，在使用<code>SimpleDateFormat</code>解析日期字符串时，要使用与格式化模式相同的模式进行解析。而使用<code>DateTimeFormatter</code>时，可以根据需要指定格式化模式。</p>
+<h3 id="日期类的相互转化"><a href="#日期类的相互转化" class="headerlink" title="日期类的相互转化"></a>日期类的相互转化</h3><p>​	在 Java 中，我们可以使用各种日期类进行日期的操作。这些日期类包括 <code>java.util.Date</code>、<code>java.sql.Date</code>、<code>java.util.Calendar</code>、<code>java.time.LocalDate</code>、<code>java.time.LocalDateTime</code>、<code>java.time.Instant</code> 等。为了进行不同日期类之间的相互转化，Java 提供了一些方法。</p>
+<p>下面是一些常见的日期类之间的转化方法：</p>
+<ol>
+<li><p><code>java.util.Date</code> 和 <code>java.sql.Date</code> 的转化</p>
+<ul>
+<li><p>将 <code>java.util.Date</code> 转换成 <code>java.sql.Date</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java.util.<span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">java</span>.util.Date();</span><br><span class="line">java.sql.<span class="type">Date</span> <span class="variable">sqlDate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">java</span>.sql.Date(date.getTime());</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将 <code>java.sql.Date</code> 转换成 <code>java.util.Date</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java.sql.<span class="type">Date</span> <span class="variable">sqlDate</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">java</span>.sql.Date(System.currentTimeMillis());</span><br><span class="line">java.util.<span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">java</span>.util.Date(sqlDate.getTime());</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><code>java.util.Date</code> 和 <code>java.time.LocalDateTime</code> 的转化</p>
+<ul>
+<li><p>将 <code>java.util.Date</code> 转换成 <code>java.time.LocalDateTime</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java.util.<span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">java</span>.util.Date();</span><br><span class="line"><span class="type">Instant</span> <span class="variable">instant</span> <span class="operator">=</span> date.toInstant();</span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">localDateTime</span> <span class="operator">=</span> instant.atZone(ZoneId.systemDefault()).toLocalDateTime();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将 <code>java.time.LocalDateTime</code> 转换成 <code>java.util.Date</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">localDateTime</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line"><span class="type">Instant</span> <span class="variable">instant</span> <span class="operator">=</span> localDateTime.atZone(ZoneId.systemDefault()).toInstant();</span><br><span class="line">java.util.<span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> java.util.Date.from(instant);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><code>java.util.Calendar</code> 和 <code>java.time.LocalDateTime</code> 的转化</p>
+<ul>
+<li><p>将 <code>java.util.Calendar</code> 转换成 <code>java.time.LocalDateTime</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Calendar</span> <span class="variable">calendar</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line"><span class="type">LocalDateTime</span> <span class="variable">localDateTime</span> <span class="operator">=</span> LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId());</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将 <code>java.time.LocalDateTime</code> 转换成 <code>java.util.Calendar</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">LocalDateTime</span> <span class="variable">localDateTime</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line"><span class="type">Calendar</span> <span class="variable">calendar</span> <span class="operator">=</span> Calendar.getInstance();</span><br><span class="line">calendar.setTimeInMillis(localDateTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><code>java.util.Date</code> 和 <code>java.time.Instant</code> 的转化</p>
+<ul>
+<li><p>将 <code>java.util.Date</code> 转换成 <code>java.time.Instant</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java.util.<span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">java</span>.util.Date();</span><br><span class="line"><span class="type">Instant</span> <span class="variable">instant</span> <span class="operator">=</span> date.toInstant();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将 <code>java.time.Instant</code> 转换成 <code>java.util.Date</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Instant</span> <span class="variable">instant</span> <span class="operator">=</span> Instant.now();</span><br><span class="line">java.util.<span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> java.util.Date.from(instant);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><code>java.util.Date</code> 和 <code>java.time.LocalDate</code> 的转化</p>
+<ul>
+<li><p>将 <code>java.util.Date</code> 转换成 <code>java.time.LocalDate</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java.util.<span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">java</span>.util.Date();</span><br><span class="line"><span class="type">LocalDate</span> <span class="variable">localDate</span> <span class="operator">=</span> date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将 <code>java.time.LocalDate</code> 转换成 <code>java.util.Date</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">LocalDate</span> <span class="variable">localDate</span> <span class="operator">=</span> LocalDate.now();</span><br><span class="line"><span class="type">Instant</span> <span class="variable">instant</span> <span class="operator">=</span> localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();</span><br><span class="line">java.util.<span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> java.util.Date.from(instant);</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/java/javase/String%E7%B1%BB/">上一篇：String类</a>
+  
+  
+  <a class="next" href="/computer-science/java/javase/Java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">下一篇：Java基本数据类型</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

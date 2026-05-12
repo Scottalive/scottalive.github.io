@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>沉鱼的博客 • Posts by &#34;springboot&#34; tag</title>
+        <link>https://scottalive.github.io</link>
+        <description>编程笔记 &amp; 资料分享</description>
+        <language>zh-CN</language>
+        <pubDate>Mon, 23 Oct 2023 08:36:23 +0800</pubDate>
+        <lastBuildDate>Mon, 23 Oct 2023 08:36:23 +0800</lastBuildDate>
+        <category>AI日报</category>
+        <category>AI</category>
+        <category>GitHub热门</category>
+        <category>人工智能</category>
+        <category>技术趋势</category>
+        <category>原则</category>
+        <category>个人详情</category>
+        <category>个人分享</category>
+        <category>坏习惯</category>
+        <category>Kubernetes</category>
+        <category>Helm</category>
+        <category>学习计划</category>
+        <category>心理学知识</category>
+        <category>网络安全</category>
+        <category>SQL注入</category>
+        <category>XSS</category>
+        <category>CSRF</category>
+        <category>DDoS</category>
+        <category>渗透测试</category>
+        <category>阿德勒心理学</category>
+        <category>自卑与超越</category>
+        <category>GPT-5.5</category>
+        <category>OpenAI</category>
+        <category>Codex</category>
+        <category>ClaudeCode</category>
+        <category>Gemini</category>
+        <category>开发工具</category>
+        <category>开源</category>
+        <category>编程笔记</category>
+        <category>Hermes</category>
+        <category>Agent</category>
+        <category>NousResearch</category>
+        <category>进阶</category>
+        <category>配置</category>
+        <category>高阶</category>
+        <category>自动化</category>
+        <category>LLM</category>
+        <category>RAG</category>
+        <category>知识库</category>
+        <category>OpenSRE</category>
+        <category>SRE</category>
+        <category>运维</category>
+        <category>故障排查</category>
+        <category>SSE</category>
+        <category>HTTP</category>
+        <category>接口开发</category>
+        <category>开发注意事项</category>
+        <category>力扣算法题</category>
+        <category>算法</category>
+        <category>动态规划</category>
+        <category>微服务</category>
+        <category>JavaSE</category>
+        <category>Java开发面试题</category>
+        <category>SpringBoot</category>
+        <category>Spring</category>
+        <category>python</category>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/interview/SpringBoot%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+            <title>SpringBoot面试题</title>
+            <link>https://scottalive.github.io/computer-science/java/interview/SpringBoot%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+            <category>Java开发面试题</category>
+            <category>SpringBoot</category>
+            <pubDate>Mon, 23 Oct 2023 08:36:23 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;SpringBoot面试题&#34;&gt;&lt;a href=&#34;#SpringBoot面试题&#34; class=&#34;headerlink&#34; title=&#34;SpringBoot面试题&#34;&gt;&lt;/a&gt;SpringBoot面试题&lt;/h2&gt;&lt;h3 id=&#34;1-SpringBoot的特性&#34;&gt;&lt;a href=&#34;#1-SpringBoot的特性&#34; class=&#34;headerlink&#34; title=&#34;1.SpringBoot的特性&#34;&gt;&lt;/a&gt;1.SpringBoot的特性&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Spring的独立应用；&lt;/li&gt;
+&lt;li&gt;SpringBoot内置Tomcat、Jetty容器，不需要构建war文件；&lt;/li&gt;
+&lt;li&gt;SpringBoot提供了各种starter即场景启动器，简化了构建配置；&lt;/li&gt;
+&lt;li&gt;当条件满足的时候自动地装配Spring或第三方类库；&lt;/li&gt;
+&lt;li&gt;提供运维特性，如指标信息、健康检查以及外部化配置；&lt;/li&gt;
+&lt;li&gt;绝无代码生成，并且不需要XML配置；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;2-SpringBoot的原理&#34;&gt;&lt;a href=&#34;#2-SpringBoot的原理&#34; class=&#34;headerlink&#34; title=&#34;2.SpringBoot的原理&#34;&gt;&lt;/a&gt;2.SpringBoot的原理&lt;/h3&gt;&lt;p&gt;​	Spring Boot 是一个用于简化 Spring 应用开发的框架，它基于 Spring 框架，提供了一种快速、方便的方式来创建基于生产级别的、可独立运行的 Spring 应用。以下是 Spring Boot 的一些核心原理：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;自动配置（Auto-Configuration）&lt;/strong&gt;：Spring Boot 使用自动配置来简化应用的配置过程。它会根据类路径下的依赖自动配置应用的行为，减少了开发者的配置工作。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;起步依赖（Starter Dependencies）&lt;/strong&gt;：Spring Boot 提供了一系列预先配置好的依赖项，称为“起步依赖”。开发者可以通过引入特定的起步依赖，快速地添加对数据库、消息队列、安全性等功能的支持，而不需要手动配置。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;嵌入式容器（Embedded Containers）&lt;/strong&gt;：Spring Boot 包含了嵌入式的 Servlet 容器（如Tomcat、Jetty等），应用可以直接打包为一个可执行的 JAR 文件，不需要外部容器的支持。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Actuator&lt;/strong&gt;：Spring Boot Actuator 提供了对应用内部运行状况的监控和管理功能。通过暴露 RESTful 接口，开发者可以方便地查看应用的健康状况、性能指标等信息。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;外部化配置（Externalized Configuration）&lt;/strong&gt;：Spring Boot 支持使用属性文件、YAML 文件、环境变量等多种方式来配置应用，这样可以使得应用的配置更加灵活。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Spring Boot CLI&lt;/strong&gt;：Spring Boot 提供了一个命令行工具（CLI），可以用 Groovy 语言编写简单的 Spring Boot 应用，进一步简化了开发流程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;简化的 Maven 和 Gradle 插件&lt;/strong&gt;：Spring Boot 提供了专门的 Maven 和 Gradle 插件，可以方便地构建和运行 Spring Boot 应用。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;总的来说，Spring Boot 的核心原理在于提供了一套约定大于配置的开发模式，通过默认的配置和约定，开发者可以更专注于业务逻辑的开发，而不需要过多地关心底层框架的配置和集成。&lt;/p&gt;
+&lt;h3 id=&#34;3-SpringBoot的一些注解&#34;&gt;&lt;a href=&#34;#3-SpringBoot的一些注解&#34; class=&#34;headerlink&#34; title=&#34;3.SpringBoot的一些注解&#34;&gt;&lt;/a&gt;3.SpringBoot的一些注解&lt;/h3&gt;&lt;p&gt;​	&lt;/p&gt;
+&lt;h3 id=&#34;4-SpringBoot的场景启动器是什么？&#34;&gt;&lt;a href=&#34;#4-SpringBoot的场景启动器是什么？&#34; class=&#34;headerlink&#34; title=&#34;4.SpringBoot的场景启动器是什么？&#34;&gt;&lt;/a&gt;4.SpringBoot的场景启动器是什么？&lt;/h3&gt; ]]></description>
+        </item>
+    </channel>
+</rss>

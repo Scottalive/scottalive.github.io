@@ -1,0 +1,417 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>沉鱼的博客 • Posts by &#34;claudecode&#34; tag</title>
+        <link>https://scottalive.github.io</link>
+        <description>编程笔记 &amp; 资料分享</description>
+        <language>zh-CN</language>
+        <pubDate>Thu, 30 Apr 2026 23:30:00 +0800</pubDate>
+        <lastBuildDate>Thu, 30 Apr 2026 23:30:00 +0800</lastBuildDate>
+        <category>AI日报</category>
+        <category>AI</category>
+        <category>GitHub热门</category>
+        <category>人工智能</category>
+        <category>技术趋势</category>
+        <category>原则</category>
+        <category>个人详情</category>
+        <category>个人分享</category>
+        <category>坏习惯</category>
+        <category>Kubernetes</category>
+        <category>Helm</category>
+        <category>学习计划</category>
+        <category>心理学知识</category>
+        <category>网络安全</category>
+        <category>SQL注入</category>
+        <category>XSS</category>
+        <category>CSRF</category>
+        <category>DDoS</category>
+        <category>渗透测试</category>
+        <category>阿德勒心理学</category>
+        <category>自卑与超越</category>
+        <category>GPT-5.5</category>
+        <category>OpenAI</category>
+        <category>Codex</category>
+        <category>ClaudeCode</category>
+        <category>Gemini</category>
+        <category>开发工具</category>
+        <category>开源</category>
+        <category>编程笔记</category>
+        <category>Hermes</category>
+        <category>Agent</category>
+        <category>NousResearch</category>
+        <category>进阶</category>
+        <category>配置</category>
+        <category>高阶</category>
+        <category>自动化</category>
+        <category>LLM</category>
+        <category>RAG</category>
+        <category>知识库</category>
+        <category>OpenSRE</category>
+        <category>SRE</category>
+        <category>运维</category>
+        <category>故障排查</category>
+        <category>SSE</category>
+        <category>HTTP</category>
+        <category>接口开发</category>
+        <category>开发注意事项</category>
+        <category>力扣算法题</category>
+        <category>算法</category>
+        <category>动态规划</category>
+        <category>微服务</category>
+        <category>JavaSE</category>
+        <category>Java开发面试题</category>
+        <category>SpringBoot</category>
+        <category>Spring</category>
+        <category>python</category>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/CC-Switch-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+            <title>CC Switch 安装与使用指南 —— AI 编程助手全能管理器</title>
+            <link>https://scottalive.github.io/computer-science/ai-tools/CC-Switch-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+            <category>AI</category>
+            <category>Codex</category>
+            <category>ClaudeCode</category>
+            <category>Gemini</category>
+            <category>开发工具</category>
+            <category>开源</category>
+            <pubDate>Thu, 30 Apr 2026 23:30:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;什么是-CC-Switch？&#34;&gt;&lt;a href=&#34;#什么是-CC-Switch？&#34; class=&#34;headerlink&#34; title=&#34;什么是 CC Switch？&#34;&gt;&lt;/a&gt;什么是 CC Switch？&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/farion1231/cc-switch&#34;&gt;CC Switch&lt;/a&gt; 是一款&lt;strong&gt;跨平台桌面应用&lt;/strong&gt;，一站式管理 Claude Code、Codex、Gemini CLI、OpenCode 和 OpenClaw 等多款 AI 编程助手。基于 Tauri 2 构建，支持 Windows &amp;#x2F; macOS &amp;#x2F; Linux，当前最新版本为 &lt;strong&gt;v3.14.1&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;如果你同时使用多款 AI 编程工具——比如用 Claude Code 做架构设计、用 Codex 写代码、用 Gemini 做代码审查——CC Switch 能让你在一个统一的界面里切换、配置和管理它们，不用在多个终端窗口之间来回折腾。&lt;/p&gt;
+&lt;h3 id=&#34;核心能力一览&#34;&gt;&lt;a href=&#34;#核心能力一览&#34; class=&#34;headerlink&#34; title=&#34;核心能力一览&#34;&gt;&lt;/a&gt;核心能力一览&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;功能&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;🔄 多工具管理&lt;/td&gt;
+&lt;td&gt;统一管理 Claude Code &amp;#x2F; Codex &amp;#x2F; Gemini CLI &amp;#x2F; OpenCode &amp;#x2F; OpenClaw&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;⚙️ 提供商切换&lt;/td&gt;
+&lt;td&gt;支持 Anthropic 官方、AWS Bedrock、Google Vertex、Azure Foundry 及各类中转 API&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;📊 用量监控&lt;/td&gt;
+&lt;td&gt;系统托盘实时显示各工具用量、订阅配额、颜色编码利用率&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🔐 OAuth 反向代理&lt;/td&gt;
+&lt;td&gt;内置 Codex OAuth 代理，支持 FAST 模式切换&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🧩 Skills 管理&lt;/td&gt;
+&lt;td&gt;导入、安装、更新各类 Agent Skills&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;📝 会话管理&lt;/td&gt;
+&lt;td&gt;查看、恢复、切换各工具的历史会话&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🌐 MCP 配置&lt;/td&gt;
+&lt;td&gt;图形化管理 Model Context Protocol 服务器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🏠 Hermes 集成&lt;/td&gt;
+&lt;td&gt;提供商管理、记忆编辑、Web UI 启动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;安装指南&#34;&gt;&lt;a href=&#34;#安装指南&#34; class=&#34;headerlink&#34; title=&#34;安装指南&#34;&gt;&lt;/a&gt;安装指南&lt;/h2&gt;&lt;h3 id=&#34;下载安装包&#34;&gt;&lt;a href=&#34;#下载安装包&#34; class=&#34;headerlink&#34; title=&#34;下载安装包&#34;&gt;&lt;/a&gt;下载安装包&lt;/h3&gt;&lt;p&gt;访问 &lt;a href=&#34;https://github.com/farion1231/cc-switch/releases/latest&#34;&gt;Releases 页面&lt;/a&gt; 下载对应平台的安装包：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;平台&lt;/th&gt;
+&lt;th&gt;安装包格式&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;Windows&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;.msi&lt;/code&gt; 安装程序 &amp;#x2F; &lt;code&gt;.exe&lt;/code&gt; 便携版&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;macOS&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;.dmg&lt;/code&gt;（Apple Silicon &amp;#x2F; Intel）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Linux&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;.AppImage&lt;/code&gt; &amp;#x2F; &lt;code&gt;.deb&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;Windows-安装&#34;&gt;&lt;a href=&#34;#Windows-安装&#34; class=&#34;headerlink&#34; title=&#34;Windows 安装&#34;&gt;&lt;/a&gt;Windows 安装&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;下载最新版 &lt;code&gt;.msi&lt;/code&gt; 安装包&lt;/li&gt;
+&lt;li&gt;双击运行，按向导完成安装&lt;/li&gt;
+&lt;li&gt;安装完成后，桌面和开始菜单会出现 CC Switch 图标&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;或者使用便携版（无需安装），直接运行 &lt;code&gt;.exe&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;macOS-安装&#34;&gt;&lt;a href=&#34;#macOS-安装&#34; class=&#34;headerlink&#34; title=&#34;macOS 安装&#34;&gt;&lt;/a&gt;macOS 安装&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 下载 .dmg 后双击挂载，将 CC Switch 拖入 Applications&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 或通过 Homebrew（如有）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;首次打开时，macOS 可能提示”无法验证开发者”，去&lt;strong&gt;系统设置 → 隐私与安全性&lt;/strong&gt;中点击”仍要打开”即可。&lt;/p&gt;
+&lt;h3 id=&#34;Linux-安装&#34;&gt;&lt;a href=&#34;#Linux-安装&#34; class=&#34;headerlink&#34; title=&#34;Linux 安装&#34;&gt;&lt;/a&gt;Linux 安装&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# AppImage（推荐）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;chmod&lt;/span&gt; +x CC-Switch-*.AppImage&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;./CC-Switch-*.AppImage&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# deb 包&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo dpkg -i cc-switch_*.deb&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;使用指南&#34;&gt;&lt;a href=&#34;#使用指南&#34; class=&#34;headerlink&#34; title=&#34;使用指南&#34;&gt;&lt;/a&gt;使用指南&lt;/h2&gt;&lt;h3 id=&#34;1-初始配置&#34;&gt;&lt;a href=&#34;#1-初始配置&#34; class=&#34;headerlink&#34; title=&#34;1. 初始配置&#34;&gt;&lt;/a&gt;1. 初始配置&lt;/h3&gt;&lt;p&gt;首次打开 CC Switch 后，你会看到主界面。左侧是工具列表（Claude Code &amp;#x2F; Codex &amp;#x2F; Gemini CLI 等），右侧是配置面板。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一步：添加 AI 工具&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;点击左侧工具图标（如 Claude Code）&lt;/li&gt;
+&lt;li&gt;在右侧面板中配置：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;提供商&lt;/strong&gt;：选择 Anthropic（官方）&amp;#x2F; Bedrock &amp;#x2F; Vertex &amp;#x2F; 自定义 API 中转&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API 地址&lt;/strong&gt;：如果用中转服务，填入对应的 &lt;code&gt;ANTHROPIC_BASE_URL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API Key&lt;/strong&gt;：填入你的密钥&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型&lt;/strong&gt;：选择默认使用的模型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;点击「测试连接」确认配置正确&lt;/li&gt;
+&lt;li&gt;点击「保存」&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;CC Switch 支持&lt;strong&gt;同时配置多个提供商&lt;/strong&gt;，你可以为 Claude Code 配一个 Anthropic 官方、一个 Bedrock、一个便宜的中转站，随时切换。&lt;/p&gt;
+&lt;h3 id=&#34;2-切换工具和提供商&#34;&gt;&lt;a href=&#34;#2-切换工具和提供商&#34; class=&#34;headerlink&#34; title=&#34;2. 切换工具和提供商&#34;&gt;&lt;/a&gt;2. 切换工具和提供商&lt;/h3&gt;&lt;p&gt;在左侧工具栏点击对应图标即可切换不同的 AI 编程工具。&lt;/p&gt;
+&lt;p&gt;对于同一工具的不同提供商，在主界面顶部或设置面板的提供商下拉菜单中一键切换。CC Switch 会自动更新对应的环境变量和配置文件。&lt;/p&gt;
+&lt;h3 id=&#34;3-启动对话会话&#34;&gt;&lt;a href=&#34;#3-启动对话会话&#34; class=&#34;headerlink&#34; title=&#34;3. 启动对话会话&#34;&gt;&lt;/a&gt;3. 启动对话会话&lt;/h3&gt;&lt;p&gt;配置好工具后，可以：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;直接启动&lt;/strong&gt;：点击「启动」按钮，CC Switch 会在新终端窗口中打开对应工具&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;恢复历史会话&lt;/strong&gt;：在会话列表中双击之前的会话，自动恢复到上次的对话状态&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;继续最近会话&lt;/strong&gt;：点击工具旁边的「继续」图标&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于 Gemini CLI，CC Switch 会读取 &lt;code&gt;.project_root&lt;/code&gt; 元数据，确保恢复到正确的项目目录。&lt;/p&gt;
+&lt;h3 id=&#34;4-用量监控（系统托盘）&#34;&gt;&lt;a href=&#34;#4-用量监控（系统托盘）&#34; class=&#34;headerlink&#34; title=&#34;4. 用量监控（系统托盘）&#34;&gt;&lt;/a&gt;4. 用量监控（系统托盘）&lt;/h3&gt;&lt;p&gt;CC Switch 最小化后会驻留在系统托盘中，右键托盘图标可以看到：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;当前工具的用量概览&lt;/strong&gt;：Claude &amp;#x2F; Codex &amp;#x2F; Gemini 各自的消耗情况&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;订阅配额摘要&lt;/strong&gt;：显示配额的百分比和颜色标记（🟢 正常 &amp;#x2F; 🟡 警告 &amp;#x2F; 🔴 耗尽）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用量脚本摘要&lt;/strong&gt;：基于自定义 usage_script 的详细统计&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于国内的 Kimi &amp;#x2F; 智谱 &amp;#x2F; MiniMax 等编码套餐，托盘还会显示 &lt;strong&gt;5 小时 + 周度&lt;/strong&gt;双窗口用量，格式类似 &lt;code&gt;🟢 h12% w80%&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;5-Skills（技能）管理&#34;&gt;&lt;a href=&#34;#5-Skills（技能）管理&#34; class=&#34;headerlink&#34; title=&#34;5. Skills（技能）管理&#34;&gt;&lt;/a&gt;5. Skills（技能）管理&lt;/h3&gt;&lt;p&gt;CC Switch 内置了 Skills 管理功能，可以导入和安装社区分享的 Agent Skills：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;进入 Skills 管理页面&lt;/li&gt;
+&lt;li&gt;点击「导入」→ 输入 Skills 的 GitHub URL&lt;/li&gt;
+&lt;li&gt;CC Switch 自动下载并安装到对应工具的配置目录&lt;/li&gt;
+&lt;li&gt;支持一键更新已安装的 Skills&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;导入过程中会自动去重，防止重复安装。&lt;/p&gt;
+&lt;h3 id=&#34;6-MCP-服务器配置&#34;&gt;&lt;a href=&#34;#6-MCP-服务器配置&#34; class=&#34;headerlink&#34; title=&#34;6. MCP 服务器配置&#34;&gt;&lt;/a&gt;6. MCP 服务器配置&lt;/h3&gt;&lt;p&gt;在 MCP 配置页面，你可以图形化管理 Model Context Protocol 服务器：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;添加新的 MCP 服务器（本地或远程）&lt;/li&gt;
+&lt;li&gt;配置环境变量和启动参数&lt;/li&gt;
+&lt;li&gt;测试 MCP 连接状态&lt;/li&gt;
+&lt;li&gt;一键启用&amp;#x2F;禁用特定服务器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;7-Hermes-集成&#34;&gt;&lt;a href=&#34;#7-Hermes-集成&#34; class=&#34;headerlink&#34; title=&#34;7. Hermes 集成&#34;&gt;&lt;/a&gt;7. Hermes 集成&lt;/h3&gt;&lt;p&gt;Hermes 是 CC Switch 内置的配置管理中心：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;提供商展示&lt;/strong&gt;：查看所有已配置的 AI 提供商&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;默认切换&lt;/strong&gt;：设置默认使用的提供商&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;记忆编辑&lt;/strong&gt;：编辑 Agent 的持久化记忆&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Web UI 启动&lt;/strong&gt;：一键跳转到 Hermes Web 控制台，进行深度配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：v3.14.1 起移除了应用内的 Hermes 配置健康扫描功能，深度配置诊断请使用 Hermes Web UI。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;Codex-OAuth-反向代理&#34;&gt;&lt;a href=&#34;#Codex-OAuth-反向代理&#34; class=&#34;headerlink&#34; title=&#34;Codex OAuth 反向代理&#34;&gt;&lt;/a&gt;Codex OAuth 反向代理&lt;/h2&gt;&lt;p&gt;CC Switch 内置了 Codex OAuth 反向代理功能，主要特性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;缓存路由&lt;/strong&gt;：使用客户端提供的会话 ID 作为缓存键，保持缓存一致性&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FAST 模式&lt;/strong&gt;：可选择开启 &lt;code&gt;service_tier=&amp;quot;priority&amp;quot;&lt;/code&gt;，降低延迟（会消耗更多 ChatGPT 配额，默认关闭）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stream Check&lt;/strong&gt;：代理请求使用与实际请求相同的配置参数，确保连接测试结果与实际使用一致&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SSE 聚合&lt;/strong&gt;：非流式请求也能正确处理上游的 SSE 响应&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在 Codex 提供商的设置面板中，可以找到 OAuth 代理的开关和 FAST 模式选项。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;常见问题&#34;&gt;&lt;a href=&#34;#常见问题&#34; class=&#34;headerlink&#34; title=&#34;常见问题&#34;&gt;&lt;/a&gt;常见问题&lt;/h2&gt;&lt;h3 id=&#34;Q-CC-Switch-收费吗？&#34;&gt;&lt;a href=&#34;#Q-CC-Switch-收费吗？&#34; class=&#34;headerlink&#34; title=&#34;Q: CC Switch 收费吗？&#34;&gt;&lt;/a&gt;Q: CC Switch 收费吗？&lt;/h3&gt;&lt;p&gt;完全免费开源（MIT 协议），从 &lt;a href=&#34;https://github.com/farion1231/cc-switch/releases&#34;&gt;GitHub Release&lt;/a&gt; 直接下载。&lt;/p&gt;
+&lt;h3 id=&#34;Q-需要自己安装-Claude-Code-Codex-Gemini-CLI-吗？&#34;&gt;&lt;a href=&#34;#Q-需要自己安装-Claude-Code-Codex-Gemini-CLI-吗？&#34; class=&#34;headerlink&#34; title=&#34;Q: 需要自己安装 Claude Code &amp;#x2F; Codex &amp;#x2F; Gemini CLI 吗？&#34;&gt;&lt;/a&gt;Q: 需要自己安装 Claude Code &amp;#x2F; Codex &amp;#x2F; Gemini CLI 吗？&lt;/h3&gt;&lt;p&gt;需要。CC Switch 是管理工具，不是这些 AI 工具本身的安装器。请确保你要使用的工具已经安装在系统中。&lt;/p&gt;
+&lt;h3 id=&#34;Q-支持哪些-API-中转服务？&#34;&gt;&lt;a href=&#34;#Q-支持哪些-API-中转服务？&#34; class=&#34;headerlink&#34; title=&#34;Q: 支持哪些 API 中转服务？&#34;&gt;&lt;/a&gt;Q: 支持哪些 API 中转服务？&lt;/h3&gt;&lt;p&gt;CC Switch 本身不限制中转服务。任何兼容 Anthropic &amp;#x2F; OpenAI 接口规范的中转 API 都可以配置使用。项目 README 中列出了一批赞助商（PackyCode、AIGoCode、Cubence、Crazyrouter 等），使用 CC Switch 专属优惠码充值有折扣。&lt;/p&gt;
+&lt;h3 id=&#34;Q-数据安全吗？&#34;&gt;&lt;a href=&#34;#Q-数据安全吗？&#34; class=&#34;headerlink&#34; title=&#34;Q: 数据安全吗？&#34;&gt;&lt;/a&gt;Q: 数据安全吗？&lt;/h3&gt;&lt;p&gt;CC Switch 是本地桌面应用，所有配置和密钥保存在本地，不会上传到任何服务器。OAuth 代理也在本地运行。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;CC Switch 解决了一个真实痛点：&lt;strong&gt;开发者同时使用多款 AI 编程工具时的管理混乱&lt;/strong&gt;。它把 Claude Code、Codex、Gemini CLI 等工具的配置、切换、监控、会话管理都整合到了一个桌面应用里，配合系统托盘用量监控和 Skills&amp;#x2F;MCP 管理，是目前这个细分领域最成熟的工具之一。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GitHub：&lt;a href=&#34;https://github.com/farion1231/cc-switch&#34;&gt;https://github.com/farion1231/cc-switch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;最新版本：v3.14.1（2026-04-23）&lt;/li&gt;
+&lt;li&gt;协议：MIT 开源&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/Claude-Code-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+            <title>Claude Code 安装与使用指南</title>
+            <link>https://scottalive.github.io/computer-science/ai-tools/Claude-Code-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+            <category>AI</category>
+            <category>ClaudeCode</category>
+            <category>开发工具</category>
+            <category>编程笔记</category>
+            <pubDate>Wed, 29 Apr 2026 20:39:42 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;什么是-Claude-Code？&#34;&gt;&lt;a href=&#34;#什么是-Claude-Code？&#34; class=&#34;headerlink&#34; title=&#34;什么是 Claude Code？&#34;&gt;&lt;/a&gt;什么是 Claude Code？&lt;/h2&gt;&lt;p&gt;Claude Code 是 Anthropic 推出的&lt;strong&gt;智能编程助手&lt;/strong&gt;，以大语言模型为驱动，能够理解代码库、编辑文件、运行终端命令，并深度集成到你的开发流程中。它不仅仅是一个聊天窗口——它能直接在代码上下文里帮你分析问题、重构代码、调试错误，甚至自动化重复任务。&lt;/p&gt;
+&lt;p&gt;目前 Claude Code 支持四种使用形态：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;终端 CLI&lt;/strong&gt;：在命令行中直接使用&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Desktop 桌面应用&lt;/strong&gt;：macOS &amp;#x2F; Windows 独立应用&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;VS Code 扩展&lt;/strong&gt;：在编辑器中侧栏对话&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;JetBrains 插件&lt;/strong&gt;：支持 IntelliJ、PyCharm、WebStorm 等&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;安装指南&#34;&gt;&lt;a href=&#34;#安装指南&#34; class=&#34;headerlink&#34; title=&#34;安装指南&#34;&gt;&lt;/a&gt;安装指南&lt;/h2&gt;&lt;h3 id=&#34;macOS-Linux-终端安装&#34;&gt;&lt;a href=&#34;#macOS-Linux-终端安装&#34; class=&#34;headerlink&#34; title=&#34;macOS &amp;#x2F; Linux 终端安装&#34;&gt;&lt;/a&gt;macOS &amp;#x2F; Linux 终端安装&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 官方一键安装脚本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -fsSL https://claude.ai/install.sh | bash&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 或通过 Homebrew 安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;brew install --cask claude-code&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;Windows-终端安装&#34;&gt;&lt;a href=&#34;#Windows-终端安装&#34; class=&#34;headerlink&#34; title=&#34;Windows 终端安装&#34;&gt;&lt;/a&gt;Windows 终端安装&lt;/h3&gt;&lt;figure class=&#34;highlight powershell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# PowerShell 中执行&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;irm&lt;/span&gt; https://claude.ai/install.ps1 | &lt;span class=&#34;built_in&#34;&gt;iex&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 或通过 WinGet 安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;winget install Anthropic.ClaudeCode&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;如果使用 CMD 命令行：&lt;/p&gt;
+&lt;figure class=&#34;highlight cmd&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;curl -fsSL https://claude.ai/install.&lt;span class=&#34;built_in&#34;&gt;cmd&lt;/span&gt; -o install.&lt;span class=&#34;built_in&#34;&gt;cmd&lt;/span&gt; &amp;amp;&amp;amp; install.&lt;span class=&#34;built_in&#34;&gt;cmd&lt;/span&gt; &amp;amp;&amp;amp; &lt;span class=&#34;built_in&#34;&gt;del&lt;/span&gt; install.&lt;span class=&#34;built_in&#34;&gt;cmd&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;VS-Code-插件安装&#34;&gt;&lt;a href=&#34;#VS-Code-插件安装&#34; class=&#34;headerlink&#34; title=&#34;VS Code 插件安装&#34;&gt;&lt;/a&gt;VS Code 插件安装&lt;/h3&gt;&lt;p&gt;直接在 VS Code 扩展商店搜索 &lt;strong&gt;“Claude Code”&lt;/strong&gt;，或通过命令行安装：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;code --install-extension anthropic.claude-code&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;JetBrains-IDE-安装&#34;&gt;&lt;a href=&#34;#JetBrains-IDE-安装&#34; class=&#34;headerlink&#34; title=&#34;JetBrains IDE 安装&#34;&gt;&lt;/a&gt;JetBrains IDE 安装&lt;/h3&gt;&lt;p&gt;在 JetBrains 插件市场搜索 &lt;strong&gt;“Claude Code”&lt;/strong&gt; 安装即可，支持 IntelliJ IDEA、PyCharm、WebStorm 等主流 IDE。&lt;/p&gt;
+&lt;h2 id=&#34;初次配置&#34;&gt;&lt;a href=&#34;#初次配置&#34; class=&#34;headerlink&#34; title=&#34;初次配置&#34;&gt;&lt;/a&gt;初次配置&lt;/h2&gt;&lt;p&gt;安装完成后，第一次启动需要完成以下配置：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 认证&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Claude Code 使用 Anthropic API Key 进行身份认证。如果你已有账号，可通过如下方式设置：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 设置环境变量&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; ANTHROPIC_API_KEY=&lt;span class=&#34;string&#34;&gt;&amp;quot;your-api-key-here&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;也可以在首次运行 Claude Code 时，按照提示完成 OAuth 认证流程。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 选择模型&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Claude Code 支持多种底层模型提供商：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;提供商&lt;/th&gt;
+&lt;th&gt;模型&lt;/th&gt;
+&lt;th&gt;适用场景&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Anthropic&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Claude Sonnet &amp;#x2F; Opus&lt;/td&gt;
+&lt;td&gt;默认推荐，通用开发&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Amazon Bedrock&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Claude 系列&lt;/td&gt;
+&lt;td&gt;AWS 用户可管控数据&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Google Vertex AI&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Claude 系列&lt;/td&gt;
+&lt;td&gt;GCP 用户可管控数据&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Microsoft Foundry&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Claude 系列&lt;/td&gt;
+&lt;td&gt;Azure 用户可管控数据&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;如果不做特殊配置，默认使用 Anthropic 直连。&lt;/p&gt;
+&lt;h2 id=&#34;基本使用&#34;&gt;&lt;a href=&#34;#基本使用&#34; class=&#34;headerlink&#34; title=&#34;基本使用&#34;&gt;&lt;/a&gt;基本使用&lt;/h2&gt;&lt;h3 id=&#34;终端模式&#34;&gt;&lt;a href=&#34;#终端模式&#34; class=&#34;headerlink&#34; title=&#34;终端模式&#34;&gt;&lt;/a&gt;终端模式&lt;/h3&gt;&lt;p&gt;安装后在任何项目目录中运行：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;claude&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;进入交互式会话后，你可以用自然语言描述需求，比如：&lt;/p&gt;
+&lt;figure class=&#34;highlight node-repl&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;language-javascript&#34;&gt;帮我把这个函数的异常处理加上重试逻辑&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;language-javascript&#34;&gt;这段代码有 bug，帮我定位一下&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;language-javascript&#34;&gt;生成这个 &lt;span class=&#34;variable constant_&#34;&gt;API&lt;/span&gt; 的单元测试&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;Claude Code 会读取当前项目的文件，理解代码结构后给出修改建议或直接编辑文件。&lt;/p&gt;
+&lt;h3 id=&#34;VS-Code-模式&#34;&gt;&lt;a href=&#34;#VS-Code-模式&#34; class=&#34;headerlink&#34; title=&#34;VS Code 模式&#34;&gt;&lt;/a&gt;VS Code 模式&lt;/h3&gt;&lt;p&gt;在 VS Code 中打开 Claude Code 侧栏（快捷键 &lt;code&gt;Ctrl+Shift+P&lt;/code&gt; → &lt;code&gt;Claude Code: Open&lt;/code&gt;），即可在编辑器中对话。VS Code 模式下，你还可以：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接 @ 引用文件&lt;/li&gt;
+&lt;li&gt;用 &lt;code&gt;/&lt;/code&gt; 唤起快捷指令&lt;/li&gt;
+&lt;li&gt;通过 diff 预览代码变更&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;常用指令速查&#34;&gt;&lt;a href=&#34;#常用指令速查&#34; class=&#34;headerlink&#34; title=&#34;常用指令速查&#34;&gt;&lt;/a&gt;常用指令速查&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;指令&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;claude&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;启动交互式会话&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;claude &amp;quot;你的问题&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;一次性问答模式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;claude --file path/to/file&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;针对特定文件分析&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;claude --print&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;非交互模式，输出到标准输出&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;claude commit&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;自动生成 commit message&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;上下文管理&#34;&gt;&lt;a href=&#34;#上下文管理&#34; class=&#34;headerlink&#34; title=&#34;上下文管理&#34;&gt;&lt;/a&gt;上下文管理&lt;/h3&gt;&lt;p&gt;Claude Code 会自动分析你的项目结构。你也可以手动管理上下文：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 添加文件到上下文&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/extra *.ts src/&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看当前上下文&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/context&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;提示&lt;/strong&gt;：上下文窗口有限，建议一次不要包含太多无关文件，保持问题和代码集中。&lt;/p&gt;
+&lt;h2 id=&#34;核心功能&#34;&gt;&lt;a href=&#34;#核心功能&#34; class=&#34;headerlink&#34; title=&#34;核心功能&#34;&gt;&lt;/a&gt;核心功能&lt;/h2&gt;&lt;h3 id=&#34;1-代码生成与修改&#34;&gt;&lt;a href=&#34;#1-代码生成与修改&#34; class=&#34;headerlink&#34; title=&#34;1. 代码生成与修改&#34;&gt;&lt;/a&gt;1. 代码生成与修改&lt;/h3&gt;&lt;p&gt;Claude Code 不仅能生成新代码，还能深度理解现有代码并给出修改建议。它会：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;读取项目文件和目录结构&lt;/li&gt;
+&lt;li&gt;理解代码的风格和惯例&lt;/li&gt;
+&lt;li&gt;直接编辑文件并展示 diff&lt;/li&gt;
+&lt;li&gt;按你的要求运行测试验证&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-代码审查（Code-Review）&#34;&gt;&lt;a href=&#34;#2-代码审查（Code-Review）&#34; class=&#34;headerlink&#34; title=&#34;2. 代码审查（Code Review）&#34;&gt;&lt;/a&gt;2. 代码审查（Code Review）&lt;/h3&gt;&lt;p&gt;你可以让 Claude Code 审查你的 PR 或某段代码：&lt;/p&gt;
+&lt;figure class=&#34;highlight node-repl&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;language-javascript&#34;&gt;&lt;span class=&#34;title class_&#34;&gt;Review&lt;/span&gt; the changes &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; src/utils.&lt;span class=&#34;property&#34;&gt;ts&lt;/span&gt; and suggest improvements&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;它会给出具体的改进建议，涵盖逻辑、安全性、性能、代码风格等方面。&lt;/p&gt;
+&lt;h3 id=&#34;3-调试辅助&#34;&gt;&lt;a href=&#34;#3-调试辅助&#34; class=&#34;headerlink&#34; title=&#34;3. 调试辅助&#34;&gt;&lt;/a&gt;3. 调试辅助&lt;/h3&gt;&lt;p&gt;粘贴错误信息，Claude Code 能帮你追踪根因：&lt;/p&gt;
+&lt;figure class=&#34;highlight node-repl&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;language-javascript&#34;&gt;运行 npm test 时报了这个错：&lt;span class=&#34;title class_&#34;&gt;TypeError&lt;/span&gt;: &lt;span class=&#34;title class_&#34;&gt;Cannot&lt;/span&gt; read properties &lt;span class=&#34;keyword&#34;&gt;of&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;undefined&lt;/span&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;language-javascript&#34;&gt;帮我看下是在哪里引入的&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;它会读取相关代码，定位问题并给出修复方案。&lt;/p&gt;
+&lt;h3 id=&#34;4-Git-操作&#34;&gt;&lt;a href=&#34;#4-Git-操作&#34; class=&#34;headerlink&#34; title=&#34;4. Git 操作&#34;&gt;&lt;/a&gt;4. Git 操作&lt;/h3&gt;&lt;p&gt;Claude Code 与 Git 深度集成：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 生成提交信息&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;claude commit&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 解释最近变更&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; 帮我解释下最近 3 次 commit 做了什么&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;5-终端命令执行&#34;&gt;&lt;a href=&#34;#5-终端命令执行&#34; class=&#34;headerlink&#34; title=&#34;5. 终端命令执行&#34;&gt;&lt;/a&gt;5. 终端命令执行&lt;/h3&gt;&lt;p&gt;你可以让 Claude Code 代劳执行命令：&lt;/p&gt;
+&lt;figure class=&#34;highlight node-repl&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;language-javascript&#34;&gt;帮我查下当前机器上哪个进程占了 &lt;span class=&#34;number&#34;&gt;8080&lt;/span&gt; 端口&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;language-javascript&#34;&gt;把这个项目跑起来&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;它会根据系统环境选择合适的命令并执行。&lt;/p&gt;
+&lt;h2 id=&#34;实战示例&#34;&gt;&lt;a href=&#34;#实战示例&#34; class=&#34;headerlink&#34; title=&#34;实战示例&#34;&gt;&lt;/a&gt;实战示例&lt;/h2&gt;&lt;h3 id=&#34;场景一：为新功能写代码&#34;&gt;&lt;a href=&#34;#场景一：为新功能写代码&#34; class=&#34;headerlink&#34; title=&#34;场景一：为新功能写代码&#34;&gt;&lt;/a&gt;场景一：为新功能写代码&lt;/h3&gt;&lt;figure class=&#34;highlight text&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; 我现在要增加一个用户登录接口，使用 Express + JWT，按照项目现有风格来写。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;Claude Code 会读取项目现有结构，按照一致的风格生成路由、中间件、错误处理。&lt;/p&gt;
+&lt;h3 id=&#34;场景二：重构旧代码&#34;&gt;&lt;a href=&#34;#场景二：重构旧代码&#34; class=&#34;headerlink&#34; title=&#34;场景二：重构旧代码&#34;&gt;&lt;/a&gt;场景二：重构旧代码&lt;/h3&gt;&lt;figure class=&#34;highlight text&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; 帮我把这个回调地狱的代码改成 async/await 风格，别改逻辑。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;场景三：写测试&#34;&gt;&lt;a href=&#34;#场景三：写测试&#34; class=&#34;headerlink&#34; title=&#34;场景三：写测试&#34;&gt;&lt;/a&gt;场景三：写测试&lt;/h3&gt;&lt;figure class=&#34;highlight text&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; 帮我把 src/service/order.ts 里的所有公开方法写一遍单元测试。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;常见问题&#34;&gt;&lt;a href=&#34;#常见问题&#34; class=&#34;headerlink&#34; title=&#34;常见问题&#34;&gt;&lt;/a&gt;常见问题&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Q: Claude Code 免费吗？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Claude Code 工具本身免费使用，但需要有效的 Anthropic API Key（付费）。API 费用取决于使用的模型和 token 量。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q: 支持哪些语言？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;几乎全部主流语言：JavaScript &amp;#x2F; TypeScript、Python、Java、Go、Rust、C&amp;#x2F;C++、SQL 等，前端后端通吃。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q: 代码安全吗？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;通过 Anthropic 直连时，代码会发送到 Anthropic 服务器处理。如果对数据安全有更高要求，可以使用 Amazon Bedrock 或 Google Vertex AI 等企业级部署方案，数据不离开你的云环境。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q: 和 GitHub Copilot 有什么区别？&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;对比维度&lt;/th&gt;
+&lt;th&gt;Claude Code&lt;/th&gt;
+&lt;th&gt;GitHub Copilot&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;工作方式&lt;/td&gt;
+&lt;td&gt;对话式 Agent，可读整个项目&lt;/td&gt;
+&lt;td&gt;以代码补全为主+聊天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;上下文范围&lt;/td&gt;
+&lt;td&gt;整个代码库&lt;/td&gt;
+&lt;td&gt;当前文件 + 少量上下文&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;编辑方式&lt;/td&gt;
+&lt;td&gt;直接修改文件&lt;/td&gt;
+&lt;td&gt;建议片段&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;命令执行&lt;/td&gt;
+&lt;td&gt;✅ 可执行终端命令&lt;/td&gt;
+&lt;td&gt;❌ 不支持&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;两者的定位不同：Copilot 更侧重于实时编码时的行级补全，Claude Code 更像一个能帮你完成整个任务的开发搭档。&lt;/p&gt;
+&lt;h2 id=&#34;小结&#34;&gt;&lt;a href=&#34;#小结&#34; class=&#34;headerlink&#34; title=&#34;小结&#34;&gt;&lt;/a&gt;小结&lt;/h2&gt;&lt;p&gt;Claude Code 是目前 AI 编程工具中能力最为全面的一款，从代码生成、审查、调试到 Git 操作一应俱全。它真正的价值在于&lt;strong&gt;深度理解你的项目&lt;/strong&gt;，而不是简单拼接代码片段。&lt;/p&gt;
+&lt;p&gt;如果你还没试过，不妨装一个，让它帮你处理那些重复又耗神的编码工作，把精力留给真正需要思考的事。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;进一步阅读：&lt;/strong&gt; &lt;a href=&#34;https://code.claude.com/docs/en/overview&#34;&gt;Claude Code 官方文档&lt;/a&gt; | &lt;a href=&#34;https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code&#34;&gt;VS Code 插件&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

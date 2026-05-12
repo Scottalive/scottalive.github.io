@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>AI 日报 2026-05-08 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">AI 日报 2026-05-08</h1>
+    <div class="post-meta">
+      <span class="post-date">2026-05-08 22:00</span>
+      <span class="post-word-count">2358 字</span>
+      <span class="post-reading-time">约 7 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/AI%E6%97%A5%E6%8A%A5/">AI日报</a>
+      
+      <a href="/tags/AI/">AI</a>
+      
+      <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+      
+      <a href="/tags/%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF/">技术趋势</a>
+      
+      <a href="/tags/GPT-5-5/">GPT-5.5</a>
+      
+      <a href="/tags/OpenAI/">OpenAI</a>
+      
+      <a href="/tags/Codex/">Codex</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#今日热点">🔥 今日热点</a>
+      
+      <a class="toc-level-2" href="#github-热门-ai-项目">📦 GitHub 热门 AI 项目</a>
+      
+      <a class="toc-level-3" href="#1-openai-codex-agentic-coding">1. OpenAI Codex (Agentic Coding)</a>
+      
+      <a class="toc-level-3" href="#2-hugging-face-reachy-mini-app-store">2. Hugging Face Reachy Mini App Store</a>
+      
+      <a class="toc-level-3" href="#3-subquadratic-x2f-subq-model">3. Subquadratic &amp;#x2F; SubQ Model</a>
+      
+      <a class="toc-level-2" href="#新工具-x2f-产品速览">🛠️ 新工具 &amp;#x2F; 产品速览</a>
+      
+      <a class="toc-level-3" href="#gpt-55-instant-chatgpt-默认模型更换">🔹 GPT-5.5 Instant — ChatGPT 默认模型更换</a>
+      
+      <a class="toc-level-3" href="#codex-chrome-扩展-ai-agent-接管浏览器">🔹 Codex Chrome 扩展 — AI Agent 接管浏览器</a>
+      
+      <a class="toc-level-3" href="#gmail-help-me-write-个性化写作">🔹 Gmail “Help me write” 个性化写作</a>
+      
+      <a class="toc-level-3" href="#sageox-agentic-context-infrastructure">🔹 SageOX Agentic Context Infrastructure</a>
+      
+      <a class="toc-level-2" href="#行业动态">🏭 行业动态</a>
+      
+      <a class="toc-level-3" href="#cloudflare-裁员-1100-人全面拥抱-ai-时代">🏢 Cloudflare 裁员 1100 人，全面拥抱 AI 时代</a>
+      
+      <a class="toc-level-3" href="#奖项组织纷纷出台-ai-规则">⚖️ 奖项组织纷纷出台 AI 规则</a>
+      
+      <a class="toc-level-3" href="#openai-诉讼持续前董事会成员作证">🎓 OpenAI 诉讼持续：前董事会成员作证</a>
+      
+      <a class="toc-level-3" href="#sony-tsmc-联手进军物理-ai">🤖 Sony + TSMC 联手进军物理 AI</a>
+      
+      <a class="toc-level-3" href="#mozilla-公开-claude-发现的-271-个-firefox-漏洞">🔒 Mozilla 公开 Claude 发现的 271 个 Firefox 漏洞</a>
+      
+      <a class="toc-level-2" href="#技术洞见">💡 技术洞见</a>
+      
+      <a class="toc-level-3" href="#趋势一从-chatbot-到-agentai-正在长出双手">趋势一：从 Chatbot 到 Agent，AI 正在”长出双手”</a>
+      
+      <a class="toc-level-3" href="#趋势二模型效率竞赛白热化">趋势二：模型效率竞赛白热化</a>
+      
+      <a class="toc-level-2" href="#今日小结">📝 今日小结</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="今日热点"><a href="#🔥-今日热点" class="headerlink" title="🔥 今日热点"></a>🔥 今日热点</h2><p>OpenAI 连出重拳：GPT-5.5 Instant 成为 ChatGPT 默认模型，新增可视化记忆能力；Codex 推出 Chrome 扩展，AI 代理开始接管浏览器操作。与此同时，Cloudflare 裁减 1100 人、AI 使用量暴增 600%，宣告全面拥抱”Agentic AI 时代”。Hugging Face 则开了一个脑洞——为开源机器人 Reachy Mini 打造了 App Store，200+ 社区应用免费下载。AI 的世界正在从”对话”走向”行动”。</p>
+<hr>
+<h2 id="github-热门-ai-项目"><a href="#📦-GitHub-热门-AI-项目" class="headerlink" title="📦 GitHub 热门 AI 项目"></a>📦 GitHub 热门 AI 项目</h2><blockquote>
+<p>⚠️ 今日 GitHub Trending 持续抓取超时，以下项目基于近期业界关注的活跃仓库整理。</p>
+</blockquote>
+<h3 id="1-openai-codex-agentic-coding"><a href="#1-OpenAI-Codex-Agentic-Coding" class="headerlink" title="1. OpenAI Codex (Agentic Coding)"></a>1. OpenAI Codex (Agentic Coding)</h3><p>OpenAI 的 Codex 本周迎来重大更新：推出了 Chrome 浏览器扩展。Codex 不再只是一个编码助手——它现在可以直接操作浏览器，在用户已登录的网站和应用中完成任务。这套”任务特定”的标签组管理方式，让 Codex 变成了一只真正的 AI 助手，能在不影响用户正常浏览的前提下，自动执行复杂工作流。</p>
+<p><strong>技术要点：</strong></p>
+<ul>
+<li>运行在 Chrome 扩展沙箱中，每个任务使用独立的标签组隔离开</li>
+<li>能够感知网页 DOM 结构并执行点击、填写、导航等操作</li>
+<li>与 OpenAI 的 GPT-5.5 系列模型深度集成</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    User[用户发出指令] --&gt; CodexExt[Codex Chrome 扩展]</span><br><span class="line">    CodexExt --&gt; IntentParser[意图解析&lt;br/&gt;GPT-5.5 理解任务]</span><br><span class="line">    IntentParser --&gt; TaskPlanner[任务规划&lt;br/&gt;拆解为子步骤]</span><br><span class="line">    TaskPlanner --&gt; TabGroup[创建任务标签组]</span><br><span class="line">    TabGroup --&gt; DomAction[DOM 操作&lt;br/&gt;导航 / 点击 / 填写]</span><br><span class="line">    DomAction --&gt; Verify[验证结果]</span><br><span class="line">    Verify -- 成功 --&gt; Complete[返回结果给用户]</span><br><span class="line">    Verify -- 失败 --&gt; Replan[重新规划策略]</span><br><span class="line">    Replan --&gt; TaskPlanner</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-hugging-face-reachy-mini-app-store"><a href="#2-Hugging-Face-Reachy-Mini-App-Store" class="headerlink" title="2. Hugging Face Reachy Mini App Store"></a>2. Hugging Face Reachy Mini App Store</h3><p>Hugging Face 联合 Pollen Robotics 为开源人形机器人 Reachy Mini 推出了 App Store，上架超过 200 个社区开发的应用。这是机器人领域的”App Store 时刻”——开发者可以像下载手机 App 一样为机器人安装技能，从物体抓取到人脸识别，全部免费。</p>
+<p><strong>技术要点：</strong></p>
+<ul>
+<li>基于开源硬件 Reachy Mini（双臂+移动底盘）</li>
+<li>应用使用 Python 编写，通过 Hugging Face Hub 分发</li>
+<li>每个应用包含行为树或状态机逻辑</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    subgraph 开发者生态</span><br><span class="line">        Dev[社区开发者] --&gt; Build[编写机器人 App]</span><br><span class="line">        Build --&gt; Push[推送到 HF Hub]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph 分发平台</span><br><span class="line">        Push --&gt; AppStore[Reachy Mini App Store&lt;br/&gt;200+ 应用]</span><br><span class="line">        AppStore --&gt; Categorize[分类&lt;br/&gt;抓取/导航/交互/视觉]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph 运行环境</span><br><span class="line">        Categorize --&gt; Reachy[Reachy Mini 机器人]</span><br><span class="line">        Reachy --&gt; Download[下载安装 App]</span><br><span class="line">        Download --&gt; Run[执行技能]</span><br><span class="line">    end</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-subquadratic-x2f-subq-model"><a href="#3-Subquadratic-SubQ-Model" class="headerlink" title="3. Subquadratic &#x2F; SubQ Model"></a>3. Subquadratic &#x2F; SubQ Model</h3><p>迈阿密初创公司 Subquadratic 从隐身模式浮出水面，声称构建了第一个完全摆脱 Attention 机制数学限制的大语言模型。如果属实，这将意味着 <strong>1,000 倍的推理效率提升</strong>——但学术界要求独立验证，目前持审慎观望态度。</p>
+<p><strong>核心创新点：</strong></p>
+<ul>
+<li>用次二次计算替代 Transformer 的 O(n²) 注意力机制</li>
+<li>号称在大规模推理时仍保持线性复杂度</li>
+<li>目前尚未公开完整技术论文和基准测试</li>
+</ul>
+<hr>
+<h2 id="新工具-x2f-产品速览"><a href="#🛠️-新工具-产品速览" class="headerlink" title="🛠️ 新工具 &#x2F; 产品速览"></a>🛠️ 新工具 &#x2F; 产品速览</h2><h3 id="gpt-55-instant-chatgpt-默认模型更换"><a href="#🔹-GPT-5-5-Instant-—-ChatGPT-默认模型更换" class="headerlink" title="🔹 GPT-5.5 Instant — ChatGPT 默认模型更换"></a>🔹 GPT-5.5 Instant — ChatGPT 默认模型更换</h3><p>OpenAI 已将 GPT-5.5 Instant 设为 ChatGPT 的默认模型（此前需手动切换）。最大亮点是<strong>可视化记忆能力</strong>：系统可以展示”我记住了哪些上下文信息”，用户能够看明白 AI 是依据什么生成回答的。虽然目前只展示了部分记忆痕迹，但这标志着 AI 透明度的关键一步。</p>
+<p><strong>意义：</strong> 从黑盒到半透明，从”信不信由你”到”我告诉你我凭啥这么答”。</p>
+<h3 id="codex-chrome-扩展-ai-agent-接管浏览器"><a href="#🔹-Codex-Chrome-扩展-—-AI-Agent-接管浏览器" class="headerlink" title="🔹 Codex Chrome 扩展 — AI Agent 接管浏览器"></a>🔹 Codex Chrome 扩展 — AI Agent 接管浏览器</h3><p>前面已详细介绍。这是 OpenAI 从”聊天界面”走向”操作系统级代理”的关键产品。开发者可以将复杂任务交给 Codex 在后台自动执行，而自己继续处理当前标签页。</p>
+<h3 id="gmail-help-me-write-个性化写作"><a href="#🔹-Gmail-“Help-me-write”-个性化写作" class="headerlink" title="🔹 Gmail “Help me write” 个性化写作"></a>🔹 Gmail “Help me write” 个性化写作</h3><p>Google 为 Gmail 的 AI 写作助手增加了<strong>个性化风格适配</strong>功能。只需简单提示，AI 就能学习你的语气和表达习惯。更关键的是，它能从 Google Drive 和 Gmail 历史中拉取相关上下文——下周的会议纪要不要自己写了。</p>
+<h3 id="sageox-agentic-context-infrastructure"><a href="#🔹-SageOX-Agentic-Context-Infrastructure" class="headerlink" title="🔹 SageOX Agentic Context Infrastructure"></a>🔹 SageOX Agentic Context Infrastructure</h3><p>新创公司 SageOX 推出了 Agentic Context Infrastructure 产品线，包含开源 CLI 工具 Ox 和硬件设备 Ox Dot。解决的痛点是 AI Agent 在执行长任务时的<strong>对齐漂移</strong>问题——随着任务进展，Agent 越来越偏离最初意图。通过持续的上下文管理和对齐检查来保持 Agent”不跑偏”。</p>
+<hr>
+<h2 id="行业动态"><a href="#🏭-行业动态" class="headerlink" title="🏭 行业动态"></a>🏭 行业动态</h2><h3 id="cloudflare-裁员-1100-人全面拥抱-ai-时代"><a href="#🏢-Cloudflare-裁员-1100-人，全面拥抱-AI-时代" class="headerlink" title="🏢 Cloudflare 裁员 1100 人，全面拥抱 AI 时代"></a>🏢 Cloudflare 裁员 1100 人，全面拥抱 AI 时代</h3><p>Cloudflare 宣布裁员约 1,100 名员工，理由是 AI 使用量暴增 600%，公司需要重新定义如何在 Agentic AI 时代运作。管理层明确表示：”这并非成本削减，也不是对个人表现的评估——而是关于一家世界级高增长公司如何在 AI 代理时代创造价值。”</p>
+<p>这个信号非常强烈：<strong>当一家基础设施公司 AI 用量增长 600%，整个行业的基础设施架构都需要重写。</strong></p>
+<h3 id="奖项组织纷纷出台-ai-规则"><a href="#⚖️-奖项组织纷纷出台-AI-规则" class="headerlink" title="⚖️ 奖项组织纷纷出台 AI 规则"></a>⚖️ 奖项组织纷纷出台 AI 规则</h3><p>奥斯卡（Academy Awards）宣布只有人类才能获得表演奖项后，金球奖也发布了 AI 使用规则：<strong>表演必须”主要来自署名演员的工作”</strong>，但允许 AI 用于技术或美容增强（如减龄特效）。两个奖项的态度差异反映了行业对”AI 的创作参与度”尚无共识。</p>
+<h3 id="openai-诉讼持续前董事会成员作证"><a href="#🎓-OpenAI-诉讼持续：前董事会成员作证" class="headerlink" title="🎓 OpenAI 诉讼持续：前董事会成员作证"></a>🎓 OpenAI 诉讼持续：前董事会成员作证</h3><p>马斯克诉 OpenAI 一案持续发酵。前董事会成员 Tasha McCauley 作证时描述了 OpenAI 内部的”谎言文化”，称董事会曾因 Sam Altman 的不诚实而将其解雇。OpenAI 律师则反攻哥伦比亚大学的专家证人。这场诉讼的核心争议——OpenAI 是否背离了非营利使命——尚无定论。</p>
+<h3 id="sony-tsmc-联手进军物理-ai"><a href="#🤖-Sony-TSMC-联手进军物理-AI" class="headerlink" title="🤖 Sony + TSMC 联手进军物理 AI"></a>🤖 Sony + TSMC 联手进军物理 AI</h3><p>索尼和台积电宣布组建合资企业，结合索尼的传感器设计与台积电的制造工艺开发下一代图像传感器。双方明确提及<strong>在机器人技术和汽车行业的物理 AI 应用</strong>中探索机会。物理 AI（具身智能）正从实验室走向产业链。</p>
+<h3 id="mozilla-公开-claude-发现的-271-个-firefox-漏洞"><a href="#🔒-Mozilla-公开-Claude-发现的-271-个-Firefox-漏洞" class="headerlink" title="🔒 Mozilla 公开 Claude 发现的 271 个 Firefox 漏洞"></a>🔒 Mozilla 公开 Claude 发现的 271 个 Firefox 漏洞</h3><p>Mozilla 破例公开了由 Claude Mythos Preview 发现的部分 Firefox 漏洞细节。通常这些报告会在修复后保密数月，但考虑到”整个软件生态系统的紧迫性”，Mozilla 选择透明化。这是 LLM 辅助安全审计能力的有力证明。</p>
+<hr>
+<h2 id="技术洞见"><a href="#💡-技术洞见" class="headerlink" title="💡 技术洞见"></a>💡 技术洞见</h2><h3 id="趋势一从-chatbot-到-agentai-正在长出双手"><a href="#趋势一：从-Chatbot-到-Agent，AI-正在”长出双手”" class="headerlink" title="趋势一：从 Chatbot 到 Agent，AI 正在”长出双手”"></a>趋势一：从 Chatbot 到 Agent，AI 正在”长出双手”</h3><p>本周最大的新闻线索都指向同一个方向：<strong>AI Agent 正在从”对话工具”进化为”操作代理”</strong>。</p>
+<ul>
+<li><strong>Codex Chrome 扩展</strong>让 AI 直接操作网页</li>
+<li><strong>AMEX 的 Agentic Commerce Stack</strong>让 AI 代理替用户购物和支付</li>
+<li><strong>SageOX</strong> 为 Agent 提供”不跑偏”的上下文管理</li>
+<li><strong>Cloudflare 裁员</strong>的核心逻辑也是 Agentic AI</li>
+</ul>
+<p>这意味着 AI 产品设计范式正在发生根本转变：不再只是”问-答”循环，而是”指令-执行-验证”的闭环。下一个阶段的竞争焦点将从<strong>模型能力</strong>转向<strong>行动可靠性和安全性</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    subgraph 第一代: Chatbot Era</span><br><span class="line">        Q1[用户提问] --&gt; A1[模型生成文本] --&gt; UserRead[用户自己操作]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    subgraph 第二代: Agent Era</span><br><span class="line">        Q2[用户下达目标] --&gt; Agent[AI Agent 规划]</span><br><span class="line">        Agent --&gt; Tools[调用工具集]</span><br><span class="line">        Tools --&gt; Browser[浏览器操作]</span><br><span class="line">        Tools --&gt; API[API 调用]</span><br><span class="line">        Tools --&gt; Payment[支付系统]</span><br><span class="line">        Browser --&gt; Verify2[验证执行结果]</span><br><span class="line">        API --&gt; Verify2</span><br><span class="line">        Payment --&gt; Verify2</span><br><span class="line">        Verify2 --&gt; Report[向用户报告]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph 关键挑战</span><br><span class="line">        Safety[安全性] --&gt; Alignment[对齐控制]</span><br><span class="line">        Safety --&gt; Audit[可审计性]</span><br><span class="line">        Safety --&gt; Context[上下文保持]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    Agent -.-&gt; Alignment</span><br><span class="line">    Tools -.-&gt; Audit</span><br><span class="line">    Agent -.-&gt; Context</span><br></pre></td></tr></table></figure>
+
+<h3 id="趋势二模型效率竞赛白热化"><a href="#趋势二：模型效率竞赛白热化" class="headerlink" title="趋势二：模型效率竞赛白热化"></a>趋势二：模型效率竞赛白热化</h3><p>Subquadratic 的 1,000x 效率提升声明显然是投石问路——即使打个对折，500x 的提升也足以颠覆现有格局。与此同时，GPT-5.5 Instant 成为默认模型、OpenAI 为 8,000 名开发者 10 倍提升 Codex 额度，都表明<strong>模型能力不再稀缺，成本和效率才是护城河</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">xychart-beta</span><br><span class="line">    title &quot;AI 推理成本趋势（相对值）&quot;</span><br><span class="line">    x-axis [&quot;2023&quot;, &quot;2024&quot;, &quot;2025&quot;, &quot;2026&quot;]</span><br><span class="line">    y-axis &quot;相对成本&quot; 0 --&gt; 100</span><br><span class="line">    bar [100, 40, 12, 3]</span><br><span class="line">    line [100, 35, 8, 2]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>柱状图示意 API 调用成本（含优化），折线示意同等能力模型成本。三年间成本下降约 97%。</p>
+</blockquote>
+<hr>
+<h2 id="今日小结"><a href="#📝-今日小结" class="headerlink" title="📝 今日小结"></a>📝 今日小结</h2><table>
+<thead>
+<tr>
+<th align="left">类别</th>
+<th align="left">内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">🔥 头条</td>
+<td align="left">GPT-5.5 Instant 默认化 + Codex Chrome 扩展上线</td>
+</tr>
+<tr>
+<td align="left">⚡ 新工具</td>
+<td align="left">Codex 浏览器扩展、Gmail 个性化写作、SageOX 上下文基础设施</td>
+</tr>
+<tr>
+<td align="left">🏭 行业</td>
+<td align="left">Cloudflare 裁员、金球奖 AI 规则、OpenAI 诉讼</td>
+</tr>
+<tr>
+<td align="left">🤖 机器人</td>
+<td align="left">Hugging Face Reachy Mini App Store</td>
+</tr>
+<tr>
+<td align="left">💡 趋势</td>
+<td align="left">AI Agent 走向行动时代 + 模型效率竞赛白热化</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>本报告由 AI 自动采集生成，数据来源包括 The Verge、VentureBeat 等。</em><br><em>GitHub Trending 因网络限制未能抓取，部分项目信息基于历史数据。</em></p>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/network-security/common-attack-defense/">上一篇：常见网络安全攻防技术</a>
+  
+  
+  <a class="next" href="/computer-science/devops/k8s-helm-study-plan/">下一篇：K8s + Helm 每日学习计划</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

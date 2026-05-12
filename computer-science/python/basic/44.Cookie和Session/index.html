@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>Cookie和Session | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">Cookie和Session</h1>
+    <div class="post-meta">
+      <span class="post-date">2025-04-14 12:07</span>
+      <span class="post-word-count">6375 字</span>
+      <span class="post-reading-time">约 22 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记</a>
+      
+      <a href="/tags/python/">python</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#cookie和session">Cookie和Session</a>
+      
+      <a class="toc-level-3" href="#用户登录的准备工作">用户登录的准备工作</a>
+      
+      <a class="toc-level-3" href="#实现用户跟踪">实现用户跟踪</a>
+      
+      <a class="toc-level-3" href="#django框架对session的支持">Django框架对session的支持</a>
+      
+      <a class="toc-level-3" href="#实现用户登录验证">实现用户登录验证</a>
+      
+      <a class="toc-level-3" href="#在视图函数中读写cookie">在视图函数中读写cookie</a>
+      
+      <a class="toc-level-3" href="#cookie的替代品">Cookie的替代品</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="cookie和session"><a href="#Cookie和Session" class="headerlink" title="Cookie和Session"></a>Cookie和Session</h2><p>我们继续来完成上一章节中的项目，实现“用户登录”的功能，并限制只有登录的用户才能投票。</p>
+<h3 id="用户登录的准备工作"><a href="#用户登录的准备工作" class="headerlink" title="用户登录的准备工作"></a>用户登录的准备工作</h3><p>我们先为实现用户登录做一些准备工作。</p>
+<ol>
+<li><p>创建用户模型。之前我们讲解过如果通过Django的ORM实现从二维表到模型的转换（反向工程），这次我们尝试把模型变成二维表（正向工程）。</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>(models.Model):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;用户&quot;&quot;&quot;</span></span><br><span class="line">    no = models.AutoField(primary_key=<span class="literal">True</span>, verbose_name=<span class="string">&#x27;编号&#x27;</span>)</span><br><span class="line">    username = models.CharField(max_length=<span class="number">20</span>, unique=<span class="literal">True</span>, verbose_name=<span class="string">&#x27;用户名&#x27;</span>)</span><br><span class="line">    password = models.CharField(max_length=<span class="number">32</span>, verbose_name=<span class="string">&#x27;密码&#x27;</span>)</span><br><span class="line">    tel = models.CharField(max_length=<span class="number">20</span>, verbose_name=<span class="string">&#x27;手机号&#x27;</span>)</span><br><span class="line">    reg_date = models.DateTimeField(auto_now_add=<span class="literal">True</span>, verbose_name=<span class="string">&#x27;注册时间&#x27;</span>)</span><br><span class="line">    last_visit = models.DateTimeField(null=<span class="literal">True</span>, verbose_name=<span class="string">&#x27;最后登录时间&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">        db_table = <span class="string">&#x27;tb_user&#x27;</span></span><br><span class="line">        verbose_name = <span class="string">&#x27;用户&#x27;</span></span><br><span class="line">        verbose_name_plural = <span class="string">&#x27;用户&#x27;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用下面的命令生成迁移文件并执行迁移，将<code>User</code>模型直接变成关系型数据库中的二维表<code>tb_user</code>。</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python manage.py makemigrations polls</span><br><span class="line">python manage.py migrate polls</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用下面的SQL语句直接插入两条测试数据，通常不能将用户的密码直接保存在数据库中，因此我们将用户密码处理成对应的MD5摘要。MD5消息摘要算法是一种被广泛使用的密码哈希函数（散列函数），可以产生出一个128位（比特）的哈希值（散列值），用于确保信息传输完整一致。在使用哈希值时，通常会将哈希值表示为16进制字符串，因此128位的MD5摘要通常表示为32个十六进制符号。</p>
+ <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> `tb_user`</span><br><span class="line">    (`username`, `password`, `tel`, `reg_date`)</span><br><span class="line"><span class="keyword">values</span></span><br><span class="line">    (<span class="string">&#x27;wangdachui&#x27;</span>, <span class="string">&#x27;1c63129ae9db9c60c3e8aa94d3e00495&#x27;</span>, <span class="string">&#x27;13122334455&#x27;</span>, now()),</span><br><span class="line">    (<span class="string">&#x27;hellokitty&#x27;</span>, <span class="string">&#x27;c6f8cf68e5f68b0aa4680e089ee4742c&#x27;</span>, <span class="string">&#x27;13890006789&#x27;</span>, now());</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：上面创建的两个用户<code>wangdachui</code>和<code>hellokitty</code>密码分别是<code>1qaz2wsx</code>和<code>Abc123!!</code>。</p>
+</blockquote>
+</li>
+<li><p>我们在应用下增加一个名为<code>utils.py</code>的模块用来保存需要使用的工具函数。Python标准库中的<code>hashlib</code>模块封装了常用的哈希算法，包括：MD5、SHA1、SHA256等。下面是使用<code>hashlib</code>中的<code>md5</code>类将字符串处理成MD5摘要的函数如下所示。</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_md5_digest</span>(<span class="params">content</span>):</span><br><span class="line">    <span class="keyword">return</span> hashlib.md5(content.encode()).hexdigest()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编写用户登录的视图函数和模板页。</p>
+<p> 添加渲染登录页面的视图函数：</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">login</span>(<span class="params">request: HttpRequest</span>) -&gt; HttpResponse:</span><br><span class="line">    hint = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">&#x27;login.html&#x27;</span>, &#123;<span class="string">&#x27;hint&#x27;</span>: hint&#125;)</span><br></pre></td></tr></table></figure>
+
+<p> 增加<code>login.html</code>模板页：</p>
+ <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>用户登录<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-id">#container</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">520px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: <span class="number">10px</span> auto;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.input</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin</span>: <span class="number">20px</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">460px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">height</span>: <span class="number">40px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.input</span>&gt;<span class="selector-tag">label</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">display</span>: inline-block;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">140px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-align</span>: right;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.input</span>&gt;<span class="selector-tag">img</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">150px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">vertical-align</span>: middle;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">input</span><span class="selector-attr">[name=captcha]</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">vertical-align</span>: middle;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">form</span>+<span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-top</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">form</span>+<span class="selector-tag">div</span>&gt;<span class="selector-tag">a</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-decoration</span>: none;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">color</span>: darkcyan;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-size</span>: <span class="number">1.2em</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.button</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">500px</span>;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">margin-top</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.hint</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">color</span>: red;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">font-size</span>: <span class="number">12px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>用户登录<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;hint&quot;</span>&gt;</span>&#123;&#123; hint &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/login/&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">            &#123;% csrf_token %&#125;</span><br><span class="line">            <span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">legend</span>&gt;</span>用户信息<span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;input&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">label</span>&gt;</span>用户名：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;input&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">label</span>&gt;</span>密码：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;input&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">label</span>&gt;</span>验证码：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;captcha&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">&quot;code&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/captcha/&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;150&quot;</span> <span class="attr">height</span>=<span class="string">&quot;40&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;button&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;登录&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">value</span>=<span class="string">&quot;重置&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/&quot;</span>&gt;</span>返回首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/register/&quot;</span>&gt;</span>注册新用户<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> 注意，在上面的表单中，我们使用了模板指令<code>&#123;% csrf_token %&#125;</code>为表单添加一个隐藏域（大家可以在浏览器中显示网页源代码就可以看到这个指令生成的<code>type</code>属性为<code>hidden</code>的<code>input</code>标签），它的作用是在表单中生成一个随机令牌（token）来防范<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%B7%A8%E7%AB%99%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0">跨站请求伪造</a>（简称为CSRF），这也是Django在提交表单时的硬性要求。如果我们的表单中没有这样的令牌，那么提交表单时，Django框架会产生一个响应状态码为<code>403</code>的响应（禁止访问），除非我们设置了免除CSRF令牌。下图是一个关于CSRF简单生动的例子。</p>
+<p> <img src="/./res/csrf-simple.png"></p>
+</li>
+</ol>
+<p>接下来，我们可以编写提供验证码和实现用户登录的视图函数，在此之前，我们先说说一个Web应用实现用户跟踪的方式以及Django框架对实现用户跟踪所提供的支持。对一个Web应用来说，用户登录成功后必然要让服务器能够记住该用户已经登录，这样服务器才能为这个用户提供更好的服务，而且上面说到的CSRF也是通过钓鱼网站来套取用户登录信息进行恶意操作的攻击手段，这些都是以用户跟踪技术为基础的。在理解了这些背景知识后，我们就清楚用户登录时到底需要执行哪些操作。</p>
+<h3 id="实现用户跟踪"><a href="#实现用户跟踪" class="headerlink" title="实现用户跟踪"></a>实现用户跟踪</h3><p>如今，一个网站如果不通过某种方式记住你是谁以及你之前在网站的活动情况，失去的就是网站的可用性和便利性，继而很有可能导致网站用户的流式，所以记住一个用户（更专业的说法叫<strong>用户跟踪</strong>）对绝大多数Web应用来说都是必需的功能。</p>
+<p>在服务器端，我们想记住一个用户最简单的办法就是创建一个对象，通过这个对象就可以把用户相关的信息都保存起来，这个对象就是我们常说的session（用户会话对象）。那么问题来了，HTTP本身是一个<strong>无连接</strong>（每次请求和响应的过程中，服务器一旦完成对客户端请求的响应之后就断开连接）、<strong>无状态</strong>（客户端再次发起对服务器的请求时，服务器无法得知这个客户端之前的任何信息）的协议，即便服务器通过session对象保留了用户数据，还得通过某种方式来确定当前的请求与之前保存过的哪一个session是有关联的。相信很多人都能想到，我们可以给每个session对象分配一个全局唯一的标识符来识别session对象，我们姑且称之为sessionid，每次客户端发起请求时，只要携带上这个sessionid，就有办法找到与之对应的session对象，从而实现在两次请求之间记住该用户的信息，也就是我们之前说的用户跟踪。</p>
+<p>要让客户端记住并在每次请求时带上sessionid又有以下几种做法：</p>
+<ol>
+<li><p>URL重写。所谓URL重写就是在URL中携带sessionid，例如：<code>http://www.example.com/index.html?sessionid=123456</code>，服务器通过获取sessionid参数的值来取到与之对应的session对象。</p>
+</li>
+<li><p>隐藏域（隐式表单域）。在提交表单的时候，可以通过在表单中设置隐藏域向服务器发送额外的数据。例如：<code>&lt;input type=&quot;hidden&quot; name=&quot;sessionid&quot; value=&quot;123456&quot;&gt;</code>。</p>
+</li>
+<li><p>本地存储。现在的浏览器都支持多种本地存储方案，包括：cookie、localStorage、sessionStorage、IndexedDB等。在这些方案中，cookie是历史最为悠久也是被诟病得最多的一种方案，也是我们接下来首先为大家讲解的一种方案。简单的说，cookie是一种以键值对方式保存在浏览器临时文件中的数据，每次请求时，请求头中会携带本站点的cookie到服务器，那么只要将sessionid写入cookie，下次请求时服务器只要读取请求头中的cookie就能够获得这个sessionid，如下图所示。</p>
+<p><img src="/./res/sessionid_from_cookie.png"></p>
+<p>在HTML5时代要，除了cookie，还可以使用新的本地存储API来保存数据，就是刚才提到的localStorage、sessionStorage、IndexedDB等技术，如下图所示。</p>
+<p><img src="/./res/cookie_xstorage_indexeddb.png"></p>
+</li>
+</ol>
+<p><strong>总结一下</strong>，要实现用户跟踪，服务器端可以为每个用户会话创建一个session对象并将session对象的ID写入到浏览器的cookie中；用户下次请求服务器时，浏览器会在HTTP请求头中携带该网站保存的cookie信息，这样服务器就可以从cookie中找到session对象的ID并根据此ID获取到之前创建的session对象；由于session对象可以用键值对的方式保存用户数据，这样之前保存在session对象中的信息可以悉数取出，服务器也可以根据这些信息判定用户身份和了解用户偏好，为用户提供更好的个性化服务。</p>
+<h3 id="django框架对session的支持"><a href="#Django框架对session的支持" class="headerlink" title="Django框架对session的支持"></a>Django框架对session的支持</h3><p>在创建Django项目时，默认的配置文件<code>settings.py</code>文件中已经激活了一个名为<code>SessionMiddleware</code>的中间件（关于中间件的知识我们在后面的章节做详细讲解，这里只需要知道它的存在即可），因为这个中间件的存在，我们可以直接通过请求对象的<code>session</code>属性来操作会话对象。前面我们说过，<code>session</code>属性是一个像字典一样可以读写数据的容器对象，因此我们可以使用“键值对”的方式来保留用户数据。与此同时，<code>SessionMiddleware</code>中间件还封装了对cookie的操作，在cookie中保存了sessionid，这一点我们在上面已经提到过了。</p>
+<p>在默认情况下，Django将session的数据序列化后保存在关系型数据库中，在Django 1.6以后的版本中，默认的序列化数据的方式是JSON序列化，而在此之前一直使用Pickle序列化。JSON序列化和Pickle序列化的差别在于前者将对象序列化为字符串（字符形式），而后者将对象序列化为字节串（二进制形式），因为安全方面的原因，JSON序列化成为了目前Django框架默认序列化数据的方式，这就要求在我们保存在session中的数据必须是能够JSON序列化的，否则就会引发异常。还有一点需要说明的是，使用关系型数据库保存session中的数据在大多数时候并不是最好的选择，因为数据库可能会承受巨大的压力而成为系统性能的瓶颈，在后面的章节中我们会告诉大家如何将session保存到缓存服务中以提升系统的性能。</p>
+<h3 id="实现用户登录验证"><a href="#实现用户登录验证" class="headerlink" title="实现用户登录验证"></a>实现用户登录验证</h3><p>首先，我们在刚才的<code>polls/utils.py</code>文件中编写生成随机验证码的函数<code>gen_random_code</code>，内容如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">ALL_CHARS = <span class="string">&#x27;0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_random_code</span>(<span class="params">length=<span class="number">4</span></span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>.join(random.choices(ALL_CHARS, k=length))</span><br></pre></td></tr></table></figure>
+
+<p>编写生成验证码图片的类<code>Captcha</code>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">图片验证码</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> ImageFilter</span><br><span class="line"><span class="keyword">from</span> PIL.ImageDraw <span class="keyword">import</span> Draw</span><br><span class="line"><span class="keyword">from</span> PIL.ImageFont <span class="keyword">import</span> truetype</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Bezier</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;贝塞尔曲线&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.tsequence = <span class="built_in">tuple</span>([t / <span class="number">20.0</span> <span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">21</span>)])</span><br><span class="line">        self.beziers = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">make_bezier</span>(<span class="params">self, n</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;绘制贝塞尔曲线&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">return</span> self.beziers[n]</span><br><span class="line">        <span class="keyword">except</span> KeyError:</span><br><span class="line">            combinations = pascal_row(n - <span class="number">1</span>)</span><br><span class="line">            result = []</span><br><span class="line">            <span class="keyword">for</span> t <span class="keyword">in</span> self.tsequence:</span><br><span class="line">                tpowers = (t ** i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n))</span><br><span class="line">                upowers = ((<span class="number">1</span> - t) ** i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>))</span><br><span class="line">                coefs = [c * a * b <span class="keyword">for</span> c, a, b <span class="keyword">in</span> <span class="built_in">zip</span>(combinations,</span><br><span class="line">                                                      tpowers, upowers)]</span><br><span class="line">                result.append(coefs)</span><br><span class="line">            self.beziers[n] = result</span><br><span class="line">            <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Captcha</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;验证码&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, width, height, fonts=<span class="literal">None</span>, color=<span class="literal">None</span></span>):</span><br><span class="line">        self._image = <span class="literal">None</span></span><br><span class="line">        self._fonts = fonts <span class="keyword">if</span> fonts <span class="keyword">else</span> \</span><br><span class="line">            [os.path.join(os.path.dirname(__file__), <span class="string">&#x27;fonts&#x27;</span>, font)</span><br><span class="line">             <span class="keyword">for</span> font <span class="keyword">in</span> [<span class="string">&#x27;Arial.ttf&#x27;</span>, <span class="string">&#x27;Georgia.ttf&#x27;</span>, <span class="string">&#x27;Action.ttf&#x27;</span>]]</span><br><span class="line">        self._color = color <span class="keyword">if</span> color <span class="keyword">else</span> random_color(<span class="number">0</span>, <span class="number">200</span>, random.randint(<span class="number">220</span>, <span class="number">255</span>))</span><br><span class="line">        self._width, self._height = width, height</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">instance</span>(<span class="params">cls, width=<span class="number">200</span>, height=<span class="number">75</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;用于获取Captcha对象的类方法&quot;&quot;&quot;</span></span><br><span class="line">        prop_name = <span class="string">f&#x27;_instance_<span class="subst">&#123;width&#125;</span>_<span class="subst">&#123;height&#125;</span>&#x27;</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">hasattr</span>(cls, prop_name):</span><br><span class="line">            <span class="built_in">setattr</span>(cls, prop_name, cls(width, height))</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">getattr</span>(cls, prop_name)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_background</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;绘制背景&quot;&quot;&quot;</span></span><br><span class="line">        Draw(self._image).rectangle([(<span class="number">0</span>, <span class="number">0</span>), self._image.size],</span><br><span class="line">                                    fill=random_color(<span class="number">230</span>, <span class="number">255</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_smooth</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;平滑图像&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> self._image.<span class="built_in">filter</span>(ImageFilter.SMOOTH)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_curve</span>(<span class="params">self, width=<span class="number">4</span>, number=<span class="number">6</span>, color=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;绘制曲线&quot;&quot;&quot;</span></span><br><span class="line">        dx, height = self._image.size</span><br><span class="line">        dx /= number</span><br><span class="line">        path = [(dx * i, random.randint(<span class="number">0</span>, height))</span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, number)]</span><br><span class="line">        bcoefs = Bezier().make_bezier(number - <span class="number">1</span>)</span><br><span class="line">        points = []</span><br><span class="line">        <span class="keyword">for</span> coefs <span class="keyword">in</span> bcoefs:</span><br><span class="line">            points.append(<span class="built_in">tuple</span>(<span class="built_in">sum</span>([coef * p <span class="keyword">for</span> coef, p <span class="keyword">in</span> <span class="built_in">zip</span>(coefs, ps)])</span><br><span class="line">                                <span class="keyword">for</span> ps <span class="keyword">in</span> <span class="built_in">zip</span>(*path)))</span><br><span class="line">        Draw(self._image).line(points, fill=color <span class="keyword">if</span> color <span class="keyword">else</span> self._color, width=width)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_noise</span>(<span class="params">self, number=<span class="number">50</span>, level=<span class="number">2</span>, color=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;绘制扰码&quot;&quot;&quot;</span></span><br><span class="line">        width, height = self._image.size</span><br><span class="line">        dx, dy = width / <span class="number">10</span>, height / <span class="number">10</span></span><br><span class="line">        width, height = width - dx, height - dy</span><br><span class="line">        draw = Draw(self._image)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(number):</span><br><span class="line">            x = <span class="built_in">int</span>(random.uniform(dx, width))</span><br><span class="line">            y = <span class="built_in">int</span>(random.uniform(dy, height))</span><br><span class="line">            draw.line(((x, y), (x + level, y)),</span><br><span class="line">                      fill=color <span class="keyword">if</span> color <span class="keyword">else</span> self._color, width=level)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_text</span>(<span class="params">self, captcha_text, fonts, font_sizes=<span class="literal">None</span>, drawings=<span class="literal">None</span>, squeeze_factor=<span class="number">0.75</span>, color=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;绘制文本&quot;&quot;&quot;</span></span><br><span class="line">        color = color <span class="keyword">if</span> color <span class="keyword">else</span> self._color</span><br><span class="line">        fonts = <span class="built_in">tuple</span>([truetype(name, size)</span><br><span class="line">                       <span class="keyword">for</span> name <span class="keyword">in</span> fonts</span><br><span class="line">                       <span class="keyword">for</span> size <span class="keyword">in</span> font_sizes <span class="keyword">or</span> (<span class="number">65</span>, <span class="number">70</span>, <span class="number">75</span>)])</span><br><span class="line">        draw = Draw(self._image)</span><br><span class="line">        char_images = []</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> captcha_text:</span><br><span class="line">            font = random.choice(fonts)</span><br><span class="line">            c_width, c_height = draw.textsize(c, font=font)</span><br><span class="line">            char_image = Image.new(<span class="string">&#x27;RGB&#x27;</span>, (c_width, c_height), (<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">            char_draw = Draw(char_image)</span><br><span class="line">            char_draw.text((<span class="number">0</span>, <span class="number">0</span>), c, font=font, fill=color)</span><br><span class="line">            char_image = char_image.crop(char_image.getbbox())</span><br><span class="line">            <span class="keyword">for</span> drawing <span class="keyword">in</span> drawings:</span><br><span class="line">                d = <span class="built_in">getattr</span>(self, drawing)</span><br><span class="line">                char_image = d(char_image)</span><br><span class="line">            char_images.append(char_image)</span><br><span class="line">        width, height = self._image.size</span><br><span class="line">        offset = <span class="built_in">int</span>((width - <span class="built_in">sum</span>(<span class="built_in">int</span>(i.size[<span class="number">0</span>] * squeeze_factor)</span><br><span class="line">                                  <span class="keyword">for</span> i <span class="keyword">in</span> char_images[:-<span class="number">1</span>]) -</span><br><span class="line">                      char_images[-<span class="number">1</span>].size[<span class="number">0</span>]) / <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">for</span> char_image <span class="keyword">in</span> char_images:</span><br><span class="line">            c_width, c_height = char_image.size</span><br><span class="line">            mask = char_image.convert(<span class="string">&#x27;L&#x27;</span>).point(<span class="keyword">lambda</span> i: i * <span class="number">1.97</span>)</span><br><span class="line">            self._image.paste(char_image,</span><br><span class="line">                              (offset, <span class="built_in">int</span>((height - c_height) / <span class="number">2</span>)),</span><br><span class="line">                              mask)</span><br><span class="line">            offset += <span class="built_in">int</span>(c_width * squeeze_factor)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_warp</span>(<span class="params">image, dx_factor=<span class="number">0.3</span>, dy_factor=<span class="number">0.3</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;图像扭曲&quot;&quot;&quot;</span></span><br><span class="line">        width, height = image.size</span><br><span class="line">        dx = width * dx_factor</span><br><span class="line">        dy = height * dy_factor</span><br><span class="line">        x1 = <span class="built_in">int</span>(random.uniform(-dx, dx))</span><br><span class="line">        y1 = <span class="built_in">int</span>(random.uniform(-dy, dy))</span><br><span class="line">        x2 = <span class="built_in">int</span>(random.uniform(-dx, dx))</span><br><span class="line">        y2 = <span class="built_in">int</span>(random.uniform(-dy, dy))</span><br><span class="line">        warp_image = Image.new(</span><br><span class="line">            <span class="string">&#x27;RGB&#x27;</span>,</span><br><span class="line">            (width + <span class="built_in">abs</span>(x1) + <span class="built_in">abs</span>(x2), height + <span class="built_in">abs</span>(y1) + <span class="built_in">abs</span>(y2)))</span><br><span class="line">        warp_image.paste(image, (<span class="built_in">abs</span>(x1), <span class="built_in">abs</span>(y1)))</span><br><span class="line">        width2, height2 = warp_image.size</span><br><span class="line">        <span class="keyword">return</span> warp_image.transform(</span><br><span class="line">            (width, height),</span><br><span class="line">            Image.QUAD,</span><br><span class="line">            (x1, y1, -x1, height2 - y2, width2 + x2, height2 + y2, width2 - x2, -y1))</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_offset</span>(<span class="params">image, dx_factor=<span class="number">0.1</span>, dy_factor=<span class="number">0.2</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;图像偏移&quot;&quot;&quot;</span></span><br><span class="line">        width, height = image.size</span><br><span class="line">        dx = <span class="built_in">int</span>(random.random() * width * dx_factor)</span><br><span class="line">        dy = <span class="built_in">int</span>(random.random() * height * dy_factor)</span><br><span class="line">        offset_image = Image.new(<span class="string">&#x27;RGB&#x27;</span>, (width + dx, height + dy))</span><br><span class="line">        offset_image.paste(image, (dx, dy))</span><br><span class="line">        <span class="keyword">return</span> offset_image</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_rotate</span>(<span class="params">image, angle=<span class="number">25</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;图像旋转&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> image.rotate(random.uniform(-angle, angle),</span><br><span class="line">                            Image.BILINEAR, expand=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">generate</span>(<span class="params">self, captcha_text=<span class="string">&#x27;&#x27;</span>, fmt=<span class="string">&#x27;PNG&#x27;</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;生成验证码(文字和图片)</span></span><br><span class="line"><span class="string">        :param captcha_text: 验证码文字</span></span><br><span class="line"><span class="string">        :param fmt: 生成的验证码图片格式</span></span><br><span class="line"><span class="string">        :return: 验证码图片的二进制数据</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        self._image = Image.new(<span class="string">&#x27;RGB&#x27;</span>, (self._width, self._height), (<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>))</span><br><span class="line">        self._background()</span><br><span class="line">        self._text(captcha_text, self._fonts,</span><br><span class="line">                   drawings=[<span class="string">&#x27;_warp&#x27;</span>, <span class="string">&#x27;_rotate&#x27;</span>, <span class="string">&#x27;_offset&#x27;</span>])</span><br><span class="line">        self._curve()</span><br><span class="line">        self._noise()</span><br><span class="line">        self._smooth()</span><br><span class="line">        image_bytes = BytesIO()</span><br><span class="line">        self._image.save(image_bytes, <span class="built_in">format</span>=fmt)</span><br><span class="line">        <span class="keyword">return</span> image_bytes.getvalue()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">pascal_row</span>(<span class="params">n=<span class="number">0</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;生成毕达哥拉斯三角形（杨辉三角）&quot;&quot;&quot;</span></span><br><span class="line">    result = [<span class="number">1</span>]</span><br><span class="line">    x, numerator = <span class="number">1</span>, n</span><br><span class="line">    <span class="keyword">for</span> denominator <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n // <span class="number">2</span> + <span class="number">1</span>):</span><br><span class="line">        x *= numerator</span><br><span class="line">        x /= denominator</span><br><span class="line">        result.append(x)</span><br><span class="line">        numerator -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> n &amp; <span class="number">1</span> == <span class="number">0</span>:</span><br><span class="line">        result.extend(<span class="built_in">reversed</span>(result[:-<span class="number">1</span>]))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        result.extend(<span class="built_in">reversed</span>(result))</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">random_color</span>(<span class="params">start=<span class="number">0</span>, end=<span class="number">255</span>, opacity=<span class="number">255</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;获得随机颜色&quot;&quot;&quot;</span></span><br><span class="line">    red = random.randint(start, end)</span><br><span class="line">    green = random.randint(start, end)</span><br><span class="line">    blue = random.randint(start, end)</span><br><span class="line">    <span class="keyword">if</span> opacity <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span> red, green, blue</span><br><span class="line">    <span class="keyword">return</span> red, green, blue, opacity</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：上面的代码中用到了三个字体文件，字体文件位于<code>polls/fonts</code>目录下，大家可以自行添加字体文件，但是需要注意字体文件的文件名跟上面代码的第45行保持一致。</p>
+</blockquote>
+<p>接下来，我们先完成提供验证码的视图函数。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">get_captcha</span>(<span class="params">request: HttpRequest</span>) -&gt; HttpResponse:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;验证码&quot;&quot;&quot;</span></span><br><span class="line">    captcha_text = gen_random_code()</span><br><span class="line">    request.session[<span class="string">&#x27;captcha&#x27;</span>] = captcha_text</span><br><span class="line">    image_data = Captcha.instance().generate(captcha_text)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(image_data, content_type=<span class="string">&#x27;image/png&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>注意上面代码中的第4行，我们将随机生成的验证码字符串保存到session中，稍后用户登录时，我们要将保存在session中的验证码字符串和用户输入的验证码字符串进行比对，如果用户输入了正确的验证码才能够执行后续的登录流程，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">login</span>(<span class="params">request: HttpRequest</span>) -&gt; HttpResponse:</span><br><span class="line">    hint = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&#x27;POST&#x27;</span>:</span><br><span class="line">        username = request.POST.get(<span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">        password = request.POST.get(<span class="string">&#x27;password&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> username <span class="keyword">and</span> password:</span><br><span class="line">            password = gen_md5_digest(password)</span><br><span class="line">            user = User.objects.<span class="built_in">filter</span>(username=username, password=password).first()</span><br><span class="line">            <span class="keyword">if</span> user:</span><br><span class="line">                request.session[<span class="string">&#x27;userid&#x27;</span>] = user.no</span><br><span class="line">                request.session[<span class="string">&#x27;username&#x27;</span>] = user.username</span><br><span class="line">                <span class="keyword">return</span> redirect(<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                hint = <span class="string">&#x27;用户名或密码错误&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            hint = <span class="string">&#x27;请输入有效的用户名和密码&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> render(request, <span class="string">&#x27;login.html&#x27;</span>, &#123;<span class="string">&#x27;hint&#x27;</span>: hint&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：上面的代码没有对用户名和密码没有进行验证，实际项目中建议使用正则表达式验证用户输入信息，否则有可能将无效的数据交给数据库进行处理或者造成其他安全方面的隐患。</p>
+</blockquote>
+<p>上面的代码中，我们设定了登录成功后会在session中保存用户的编号（<code>userid</code>）和用户名（<code>username</code>），页面会重定向到首页。接下来我们可以稍微对首页的代码进行调整，在页面的右上角显示出登录用户的用户名。我们将这段代码单独写成了一个名为header.html的HTML文件，首页中可以通过在<code>&lt;body&gt;</code>标签中添加<code>&#123;% include 'header.html' %&#125;</code>来包含这个页面，代码如下所示。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;user&quot;</span>&gt;</span></span><br><span class="line">    &#123;% if request.session.userid %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; request.session.username &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/logout&quot;</span>&gt;</span>注销<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    &#123;% else %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/login&quot;</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span></span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;/register&quot;</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果用户没有登录，页面会显示登录和注册的超链接；而用户登录成功后，页面上会显示用户名和注销的链接，注销链接对应的视图函数如下所示，URL的映射与之前讲过的类似，不再赘述。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">logout</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;注销&quot;&quot;&quot;</span></span><br><span class="line">    request.session.flush()</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">&#x27;/&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码通过session对象<code>flush</code>方法来销毁session，一方面清除了服务器上session对象保存的用户数据，一方面将保存在浏览器cookie中的sessionid删除掉，稍后我们会对如何读写cookie的操作加以说明。</p>
+<p>我们可以通过项目使用的数据库中名为<code>django_session</code> 的表来找到所有的session，该表的结构如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>session_key</th>
+<th>session_data</th>
+<th>expire_date</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>c9g2gt5cxo0k2evykgpejhic5ae7bfpl</td>
+<td>MmI4YzViYjJhOGMyMDJkY2M5Yzg3…</td>
+<td>2019-05-25 23:16:13.898522</td>
+</tr>
+</tbody></table>
+<p>其中，第1列就是浏览器cookie中保存的sessionid；第2列是经过BASE64编码后的session中的数据，如果使用Python的<code>base64</code>对其进行解码，解码的过程和结果如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">base64.b64decode(<span class="string">&#x27;MmI4YzViYjJhOGMyMDJkY2M5Yzg3ZWIyZGViZmUzYmYxNzdlNDdmZjp7ImNhcHRjaGEiOiJzS3d0Iiwibm8iOjEsInVzZXJuYW1lIjoiamFja2ZydWVkIn0=&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>第3列是session的过期时间，session过期后浏览器保存的cookie中的sessionid就会失效，但是数据库中的这条对应的记录仍然会存在，如果想清除过期的数据，可以使用下面的命令。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python manage.py clearsessions</span><br></pre></td></tr></table></figure>
+
+<p>Django框架默认的session过期时间为两周（1209600秒），如果想修改这个时间，可以在项目的配置文件中添加如下所示的代码。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置会话的超时时间为1天（86400秒）</span></span><br><span class="line">SESSION_COOKIE_AGE = <span class="number">86400</span></span><br></pre></td></tr></table></figure>
+
+<p>有很多对安全性要求较高的应用都必须在关闭浏览器窗口时让会话过期，不再保留用户的任何信息，如果希望在关闭浏览器窗口时就让会话过期（cookie中的sessionid失效），可以加入如下所示的配置。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置为True在关闭浏览器窗口时session就过期</span></span><br><span class="line">SESSION_EXPIRE_AT_BROWSER_CLOSE = <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p>如果不希望将session的数据保存在数据库中，可以将其放入缓存中，对应的配置如下所示，缓存的配置和使用我们在后面讲解。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置将会话对象放到缓存中存储</span></span><br><span class="line">SESSION_ENGINE = <span class="string">&#x27;django.contrib.sessions.backends.cache&#x27;</span></span><br><span class="line"><span class="comment"># 配置使用哪一组缓存来保存会话</span></span><br><span class="line">SESSION_CACHE_ALIAS = <span class="string">&#x27;default&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果要修改session数据默认的序列化方式，可以将默认的<code>JSONSerializer</code>修改为<code>PickleSerializer</code>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">SESSION_SERIALIZER = <span class="string">&#x27;django.contrib.sessions.serializers.PickleSerializer&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>接下来，我们就可以限制只有登录用户才能为老师投票，修改后的<code>praise_or_criticize</code>函数如下所示，我们通过从<code>request.session</code>中获取<code>userid</code>来判定用户是否登录。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">praise_or_criticize</span>(<span class="params">request: HttpRequest</span>) -&gt; HttpResponse:</span><br><span class="line">    <span class="keyword">if</span> request.session.get(<span class="string">&#x27;userid&#x27;</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            tno = <span class="built_in">int</span>(request.GET.get(<span class="string">&#x27;tno&#x27;</span>))</span><br><span class="line">            teacher = Teacher.objects.get(no=tno)</span><br><span class="line">            <span class="keyword">if</span> request.path.startswith(<span class="string">&#x27;/praise/&#x27;</span>):</span><br><span class="line">                teacher.good_count += <span class="number">1</span></span><br><span class="line">                count = teacher.good_count</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                teacher.bad_count += <span class="number">1</span></span><br><span class="line">                count = teacher.bad_count</span><br><span class="line">            teacher.save()</span><br><span class="line">            data = &#123;<span class="string">&#x27;code&#x27;</span>: <span class="number">20000</span>, <span class="string">&#x27;mesg&#x27;</span>: <span class="string">&#x27;投票成功&#x27;</span>, <span class="string">&#x27;count&#x27;</span>: count&#125;</span><br><span class="line">        <span class="keyword">except</span> (ValueError, Teacher.DoesNotExist):</span><br><span class="line">            data = &#123;<span class="string">&#x27;code&#x27;</span>: <span class="number">20001</span>, <span class="string">&#x27;mesg&#x27;</span>: <span class="string">&#x27;投票失败&#x27;</span>&#125;</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        data = &#123;<span class="string">&#x27;code&#x27;</span>: <span class="number">20002</span>, <span class="string">&#x27;mesg&#x27;</span>: <span class="string">&#x27;请先登录&#x27;</span>&#125;</span><br><span class="line">    <span class="keyword">return</span> JsonResponse(data)</span><br></pre></td></tr></table></figure>
+
+<p>当然，在修改了视图函数后，<code>teachers.html</code>也需要进行调整，用户如果没有登录，就将用户引导至登录页，登录成功再返回到投票页，此处不再赘述。</p>
+<h3 id="在视图函数中读写cookie"><a href="#在视图函数中读写cookie" class="headerlink" title="在视图函数中读写cookie"></a>在视图函数中读写cookie</h3><p>下面我们对如何使用cookie做一个更为细致的说明以便帮助大家在Web项目中更好的使用这项技术。Django封装的<code>HttpRequest</code>和<code>HttpResponse</code>对象分别提供了读写cookie的操作。</p>
+<p>HttpRequest封装的属性和方法：</p>
+<ol>
+<li><code>COOKIES</code>属性 - 该属性包含了HTTP请求携带的所有cookie。</li>
+<li><code>get_signed_cookie</code>方法 - 获取带签名的cookie，如果签名验证失败，会产生<code>BadSignature</code>异常。</li>
+</ol>
+<p>HttpResponse封装的方法：</p>
+<ol>
+<li><code>set_cookie</code>方法 - 该方法可以设置一组键值对并将其最终将写入浏览器。</li>
+<li><code>set_signed_cookie</code>方法 - 跟上面的方法作用相似，但是会对cookie进行签名来达到防篡改的作用。因为如果篡改了cookie中的数据，在不知道<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AF%86%E9%92%A5">密钥</a>和<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%9B%90_(%E5%AF%86%E7%A0%81%E5%AD%A6)">盐</a>的情况下是无法生成有效的签名，这样服务器在读取cookie时会发现数据与签名不一致从而产生<code>BadSignature</code>异常。需要说明的是，这里所说的密钥就是我们在Django项目配置文件中指定的<code>SECRET_KEY</code>，而盐是程序中设定的一个字符串，你愿意设定为什么都可以，只要是一个有效的字符串。</li>
+</ol>
+<p>上面提到的方法，如果不清楚它们的具体用法，可以自己查阅一下Django的<a target="_blank" rel="noopener" href="https://docs.djangoproject.com/en/2.1/ref/request-response/">官方文档</a>，没有什么资料比官方文档能够更清楚的告诉你这些方法到底如何使用。</p>
+<p>刚才我们说过了，激活<code>SessionMiddleware</code>之后，每个<code>HttpRequest</code>对象都会绑定一个session属性，它是一个类似字典的对象，除了保存用户数据之外还提供了检测浏览器是否支持cookie的方法，包括：</p>
+<ol>
+<li><code>set_test_cookie</code>方法 - 设置用于测试的cookie。</li>
+<li><code>test_cookie_worked</code>方法 - 检测测试cookie是否工作。</li>
+<li><code>delete_test_cookie</code>方法 - 删除用于测试的cookie。</li>
+<li><code>set_expiry</code>方法 - 设置会话的过期时间。</li>
+<li><code>get_expire_age</code>&#x2F;<code>get_expire_date</code>方法 - 获取会话的过期时间。</li>
+<li><code>clear_expired</code>方法 - 清理过期的会话。</li>
+</ol>
+<p>下面是在执行登录之前检查浏览器是否支持cookie的代码。通常情况下，浏览器默认开启了对cookie的支持，但是可能因为某种原因，用户禁用了浏览器的cookie功能，遇到这种情况我们可以在视图函数中提供一个检查功能，如果检查到用户浏览器不支持cookie，可以给出相应的提示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">login</span>(<span class="params">request</span>):</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&#x27;POST&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> request.session.test_cookie_worked():</span><br><span class="line">            request.session.delete_test_cookie()</span><br><span class="line">            <span class="comment"># Add your code to perform login process here</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> HttpResponse(<span class="string">&quot;Please enable cookies and try again.&quot;</span>)</span><br><span class="line">    request.session.set_test_cookie()</span><br><span class="line">    <span class="keyword">return</span> render_to_response(<span class="string">&#x27;login.html&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="cookie的替代品"><a href="#Cookie的替代品" class="headerlink" title="Cookie的替代品"></a>Cookie的替代品</h3><p>之前我们说过了，cookie的名声一直都不怎么好，当然我们在实际开发中是不会在cookie中保存用户的敏感信息（如用户的密码、信用卡的账号等）的，而且保存在cookie中的数据一般也会做好编码和签名的工作。对于支持HTML5的浏览器来说，可以使用localStorage和sessionStorage做为cookie的替代方案，相信从名字上你就能听出二者的差别，存储在<code>localStorage</code>的数据可以长期保留；而存储在<code>sessionStorage</code>的数据会在浏览器关闭时会被清除 。关于这些cookie替代品的用法，建议大家查阅<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web">MDN</a>来进行了解。 </p>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/python/basic/45.%E5%88%B6%E4%BD%9C%E6%8A%A5%E8%A1%A8/">上一篇：制作报表</a>
+  
+  
+  <a class="next" href="/computer-science/python/basic/43.%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%92%8CAjax%E8%AF%B7%E6%B1%82/">下一篇：静态资源和Ajax请求</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

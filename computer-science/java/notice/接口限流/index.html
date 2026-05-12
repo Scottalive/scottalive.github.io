@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>接口限流 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">接口限流</h1>
+    <div class="post-meta">
+      <span class="post-date">2023-04-15 11:07</span>
+      <span class="post-word-count">2807 字</span>
+      <span class="post-reading-time">约 9 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Java/">Java</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Java/%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/">开发规范</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记</a>
+      
+      <a href="/tags/%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/">接口开发</a>
+      
+      <a href="/tags/%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">开发注意事项</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#接口限流">接口限流</a>
+      
+      <a class="toc-level-3" href="#接口限流实现示例">接口限流实现示例</a>
+      
+      <a class="toc-level-3" href="#接口防刷各算法运用场景">接口防刷各算法运用场景</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="接口限流"><a href="#接口限流" class="headerlink" title="接口限流"></a>接口限流</h2><p>​		接口限流是一种常见的应用程序设计模式，它的目的是为了防止系统超载，保持系统的可用性。在应用程序中，特别是在大规模分布式系统中，限制流量可以有效地控制系统负载，并避免由于高负载而导致的系统崩溃。</p>
+<p>​		限流通常是通过对请求进行计数并根据规则拒绝过多的请求来实现的。一些常见的限流策略包括：<code>固定窗口限流</code>、<code>滑动窗口限流</code>、<code>令牌桶限流</code>、<code>漏桶限流</code>等。这些策略可以根据应用程序的实际需求和性能要求进行调整和组合使用。</p>
+<p>​		在实现接口限流时，需要考虑一些因素，如：最大请求速率、平均请求速率、请求处理时间、负载均衡等。一些常见的限流工具和框架，如<code>Guava RateLimiter</code>、<code>Redis</code>、<code>Nginx</code>等可以帮助实现接口限流。</p>
+<p>​		当我们的应用程序需要处理大量请求时，为了保证系统的稳定性和性能，我们可以使用接口限流技术来控制请求的流量，避免系统过载。以下是一些接口限流的解决方案：</p>
+<ol>
+<li><code>计数器算法</code>：计数器算法是一种简单的限流算法，它基于一个计数器，每当有一个请求进来时就增加计数器的值。当计数器的值超过了设定的阈值时，就拒绝请求。这种算法的优点是简单易懂，但是不适合处理突发流量。</li>
+<li><code>漏桶算法</code>：漏桶算法是一种经典的限流算法，它模拟了一个水桶，请求就像水流一样，流进漏桶中，当漏桶已经满了时，就拒绝请求。漏桶算法可以有效地平滑请求的流量，避免系统过载。</li>
+<li><code>令牌桶算法</code>：令牌桶算法也是一种流量控制算法，它基于一个令牌桶，每当有一个请求进来时就从令牌桶中获取一个令牌，如果令牌桶中没有令牌了，就拒绝请求。令牌桶算法可以平滑处理请求的流量，适用于高峰期的流量控制。</li>
+<li><code>基于时间窗口的限流</code>：基于时间窗口的限流算法是一种常用的限流算法，它将时间分为多个窗口，每个窗口都有一个固定的限制值。当一个请求进来时，就检查当前时间窗口的请求数是否超过了限制值，如果超过了就拒绝请求。这种算法适用于处理大量请求的场景，可以有效地保护系统。</li>
+<li><code>基于并发数的限流</code>：基于并发数的限流算法是一种简单的限流算法，它通过监控系统中的并发请求数来控制请求的流量，当并发请求数达到一定阈值时就拒绝请求。这种算法适用于处理大量并发请求的场景，可以有效地保护系统。</li>
+</ol>
+<p>​		这些都是常见的接口限流解决方案，我们可以根据实际业务场景选择合适的算法来保证系统的稳定性和性能。</p>
+<h3 id="接口限流实现示例"><a href="#接口限流实现示例" class="headerlink" title="接口限流实现示例"></a>接口限流实现示例</h3><h4 id="1-计数器算法"><a href="#1-计数器算法" class="headerlink" title="1.计数器算法"></a>1.计数器算法</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Counter</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> lastResetTime;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> maxRequestsPerSecond;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> requestCount;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Counter</span><span class="params">(<span class="type">int</span> maxRequestsPerSecond)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.lastResetTime = System.currentTimeMillis();</span><br><span class="line">        <span class="built_in">this</span>.maxRequestsPerSecond = maxRequestsPerSecond;</span><br><span class="line">        <span class="built_in">this</span>.requestCount = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="type">boolean</span> <span class="title function_">allowRequest</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">currentTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (currentTime &gt; lastResetTime + <span class="number">1000</span>) &#123; <span class="comment">// 1 second has passed since last reset</span></span><br><span class="line">            lastResetTime = currentTime;</span><br><span class="line">            requestCount = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (requestCount &gt;= maxRequestsPerSecond) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// limit reached</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            requestCount++;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">// request allowed</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个 <code>Counter</code> 类使用了一个 <code>lastResetTime</code> 变量来记录最后一次计数器清零的时间，以及一个 <code>requestCount</code> 变量来记录在这个时间段内已经发出的请求数量。在 <code>allowRequest()</code> 方法中，先判断是否已经过了 1 秒钟，如果是，则将计数器清零；然后再判断当前请求是否超过了每秒最大请求量，如果是，则返回 <code>false</code>，否则将计数器加一，并返回 <code>true</code>。可以根据实际需求来调整每秒最大请求量。</p>
+<h4 id="2-漏桶算法"><a href="#2-漏桶算法" class="headerlink" title="2.漏桶算法"></a>2.漏桶算法</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LeakyBucket</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> maxBucketSize;  <span class="comment">//漏桶容量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> flowRate;       <span class="comment">//水流出速度</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> currentSize;    <span class="comment">//当前桶内水量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> lastLeakTime;  <span class="comment">//上次漏水时间</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LeakyBucket</span><span class="params">(<span class="type">int</span> maxBucketSize, <span class="type">int</span> flowRate)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.maxBucketSize = maxBucketSize;</span><br><span class="line">        <span class="built_in">this</span>.flowRate = flowRate;</span><br><span class="line">        <span class="built_in">this</span>.currentSize = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">this</span>.lastLeakTime = System.currentTimeMillis();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="type">boolean</span> <span class="title function_">allowRequest</span><span class="params">(<span class="type">int</span> tokens)</span> &#123;</span><br><span class="line">        <span class="comment">// 计算桶内水量</span></span><br><span class="line">        currentSize = Math.max(<span class="number">0</span>, currentSize - (<span class="type">int</span>) (System.currentTimeMillis() - lastLeakTime) / <span class="number">1000</span> * flowRate);</span><br><span class="line">        lastLeakTime = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果桶未满，且本次请求能被放入桶中，则放行</span></span><br><span class="line">        <span class="keyword">if</span> (currentSize + tokens &lt;= maxBucketSize) &#123;</span><br><span class="line">            currentSize += tokens;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 否则拒绝请求</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的示例中，我们通过 <code>maxBucketSize</code> 定义了漏桶的容量，<code>flowRate</code> 定义了漏桶的出水速度，也就是漏水的速度。<code>currentSize</code> 记录当前漏桶中的水量，<code>lastLeakTime</code> 记录上次漏水时间。在 <code>allowRequest</code> 方法中，首先计算当前漏桶中的水量，然后判断本次请求是否能被放入漏桶中，如果能，则将请求放入漏桶中，并返回 <code>true</code>，否则返回 <code>false</code>，拒绝请求。</p>
+<h4 id="3-令牌桶算法"><a href="#3-令牌桶算法" class="headerlink" title="3.令牌桶算法"></a>3.令牌桶算法</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.atomic.AtomicInteger;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TokenBucket</span> &#123;</span><br><span class="line">    <span class="comment">// 桶的容量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> capacity;</span><br><span class="line">    <span class="comment">// 当前桶内令牌数量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">AtomicInteger</span> <span class="variable">tokens</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AtomicInteger</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">// 每秒增加的令牌数量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> rate;</span><br><span class="line">    <span class="comment">// 上一次令牌添加的时间戳</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> lastAddTime;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">TokenBucket</span><span class="params">(<span class="type">int</span> capacity, <span class="type">int</span> rate)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.capacity = capacity;</span><br><span class="line">        <span class="built_in">this</span>.rate = rate;</span><br><span class="line">        <span class="built_in">this</span>.lastAddTime = System.currentTimeMillis();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">acquire</span><span class="params">(<span class="type">int</span> tokens)</span> &#123;</span><br><span class="line">        <span class="comment">// 添加令牌</span></span><br><span class="line">        addTokens();</span><br><span class="line">        <span class="comment">// 判断桶内令牌数量是否足够</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.tokens.get() &gt;= tokens) &#123;</span><br><span class="line">            <span class="built_in">this</span>.tokens.addAndGet(-tokens);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">addTokens</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 计算当前时间和上一次添加令牌的时间之间应该添加的令牌数量</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">addTokens</span> <span class="operator">=</span> (<span class="type">int</span>) ((System.currentTimeMillis() - lastAddTime) / <span class="number">1000.0</span> * rate);</span><br><span class="line">        <span class="comment">// 如果添加的令牌数量不足一个，则不添加</span></span><br><span class="line">        <span class="keyword">if</span> (addTokens &lt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 添加令牌</span></span><br><span class="line">        <span class="built_in">this</span>.tokens.addAndGet(Math.min(addTokens, capacity));</span><br><span class="line">        <span class="comment">// 更新上一次添加令牌的时间</span></span><br><span class="line">        <span class="built_in">this</span>.lastAddTime = System.currentTimeMillis();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上代码中，<code>TokenBucket </code>类实现了令牌桶算法，使用了<code> AtomicInteger</code> 类型的 tokens 属性保存桶内令牌数量。通过 <code>acquire(int tokens)</code> 方法尝试获取指定数量的令牌，如果令牌数量足够，则从桶内移除令牌，并返回 true；否则返回 false。同时，该类的<code> addTokens()</code> 方法会根据当前时间和上一次添加令牌的时间计算出应该添加的令牌数量，并添加到桶内。</p>
+<h4 id="4-基于时间窗口的限流"><a href="#4-基于时间窗口的限流" class="headerlink" title="4.基于时间窗口的限流"></a>4.基于时间窗口的限流</h4><p>当我们使用基于时间窗口的限流时，我们可以使用一个固定大小的数组来存储每个时间窗口内的请求数量。我们可以定义一个时间窗口的长度，例如每秒钟或每分钟一个时间窗口，然后根据这个时间窗口内的请求数量来判断是否允许该请求通过。</p>
+<p>下面是一个使用基于时间窗口的限流的 Java 代码示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TimeWindowRateLimiter</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span> limit; <span class="comment">// 限流阈值</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">long</span> windowSize; <span class="comment">// 时间窗口大小，单位为毫秒</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> AtomicIntegerArray counters; <span class="comment">// 存储每个时间窗口内的请求数量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ScheduledExecutorService scheduler;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">TimeWindowRateLimiter</span><span class="params">(<span class="type">int</span> limit, <span class="type">long</span> windowSize)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.limit = limit;</span><br><span class="line">        <span class="built_in">this</span>.windowSize = windowSize;</span><br><span class="line">        counters = <span class="keyword">new</span> <span class="title class_">AtomicIntegerArray</span>((<span class="type">int</span>) (windowSize / <span class="number">1000</span>)); <span class="comment">// 根据时间窗口大小计算数组长度</span></span><br><span class="line">        scheduler = Executors.newScheduledThreadPool(<span class="number">1</span>);</span><br><span class="line">        scheduler.scheduleAtFixedRate(<span class="built_in">this</span>::resetCounter, windowSize, windowSize, TimeUnit.MILLISECONDS); <span class="comment">// 定期清空计数器</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">allowRequest</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">currentTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">        <span class="type">int</span> <span class="variable">currentCounterIndex</span> <span class="operator">=</span> (<span class="type">int</span>) (currentTime / <span class="number">1000</span>) % counters.length; <span class="comment">// 计算当前时间窗口所在的数组下标</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">currentCount</span> <span class="operator">=</span> counters.incrementAndGet(currentCounterIndex); <span class="comment">// 计数器加一</span></span><br><span class="line">        <span class="keyword">if</span> (currentCount &gt; limit) &#123; <span class="comment">// 判断请求数量是否超过限流阈值</span></span><br><span class="line">            counters.decrementAndGet(currentCounterIndex); <span class="comment">// 计数器减一</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">resetCounter</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; counters.length(); i++) &#123;</span><br><span class="line">            counters.set(i, <span class="number">0</span>); <span class="comment">// 清空计数器</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​		在上面的代码中，我们使用 <code>AtomicIntegerArray</code> 数组来存储每个时间窗口内的请求数量。每次有请求进来时，我们先获取当前时间并计算出当前时间所在的时间窗口所在的数组下标。然后将该数组下标对应的计数器加一，判断是否超过限流阈值，如果超过则将计数器减一并拒绝该请求。定期清空计数器以开始新的时间窗口。</p>
+<p>​		基于并发数的限流一般采用信号量（<code>Semaphore</code>）实现，以下是一个简单的 Java 代码示例：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.Semaphore;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConcurrentLimit</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Semaphore semaphore;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ConcurrentLimit</span><span class="params">(<span class="type">int</span> limit)</span> &#123; </span><br><span class="line">        semaphore = <span class="keyword">new</span> <span class="title class_">Semaphore</span>(limit);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">execute</span><span class="params">(Runnable task)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        semaphore.acquire(); <span class="comment">// 获取信号量</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            task.run();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            semaphore.release(); <span class="comment">// 释放信号量</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​		在上面的代码中，我们通过 <code>Semaphore </code>来实现并发数的限制。在构造方法中传入限制的并发数，每次执行任务时先调用 <code>semaphore.acquire()</code> 来获取一个信号量，如果已经达到限制的并发数，就会被阻塞直到有一个信号量被释放。任务执行完后再调用 <code>semaphore.release()</code> 来释放信号量。</p>
+<p>​		你可以在需要进行限流的地方使用 <code>ConcurrentLimit</code> 对象来包装需要执行的任务，以实现并发数限制。</p>
+<h3 id="接口防刷各算法运用场景"><a href="#接口防刷各算法运用场景" class="headerlink" title="接口防刷各算法运用场景"></a>接口防刷各算法运用场景</h3><p>接口防刷是指限制同一用户在短时间内对接口的访问次数，以保证系统的稳定和安全。下面是几种常见的接口防刷算法及其运用场景：</p>
+<ol>
+<li><code>计数器算法</code>：适用于对<code>API</code>调用频率的轻量级限制。例如在小型应用中使用，当同一个用户在指定时间内达到一定请求次数时会返回错误信息，可以用于防止恶意刷接口行为。</li>
+<li><code>漏桶算法</code>：适用于平滑请求流量，对突发流量进行限制。例如在<code> CDN</code> 服务中可以利用漏桶算法对网络带宽进行限流，防止网络瘫痪。</li>
+<li><code>令牌桶算法</code>：适用于在短时间内处理请求数量比较少的场景，可以平滑地处理请求流量。例如在<code>Web</code>应用中限制用户的请求数量，可以保护系统不被恶意攻击。</li>
+<li><code>基于时间窗口的限流</code>：适用于对接口并发访问数的限制。例如在高并发访问场景下，使用时间窗口限制访问频率，避免了瞬时流量过大导致服务不可用的情况。</li>
+<li><code>基于并发数的限流</code>：适用于对服务能力的控制，避免服务过载。例如在分布式系统中，使用基于并发数的限流算法，可以控制分布式服务间的调用数量，避免服务调用链条过长，导致服务过载。</li>
+</ol>
+<p>需要注意的是，不同的算法适用于不同的场景，选择适合自己的算法是非常重要的。同时，防刷算法只是防止恶意访问的一种手段，还需要通过其他安全措施来保证系统的安全性。</p>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/java/interview/Java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/">上一篇：Java基础面试题</a>
+  
+  
+  <a class="next" href="/computer-science/java/notice/%E6%8E%A5%E5%8F%A3%E9%98%B2%E5%88%B7/">下一篇：接口防刷</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

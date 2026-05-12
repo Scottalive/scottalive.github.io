@@ -1,0 +1,1310 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>沉鱼的博客 • Posts by &#34;开源&#34; tag</title>
+        <link>https://scottalive.github.io</link>
+        <description>编程笔记 &amp; 资料分享</description>
+        <language>zh-CN</language>
+        <pubDate>Tue, 05 May 2026 23:20:00 +0800</pubDate>
+        <lastBuildDate>Tue, 05 May 2026 23:20:00 +0800</lastBuildDate>
+        <category>AI日报</category>
+        <category>AI</category>
+        <category>GitHub热门</category>
+        <category>人工智能</category>
+        <category>技术趋势</category>
+        <category>原则</category>
+        <category>个人详情</category>
+        <category>个人分享</category>
+        <category>坏习惯</category>
+        <category>Kubernetes</category>
+        <category>Helm</category>
+        <category>学习计划</category>
+        <category>心理学知识</category>
+        <category>网络安全</category>
+        <category>SQL注入</category>
+        <category>XSS</category>
+        <category>CSRF</category>
+        <category>DDoS</category>
+        <category>渗透测试</category>
+        <category>阿德勒心理学</category>
+        <category>自卑与超越</category>
+        <category>GPT-5.5</category>
+        <category>OpenAI</category>
+        <category>Codex</category>
+        <category>ClaudeCode</category>
+        <category>Gemini</category>
+        <category>开发工具</category>
+        <category>开源</category>
+        <category>编程笔记</category>
+        <category>Hermes</category>
+        <category>Agent</category>
+        <category>NousResearch</category>
+        <category>进阶</category>
+        <category>配置</category>
+        <category>高阶</category>
+        <category>自动化</category>
+        <category>LLM</category>
+        <category>RAG</category>
+        <category>知识库</category>
+        <category>OpenSRE</category>
+        <category>SRE</category>
+        <category>运维</category>
+        <category>故障排查</category>
+        <category>SSE</category>
+        <category>HTTP</category>
+        <category>接口开发</category>
+        <category>开发注意事项</category>
+        <category>力扣算法题</category>
+        <category>算法</category>
+        <category>动态规划</category>
+        <category>微服务</category>
+        <category>JavaSE</category>
+        <category>Java开发面试题</category>
+        <category>SpringBoot</category>
+        <category>Spring</category>
+        <category>python</category>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/Hermes-Agent-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+            <title>Hermes Agent 安装与使用指南 —— Nous Research 自进化 AI 代理</title>
+            <link>https://scottalive.github.io/computer-science/ai-tools/Hermes-Agent-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+            <category>AI</category>
+            <category>开发工具</category>
+            <category>开源</category>
+            <category>Hermes</category>
+            <category>Agent</category>
+            <category>NousResearch</category>
+            <pubDate>Tue, 05 May 2026 23:20:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;什么是-Hermes-Agent？&#34;&gt;&lt;a href=&#34;#什么是-Hermes-Agent？&#34; class=&#34;headerlink&#34; title=&#34;什么是 Hermes Agent？&#34;&gt;&lt;/a&gt;什么是 Hermes Agent？&lt;/h2&gt;&lt;p&gt;Hermes Agent 是由 &lt;strong&gt;Nous Research&lt;/strong&gt; 开发的一款&lt;strong&gt;自进化 AI 代理&lt;/strong&gt;。它不只是一个对话机器人——它内置了完整的&lt;strong&gt;学习循环&lt;/strong&gt;：从经验中创建技能、在使用中自我改进、主动持久化知识、搜索自己的过往对话，并在一次次会话中建立越来越深刻的用户画像。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[用户输入] --&amp;gt; B[Hermes Agent 循环]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C&amp;#123;是否需要新技能?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|是| D[自主创建技能]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|否| E[执行任务]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F[经验总结]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G[知识持久化]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H[记忆 &amp;amp; 用户画像]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; B&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style B fill:#7C3AED,color:#fff&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style D fill:#F59E0B,color:#000&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style G fill:#10B981,color:#fff&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;核心特性一览&#34;&gt;&lt;a href=&#34;#核心特性一览&#34; class=&#34;headerlink&#34; title=&#34;核心特性一览&#34;&gt;&lt;/a&gt;核心特性一览&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;特性&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;🧠 &lt;strong&gt;自我进化&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;自主创建技能，在使用中自改进，建立长期记忆&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🔧 &lt;strong&gt;模型中立&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;支持 30+ 模型提供商，随时切换，零锁定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🌐 &lt;strong&gt;多平台连接&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Telegram &amp;#x2F; Discord &amp;#x2F; Slack &amp;#x2F; WhatsApp &amp;#x2F; Signal &amp;#x2F; 钉钉 &amp;#x2F; 飞书 &amp;#x2F; 微信 &amp;#x2F; QQ 等&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🖥️ &lt;strong&gt;终端 TUI&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;完整终端界面，多行编辑，斜杠命令自动补全&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;⏰ &lt;strong&gt;定时任务&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;内置 Cron 调度器，支持自然语言设定&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🚚 &lt;strong&gt;子代理并行&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;派生孤立子代理并行工作，管线化复杂任务&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🏠 &lt;strong&gt;6 种终端后端&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;本地 &amp;#x2F; Docker &amp;#x2F; SSH &amp;#x2F; Daytona &amp;#x2F; Singularity &amp;#x2F; Modal，服务器优雅托管&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;📦 &lt;strong&gt;Skills 生态&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;兼容 agentskills.io 开放标准，支持 MCP 协议&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;安装指南&#34;&gt;&lt;a href=&#34;#安装指南&#34; class=&#34;headerlink&#34; title=&#34;安装指南&#34;&gt;&lt;/a&gt;安装指南&lt;/h2&gt;&lt;h3 id=&#34;快速安装（推荐）&#34;&gt;&lt;a href=&#34;#快速安装（推荐）&#34; class=&#34;headerlink&#34; title=&#34;快速安装（推荐）&#34;&gt;&lt;/a&gt;快速安装（推荐）&lt;/h3&gt;&lt;p&gt;Hermes Agent 支持 &lt;strong&gt;Linux、macOS、WSL2&lt;/strong&gt;，一行命令搞定：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;安装完成后，刷新 shell 配置并启动：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;source&lt;/span&gt; ~/.bashrc   &lt;span class=&#34;comment&#34;&gt;# 或 source ~/.zshrc&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes              &lt;span class=&#34;comment&#34;&gt;# 开始聊天！&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;Windows-用户&#34;&gt;&lt;a href=&#34;#Windows-用户&#34; class=&#34;headerlink&#34; title=&#34;Windows 用户&#34;&gt;&lt;/a&gt;Windows 用户&lt;/h3&gt;&lt;p&gt;Windows 原生不支持，请先安装 &lt;strong&gt;WSL2&lt;/strong&gt;：&lt;/p&gt;
+&lt;figure class=&#34;highlight powershell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# PowerShell（管理员）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;wsl &lt;span class=&#34;literal&#34;&gt;--install&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;-d&lt;/span&gt; Ubuntu&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;然后在 WSL2 终端中执行安装命令。&lt;/p&gt;
+&lt;h3 id=&#34;Android-Termux&#34;&gt;&lt;a href=&#34;#Android-Termux&#34; class=&#34;headerlink&#34; title=&#34;Android &amp;#x2F; Termux&#34;&gt;&lt;/a&gt;Android &amp;#x2F; Termux&lt;/h3&gt;&lt;p&gt;手机安装的详细手动步骤见 &lt;a href=&#34;https://hermes-agent.nousresearch.com/docs/getting-started/termux&#34;&gt;Termux 指南&lt;/a&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;配置模型提供商&#34;&gt;&lt;a href=&#34;#配置模型提供商&#34; class=&#34;headerlink&#34; title=&#34;配置模型提供商&#34;&gt;&lt;/a&gt;配置模型提供商&lt;/h2&gt;&lt;p&gt;安装后最重要的一步：&lt;strong&gt;选择 LLM 提供商&lt;/strong&gt;。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;hermes model    &lt;span class=&#34;comment&#34;&gt;# 交互式配置向导&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;支持 30+ 提供商，常见选择：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;提供商&lt;/th&gt;
+&lt;th&gt;接入方式&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Nous Portal&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;OAuth 登录&lt;/td&gt;
+&lt;td&gt;零配置订阅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;OpenAI Codex&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;设备码认证&lt;/td&gt;
+&lt;td&gt;ChatGPT OAuth&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Anthropic Claude&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;OAuth 或 API Key&lt;/td&gt;
+&lt;td&gt;Max 计划 + 额外用量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;OpenRouter&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;API Key&lt;/td&gt;
+&lt;td&gt;200+ 模型自由路由&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;DeepSeek&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;API Key&lt;/td&gt;
+&lt;td&gt;直接接入&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;阿里云 DashScope&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;API Key&lt;/td&gt;
+&lt;td&gt;Qwen 系列模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Z.AI &amp;#x2F; GLM&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;API Key&lt;/td&gt;
+&lt;td&gt;智谱模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Kimi &amp;#x2F; Moonshot&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;API Key&lt;/td&gt;
+&lt;td&gt;月之暗面模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MiniMax&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;OAuth &amp;#x2F; API Key&lt;/td&gt;
+&lt;td&gt;MiniMax-M2.7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;自定义端点&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Base URL + Key&lt;/td&gt;
+&lt;td&gt;VLLM &amp;#x2F; Ollama &amp;#x2F; SGLang 等&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ &lt;strong&gt;最低要求：64K 上下文窗口&lt;/strong&gt;。Hermes 需要至少 64K tokens 的工作记忆。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;配置架构&#34;&gt;&lt;a href=&#34;#配置架构&#34; class=&#34;headerlink&#34; title=&#34;配置架构&#34;&gt;&lt;/a&gt;配置架构&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;密钥&amp;#x2F;Token&lt;/strong&gt; → &lt;code&gt;~/.hermes/.env&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;非敏感设置&lt;/strong&gt; → &lt;code&gt;~/.hermes/config.yaml&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;通过 CLI 设置自动分流：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;hermes config &lt;span class=&#34;built_in&#34;&gt;set&lt;/span&gt; model anthropic/claude-sonnet-4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes config &lt;span class=&#34;built_in&#34;&gt;set&lt;/span&gt; terminal.backend docker&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes config &lt;span class=&#34;built_in&#34;&gt;set&lt;/span&gt; OPENROUTER_API_KEY sk-or-xxx&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;CLI-使用&#34;&gt;&lt;a href=&#34;#CLI-使用&#34; class=&#34;headerlink&#34; title=&#34;CLI 使用&#34;&gt;&lt;/a&gt;CLI 使用&lt;/h2&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[hermes 启动] --&amp;gt; B&amp;#123;选择界面&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[hermes 经典 CLI]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; D[hermes --tui 现代 TUI]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; E[交互对话]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F[斜杠命令 /]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G[/model 换模型]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; H[/skills 浏览技能]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; I[/compress 压缩上下文]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; J[退出 / 保存]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;启动方式&#34;&gt;&lt;a href=&#34;#启动方式&#34; class=&#34;headerlink&#34; title=&#34;启动方式&#34;&gt;&lt;/a&gt;启动方式&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;hermes                &lt;span class=&#34;comment&#34;&gt;# 经典 CLI&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes --tui          &lt;span class=&#34;comment&#34;&gt;# 现代 TUI（推荐）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes -c             &lt;span class=&#34;comment&#34;&gt;# 恢复上次会话&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes -s &amp;lt;skill&amp;gt;     &lt;span class=&#34;comment&#34;&gt;# 预加载技能&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes chat -q &lt;span class=&#34;string&#34;&gt;&amp;quot;你好&amp;quot;&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;# 单次查询&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes -w             &lt;span class=&#34;comment&#34;&gt;# 隔离工作目录&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;状态栏&#34;&gt;&lt;a href=&#34;#状态栏&#34; class=&#34;headerlink&#34; title=&#34;状态栏&#34;&gt;&lt;/a&gt;状态栏&lt;/h3&gt;&lt;p&gt;会话中底部会实时显示状态：&lt;/p&gt;
+&lt;figure class=&#34;highlight mathematica&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;⚕ &lt;span class=&#34;variable&#34;&gt;claude&lt;/span&gt;&lt;span class=&#34;operator&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;variable&#34;&gt;sonnet&lt;/span&gt;&lt;span class=&#34;operator&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;operator&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;20250514&lt;/span&gt; │ &lt;span class=&#34;number&#34;&gt;12.4&lt;/span&gt;&lt;span class=&#34;built_in&#34;&gt;K&lt;/span&gt;&lt;span class=&#34;operator&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;200&lt;/span&gt;&lt;span class=&#34;built_in&#34;&gt;K&lt;/span&gt; │ &lt;span class=&#34;punctuation&#34;&gt;[&lt;/span&gt;██████░░░░&lt;span class=&#34;punctuation&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;operator&#34;&gt;%&lt;/span&gt; │ &lt;span class=&#34;variable&#34;&gt;$0&lt;/span&gt;&lt;span class=&#34;number&#34;&gt;.06&lt;/span&gt; │ &lt;span class=&#34;number&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;variable&#34;&gt;m&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;元素&lt;/th&gt;
+&lt;th&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;模型名&lt;/td&gt;
+&lt;td&gt;当前模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Token 计数&lt;/td&gt;
+&lt;td&gt;已用 &amp;#x2F; 最大上下文&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;彩色进度条&lt;/td&gt;
+&lt;td&gt;绿 &amp;lt; 50% → 黄 50-80% → 橙 80-95% → 红 ≥ 95%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;费用&lt;/td&gt;
+&lt;td&gt;估算会话成本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;时长&lt;/td&gt;
+&lt;td&gt;已用时&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;常用斜杠命令&#34;&gt;&lt;a href=&#34;#常用斜杠命令&#34; class=&#34;headerlink&#34; title=&#34;常用斜杠命令&#34;&gt;&lt;/a&gt;常用斜杠命令&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;th&gt;功能&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/help&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;显示所有命令&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/model&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;切换模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/tools&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;列出可用工具&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/skills browse&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;浏览 Skills Hub&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/personality pirate&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;换人格（pirate &amp;#x2F; kawaii &amp;#x2F; 等）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/retry&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;重试上一轮&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/undo&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;撤销最后一轮&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/compress&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;压缩上下文&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/voice on&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;启用语音模式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/background &amp;lt;prompt&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;后台执行任务&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/title My Session&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;命名当前会话&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;快捷键&#34;&gt;&lt;a href=&#34;#快捷键&#34; class=&#34;headerlink&#34; title=&#34;快捷键&#34;&gt;&lt;/a&gt;快捷键&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;按键&lt;/th&gt;
+&lt;th&gt;操作&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Enter&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;发送消息&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Alt+Enter&lt;/code&gt; &amp;#x2F; &lt;code&gt;Ctrl+J&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;换行（多行输入）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Tab&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;自动补全&amp;#x2F;接受建议&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Ctrl+C&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;中断当前操作&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Ctrl+B&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;开始&amp;#x2F;停止语音录制&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Ctrl+G&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;在编辑器中编辑输入&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;消息网关：连接多平台&#34;&gt;&lt;a href=&#34;#消息网关：连接多平台&#34; class=&#34;headerlink&#34; title=&#34;消息网关：连接多平台&#34;&gt;&lt;/a&gt;消息网关：连接多平台&lt;/h2&gt;&lt;p&gt;Hermes Agent 最强大的特性之一——&lt;strong&gt;一个后台进程同时连接所有平台&lt;/strong&gt;。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;hermes gateway setup    &lt;span class=&#34;comment&#34;&gt;# 交互式配置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes gateway          &lt;span class=&#34;comment&#34;&gt;# 前台启动&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes gateway install  &lt;span class=&#34;comment&#34;&gt;# 安装为系统服务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes gateway start    &lt;span class=&#34;comment&#34;&gt;# 启动服务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes gateway stop     &lt;span class=&#34;comment&#34;&gt;# 停止服务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes gateway status   &lt;span class=&#34;comment&#34;&gt;# 查看状态&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;支持平台&#34;&gt;&lt;a href=&#34;#支持平台&#34; class=&#34;headerlink&#34; title=&#34;支持平台&#34;&gt;&lt;/a&gt;支持平台&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;平台&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;语音&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;图片&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;文件&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;线程&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;流式输出&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;Telegram&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Discord&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Slack&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;WhatsApp&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Signal&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;钉钉&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;飞书&amp;#x2F;Lark&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;微信&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;QQ&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;企业微信&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Microsoft Teams&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;邮件&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;✅&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Home Assistant&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;Skills-技能系统&#34;&gt;&lt;a href=&#34;#Skills-技能系统&#34; class=&#34;headerlink&#34; title=&#34;Skills 技能系统&#34;&gt;&lt;/a&gt;Skills 技能系统&lt;/h2&gt;&lt;p&gt;Hermes 的技能是&lt;strong&gt;过程性记忆&lt;/strong&gt;——可复用的工作流模板，从 &lt;code&gt;agentskills.io&lt;/code&gt; 生态中安装，或由 Agent 自主创建。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;hermes skills search kubernetes     &lt;span class=&#34;comment&#34;&gt;# 搜索技能&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes skills install openai/skills/k8s  &lt;span class=&#34;comment&#34;&gt;# 安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;创建新技能：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[完成复杂任务] --&amp;gt; B[Agent 分析过程]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C&amp;#123;是否可复用?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|是| D[自动创建技能]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|否| E[丢弃]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; F[下次直接调用]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G[技能在使用中自我改进]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;每个已安装的技能自动注册为斜杠命令：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;/gif-search funny cats&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/github-pr-workflow create a PR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/excalidraw&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;记忆系统&#34;&gt;&lt;a href=&#34;#记忆系统&#34; class=&#34;headerlink&#34; title=&#34;记忆系统&#34;&gt;&lt;/a&gt;记忆系统&lt;/h2&gt;&lt;p&gt;Hermes 的记忆系统是&lt;strong&gt;闭环学习&lt;/strong&gt;的核心：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;层级&lt;/th&gt;
+&lt;th&gt;机制&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;💬 &lt;strong&gt;会话记忆&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;上下文窗口内&lt;/td&gt;
+&lt;td&gt;当前对话的临时记忆&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;📝 &lt;strong&gt;持久记忆&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Agent 维护的 MEMORY.md&lt;/td&gt;
+&lt;td&gt;重要事实、偏好、教训&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;👤 &lt;strong&gt;用户画像&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Honcho 辩证建模&lt;/td&gt;
+&lt;td&gt;跨会话的深层用户理解&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🔍 &lt;strong&gt;回想要点&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;FTS5 + LLM 摘要&lt;/td&gt;
+&lt;td&gt;搜索过往对话获取上下文&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🎯 &lt;strong&gt;定期促动&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;主动 nudge&lt;/td&gt;
+&lt;td&gt;Agent 自主决定何时更新记忆&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;终端后端&#34;&gt;&lt;a href=&#34;#终端后端&#34; class=&#34;headerlink&#34; title=&#34;终端后端&#34;&gt;&lt;/a&gt;终端后端&lt;/h2&gt;&lt;p&gt;Hermes 支持 6 种终端执行后端：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;hermes config &lt;span class=&#34;built_in&#34;&gt;set&lt;/span&gt; terminal.backend &lt;span class=&#34;built_in&#34;&gt;local&lt;/span&gt;     &lt;span class=&#34;comment&#34;&gt;# 本地直接执行&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes config &lt;span class=&#34;built_in&#34;&gt;set&lt;/span&gt; terminal.backend docker    &lt;span class=&#34;comment&#34;&gt;# Docker 隔离&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes config &lt;span class=&#34;built_in&#34;&gt;set&lt;/span&gt; terminal.backend ssh       &lt;span class=&#34;comment&#34;&gt;# 远程服务器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes config &lt;span class=&#34;built_in&#34;&gt;set&lt;/span&gt; terminal.backend daytona   &lt;span class=&#34;comment&#34;&gt;# 云工作空间&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes config &lt;span class=&#34;built_in&#34;&gt;set&lt;/span&gt; terminal.backend modal     &lt;span class=&#34;comment&#34;&gt;# Serverless&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;其中 &lt;strong&gt;Daytona&lt;/strong&gt; 和 &lt;strong&gt;Modal&lt;/strong&gt; 提供无服务器持久化——Agent 的环境在闲置时休眠，唤醒时按需启动，近乎零成本。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;定时任务（Cron）&#34;&gt;&lt;a href=&#34;#定时任务（Cron）&#34; class=&#34;headerlink&#34; title=&#34;定时任务（Cron）&#34;&gt;&lt;/a&gt;定时任务（Cron）&lt;/h2&gt;&lt;p&gt;自然语言设定定时任务，自动投递到任意平台：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 在对话中直接说：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;每天早上9点给我发一份 GitHub 仓库状态报告&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;每30分钟检查一次服务器磁盘使用率&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;每周日备份数据库到 S3&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;从-OpenClaw-迁移&#34;&gt;&lt;a href=&#34;#从-OpenClaw-迁移&#34; class=&#34;headerlink&#34; title=&#34;从 OpenClaw 迁移&#34;&gt;&lt;/a&gt;从 OpenClaw 迁移&lt;/h2&gt;&lt;p&gt;如果你正从 OpenClaw 迁移到 Hermes，内置迁移工具：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;hermes claw migrate                     &lt;span class=&#34;comment&#34;&gt;# 交互式迁移&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes claw migrate --dry-run           &lt;span class=&#34;comment&#34;&gt;# 预览迁移内容&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes claw migrate --preset user-data  &lt;span class=&#34;comment&#34;&gt;# 仅迁移用户数据&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes claw migrate --overwrite         &lt;span class=&#34;comment&#34;&gt;# 覆盖冲突文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;迁移内容自动导入：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SOUL.md&lt;/strong&gt; — 人格设定&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MEMORY.md &amp;#x2F; USER.md&lt;/strong&gt; — 记忆与用户信息&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自定义 Skills&lt;/strong&gt; → &lt;code&gt;~/.hermes/skills/openclaw-imports/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;命令允许列表&lt;/strong&gt; — 安全策略&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;消息平台配置&lt;/strong&gt; — Telegram &amp;#x2F; Discord 等&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API Key&lt;/strong&gt; — 允许列表中的密钥&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工作目录配置&lt;/strong&gt; — AGENTS.md&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;安全机制&#34;&gt;&lt;a href=&#34;#安全机制&#34; class=&#34;headerlink&#34; title=&#34;安全机制&#34;&gt;&lt;/a&gt;安全机制&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;功能&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;👥 &lt;strong&gt;用户白名单&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;默认拒绝未授权用户&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;✅ &lt;strong&gt;命令审批&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;危险命令需手动确认 &lt;code&gt;/approve&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🏖️ &lt;strong&gt;沙箱执行&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Docker &amp;#x2F; SSH &amp;#x2F; Serverless 隔离&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🔐 &lt;strong&gt;密钥分离&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;.env&lt;/code&gt; 与 config 文件分离&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🔄 &lt;strong&gt;DM 配对&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;一对一私聊建立信任&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;快速故障排查&#34;&gt;&lt;a href=&#34;#快速故障排查&#34; class=&#34;headerlink&#34; title=&#34;快速故障排查&#34;&gt;&lt;/a&gt;快速故障排查&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;症状&lt;/th&gt;
+&lt;th&gt;原因&lt;/th&gt;
+&lt;th&gt;解决&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;打开但回复为空&lt;/td&gt;
+&lt;td&gt;提供商认证失败&lt;/td&gt;
+&lt;td&gt;运行 &lt;code&gt;hermes model&lt;/code&gt; 重新配置&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;自定义端点返回乱码&lt;/td&gt;
+&lt;td&gt;Base URL &amp;#x2F; 模型名错误&lt;/td&gt;
+&lt;td&gt;先在外部客户端验证端点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;网关启动但无人能发消息&lt;/td&gt;
+&lt;td&gt;Token &amp;#x2F; 白名单配置不完整&lt;/td&gt;
+&lt;td&gt;重新运行 &lt;code&gt;hermes gateway setup&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;无法恢复旧会话&lt;/td&gt;
+&lt;td&gt;切换了 profile 或未保存&lt;/td&gt;
+&lt;td&gt;检查 &lt;code&gt;hermes sessions list&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;hermes doctor&lt;/code&gt; 报错&lt;/td&gt;
+&lt;td&gt;配置缺失或过期&lt;/td&gt;
+&lt;td&gt;修复后重新测试基础聊天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;恢复三部曲&lt;/strong&gt;：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;hermes doctor   &lt;span class=&#34;comment&#34;&gt;# 诊断&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes model    &lt;span class=&#34;comment&#34;&gt;# 重配提供商&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes setup    &lt;span class=&#34;comment&#34;&gt;# 完整设置向导&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;Hermes Agent 不仅仅是一个 AI 聊天机器人——它是一个&lt;strong&gt;自我进化的 AI 伙伴&lt;/strong&gt;，能够自主创建技能、积累长期记忆、通过 20+ 消息平台与你交互，并通过可配置的终端后端在任何环境下运行。&lt;/p&gt;
+&lt;p&gt;相比其他 AI 代理，Hermes 最大的差异化在于：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;闭环学习&lt;/strong&gt; —— 不只是对话，而是从每次交互中成长&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型中立&lt;/strong&gt; —— 随时切换提供商，不对接单一生态&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;无处不在&lt;/strong&gt; —— 从 Telegram 到终端，从手机到服务器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;更多资源&#34;&gt;&lt;a href=&#34;#更多资源&#34; class=&#34;headerlink&#34; title=&#34;更多资源&#34;&gt;&lt;/a&gt;更多资源&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://hermes-agent.nousresearch.com/docs/&#34;&gt;Hermes Agent 官方文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/NousResearch/hermes-agent&#34;&gt;GitHub 仓库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://discord.gg/NousResearch&#34;&gt;官方 Discord&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://nousresearch.com/&#34;&gt;Nous Research&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/LLM-WIKI-%E7%9F%A5%E8%AF%86%E5%BA%93%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+            <title>从零搭建 LLM + 知识库：RAG 完全入门指南</title>
+            <link>https://scottalive.github.io/computer-science/ai-tools/LLM-WIKI-%E7%9F%A5%E8%AF%86%E5%BA%93%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+            <category>AI</category>
+            <category>开发工具</category>
+            <category>开源</category>
+            <category>LLM</category>
+            <category>RAG</category>
+            <category>知识库</category>
+            <pubDate>Fri, 01 May 2026 23:30:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;前言：你为什么要读这篇文章？&#34;&gt;&lt;a href=&#34;#前言：你为什么要读这篇文章？&#34; class=&#34;headerlink&#34; title=&#34;前言：你为什么要读这篇文章？&#34;&gt;&lt;/a&gt;前言：你为什么要读这篇文章？&lt;/h2&gt;&lt;p&gt;假设你有几百份 PDF 合同、几十篇技术文档、一堆内部 Wiki 页面。每次想查个信息，要么翻半天文件夹，要么在几个系统之间来回切换。&lt;/p&gt;
+&lt;p&gt;大语言模型（LLM）很强，但它有个致命缺陷：&lt;strong&gt;不知道自己不知道什么&lt;/strong&gt;。你问 ChatGPT “我们公司上季度的销售政策是什么”，它要么编一个答案，要么说”我没有这方面的信息”。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;RAG（Retrieval-Augmented Generation，检索增强生成）&lt;/strong&gt; 就是解决这个问题的。简单说：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;先把你的文档”喂”给系统 → 系统理解并存储 → 你提问时，系统先检索相关文档片段 → 再让 LLM 基于这些片段生成答案。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;就像一个&lt;strong&gt;随身带着你全部文档的新员工&lt;/strong&gt;——记性好、不编造、有问必答。&lt;/p&gt;
+&lt;p&gt;本文从零开始，带你用最主流的方式搭建一个属于自己的 LLM 知识库。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第一章：理解-RAG-的基本原理&#34;&gt;&lt;a href=&#34;#第一章：理解-RAG-的基本原理&#34; class=&#34;headerlink&#34; title=&#34;第一章：理解 RAG 的基本原理&#34;&gt;&lt;/a&gt;第一章：理解 RAG 的基本原理&lt;/h2&gt;&lt;h3 id=&#34;1-1-不用-RAG-的-LLM-有什么问题？&#34;&gt;&lt;a href=&#34;#1-1-不用-RAG-的-LLM-有什么问题？&#34; class=&#34;headerlink&#34; title=&#34;1.1 不用 RAG 的 LLM 有什么问题？&#34;&gt;&lt;/a&gt;1.1 不用 RAG 的 LLM 有什么问题？&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;问题&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;❌ 知识截止&lt;/td&gt;
+&lt;td&gt;训练数据有时间限制，不知道之后的事&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;❌ 幻觉&lt;/td&gt;
+&lt;td&gt;不知道的问题会编造答案，还编得一本正经&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;❌ 领域盲区&lt;/td&gt;
+&lt;td&gt;不懂你公司内部的术语、流程、文档&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;❌ 上下文窗口&lt;/td&gt;
+&lt;td&gt;一次能塞进去的文档量有限&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;1-2-RAG-是怎么工作的？&#34;&gt;&lt;a href=&#34;#1-2-RAG-是怎么工作的？&#34; class=&#34;headerlink&#34; title=&#34;1.2 RAG 是怎么工作的？&#34;&gt;&lt;/a&gt;1.2 RAG 是怎么工作的？&lt;/h3&gt;&lt;p&gt;整个流程分两步：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;离线阶段（准备知识）——只做一次：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight awk&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;你的文档（PDF&lt;span class=&#34;regexp&#34;&gt;/Word/&lt;/span&gt;Markdown/网页）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;┌──────────────────┐&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  文档解析 &amp;amp; 切分   │  把长文档切成合适大小的小块（chunk）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└──────────────────┘&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;┌──────────────────┐&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  向量化（Embedding）│  用 Embedding 模型把文字变成数学向量&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└──────────────────┘&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;┌──────────────────┐&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  存入向量数据库     │  向量 + 原文一起存&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└──────────────────┘&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;在线阶段（回答问题）——每次提问都执行：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight mipsasm&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;用户提问：&lt;span class=&#34;string&#34;&gt;&amp;quot;合同里违约金怎么算？&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;┌──────────────────┐&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  问题向量化        │  把问题也变成向量&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└──────────────────┘&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;┌──────────────────┐&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  语义检索          │  在向量数据库中找最相关的文档片段&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└──────────────────┘&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;┌──────────────────┐&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  组装 Prompt       │  把检索到的片段 + 问题拼成完整提示词&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└──────────────────┘&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;┌──────────────────┐&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│  &lt;span class=&#34;keyword&#34;&gt;LLM &lt;/span&gt;生成答案      │  基于提供的文档内容回答问题&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└──────────────────┘&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;1-3-关键概念解释&#34;&gt;&lt;a href=&#34;#1-3-关键概念解释&#34; class=&#34;headerlink&#34; title=&#34;1.3 关键概念解释&#34;&gt;&lt;/a&gt;1.3 关键概念解释&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;Embedding（向量化）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;把一段文字转换成一串数字（向量）。语义相近的文字，向量也相近。比如”苹果很好吃”和”这个水果真甜”在向量空间中距离很近，”苹果发布了新手机”则离得很远。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Chunk（文档分块）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;LLM 一次能处理的文字有限（上下文窗口），而且检索粒度太粗也没用。所以把长文档切成小块，每块通常 300-1000 个字符，块与块之间可以有重叠（防止一句话被拦腰截断）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;向量数据库&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;专门存储和检索向量的数据库。流行的有：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;数据库&lt;/th&gt;
+&lt;th&gt;特点&lt;/th&gt;
+&lt;th&gt;适用场景&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;Chroma&lt;/td&gt;
+&lt;td&gt;轻量、Python 原生、零配置&lt;/td&gt;
+&lt;td&gt;本地开发 &amp;#x2F; 小项目&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Milvus&lt;/td&gt;
+&lt;td&gt;高性能、分布式&lt;/td&gt;
+&lt;td&gt;企业级 &amp;#x2F; 百万级文档&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Qdrant&lt;/td&gt;
+&lt;td&gt;Rust 编写、性能好&lt;/td&gt;
+&lt;td&gt;中大型项目&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Weaviate&lt;/td&gt;
+&lt;td&gt;GraphQL 接口、功能全&lt;/td&gt;
+&lt;td&gt;有复杂查询需求&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;FAISS&lt;/td&gt;
+&lt;td&gt;Meta 开源、纯向量搜索&lt;/td&gt;
+&lt;td&gt;嵌入式 &amp;#x2F; 高性能场景&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pgvector&lt;/td&gt;
+&lt;td&gt;PostgreSQL 插件&lt;/td&gt;
+&lt;td&gt;已有 PG 技术栈的团队&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;重排序（Rerank）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;第一次检索返回的文档片段不一定是最相关的（粗排），可以用 Rerank 模型做二次精排，提高准确率。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第二章：选型对比&#34;&gt;&lt;a href=&#34;#第二章：选型对比&#34; class=&#34;headerlink&#34; title=&#34;第二章：选型对比&#34;&gt;&lt;/a&gt;第二章：选型对比&lt;/h2&gt;&lt;p&gt;市面上的 LLM 知识库方案很多，先做一个快速对比帮你选型。&lt;/p&gt;
+&lt;h3 id=&#34;2-1-主流方案一览&#34;&gt;&lt;a href=&#34;#2-1-主流方案一览&#34; class=&#34;headerlink&#34; title=&#34;2.1 主流方案一览&#34;&gt;&lt;/a&gt;2.1 主流方案一览&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;方案&lt;/th&gt;
+&lt;th&gt;定位&lt;/th&gt;
+&lt;th&gt;上手难度&lt;/th&gt;
+&lt;th&gt;适合谁&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Dify&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;全能 LLM 应用平台&lt;/td&gt;
+&lt;td&gt;⭐ 简单&lt;/td&gt;
+&lt;td&gt;所有人，首选&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;FastGPT&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;专注知识库问答&lt;/td&gt;
+&lt;td&gt;⭐ 简单&lt;/td&gt;
+&lt;td&gt;只想做知识库&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;AnythingLLM&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;桌面端一键部署&lt;/td&gt;
+&lt;td&gt;⭐ 最简单&lt;/td&gt;
+&lt;td&gt;个人用户、不想折腾&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MaxKB&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;国产知识库问答&lt;/td&gt;
+&lt;td&gt;⭐ 简单&lt;/td&gt;
+&lt;td&gt;中文场景、企业用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;LangChain&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;开发框架&lt;/td&gt;
+&lt;td&gt;⭐⭐⭐ 中等&lt;/td&gt;
+&lt;td&gt;开发者、需要定制&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;LlamaIndex&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;数据索引框架&lt;/td&gt;
+&lt;td&gt;⭐⭐⭐ 中等&lt;/td&gt;
+&lt;td&gt;复杂数据管道&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;2-2-新手推荐：Dify&#34;&gt;&lt;a href=&#34;#2-2-新手推荐：Dify&#34; class=&#34;headerlink&#34; title=&#34;2.2 新手推荐：Dify&#34;&gt;&lt;/a&gt;2.2 新手推荐：Dify&lt;/h3&gt;&lt;p&gt;推荐理由：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;开箱即用&lt;/strong&gt;：Docker 一条命令启动，有 Web 管理界面&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;功能完整&lt;/strong&gt;：不只是知识库，还包括工作流编排、Agent、对话日志&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;社区活跃&lt;/strong&gt;：GitHub 6 万+ Star，中文文档完善&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型灵活&lt;/strong&gt;：支持 OpenAI &amp;#x2F; Claude &amp;#x2F; 本地模型 &amp;#x2F; 各种国产模型&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;有云版本&lt;/strong&gt;：不想自己部署可以用 Dify Cloud 直接开始&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文以 &lt;strong&gt;Dify 自部署版&lt;/strong&gt;为主进行实操讲解。其他方案思路类似，一通百通。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第三章：环境准备&#34;&gt;&lt;a href=&#34;#第三章：环境准备&#34; class=&#34;headerlink&#34; title=&#34;第三章：环境准备&#34;&gt;&lt;/a&gt;第三章：环境准备&lt;/h2&gt;&lt;h3 id=&#34;3-1-硬件要求&#34;&gt;&lt;a href=&#34;#3-1-硬件要求&#34; class=&#34;headerlink&#34; title=&#34;3.1 硬件要求&#34;&gt;&lt;/a&gt;3.1 硬件要求&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;配置&lt;/th&gt;
+&lt;th&gt;最低要求&lt;/th&gt;
+&lt;th&gt;推荐配置&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;CPU&lt;/td&gt;
+&lt;td&gt;2 核&lt;/td&gt;
+&lt;td&gt;4 核+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;内存&lt;/td&gt;
+&lt;td&gt;4 GB&lt;/td&gt;
+&lt;td&gt;8 GB+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;磁盘&lt;/td&gt;
+&lt;td&gt;20 GB&lt;/td&gt;
+&lt;td&gt;50 GB+ (看文档量)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GPU&lt;/td&gt;
+&lt;td&gt;不需要&lt;/td&gt;
+&lt;td&gt;本地跑模型时建议&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果你只是用云端 API（OpenAI &amp;#x2F; Claude &amp;#x2F; 国产模型），&lt;strong&gt;不需要 GPU&lt;/strong&gt;。只有当你打算本地部署开源模型时才需要。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;3-2-安装-Docker&#34;&gt;&lt;a href=&#34;#3-2-安装-Docker&#34; class=&#34;headerlink&#34; title=&#34;3.2 安装 Docker&#34;&gt;&lt;/a&gt;3.2 安装 Docker&lt;/h3&gt;&lt;p&gt;Dify 通过 Docker 部署，先安装 Docker：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Windows：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight powershell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 方式一：直接下载 Docker Desktop&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# https://www.docker.com/products/docker-desktop/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 方式二：WinGet&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;winget install Docker.DockerDesktop&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;macOS：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;brew install --cask docker&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Linux（Ubuntu&amp;#x2F;Debian）：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;curl -fsSL https://get.docker.com | bash&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo usermod -aG docker &lt;span class=&#34;variable&#34;&gt;$USER&lt;/span&gt;  &lt;span class=&#34;comment&#34;&gt;# 免 sudo&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;验证安装：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;docker --version&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker compose version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;3-3-获取-API-Key&#34;&gt;&lt;a href=&#34;#3-3-获取-API-Key&#34; class=&#34;headerlink&#34; title=&#34;3.3 获取 API Key&#34;&gt;&lt;/a&gt;3.3 获取 API Key&lt;/h3&gt;&lt;p&gt;你需要至少一个 LLM 的 API Key。可选方案：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;提供商&lt;/th&gt;
+&lt;th&gt;获取方式&lt;/th&gt;
+&lt;th&gt;费用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;OpenAI&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://platform.openai.com/&#34;&gt;platform.openai.com&lt;/a&gt; → API Keys&lt;/td&gt;
+&lt;td&gt;按量付费&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Anthropic&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://console.anthropic.com/&#34;&gt;console.anthropic.com&lt;/a&gt; → API Keys&lt;/td&gt;
+&lt;td&gt;按量付费&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;智谱 (GLM)&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://open.bigmodel.cn/&#34;&gt;open.bigmodel.cn&lt;/a&gt; → API Keys&lt;/td&gt;
+&lt;td&gt;有免费额度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DeepSeek&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://platform.deepseek.com/&#34;&gt;platform.deepseek.com&lt;/a&gt; → API Keys&lt;/td&gt;
+&lt;td&gt;极便宜&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;阿里通义&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://dashscope.aliyun.com/&#34;&gt;dashscope.aliyun.com&lt;/a&gt; → API Keys&lt;/td&gt;
+&lt;td&gt;有免费额度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SiliconFlow&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://siliconflow.cn/&#34;&gt;siliconflow.cn&lt;/a&gt; → API Keys&lt;/td&gt;
+&lt;td&gt;聚合多模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;新手建议&lt;/strong&gt;：先用 DeepSeek 或智谱，有免费额度，够你学完整套流程。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第四章：部署-Dify&#34;&gt;&lt;a href=&#34;#第四章：部署-Dify&#34; class=&#34;headerlink&#34; title=&#34;第四章：部署 Dify&#34;&gt;&lt;/a&gt;第四章：部署 Dify&lt;/h2&gt;&lt;h3 id=&#34;4-1-一条命令启动&#34;&gt;&lt;a href=&#34;#4-1-一条命令启动&#34; class=&#34;headerlink&#34; title=&#34;4.1 一条命令启动&#34;&gt;&lt;/a&gt;4.1 一条命令启动&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 克隆项目&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;git &lt;span class=&#34;built_in&#34;&gt;clone&lt;/span&gt; https://github.com/langgenius/dify.git&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;cd&lt;/span&gt; dify/docker&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 复制环境变量配置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;cp&lt;/span&gt; .env.example .&lt;span class=&#34;built_in&#34;&gt;env&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 启动所有服务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker compose up -d&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;Docker 会自动拉取并启动以下服务：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;api&lt;/code&gt; — Dify 后端 API&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;web&lt;/code&gt; — Dify 前端界面&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;db&lt;/code&gt; — PostgreSQL 数据库&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;redis&lt;/code&gt; — 缓存&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;weaviate&lt;/code&gt; — 向量数据库&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nginx&lt;/code&gt; — 反向代理&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sandbox&lt;/code&gt; — 代码执行沙箱&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;等几分钟后，浏览器打开 &lt;code&gt;http://localhost&lt;/code&gt;，你会看到初始化页面。&lt;/p&gt;
+&lt;h3 id=&#34;4-2-初始化设置&#34;&gt;&lt;a href=&#34;#4-2-初始化设置&#34; class=&#34;headerlink&#34; title=&#34;4.2 初始化设置&#34;&gt;&lt;/a&gt;4.2 初始化设置&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;设置管理员邮箱和密码&lt;/li&gt;
+&lt;li&gt;点击「初始化」&lt;/li&gt;
+&lt;li&gt;登录后进入 Dify 主界面&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;4-3-配置模型&#34;&gt;&lt;a href=&#34;#4-3-配置模型&#34; class=&#34;headerlink&#34; title=&#34;4.3 配置模型&#34;&gt;&lt;/a&gt;4.3 配置模型&lt;/h3&gt;&lt;p&gt;登录后第一步：&lt;strong&gt;设置 → 模型供应商&lt;/strong&gt;，添加你的 LLM。&lt;/p&gt;
+&lt;p&gt;以 DeepSeek 为例：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;点击「DeepSeek」→「设置」&lt;/li&gt;
+&lt;li&gt;填入 API Key&lt;/li&gt;
+&lt;li&gt;点击「保存」&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以 OpenAI 为例：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;点击「OpenAI」→「设置」&lt;/li&gt;
+&lt;li&gt;填入 API Key&lt;/li&gt;
+&lt;li&gt;可选：填入自定义 API 地址（如果你用中转服务）&lt;/li&gt;
+&lt;li&gt;保存&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;同样方式添加 Embedding 模型。Dify 会自动使用与 LLM 同提供商的 Embedding 模型，也可以单独配置。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;省钱技巧&lt;/strong&gt;：LLM 用 DeepSeek（便宜），Embedding 用智谱或 SiliconFlow 的免费额度。一个大模型回答 + 一个向量化模型，分开配置，成本极低。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第五章：创建你的第一个知识库&#34;&gt;&lt;a href=&#34;#第五章：创建你的第一个知识库&#34; class=&#34;headerlink&#34; title=&#34;第五章：创建你的第一个知识库&#34;&gt;&lt;/a&gt;第五章：创建你的第一个知识库&lt;/h2&gt;&lt;h3 id=&#34;5-1-上传文档&#34;&gt;&lt;a href=&#34;#5-1-上传文档&#34; class=&#34;headerlink&#34; title=&#34;5.1 上传文档&#34;&gt;&lt;/a&gt;5.1 上传文档&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;顶部导航 → &lt;strong&gt;「知识库」&lt;/strong&gt; → &lt;strong&gt;「创建知识库」&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;填写名称（如”公司制度知识库”）&lt;/li&gt;
+&lt;li&gt;点击创建&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;进入知识库后，你可以上传文档：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;支持格式&lt;/strong&gt;：PDF、TXT、Markdown、Word (.docx)、Excel (.xlsx)、HTML、CSV&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;上传方式&lt;/strong&gt;：拖拽文件 &amp;#x2F; 从 URL 导入 &amp;#x2F; 粘贴文本 &amp;#x2F; 对接 Notion&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;批量上传&lt;/strong&gt;：支持一次性上传多个文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-2-文档处理设置&#34;&gt;&lt;a href=&#34;#5-2-文档处理设置&#34; class=&#34;headerlink&#34; title=&#34;5.2 文档处理设置&#34;&gt;&lt;/a&gt;5.2 文档处理设置&lt;/h3&gt;&lt;p&gt;上传前可以调整关键参数：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;th&gt;建议值&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;分段最大长度&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;每个 chunk 的字符数上限&lt;/td&gt;
+&lt;td&gt;500-800&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;分段重叠长度&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;相邻 chunk 的重叠字符数&lt;/td&gt;
+&lt;td&gt;50-100&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;索引方式&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;高质量（推荐） &amp;#x2F; 经济 &amp;#x2F; 自定义&lt;/td&gt;
+&lt;td&gt;高质量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;检索方式&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;向量检索 &amp;#x2F; 全文检索 &amp;#x2F; 混合检索&lt;/td&gt;
+&lt;td&gt;混合检索&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;分段长度怎么选？&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;合同、法律文档：偏长（800-1000），一个条款不能断&lt;/li&gt;
+&lt;li&gt;FAQ、问答对：偏短（300-500），问题答案各自独立&lt;/li&gt;
+&lt;li&gt;技术文档：中等（500-800），一个知识点一块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-3-等待处理&#34;&gt;&lt;a href=&#34;#5-3-等待处理&#34; class=&#34;headerlink&#34; title=&#34;5.3 等待处理&#34;&gt;&lt;/a&gt;5.3 等待处理&lt;/h3&gt;&lt;p&gt;上传后 Dify 自动执行：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;文档解析（提取文字）&lt;/li&gt;
+&lt;li&gt;文本分块（按设置切分）&lt;/li&gt;
+&lt;li&gt;向量化（调用 Embedding 模型）&lt;/li&gt;
+&lt;li&gt;存入向量数据库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;处理速度取决于文档大小和 API 响应速度，一般几兆 PDF 几十秒就完成。&lt;/p&gt;
+&lt;p&gt;处理完后你可以：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;查看分段结果（每个 chunk 的内容）&lt;/li&gt;
+&lt;li&gt;手动编辑或删除某些分段&lt;/li&gt;
+&lt;li&gt;在检索测试中直接搜索，看返回结果质量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第六章：创建知识库问答应用&#34;&gt;&lt;a href=&#34;#第六章：创建知识库问答应用&#34; class=&#34;headerlink&#34; title=&#34;第六章：创建知识库问答应用&#34;&gt;&lt;/a&gt;第六章：创建知识库问答应用&lt;/h2&gt;&lt;p&gt;知识库准备好后，把它变成一个可交互的聊天应用。&lt;/p&gt;
+&lt;h3 id=&#34;6-1-创建应用&#34;&gt;&lt;a href=&#34;#6-1-创建应用&#34; class=&#34;headerlink&#34; title=&#34;6.1 创建应用&#34;&gt;&lt;/a&gt;6.1 创建应用&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;顶部导航 → &lt;strong&gt;「工作室」&lt;/strong&gt; → &lt;strong&gt;「创建空白应用」&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;选择 &lt;strong&gt;「聊天助手」&lt;/strong&gt; 类型&lt;/li&gt;
+&lt;li&gt;命名（如”合同助手”）&lt;/li&gt;
+&lt;li&gt;点击创建&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;6-2-关联知识库&#34;&gt;&lt;a href=&#34;#6-2-关联知识库&#34; class=&#34;headerlink&#34; title=&#34;6.2 关联知识库&#34;&gt;&lt;/a&gt;6.2 关联知识库&lt;/h3&gt;&lt;p&gt;在应用编辑界面：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;左侧 &lt;strong&gt;「上下文」&lt;/strong&gt; → 点击 &lt;strong&gt;「添加」&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;选择你刚创建的知识库&lt;/li&gt;
+&lt;li&gt;设置参数：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;th&gt;建议&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;Top K&lt;/td&gt;
+&lt;td&gt;每次检索返回多少个 chunk&lt;/td&gt;
+&lt;td&gt;3-5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;相似度阈值&lt;/td&gt;
+&lt;td&gt;低于此分值的 chunk 不采用&lt;/td&gt;
+&lt;td&gt;0.5-0.7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;6-3-编写系统提示词（Prompt）&#34;&gt;&lt;a href=&#34;#6-3-编写系统提示词（Prompt）&#34; class=&#34;headerlink&#34; title=&#34;6.3 编写系统提示词（Prompt）&#34;&gt;&lt;/a&gt;6.3 编写系统提示词（Prompt）&lt;/h3&gt;&lt;p&gt;在 &lt;strong&gt;「提示词」&lt;/strong&gt; 编辑框中，这是最关键的一步。一个模板：&lt;/p&gt;
+&lt;figure class=&#34;highlight markdown&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;你是一个专业的知识库助手，专门回答关于[你的领域]的问题。&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## 规则&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;1.&lt;/span&gt; 只根据「参考文档」中的内容回答问题&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;2.&lt;/span&gt; 如果文档中没有相关信息，直接说&amp;quot;文档中未找到相关内容&amp;quot;，不要编造&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;3.&lt;/span&gt; 回答时尽量引用文档原文，并注明来源&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;4.&lt;/span&gt; 保持回答简洁专业，用中文回复&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;## 参考文档&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#123;&amp;#123;context&amp;#125;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;其中 &lt;code&gt;&amp;#123;&amp;#123;context&amp;#125;&amp;#125;&lt;/code&gt; 是变量占位符，RAG 检索到的文档片段会自动填入。&lt;/p&gt;
+&lt;h3 id=&#34;6-4-调试测试&#34;&gt;&lt;a href=&#34;#6-4-调试测试&#34; class=&#34;headerlink&#34; title=&#34;6.4 调试测试&#34;&gt;&lt;/a&gt;6.4 调试测试&lt;/h3&gt;&lt;p&gt;右侧有一个 &lt;strong&gt;「调试与预览」&lt;/strong&gt; 面板，可以直接测试。&lt;/p&gt;
+&lt;p&gt;先确认右上角选择了正确的模型（比如 DeepSeek V3 或 GPT-4o），然后输入问题：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“合同中提前解约需要提前多少天通知？”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;你会看到 Dify 先展示了检索到的文档片段（可以展开查看哪些 chunk 被命中），然后基于这些片段生成回答。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如果回答质量不好？&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;症状&lt;/th&gt;
+&lt;th&gt;可能原因&lt;/th&gt;
+&lt;th&gt;调整方向&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;答非所问&lt;/td&gt;
+&lt;td&gt;检索不准&lt;/td&gt;
+&lt;td&gt;调高 Top K、换混合检索&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;信息不全&lt;/td&gt;
+&lt;td&gt;分段太碎&lt;/td&gt;
+&lt;td&gt;增大 chunk 长度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;答了无关内容&lt;/td&gt;
+&lt;td&gt;阈值太低&lt;/td&gt;
+&lt;td&gt;提高相似度阈值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;回答太啰嗦&lt;/td&gt;
+&lt;td&gt;Prompt 太弱&lt;/td&gt;
+&lt;td&gt;优化系统提示词&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;幻觉严重&lt;/td&gt;
+&lt;td&gt;文档覆盖不足&lt;/td&gt;
+&lt;td&gt;补充文档、优化提示词&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第七章：发布与使用&#34;&gt;&lt;a href=&#34;#第七章：发布与使用&#34; class=&#34;headerlink&#34; title=&#34;第七章：发布与使用&#34;&gt;&lt;/a&gt;第七章：发布与使用&lt;/h2&gt;&lt;h3 id=&#34;7-1-发布应用&#34;&gt;&lt;a href=&#34;#7-1-发布应用&#34; class=&#34;headerlink&#34; title=&#34;7.1 发布应用&#34;&gt;&lt;/a&gt;7.1 发布应用&lt;/h3&gt;&lt;p&gt;调试满意后，点击右上角 &lt;strong&gt;「发布」&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;Dify 提供多种使用方式：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;方式&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;网页链接&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;生成一个公开 URL，直接分享&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;嵌入网页&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;提供 iframe &amp;#x2F; script 代码，嵌入到你的网站&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;API 调用&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;提供 REST API，集成到自己的系统&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;企业微信&amp;#x2F;飞书&amp;#x2F;钉钉&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;对接办公 IM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;7-2-API-集成示例&#34;&gt;&lt;a href=&#34;#7-2-API-集成示例&#34; class=&#34;headerlink&#34; title=&#34;7.2 API 集成示例&#34;&gt;&lt;/a&gt;7.2 API 集成示例&lt;/h3&gt;&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; requests&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;url = &lt;span class=&#34;string&#34;&gt;&amp;quot;http://localhost/v1/chat-messages&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;headers = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;Authorization&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;Bearer app-YOUR_APP_API_KEY&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;Content-Type&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;application/json&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;data = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;inputs&amp;quot;&lt;/span&gt;: &amp;#123;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;query&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;员工年假有多少天？&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;response_mode&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;blocking&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;conversation_id&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;employee-001&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;response = requests.post(url, json=data, headers=headers)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(response.json()[&lt;span class=&#34;string&#34;&gt;&amp;quot;answer&amp;quot;&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;7-3-对话日志与分析&#34;&gt;&lt;a href=&#34;#7-3-对话日志与分析&#34; class=&#34;headerlink&#34; title=&#34;7.3 对话日志与分析&#34;&gt;&lt;/a&gt;7.3 对话日志与分析&lt;/h3&gt;&lt;p&gt;应用发布后，Dify 自动记录所有对话：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;「日志与标注」&lt;/strong&gt;：查看每条对话的问题、回答、检索到的文档&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;标注功能&lt;/strong&gt;：标记好的回答，用于后续优化&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用量统计&lt;/strong&gt;：查看 API 调用次数、Token 消耗&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第八章：进阶技巧&#34;&gt;&lt;a href=&#34;#第八章：进阶技巧&#34; class=&#34;headerlink&#34; title=&#34;第八章：进阶技巧&#34;&gt;&lt;/a&gt;第八章：进阶技巧&lt;/h2&gt;&lt;h3 id=&#34;8-1-多知识库联合检索&#34;&gt;&lt;a href=&#34;#8-1-多知识库联合检索&#34; class=&#34;headerlink&#34; title=&#34;8.1 多知识库联合检索&#34;&gt;&lt;/a&gt;8.1 多知识库联合检索&lt;/h3&gt;&lt;p&gt;一个应用可以关联多个知识库。比如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;知识库 A：产品手册&lt;/li&gt;
+&lt;li&gt;知识库 B：客服 FAQ&lt;/li&gt;
+&lt;li&gt;知识库 C：内部流程文档&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;用户问一个问题，Dify 同时检索三个知识库，取最相关的 Top K 条。&lt;/p&gt;
+&lt;h3 id=&#34;8-2-元数据过滤&#34;&gt;&lt;a href=&#34;#8-2-元数据过滤&#34; class=&#34;headerlink&#34; title=&#34;8.2 元数据过滤&#34;&gt;&lt;/a&gt;8.2 元数据过滤&lt;/h3&gt;&lt;p&gt;上传文档时可以加元数据标签（如 &lt;code&gt;category:财务&lt;/code&gt;、&lt;code&gt;year:2025&lt;/code&gt;），检索时按标签过滤：&lt;/p&gt;
+&lt;figure class=&#34;highlight&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;只检索「2025年」的「财务类」文档 → 精确度和速度大幅提升&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;8-3-工作流编排（Workflow）&#34;&gt;&lt;a href=&#34;#8-3-工作流编排（Workflow）&#34; class=&#34;headerlink&#34; title=&#34;8.3 工作流编排（Workflow）&#34;&gt;&lt;/a&gt;8.3 工作流编排（Workflow）&lt;/h3&gt;&lt;p&gt;Dify 不只是问答。你可以用可视化的拖拽方式创建处理流程：&lt;/p&gt;
+&lt;figure class=&#34;highlight mipsasm&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;用户输入 → 意图识别 → &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ├─ 查资料 → 检索知识库 → &lt;span class=&#34;keyword&#34;&gt;LLM &lt;/span&gt;回答&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ├─ 查数据 → 调用 API → 格式化返回&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  └─ 闲聊 → 直接 &lt;span class=&#34;keyword&#34;&gt;LLM &lt;/span&gt;回复&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;8-4-本地模型部署（省钱-隐私）&#34;&gt;&lt;a href=&#34;#8-4-本地模型部署（省钱-隐私）&#34; class=&#34;headerlink&#34; title=&#34;8.4 本地模型部署（省钱 + 隐私）&#34;&gt;&lt;/a&gt;8.4 本地模型部署（省钱 + 隐私）&lt;/h3&gt;&lt;p&gt;如果你有一定量的文档，不想每次调用都花 API 费用，或者文档涉密不能上云，可以本地部署开源模型。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Embedding 模型（向量化）：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 用 Ollama 部署&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ollama pull nomic-embed-text&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ollama pull bge-m3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;LLM 模型（生成回答）：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Qwen2.5 系列（中文友好）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ollama pull qwen2.5:7b&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ollama pull qwen2.5:14b&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 或 DeepSeek&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ollama pull deepseek-r1:8b&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;然后在 Dify 中配置模型供应商为「Ollama」，地址填 &lt;code&gt;http://localhost:11434&lt;/code&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;7B 模型最低要求&lt;/strong&gt;：16GB 内存，无 GPU 也能跑（慢但能用）&lt;br&gt;&lt;strong&gt;14B 模型&lt;/strong&gt;：建议 32GB+ 内存或有 8GB+ 显存的 GPU&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;8-5-持续优化知识库&#34;&gt;&lt;a href=&#34;#8-5-持续优化知识库&#34; class=&#34;headerlink&#34; title=&#34;8.5 持续优化知识库&#34;&gt;&lt;/a&gt;8.5 持续优化知识库&lt;/h3&gt;&lt;p&gt;知识库不是建完就完事了：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;定期更新&lt;/strong&gt;：文档变了要重新上传新版本&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;分析失败案例&lt;/strong&gt;：看日志里哪些问题没回答好，补文档或调参数&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用户反馈&lt;/strong&gt;：用标注功能收集好评&amp;#x2F;差评，针对性改进&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;A&amp;#x2F;B 测试&lt;/strong&gt;：同一问题用不同 chunk 大小或检索策略，对比效果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第九章：常见问题与排错&#34;&gt;&lt;a href=&#34;#第九章：常见问题与排错&#34; class=&#34;headerlink&#34; title=&#34;第九章：常见问题与排错&#34;&gt;&lt;/a&gt;第九章：常见问题与排错&lt;/h2&gt;&lt;h3 id=&#34;Q1：检索结果不准确怎么办？&#34;&gt;&lt;a href=&#34;#Q1：检索结果不准确怎么办？&#34; class=&#34;headerlink&#34; title=&#34;Q1：检索结果不准确怎么办？&#34;&gt;&lt;/a&gt;Q1：检索结果不准确怎么办？&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;先检查检索到的 chunk 是否包含答案（可能是 chunk 里有但没有被 LLM 用上 → 优化 Prompt）&lt;/li&gt;
+&lt;li&gt;如果 chunk 里就没有答案 → 你的文档覆盖不足，或 chunk 切分有问题&lt;/li&gt;
+&lt;li&gt;尝试切换检索方式：向量检索 → 混合检索 → 全文检索轮着试&lt;/li&gt;
+&lt;li&gt;启用 Rerank 模型做二次精排&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;Q2：Docker-启动失败？&#34;&gt;&lt;a href=&#34;#Q2：Docker-启动失败？&#34; class=&#34;headerlink&#34; title=&#34;Q2：Docker 启动失败？&#34;&gt;&lt;/a&gt;Q2：Docker 启动失败？&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看日志&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker compose logs -f&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 常见问题：端口冲突&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 修改 .env 中的端口配置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 重启&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker compose down&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;docker compose up -d&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;Q3：Embedding-处理很慢？&#34;&gt;&lt;a href=&#34;#Q3：Embedding-处理很慢？&#34; class=&#34;headerlink&#34; title=&#34;Q3：Embedding 处理很慢？&#34;&gt;&lt;/a&gt;Q3：Embedding 处理很慢？&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;检查 API 是否限速（免费额度通常有 RPM 限制）&lt;/li&gt;
+&lt;li&gt;大批量文档分批上传&lt;/li&gt;
+&lt;li&gt;换成更快的 Embedding 模型（如 &lt;code&gt;text-embedding-3-small&lt;/code&gt;）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;Q4：中文效果不好？&#34;&gt;&lt;a href=&#34;#Q4：中文效果不好？&#34; class=&#34;headerlink&#34; title=&#34;Q4：中文效果不好？&#34;&gt;&lt;/a&gt;Q4：中文效果不好？&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Embedding 模型选中文优化的（&lt;code&gt;bge-large-zh&lt;/code&gt;、&lt;code&gt;text-embedding-3&lt;/code&gt;、智谱 Embedding）&lt;/li&gt;
+&lt;li&gt;LLM 选中文能力强的（DeepSeek、Qwen、GLM）&lt;/li&gt;
+&lt;li&gt;分段时不要切断中文字符（Dify 默认会处理）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;阶段&lt;/th&gt;
+&lt;th&gt;你需要做什么&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;准备&lt;/td&gt;
+&lt;td&gt;装 Docker、搞一个 LLM API Key&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;部署&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;docker compose up -d&lt;/code&gt; 一条命令&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;建知识库&lt;/td&gt;
+&lt;td&gt;上传文档，调整分段参数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;建应用&lt;/td&gt;
+&lt;td&gt;关联知识库 + 写系统提示词&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;上线&lt;/td&gt;
+&lt;td&gt;发布 → 生成链接&amp;#x2F;嵌入网页&amp;#x2F;API 调用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;整个流程从零到能用，新手一般 &lt;strong&gt;一个下午&lt;/strong&gt; 可以搞定。&lt;/p&gt;
+&lt;p&gt;最后提醒一句：&lt;strong&gt;知识库的核心不是技术，是你的文档质量&lt;/strong&gt;。垃圾文档进 → 垃圾答案出。花时间整理好你的文档，比调任何参数都管用。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dify 官方文档：&lt;a href=&#34;https://docs.dify.ai/&#34;&gt;https://docs.dify.ai&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Dify GitHub：&lt;a href=&#34;https://github.com/langgenius/dify&#34;&gt;https://github.com/langgenius/dify&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ollama（本地模型）：&lt;a href=&#34;https://ollama.com/&#34;&gt;https://ollama.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/CC-Switch-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+            <title>CC Switch 安装与使用指南 —— AI 编程助手全能管理器</title>
+            <link>https://scottalive.github.io/computer-science/ai-tools/CC-Switch-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+            <category>AI</category>
+            <category>Codex</category>
+            <category>ClaudeCode</category>
+            <category>Gemini</category>
+            <category>开发工具</category>
+            <category>开源</category>
+            <pubDate>Thu, 30 Apr 2026 23:30:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;什么是-CC-Switch？&#34;&gt;&lt;a href=&#34;#什么是-CC-Switch？&#34; class=&#34;headerlink&#34; title=&#34;什么是 CC Switch？&#34;&gt;&lt;/a&gt;什么是 CC Switch？&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/farion1231/cc-switch&#34;&gt;CC Switch&lt;/a&gt; 是一款&lt;strong&gt;跨平台桌面应用&lt;/strong&gt;，一站式管理 Claude Code、Codex、Gemini CLI、OpenCode 和 OpenClaw 等多款 AI 编程助手。基于 Tauri 2 构建，支持 Windows &amp;#x2F; macOS &amp;#x2F; Linux，当前最新版本为 &lt;strong&gt;v3.14.1&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;如果你同时使用多款 AI 编程工具——比如用 Claude Code 做架构设计、用 Codex 写代码、用 Gemini 做代码审查——CC Switch 能让你在一个统一的界面里切换、配置和管理它们，不用在多个终端窗口之间来回折腾。&lt;/p&gt;
+&lt;h3 id=&#34;核心能力一览&#34;&gt;&lt;a href=&#34;#核心能力一览&#34; class=&#34;headerlink&#34; title=&#34;核心能力一览&#34;&gt;&lt;/a&gt;核心能力一览&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;功能&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;🔄 多工具管理&lt;/td&gt;
+&lt;td&gt;统一管理 Claude Code &amp;#x2F; Codex &amp;#x2F; Gemini CLI &amp;#x2F; OpenCode &amp;#x2F; OpenClaw&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;⚙️ 提供商切换&lt;/td&gt;
+&lt;td&gt;支持 Anthropic 官方、AWS Bedrock、Google Vertex、Azure Foundry 及各类中转 API&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;📊 用量监控&lt;/td&gt;
+&lt;td&gt;系统托盘实时显示各工具用量、订阅配额、颜色编码利用率&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🔐 OAuth 反向代理&lt;/td&gt;
+&lt;td&gt;内置 Codex OAuth 代理，支持 FAST 模式切换&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🧩 Skills 管理&lt;/td&gt;
+&lt;td&gt;导入、安装、更新各类 Agent Skills&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;📝 会话管理&lt;/td&gt;
+&lt;td&gt;查看、恢复、切换各工具的历史会话&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🌐 MCP 配置&lt;/td&gt;
+&lt;td&gt;图形化管理 Model Context Protocol 服务器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🏠 Hermes 集成&lt;/td&gt;
+&lt;td&gt;提供商管理、记忆编辑、Web UI 启动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;安装指南&#34;&gt;&lt;a href=&#34;#安装指南&#34; class=&#34;headerlink&#34; title=&#34;安装指南&#34;&gt;&lt;/a&gt;安装指南&lt;/h2&gt;&lt;h3 id=&#34;下载安装包&#34;&gt;&lt;a href=&#34;#下载安装包&#34; class=&#34;headerlink&#34; title=&#34;下载安装包&#34;&gt;&lt;/a&gt;下载安装包&lt;/h3&gt;&lt;p&gt;访问 &lt;a href=&#34;https://github.com/farion1231/cc-switch/releases/latest&#34;&gt;Releases 页面&lt;/a&gt; 下载对应平台的安装包：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;平台&lt;/th&gt;
+&lt;th&gt;安装包格式&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;Windows&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;.msi&lt;/code&gt; 安装程序 &amp;#x2F; &lt;code&gt;.exe&lt;/code&gt; 便携版&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;macOS&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;.dmg&lt;/code&gt;（Apple Silicon &amp;#x2F; Intel）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Linux&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;.AppImage&lt;/code&gt; &amp;#x2F; &lt;code&gt;.deb&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;Windows-安装&#34;&gt;&lt;a href=&#34;#Windows-安装&#34; class=&#34;headerlink&#34; title=&#34;Windows 安装&#34;&gt;&lt;/a&gt;Windows 安装&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;下载最新版 &lt;code&gt;.msi&lt;/code&gt; 安装包&lt;/li&gt;
+&lt;li&gt;双击运行，按向导完成安装&lt;/li&gt;
+&lt;li&gt;安装完成后，桌面和开始菜单会出现 CC Switch 图标&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;或者使用便携版（无需安装），直接运行 &lt;code&gt;.exe&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;macOS-安装&#34;&gt;&lt;a href=&#34;#macOS-安装&#34; class=&#34;headerlink&#34; title=&#34;macOS 安装&#34;&gt;&lt;/a&gt;macOS 安装&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 下载 .dmg 后双击挂载，将 CC Switch 拖入 Applications&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 或通过 Homebrew（如有）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;首次打开时，macOS 可能提示”无法验证开发者”，去&lt;strong&gt;系统设置 → 隐私与安全性&lt;/strong&gt;中点击”仍要打开”即可。&lt;/p&gt;
+&lt;h3 id=&#34;Linux-安装&#34;&gt;&lt;a href=&#34;#Linux-安装&#34; class=&#34;headerlink&#34; title=&#34;Linux 安装&#34;&gt;&lt;/a&gt;Linux 安装&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# AppImage（推荐）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;chmod&lt;/span&gt; +x CC-Switch-*.AppImage&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;./CC-Switch-*.AppImage&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# deb 包&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sudo dpkg -i cc-switch_*.deb&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;使用指南&#34;&gt;&lt;a href=&#34;#使用指南&#34; class=&#34;headerlink&#34; title=&#34;使用指南&#34;&gt;&lt;/a&gt;使用指南&lt;/h2&gt;&lt;h3 id=&#34;1-初始配置&#34;&gt;&lt;a href=&#34;#1-初始配置&#34; class=&#34;headerlink&#34; title=&#34;1. 初始配置&#34;&gt;&lt;/a&gt;1. 初始配置&lt;/h3&gt;&lt;p&gt;首次打开 CC Switch 后，你会看到主界面。左侧是工具列表（Claude Code &amp;#x2F; Codex &amp;#x2F; Gemini CLI 等），右侧是配置面板。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第一步：添加 AI 工具&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;点击左侧工具图标（如 Claude Code）&lt;/li&gt;
+&lt;li&gt;在右侧面板中配置：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;提供商&lt;/strong&gt;：选择 Anthropic（官方）&amp;#x2F; Bedrock &amp;#x2F; Vertex &amp;#x2F; 自定义 API 中转&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API 地址&lt;/strong&gt;：如果用中转服务，填入对应的 &lt;code&gt;ANTHROPIC_BASE_URL&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API Key&lt;/strong&gt;：填入你的密钥&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型&lt;/strong&gt;：选择默认使用的模型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;点击「测试连接」确认配置正确&lt;/li&gt;
+&lt;li&gt;点击「保存」&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;CC Switch 支持&lt;strong&gt;同时配置多个提供商&lt;/strong&gt;，你可以为 Claude Code 配一个 Anthropic 官方、一个 Bedrock、一个便宜的中转站，随时切换。&lt;/p&gt;
+&lt;h3 id=&#34;2-切换工具和提供商&#34;&gt;&lt;a href=&#34;#2-切换工具和提供商&#34; class=&#34;headerlink&#34; title=&#34;2. 切换工具和提供商&#34;&gt;&lt;/a&gt;2. 切换工具和提供商&lt;/h3&gt;&lt;p&gt;在左侧工具栏点击对应图标即可切换不同的 AI 编程工具。&lt;/p&gt;
+&lt;p&gt;对于同一工具的不同提供商，在主界面顶部或设置面板的提供商下拉菜单中一键切换。CC Switch 会自动更新对应的环境变量和配置文件。&lt;/p&gt;
+&lt;h3 id=&#34;3-启动对话会话&#34;&gt;&lt;a href=&#34;#3-启动对话会话&#34; class=&#34;headerlink&#34; title=&#34;3. 启动对话会话&#34;&gt;&lt;/a&gt;3. 启动对话会话&lt;/h3&gt;&lt;p&gt;配置好工具后，可以：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;直接启动&lt;/strong&gt;：点击「启动」按钮，CC Switch 会在新终端窗口中打开对应工具&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;恢复历史会话&lt;/strong&gt;：在会话列表中双击之前的会话，自动恢复到上次的对话状态&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;继续最近会话&lt;/strong&gt;：点击工具旁边的「继续」图标&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于 Gemini CLI，CC Switch 会读取 &lt;code&gt;.project_root&lt;/code&gt; 元数据，确保恢复到正确的项目目录。&lt;/p&gt;
+&lt;h3 id=&#34;4-用量监控（系统托盘）&#34;&gt;&lt;a href=&#34;#4-用量监控（系统托盘）&#34; class=&#34;headerlink&#34; title=&#34;4. 用量监控（系统托盘）&#34;&gt;&lt;/a&gt;4. 用量监控（系统托盘）&lt;/h3&gt;&lt;p&gt;CC Switch 最小化后会驻留在系统托盘中，右键托盘图标可以看到：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;当前工具的用量概览&lt;/strong&gt;：Claude &amp;#x2F; Codex &amp;#x2F; Gemini 各自的消耗情况&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;订阅配额摘要&lt;/strong&gt;：显示配额的百分比和颜色标记（🟢 正常 &amp;#x2F; 🟡 警告 &amp;#x2F; 🔴 耗尽）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用量脚本摘要&lt;/strong&gt;：基于自定义 usage_script 的详细统计&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于国内的 Kimi &amp;#x2F; 智谱 &amp;#x2F; MiniMax 等编码套餐，托盘还会显示 &lt;strong&gt;5 小时 + 周度&lt;/strong&gt;双窗口用量，格式类似 &lt;code&gt;🟢 h12% w80%&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;5-Skills（技能）管理&#34;&gt;&lt;a href=&#34;#5-Skills（技能）管理&#34; class=&#34;headerlink&#34; title=&#34;5. Skills（技能）管理&#34;&gt;&lt;/a&gt;5. Skills（技能）管理&lt;/h3&gt;&lt;p&gt;CC Switch 内置了 Skills 管理功能，可以导入和安装社区分享的 Agent Skills：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;进入 Skills 管理页面&lt;/li&gt;
+&lt;li&gt;点击「导入」→ 输入 Skills 的 GitHub URL&lt;/li&gt;
+&lt;li&gt;CC Switch 自动下载并安装到对应工具的配置目录&lt;/li&gt;
+&lt;li&gt;支持一键更新已安装的 Skills&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;导入过程中会自动去重，防止重复安装。&lt;/p&gt;
+&lt;h3 id=&#34;6-MCP-服务器配置&#34;&gt;&lt;a href=&#34;#6-MCP-服务器配置&#34; class=&#34;headerlink&#34; title=&#34;6. MCP 服务器配置&#34;&gt;&lt;/a&gt;6. MCP 服务器配置&lt;/h3&gt;&lt;p&gt;在 MCP 配置页面，你可以图形化管理 Model Context Protocol 服务器：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;添加新的 MCP 服务器（本地或远程）&lt;/li&gt;
+&lt;li&gt;配置环境变量和启动参数&lt;/li&gt;
+&lt;li&gt;测试 MCP 连接状态&lt;/li&gt;
+&lt;li&gt;一键启用&amp;#x2F;禁用特定服务器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;7-Hermes-集成&#34;&gt;&lt;a href=&#34;#7-Hermes-集成&#34; class=&#34;headerlink&#34; title=&#34;7. Hermes 集成&#34;&gt;&lt;/a&gt;7. Hermes 集成&lt;/h3&gt;&lt;p&gt;Hermes 是 CC Switch 内置的配置管理中心：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;提供商展示&lt;/strong&gt;：查看所有已配置的 AI 提供商&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;默认切换&lt;/strong&gt;：设置默认使用的提供商&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;记忆编辑&lt;/strong&gt;：编辑 Agent 的持久化记忆&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Web UI 启动&lt;/strong&gt;：一键跳转到 Hermes Web 控制台，进行深度配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;：v3.14.1 起移除了应用内的 Hermes 配置健康扫描功能，深度配置诊断请使用 Hermes Web UI。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;Codex-OAuth-反向代理&#34;&gt;&lt;a href=&#34;#Codex-OAuth-反向代理&#34; class=&#34;headerlink&#34; title=&#34;Codex OAuth 反向代理&#34;&gt;&lt;/a&gt;Codex OAuth 反向代理&lt;/h2&gt;&lt;p&gt;CC Switch 内置了 Codex OAuth 反向代理功能，主要特性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;缓存路由&lt;/strong&gt;：使用客户端提供的会话 ID 作为缓存键，保持缓存一致性&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FAST 模式&lt;/strong&gt;：可选择开启 &lt;code&gt;service_tier=&amp;quot;priority&amp;quot;&lt;/code&gt;，降低延迟（会消耗更多 ChatGPT 配额，默认关闭）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stream Check&lt;/strong&gt;：代理请求使用与实际请求相同的配置参数，确保连接测试结果与实际使用一致&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SSE 聚合&lt;/strong&gt;：非流式请求也能正确处理上游的 SSE 响应&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在 Codex 提供商的设置面板中，可以找到 OAuth 代理的开关和 FAST 模式选项。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;常见问题&#34;&gt;&lt;a href=&#34;#常见问题&#34; class=&#34;headerlink&#34; title=&#34;常见问题&#34;&gt;&lt;/a&gt;常见问题&lt;/h2&gt;&lt;h3 id=&#34;Q-CC-Switch-收费吗？&#34;&gt;&lt;a href=&#34;#Q-CC-Switch-收费吗？&#34; class=&#34;headerlink&#34; title=&#34;Q: CC Switch 收费吗？&#34;&gt;&lt;/a&gt;Q: CC Switch 收费吗？&lt;/h3&gt;&lt;p&gt;完全免费开源（MIT 协议），从 &lt;a href=&#34;https://github.com/farion1231/cc-switch/releases&#34;&gt;GitHub Release&lt;/a&gt; 直接下载。&lt;/p&gt;
+&lt;h3 id=&#34;Q-需要自己安装-Claude-Code-Codex-Gemini-CLI-吗？&#34;&gt;&lt;a href=&#34;#Q-需要自己安装-Claude-Code-Codex-Gemini-CLI-吗？&#34; class=&#34;headerlink&#34; title=&#34;Q: 需要自己安装 Claude Code &amp;#x2F; Codex &amp;#x2F; Gemini CLI 吗？&#34;&gt;&lt;/a&gt;Q: 需要自己安装 Claude Code &amp;#x2F; Codex &amp;#x2F; Gemini CLI 吗？&lt;/h3&gt;&lt;p&gt;需要。CC Switch 是管理工具，不是这些 AI 工具本身的安装器。请确保你要使用的工具已经安装在系统中。&lt;/p&gt;
+&lt;h3 id=&#34;Q-支持哪些-API-中转服务？&#34;&gt;&lt;a href=&#34;#Q-支持哪些-API-中转服务？&#34; class=&#34;headerlink&#34; title=&#34;Q: 支持哪些 API 中转服务？&#34;&gt;&lt;/a&gt;Q: 支持哪些 API 中转服务？&lt;/h3&gt;&lt;p&gt;CC Switch 本身不限制中转服务。任何兼容 Anthropic &amp;#x2F; OpenAI 接口规范的中转 API 都可以配置使用。项目 README 中列出了一批赞助商（PackyCode、AIGoCode、Cubence、Crazyrouter 等），使用 CC Switch 专属优惠码充值有折扣。&lt;/p&gt;
+&lt;h3 id=&#34;Q-数据安全吗？&#34;&gt;&lt;a href=&#34;#Q-数据安全吗？&#34; class=&#34;headerlink&#34; title=&#34;Q: 数据安全吗？&#34;&gt;&lt;/a&gt;Q: 数据安全吗？&lt;/h3&gt;&lt;p&gt;CC Switch 是本地桌面应用，所有配置和密钥保存在本地，不会上传到任何服务器。OAuth 代理也在本地运行。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;CC Switch 解决了一个真实痛点：&lt;strong&gt;开发者同时使用多款 AI 编程工具时的管理混乱&lt;/strong&gt;。它把 Claude Code、Codex、Gemini CLI 等工具的配置、切换、监控、会话管理都整合到了一个桌面应用里，配合系统托盘用量监控和 Skills&amp;#x2F;MCP 管理，是目前这个细分领域最成熟的工具之一。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GitHub：&lt;a href=&#34;https://github.com/farion1231/cc-switch&#34;&gt;https://github.com/farion1231/cc-switch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;最新版本：v3.14.1（2026-04-23）&lt;/li&gt;
+&lt;li&gt;协议：MIT 开源&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

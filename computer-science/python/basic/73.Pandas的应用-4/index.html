@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>Pandas的应用-4 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">Pandas的应用-4</h1>
+    <div class="post-meta">
+      <span class="post-date">2025-04-24 10:07</span>
+      <span class="post-word-count">3377 字</span>
+      <span class="post-reading-time">约 11 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记</a>
+      
+      <a href="/tags/python/">python</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#pandas的应用-4">Pandas的应用-4</a>
+      
+      <a class="toc-level-3" href="#dataframe的应用">DataFrame的应用</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="pandas的应用-4"><a href="#Pandas的应用-4" class="headerlink" title="Pandas的应用-4"></a>Pandas的应用-4</h2><h3 id="dataframe的应用"><a href="#DataFrame的应用" class="headerlink" title="DataFrame的应用"></a>DataFrame的应用</h3><h4 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h4><p>经过前面的学习，我们已经将数据准备就绪而且变成了我们想要的样子，接下来就是最为重要的数据分析阶段了。当我们拿到一大堆数据的时候，如何从数据中迅速的解读出有价值的信息，这就是数据分析要解决的问题。首先，我们可以获取数据的描述性统计信息，通过描述性统计信息，我们可以了解数据的集中趋势和离散趋势。</p>
+<p>例如，我们有如下所示的学生成绩表。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">scores = np.random.randint(<span class="number">50</span>, <span class="number">101</span>, (<span class="number">5</span>, <span class="number">3</span>))</span><br><span class="line">names = (<span class="string">&#x27;关羽&#x27;</span>, <span class="string">&#x27;张飞&#x27;</span>, <span class="string">&#x27;赵云&#x27;</span>, <span class="string">&#x27;马超&#x27;</span>, <span class="string">&#x27;黄忠&#x27;</span>)</span><br><span class="line">courses = (<span class="string">&#x27;语文&#x27;</span>, <span class="string">&#x27;数学&#x27;</span>, <span class="string">&#x27;英语&#x27;</span>)</span><br><span class="line">df = pd.DataFrame(data=scores, columns=courses, index=names)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight tap"><table><tr><td class="code"><pre><span class="line">     语文   数学   英语</span><br><span class="line">关羽 <span class="number"> 96 </span>  <span class="number"> 72 </span>   73</span><br><span class="line">张飞 <span class="number"> 72 </span>   70	97</span><br><span class="line">赵云 <span class="number"> 74 </span>   51	79</span><br><span class="line">马超 <span class="number"> 100 </span>  54	54</span><br><span class="line">黄忠 <span class="number"> 89 </span>   100	88</span><br></pre></td></tr></table></figure>
+
+<p>我们可以通过<code>DataFrame</code>对象的方法<code>mean</code>、<code>max</code>、<code>min</code>、<code>std</code>、<code>var</code>等方法分别获取每个学生或每门课程的平均分、最高分、最低分、标准差、方差等信息，也可以直接通过<code>describe</code>方法直接获取描述性统计信息，代码如下所示。</p>
+<p>计算每门课程成绩的平均分。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.mean()</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">语文    <span class="number">86.2</span></span><br><span class="line">数学    <span class="number">69.4</span></span><br><span class="line">英语    <span class="number">78.2</span></span><br><span class="line">dtype: <span class="built_in">float</span>64</span><br></pre></td></tr></table></figure>
+
+<p>计算每个学生成绩的平均分。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.mean(axis=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">关羽    <span class="number">80.333333</span></span><br><span class="line">张飞    <span class="number">79.666667</span></span><br><span class="line">赵云    <span class="number">68.000000</span></span><br><span class="line">马超    <span class="number">69.333333</span></span><br><span class="line">黄忠    <span class="number">92.333333</span></span><br><span class="line">dtype: float64</span><br></pre></td></tr></table></figure>
+
+<p>计算每门课程成绩的方差。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.var()</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">语文    <span class="number">161.2</span></span><br><span class="line">数学    <span class="number">379.8</span></span><br><span class="line">英语    <span class="number">265.7</span></span><br><span class="line">dtype: <span class="built_in">float</span>64</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：通过方差可以看出，数学成绩波动最大，最不稳定。</p>
+</blockquote>
+<p>获取每门课程的描述性统计信息。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.describe()</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">        语文        数学         英语</span><br><span class="line">count   <span class="number">5.000000</span>	<span class="number">5.000000</span>	<span class="number">5.000000</span></span><br><span class="line">mean    <span class="number">86.200000	69</span>.<span class="number">400000	78</span>.<span class="number">200000</span></span><br><span class="line">std     <span class="number">12.696456</span>	<span class="number">19.488458</span>	<span class="number">16.300307</span></span><br><span class="line">min     <span class="number">72.000000</span>	<span class="number">51.000000</span>	<span class="number">54.000000</span></span><br><span class="line"><span class="number">25</span>%     <span class="number">74.000000</span>	<span class="number">54.000000</span>	<span class="number">73.000000</span></span><br><span class="line"><span class="number">50</span>%     <span class="number">89.000000</span>	<span class="number">70.000000</span>	<span class="number">79.000000</span></span><br><span class="line"><span class="number">75</span>%     <span class="number">96.000000</span>	<span class="number">72.000000</span>	<span class="number">88.000000</span></span><br><span class="line">max     <span class="number">100.000000</span>	<span class="number">100.000000</span>	<span class="number">97.000000</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="排序和Top-N"><a href="#排序和Top-N" class="headerlink" title="排序和Top-N"></a>排序和Top-N</h5><p>如果需要对数据进行排序，可以使用<code>DataFrame</code>对象的<code>sort_values</code>方法，该方法的<code>by</code>参数可以指定根据哪个列或哪些列进行排序，而<code>ascending</code>参数可以指定升序或是降序。例如，下面的代码展示了如何将学生表按语文成绩排降序。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.sort_values(by=<span class="string">&#x27;语文&#x27;</span>, ascending=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight tap"><table><tr><td class="code"><pre><span class="line">      语文   数学   英语</span><br><span class="line">马超	100    54	  54</span><br><span class="line">关羽	96    <span class="number"> 72 </span>    73</span><br><span class="line">黄忠	89    <span class="number"> 100 </span>   88</span><br><span class="line">赵云	74    <span class="number"> 51 </span>    79</span><br><span class="line">张飞	72    <span class="number"> 70 </span>    97</span><br></pre></td></tr></table></figure>
+
+<p>如果<code>DataFrame</code>数据量很大，排序将是一个非常耗费时间的操作。有的时候我们只需要获得排前N名或后N名的数据，这个时候其实没有必要对整个数据进行排序，而是直接利用堆结构找出Top-N的数据。<code>DataFrame</code>的<code>nlargest</code>和<code>nsmallest</code>方法就提供对Top-N操作的支持，代码如下所示。</p>
+<p>找出语文成绩前3名的学生信息。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.nlargest(<span class="number">3</span>, <span class="string">&#x27;语文&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight tap"><table><tr><td class="code"><pre><span class="line">      语文   数学   英语</span><br><span class="line">马超	100    54	  54</span><br><span class="line">关羽	96    <span class="number"> 72 </span>    73</span><br><span class="line">黄忠	89    <span class="number"> 100 </span>   88</span><br></pre></td></tr></table></figure>
+
+<p>找出数学成绩最低的3名学生的信息。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.nsmallest(<span class="number">3</span>, <span class="string">&#x27;数学&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight tap"><table><tr><td class="code"><pre><span class="line">      语文  数学  英语</span><br><span class="line">赵云 <span class="number"> 74 </span>   51	79</span><br><span class="line">马超 <span class="number"> 100 </span>  54	54</span><br><span class="line">张飞 <span class="number"> 72 </span>   70	97</span><br></pre></td></tr></table></figure>
+
+<h5 id="分组聚合操作"><a href="#分组聚合操作" class="headerlink" title="分组聚合操作"></a>分组聚合操作</h5><p>我们先从 Excel 文件中读取一组销售数据，然后再为大家演示如何进行分组聚合操作。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df = pd.read_excel(<span class="string">&#x27;2020年销售数据.xlsx&#x27;</span>)</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：如果需要上面例子中的 Excel 文件，可以通过百度云盘进行获取。链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1NhWtYcpFzF72cxcsoDoXjQ?pwd=swg1%EF%BC%8C%E6%8F%90%E5%8F%96%E7%A0%81%EF%BC%9Aswg1%E3%80%82">https://pan.baidu.com/s/1NhWtYcpFzF72cxcsoDoXjQ?pwd=swg1，提取码：swg1。</a></p>
+</blockquote>
+<p>输出：</p>
+<figure class="highlight subunit"><table><tr><td class="code"><pre><span class="line">    销售日期	 销售区域   销售渠道  销售订单     品牌    售价  销售数量</span><br><span class="line">0   2020<span class="string">-01</span><span class="string">-01</span>  上海       拼多多    182894<span class="string">-455</span>  八匹马  99    83</span><br><span class="line">1   2020<span class="string">-01</span><span class="string">-01</span>  上海       抖音      205635<span class="string">-402</span>  八匹马  219   29</span><br><span class="line">2   2020<span class="string">-01</span><span class="string">-01</span>  上海       天猫      205654<span class="string">-021</span>  八匹马  169   85</span><br><span class="line">3   2020<span class="string">-01</span><span class="string">-01</span>  上海       天猫      205654<span class="string">-519</span>  八匹马  169   14</span><br><span class="line">4   2020<span class="string">-01</span><span class="string">-01</span>  上海       天猫      377781<span class="string">-010</span>  皮皮虾  249   61</span><br></pre></td></tr></table></figure>
+
+<p>如果我们要统计每个销售区域的销售总额，可以先通过“售价”和“销售数量”计算出销售额，为<code>DataFrame</code>添加一个列，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[<span class="string">&#x27;销售额&#x27;</span>] = df[<span class="string">&#x27;售价&#x27;</span>] * df[<span class="string">&#x27;销售数量&#x27;</span>]</span><br><span class="line">df.head()</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight subunit"><table><tr><td class="code"><pre><span class="line">    销售日期	 销售区域   销售渠道  销售订单     品牌    售价  销售数量  销售额</span><br><span class="line">0   2020<span class="string">-01</span><span class="string">-01</span>  上海       拼多多    182894<span class="string">-455</span>  八匹马  99    83        8217</span><br><span class="line">1   2020<span class="string">-01</span><span class="string">-01</span>  上海       抖音      205635<span class="string">-402</span>  八匹马  219   29        6351</span><br><span class="line">2   2020<span class="string">-01</span><span class="string">-01</span>  上海       天猫      205654<span class="string">-021</span>  八匹马  169   85        14365</span><br><span class="line">3   2020<span class="string">-01</span><span class="string">-01</span>  上海       天猫      205654<span class="string">-519</span>  八匹马  169   14        2366</span><br><span class="line">4   2020<span class="string">-01</span><span class="string">-01</span>  上海       天猫      377781<span class="string">-010</span>  皮皮虾  249   61        15189</span><br></pre></td></tr></table></figure>
+
+<p>然后再根据“销售区域”列对数据进行分组，这里我们使用的是<code>DataFrame</code>对象的<code>groupby</code>方法。分组之后，我们取“销售额”这个列在分组内进行求和处理，代码和结果如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.groupby(<span class="string">&#x27;销售区域&#x27;</span>).销售额.<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">销售区域</span><br><span class="line">上海    <span class="number">11610489</span></span><br><span class="line">北京    <span class="number">12477717</span></span><br><span class="line">南京     <span class="number">1767301</span></span><br><span class="line">安徽      <span class="number">895463</span></span><br><span class="line">广东     <span class="number">1617949</span></span><br><span class="line">江苏      <span class="number">537079</span></span><br><span class="line">浙江      <span class="number">687862</span></span><br><span class="line">福建    <span class="number">10178227</span></span><br><span class="line">Name: 销售额, dtype: int64</span><br></pre></td></tr></table></figure>
+
+<p>如果我们要统计每个月的销售总额，我们可以将“销售日期”作为groupby&#96;方法的参数，当然这里需要先将“销售日期”处理成月，代码和结果如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.groupby(df[<span class="string">&#x27;销售日期&#x27;</span>].dt.month).销售额.<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">销售日期</span><br><span class="line"><span class="number">1</span>     <span class="number">5409855</span></span><br><span class="line"><span class="number">2</span>     <span class="number">4608455</span></span><br><span class="line"><span class="number">3</span>     <span class="number">4164972</span></span><br><span class="line"><span class="number">4</span>     <span class="number">3996770</span></span><br><span class="line"><span class="number">5</span>     <span class="number">3239005</span></span><br><span class="line"><span class="number">6</span>     <span class="number">2817936</span></span><br><span class="line"><span class="number">7</span>     <span class="number">3501304</span></span><br><span class="line"><span class="number">8</span>     <span class="number">2948189</span></span><br><span class="line"><span class="number">9</span>     <span class="number">2632960</span></span><br><span class="line"><span class="number">10</span>    <span class="number">2375385</span></span><br><span class="line"><span class="number">11</span>    <span class="number">2385283</span></span><br><span class="line"><span class="number">12</span>    <span class="number">1691973</span></span><br><span class="line">Name: 销售额, dtype: int64</span><br></pre></td></tr></table></figure>
+
+<p>接下来我们将难度升级，统计每个销售区域每个月的销售总额，这又该如何处理呢？事实上，<code>groupby</code>方法的第一个参数可以是一个列表，列表中可以指定多个分组的依据，大家看看下面的代码和输出结果就明白了。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.groupby([<span class="string">&#x27;销售区域&#x27;</span>, df[<span class="string">&#x27;销售日期&#x27;</span>].dt.month]).销售额.<span class="built_in">sum</span>()</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight tap"><table><tr><td class="code"><pre><span class="line">销售区域  销售日期</span><br><span class="line">上海     <span class="number"> 1 </span>      1679125</span><br><span class="line">         <span class="number"> 2 </span>      1689527</span><br><span class="line">         <span class="number"> 3 </span>      1061193</span><br><span class="line">         <span class="number"> 4 </span>      1082187</span><br><span class="line">         <span class="number"> 5 </span>       841199</span><br><span class="line">         <span class="number"> 6 </span>       785404</span><br><span class="line">         <span class="number"> 7 </span>       863906</span><br><span class="line">         <span class="number"> 8 </span>       734937</span><br><span class="line">         <span class="number"> 9 </span>      1107693</span><br><span class="line">        <span class="number"> 10 </span>      412108</span><br><span class="line">        <span class="number"> 11 </span>      825169</span><br><span class="line">        <span class="number"> 12 </span>      528041</span><br><span class="line">北京    <span class="number"> 1 </span>      1878234</span><br><span class="line">        <span class="number"> 2 </span>      1807787</span><br><span class="line">        <span class="number"> 3 </span>      1360666</span><br><span class="line">        <span class="number"> 4 </span>      1205989</span><br><span class="line">        <span class="number"> 5 </span>       807300</span><br><span class="line">        <span class="number"> 6 </span>      1216432</span><br><span class="line">        <span class="number"> 7 </span>      1219083</span><br><span class="line">        <span class="number"> 8 </span>       645727</span><br><span class="line">        <span class="number"> 9 </span>       390077</span><br><span class="line">       <span class="number"> 10 </span>      671608</span><br><span class="line">       <span class="number"> 11 </span>      678668</span><br><span class="line">       <span class="number"> 12 </span>      596146</span><br><span class="line">南京    <span class="number"> 7 </span>       841032</span><br><span class="line">       <span class="number"> 10 </span>      710962</span><br><span class="line">       <span class="number"> 12 </span>      215307</span><br><span class="line">安徽    <span class="number"> 4 </span>       341308</span><br><span class="line">        <span class="number"> 5 </span>       554155</span><br><span class="line">广东    <span class="number"> 3 </span>       388180</span><br><span class="line">        <span class="number"> 8 </span>       469390</span><br><span class="line">        <span class="number"> 9 </span>       365191</span><br><span class="line">       <span class="number"> 11 </span>      395188</span><br><span class="line">江苏    <span class="number"> 4 </span>       537079</span><br><span class="line">浙江    <span class="number"> 3 </span>       248354</span><br><span class="line">        <span class="number"> 8 </span>       439508</span><br><span class="line">福建    <span class="number"> 1 </span>      1852496</span><br><span class="line">        <span class="number"> 2 </span>      1111141</span><br><span class="line">        <span class="number"> 3 </span>      1106579</span><br><span class="line">        <span class="number"> 4 </span>       830207</span><br><span class="line">        <span class="number"> 5 </span>      1036351</span><br><span class="line">        <span class="number"> 6 </span>       816100</span><br><span class="line">        <span class="number"> 7 </span>       577283</span><br><span class="line">        <span class="number"> 8 </span>       658627</span><br><span class="line">        <span class="number"> 9 </span>       769999</span><br><span class="line">       <span class="number"> 10 </span>      580707</span><br><span class="line">       <span class="number"> 11 </span>      486258</span><br><span class="line">       <span class="number"> 12 </span>      352479</span><br><span class="line">Name: 销售额, dtype: int64</span><br></pre></td></tr></table></figure>
+
+<p>如果希望统计出每个区域的销售总额以及每个区域单笔金额的最高和最低，我们可以在<code>DataFrame</code>或<code>Series</code>对象上使用<code>agg</code>方法并指定多个聚合函数，代码和结果如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.groupby(<span class="string">&#x27;销售区域&#x27;</span>).销售额.agg([<span class="string">&#x27;sum&#x27;</span>, <span class="string">&#x27;max&#x27;</span>, <span class="string">&#x27;min&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight tap"><table><tr><td class="code"><pre><span class="line">          sum        max        min</span><br><span class="line">销售区域			</span><br><span class="line">上海     <span class="number"> 11610489 </span> <span class="number"> 116303 </span>    948</span><br><span class="line">北京     <span class="number"> 12477717 </span> <span class="number"> 133411 </span>    690</span><br><span class="line">南京     <span class="number"> 1767301 </span>  <span class="number"> 87527 </span>     1089</span><br><span class="line">安徽     <span class="number"> 895463 </span>   <span class="number"> 68502 </span>     1683</span><br><span class="line">广东     <span class="number"> 1617949 </span>  <span class="number"> 120807 </span>    990</span><br><span class="line">江苏     <span class="number"> 537079 </span>   <span class="number"> 114312 </span>    3383</span><br><span class="line">浙江     <span class="number"> 687862 </span>   <span class="number"> 90909 </span>     3927</span><br><span class="line">福建     <span class="number"> 10178227 </span> <span class="number"> 87527 </span>     897</span><br></pre></td></tr></table></figure>
+
+<p>如果希望自定义聚合后的列的名字，可以使用如下所示的方法。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.groupby(<span class="string">&#x27;销售区域&#x27;</span>).销售额.agg(销售总额=<span class="string">&#x27;sum&#x27;</span>, 单笔最高=<span class="string">&#x27;max&#x27;</span>, 单笔最低=<span class="string">&#x27;min&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight tap"><table><tr><td class="code"><pre><span class="line">          销售总额   单笔最高    单笔最低</span><br><span class="line">销售区域			</span><br><span class="line">上海     <span class="number"> 11610489 </span> <span class="number"> 116303 </span>    948</span><br><span class="line">北京     <span class="number"> 12477717 </span> <span class="number"> 133411 </span>    690</span><br><span class="line">南京     <span class="number"> 1767301 </span>  <span class="number"> 87527 </span>     1089</span><br><span class="line">安徽     <span class="number"> 895463 </span>   <span class="number"> 68502 </span>     1683</span><br><span class="line">广东     <span class="number"> 1617949 </span>  <span class="number"> 120807 </span>    990</span><br><span class="line">江苏     <span class="number"> 537079 </span>   <span class="number"> 114312 </span>    3383</span><br><span class="line">浙江     <span class="number"> 687862 </span>   <span class="number"> 90909 </span>     3927</span><br><span class="line">福建     <span class="number"> 10178227 </span> <span class="number"> 87527 </span>     897</span><br></pre></td></tr></table></figure>
+
+<p>如果需要对多个列使用不同的聚合函数，例如“统计每个销售区域销售额的平均值以及销售数量的最低值和最高值”，我们可以按照下面的方式来操作。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df.groupby(<span class="string">&#x27;销售区域&#x27;</span>)[[<span class="string">&#x27;销售额&#x27;</span>, <span class="string">&#x27;销售数量&#x27;</span>]].agg(&#123;</span><br><span class="line">    <span class="string">&#x27;销售额&#x27;</span>: <span class="string">&#x27;mean&#x27;</span>, <span class="string">&#x27;销售数量&#x27;</span>: [<span class="string">&#x27;max&#x27;</span>, <span class="string">&#x27;min&#x27;</span>]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight tap"><table><tr><td class="code"><pre><span class="line">         销售额        销售数量</span><br><span class="line">         mean          max    min</span><br><span class="line">销售区域			</span><br><span class="line">上海     20622.538188 <span class="number"> 100 </span>   10</span><br><span class="line">北京     20125.350000 <span class="number"> 100 </span>   10</span><br><span class="line">南京     22370.898734 <span class="number"> 100 </span>   11</span><br><span class="line">安徽     26337.147059 <span class="number"> 98 </span>    16</span><br><span class="line">广东     32358.980000 <span class="number"> 98 </span>    10</span><br><span class="line">江苏     29837.722222 <span class="number"> 98 </span>    15</span><br><span class="line">浙江     27514.480000 <span class="number"> 95 </span>    20</span><br><span class="line">福建     18306.163669 <span class="number"> 100 </span>   10</span><br></pre></td></tr></table></figure>
+
+<h5 id="透视表和交叉表"><a href="#透视表和交叉表" class="headerlink" title="透视表和交叉表"></a>透视表和交叉表</h5><p>上面的例子中，“统计每个销售区域每个月的销售总额”会产生一个看起来很长的结果，在实际工作中我们通常把那些行很多列很少的表成为“窄表”，如果我们不想得到这样的一个“窄表”，可以使用<code>DataFrame</code>的<code>pivot_table</code>方法或者是<code>pivot_table</code>函数来生成透视表。透视表的本质就是对数据进行分组聚合操作，<strong>根据 A 列对 B 列进行统计</strong>，如果大家有使用 Excel 的经验，相信对透视表这个概念一定不会陌生。例如，我们要“统计每个销售区域的销售总额”，那么“销售区域”就是我们的 A 列，而“销售额”就是我们的 B 列，在<code>pivot_table</code>函数中分别对应<code>index</code>和<code>values</code>参数，这两个参数都可以是单个列或者多个列。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.pivot_table(df, index=<span class="string">&#x27;销售区域&#x27;</span>, values=<span class="string">&#x27;销售额&#x27;</span>, aggfunc=<span class="string">&#x27;sum&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<img src="https://github.com/jackfrued/mypic/raw/master/20211106180912.png" style="zoom:50%">
+
+<blockquote>
+<p><strong>注意</strong>：上面的结果操作跟之前用<code>groupby</code>的方式得到的结果有一些区别，<code>groupby</code>操作后，如果对单个列进行聚合，得到的结果是一个<code>Series</code>对象，而上面的结果是一个<code>DataFrame</code> 对象。</p>
+</blockquote>
+<p>如果要统计每个销售区域每个月的销售总额，也可以使用<code>pivot_table</code>函数，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.pivot_table(df, index=[<span class="string">&#x27;销售区域&#x27;</span>, df[<span class="string">&#x27;销售日期&#x27;</span>].dt.month], values=<span class="string">&#x27;销售额&#x27;</span>, aggfunc=<span class="string">&#x27;sum&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>上面的操作结果是一个<code>DataFrame</code>，但也是一个长长的“窄表”，如果希望做成一个行比较少列比较多的“宽表”，可以将<code>index</code>参数中的列放到<code>columns</code>参数中，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.pivot_table(</span><br><span class="line">    df, index=<span class="string">&#x27;销售区域&#x27;</span>, columns=df[<span class="string">&#x27;销售日期&#x27;</span>].dt.month, </span><br><span class="line">    values=<span class="string">&#x27;销售额&#x27;</span>, aggfunc=<span class="string">&#x27;sum&#x27;</span>, fill_value=<span class="number">0</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：<code>pivot_table</code>函数的<code>fill_value=0</code>会将空值处理为<code>0</code>。</p>
+</blockquote>
+<p>输出：</p>
+<img src="https://github.com/jackfrued/mypic/raw/master/20211106104551.png" style="zoom:50%">
+
+<p>使用<code>pivot_table</code>函数时，还可以通过添加<code>margins</code>和<code>margins_name</code>参数对分组聚合的结果做一个汇总，具体的操作和效果如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df[<span class="string">&#x27;月份&#x27;</span>] = df[<span class="string">&#x27;销售日期&#x27;</span>].dt.month</span><br><span class="line">pd.pivot_table(</span><br><span class="line">    df, index=<span class="string">&#x27;销售区域&#x27;</span>, columns=<span class="string">&#x27;月份&#x27;</span>,</span><br><span class="line">    values=<span class="string">&#x27;销售额&#x27;</span>, aggfunc=<span class="string">&#x27;sum&#x27;</span>, fill_value=<span class="number">0</span>, </span><br><span class="line">    margins=<span class="literal">True</span>, margins_name=<span class="string">&#x27;总计&#x27;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<p><img src="https://github.com/jackfrued/mypic/raw/master/20211106181707.png" alt="image-20211106181707655"></p>
+<p>交叉表就是一种特殊的透视表，它不需要先构造一个<code>DataFrame</code>对象，而是直接通过数组或<code>Series</code>对象指定两个或多个因素进行运算得到统计结果。例如，我们要统计每个销售区域的销售总额，也可以按照如下所示的方式来完成，我们先准备三组数据。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sales_area, sales_month, sales_amount = df[<span class="string">&#x27;销售区域&#x27;</span>], df[<span class="string">&#x27;月份&#x27;</span>], df[<span class="string">&#x27;销售额&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>crosstab</code>函数生成交叉表。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pd.crosstab(</span><br><span class="line">    index=sales_area, columns=sales_month, values=sales_amount, aggfunc=<span class="string">&#x27;sum&#x27;</span></span><br><span class="line">).fillna(<span class="number">0</span>).applymap(<span class="built_in">int</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：上面的代码使用了<code>DataFrame</code>对象的<code>fillna</code>方法将空值处理为0，再使用<code>applymap</code>方法将数据类型处理成整数。</p>
+</blockquote>
+<h4 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h4><p>一图胜千言，我们对数据进行透视的结果，最终要通过图表的方式呈现出来，因为图表具有极强的表现力，能够让我们迅速的解读数据中隐藏的价值。和<code>Series</code>一样，<code>DataFrame</code>对象提供了<code>plot</code>方法来支持绘图，底层仍然是通过<code>matplotlib</code>库实现图表的渲染。关于<code>matplotlib</code>的内容，我们在下一个章节进行详细的探讨，这里我们只简单的讲解<code>plot</code>方法的用法。 </p>
+<p>例如，我们想通过一张柱状图来比较“每个销售区域的销售总额”，可以直接在透视表上使用<code>plot</code>方法生成柱状图。我们先导入<code>matplotlib.pyplot</code>模块，通过修改绘图的参数使其支持中文显示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = <span class="string">&#x27;FZJKai-Z03S&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：上面的<code>FZJKai-Z03S</code>是我电脑上已经安装的一种支持中文的字体的名称，字体的名称可以通过查看用户主目录下<code>.matplotlib</code>文件夹下名为<code>fontlist-v330.json</code>的文件来获得，而这个文件在执行上面的命令后就会生成。</p>
+</blockquote>
+<p>使用魔法指令配置生成矢量图。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%config InlineBackend.figure_format = <span class="string">&#x27;svg&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>绘制“每个销售区域销售总额”的柱状图。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">temp = pd.pivot_table(df, index=<span class="string">&#x27;销售区域&#x27;</span>, values=<span class="string">&#x27;销售额&#x27;</span>, aggfunc=<span class="string">&#x27;sum&#x27;</span>)</span><br><span class="line">temp.plot(figsize=(<span class="number">8</span>, <span class="number">4</span>), kind=<span class="string">&#x27;bar&#x27;</span>)</span><br><span class="line">plt.xticks(rotation=<span class="number">0</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>说明</strong>：上面的第3行代码会将横轴刻度上的文字旋转到0度，第4行代码会显示图像。</p>
+</blockquote>
+<p>输出：</p>
+<img src="https://github.com/jackfrued/mypic/raw/master/20211106195040.png" style="zoom:50%">
+
+<p>如果要绘制饼图，可以修改<code>plot</code>方法的<code>kind</code>参数为<code>pie</code>，然后使用定制饼图的参数对图表加以定制，代码如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">temp.sort_values(by=<span class="string">&#x27;销售额&#x27;</span>, ascending=<span class="literal">False</span>).plot(</span><br><span class="line">    figsize=(<span class="number">6</span>, <span class="number">6</span>), kind=<span class="string">&#x27;pie&#x27;</span>, y=<span class="string">&#x27;销售额&#x27;</span>, </span><br><span class="line">    autopct=<span class="string">&#x27;%.2f%%&#x27;</span>, pctdistance=<span class="number">0.8</span>,</span><br><span class="line">    wedgeprops=<span class="built_in">dict</span>(linewidth=<span class="number">1</span>, width=<span class="number">0.35</span>)</span><br><span class="line">)</span><br><span class="line">plt.legend(loc=<span class="string">&#x27;center&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<img src="https://github.com/jackfrued/mypic/raw/master/20211106201550.png" style="zoom:50%">
+
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/python/basic/74.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-5/">上一篇：Pandas的应用-5</a>
+  
+  
+  <a class="next" href="/computer-science/python/basic/72.Pandas%E7%9A%84%E5%BA%94%E7%94%A8-3/">下一篇：Pandas的应用-3</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>

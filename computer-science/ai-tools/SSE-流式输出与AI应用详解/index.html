@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>SSE 流式输出详解 —— 从原理到 AI 实战 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">SSE 流式输出详解 —— 从原理到 AI 实战</h1>
+    <div class="post-meta">
+      <span class="post-date">2026-05-02 02:00</span>
+      <span class="post-word-count">3934 字</span>
+      <span class="post-reading-time">约 15 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/AI/">AI</a>
+      
+      <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
+      
+      <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记</a>
+      
+      <a href="/tags/SSE/">SSE</a>
+      
+      <a href="/tags/HTTP/">HTTP</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#前言为什么-ai-回复要一个字一个字往外蹦">前言：为什么 AI 回复要”一个字一个字”往外蹦？</a>
+      
+      <a class="toc-level-2" href="#第一章sse-是什么">第一章：SSE 是什么？</a>
+      
+      <a class="toc-level-3" href="#11-几种实时通信方式对比">1.1 几种实时通信方式对比</a>
+      
+      <a class="toc-level-3" href="#12-sse-的核心特点">1.2 SSE 的核心特点</a>
+      
+      <a class="toc-level-3" href="#13-什么时候用-sse什么时候用-websocket">1.3 什么时候用 SSE，什么时候用 WebSocket？</a>
+      
+      <a class="toc-level-2" href="#第二章sse-协议细节">第二章：SSE 协议细节</a>
+      
+      <a class="toc-level-3" href="#21-http-层面的约定">2.1 HTTP 层面的约定</a>
+      
+      <a class="toc-level-3" href="#22-数据格式">2.2 数据格式</a>
+      
+      <a class="toc-level-3" href="#23-浏览器端eventsource-api">2.3 浏览器端：EventSource API</a>
+      
+      <a class="toc-level-3" href="#24-nodejs-服务端实现">2.4 Node.js 服务端实现</a>
+      
+      <a class="toc-level-2" href="#第三章ai-中的-sse-流式输出">第三章：AI 中的 SSE 流式输出</a>
+      
+      <a class="toc-level-3" href="#31-为什么-llm-天生适合-sse">3.1 为什么 LLM 天生适合 SSE？</a>
+      
+      <a class="toc-level-3" href="#32-openai-api-的流式调用">3.2 OpenAI API 的流式调用</a>
+      
+      <a class="toc-level-3" href="#33-openai-sse-的事件结构">3.3 OpenAI SSE 的事件结构</a>
+      
+      <a class="toc-level-3" href="#34-anthropic-claude-的流式调用">3.4 Anthropic Claude 的流式调用</a>
+      
+      <a class="toc-level-2" href="#第四章前端实战-打造-ai-聊天界面">第四章：前端实战 —— 打造 AI 聊天界面</a>
+      
+      <a class="toc-level-3" href="#41-用-eventsource-对接-openai">4.1 用 EventSource 对接 OpenAI</a>
+      
+      <a class="toc-level-3" href="#42-完整的聊天-ui-实现">4.2 完整的聊天 UI 实现</a>
+      
+      <a class="toc-level-2" href="#第五章服务端中转-保护-api-key">第五章：服务端中转 —— 保护 API Key</a>
+      
+      <a class="toc-level-2" href="#第六章高级话题">第六章：高级话题</a>
+      
+      <a class="toc-level-3" href="#61-sse-vs-websocket-的技术细节">6.1 SSE vs WebSocket 的技术细节</a>
+      
+      <a class="toc-level-3" href="#62-流式思考streaming-thinking">6.2 流式思考（Streaming Thinking）</a>
+      
+      <a class="toc-level-3" href="#63-断线续传">6.3 断线续传</a>
+      
+      <a class="toc-level-3" href="#64-多模态流式输出">6.4 多模态流式输出</a>
+      
+      <a class="toc-level-2" href="#第七章调试与排错">第七章：调试与排错</a>
+      
+      <a class="toc-level-3" href="#常见问题">常见问题</a>
+      
+      <a class="toc-level-2" href="#总结">总结</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="前言为什么-ai-回复要一个字一个字往外蹦"><a href="#前言：为什么-AI-回复要”一个字一个字”往外蹦？" class="headerlink" title="前言：为什么 AI 回复要”一个字一个字”往外蹦？"></a>前言：为什么 AI 回复要”一个字一个字”往外蹦？</h2><p>用过 ChatGPT 或 Claude 的人都注意过这个现象：当你发出一条消息，AI 的回复不是一次性弹出来的，而是<strong>一个字一个字、一行一行地流出来</strong>，就像有人在打字。</p>
+<p>这不是为了”显得在思考”的视觉效果，而是有实实在在的技术原因：</p>
+<ul>
+<li>LLM 生成一个完整回复可能需要 10-30 秒，如果等全部生成完再发给用户，体验极差</li>
+<li>流式输出让用户<strong>立即看到响应开始</strong>，大幅降低感知延迟</li>
+<li>某些场景（如实时翻译、对话、代码补全）里用户甚至不需要等完整答案——看到一半就知道对不对</li>
+</ul>
+<p>这套技术背后的协议就叫 <strong>SSE（Server-Sent Events，服务器推送事件）</strong>。本文从底层原理讲到 AI API 实战，帮你彻底搞懂它。</p>
+<hr>
+<h2 id="第一章sse-是什么"><a href="#第一章：SSE-是什么？" class="headerlink" title="第一章：SSE 是什么？"></a>第一章：SSE 是什么？</h2><h3 id="11-几种实时通信方式对比"><a href="#1-1-几种实时通信方式对比" class="headerlink" title="1.1 几种实时通信方式对比"></a>1.1 几种实时通信方式对比</h3><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>方向</th>
+<th>协议</th>
+<th>复杂度</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>短轮询</strong></td>
+<td>客户端→服务器</td>
+<td>HTTP</td>
+<td>⭐ 最简单</td>
+<td>不需要实时、定时查一下就行</td>
+</tr>
+<tr>
+<td><strong>长轮询</strong></td>
+<td>客户端→服务器</td>
+<td>HTTP</td>
+<td>⭐⭐</td>
+<td>模拟实时、兼容性好</td>
+</tr>
+<tr>
+<td><strong>SSE</strong></td>
+<td>服务器→客户端</td>
+<td>HTTP</td>
+<td>⭐⭐</td>
+<td>单向推送（AI 回复、通知、日志）</td>
+</tr>
+<tr>
+<td><strong>WebSocket</strong></td>
+<td>双向</td>
+<td>WS</td>
+<td>⭐⭐⭐</td>
+<td>聊天、游戏、协作编辑</td>
+</tr>
+</tbody></table>
+<h3 id="12-sse-的核心特点"><a href="#1-2-SSE-的核心特点" class="headerlink" title="1.2 SSE 的核心特点"></a>1.2 SSE 的核心特点</h3><figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line">┌──────────┐                        ┌──────────┐</span><br><span class="line">│  浏览器   │  ── HTTP <span class="keyword">GET</span> ──────→  │  服务器   │</span><br><span class="line">│ (客户端)  │  ←── <span class="keyword">text</span>/<span class="keyword">event</span>-stream │ (AI API) │</span><br><span class="line">└──────────┘   持续推送，不断开连接   └──────────┘</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>单向</strong>：服务器 → 客户端。客户端只需发一次 HTTP 请求，服务器持续推送</li>
+<li><strong>基于 HTTP</strong>：不需要特殊协议，普通 HTTP 就行，天然支持代理、负载均衡、鉴权</li>
+<li><strong>自动重连</strong>：浏览器原生 <code>EventSource</code> API 在连接断开时会自动重连</li>
+<li><strong>纯文本</strong>：数据格式是纯文本，易于调试和理解</li>
+<li><strong>轻量</strong>：比 WebSocket 简单得多，不需要握手升级协议</li>
+</ul>
+<h3 id="13-什么时候用-sse什么时候用-websocket"><a href="#1-3-什么时候用-SSE，什么时候用-WebSocket？" class="headerlink" title="1.3 什么时候用 SSE，什么时候用 WebSocket？"></a>1.3 什么时候用 SSE，什么时候用 WebSocket？</h3><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>推荐</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AI 对话流式输出</td>
+<td><strong>SSE</strong></td>
+<td>单向推送，不需要客户端发消息</td>
+</tr>
+<tr>
+<td>服务器日志实时查看</td>
+<td><strong>SSE</strong></td>
+<td>单向，简单</td>
+</tr>
+<tr>
+<td>股票行情推送</td>
+<td><strong>SSE</strong></td>
+<td>单向数据流</td>
+</tr>
+<tr>
+<td>通知推送</td>
+<td><strong>SSE</strong></td>
+<td>单向，自动重连</td>
+</tr>
+<tr>
+<td>在线聊天</td>
+<td>WebSocket</td>
+<td>需要双向实时通信</td>
+</tr>
+<tr>
+<td>多人协作编辑</td>
+<td>WebSocket</td>
+<td>双向高频通信</td>
+</tr>
+<tr>
+<td>游戏</td>
+<td>WebSocket</td>
+<td>低延迟双向</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="第二章sse-协议细节"><a href="#第二章：SSE-协议细节" class="headerlink" title="第二章：SSE 协议细节"></a>第二章：SSE 协议细节</h2><h3 id="21-http-层面的约定"><a href="#2-1-HTTP-层面的约定" class="headerlink" title="2.1 HTTP 层面的约定"></a>2.1 HTTP 层面的约定</h3><p>客户端发起一个普通的 HTTP GET 请求：</p>
+<figure class="highlight http"><table><tr><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/stream</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>api.example.com</span><br><span class="line"><span class="attribute">Accept</span><span class="punctuation">: </span>text/event-stream</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-cache</span><br></pre></td></tr></table></figure>
+
+<p>服务器返回一个特殊的响应：</p>
+<figure class="highlight http"><table><tr><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>text/event-stream</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>no-cache</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br></pre></td></tr></table></figure>
+
+<p>关键在 <code>Content-Type: text/event-stream</code>——浏览器看到这个就知道这是一个 SSE 流，不会关闭连接。</p>
+<h3 id="22-数据格式"><a href="#2-2-数据格式" class="headerlink" title="2.2 数据格式"></a>2.2 数据格式</h3><p>SSE 的数据体由若干<strong>字段</strong>组成，每条消息以空行分隔。核心字段：</p>
+<figure class="highlight vbnet"><table><tr><td class="code"><pre><span class="line"><span class="symbol">event:</span> 事件类型（可选，默认 <span class="string">&quot;message&quot;</span>）</span><br><span class="line"><span class="symbol">id:</span> 消息 ID（可选，用于断线重连的 Last-<span class="keyword">Event</span>-ID）</span><br><span class="line"><span class="symbol">data:</span> 数据内容（可以有多个 data 行，会拼接）</span><br><span class="line"><span class="symbol">retry:</span> 重连间隔（毫秒，可选）</span><br></pre></td></tr></table></figure>
+
+<p><strong>简单示例：</strong></p>
+<figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">data</span>: 你好</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">data</span>: 这是第二条消息</span></span><br><span class="line"><span class="class"><span class="keyword">data</span>: 这是第二条的续行</span></span><br><span class="line"></span><br><span class="line"><span class="title">event</span>: error</span><br><span class="line"><span class="class"><span class="keyword">data</span>: 出错了</span></span><br><span class="line"></span><br><span class="line"><span class="title">id</span>: <span class="number">42</span></span><br><span class="line"><span class="class"><span class="keyword">data</span>: &#123;&quot;<span class="title">token</span>&quot;: &quot;<span class="type">Hello</span>&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="23-浏览器端eventsource-api"><a href="#2-3-浏览器端：EventSource-API" class="headerlink" title="2.3 浏览器端：EventSource API"></a>2.3 浏览器端：EventSource API</h3><p>浏览器原生支持 SSE，几行代码就能用：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> source = <span class="keyword">new</span> <span class="title class_">EventSource</span>(<span class="string">&#x27;/api/stream&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认事件（event 字段为空或为 &quot;message&quot;）</span></span><br><span class="line">source.<span class="property">onmessage</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;收到数据:&#x27;</span>, event.<span class="property">data</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;消息ID:&#x27;</span>, event.<span class="property">lastEventId</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自定义事件</span></span><br><span class="line">source.<span class="title function_">addEventListener</span>(<span class="string">&#x27;error&#x27;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;流错误:&#x27;</span>, event.<span class="property">data</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 连接打开</span></span><br><span class="line">source.<span class="title function_">addEventListener</span>(<span class="string">&#x27;open&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;连接已建立&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 连接错误（会自动重连）</span></span><br><span class="line">source.<span class="property">onerror</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (source.<span class="property">readyState</span> === <span class="title class_">EventSource</span>.<span class="property">CLOSED</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;连接已关闭（不会重连）&#x27;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;连接出错，正在重连...&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 手动关闭</span></span><br><span class="line">source.<span class="title function_">close</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="24-nodejs-服务端实现"><a href="#2-4-Node-js-服务端实现" class="headerlink" title="2.4 Node.js 服务端实现"></a>2.4 Node.js 服务端实现</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"></span><br><span class="line">http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (req.<span class="property">url</span> === <span class="string">&#x27;/stream&#x27;</span>) &#123;</span><br><span class="line">    <span class="comment">// 设置 SSE 响应头</span></span><br><span class="line">    res.<span class="title function_">writeHead</span>(<span class="number">200</span>, &#123;</span><br><span class="line">      <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;text/event-stream&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;Cache-Control&#x27;</span>: <span class="string">&#x27;no-cache&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;keep-alive&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>: <span class="string">&#x27;*&#x27;</span>,</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 发送注释（保持连接活跃，防止代理超时）</span></span><br><span class="line">    <span class="keyword">const</span> keepAlive = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      res.<span class="title function_">write</span>(<span class="string">&#x27;: keepalive\n\n&#x27;</span>);</span><br><span class="line">    &#125;, <span class="number">15000</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">const</span> sendInterval = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      count++;</span><br><span class="line">      <span class="comment">// 标准格式：data + 空行</span></span><br><span class="line">      res.<span class="title function_">write</span>(<span class="string">`data: 这是第 <span class="subst">$&#123;count&#125;</span> 条消息\n`</span>);</span><br><span class="line">      res.<span class="title function_">write</span>(<span class="string">`id: <span class="subst">$&#123;count&#125;</span>\n\n`</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (count &gt;= <span class="number">10</span>) &#123;</span><br><span class="line">        <span class="built_in">clearInterval</span>(sendInterval);</span><br><span class="line">        <span class="built_in">clearInterval</span>(keepAlive);</span><br><span class="line">        res.<span class="title function_">end</span>();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 客户端断开时清理</span></span><br><span class="line">    req.<span class="title function_">on</span>(<span class="string">&#x27;close&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">clearInterval</span>(sendInterval);</span><br><span class="line">      <span class="built_in">clearInterval</span>(keepAlive);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;).<span class="title function_">listen</span>(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>💡 <strong><code>: keepalive</code></strong> 是 SSE 的注释语法（冒号开头），浏览器会忽略，但能防止代理服务器因长时间无数据而断开连接。</p>
+</blockquote>
+<hr>
+<h2 id="第三章ai-中的-sse-流式输出"><a href="#第三章：AI-中的-SSE-流式输出" class="headerlink" title="第三章：AI 中的 SSE 流式输出"></a>第三章：AI 中的 SSE 流式输出</h2><h3 id="31-为什么-llm-天生适合-sse"><a href="#3-1-为什么-LLM-天生适合-SSE？" class="headerlink" title="3.1 为什么 LLM 天生适合 SSE？"></a>3.1 为什么 LLM 天生适合 SSE？</h3><p>LLM 是<strong>逐 token 生成</strong>的（自回归），天然就是流式的：</p>
+<figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line">用户输入：<span class="string">&quot;解释一下量子计算&quot;</span></span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">┌─────────────────────────────┐</span><br><span class="line">│ <span class="type">LLM</span> 逐 token 生成：          │</span><br><span class="line">│ 量 → 子 → 计 → 算 → 是      │</span><br><span class="line">│ → 一 → 种 → 利 → 用         │</span><br><span class="line">│ → 量 → 子 → 力 → 学         │</span><br><span class="line">│ → ...                        │</span><br><span class="line">└─────────────────────────────┘</span><br><span class="line">        │ 每个 token 生成后立即发送</span><br><span class="line">        ▼</span><br><span class="line">┌─────────────────────────────┐</span><br><span class="line">│ <span class="type">SSE</span>:                         │</span><br><span class="line">│ <span class="class"><span class="keyword">data</span>: 量                     │</span></span><br><span class="line">│ <span class="class"><span class="keyword">data</span>: 子                     │</span></span><br><span class="line">│ <span class="class"><span class="keyword">data</span>: 计                     │</span></span><br><span class="line">│ <span class="class"><span class="keyword">data</span>: 算                     │</span></span><br><span class="line">│ ...                          │</span><br><span class="line">└─────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<p>相比”等全部生成完再一次性返回”：</p>
+<ul>
+<li>⏱️ 首字延迟（TTFB）从 30 秒降到 0.5 秒</li>
+<li>🧠 用户体验从”在等”变成”在看”</li>
+<li>💰 可以在生成到一半时取消（省钱）</li>
+</ul>
+<h3 id="32-openai-api-的流式调用"><a href="#3-2-OpenAI-API-的流式调用" class="headerlink" title="3.2 OpenAI API 的流式调用"></a>3.2 OpenAI API 的流式调用</h3><p>OpenAI 的 Chat Completions API 设置 <code>stream: true</code> 即可启用 SSE：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://api.openai.com/v1/chat/completions&quot;</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;Authorization&quot;</span>: <span class="string">&quot;Bearer YOUR_API_KEY&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;application/json&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&quot;model&quot;</span>: <span class="string">&quot;gpt-4o&quot;</span>,</span><br><span class="line">    <span class="string">&quot;messages&quot;</span>: [&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;用三句话介绍量子计算&quot;</span>&#125;],</span><br><span class="line">    <span class="string">&quot;stream&quot;</span>: <span class="literal">True</span>,  <span class="comment"># 关键：开启流式</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># stream=True 让 requests 不立即读取全部响应体</span></span><br><span class="line">response = requests.post(url, json=data, headers=headers, stream=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> response.iter_lines():</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> line:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    </span><br><span class="line">    line = line.decode(<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># OpenAI SSE 格式：data: &#123;&quot;choices&quot;: [&#123;&quot;delta&quot;: &#123;&quot;content&quot;: &quot;量&quot;&#125;&#125;]&#125;</span></span><br><span class="line">    <span class="keyword">if</span> line.startswith(<span class="string">&quot;data: &quot;</span>):</span><br><span class="line">        json_str = line[<span class="number">6</span>:]  <span class="comment"># 去掉 &quot;data: &quot; 前缀</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> json_str == <span class="string">&quot;[DONE]&quot;</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;\n--- 完成 ---&quot;</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        </span><br><span class="line">        chunk = json.loads(json_str)</span><br><span class="line">        content = chunk[<span class="string">&quot;choices&quot;</span>][<span class="number">0</span>][<span class="string">&quot;delta&quot;</span>].get(<span class="string">&quot;content&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> content:</span><br><span class="line">            <span class="built_in">print</span>(content, end=<span class="string">&quot;&quot;</span>, flush=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>输出效果：</p>
+<figure class="highlight brainfuck"><table><tr><td class="code"><pre><span class="line"><span class="comment">量子计算是一种利用量子力学原理进行信息处理的计算范式，</span></span><br><span class="line"><span class="comment">它使用量子比特代替经典比特，通过叠加和纠缠实现并行计算。</span></span><br><span class="line"><span class="comment">在特定问题上，量子计算机可以指数级超越经典计算机。</span></span><br><span class="line"><span class="literal">---</span> <span class="comment">完成</span> <span class="literal">---</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="33-openai-sse-的事件结构"><a href="#3-3-OpenAI-SSE-的事件结构" class="headerlink" title="3.3 OpenAI SSE 的事件结构"></a>3.3 OpenAI SSE 的事件结构</h3><p>OpenAI 的每个 SSE 事件是一个 JSON 块：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;chatcmpl-xxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;object&quot;</span><span class="punctuation">:</span> <span class="string">&quot;chat.completion.chunk&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;created&quot;</span><span class="punctuation">:</span> <span class="number">1714567890</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;model&quot;</span><span class="punctuation">:</span> <span class="string">&quot;gpt-4o&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;choices&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;index&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;delta&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;content&quot;</span><span class="punctuation">:</span> <span class="string">&quot;量&quot;</span>  <span class="comment">// 这是新增的文本内容</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;finish_reason&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">null</span></span>  <span class="comment">// 最后一条会变成 &quot;stop&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>流结束时发送：</p>
+<figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">data</span>: [<span class="type">DONE</span>]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="34-anthropic-claude-的流式调用"><a href="#3-4-Anthropic-Claude-的流式调用" class="headerlink" title="3.4 Anthropic Claude 的流式调用"></a>3.4 Anthropic Claude 的流式调用</h3><p>Claude API 也支持 SSE，语法类似：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> anthropic</span><br><span class="line"></span><br><span class="line">client = anthropic.Anthropic(api_key=<span class="string">&quot;YOUR_KEY&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> client.messages.stream(</span><br><span class="line">    model=<span class="string">&quot;claude-sonnet-4-20250514&quot;</span>,</span><br><span class="line">    max_tokens=<span class="number">1024</span>,</span><br><span class="line">    messages=[&#123;<span class="string">&quot;role&quot;</span>: <span class="string">&quot;user&quot;</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;介绍一下机器学习&quot;</span>&#125;],</span><br><span class="line">) <span class="keyword">as</span> stream:</span><br><span class="line">    <span class="keyword">for</span> text <span class="keyword">in</span> stream.text_stream:</span><br><span class="line">        <span class="built_in">print</span>(text, end=<span class="string">&quot;&quot;</span>, flush=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Claude 的流式事件类型更丰富：</p>
+<table>
+<thead>
+<tr>
+<th>事件类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>message_start</code></td>
+<td>消息开始</td>
+</tr>
+<tr>
+<td><code>content_block_start</code></td>
+<td>内容块开始（包括 thinking 块）</td>
+</tr>
+<tr>
+<td><code>content_block_delta</code></td>
+<td>内容增量（实际的文本）</td>
+</tr>
+<tr>
+<td><code>content_block_stop</code></td>
+<td>内容块结束</td>
+</tr>
+<tr>
+<td><code>message_delta</code></td>
+<td>消息级增量（如 stop_reason）</td>
+</tr>
+<tr>
+<td><code>message_stop</code></td>
+<td>消息结束</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="第四章前端实战-打造-ai-聊天界面"><a href="#第四章：前端实战-——-打造-AI-聊天界面" class="headerlink" title="第四章：前端实战 —— 打造 AI 聊天界面"></a>第四章：前端实战 —— 打造 AI 聊天界面</h2><h3 id="41-用-eventsource-对接-openai"><a href="#4-1-用-EventSource-对接-OpenAI" class="headerlink" title="4.1 用 EventSource 对接 OpenAI"></a>4.1 用 EventSource 对接 OpenAI</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ⚠️ EventSource 不支持 POST 请求和自定义 Header！</span></span><br><span class="line"><span class="comment">// 所以直接用 fetch + ReadableStream 手动解析 SSE</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">chatWithAI</span>(<span class="params">prompt</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;https://api.openai.com/v1/chat/completions&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">    <span class="attr">headers</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;Authorization&#x27;</span>: <span class="string">`Bearer <span class="subst">$&#123;apiKey&#125;</span>`</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">      <span class="attr">model</span>: <span class="string">&#x27;gpt-4o&#x27;</span>,</span><br><span class="line">      <span class="attr">messages</span>: [&#123; <span class="attr">role</span>: <span class="string">&#x27;user&#x27;</span>, <span class="attr">content</span>: prompt &#125;],</span><br><span class="line">      <span class="attr">stream</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;),</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> reader = response.<span class="property">body</span>.<span class="title function_">getReader</span>();</span><br><span class="line">  <span class="keyword">const</span> decoder = <span class="keyword">new</span> <span class="title class_">TextDecoder</span>();</span><br><span class="line">  <span class="keyword">let</span> buffer = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; done, value &#125; = <span class="keyword">await</span> reader.<span class="title function_">read</span>();</span><br><span class="line">    <span class="keyword">if</span> (done) <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    buffer += decoder.<span class="title function_">decode</span>(value, &#123; <span class="attr">stream</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 按行分割</span></span><br><span class="line">    <span class="keyword">const</span> lines = buffer.<span class="title function_">split</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">    buffer = lines.<span class="title function_">pop</span>() || <span class="string">&#x27;&#x27;</span>; <span class="comment">// 未完成的行放回 buffer</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> line <span class="keyword">of</span> lines) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!line.<span class="title function_">startsWith</span>(<span class="string">&#x27;data: &#x27;</span>)) <span class="keyword">continue</span>;</span><br><span class="line">      <span class="keyword">const</span> jsonStr = line.<span class="title function_">slice</span>(<span class="number">6</span>);</span><br><span class="line">      <span class="keyword">if</span> (jsonStr === <span class="string">&#x27;[DONE]&#x27;</span>) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> chunk = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonStr);</span><br><span class="line">        <span class="keyword">const</span> content = chunk.<span class="property">choices</span>?.[<span class="number">0</span>]?.<span class="property">delta</span>?.<span class="property">content</span>;</span><br><span class="line">        <span class="keyword">if</span> (content) &#123;</span><br><span class="line">          <span class="comment">// 实时渲染到界面</span></span><br><span class="line">          <span class="title function_">appendToChat</span>(content);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="comment">// 忽略解析错误</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用</span></span><br><span class="line"><span class="keyword">await</span> <span class="title function_">chatWithAI</span>(<span class="string">&#x27;你好，请介绍一下你自己&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="42-完整的聊天-ui-实现"><a href="#4-2-完整的聊天-UI-实现" class="headerlink" title="4.2 完整的聊天 UI 实现"></a>4.2 完整的聊天 UI 实现</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>AI Chat<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">body</span> &#123; <span class="attribute">font-family</span>: system-ui; <span class="attribute">max-width</span>: <span class="number">700px</span>; <span class="attribute">margin</span>: <span class="number">40px</span> auto; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#chat</span> &#123; <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>; <span class="attribute">border-radius</span>: <span class="number">8px</span>; <span class="attribute">padding</span>: <span class="number">20px</span>; <span class="attribute">min-height</span>: <span class="number">400px</span>; <span class="attribute">margin-bottom</span>: <span class="number">20px</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.msg</span> &#123; <span class="attribute">margin</span>: <span class="number">8px</span> <span class="number">0</span>; <span class="attribute">padding</span>: <span class="number">10px</span> <span class="number">14px</span>; <span class="attribute">border-radius</span>: <span class="number">12px</span>; <span class="attribute">max-width</span>: <span class="number">80%</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.user</span> &#123; <span class="attribute">background</span>: <span class="number">#e3f2fd</span>; <span class="attribute">margin-left</span>: auto; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.ai</span> &#123; <span class="attribute">background</span>: <span class="number">#f5f5f5</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.cursor</span><span class="selector-pseudo">::after</span> &#123; <span class="attribute">content</span>: <span class="string">&#x27;▊&#x27;</span>; <span class="attribute">animation</span>: blink <span class="number">1s</span> step-end infinite; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="keyword">@keyframes</span> blink &#123; <span class="number">50%</span> &#123; <span class="attribute">opacity</span>: <span class="number">0</span>; &#125; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#input-area</span> &#123; <span class="attribute">display</span>: flex; <span class="attribute">gap</span>: <span class="number">10px</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#input</span> &#123; <span class="attribute">flex</span>: <span class="number">1</span>; <span class="attribute">padding</span>: <span class="number">12px</span>; <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>; <span class="attribute">border-radius</span>: <span class="number">8px</span>; <span class="attribute">font-size</span>: <span class="number">16px</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">button</span> &#123; <span class="attribute">padding</span>: <span class="number">12px</span> <span class="number">24px</span>; <span class="attribute">border</span>: none; <span class="attribute">border-radius</span>: <span class="number">8px</span>; <span class="attribute">background</span>: <span class="number">#1976d2</span>; <span class="attribute">color</span>: white; <span class="attribute">cursor</span>: pointer; <span class="attribute">font-size</span>: <span class="number">16px</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">button</span><span class="selector-pseudo">:hover</span> &#123; <span class="attribute">background</span>: <span class="number">#1565c0</span>; &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">button</span><span class="selector-pseudo">:disabled</span> &#123; <span class="attribute">opacity</span>: <span class="number">0.5</span>; <span class="attribute">cursor</span>: not-allowed; &#125;</span></span><br><span class="line"><span class="language-css">  </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;chat&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;input-area&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;input&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;输入消息...&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;send&quot;</span>&gt;</span>发送<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> chat = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;chat&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> input = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;input&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> sendBtn = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;send&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> <span class="variable constant_">API_KEY</span> = <span class="string">&#x27;YOUR_KEY&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">    </span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">addMsg</span>(<span class="params">role, text</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> div = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;div&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">      div.<span class="property">className</span> = <span class="string">`msg <span class="subst">$&#123;role&#125;</span>`</span>;</span></span><br><span class="line"><span class="language-javascript">      div.<span class="property">textContent</span> = text;</span></span><br><span class="line"><span class="language-javascript">      chat.<span class="title function_">appendChild</span>(div);</span></span><br><span class="line"><span class="language-javascript">      chat.<span class="property">scrollTop</span> = chat.<span class="property">scrollHeight</span>;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">return</span> div;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">send</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> prompt = input.<span class="property">value</span>.<span class="title function_">trim</span>();</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">if</span> (!prompt) <span class="keyword">return</span>;</span></span><br><span class="line"><span class="language-javascript">      </span></span><br><span class="line"><span class="language-javascript">      <span class="title function_">addMsg</span>(<span class="string">&#x27;user&#x27;</span>, prompt);</span></span><br><span class="line"><span class="language-javascript">      input.<span class="property">value</span> = <span class="string">&#x27;&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">      sendBtn.<span class="property">disabled</span> = <span class="literal">true</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">const</span> aiDiv = <span class="title function_">addMsg</span>(<span class="string">&#x27;ai&#x27;</span>, <span class="string">&#x27;&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">      aiDiv.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;cursor&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">try</span> &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> res = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;https://api.openai.com/v1/chat/completions&#x27;</span>, &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">headers</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="string">&#x27;Authorization&#x27;</span>: <span class="string">`Bearer <span class="subst">$&#123;API_KEY&#125;</span>`</span>,</span></span><br><span class="line"><span class="language-javascript">          &#125;,</span></span><br><span class="line"><span class="language-javascript">          <span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">model</span>: <span class="string">&#x27;gpt-4o&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">messages</span>: [&#123; <span class="attr">role</span>: <span class="string">&#x27;user&#x27;</span>, <span class="attr">content</span>: prompt &#125;],</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">stream</span>: <span class="literal">true</span>,</span></span><br><span class="line"><span class="language-javascript">          &#125;),</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> reader = res.<span class="property">body</span>.<span class="title function_">getReader</span>();</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> decoder = <span class="keyword">new</span> <span class="title class_">TextDecoder</span>();</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> buffer = <span class="string">&#x27;&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">const</span> &#123; done, value &#125; = <span class="keyword">await</span> reader.<span class="title function_">read</span>();</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">if</span> (done) <span class="keyword">break</span>;</span></span><br><span class="line"><span class="language-javascript">          </span></span><br><span class="line"><span class="language-javascript">          buffer += decoder.<span class="title function_">decode</span>(value, &#123; <span class="attr">stream</span>: <span class="literal">true</span> &#125;);</span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">const</span> lines = buffer.<span class="title function_">split</span>(<span class="string">&#x27;\n&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">          buffer = lines.<span class="title function_">pop</span>() || <span class="string">&#x27;&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">          </span></span><br><span class="line"><span class="language-javascript">          <span class="keyword">for</span> (<span class="keyword">const</span> line <span class="keyword">of</span> lines) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (!line.<span class="title function_">startsWith</span>(<span class="string">&#x27;data: &#x27;</span>) || line.<span class="title function_">includes</span>(<span class="string">&#x27;[DONE]&#x27;</span>)) <span class="keyword">continue</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">try</span> &#123;</span></span><br><span class="line"><span class="language-javascript">              <span class="keyword">const</span> chunk = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(line.<span class="title function_">slice</span>(<span class="number">6</span>));</span></span><br><span class="line"><span class="language-javascript">              <span class="keyword">const</span> content = chunk.<span class="property">choices</span>?.[<span class="number">0</span>]?.<span class="property">delta</span>?.<span class="property">content</span>;</span></span><br><span class="line"><span class="language-javascript">              <span class="keyword">if</span> (content) aiDiv.<span class="property">textContent</span> += content;</span></span><br><span class="line"><span class="language-javascript">            &#125; <span class="keyword">catch</span>(e) &#123;&#125;</span></span><br><span class="line"><span class="language-javascript">          &#125;</span></span><br><span class="line"><span class="language-javascript">          chat.<span class="property">scrollTop</span> = chat.<span class="property">scrollHeight</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">      &#125; <span class="keyword">catch</span> (e) &#123;</span></span><br><span class="line"><span class="language-javascript">        aiDiv.<span class="property">textContent</span> = <span class="string">&#x27;请求失败：&#x27;</span> + e.<span class="property">message</span>;</span></span><br><span class="line"><span class="language-javascript">      &#125;</span></span><br><span class="line"><span class="language-javascript">      </span></span><br><span class="line"><span class="language-javascript">      aiDiv.<span class="property">classList</span>.<span class="title function_">remove</span>(<span class="string">&#x27;cursor&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">      sendBtn.<span class="property">disabled</span> = <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    sendBtn.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, send);</span></span><br><span class="line"><span class="language-javascript">    input.<span class="title function_">addEventListener</span>(<span class="string">&#x27;keydown&#x27;</span>, <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="keyword">if</span> (e.<span class="property">key</span> === <span class="string">&#x27;Enter&#x27;</span> &amp;&amp; !e.<span class="property">shiftKey</span>) &#123; e.<span class="title function_">preventDefault</span>(); <span class="title function_">send</span>(); &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;);</span></span><br><span class="line"><span class="language-javascript">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>效果：实时流式打字、闪烁光标、自动滚动。保存为 <code>.html</code> 就可以直接用。</p>
+<hr>
+<h2 id="第五章服务端中转-保护-api-key"><a href="#第五章：服务端中转-——-保护-API-Key" class="headerlink" title="第五章：服务端中转 —— 保护 API Key"></a>第五章：服务端中转 —— 保护 API Key</h2><p>前端直接调 OpenAI API 会暴露 API Key，正确做法是加一个后端代理：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// server.js —— Node.js 中转服务</span></span><br><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">&#x27;express&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">express</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">json</span>());</span><br><span class="line">app.<span class="title function_">use</span>(express.<span class="title function_">static</span>(<span class="string">&#x27;public&#x27;</span>));  <span class="comment">// 前端页面</span></span><br><span class="line"></span><br><span class="line">app.<span class="title function_">post</span>(<span class="string">&#x27;/api/chat&#x27;</span>, <span class="keyword">async</span> (req, res) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; prompt &#125; = req.<span class="property">body</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 设置 SSE 响应头</span></span><br><span class="line">  res.<span class="title function_">writeHead</span>(<span class="number">200</span>, &#123;</span><br><span class="line">    <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;text/event-stream&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Cache-Control&#x27;</span>: <span class="string">&#x27;no-cache&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Connection&#x27;</span>: <span class="string">&#x27;keep-alive&#x27;</span>,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 转发给 OpenAI</span></span><br><span class="line">    <span class="keyword">const</span> aiResponse = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;https://api.openai.com/v1/chat/completions&#x27;</span>, &#123;</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">      <span class="attr">headers</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;Authorization&#x27;</span>: <span class="string">`Bearer <span class="subst">$&#123;process.env.OPENAI_API_KEY&#125;</span>`</span>,  <span class="comment">// Key 在服务端</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">        <span class="attr">model</span>: <span class="string">&#x27;gpt-4o&#x27;</span>,</span><br><span class="line">        <span class="attr">messages</span>: [&#123; <span class="attr">role</span>: <span class="string">&#x27;user&#x27;</span>, <span class="attr">content</span>: prompt &#125;],</span><br><span class="line">        <span class="attr">stream</span>: <span class="literal">true</span>,</span><br><span class="line">      &#125;),</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> reader = aiResponse.<span class="property">body</span>.<span class="title function_">getReader</span>();</span><br><span class="line">    <span class="keyword">const</span> decoder = <span class="keyword">new</span> <span class="title class_">TextDecoder</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; done, value &#125; = <span class="keyword">await</span> reader.<span class="title function_">read</span>();</span><br><span class="line">      <span class="keyword">if</span> (done) <span class="keyword">break</span>;</span><br><span class="line">      </span><br><span class="line">      <span class="keyword">const</span> text = decoder.<span class="title function_">decode</span>(value, &#123; <span class="attr">stream</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">      <span class="comment">// 直接透传原始 SSE 数据</span></span><br><span class="line">      res.<span class="title function_">write</span>(text);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    res.<span class="title function_">end</span>();</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    res.<span class="title function_">write</span>(<span class="string">`event: error\ndata: <span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(&#123; error: error.message &#125;)&#125;</span>\n\n`</span>);</span><br><span class="line">    res.<span class="title function_">end</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>, <span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Server on http://localhost:3000&#x27;</span>));</span><br></pre></td></tr></table></figure>
+
+<p>这样前端只需调 <code>/api/chat</code>，API Key 安全存放在服务端环境变量中。</p>
+<hr>
+<h2 id="第六章高级话题"><a href="#第六章：高级话题" class="headerlink" title="第六章：高级话题"></a>第六章：高级话题</h2><h3 id="61-sse-vs-websocket-的技术细节"><a href="#6-1-SSE-vs-WebSocket-的技术细节" class="headerlink" title="6.1 SSE vs WebSocket 的技术细节"></a>6.1 SSE vs WebSocket 的技术细节</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>SSE</th>
+<th>WebSocket</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>协议</td>
+<td>HTTP&#x2F;1.1 或 HTTP&#x2F;2</td>
+<td>独立协议（ws:&#x2F;&#x2F; wss:&#x2F;&#x2F;）</td>
+</tr>
+<tr>
+<td>浏览器 API</td>
+<td><code>EventSource</code></td>
+<td><code>WebSocket</code></td>
+</tr>
+<tr>
+<td>二进制数据</td>
+<td>不支持（仅文本）</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>自动重连</td>
+<td>原生支持</td>
+<td>需手动实现</td>
+</tr>
+<tr>
+<td>连接数限制</td>
+<td>HTTP&#x2F;1.1 每域名 6 个</td>
+<td>无限制</td>
+</tr>
+<tr>
+<td>HTTP&#x2F;2 多路复用</td>
+<td>完美支持</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>穿透代理</td>
+<td>天然支持</td>
+<td>可能被某些代理阻断</td>
+</tr>
+<tr>
+<td>消息方向</td>
+<td>单向（S→C）</td>
+<td>双向</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>关键优势</strong>：在 HTTP&#x2F;2 下，多个 SSE 连接可以复用同一条 TCP 连接，不再有 6 连接限制。</p>
+</blockquote>
+<h3 id="62-流式思考streaming-thinking"><a href="#6-2-流式思考（Streaming-Thinking）" class="headerlink" title="6.2 流式思考（Streaming Thinking）"></a>6.2 流式思考（Streaming Thinking）</h3><p>Claude 等模型支持”思考过程”流式输出——在正式回答之前，先把推理过程实时展示给用户：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="comment">// content_block_start: thinking</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;content_block_start&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;content_block&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;thinking&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;thinking&quot;</span><span class="punctuation">:</span> <span class="string">&quot;让我分析这个问题...&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// content_block_delta: thinking</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;content_block_delta&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;delta&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;thinking_delta&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;thinking&quot;</span><span class="punctuation">:</span> <span class="string">&quot;首先考虑时间复杂度...&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>这给用户透明度和信任感——知道 AI 不是瞎猜的。</p>
+<h3 id="63-断线续传"><a href="#6-3-断线续传" class="headerlink" title="6.3 断线续传"></a>6.3 断线续传</h3><p>EventSource 的 <code>lastEventId</code> 机制支持断线续传：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 客户端自动在重连时发送 Last-Event-ID</span></span><br><span class="line"><span class="comment">// 服务端读取并恢复</span></span><br><span class="line"><span class="keyword">const</span> lastId = req.<span class="property">headers</span>[<span class="string">&#x27;last-event-id&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span> (lastId) &#123;</span><br><span class="line">  <span class="comment">// 从这条消息之后继续发送</span></span><br><span class="line">  <span class="title function_">resumeFrom</span>(lastId);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 AI 场景中，这意味着如果网络断了，可以恢复连接继续输出而不是从头开始。</p>
+<h3 id="64-多模态流式输出"><a href="#6-4-多模态流式输出" class="headerlink" title="6.4 多模态流式输出"></a>6.4 多模态流式输出</h3><p>最新的多模态模型支持流式输出混合内容（文本 + 图片 + 音频）：</p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">data:</span> &#123;<span class="string">&quot;type&quot;</span>: <span class="string">&quot;text&quot;</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;这是生成的文字...&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="symbol">data:</span> &#123;<span class="string">&quot;type&quot;</span>: <span class="string">&quot;image&quot;</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;base64...&quot;</span>, <span class="string">&quot;mime&quot;</span>: <span class="string">&quot;image/png&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="symbol">data:</span> &#123;<span class="string">&quot;type&quot;</span>: <span class="string">&quot;audio&quot;</span>, <span class="string">&quot;content&quot;</span>: <span class="string">&quot;base64...&quot;</span>, <span class="string">&quot;mime&quot;</span>: <span class="string">&quot;audio/wav&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>前端需要解析不同的 content type 并分别渲染。</p>
+<hr>
+<h2 id="第七章调试与排错"><a href="#第七章：调试与排错" class="headerlink" title="第七章：调试与排错"></a>第七章：调试与排错</h2><h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p><strong>Q：EventSource 为什么连不上？</strong></p>
+<p>检查：</p>
+<ol>
+<li>响应头 <code>Content-Type: text/event-stream</code> 是否正确</li>
+<li>跨域问题 → 服务端加 <code>Access-Control-Allow-Origin</code></li>
+<li>EventSource 不支持自定义 Header → 用 <code>fetch</code> + <code>ReadableStream</code> 代替</li>
+</ol>
+<p><strong>Q：为什么中间会断？</strong></p>
+<p>可能原因：</p>
+<ul>
+<li>代理服务器超时（nginx 默认 60s） → 加 <code>: keepalive</code> 注释或调大超时</li>
+<li>服务端没处理 <code>req.on(&#39;close&#39;)</code> → 客户端断开后还在写数据</li>
+</ul>
+<p><strong>Q：数据乱了怎么办？</strong></p>
+<p>SSE 以空行分隔消息。如果数据中有空行会乱。处理时积累 <code>buffer</code>，只在遇到完整事件后才解析。</p>
+<p><strong>Q：浏览器标签页切到后台，SSE 会暂停吗？</strong></p>
+<p>不会停止接收，但 <code>setTimeout</code>&#x2F;<code>setInterval</code> 会被降频。UI 更新尽量用 <code>requestAnimationFrame</code>。</p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
+<thead>
+<tr>
+<th>知识点</th>
+<th>一句话</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SSE 是什么</td>
+<td>HTTP 长连接，服务器单向推送文本事件流</td>
+</tr>
+<tr>
+<td>和 WebSocket 区别</td>
+<td>SSE 单向（S→C）、基于 HTTP、更简单；WS 双向、独立协议</td>
+</tr>
+<tr>
+<td>AI 为什么用 SSE</td>
+<td>LLM 逐 token 生成，天然流式，首字延迟极低</td>
+</tr>
+<tr>
+<td>EventSource</td>
+<td>浏览器原生 API，但只支持 GET + 标准 Header</td>
+</tr>
+<tr>
+<td>fetch + ReadableStream</td>
+<td>手动解析 SSE，支持 POST + 自定义 Header</td>
+</tr>
+<tr>
+<td>生产环境注意</td>
+<td>服务端代理保护 Key、防超时、断线续传</td>
+</tr>
+</tbody></table>
+<p>SSE 不是什么新技术（2009 年就标准化了），但伴随着 LLM 的爆发，它成为了 AI 应用中最核心的通信协议之一。掌握它，你就能理解市面上几乎所有 AI 产品的”打字效果”是怎么实现的。</p>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/java/arithmetic/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/">上一篇：动态规划算法详解</a>
+  
+  
+  <a class="next" href="/computer-science/ai-tools/LLM-WIKI-%E7%9F%A5%E8%AF%86%E5%BA%93%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">下一篇：从零搭建 LLM + 知识库：RAG 完全入门指南</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    async function renderMermaid() {
+      var blocks = document.querySelectorAll('.post-content pre code.language-mermaid');
+      for (var i = 0; i < blocks.length; i++) {
+        var code = blocks[i];
+        var pre = code.parentElement;
+        if (pre.dataset.mermaidRendered) continue;
+        pre.dataset.mermaidRendered = '1';
+
+        var origCode = code.textContent;
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        pre.parentNode.replaceChild(container, pre);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      var origClick = darkToggle.onclick;
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>
