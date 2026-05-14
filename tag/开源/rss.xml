@@ -7,58 +7,58 @@
         <language>zh-CN</language>
         <pubDate>Tue, 05 May 2026 23:20:00 +0800</pubDate>
         <lastBuildDate>Tue, 05 May 2026 23:20:00 +0800</lastBuildDate>
-        <category>原则</category>
-        <category>个人详情</category>
-        <category>个人分享</category>
-        <category>坏习惯</category>
         <category>AI日报</category>
         <category>AI</category>
         <category>GitHub热门</category>
         <category>人工智能</category>
         <category>技术趋势</category>
+        <category>坏习惯</category>
+        <category>个人分享</category>
+        <category>原则</category>
+        <category>个人详情</category>
         <category>GPT-5.5</category>
         <category>OpenAI</category>
         <category>Codex</category>
         <category>ClaudeCode</category>
+        <category>Gemini</category>
         <category>开发工具</category>
+        <category>开源</category>
         <category>编程笔记</category>
         <category>Hermes</category>
         <category>Agent</category>
         <category>NousResearch</category>
-        <category>开源</category>
-        <category>高阶</category>
-        <category>自动化</category>
         <category>进阶</category>
         <category>配置</category>
+        <category>OpenSRE</category>
+        <category>SRE</category>
+        <category>运维</category>
+        <category>故障排查</category>
+        <category>高阶</category>
+        <category>自动化</category>
         <category>LLM</category>
         <category>RAG</category>
         <category>知识库</category>
-        <category>Kubernetes</category>
-        <category>Helm</category>
-        <category>学习计划</category>
+        <category>SSE</category>
+        <category>HTTP</category>
+        <category>心理学知识</category>
+        <category>阿德勒心理学</category>
+        <category>自卑与超越</category>
         <category>网络安全</category>
         <category>SQL注入</category>
         <category>XSS</category>
         <category>CSRF</category>
         <category>DDoS</category>
         <category>渗透测试</category>
-        <category>SSE</category>
-        <category>HTTP</category>
-        <category>心理学知识</category>
-        <category>Gemini</category>
-        <category>阿德勒心理学</category>
-        <category>自卑与超越</category>
-        <category>OpenSRE</category>
-        <category>SRE</category>
-        <category>运维</category>
-        <category>故障排查</category>
+        <category>Kubernetes</category>
+        <category>Helm</category>
+        <category>学习计划</category>
         <category>力扣算法题</category>
+        <category>算法</category>
         <category>接口开发</category>
         <category>开发注意事项</category>
+        <category>动态规划</category>
         <category>JavaSE</category>
         <category>Java开发面试题</category>
-        <category>算法</category>
-        <category>动态规划</category>
         <category>SpringBoot</category>
         <category>Spring</category>
         <category>微服务</category>
@@ -69,10 +69,10 @@
             <link>https://scottalive.github.io/computer-science/ai-tools/Hermes-Agent-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
             <category>AI</category>
             <category>开发工具</category>
+            <category>开源</category>
             <category>Hermes</category>
             <category>Agent</category>
             <category>NousResearch</category>
-            <category>开源</category>
             <pubDate>Tue, 05 May 2026 23:20:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;什么是-Hermes-Agent？&#34;&gt;&lt;a href=&#34;#什么是-Hermes-Agent？&#34; class=&#34;headerlink&#34; title=&#34;什么是 Hermes Agent？&#34;&gt;&lt;/a&gt;什么是 Hermes Agent？&lt;/h2&gt;&lt;p&gt;Hermes Agent 是由 &lt;strong&gt;Nous Research&lt;/strong&gt; 开发的一款&lt;strong&gt;自进化 AI 代理&lt;/strong&gt;。它不只是一个对话机器人——它内置了完整的&lt;strong&gt;学习循环&lt;/strong&gt;：从经验中创建技能、在使用中自我改进、主动持久化知识、搜索自己的过往对话，并在一次次会话中建立越来越深刻的用户画像。&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[用户输入] --&amp;gt; B[Hermes Agent 循环]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C&amp;#123;是否需要新技能?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|是| D[自主创建技能]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|否| E[执行任务]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F[经验总结]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G[知识持久化]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H[记忆 &amp;amp; 用户画像]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; B&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style B fill:#7C3AED,color:#fff&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style D fill:#F59E0B,color:#000&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style G fill:#10B981,color:#fff&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -1147,9 +1147,9 @@
             <category>AI</category>
             <category>Codex</category>
             <category>ClaudeCode</category>
+            <category>Gemini</category>
             <category>开发工具</category>
             <category>开源</category>
-            <category>Gemini</category>
             <pubDate>Thu, 30 Apr 2026 23:30:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;什么是-CC-Switch？&#34;&gt;&lt;a href=&#34;#什么是-CC-Switch？&#34; class=&#34;headerlink&#34; title=&#34;什么是 CC Switch？&#34;&gt;&lt;/a&gt;什么是 CC Switch？&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/farion1231/cc-switch&#34;&gt;CC Switch&lt;/a&gt; 是一款&lt;strong&gt;跨平台桌面应用&lt;/strong&gt;，一站式管理 Claude Code、Codex、Gemini CLI、OpenCode 和 OpenClaw 等多款 AI 编程助手。基于 Tauri 2 构建，支持 Windows &amp;#x2F; macOS &amp;#x2F; Linux，当前最新版本为 &lt;strong&gt;v3.14.1&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;如果你同时使用多款 AI 编程工具——比如用 Claude Code 做架构设计、用 Codex 写代码、用 Gemini 做代码审查——CC Switch 能让你在一个统一的界面里切换、配置和管理它们，不用在多个终端窗口之间来回折腾。&lt;/p&gt;
