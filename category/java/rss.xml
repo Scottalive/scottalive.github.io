@@ -15,10 +15,16 @@
         <category>原则</category>
         <category>个人详情</category>
         <category>个人分享</category>
-        <category>坏习惯</category>
         <category>Kubernetes</category>
         <category>Helm</category>
         <category>学习计划</category>
+        <category>坏习惯</category>
+        <category>网络安全</category>
+        <category>SQL注入</category>
+        <category>XSS</category>
+        <category>CSRF</category>
+        <category>DDoS</category>
+        <category>渗透测试</category>
         <category>GPT-5.5</category>
         <category>OpenAI</category>
         <category>Codex</category>
@@ -26,43 +32,37 @@
         <category>Gemini</category>
         <category>开发工具</category>
         <category>开源</category>
-        <category>编程笔记</category>
         <category>Hermes</category>
         <category>Agent</category>
         <category>NousResearch</category>
-        <category>高阶</category>
-        <category>自动化</category>
         <category>进阶</category>
         <category>配置</category>
+        <category>高阶</category>
+        <category>自动化</category>
+        <category>编程笔记</category>
+        <category>LLM</category>
+        <category>RAG</category>
+        <category>知识库</category>
+        <category>SSE</category>
+        <category>HTTP</category>
         <category>OpenSRE</category>
         <category>SRE</category>
         <category>运维</category>
         <category>故障排查</category>
-        <category>LLM</category>
-        <category>RAG</category>
-        <category>知识库</category>
-        <category>网络安全</category>
-        <category>SQL注入</category>
-        <category>XSS</category>
-        <category>CSRF</category>
-        <category>DDoS</category>
-        <category>渗透测试</category>
         <category>心理学知识</category>
         <category>阿德勒心理学</category>
         <category>自卑与超越</category>
-        <category>SSE</category>
-        <category>HTTP</category>
-        <category>力扣算法题</category>
-        <category>算法</category>
-        <category>动态规划</category>
-        <category>JavaSE</category>
-        <category>Java开发面试题</category>
-        <category>SpringBoot</category>
-        <category>Spring</category>
         <category>接口开发</category>
         <category>开发注意事项</category>
         <category>微服务</category>
+        <category>JavaSE</category>
+        <category>Java开发面试题</category>
+        <category>力扣算法题</category>
+        <category>SpringBoot</category>
+        <category>Spring</category>
+        <category>算法</category>
         <category>python</category>
+        <category>动态规划</category>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/java/arithmetic/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/</guid>
             <title>动态规划算法详解</title>
@@ -1507,6 +1507,95 @@
             <description><![CDATA[ &lt;h2 id=&#34;Java集合&#34;&gt;&lt;a href=&#34;#Java集合&#34; class=&#34;headerlink&#34; title=&#34;Java集合&#34;&gt;&lt;/a&gt;Java集合&lt;/h2&gt;&lt;h3 id=&#34;ArrayList&#34;&gt;&lt;a href=&#34;#ArrayList&#34; class=&#34;headerlink&#34; title=&#34;ArrayList&#34;&gt;&lt;/a&gt;ArrayList&lt;/h3&gt;&lt;h3 id=&#34;LinkedList&#34;&gt;&lt;a href=&#34;#LinkedList&#34; class=&#34;headerlink&#34; title=&#34;LinkedList&#34;&gt;&lt;/a&gt;LinkedList&lt;/h3&gt;&lt;h3 id=&#34;Vector&#34;&gt;&lt;a href=&#34;#Vector&#34; class=&#34;headerlink&#34; title=&#34;Vector&#34;&gt;&lt;/a&gt;Vector&lt;/h3&gt;&lt;h3 id=&#34;Set&#34;&gt;&lt;a href=&#34;#Set&#34; class=&#34;headerlink&#34; title=&#34;Set&#34;&gt;&lt;/a&gt;Set&lt;/h3&gt;&lt;h3 id=&#34;HashMap&#34;&gt;&lt;a href=&#34;#HashMap&#34; class=&#34;headerlink&#34; title=&#34;HashMap&#34;&gt;&lt;/a&gt;HashMap&lt;/h3&gt;&lt;h3 id=&#34;HashSet&#34;&gt;&lt;a href=&#34;#HashSet&#34; class=&#34;headerlink&#34; title=&#34;HashSet&#34;&gt;&lt;/a&gt;HashSet&lt;/h3&gt; ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/String%E7%B1%BB/</guid>
+            <title>String类</title>
+            <link>https://scottalive.github.io/computer-science/java/javase/String%E7%B1%BB/</link>
+            <category>编程笔记</category>
+            <category>JavaSE</category>
+            <pubDate>Fri, 31 Mar 2023 09:37:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h3 id=&#34;String类&#34;&gt;&lt;a href=&#34;#String类&#34; class=&#34;headerlink&#34; title=&#34;String类&#34;&gt;&lt;/a&gt;String类&lt;/h3&gt;&lt;p&gt;​		&lt;code&gt;String&lt;/code&gt;是&lt;code&gt;Java&lt;/code&gt;中非常常用的一个类，它代表了一个字符串对象。在&lt;code&gt;Java&lt;/code&gt;中，字符串是不可变的，也就是说，一旦一个字符串对象被创建，它的值就不能被改变。因此，每次对字符串进行修改，都会创建一个新的字符串对象。&lt;/p&gt;
+&lt;h3 id=&#34;String类为什么是不可变的？&#34;&gt;&lt;a href=&#34;#String类为什么是不可变的？&#34; class=&#34;headerlink&#34; title=&#34;String类为什么是不可变的？&#34;&gt;&lt;/a&gt;String类为什么是不可变的？&lt;/h3&gt;&lt;p&gt;​		String类的不可变特性指的是String实例的值一旦被创建就不能被修改。这意味着对一个String对象进行操作时，如果需要修改其值，实际上是创建了一个新的String对象，并将新对象的引用赋给原对象。这种特性有助于提高程序的性能和安全性。&lt;/p&gt;
+&lt;p&gt;​		从源码层面来看，String类中的不可变特性是通过使用final关键字和private修饰符来实现的。String类中的每个方法都不会修改原有的String对象，而是返回一个新的String对象，以保持原有的String对象的不可变性。&lt;/p&gt;
+&lt;p&gt;​		例如，String类中的&lt;code&gt;concat&lt;/code&gt;方法可以将两个字符串连接起来，返回一个新的String对象，而不会修改原有的字符串：&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;World&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str3&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str1.concat(str2); &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象，值为&amp;quot;HelloWorld&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;​		另外，String类还有一种常用的创建方式，即使用字符串字面值创建对象。这种方式在Java虚拟机中被优化，称为字符串常量池（String Pool）。当使用字符串字面值创建一个String对象时，Java虚拟机会首先在字符串常量池中查找是否已存在该值的字符串对象，如果存在则返回该对象的引用，否则创建一个新的String对象并加入字符串常量池。例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象并加入字符串常量池&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;// 直接返回字符串常量池中的引用，与str1引用同一个对象&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str3&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;String&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象，不在字符串常量池中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;​		由于String的不可变特性和字符串常量池的存在，可以安全地共享字符串对象，从而提高程序的性能和安全性。&lt;/p&gt;
+&lt;h3 id=&#34;String类有很多实用的方法，例如：&#34;&gt;&lt;a href=&#34;#String类有很多实用的方法，例如：&#34; class=&#34;headerlink&#34; title=&#34;String类有很多实用的方法，例如：&#34;&gt;&lt;/a&gt;&lt;strong&gt;String类有很多实用的方法，例如：&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;length()&lt;/code&gt;：获取字符串的长度。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;charAt(int index)&lt;/code&gt;：获取指定索引位置的字符。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;substring(int beginIndex, int endIndex)&lt;/code&gt;：获取指定索引范围内的子字符串。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;concat(String str)&lt;/code&gt;：将指定字符串连接到此字符串的末尾。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;indexOf(String str)&lt;/code&gt;：返回指定子字符串第一次出现的索引。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;equals(Object anObject)&lt;/code&gt;：将此字符串与指定对象进行比较。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;toUpperCase()&lt;/code&gt;：将字符串中的所有字符转换为大写。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;toLowerCase()&lt;/code&gt;：将字符串中的所有字符转换为小写。&lt;/li&gt;
+&lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;以下是String类的常用方法的例子：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;length()&lt;/code&gt;方法：获取字符串的长度。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.length(); &lt;span class=&#34;comment&#34;&gt;// length = 12&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;charAt(int index)&lt;/code&gt;方法：获取指定位置的字符。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.charAt(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// c = &amp;#x27;e&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;substring(int beginIndex, int endIndex)&lt;/code&gt;方法：获取指定位置范围内的子字符串。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;subStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.substring(&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// subStr = &amp;quot;Hello&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;code&gt;indexOf(String str)&lt;/code&gt;方法：获取指定字符串在该字符串中第一次出现的位置。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.indexOf(&lt;span class=&#34;string&#34;&gt;&amp;quot;World&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// index = 6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;&lt;code&gt;lastIndexOf(String str)&lt;/code&gt;方法：获取指定字符串在该字符串中最后一次出现的位置。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.lastIndexOf(&lt;span class=&#34;string&#34;&gt;&amp;quot;l&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// index = 9&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;&lt;code&gt;equals(Object obj)&lt;/code&gt;方法：比较字符串是否相等。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;isEqual&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str1.equals(str2); &lt;span class=&#34;comment&#34;&gt;// isEqual = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;&lt;code&gt;startsWith(String prefix)&lt;/code&gt;方法：判断字符串是否以指定字符串开头。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;startsWith&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.startsWith(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// startsWith = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;&lt;code&gt;endsWith(String suffix)&lt;/code&gt;方法：判断字符串是否以指定字符串结尾。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;endsWith&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.endsWith(&lt;span class=&#34;string&#34;&gt;&amp;quot;World!&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// endsWith = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;&lt;code&gt;replace(char oldChar, char newChar)&lt;/code&gt;方法：用指定字符替换字符串中的所有指定字符。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;newStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.replace(&lt;span class=&#34;string&#34;&gt;&amp;#x27;o&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;#x27;*&amp;#x27;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// newStr = &amp;quot;Hell* W*rld!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;&lt;code&gt;toLowerCase()&lt;/code&gt;方法和&lt;code&gt;toUpperCase()&lt;/code&gt;方法：将字符串转换为小写或大写。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;lowerCaseStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.toLowerCase(); &lt;span class=&#34;comment&#34;&gt;// lowerCaseStr = &amp;quot;hello world!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;upperCaseStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.toUpperCase(); &lt;span class=&#34;comment&#34;&gt;// upperCaseStr = &amp;quot;HELLO WORLD!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;String类其他特性&#34;&gt;&lt;a href=&#34;#String类其他特性&#34; class=&#34;headerlink&#34; title=&#34;String类其他特性&#34;&gt;&lt;/a&gt;String类其他特性&lt;/h3&gt;&lt;p&gt;​		&lt;code&gt;String&lt;/code&gt;类还支持字符串拼接操作。在&lt;code&gt;Java 5&lt;/code&gt;之前，通常使用字符串拼接操作符&lt;code&gt;+&lt;/code&gt;来实现字符串拼接，例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt; + &lt;span class=&#34;string&#34;&gt;&amp;quot; &amp;quot;&lt;/span&gt; + &lt;span class=&#34;string&#34;&gt;&amp;quot;world!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;​		在&lt;code&gt;Java 5&lt;/code&gt;及之后的版本中，还引入了&lt;code&gt;StringBuilder&lt;/code&gt;和&lt;code&gt;StringBuffer&lt;/code&gt;两个类来优化字符串拼接操作。这两个类可以动态地添加、修改和删除字符串中的字符，并且能够避免频繁创建新的字符串对象。例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;StringBuilder&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;sb&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;StringBuilder&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot; &amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot;world!&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; sb.toString();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;​		当需要在多线程环境下使用字符串拼接操作时，应该使用&lt;code&gt;StringBuffer&lt;/code&gt;类。如果在单线程环境下使用字符串拼接操作，或者需要更高的性能，应该使用&lt;code&gt;StringBuilder&lt;/code&gt;类。&lt;/p&gt;
+&lt;p&gt;​		总之，&lt;code&gt;String&lt;/code&gt;类是&lt;code&gt;Java&lt;/code&gt;中非常常用的一个类，它不仅支持字符串的基本操作，还提供了丰富的字符串处理方法，对于&lt;code&gt;Java&lt;/code&gt;程序开发来说是一个必不可少的类。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/%E6%97%A5%E6%9C%9F%E7%B1%BB/</guid>
             <title>日期类</title>
             <link>https://scottalive.github.io/computer-science/java/javase/%E6%97%A5%E6%9C%9F%E7%B1%BB/</link>
@@ -1784,95 +1873,6 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/String%E7%B1%BB/</guid>
-            <title>String类</title>
-            <link>https://scottalive.github.io/computer-science/java/javase/String%E7%B1%BB/</link>
-            <category>编程笔记</category>
-            <category>JavaSE</category>
-            <pubDate>Fri, 31 Mar 2023 09:37:00 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;String类&#34;&gt;&lt;a href=&#34;#String类&#34; class=&#34;headerlink&#34; title=&#34;String类&#34;&gt;&lt;/a&gt;String类&lt;/h3&gt;&lt;p&gt;​		&lt;code&gt;String&lt;/code&gt;是&lt;code&gt;Java&lt;/code&gt;中非常常用的一个类，它代表了一个字符串对象。在&lt;code&gt;Java&lt;/code&gt;中，字符串是不可变的，也就是说，一旦一个字符串对象被创建，它的值就不能被改变。因此，每次对字符串进行修改，都会创建一个新的字符串对象。&lt;/p&gt;
-&lt;h3 id=&#34;String类为什么是不可变的？&#34;&gt;&lt;a href=&#34;#String类为什么是不可变的？&#34; class=&#34;headerlink&#34; title=&#34;String类为什么是不可变的？&#34;&gt;&lt;/a&gt;String类为什么是不可变的？&lt;/h3&gt;&lt;p&gt;​		String类的不可变特性指的是String实例的值一旦被创建就不能被修改。这意味着对一个String对象进行操作时，如果需要修改其值，实际上是创建了一个新的String对象，并将新对象的引用赋给原对象。这种特性有助于提高程序的性能和安全性。&lt;/p&gt;
-&lt;p&gt;​		从源码层面来看，String类中的不可变特性是通过使用final关键字和private修饰符来实现的。String类中的每个方法都不会修改原有的String对象，而是返回一个新的String对象，以保持原有的String对象的不可变性。&lt;/p&gt;
-&lt;p&gt;​		例如，String类中的&lt;code&gt;concat&lt;/code&gt;方法可以将两个字符串连接起来，返回一个新的String对象，而不会修改原有的字符串：&lt;/p&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;World&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str3&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str1.concat(str2); &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象，值为&amp;quot;HelloWorld&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;​		另外，String类还有一种常用的创建方式，即使用字符串字面值创建对象。这种方式在Java虚拟机中被优化，称为字符串常量池（String Pool）。当使用字符串字面值创建一个String对象时，Java虚拟机会首先在字符串常量池中查找是否已存在该值的字符串对象，如果存在则返回该对象的引用，否则创建一个新的String对象并加入字符串常量池。例如：&lt;/p&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象并加入字符串常量池&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;// 直接返回字符串常量池中的引用，与str1引用同一个对象&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str3&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;String&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象，不在字符串常量池中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;​		由于String的不可变特性和字符串常量池的存在，可以安全地共享字符串对象，从而提高程序的性能和安全性。&lt;/p&gt;
-&lt;h3 id=&#34;String类有很多实用的方法，例如：&#34;&gt;&lt;a href=&#34;#String类有很多实用的方法，例如：&#34; class=&#34;headerlink&#34; title=&#34;String类有很多实用的方法，例如：&#34;&gt;&lt;/a&gt;&lt;strong&gt;String类有很多实用的方法，例如：&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;length()&lt;/code&gt;：获取字符串的长度。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;charAt(int index)&lt;/code&gt;：获取指定索引位置的字符。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;substring(int beginIndex, int endIndex)&lt;/code&gt;：获取指定索引范围内的子字符串。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;concat(String str)&lt;/code&gt;：将指定字符串连接到此字符串的末尾。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;indexOf(String str)&lt;/code&gt;：返回指定子字符串第一次出现的索引。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;equals(Object anObject)&lt;/code&gt;：将此字符串与指定对象进行比较。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;toUpperCase()&lt;/code&gt;：将字符串中的所有字符转换为大写。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;toLowerCase()&lt;/code&gt;：将字符串中的所有字符转换为小写。&lt;/li&gt;
-&lt;li&gt;…&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;以下是String类的常用方法的例子：&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;length()&lt;/code&gt;方法：获取字符串的长度。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.length(); &lt;span class=&#34;comment&#34;&gt;// length = 12&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;code&gt;charAt(int index)&lt;/code&gt;方法：获取指定位置的字符。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.charAt(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// c = &amp;#x27;e&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&lt;code&gt;substring(int beginIndex, int endIndex)&lt;/code&gt;方法：获取指定位置范围内的子字符串。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;subStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.substring(&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// subStr = &amp;quot;Hello&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;&lt;code&gt;indexOf(String str)&lt;/code&gt;方法：获取指定字符串在该字符串中第一次出现的位置。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.indexOf(&lt;span class=&#34;string&#34;&gt;&amp;quot;World&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// index = 6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;&lt;code&gt;lastIndexOf(String str)&lt;/code&gt;方法：获取指定字符串在该字符串中最后一次出现的位置。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.lastIndexOf(&lt;span class=&#34;string&#34;&gt;&amp;quot;l&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// index = 9&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;6&#34;&gt;
-&lt;li&gt;&lt;code&gt;equals(Object obj)&lt;/code&gt;方法：比较字符串是否相等。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;isEqual&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str1.equals(str2); &lt;span class=&#34;comment&#34;&gt;// isEqual = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;7&#34;&gt;
-&lt;li&gt;&lt;code&gt;startsWith(String prefix)&lt;/code&gt;方法：判断字符串是否以指定字符串开头。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;startsWith&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.startsWith(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// startsWith = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;8&#34;&gt;
-&lt;li&gt;&lt;code&gt;endsWith(String suffix)&lt;/code&gt;方法：判断字符串是否以指定字符串结尾。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;endsWith&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.endsWith(&lt;span class=&#34;string&#34;&gt;&amp;quot;World!&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// endsWith = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;9&#34;&gt;
-&lt;li&gt;&lt;code&gt;replace(char oldChar, char newChar)&lt;/code&gt;方法：用指定字符替换字符串中的所有指定字符。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;newStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.replace(&lt;span class=&#34;string&#34;&gt;&amp;#x27;o&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;#x27;*&amp;#x27;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// newStr = &amp;quot;Hell* W*rld!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;10&#34;&gt;
-&lt;li&gt;&lt;code&gt;toLowerCase()&lt;/code&gt;方法和&lt;code&gt;toUpperCase()&lt;/code&gt;方法：将字符串转换为小写或大写。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;lowerCaseStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.toLowerCase(); &lt;span class=&#34;comment&#34;&gt;// lowerCaseStr = &amp;quot;hello world!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;upperCaseStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.toUpperCase(); &lt;span class=&#34;comment&#34;&gt;// upperCaseStr = &amp;quot;HELLO WORLD!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h3 id=&#34;String类其他特性&#34;&gt;&lt;a href=&#34;#String类其他特性&#34; class=&#34;headerlink&#34; title=&#34;String类其他特性&#34;&gt;&lt;/a&gt;String类其他特性&lt;/h3&gt;&lt;p&gt;​		&lt;code&gt;String&lt;/code&gt;类还支持字符串拼接操作。在&lt;code&gt;Java 5&lt;/code&gt;之前，通常使用字符串拼接操作符&lt;code&gt;+&lt;/code&gt;来实现字符串拼接，例如：&lt;/p&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt; + &lt;span class=&#34;string&#34;&gt;&amp;quot; &amp;quot;&lt;/span&gt; + &lt;span class=&#34;string&#34;&gt;&amp;quot;world!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;​		在&lt;code&gt;Java 5&lt;/code&gt;及之后的版本中，还引入了&lt;code&gt;StringBuilder&lt;/code&gt;和&lt;code&gt;StringBuffer&lt;/code&gt;两个类来优化字符串拼接操作。这两个类可以动态地添加、修改和删除字符串中的字符，并且能够避免频繁创建新的字符串对象。例如：&lt;/p&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;StringBuilder&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;sb&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;StringBuilder&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot; &amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot;world!&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; sb.toString();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;​		当需要在多线程环境下使用字符串拼接操作时，应该使用&lt;code&gt;StringBuffer&lt;/code&gt;类。如果在单线程环境下使用字符串拼接操作，或者需要更高的性能，应该使用&lt;code&gt;StringBuilder&lt;/code&gt;类。&lt;/p&gt;
-&lt;p&gt;​		总之，&lt;code&gt;String&lt;/code&gt;类是&lt;code&gt;Java&lt;/code&gt;中非常常用的一个类，它不仅支持字符串的基本操作，还提供了丰富的字符串处理方法，对于&lt;code&gt;Java&lt;/code&gt;程序开发来说是一个必不可少的类。&lt;/p&gt;
  ]]></description>
         </item>
         <item>
