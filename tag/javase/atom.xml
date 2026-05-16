@@ -9,21 +9,21 @@
     <category term="GitHub热门" />
     <category term="人工智能" />
     <category term="技术趋势" />
+    <category term="坏习惯" />
+    <category term="个人分享" />
     <category term="原则" />
     <category term="个人详情" />
-    <category term="个人分享" />
     <category term="GPT-5.5" />
     <category term="OpenAI" />
     <category term="Codex" />
-    <category term="坏习惯" />
     <category term="ClaudeCode" />
     <category term="Gemini" />
     <category term="开发工具" />
     <category term="开源" />
+    <category term="编程笔记" />
     <category term="Hermes" />
     <category term="Agent" />
     <category term="NousResearch" />
-    <category term="编程笔记" />
     <category term="Kubernetes" />
     <category term="k8s" />
     <category term="容器编排" />
@@ -31,22 +31,16 @@
     <category term="运维" />
     <category term="进阶" />
     <category term="配置" />
-    <category term="高阶" />
-    <category term="自动化" />
     <category term="Helm" />
     <category term="学习计划" />
-    <category term="网络安全" />
-    <category term="SQL注入" />
-    <category term="XSS" />
-    <category term="CSRF" />
-    <category term="DDoS" />
-    <category term="渗透测试" />
-    <category term="OpenSRE" />
-    <category term="SRE" />
-    <category term="故障排查" />
     <category term="LLM" />
     <category term="RAG" />
     <category term="知识库" />
+    <category term="高阶" />
+    <category term="自动化" />
+    <category term="OpenSRE" />
+    <category term="SRE" />
+    <category term="故障排查" />
     <category term="SSE" />
     <category term="HTTP" />
     <category term="心理学知识" />
@@ -55,13 +49,19 @@
     <category term="力扣算法题" />
     <category term="算法" />
     <category term="JavaSE" />
-    <category term="Java开发面试题" />
     <category term="动态规划" />
-    <category term="SpringBoot" />
-    <category term="Spring" />
-    <category term="微服务" />
+    <category term="网络安全" />
+    <category term="SQL注入" />
+    <category term="XSS" />
+    <category term="CSRF" />
+    <category term="DDoS" />
+    <category term="渗透测试" />
     <category term="接口开发" />
     <category term="开发注意事项" />
+    <category term="Java开发面试题" />
+    <category term="SpringBoot" />
+    <category term="微服务" />
+    <category term="Spring" />
     <category term="python" />
     <entry>
         <id>https://scottalive.github.io/computer-science/java/javase/Java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/</id>
@@ -1198,15 +1198,6 @@
         <updated>2023-03-30T16:00:01.000Z</updated>
     </entry>
     <entry>
-        <id>https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</id>
-        <title>Java8新特性</title>
-        <link rel="alternate" href="https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/"/>
-        <content type="html">&lt;h2 id=&#34;Java8新特性&#34;&gt;&lt;a href=&#34;#Java8新特性&#34; class=&#34;headerlink&#34; title=&#34;Java8新特性&#34;&gt;&lt;/a&gt;Java8新特性&lt;/h2&gt;</content>
-        <category term="编程笔记" />
-        <category term="JavaSE" />
-        <updated>2023-03-30T03:43:30.000Z</updated>
-    </entry>
-    <entry>
         <id>https://scottalive.github.io/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/</id>
         <title>Java发展历程</title>
         <link rel="alternate" href="https://scottalive.github.io/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/"/>
@@ -1412,6 +1403,15 @@
 &lt;h3 id=&#34;Java-Version-SE-10-0&#34;&gt;&lt;a href=&#34;#Java-Version-SE-10-0&#34; class=&#34;headerlink&#34; title=&#34;Java Version SE 10.0&#34;&gt;&lt;/a&gt;Java Version SE 10.0&lt;/h3&gt;&lt;p&gt;​		本地变量类型推断，可以使用本地变量的初始化去推荐对应变量的类型。提升了并行垃圾收集器G1的性能，降低了收集延时。应用优化了启动时刻的数据共享，已经存在的类更好的共享。一个试用的即时编译器Grral，只支持linux x64平台能够感知到docker的存在，如果运行在linux平台，可以感知到是否运行在 docker容器中,可以查询到操作系统给容器分配的cpu和内存等等物理资源信息.&lt;br&gt;修复从主机Java线程连接到容器内Java线程的一个问题。更短的jShell REPL tool启动时间.提供了新接口，可以获取可变化的集合类，copyOf,Set.copyOf, 和Map.copyOf等方法创建一个新的集合对象，toUnmodifiableList, toUnmodifiableSet, 和toUnmodifiableMap获取不可修改对象，让Stream操作可以获取到不可变对象。&lt;br&gt;​		本地变量类型推断。可以减少类型的生命，同时也保证了static类型的安全性。提供一个垃圾收集的接口去提供各个垃圾收集器隔离的能力，这样可以让内置的垃圾收集器正常运行，同时可以更容易向hotspot添加新的垃圾收集器。改进的并行的垃圾收集器G1,可以有效降低延迟。让hotspot支持寻找可用的任何内存，例如 NVDIMM存储模块，用户可以去指定它，这也是为未来的异构内存提供支持。在Linux&amp;#x2F;x64平台提供一个实验性的即时编译器。让jdk使用单一仓库管理，现在分离在不同的仓库，这样给源码管理带来了一些困难。提升了内存的共享，减少了应用的启动时间。本地线程握手，可以在虚拟机的全局安全点暂停而不用等待其他的任何线程。为openJDK提供Oracle根认证，这样可以吸引更多的开发者使用openJDK。&lt;/p&gt;
 &lt;p&gt;原文链接：&lt;a href=&#34;https://blog.csdn.net/ghscarecrow/article/details/82318636&#34;&gt;https://blog.csdn.net/ghscarecrow/article/details/82318636&lt;/a&gt;&lt;/p&gt;
 </content>
+        <category term="编程笔记" />
+        <category term="JavaSE" />
+        <updated>2023-03-30T03:43:30.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</id>
+        <title>Java8新特性</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+        <content type="html">&lt;h2 id=&#34;Java8新特性&#34;&gt;&lt;a href=&#34;#Java8新特性&#34; class=&#34;headerlink&#34; title=&#34;Java8新特性&#34;&gt;&lt;/a&gt;Java8新特性&lt;/h2&gt;</content>
         <category term="编程笔记" />
         <category term="JavaSE" />
         <updated>2023-03-30T03:43:30.000Z</updated>

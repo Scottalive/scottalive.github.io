@@ -12,21 +12,21 @@
         <category>GitHub热门</category>
         <category>人工智能</category>
         <category>技术趋势</category>
+        <category>坏习惯</category>
+        <category>个人分享</category>
         <category>原则</category>
         <category>个人详情</category>
-        <category>个人分享</category>
         <category>GPT-5.5</category>
         <category>OpenAI</category>
         <category>Codex</category>
-        <category>坏习惯</category>
         <category>ClaudeCode</category>
         <category>Gemini</category>
         <category>开发工具</category>
         <category>开源</category>
+        <category>编程笔记</category>
         <category>Hermes</category>
         <category>Agent</category>
         <category>NousResearch</category>
-        <category>编程笔记</category>
         <category>Kubernetes</category>
         <category>k8s</category>
         <category>容器编排</category>
@@ -34,22 +34,16 @@
         <category>运维</category>
         <category>进阶</category>
         <category>配置</category>
-        <category>高阶</category>
-        <category>自动化</category>
         <category>Helm</category>
         <category>学习计划</category>
-        <category>网络安全</category>
-        <category>SQL注入</category>
-        <category>XSS</category>
-        <category>CSRF</category>
-        <category>DDoS</category>
-        <category>渗透测试</category>
-        <category>OpenSRE</category>
-        <category>SRE</category>
-        <category>故障排查</category>
         <category>LLM</category>
         <category>RAG</category>
         <category>知识库</category>
+        <category>高阶</category>
+        <category>自动化</category>
+        <category>OpenSRE</category>
+        <category>SRE</category>
+        <category>故障排查</category>
         <category>SSE</category>
         <category>HTTP</category>
         <category>心理学知识</category>
@@ -58,13 +52,19 @@
         <category>力扣算法题</category>
         <category>算法</category>
         <category>JavaSE</category>
-        <category>Java开发面试题</category>
         <category>动态规划</category>
-        <category>SpringBoot</category>
-        <category>Spring</category>
-        <category>微服务</category>
+        <category>网络安全</category>
+        <category>SQL注入</category>
+        <category>XSS</category>
+        <category>CSRF</category>
+        <category>DDoS</category>
+        <category>渗透测试</category>
         <category>接口开发</category>
         <category>开发注意事项</category>
+        <category>Java开发面试题</category>
+        <category>SpringBoot</category>
+        <category>微服务</category>
+        <category>Spring</category>
         <category>python</category>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/</guid>
@@ -1201,15 +1201,6 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
-            <title>Java8新特性</title>
-            <link>https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</link>
-            <category>编程笔记</category>
-            <category>JavaSE</category>
-            <pubDate>Thu, 30 Mar 2023 11:43:30 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;Java8新特性&#34;&gt;&lt;a href=&#34;#Java8新特性&#34; class=&#34;headerlink&#34; title=&#34;Java8新特性&#34;&gt;&lt;/a&gt;Java8新特性&lt;/h2&gt; ]]></description>
-        </item>
-        <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/</guid>
             <title>Java发展历程</title>
             <link>https://scottalive.github.io/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/</link>
@@ -1418,6 +1409,15 @@
 &lt;h3 id=&#34;Java-Version-SE-10-0&#34;&gt;&lt;a href=&#34;#Java-Version-SE-10-0&#34; class=&#34;headerlink&#34; title=&#34;Java Version SE 10.0&#34;&gt;&lt;/a&gt;Java Version SE 10.0&lt;/h3&gt;&lt;p&gt;​		本地变量类型推断，可以使用本地变量的初始化去推荐对应变量的类型。提升了并行垃圾收集器G1的性能，降低了收集延时。应用优化了启动时刻的数据共享，已经存在的类更好的共享。一个试用的即时编译器Grral，只支持linux x64平台能够感知到docker的存在，如果运行在linux平台，可以感知到是否运行在 docker容器中,可以查询到操作系统给容器分配的cpu和内存等等物理资源信息.&lt;br&gt;修复从主机Java线程连接到容器内Java线程的一个问题。更短的jShell REPL tool启动时间.提供了新接口，可以获取可变化的集合类，copyOf,Set.copyOf, 和Map.copyOf等方法创建一个新的集合对象，toUnmodifiableList, toUnmodifiableSet, 和toUnmodifiableMap获取不可修改对象，让Stream操作可以获取到不可变对象。&lt;br&gt;​		本地变量类型推断。可以减少类型的生命，同时也保证了static类型的安全性。提供一个垃圾收集的接口去提供各个垃圾收集器隔离的能力，这样可以让内置的垃圾收集器正常运行，同时可以更容易向hotspot添加新的垃圾收集器。改进的并行的垃圾收集器G1,可以有效降低延迟。让hotspot支持寻找可用的任何内存，例如 NVDIMM存储模块，用户可以去指定它，这也是为未来的异构内存提供支持。在Linux&amp;#x2F;x64平台提供一个实验性的即时编译器。让jdk使用单一仓库管理，现在分离在不同的仓库，这样给源码管理带来了一些困难。提升了内存的共享，减少了应用的启动时间。本地线程握手，可以在虚拟机的全局安全点暂停而不用等待其他的任何线程。为openJDK提供Oracle根认证，这样可以吸引更多的开发者使用openJDK。&lt;/p&gt;
 &lt;p&gt;原文链接：&lt;a href=&#34;https://blog.csdn.net/ghscarecrow/article/details/82318636&#34;&gt;https://blog.csdn.net/ghscarecrow/article/details/82318636&lt;/a&gt;&lt;/p&gt;
  ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
+            <title>Java8新特性</title>
+            <link>https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</link>
+            <category>编程笔记</category>
+            <category>JavaSE</category>
+            <pubDate>Thu, 30 Mar 2023 11:43:30 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;Java8新特性&#34;&gt;&lt;a href=&#34;#Java8新特性&#34; class=&#34;headerlink&#34; title=&#34;Java8新特性&#34;&gt;&lt;/a&gt;Java8新特性&lt;/h2&gt; ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</guid>
