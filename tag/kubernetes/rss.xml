@@ -1,0 +1,964 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>沉鱼的博客 • Posts by &#34;kubernetes&#34; tag</title>
+        <link>https://scottalive.github.io</link>
+        <description>编程笔记 &amp; 资料分享</description>
+        <language>zh-CN</language>
+        <pubDate>Wed, 20 May 2026 16:30:00 +0800</pubDate>
+        <lastBuildDate>Wed, 20 May 2026 16:30:00 +0800</lastBuildDate>
+        <category>坏习惯</category>
+        <category>个人分享</category>
+        <category>AI日报</category>
+        <category>AI</category>
+        <category>GitHub热门</category>
+        <category>人工智能</category>
+        <category>技术趋势</category>
+        <category>原则</category>
+        <category>个人详情</category>
+        <category>心理学知识</category>
+        <category>阿德勒心理学</category>
+        <category>自卑与超越</category>
+        <category>GPT-5.5</category>
+        <category>OpenAI</category>
+        <category>Codex</category>
+        <category>ClaudeCode</category>
+        <category>开发工具</category>
+        <category>编程笔记</category>
+        <category>Gemini</category>
+        <category>开源</category>
+        <category>Hermes</category>
+        <category>Agent</category>
+        <category>NousResearch</category>
+        <category>进阶</category>
+        <category>配置</category>
+        <category>高阶</category>
+        <category>自动化</category>
+        <category>LLM</category>
+        <category>RAG</category>
+        <category>知识库</category>
+        <category>OpenSRE</category>
+        <category>SRE</category>
+        <category>运维</category>
+        <category>故障排查</category>
+        <category>SSE</category>
+        <category>HTTP</category>
+        <category>Kubernetes</category>
+        <category>k8s</category>
+        <category>容器编排</category>
+        <category>DevOps</category>
+        <category>kubeconfig</category>
+        <category>kubectl</category>
+        <category>Context</category>
+        <category>Helm</category>
+        <category>学习计划</category>
+        <category>网络安全</category>
+        <category>SQL注入</category>
+        <category>XSS</category>
+        <category>CSRF</category>
+        <category>DDoS</category>
+        <category>渗透测试</category>
+        <category>python</category>
+        <category>力扣算法题</category>
+        <category>算法</category>
+        <category>动态规划</category>
+        <category>JavaSE</category>
+        <category>Java开发面试题</category>
+        <category>SpringBoot</category>
+        <category>Spring</category>
+        <category>接口开发</category>
+        <category>开发注意事项</category>
+        <category>微服务</category>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/devops/k8s-context-switch/</guid>
+            <title>单机内 K8S 集群环境切换指南</title>
+            <link>https://scottalive.github.io/computer-science/devops/k8s-context-switch/</link>
+            <category>Kubernetes</category>
+            <category>k8s</category>
+            <category>DevOps</category>
+            <category>kubeconfig</category>
+            <category>kubectl</category>
+            <category>Context</category>
+            <pubDate>Wed, 20 May 2026 16:30:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;单机内-K8S-集群环境切换指南&#34;&gt;&lt;a href=&#34;#单机内-K8S-集群环境切换指南&#34; class=&#34;headerlink&#34; title=&#34;单机内 K8S 集群环境切换指南&#34;&gt;&lt;/a&gt;单机内 K8S 集群环境切换指南&lt;/h1&gt;&lt;p&gt;在实际开发运维中，很少有人只用一个 K8S 集群。本地有 Minikube 或 Kind 的测试集群，公司有开发、预发、生产等多套环境，还可能涉及公有云托管的 K8S（如 TKE、ACK、EKS）。&lt;strong&gt;如何在一台机器上优雅地管理多个集群环境，并在它们之间快速切换？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;本文从 &lt;strong&gt;kubeconfig&lt;/strong&gt; 的底层结构出发，覆盖多集群配置、Context 切换、文件合并、安全认证等全流程，让你在单机环境中像「切换频道」一样切换 K8S 集群。&lt;/p&gt;
+&lt;h2 id=&#34;K8S-环境切换全景&#34;&gt;&lt;a href=&#34;#K8S-环境切换全景&#34; class=&#34;headerlink&#34; title=&#34;K8S 环境切换全景&#34;&gt;&lt;/a&gt;K8S 环境切换全景&lt;/h2&gt;&lt;p&gt;在一台本地开发机上，你可以通过一个 &lt;code&gt;kubeconfig&lt;/code&gt; 文件管理多个 K8S 集群：&lt;/p&gt;
+&lt;figure class=&#34;highlight stylus&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;本地开发机 (kubeconfig)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ├── kubectl &lt;span class=&#34;attr&#34;&gt;--context&lt;/span&gt;=minikube  ──►  Minikube / Kind 本地测试集群&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ├── kubectl &lt;span class=&#34;attr&#34;&gt;--context&lt;/span&gt;=dev       ──►  开发环境 (dev&lt;span class=&#34;selector-class&#34;&gt;.example&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.com&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;6443&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ├── kubectl &lt;span class=&#34;attr&#34;&gt;--context&lt;/span&gt;=staging   ──►  预发环境 (staging&lt;span class=&#34;selector-class&#34;&gt;.example&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.com&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;6443&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    └── kubectl &lt;span class=&#34;attr&#34;&gt;--context&lt;/span&gt;=prod      ──►  生产环境 (prod&lt;span class=&#34;selector-class&#34;&gt;.example&lt;/span&gt;&lt;span class=&#34;selector-class&#34;&gt;.com&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;6443&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;每个 context 就是一个「标签」，绑定了&lt;strong&gt;集群地址 + 用户凭证 + 默认命名空间&lt;/strong&gt;。切换 context 等于切换目标集群。&lt;/p&gt;
+&lt;h2 id=&#34;kubeconfig-与-Context-基础&#34;&gt;&lt;a href=&#34;#kubeconfig-与-Context-基础&#34; class=&#34;headerlink&#34; title=&#34;kubeconfig 与 Context 基础&#34;&gt;&lt;/a&gt;kubeconfig 与 Context 基础&lt;/h2&gt;&lt;p&gt;kubectl 查找集群连接信息的默认位置是 &lt;code&gt;~/.kube/config&lt;/code&gt;，这个 YAML 文件由三层核心概念组成：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;概念&lt;/th&gt;
+&lt;th&gt;作用&lt;/th&gt;
+&lt;th&gt;类比&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Cluster&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;定义集群 APIServer 地址及 TLS 证书&lt;/td&gt;
+&lt;td&gt;一套房子的地址和门禁&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;User&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;定义客户端身份凭证（证书 &amp;#x2F; Token &amp;#x2F; BASIC）&lt;/td&gt;
+&lt;td&gt;你手里的钥匙&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Context&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;将 &lt;strong&gt;cluster + user + namespace&lt;/strong&gt; 三元组绑定并命名&lt;/td&gt;
+&lt;td&gt;哪套钥匙开哪扇门，进哪个房间&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ~/.kube/config 结构示意&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;apiVersion:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;v1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;kind:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Config&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;clusters:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;minikube&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;cluster:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;server:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;https://127.0.0.1:6443&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;certificate-authority-data:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;lt;base64&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;CA&amp;gt;&lt;/span&gt;   &lt;span class=&#34;comment&#34;&gt;# 或 certificate-authority: /path/ca.crt&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;users:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;minikube-user&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;user:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;client-certificate-data:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;lt;base64&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;cert&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;client-key-data:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;lt;base64&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;key&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;contexts:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;minikube&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;context:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;cluster:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;minikube&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;user:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;minikube-user&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;namespace:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;default&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;current-context:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;minikube&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;一句话总结：&lt;/strong&gt; Context 就是「用谁的钥匙，连接哪个集群，默认进哪个命名空间」的三合一标签。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;查看当前环境&#34;&gt;&lt;a href=&#34;#查看当前环境&#34; class=&#34;headerlink&#34; title=&#34;查看当前环境&#34;&gt;&lt;/a&gt;查看当前环境&lt;/h2&gt;&lt;p&gt;随时确认你现在连的是哪个集群：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看当前使用的 Context（最常用）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config current-context&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 输出：minikube&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看完整配置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config view&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 只查看 Context 列表&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config get-contexts&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 输出示例：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# CURRENT   NAME       CLUSTER    AUTHINFO         NAMESPACE&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# *         minikube   minikube   minikube         default&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#           dev        dev        dev-user         dev&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#           staging    staging    staging-user     pre&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#           prod       prod       prod-user        prod&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看当前 Context 的详情（含集群地址）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl cluster-info&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code&gt;CURRENT&lt;/code&gt; 列有 &lt;code&gt;*&lt;/code&gt; 号的就是当前正在使用的 Context。&lt;/p&gt;
+&lt;h2 id=&#34;添加与配置外部集群&#34;&gt;&lt;a href=&#34;#添加与配置外部集群&#34; class=&#34;headerlink&#34; title=&#34;添加与配置外部集群&#34;&gt;&lt;/a&gt;添加与配置外部集群&lt;/h2&gt;&lt;h3 id=&#34;方式一：直接修改-kubeconfig（certificate-auth-场景）&#34;&gt;&lt;a href=&#34;#方式一：直接修改-kubeconfig（certificate-auth-场景）&#34; class=&#34;headerlink&#34; title=&#34;方式一：直接修改 kubeconfig（certificate-auth 场景）&#34;&gt;&lt;/a&gt;方式一：直接修改 kubeconfig（certificate-auth 场景）&lt;/h3&gt;&lt;p&gt;假设你拿到一个外部 K8S 集群的证书和地址：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 1. 设置集群地址和 CA 证书&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config set-cluster prod-cluster \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  --server=https://prod-api.example.com:6443 \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  --certificate-authority=./ca.pem \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  --embed-certs=&lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 2. 设置客户端凭证&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config set-credentials prod-admin \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  --client-certificate=./admin.pem \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  --client-key=./admin-key.pem \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  --embed-certs=&lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 3. 创建 Context（将 cluster + user 绑定）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config set-context prod \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  --cluster=prod-cluster \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  --user=prod-admin \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  --namespace=production&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 4. 切换到新 Context&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config use-context prod&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code&gt;--embed-certs=true&lt;/code&gt; 会将证书内容编码为 Base64 嵌入到 kubeconfig 中，方便单文件迁移。如果不需要嵌入，可以省略此参数，使用文件路径引用。&lt;/p&gt;
+&lt;h3 id=&#34;方式二：Token-Password-认证&#34;&gt;&lt;a href=&#34;#方式二：Token-Password-认证&#34; class=&#34;headerlink&#34; title=&#34;方式二：Token &amp;#x2F; Password 认证&#34;&gt;&lt;/a&gt;方式二：Token &amp;#x2F; Password 认证&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 使用 Token（常用于 Dashboard ServiceAccount）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config set-credentials ci-bot --token=eyJhbGciOiJSUzI1Ni...&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 使用 BASIC Auth&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config set-credentials admin-user --username=admin --password=xxx&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;方式三：使用集群管理员提供的-kubeconfig&#34;&gt;&lt;a href=&#34;#方式三：使用集群管理员提供的-kubeconfig&#34; class=&#34;headerlink&#34; title=&#34;方式三：使用集群管理员提供的 kubeconfig&#34;&gt;&lt;/a&gt;方式三：使用集群管理员提供的 kubeconfig&lt;/h3&gt;&lt;p&gt;更多情况下，运维会直接发给你一个配置文件：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 直接覆盖或备份后替换&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;cp&lt;/span&gt; ~/.kube/config ~/.kube/config.bak&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;cp&lt;/span&gt; ./new-cluster-config.yaml ~/.kube/config&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;但更推荐的方式是&lt;strong&gt;合并&lt;/strong&gt;到现有配置中（见下文）。&lt;/p&gt;
+&lt;h2 id=&#34;切换-K8S-环境&#34;&gt;&lt;a href=&#34;#切换-K8S-环境&#34; class=&#34;headerlink&#34; title=&#34;切换 K8S 环境&#34;&gt;&lt;/a&gt;切换 K8S 环境&lt;/h2&gt;&lt;h3 id=&#34;基础切换命令&#34;&gt;&lt;a href=&#34;#基础切换命令&#34; class=&#34;headerlink&#34; title=&#34;基础切换命令&#34;&gt;&lt;/a&gt;基础切换命令&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 切换到某个 Context（此后所有 kubectl 命令针对该集群）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config use-context dev&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 验证是否切换成功&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config current-context&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 输出：dev&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;临时切换（单条命令级别）&#34;&gt;&lt;a href=&#34;#临时切换（单条命令级别）&#34; class=&#34;headerlink&#34; title=&#34;临时切换（单条命令级别）&#34;&gt;&lt;/a&gt;临时切换（单条命令级别）&lt;/h3&gt;&lt;p&gt;有时不想改变「默认 Context」，只需临时跑一条命令：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 只对当前命令使用指定 Context&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pods --context=prod&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 同时对比多个环境&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get nodes --context=staging&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get nodes --context=prod&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;这种方法在巡检或对比环境差异时非常实用。&lt;/p&gt;
+&lt;h3 id=&#34;修改默认-Namespace&#34;&gt;&lt;a href=&#34;#修改默认-Namespace&#34; class=&#34;headerlink&#34; title=&#34;修改默认 Namespace&#34;&gt;&lt;/a&gt;修改默认 Namespace&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 在已有 Context 上修改默认 namespace&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config set-context dev --namespace=my-app&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 验证&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config view --minify -o jsonpath=&lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;#123;.contexts[?(@.name==&amp;quot;dev&amp;quot;)].context.namespace&amp;#125;&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;多-kubeconfig-合并策略&#34;&gt;&lt;a href=&#34;#多-kubeconfig-合并策略&#34; class=&#34;headerlink&#34; title=&#34;多 kubeconfig 合并策略&#34;&gt;&lt;/a&gt;多 kubeconfig 合并策略&lt;/h2&gt;&lt;p&gt;当你有多个独立 kubeconfig 文件时，不要来回覆盖，而是将它们合并。&lt;/p&gt;
+&lt;h3 id=&#34;策略一：手动合并（最常用）&#34;&gt;&lt;a href=&#34;#策略一：手动合并（最常用）&#34; class=&#34;headerlink&#34; title=&#34;策略一：手动合并（最常用）&#34;&gt;&lt;/a&gt;策略一：手动合并（最常用）&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 合并两个配置文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;KUBECONFIG=~/.kube/config:./new-cluster-config.yaml \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  kubectl config view --flatten &amp;gt; ~/.kube/config.new&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 备份后替换&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;mv&lt;/span&gt; ~/.kube/config ~/.kube/config.bak&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;mv&lt;/span&gt; ~/.kube/config.new ~/.kube/config&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code&gt;--flatten&lt;/code&gt; 会将所有证书引用转为内嵌 Base64，生成一个自包含的配置文件。&lt;/p&gt;
+&lt;h3 id=&#34;策略二：使用-KUBECONFIG-环境变量（推荐）&#34;&gt;&lt;a href=&#34;#策略二：使用-KUBECONFIG-环境变量（推荐）&#34; class=&#34;headerlink&#34; title=&#34;策略二：使用 KUBECONFIG 环境变量（推荐）&#34;&gt;&lt;/a&gt;策略二：使用 KUBECONFIG 环境变量（推荐）&lt;/h3&gt;&lt;p&gt;不合并文件，而是让 kubectl 自动合并多个配置：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 同时加载多个配置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; KUBECONFIG=~/.kube/config:~/project-a/kubeconfig:~/project-b/kubeconfig&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;kubectl 启动时会读取 &lt;code&gt;KUBECONFIG&lt;/code&gt; 环境变量中列出的&lt;strong&gt;所有&lt;/strong&gt;文件并合并，如有同名 Conflict 则以第一个为准。&lt;/p&gt;
+&lt;p&gt;可以写进 &lt;code&gt;~/.bashrc&lt;/code&gt; 或 &lt;code&gt;~/.zshrc&lt;/code&gt; 持久化：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ~/.zshrc&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; KUBECONFIG=&lt;span class=&#34;string&#34;&gt;&amp;quot;&lt;span class=&#34;variable&#34;&gt;$HOME&lt;/span&gt;/.kube/config:&lt;span class=&#34;variable&#34;&gt;$HOME&lt;/span&gt;/.kube/dev-config:&lt;span class=&#34;variable&#34;&gt;$HOME&lt;/span&gt;/.kube/prod-config&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;kubectl 查找 kubeconfig 的完整流程：&lt;/p&gt;
+&lt;figure class=&#34;highlight awk&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;kubectl 启动&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ├── KUBECONFIG 环境变量存在？──是──►  读取 KUBECONFIG 中各文件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    │                                   │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    └── 否                              │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        │                               │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ▼                               ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  读取 ~&lt;span class=&#34;regexp&#34;&gt;/.kube/&lt;/span&gt;config           合并所有 cluster&lt;span class=&#34;regexp&#34;&gt;/user/&lt;/span&gt;context&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                                        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                                        ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                               按 current-context 决定目标集群&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                                        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                                        ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                                  执行 API 请求&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;策略三：按目录分拆管理&#34;&gt;&lt;a href=&#34;#策略三：按目录分拆管理&#34; class=&#34;headerlink&#34; title=&#34;策略三：按目录分拆管理&#34;&gt;&lt;/a&gt;策略三：按目录分拆管理&lt;/h3&gt;&lt;p&gt;对于多项目团队，可以在 &lt;code&gt;~/.kube/&lt;/code&gt; 下创建独立的配置文件，如：&lt;/p&gt;
+&lt;figure class=&#34;highlight awk&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;~&lt;span class=&#34;regexp&#34;&gt;/.kube/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;├── config          &lt;span class=&#34;comment&#34;&gt;# 主配置（比如 minikube）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;├── dev-config      &lt;span class=&#34;comment&#34;&gt;# 开发环境&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;├── staging-config  &lt;span class=&#34;comment&#34;&gt;# 预发环境&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;├── prod-config     &lt;span class=&#34;comment&#34;&gt;# 生产环境&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└── test-config     &lt;span class=&#34;comment&#34;&gt;# 自动化测试环境&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;然后通过在 shell profile 中设置 &lt;code&gt;KUBECONFIG&lt;/code&gt; 捕获所有文件：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 自动加载 ~/.kube/ 下所有 config* 文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; KUBECONFIG=$(find ~/.kube -name &lt;span class=&#34;string&#34;&gt;&amp;quot;config*&amp;quot;&lt;/span&gt; | &lt;span class=&#34;built_in&#34;&gt;tr&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;\n&amp;#x27;&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;#x27;:&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;实用工具&#34;&gt;&lt;a href=&#34;#实用工具&#34; class=&#34;headerlink&#34; title=&#34;实用工具&#34;&gt;&lt;/a&gt;实用工具&lt;/h2&gt;&lt;h3 id=&#34;kubectx-kubens-快速切换&#34;&gt;&lt;a href=&#34;#kubectx-kubens-快速切换&#34; class=&#34;headerlink&#34; title=&#34;kubectx &amp;#x2F; kubens 快速切换&#34;&gt;&lt;/a&gt;kubectx &amp;#x2F; kubens 快速切换&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/ahmetb/kubectx&#34;&gt;kubectx&lt;/a&gt; 是目前最流行的 Context 切换工具，提供交互式选择和模糊搜索：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 安装（macOS/Linux）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;brew install kubectx&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 Context 列表（交互式，高亮当前）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectx&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 切换&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectx prod&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 回到上一个 Context（类似 cd -）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectx -&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 切换 Namespace&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubens kube-system&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;kubectl-alias-简化&#34;&gt;&lt;a href=&#34;#kubectl-alias-简化&#34; class=&#34;headerlink&#34; title=&#34;kubectl alias 简化&#34;&gt;&lt;/a&gt;kubectl alias 简化&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 常用别名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; k=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kx=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl config use-context&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kgc=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl config get-contexts&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kcc=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl config current-context&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kcg=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl config view --minify -o jsonpath=&amp;quot;&amp;#123;.clusters[0].cluster.server&amp;#125;&amp;quot;&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 使用示例&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kx prod&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;k get pods&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;使用-fzf-打造模糊搜索切换&#34;&gt;&lt;a href=&#34;#使用-fzf-打造模糊搜索切换&#34; class=&#34;headerlink&#34; title=&#34;使用 fzf 打造模糊搜索切换&#34;&gt;&lt;/a&gt;使用 fzf 打造模糊搜索切换&lt;/h3&gt;&lt;p&gt;如果不想安装额外工具，结合 &lt;code&gt;fzf&lt;/code&gt; 也能实现快速搜索切换：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 交互式切换 Context&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;function&#34;&gt;&lt;span class=&#34;title&#34;&gt;kx&lt;/span&gt;&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;built_in&#34;&gt;local&lt;/span&gt; ctx=$(kubectl config get-contexts -o name | fzf --prompt=&lt;span class=&#34;string&#34;&gt;&amp;quot;Select Context: &amp;quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; [ -n &lt;span class=&#34;string&#34;&gt;&amp;quot;&lt;span class=&#34;variable&#34;&gt;$ctx&lt;/span&gt;&amp;quot;&lt;/span&gt; ]; &lt;span class=&#34;keyword&#34;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    kubectl config use-context &lt;span class=&#34;string&#34;&gt;&amp;quot;&lt;span class=&#34;variable&#34;&gt;$ctx&lt;/span&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;keyword&#34;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;通过-kubeconfig-合并实现「一键上集群」&#34;&gt;&lt;a href=&#34;#通过-kubeconfig-合并实现「一键上集群」&#34; class=&#34;headerlink&#34; title=&#34;通过 kubeconfig 合并实现「一键上集群」&#34;&gt;&lt;/a&gt;通过 kubeconfig 合并实现「一键上集群」&lt;/h2&gt;&lt;figure class=&#34;highlight dsconfig&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;开发者 ──► 设置 &lt;span class=&#34;string&#34;&gt;KUBECONFIG&lt;/span&gt; 环境变量&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        加载 ~/.&lt;span class=&#34;string&#34;&gt;kube&lt;/span&gt;/&lt;span class=&#34;string&#34;&gt;config&lt;/span&gt;* 多个文件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;string&#34;&gt;kubectl&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;config&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;get-contexts&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        合并多个 &lt;span class=&#34;string&#34;&gt;kubeconfig&lt;/span&gt; 文件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        返回所有集群上下文&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        开发者 ──► &lt;span class=&#34;string&#34;&gt;kubectl&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;config&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;use-context&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;prod&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                      │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                      ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                 切换当前 &lt;span class=&#34;string&#34;&gt;context&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                      │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                      ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &lt;span class=&#34;string&#34;&gt;kubectl&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;get&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;nodes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                      │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                      ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                 通过 &lt;span class=&#34;string&#34;&gt;prod&lt;/span&gt; 集群地址发送 &lt;span class=&#34;string&#34;&gt;API&lt;/span&gt; 请求&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                      │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                      ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                 返回节点列表 -&amp;gt; 展示节点信息&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;安全注意事项&#34;&gt;&lt;a href=&#34;#安全注意事项&#34; class=&#34;headerlink&#34; title=&#34;安全注意事项&#34;&gt;&lt;/a&gt;安全注意事项&lt;/h2&gt;&lt;h3 id=&#34;1-证书与-Token-的管理&#34;&gt;&lt;a href=&#34;#1-证书与-Token-的管理&#34; class=&#34;headerlink&#34; title=&#34;1. 证书与 Token 的管理&#34;&gt;&lt;/a&gt;1. 证书与 Token 的管理&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ⚠️ 永远不要将 kubeconfig 提交到 Git！&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 将 kubeconfig 加入 .gitignore&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;kubeconfig*&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; .gitignore&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 使用 .env 文件管理敏感信息&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# KUBECONFIG 路径可以存储在 .env 中，由 direnv 自动加载&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;2-使用-certificate-authority（文件引用）替代内嵌&#34;&gt;&lt;a href=&#34;#2-使用-certificate-authority（文件引用）替代内嵌&#34; class=&#34;headerlink&#34; title=&#34;2. 使用 certificate-authority（文件引用）替代内嵌&#34;&gt;&lt;/a&gt;2. 使用 certificate-authority（文件引用）替代内嵌&lt;/h3&gt;&lt;p&gt;对于生产集群，建议引用文件而非内嵌证书：&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ❌ 不推荐：证书数据直接嵌在 YAML 中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;clusters:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;prod&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;cluster:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;certificate-authority-data:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;LS0tLS1CRUdJTi...&lt;/span&gt;   &lt;span class=&#34;comment&#34;&gt;# 几十行 Base64&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ✅ 推荐：引用文件路径&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;clusters:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;prod&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;cluster:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;certificate-authority:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;/etc/kubernetes/pki/ca.crt&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;文件引用更容易审计证书更新，也方便 CI&amp;#x2F;CD 工具链注入。&lt;/p&gt;
+&lt;h3 id=&#34;3-不同环境的-Context-命名规范&#34;&gt;&lt;a href=&#34;#3-不同环境的-Context-命名规范&#34; class=&#34;headerlink&#34; title=&#34;3. 不同环境的 Context 命名规范&#34;&gt;&lt;/a&gt;3. 不同环境的 Context 命名规范&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ❌ 混乱的命名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectx cluster-1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectx main&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectx test-cluster&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# ✅ 规范的命名：&amp;lt;环境&amp;gt;-&amp;lt;区域/集群标识&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectx prod-shanghai&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectx staging-beijing&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectx dev  &lt;span class=&#34;comment&#34;&gt;# 本地开发可以简短&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;规范的上下文命名在多人协作和 CI 脚本中能减少大量误操作。&lt;/p&gt;
+&lt;h3 id=&#34;4-误操作防护：Context-确认&#34;&gt;&lt;a href=&#34;#4-误操作防护：Context-确认&#34; class=&#34;headerlink&#34; title=&#34;4. 误操作防护：Context 确认&#34;&gt;&lt;/a&gt;4. 误操作防护：Context 确认&lt;/h3&gt;&lt;p&gt;对于高危操作，可以通过脚本强制确认当前 Context：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# confirm-context.sh&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;#!/bin/bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;TARGET_CTX=&lt;span class=&#34;variable&#34;&gt;$1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;CURRENT=$(kubectl config current-context)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; [ &lt;span class=&#34;string&#34;&gt;&amp;quot;&lt;span class=&#34;variable&#34;&gt;$CURRENT&lt;/span&gt;&amp;quot;&lt;/span&gt; != &lt;span class=&#34;string&#34;&gt;&amp;quot;&lt;span class=&#34;variable&#34;&gt;$TARGET_CTX&lt;/span&gt;&amp;quot;&lt;/span&gt; ]; &lt;span class=&#34;keyword&#34;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;❌ 当前 Context 是 [&lt;span class=&#34;variable&#34;&gt;$CURRENT&lt;/span&gt;]，目标上下文是 [&lt;span class=&#34;variable&#34;&gt;$TARGET_CTX&lt;/span&gt;]，拒绝执行！&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;built_in&#34;&gt;exit&lt;/span&gt; 1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;✅ Context 确认：&lt;span class=&#34;variable&#34;&gt;$CURRENT&lt;/span&gt;，继续执行...&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 使用方式&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;./confirm-context.sh dev &amp;amp;&amp;amp; kubectl delete pod xxx&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 如果当前不是 dev 上下文，命令不会执行，避免误删生产 Pod&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;完整工作流示例&#34;&gt;&lt;a href=&#34;#完整工作流示例&#34; class=&#34;headerlink&#34; title=&#34;完整工作流示例&#34;&gt;&lt;/a&gt;完整工作流示例&lt;/h2&gt;&lt;p&gt;以下是一个开发者的日常：&lt;/p&gt;
+&lt;figure class=&#34;highlight coq&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;启动 Minikube ──► 默认进入 minikube &lt;span class=&#34;keyword&#34;&gt;Context&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;     │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;     ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;开发本地应用 (kubectl &lt;span class=&#34;built_in&#34;&gt;apply&lt;/span&gt; -f dev.yaml)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;     │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;     ├── 需要查看预发环境？──是──► 切换 &lt;span class=&#34;keyword&#34;&gt;Context&lt;/span&gt; (kubectx staging)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;     │                                   │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;     └── 否                              ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;         │                         查看预发 Pod 状态&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;         ▼                              │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;     继续开发                            ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                                   取日志排查问题&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                                        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                                  需要部署到生产？──是──► 切回本地测试&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                                        │                   │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                                        └── 否               ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                                            │           测试通过后&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                                            ▼          CI/CD 发布到生产&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                                        继续开发              │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                                                               ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                                                         监控生产状态&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;常见问题排查&#34;&gt;&lt;a href=&#34;#常见问题排查&#34; class=&#34;headerlink&#34; title=&#34;常见问题排查&#34;&gt;&lt;/a&gt;常见问题排查&lt;/h2&gt;&lt;h3 id=&#34;Q-kubectl-报错-The-connection-to-the-server-was-refused&#34;&gt;&lt;a href=&#34;#Q-kubectl-报错-The-connection-to-the-server-was-refused&#34; class=&#34;headerlink&#34; title=&#34;Q: kubectl 报错 The connection to the server &amp;lt;host&amp;gt; was refused&#34;&gt;&lt;/a&gt;Q: kubectl 报错 &lt;code&gt;The connection to the server &amp;lt;host&amp;gt; was refused&lt;/code&gt;&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 检查当前 Context&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config current-context&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 检查集群地址是否正确&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config view --minify -o jsonpath=&lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;#123;.clusters[0].cluster.server&amp;#125;&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 检查网络可达性&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -k https://&amp;lt;api-server-address&amp;gt;:6443/healthz&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 如果是 Minikube，检查集群状态&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;minikube status&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;Q-切换-Context-后报证书错误&#34;&gt;&lt;a href=&#34;#Q-切换-Context-后报证书错误&#34; class=&#34;headerlink&#34; title=&#34;Q: 切换 Context 后报证书错误&#34;&gt;&lt;/a&gt;Q: 切换 Context 后报证书错误&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 证书过期或者集群 Root CA 更新了&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 重新从集群管理员获取最新的 CA 证书&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 对于测试环境，可以临时跳过证书验证（不推荐生产使用）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config set-cluster test-cluster --insecure-skip-tls-verify=&lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;Q-多个-kubeconfig-合并后-Context-名冲突&#34;&gt;&lt;a href=&#34;#Q-多个-kubeconfig-合并后-Context-名冲突&#34; class=&#34;headerlink&#34; title=&#34;Q: 多个 kubeconfig 合并后 Context 名冲突&#34;&gt;&lt;/a&gt;Q: 多个 kubeconfig 合并后 Context 名冲突&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# KUBECONFIG 合并时同名 Context 以第一个文件为准&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 可以通过指定唯一名称来避免冲突&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 在 set-context 时使用不同的名称&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config set-context dev-company-a --cluster=dev --user=dev-user&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config set-context dev-company-b --cluster=dev --user=dev-user&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;场景&lt;/th&gt;
+&lt;th&gt;推荐做法&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;只有一个集群&lt;/td&gt;
+&lt;td&gt;使用默认 &lt;code&gt;~/.kube/config&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;本地 Minikube + 1 个远程集群&lt;/td&gt;
+&lt;td&gt;合并 kubeconfig，用 &lt;code&gt;kubectx&lt;/code&gt; 切换&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;多个项目&amp;#x2F;多个远程集群&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;KUBECONFIG&lt;/code&gt; 环境变量 + 分文件管理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CI&amp;#x2F;CD 环境&lt;/td&gt;
+&lt;td&gt;使用 &lt;code&gt;--context&lt;/code&gt; 临时参数，避免污染配置&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;团队协作&lt;/td&gt;
+&lt;td&gt;统一 Context 命名规范，配置确认脚本防误操作&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;核心原则：&lt;/strong&gt; 不覆盖，只合并；不裸奔，加防护。掌握了 kubeconfig 的管理技巧，你就能在一台笔记本上从容驾驭从本地开发到生产环境的全部 K8S 集群。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/devops/k8s-command-guide/</guid>
+            <title>K8s 使用指南 — 各类场景命令全解</title>
+            <link>https://scottalive.github.io/computer-science/devops/k8s-command-guide/</link>
+            <category>运维</category>
+            <category>Kubernetes</category>
+            <category>k8s</category>
+            <category>容器编排</category>
+            <category>DevOps</category>
+            <pubDate>Sat, 16 May 2026 10:03:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;Kubernetes-使用指南-—-各类场景命令全解&#34;&gt;&lt;a href=&#34;#Kubernetes-使用指南-—-各类场景命令全解&#34; class=&#34;headerlink&#34; title=&#34;Kubernetes 使用指南 — 各类场景命令全解&#34;&gt;&lt;/a&gt;Kubernetes 使用指南 — 各类场景命令全解&lt;/h1&gt;&lt;p&gt;Kubernetes（简称 K8s）是当前业界标准的容器编排平台。无论你是刚入门的学习者，还是日常运维的一线工程师，掌握 &lt;strong&gt;kubectl&lt;/strong&gt; 的核心命令都至关重要。&lt;/p&gt;
+&lt;p&gt;本文将按照 &lt;strong&gt;实际场景&lt;/strong&gt; 组织命令，告别枯燥的 API 罗列，让你遇到问题时能快速找到对应「武器」。&lt;/p&gt;
+&lt;h2 id=&#34;K8s-架构简览&#34;&gt;&lt;a href=&#34;#K8s-架构简览&#34; class=&#34;headerlink&#34; title=&#34;K8s 架构简览&#34;&gt;&lt;/a&gt;K8s 架构简览&lt;/h2&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Control Plane&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        API[API Server]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        S[Scheduler]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        CM[Controller Manager]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ETCD[(etcd)]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Worker Nodes&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        K[Kubelet]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        P1[Pod A]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        P2[Pod B]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Network&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        SVC[Service]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        ING[Ingress]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    API --&amp;gt; S&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    API --&amp;gt; CM&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    API --&amp;gt; K&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    CM --&amp;gt; P1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    CM --&amp;gt; P2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    S --&amp;gt; K&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    K --&amp;gt; P1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    K --&amp;gt; P2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    P1 -.-&amp;gt; SVC&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    P2 -.-&amp;gt; SVC&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    SVC -.-&amp;gt; ING&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;控制平面&lt;/strong&gt;（Control Plane）负责决策与调度，&lt;strong&gt;工作节点&lt;/strong&gt;（Worker Node）负责运行容器。本文的命令覆盖两端的常用操作。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;一、集群信息与节点管理&#34;&gt;&lt;a href=&#34;#一、集群信息与节点管理&#34; class=&#34;headerlink&#34; title=&#34;一、集群信息与节点管理&#34;&gt;&lt;/a&gt;一、集群信息与节点管理&lt;/h2&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看集群信息&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl cluster-info&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看所有节点及状态&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get nodes&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看节点详细信息（IP、资源、OS 等）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get nodes -o wide&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看节点详情（YAML 格式）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get node &amp;lt;node-name&amp;gt; -o yaml&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 描述节点（含资源使用、条件、事件）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl describe node &amp;lt;node-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 标记节点不可调度（维护用）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl cordon &amp;lt;node-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 恢复节点可调度&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl uncordon &amp;lt;node-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 驱逐节点上所有 Pod（节点下线用）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl drain &amp;lt;node-name&amp;gt; --ignore-daemonsets --delete-emptydir-data&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看节点资源占用（需安装 metrics-server）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl top node&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;场景：节点维护&#34;&gt;&lt;a href=&#34;#场景：节点维护&#34; class=&#34;headerlink&#34; title=&#34;场景：节点维护&#34;&gt;&lt;/a&gt;场景：节点维护&lt;/h3&gt;&lt;p&gt;当需要重启或升级某台服务器时：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 1. 标记不可调度，防止新 Pod 调度过来&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl cordon node-01&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 2. 驱逐已有 Pod（DaemonSet 忽略）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl drain node-01 --ignore-daemonsets --delete-emptydir-data&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 3. 执行维护操作（重启、升级内核等）...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 4. 恢复调度&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl uncordon node-01&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;二、Pod-管理&#34;&gt;&lt;a href=&#34;#二、Pod-管理&#34; class=&#34;headerlink&#34; title=&#34;二、Pod 管理&#34;&gt;&lt;/a&gt;二、Pod 管理&lt;/h2&gt;&lt;p&gt;Pod 是 K8s 最小的部署单元。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 创建 Pod（通过 YAML）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl apply -f pod.yaml&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看所有命名空间下的 Pod&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pods --all-namespaces&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看当前命名空间 Pod&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pods&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 Pod 详细信息&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pods -o wide&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pods -o yaml&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 Pod 状态变化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pods --watch&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 描述 Pod 详情（事件、条件、挂载等）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl describe pod &amp;lt;pod-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 删除 Pod&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl delete pod &amp;lt;pod-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 强制删除 Pod（Terminating 卡住时）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl delete pod &amp;lt;pod-name&amp;gt; --force --grace-period=0&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 Pod 日志&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl logs &amp;lt;pod-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 实时追踪日志&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl logs -f &amp;lt;pod-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看前一个容器实例的日志（重启后）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl logs &amp;lt;pod-name&amp;gt; --previous&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 多容器 Pod 指定容器名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl logs &amp;lt;pod-name&amp;gt; -c &amp;lt;container-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 进入 Pod 交互式终端&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl &lt;span class=&#34;built_in&#34;&gt;exec&lt;/span&gt; -it &amp;lt;pod-name&amp;gt; -- /bin/sh&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl &lt;span class=&#34;built_in&#34;&gt;exec&lt;/span&gt; -it &amp;lt;pod-name&amp;gt; -- /bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 在 Pod 内执行单条命令&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl &lt;span class=&#34;built_in&#34;&gt;exec&lt;/span&gt; &amp;lt;pod-name&amp;gt; -- &lt;span class=&#34;built_in&#34;&gt;cat&lt;/span&gt; /etc/config&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 将本地文件拷贝到 Pod&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl &lt;span class=&#34;built_in&#34;&gt;cp&lt;/span&gt; /local/path/file.txt &amp;lt;pod-name&amp;gt;:/remote/path/&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 从 Pod 拷贝到本地&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl &lt;span class=&#34;built_in&#34;&gt;cp&lt;/span&gt; &amp;lt;pod-name&amp;gt;:/remote/path/file.txt /local/path/&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 Pod 资源占用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl top pod&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl top pod --containers&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;场景：Pod-一直-Pending&#34;&gt;&lt;a href=&#34;#场景：Pod-一直-Pending&#34; class=&#34;headerlink&#34; title=&#34;场景：Pod 一直 Pending&#34;&gt;&lt;/a&gt;场景：Pod 一直 Pending&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 1. 看状态和事件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl describe pod &amp;lt;pod-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 2. 看节点是否有足够资源&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl top node&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 3. 检查 PVC 是否绑定&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pvc&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 4. 检查是否有污点/容忍度不匹配&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl describe node &amp;lt;node-name&amp;gt; | findstr Taints&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;场景：Pod-反复-CrashLoopBackOff&#34;&gt;&lt;a href=&#34;#场景：Pod-反复-CrashLoopBackOff&#34; class=&#34;headerlink&#34; title=&#34;场景：Pod 反复 CrashLoopBackOff&#34;&gt;&lt;/a&gt;场景：Pod 反复 CrashLoopBackOff&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 1. 看日志&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl logs &amp;lt;pod-name&amp;gt; --previous&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 2. 看事件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl describe pod &amp;lt;pod-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 3. 进入容器排查&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl &lt;span class=&#34;built_in&#34;&gt;exec&lt;/span&gt; -it &amp;lt;pod-name&amp;gt; -- /bin/sh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;三、Deployment-管理&#34;&gt;&lt;a href=&#34;#三、Deployment-管理&#34; class=&#34;headerlink&#34; title=&#34;三、Deployment 管理&#34;&gt;&lt;/a&gt;三、Deployment 管理&lt;/h2&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 创建 Deployment&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl create deployment nginx --image=nginx:1.25&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 使用 YAML 创建/更新&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl apply -f deployment.yaml&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 Deployment&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get deployments&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看详细信息&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get deployment &amp;lt;name&amp;gt; -o wide&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl describe deployment &amp;lt;name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 Deployment 管理的 ReplicaSet&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get rs&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 扩缩容&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl scale deployment &amp;lt;name&amp;gt; --replicas=5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 自动扩缩容（需 metrics-server）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl autoscale deployment &amp;lt;name&amp;gt; --min=2 --max=10 --cpu-percent=80&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 更新镜像&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl &lt;span class=&#34;built_in&#34;&gt;set&lt;/span&gt; image deployment/&amp;lt;name&amp;gt; nginx=nginx:1.26&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看滚动更新状态&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl rollout status deployment/&amp;lt;name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看历史版本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl rollout &lt;span class=&#34;built_in&#34;&gt;history&lt;/span&gt; deployment/&amp;lt;name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 回滚到上一版本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl rollout undo deployment/&amp;lt;name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 回滚到指定版本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl rollout undo deployment/&amp;lt;name&amp;gt; --to-revision=2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 暂停滚动更新（金丝雀发布用）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl rollout pause deployment/&amp;lt;name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 恢复滚动更新&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl rollout resume deployment/&amp;lt;name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 删除 Deployment&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl delete deployment &amp;lt;name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;场景：滚动更新策略&#34;&gt;&lt;a href=&#34;#场景：滚动更新策略&#34; class=&#34;headerlink&#34; title=&#34;场景：滚动更新策略&#34;&gt;&lt;/a&gt;场景：滚动更新策略&lt;/h3&gt;&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;spec:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;replicas:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;strategy:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;type:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;RollingUpdate&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;rollingUpdate:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;maxSurge:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;        &lt;span class=&#34;comment&#34;&gt;# 最多超出期望副本数 1 个&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;maxUnavailable:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;  &lt;span class=&#34;comment&#34;&gt;# 更新期间不可用 Pod 数为 0（零停机）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 实际更新&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl &lt;span class=&#34;built_in&#34;&gt;set&lt;/span&gt; image deployment/myapp myapp=myapp:v2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 监控更新&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl rollout status deployment/myapp --watch&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;场景：金丝雀发布&#34;&gt;&lt;a href=&#34;#场景：金丝雀发布&#34; class=&#34;headerlink&#34; title=&#34;场景：金丝雀发布&#34;&gt;&lt;/a&gt;场景：金丝雀发布&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 1. 先搞一个 90% 版本的 Deployment&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl scale deployment myapp-stable --replicas=9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 2. 再搞一个 10% 新版本的 Deployment&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl scale deployment myapp-canary --replicas=1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 3. 验证无误后，将全部流量切到新版本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl &lt;span class=&#34;built_in&#34;&gt;set&lt;/span&gt; image deployment/myapp-stable myapp=myapp:v2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl scale deployment/myapp-canary --replicas=0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;四、Service-网络管理&#34;&gt;&lt;a href=&#34;#四、Service-网络管理&#34; class=&#34;headerlink&#34; title=&#34;四、Service 网络管理&#34;&gt;&lt;/a&gt;四、Service 网络管理&lt;/h2&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 创建 Service（暴露 Pod）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl expose deployment nginx --port=80 --target-port=80&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 创建 NodePort 类型 Service&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl expose deployment nginx --port=80 --target-port=80 --&lt;span class=&#34;built_in&#34;&gt;type&lt;/span&gt;=NodePort&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 创建 LoadBalancer 类型 Service（云环境）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl expose deployment nginx --port=80 --target-port=80 --&lt;span class=&#34;built_in&#34;&gt;type&lt;/span&gt;=LoadBalancer&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 Service&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get services&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get svc -o wide&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 Endpoints（Pod IP 列表）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get endpoints&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 描述 Service&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl describe svc &amp;lt;service-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 删除 Service&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl delete svc &amp;lt;service-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;场景：Service-类型选择&#34;&gt;&lt;a href=&#34;#场景：Service-类型选择&#34; class=&#34;headerlink&#34; title=&#34;场景：Service 类型选择&#34;&gt;&lt;/a&gt;场景：Service 类型选择&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th&gt;访问方式&lt;/th&gt;
+&lt;th&gt;适用场景&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;ClusterIP&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;service-ip:port&lt;/code&gt;（仅集群内）&lt;/td&gt;
+&lt;td&gt;内部服务通信&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;NodePort&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;节点IP:NodePort&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;外部调试 &amp;#x2F; 本地开发&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;LoadBalancer&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;云厂商 LB 提供外网 IP&lt;/td&gt;
+&lt;td&gt;生产对外服务&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;ExternalName&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;CNAME 到外部域名&lt;/td&gt;
+&lt;td&gt;引入外部服务&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;Headless-Service（有状态应用）&#34;&gt;&lt;a href=&#34;#Headless-Service（有状态应用）&#34; class=&#34;headerlink&#34; title=&#34;Headless Service（有状态应用）&#34;&gt;&lt;/a&gt;Headless Service（有状态应用）&lt;/h3&gt;&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;apiVersion:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;v1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;kind:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Service&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;metadata:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;myapp-headless&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;spec:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;clusterIP:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;None&lt;/span&gt;   &lt;span class=&#34;comment&#34;&gt;# 关键：设为 None&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;selector:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;app:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;myapp&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;ports:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;port:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;80&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;可通过 DNS 直接拿到 Pod IP 列表：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;kubectl &lt;span class=&#34;built_in&#34;&gt;exec&lt;/span&gt; -it pod-shell -- nslookup myapp-headless&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;五、Ingress-流量接入&#34;&gt;&lt;a href=&#34;#五、Ingress-流量接入&#34; class=&#34;headerlink&#34; title=&#34;五、Ingress 流量接入&#34;&gt;&lt;/a&gt;五、Ingress 流量接入&lt;/h2&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 Ingress&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get ingress&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看详细信息&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl describe ingress &amp;lt;name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 IngressClass&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get ingressclass&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;常见-Ingress-配置示例&#34;&gt;&lt;a href=&#34;#常见-Ingress-配置示例&#34; class=&#34;headerlink&#34; title=&#34;常见 Ingress 配置示例&#34;&gt;&lt;/a&gt;常见 Ingress 配置示例&lt;/h3&gt;&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;apiVersion:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;networking.k8s.io/v1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;kind:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Ingress&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;metadata:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;myapp-ingress&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;annotations:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;nginx.ingress.kubernetes.io/rewrite-target:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;spec:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;ingressClassName:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;nginx&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;rules:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;host:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;myapp.example.com&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;http:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;attr&#34;&gt;paths:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;path:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;/api&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;pathType:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Prefix&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;backend:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              &lt;span class=&#34;attr&#34;&gt;service:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;api-service&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &lt;span class=&#34;attr&#34;&gt;port:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                  &lt;span class=&#34;attr&#34;&gt;number:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;80&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;path:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;pathType:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Prefix&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;backend:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              &lt;span class=&#34;attr&#34;&gt;service:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;web-service&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &lt;span class=&#34;attr&#34;&gt;port:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                  &lt;span class=&#34;attr&#34;&gt;number:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;8080&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 应用 Ingress&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl apply -f ingress.yaml&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;六、ConfigMap-与-Secret&#34;&gt;&lt;a href=&#34;#六、ConfigMap-与-Secret&#34; class=&#34;headerlink&#34; title=&#34;六、ConfigMap 与 Secret&#34;&gt;&lt;/a&gt;六、ConfigMap 与 Secret&lt;/h2&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 从文件创建 ConfigMap&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl create configmap app-config --from-file=config.properties&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 从字面值创建&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl create configmap app-config --from-literal=APP_ENV=production --from-literal=LOG_LEVEL=info&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 创建 Secret（Base64 自动编码）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl create secret generic db-secret --from-literal=username=admin --from-literal=password=s3cret&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 从文件创建 Secret&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl create secret generic tls-secret --from-file=tls.crt --from-file=tls.key&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 ConfigMap&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get configmaps&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl describe configmap &amp;lt;name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get configmap &amp;lt;name&amp;gt; -o yaml&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 Secret&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get secrets&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl describe secret &amp;lt;name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get secret &amp;lt;name&amp;gt; -o yaml&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;Pod-中挂载-ConfigMap&#34;&gt;&lt;a href=&#34;#Pod-中挂载-ConfigMap&#34; class=&#34;headerlink&#34; title=&#34;Pod 中挂载 ConfigMap&#34;&gt;&lt;/a&gt;Pod 中挂载 ConfigMap&lt;/h3&gt;&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;spec:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;containers:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;myapp&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;image:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;myapp:1.0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;env:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;APP_ENV&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;valueFrom:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;configMapKeyRef:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;app-config&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              &lt;span class=&#34;attr&#34;&gt;key:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;APP_ENV&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;envFrom:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;configMapRef:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;app-config&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;volumeMounts:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;config-volume&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;mountPath:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;/etc/config&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;volumes:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;config-volume&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;configMap:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;app-config&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;七、存储（PV-PVC）&#34;&gt;&lt;a href=&#34;#七、存储（PV-PVC）&#34; class=&#34;headerlink&#34; title=&#34;七、存储（PV &amp;#x2F; PVC）&#34;&gt;&lt;/a&gt;七、存储（PV &amp;#x2F; PVC）&lt;/h2&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 PersistentVolume&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pv&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 PersistentVolumeClaim&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pvc&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 StorageClass&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get storageclass&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 删除 PVC&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl delete pvc &amp;lt;name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 如果 PVC 卡在 Terminating，移除 Finalizer&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl patch pvc &amp;lt;name&amp;gt; -p &lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;#123;&amp;quot;metadata&amp;quot;:&amp;#123;&amp;quot;finalizers&amp;quot;:[]&amp;#125;&amp;#125;&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;动态供应示例&#34;&gt;&lt;a href=&#34;#动态供应示例&#34; class=&#34;headerlink&#34; title=&#34;动态供应示例&#34;&gt;&lt;/a&gt;动态供应示例&lt;/h3&gt;&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;apiVersion:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;v1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;kind:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;PersistentVolumeClaim&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;metadata:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;data-pvc&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;spec:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;storageClassName:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;standard&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;accessModes:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;ReadWriteOnce&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;resources:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;requests:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;storage:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;10Gi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Pod 使用 PVC&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;spec:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;containers:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;myapp&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;volumeMounts:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;mountPath:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;/data&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;data-volume&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;volumes:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;data-volume&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;persistentVolumeClaim:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;attr&#34;&gt;claimName:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;data-pvc&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;八、命名空间与资源隔离&#34;&gt;&lt;a href=&#34;#八、命名空间与资源隔离&#34; class=&#34;headerlink&#34; title=&#34;八、命名空间与资源隔离&#34;&gt;&lt;/a&gt;八、命名空间与资源隔离&lt;/h2&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看所有命名空间&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get namespaces&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 创建命名空间&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl create namespace staging&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 切换默认命名空间（临时）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config set-context --current --namespace=staging&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 在指定命名空间操作（一次性）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pods -n staging&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 跨命名空间 Service 访问&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# &amp;lt;service-name&amp;gt;.&amp;lt;namespace&amp;gt;.svc.cluster.local&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ping web-service.production.svc.cluster.local&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看命名空间下所有资源&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl api-resources --verbs=list --namespaced -o name | ForEach-Object &amp;#123; kubectl get &lt;span class=&#34;variable&#34;&gt;$_&lt;/span&gt; -n staging &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 删除命名空间（会删除其下所有资源！）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl delete namespace staging&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;九、标签与选择器&#34;&gt;&lt;a href=&#34;#九、标签与选择器&#34; class=&#34;headerlink&#34; title=&#34;九、标签与选择器&#34;&gt;&lt;/a&gt;九、标签与选择器&lt;/h2&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 为 Pod 打标签&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl label pod my-pod version=v2 &lt;span class=&#34;built_in&#34;&gt;env&lt;/span&gt;=prod&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 覆盖标签&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl label pod my-pod version=v3 --overwrite&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 根据标签查询 Pod&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pods -l &lt;span class=&#34;built_in&#34;&gt;env&lt;/span&gt;=prod&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pods -l &lt;span class=&#34;string&#34;&gt;&amp;#x27;env=prod,version=v2&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pods -l &lt;span class=&#34;string&#34;&gt;&amp;#x27;env in (prod,staging)&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 Pod 标签&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pods --show-labels&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 删除标签&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl label pod my-pod version-&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 为节点打标签（控制调度）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl label node node-01 disktype=ssd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;节点选择器（Pod-调度到特定节点）&#34;&gt;&lt;a href=&#34;#节点选择器（Pod-调度到特定节点）&#34; class=&#34;headerlink&#34; title=&#34;节点选择器（Pod 调度到特定节点）&#34;&gt;&lt;/a&gt;节点选择器（Pod 调度到特定节点）&lt;/h3&gt;&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;spec:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;nodeSelector:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;disktype:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;ssd&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;十、排错与调试&#34;&gt;&lt;a href=&#34;#十、排错与调试&#34; class=&#34;headerlink&#34; title=&#34;十、排错与调试&#34;&gt;&lt;/a&gt;十、排错与调试&lt;/h2&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看集群事件（按时间倒序）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get events --sort-by=&lt;span class=&#34;string&#34;&gt;&amp;#x27;.lastTimestamp&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 持续监控事件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get events --watch&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看某资源相关事件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl describe pod &amp;lt;name&amp;gt;   &lt;span class=&#34;comment&#34;&gt;# 底部 Events 段落&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 API 请求详情（调试用）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pods -v=6      &lt;span class=&#34;comment&#34;&gt;# 显示 HTTP 请求&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pods -v=8      &lt;span class=&#34;comment&#34;&gt;# 显示 HTTP 请求与响应&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get pods -v=9      &lt;span class=&#34;comment&#34;&gt;# 显示全部（最详细）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# DNS 调试（启动一个调试 Pod）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl run -it dns-test --image=busybox --&lt;span class=&#34;built_in&#34;&gt;rm&lt;/span&gt; -- sh&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 在容器内：nslookup kubernetes.default.svc.cluster.local&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 临时调试 Pod（带网络工具）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl run debug-pod --image=nicolaka/netshoot --&lt;span class=&#34;built_in&#34;&gt;rm&lt;/span&gt; -it -- /bin/bash&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;捕获网络流量&#34;&gt;&lt;a href=&#34;#捕获网络流量&#34; class=&#34;headerlink&#34; title=&#34;捕获网络流量&#34;&gt;&lt;/a&gt;捕获网络流量&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 在指定 Pod 上抓包（需容器内安装 tcpdump）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl &lt;span class=&#34;built_in&#34;&gt;exec&lt;/span&gt; &amp;lt;pod-name&amp;gt; -- tcpdump -i eth0 -w /tmp/capture.pcap&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 将抓包文件拷贝到本地&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl &lt;span class=&#34;built_in&#34;&gt;cp&lt;/span&gt; &amp;lt;pod-name&amp;gt;:/tmp/capture.pcap ./capture.pcap&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;端口转发（本地调试）&#34;&gt;&lt;a href=&#34;#端口转发（本地调试）&#34; class=&#34;headerlink&#34; title=&#34;端口转发（本地调试）&#34;&gt;&lt;/a&gt;端口转发（本地调试）&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 将本地 8080 转发到 Pod 的 80 端口&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl port-forward pod/&amp;lt;pod-name&amp;gt; 8080:80&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 将本地 8080 转发到 Service 的 80 端口&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl port-forward svc/&amp;lt;service-name&amp;gt; 8080:80&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 转发到 Deployment&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl port-forward deployment/&amp;lt;deployment-name&amp;gt; 8080:80&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;十一、污点与容忍度&#34;&gt;&lt;a href=&#34;#十一、污点与容忍度&#34; class=&#34;headerlink&#34; title=&#34;十一、污点与容忍度&#34;&gt;&lt;/a&gt;十一、污点与容忍度&lt;/h2&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 为节点添加污点&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl taint nodes node-01 key=value:NoSchedule&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看节点污点&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl describe node node-01 | findstr Taints&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 删除污点&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl taint nodes node-01 key:NoSchedule-&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl taint nodes node-01 key=value:NoSchedule-&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 污点效果：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# NoSchedule       - 不能调度新 Pod&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# PreferNoSchedule - 尽量不调度&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# NoExecute        - 不能调度 + 驱逐已有 Pod&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;Pod 通过 &lt;code&gt;tolerations&lt;/code&gt; 容忍污点：&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;spec:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;tolerations:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;key:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;key&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;operator:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Equal&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;value:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;effect:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;NoSchedule&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;十二、RBAC-权限控制&#34;&gt;&lt;a href=&#34;#十二、RBAC-权限控制&#34; class=&#34;headerlink&#34; title=&#34;十二、RBAC 权限控制&#34;&gt;&lt;/a&gt;十二、RBAC 权限控制&lt;/h2&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看角色（Role / ClusterRole）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get roles --all-namespaces&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get clusterroles&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看绑定&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get rolebindings --all-namespaces&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get clusterrolebindings&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看当前用户/ServiceAccount 权限&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl auth can-i create pods&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl auth can-i delete deployments --as system:serviceaccount:default:my-sa&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 创建 ServiceAccount&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl create serviceaccount deployer&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 ServiceAccount 的 Secret Token&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl describe serviceaccount deployer&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;常见-RBAC-配置&#34;&gt;&lt;a href=&#34;#常见-RBAC-配置&#34; class=&#34;headerlink&#34; title=&#34;常见 RBAC 配置&#34;&gt;&lt;/a&gt;常见 RBAC 配置&lt;/h3&gt;&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;apiVersion:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;rbac.authorization.k8s.io/v1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;kind:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Role&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;metadata:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;namespace:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;default&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;pod-reader&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;rules:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;apiGroups:&lt;/span&gt; [&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;resources:&lt;/span&gt; [&lt;span class=&#34;string&#34;&gt;&amp;quot;pods&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;pods/log&amp;quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;verbs:&lt;/span&gt; [&lt;span class=&#34;string&#34;&gt;&amp;quot;get&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;list&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;watch&amp;quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;---&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;apiVersion:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;rbac.authorization.k8s.io/v1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;kind:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;RoleBinding&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;metadata:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;namespace:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;default&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;pod-reader-binding&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;subjects:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;kind:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;ServiceAccount&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;deployer&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;namespace:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;default&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;roleRef:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;kind:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Role&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;pod-reader&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;apiGroup:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;rbac.authorization.k8s.io&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;十三、常用-YAML-速查&#34;&gt;&lt;a href=&#34;#十三、常用-YAML-速查&#34; class=&#34;headerlink&#34; title=&#34;十三、常用 YAML 速查&#34;&gt;&lt;/a&gt;十三、常用 YAML 速查&lt;/h2&gt;&lt;h3 id=&#34;最小-Pod&#34;&gt;&lt;a href=&#34;#最小-Pod&#34; class=&#34;headerlink&#34; title=&#34;最小 Pod&#34;&gt;&lt;/a&gt;最小 Pod&lt;/h3&gt;&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;apiVersion:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;v1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;kind:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Pod&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;metadata:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;nginx&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;spec:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;containers:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;nginx&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;image:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;nginx:1.25&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;ports:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;containerPort:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;80&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;完整-Deployment&#34;&gt;&lt;a href=&#34;#完整-Deployment&#34; class=&#34;headerlink&#34; title=&#34;完整 Deployment&#34;&gt;&lt;/a&gt;完整 Deployment&lt;/h3&gt;&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;apiVersion:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;apps/v1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;kind:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Deployment&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;metadata:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;myapp&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;labels:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;app:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;myapp&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;spec:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;replicas:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;selector:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;matchLabels:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;app:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;myapp&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;template:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;metadata:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;labels:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;attr&#34;&gt;app:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;myapp&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;spec:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;containers:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;myapp&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;image:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;myapp:latest&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;ports:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;containerPort:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;8080&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;env:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;DB_HOST&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              &lt;span class=&#34;attr&#34;&gt;value:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;mysql-service&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;resources:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;requests:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              &lt;span class=&#34;attr&#34;&gt;cpu:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;100m&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              &lt;span class=&#34;attr&#34;&gt;memory:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;128Mi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;limits:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              &lt;span class=&#34;attr&#34;&gt;cpu:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;500m&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              &lt;span class=&#34;attr&#34;&gt;memory:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;512Mi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;livenessProbe:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;httpGet:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              &lt;span class=&#34;attr&#34;&gt;path:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;/health&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              &lt;span class=&#34;attr&#34;&gt;port:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;8080&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;initialDelaySeconds:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;10&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;periodSeconds:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;readinessProbe:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;httpGet:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              &lt;span class=&#34;attr&#34;&gt;path:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;/ready&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;              &lt;span class=&#34;attr&#34;&gt;port:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;8080&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;initialDelaySeconds:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;attr&#34;&gt;periodSeconds:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;Service-Deployment-完整示例&#34;&gt;&lt;a href=&#34;#Service-Deployment-完整示例&#34; class=&#34;headerlink&#34; title=&#34;Service + Deployment 完整示例&#34;&gt;&lt;/a&gt;Service + Deployment 完整示例&lt;/h3&gt;&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;apiVersion:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;apps/v1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;kind:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Deployment&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;metadata:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;web&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;spec:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;replicas:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;selector:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;matchLabels:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;app:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;web&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;template:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;metadata:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;labels:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;attr&#34;&gt;app:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;web&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;spec:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;containers:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;web&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;image:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;nginx:1.25&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;          &lt;span class=&#34;attr&#34;&gt;ports:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;containerPort:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;80&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;---&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;apiVersion:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;v1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;kind:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Service&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;metadata:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;name:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;web-service&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;spec:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;selector:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;app:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;web&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;ports:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;port:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;80&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;targetPort:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;80&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;type:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;ClusterIP&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;十四、Job-与-CronJob&#34;&gt;&lt;a href=&#34;#十四、Job-与-CronJob&#34; class=&#34;headerlink&#34; title=&#34;十四、Job 与 CronJob&#34;&gt;&lt;/a&gt;十四、Job 与 CronJob&lt;/h2&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 一次性任务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl create job my-job --image=busybox -- &lt;span class=&#34;built_in&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 Job&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get &lt;span class=&#34;built_in&#34;&gt;jobs&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 定时任务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl create cronjob backup --image=busybox --schedule=&lt;span class=&#34;string&#34;&gt;&amp;quot;0 2 * * *&amp;quot;&lt;/span&gt; -- dump&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看 CronJob&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get cronjobs&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 手动触发 CronJob&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl create job --from=cronjob/backup manual-backup-001&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;十五、K8s-常用别名与快捷键&#34;&gt;&lt;a href=&#34;#十五、K8s-常用别名与快捷键&#34; class=&#34;headerlink&#34; title=&#34;十五、K8s 常用别名与快捷键&#34;&gt;&lt;/a&gt;十五、K8s 常用别名与快捷键&lt;/h2&gt;&lt;p&gt;在 shell 中配置别名能极大提升效率：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 配置 kubectl 别名（建议加入 ~/.bashrc 或 ~/.zshrc）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; k=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kg=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl get&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kgp=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl get pods&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kgs=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl get svc&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kd=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl describe&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kdp=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl describe pod&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kaf=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl apply -f&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kdf=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl delete -f&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kl=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl logs&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; klf=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl logs -f&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kex=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl exec -it&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kpf=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl port-forward&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kgn=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl get nodes&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; ke=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl get events --sort-by=.lastTimestamp&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 开启 kubectl 自动补全&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Bash&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;source&lt;/span&gt; &amp;lt;(kubectl completion bash)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Zsh&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# source &amp;lt;(kubectl completion zsh)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# PowerShell&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl completion powershell | Out-String | Invoke-Expression&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 快速切换命名空间&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kns=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl config set-context --current --namespace&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;十六、集群外-kubectl-配置&#34;&gt;&lt;a href=&#34;#十六、集群外-kubectl-配置&#34; class=&#34;headerlink&#34; title=&#34;十六、集群外 kubectl 配置&#34;&gt;&lt;/a&gt;十六、集群外 kubectl 配置&lt;/h2&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看当前配置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config view&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看当前上下文&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config current-context&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 切换上下文&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config use-context &amp;lt;context-name&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 设置新集群&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config set-cluster my-cluster --server=https://1.2.3.4:6443 --certificate-authority=ca.crt&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 设置凭据&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config set-credentials my-user --client-certificate=client.crt --client-key=client.key&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 创建上下文&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config set-context my-context --cluster=my-cluster --user=my-user&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 合并多个 kubeconfig&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; KUBECONFIG=~/.kube/config:~/.kube/config-prod&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl config view --flatten &amp;gt; ~/.kube/config-merged&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;场景&lt;/th&gt;
+&lt;th&gt;关键命令&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;查看集群&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl cluster-info&lt;/code&gt; &amp;#x2F; &lt;code&gt;kubectl get nodes&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;部署应用&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl apply -f deployment.yaml&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;查看 Pod&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl get pods -o wide&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;排查问题&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl describe pod&lt;/code&gt; &amp;#x2F; &lt;code&gt;kubectl logs -f&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;扩缩容&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl scale deployment --replicas=N&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;滚动更新&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl set image deployment&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;暴露服务&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl expose deployment --type=NodePort&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;本地调试&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl port-forward pod/xxx 8080:80&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;进入容器&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl exec -it pod -- /bin/sh&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;配置管理&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl create configmap/secret&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;权限控制&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl auth can-i&lt;/code&gt; &amp;#x2F; &lt;code&gt;kubectl create serviceaccount&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;小提示&lt;/strong&gt;：加 &lt;code&gt;--help&lt;/code&gt; 是学习 kubectl 最好的方式。例如 &lt;code&gt;kubectl run --help&lt;/code&gt; 会列出所有参数与示例，比任何文档都更快。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;掌握以上命令，你就能应对日常 90% 以上的 K8s 运维场景。建议收藏本文，需要时快速查阅 🐦&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/devops/k8s-helm-study-plan/</guid>
+            <title>K8s + Helm 每日学习计划</title>
+            <link>https://scottalive.github.io/computer-science/devops/k8s-helm-study-plan/</link>
+            <category>Kubernetes</category>
+            <category>Helm</category>
+            <category>学习计划</category>
+            <pubDate>Fri, 08 May 2026 12:18:00 +0800</pubDate>
+            <description><![CDATA[ &lt;blockquote&gt;
+&lt;p&gt;一份贴合上班族节奏的 K8s + Helm 学习计划。&lt;br&gt;总周期约 6-8 周，每天投入 1-2h，碎片时间利用到位即可。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;一、你的时间拼图&#34;&gt;&lt;a href=&#34;#一、你的时间拼图&#34; class=&#34;headerlink&#34; title=&#34;一、你的时间拼图&#34;&gt;&lt;/a&gt;一、你的时间拼图&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;时段&lt;/th&gt;
+&lt;th&gt;非加班日 (周三&amp;#x2F;周五)&lt;/th&gt;
+&lt;th&gt;加班日 (周一&amp;#x2F;二&amp;#x2F;四)&lt;/th&gt;
+&lt;th&gt;周末&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;🚇 通勤早 (8:00-9:00)&lt;/td&gt;
+&lt;td&gt;听播客&amp;#x2F;看文档&lt;/td&gt;
+&lt;td&gt;同上&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;💼 工作 (9:00-18:00)&lt;/td&gt;
+&lt;td&gt;上班&lt;/td&gt;
+&lt;td&gt;上班&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🚇 通勤晚 (18:00-19:00)&lt;/td&gt;
+&lt;td&gt;回顾&amp;#x2F;默写概念&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🌙 晚间自由&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;19:00-21:30&lt;/strong&gt; 黄金 2.5h&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;21:00-22:30&lt;/strong&gt; 仅 1.5h&lt;/td&gt;
+&lt;td&gt;全天可安排 3-4h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;😴 睡觉&lt;/td&gt;
+&lt;td&gt;23:00 前&lt;/td&gt;
+&lt;td&gt;23:00 前&lt;/td&gt;
+&lt;td&gt;自由&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;策略总结：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;🚇 &lt;strong&gt;通勤&lt;/strong&gt; → 理论输入（听、看、记）&lt;/li&gt;
+&lt;li&gt;🌙 &lt;strong&gt;晚间&lt;/strong&gt; → 动手实践（敲命令、写 YAML、搭集群）&lt;/li&gt;
+&lt;li&gt;🎯 &lt;strong&gt;加班日只做”最小动作”&lt;/strong&gt;（复习 + 1 个知识点）&lt;/li&gt;
+&lt;li&gt;📅 &lt;strong&gt;周末集中攻坚&lt;/strong&gt;（打通周中没消化的硬骨头）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;二、学习路线总览（6-8-周）&#34;&gt;&lt;a href=&#34;#二、学习路线总览（6-8-周）&#34; class=&#34;headerlink&#34; title=&#34;二、学习路线总览（6-8 周）&#34;&gt;&lt;/a&gt;二、学习路线总览（6-8 周）&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;阶段&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;th&gt;周期&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;第 1 周&lt;/td&gt;
+&lt;td&gt;K8s 核心概念 + 环境搭建&lt;/td&gt;
+&lt;td&gt;7 天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第 2 周&lt;/td&gt;
+&lt;td&gt;Pod、Workload 资源&lt;/td&gt;
+&lt;td&gt;7 天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第 3 周&lt;/td&gt;
+&lt;td&gt;网络、Service、Ingress&lt;/td&gt;
+&lt;td&gt;7 天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第 4 周&lt;/td&gt;
+&lt;td&gt;存储、ConfigMap、Secret&lt;/td&gt;
+&lt;td&gt;7 天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第 5 周&lt;/td&gt;
+&lt;td&gt;Helm 基础（Chart、模板、 values）&lt;/td&gt;
+&lt;td&gt;7 天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第 6 周&lt;/td&gt;
+&lt;td&gt;Helm 进阶（依赖、Hook、测试）&lt;/td&gt;
+&lt;td&gt;7 天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第 7 周&lt;/td&gt;
+&lt;td&gt;综合项目：用 Helm 部署一套微服务&lt;/td&gt;
+&lt;td&gt;7 天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第 8 周&lt;/td&gt;
+&lt;td&gt;复习 + 面试&amp;#x2F;认证备考&lt;/td&gt;
+&lt;td&gt;7 天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;三、通勤时间利用指南（每日必做）&#34;&gt;&lt;a href=&#34;#三、通勤时间利用指南（每日必做）&#34; class=&#34;headerlink&#34; title=&#34;三、通勤时间利用指南（每日必做）&#34;&gt;&lt;/a&gt;三、通勤时间利用指南（每日必做）&lt;/h2&gt;&lt;h3 id=&#34;🚇-早通勤（1h）—-新知识输入&#34;&gt;&lt;a href=&#34;#🚇-早通勤（1h）—-新知识输入&#34; class=&#34;headerlink&#34; title=&#34;🚇 早通勤（1h）— 新知识输入&#34;&gt;&lt;/a&gt;🚇 早通勤（1h）— 新知识输入&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;推荐资源（提前下载离线）：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;播客/音频:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Kubernetes Podcast from Google&amp;quot;&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;—&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;每周一集，了解业界动态&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;The Podlets Podcast&amp;quot;&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;—&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;深入&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;K8s&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;原理&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;视频（提前缓存）:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;B站：CloudNative&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;实战系列&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;YouTube:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Kubernetes in 1 Hour&amp;quot;&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;等速通视频&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;文档:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;官方文档第一遍过概念：kubernetes.io/docs/concepts/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;使用&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;k8s&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;cheat&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;sheet&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;PDF&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;作为随身参考&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;每日任务清单：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;早通勤任务&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周一&lt;/td&gt;
+&lt;td&gt;听 1 集 K8s 播客 + 记 3 个关键词&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二&lt;/td&gt;
+&lt;td&gt;看 1 段 K8s 视频（15-20min）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;读官方文档一节 + 画思维导图（手机备忘录）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四&lt;/td&gt;
+&lt;td&gt;复习这周前三天学过的概念&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周五&lt;/td&gt;
+&lt;td&gt;整理本周知识点到笔记 App&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;🚇-晚通勤（1h）—-回顾与巩固&#34;&gt;&lt;a href=&#34;#🚇-晚通勤（1h）—-回顾与巩固&#34; class=&#34;headerlink&#34; title=&#34;🚇 晚通勤（1h）— 回顾与巩固&#34;&gt;&lt;/a&gt;🚇 晚通勤（1h）— 回顾与巩固&lt;/h3&gt;&lt;p&gt;不加班 → 回顾当天所学，用手机写总结笔记。&lt;br&gt;加班 → 闭眼休息或听轻音乐，不硬学。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;四、晚间学习计划&#34;&gt;&lt;a href=&#34;#四、晚间学习计划&#34; class=&#34;headerlink&#34; title=&#34;四、晚间学习计划&#34;&gt;&lt;/a&gt;四、晚间学习计划&lt;/h2&gt;&lt;h3 id=&#34;非加班日晚间（19-00-21-30）—-黄金-2-5h&#34;&gt;&lt;a href=&#34;#非加班日晚间（19-00-21-30）—-黄金-2-5h&#34; class=&#34;headerlink&#34; title=&#34;非加班日晚间（19:00-21:30）— 黄金 2.5h&#34;&gt;&lt;/a&gt;非加班日晚间（19:00-21:30）— &lt;strong&gt;黄金 2.5h&lt;/strong&gt;&lt;/h3&gt;&lt;figure class=&#34;highlight apache&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;19&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;00&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;19&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;30&lt;/span&gt;  晚饭 + 放松&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;19&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;30&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;19&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;45&lt;/span&gt;  回顾通勤笔记（激活记忆）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;19&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;45&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;21&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;00&lt;/span&gt;  动手实践（核心时间段）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;21&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;00&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;21&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;15&lt;/span&gt;  写学习日志 / 记 bug 和心得&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;21&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;15&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;21&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;30&lt;/span&gt;  放松、准备睡觉&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;加班日晚间（21-00-22-30）—-轻量-1h&#34;&gt;&lt;a href=&#34;#加班日晚间（21-00-22-30）—-轻量-1h&#34; class=&#34;headerlink&#34; title=&#34;加班日晚间（21:00-22:30）— 轻量 1h&#34;&gt;&lt;/a&gt;加班日晚间（21:00-22:30）— &lt;strong&gt;轻量 1h&lt;/strong&gt;&lt;/h3&gt;&lt;figure class=&#34;highlight apache&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;21&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;00&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;21&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;30&lt;/span&gt;  到家 + 快速收拾&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;21&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;30&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;22&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;00&lt;/span&gt;  只做 &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; 个&lt;span class=&#34;string&#34;&gt;&amp;quot;最小动作&amp;quot;&lt;/span&gt;（看 &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; 个命令效果/改 &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; 个 YAML）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;22&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;00&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;22&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;15&lt;/span&gt;  记录当天学到的 &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; 个知识点&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attribute&#34;&gt;22&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;15&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;22&lt;/span&gt;:&lt;span class=&#34;number&#34;&gt;30&lt;/span&gt;  准备睡觉&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ 加班日不要贪多，保持连续性的 1h 比硬撑 3h 效果好。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;五、每日学习内容（按周展开）&#34;&gt;&lt;a href=&#34;#五、每日学习内容（按周展开）&#34; class=&#34;headerlink&#34; title=&#34;五、每日学习内容（按周展开）&#34;&gt;&lt;/a&gt;五、每日学习内容（按周展开）&lt;/h2&gt;&lt;h3 id=&#34;第-1-周：K8s-基础-环境&#34;&gt;&lt;a href=&#34;#第-1-周：K8s-基础-环境&#34; class=&#34;headerlink&#34; title=&#34;第 1 周：K8s 基础 + 环境&#34;&gt;&lt;/a&gt;第 1 周：K8s 基础 + 环境&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;晚间动手内容&lt;/th&gt;
+&lt;th&gt;时间预算&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周五（今晚）&lt;/td&gt;
+&lt;td&gt;安装 minikube &amp;#x2F; kind &amp;#x2F; Docker Desktop（带 K8s）✅&lt;/td&gt;
+&lt;td&gt;1h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周六&lt;/td&gt;
+&lt;td&gt;跑通 &lt;code&gt;kubectl get nodes&lt;/code&gt;，熟悉命令行；了解 Pod 概念&lt;/td&gt;
+&lt;td&gt;2h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周日&lt;/td&gt;
+&lt;td&gt;跑第一个 Nginx Pod：&lt;code&gt;kubectl run nginx --image=nginx&lt;/code&gt; + expose&lt;/td&gt;
+&lt;td&gt;2h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周一 🕐&lt;/td&gt;
+&lt;td&gt;看 kubectl 常用命令：get&amp;#x2F;describe&amp;#x2F;logs&amp;#x2F;exec&amp;#x2F;delete&lt;/td&gt;
+&lt;td&gt;1h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二 🕐&lt;/td&gt;
+&lt;td&gt;了解 namespace 概念，创建&amp;#x2F;切换 namespace&lt;/td&gt;
+&lt;td&gt;1h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;理解 YAML 格式，手写第一个 pod.yaml&lt;/td&gt;
+&lt;td&gt;2h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四 🕐&lt;/td&gt;
+&lt;td&gt;用 &lt;code&gt;kubectl apply -f&lt;/code&gt; 部署并对比 &lt;code&gt;run&lt;/code&gt; 的区别&lt;/td&gt;
+&lt;td&gt;1h&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;第-2-周：Pod-与-Workload&#34;&gt;&lt;a href=&#34;#第-2-周：Pod-与-Workload&#34; class=&#34;headerlink&#34; title=&#34;第 2 周：Pod 与 Workload&#34;&gt;&lt;/a&gt;第 2 周：Pod 与 Workload&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周五&lt;/td&gt;
+&lt;td&gt;ReplicaSet + Deployment：滚动更新、回滚&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周六&lt;/td&gt;
+&lt;td&gt;StatefulSet：有状态应用部署&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周日&lt;/td&gt;
+&lt;td&gt;DaemonSet + Job&amp;#x2F;CronJob：守护进程与批处理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周一 🕐&lt;/td&gt;
+&lt;td&gt;复习：三种 Workload 的适用场景对比&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二 🕐&lt;/td&gt;
+&lt;td&gt;实战：用 Deployment 部署一个 Web 应用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;Pod 生命周期：InitContainer、探针（liveness&amp;#x2F;readiness&amp;#x2F;startup）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四 🕐&lt;/td&gt;
+&lt;td&gt;手写一个带健康检查的 Deployment&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;第-3-周：网络&#34;&gt;&lt;a href=&#34;#第-3-周：网络&#34; class=&#34;headerlink&#34; title=&#34;第 3 周：网络&#34;&gt;&lt;/a&gt;第 3 周：网络&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周五&lt;/td&gt;
+&lt;td&gt;Service 类型：ClusterIP &amp;#x2F; NodePort &amp;#x2F; LoadBalancer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周六&lt;/td&gt;
+&lt;td&gt;Ingress + Ingress Controller&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周日&lt;/td&gt;
+&lt;td&gt;网络策略 NetworkPolicy&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周一 🕐&lt;/td&gt;
+&lt;td&gt;复习 Service 和 Ingress 区别&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二 🕐&lt;/td&gt;
+&lt;td&gt;实战：用 Service + Ingress 暴露应用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;DNS 与服务发现（CoreDNS 原理）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四 🕐&lt;/td&gt;
+&lt;td&gt;画一个完整的 K8s 网络流转图&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;第-4-周：存储与配置&#34;&gt;&lt;a href=&#34;#第-4-周：存储与配置&#34; class=&#34;headerlink&#34; title=&#34;第 4 周：存储与配置&#34;&gt;&lt;/a&gt;第 4 周：存储与配置&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周五&lt;/td&gt;
+&lt;td&gt;ConfigMap + Secret：配置与敏感信息管理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周六&lt;/td&gt;
+&lt;td&gt;Volume：emptyDir、hostPath、PVC&amp;#x2F;PV&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周日&lt;/td&gt;
+&lt;td&gt;StorageClass + 动态供给&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周一 🕐&lt;/td&gt;
+&lt;td&gt;复习 ConfigMap&amp;#x2F;Secret 注入方式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二 🕐&lt;/td&gt;
+&lt;td&gt;实战：用 ConfigMap 配置 Nginx&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;手写一个有状态应用（MySQL + PV）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四 🕐&lt;/td&gt;
+&lt;td&gt;对比 static PV 和 dynamic PV 的差异&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;第-5-周：Helm-基础&#34;&gt;&lt;a href=&#34;#第-5-周：Helm-基础&#34; class=&#34;headerlink&#34; title=&#34;第 5 周：Helm 基础&#34;&gt;&lt;/a&gt;第 5 周：Helm 基础&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周五&lt;/td&gt;
+&lt;td&gt;Helm 安装 + 核心概念（Chart &amp;#x2F; Release &amp;#x2F; Repository）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周六&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;helm search / install / upgrade / rollback&lt;/code&gt; 基本操作&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周日&lt;/td&gt;
+&lt;td&gt;Chart 目录结构解析：Chart.yaml &amp;#x2F; values.yaml &amp;#x2F; templates&amp;#x2F;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周一 🕐&lt;/td&gt;
+&lt;td&gt;用 Helm 部署一个应用（如 nginx ingress）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二 🕐&lt;/td&gt;
+&lt;td&gt;values.yaml 覆盖：&lt;code&gt;--set&lt;/code&gt; &amp;#x2F; &lt;code&gt;-f&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;模板语法（一）：内置对象、Values、模板函数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四 🕐&lt;/td&gt;
+&lt;td&gt;读一个开源 Chart（如 bitnami&amp;#x2F;nginx）的 templates 目录&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;第-6-周：Helm-进阶&#34;&gt;&lt;a href=&#34;#第-6-周：Helm-进阶&#34; class=&#34;headerlink&#34; title=&#34;第 6 周：Helm 进阶&#34;&gt;&lt;/a&gt;第 6 周：Helm 进阶&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周五&lt;/td&gt;
+&lt;td&gt;模板语法（二）：条件判断 &lt;code&gt;if/else&lt;/code&gt;、循环 &lt;code&gt;range&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周六&lt;/td&gt;
+&lt;td&gt;命名模板（define&amp;#x2F;template）与 include&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周日&lt;/td&gt;
+&lt;td&gt;Chart 依赖管理（dependencies &amp;#x2F; subcharts）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周一 🕐&lt;/td&gt;
+&lt;td&gt;复习 Helm 模板语法要点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二 🕐&lt;/td&gt;
+&lt;td&gt;写一个自定义 Chart（简单 Web 应用）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;Helm Hook：预&amp;#x2F;后置任务（migration、验证）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四 🕐&lt;/td&gt;
+&lt;td&gt;写一个有 Hook 的 Chart（数据库 Migrate 场景）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;第-7-周：综合项目&#34;&gt;&lt;a href=&#34;#第-7-周：综合项目&#34; class=&#34;headerlink&#34; title=&#34;第 7 周：综合项目&#34;&gt;&lt;/a&gt;第 7 周：综合项目&lt;/h3&gt;&lt;p&gt;这一周动手搭建一个完整的微服务应用，并用 Helm 管理全部组件。&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;项目:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;博客系统微服务化&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;架构:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;Frontend:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Nginx&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;React&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;(Deployment&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Service&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Ingress)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;Backend:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Spring&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Boot&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Go&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;(Deployment&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;ConfigMap)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;Database:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;MySQL&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;(StatefulSet&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;PVC)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;Cache:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Redis&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;(Deployment&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Service)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;bullet&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;日志:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;EFK&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;LPL&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;(可选)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;管理方式:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;一个&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;umbrella&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Chart&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;包含以上所有子&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;Chart&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周五&lt;/td&gt;
+&lt;td&gt;设计架构 + 搭建基础 Chart 骨架&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周六&lt;/td&gt;
+&lt;td&gt;实现前端服务 Chart&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周日&lt;/td&gt;
+&lt;td&gt;实现后端服务 Chart（带 ConfigMap）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周一 🕐&lt;/td&gt;
+&lt;td&gt;配置 Service 和 Ingress 暴露&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二 🕐&lt;/td&gt;
+&lt;td&gt;加上 MySQL 和 Redis 子 Chart&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;联调测试：&lt;code&gt;helm install&lt;/code&gt; 一键部署&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四 🕐&lt;/td&gt;
+&lt;td&gt;优化：制作覆盖 values、增加健康检查&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;第-8-周：复习-备考&#34;&gt;&lt;a href=&#34;#第-8-周：复习-备考&#34; class=&#34;headerlink&#34; title=&#34;第 8 周：复习 + 备考&#34;&gt;&lt;/a&gt;第 8 周：复习 + 备考&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;天&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;周五&lt;/td&gt;
+&lt;td&gt;整理所有学习笔记，形成自己的知识图谱&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周六&lt;/td&gt;
+&lt;td&gt;刷题：K8s 面试题 &amp;#x2F; CKAD 模拟题&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周日&lt;/td&gt;
+&lt;td&gt;模拟面试：用自己的话讲一遍核心概念&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周一 🕐&lt;/td&gt;
+&lt;td&gt;查漏补缺：翻看还没掌握的点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周二 🕐&lt;/td&gt;
+&lt;td&gt;总结学习心得，写一篇博客输出&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周三&lt;/td&gt;
+&lt;td&gt;整理自己的 Helm Chart 到 GitHub&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;周四 🕐&lt;/td&gt;
+&lt;td&gt;写学习复盘，规划下一步方向&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;六、环境搭建&#34;&gt;&lt;a href=&#34;#六、环境搭建&#34; class=&#34;headerlink&#34; title=&#34;六、环境搭建&#34;&gt;&lt;/a&gt;六、环境搭建&lt;/h2&gt;&lt;h3 id=&#34;本地环境要求&#34;&gt;&lt;a href=&#34;#本地环境要求&#34; class=&#34;headerlink&#34; title=&#34;本地环境要求&#34;&gt;&lt;/a&gt;本地环境要求&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;工具&lt;/th&gt;
+&lt;th&gt;最低版本&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;Docker Desktop&lt;/td&gt;
+&lt;td&gt;20.10+&lt;/td&gt;
+&lt;td&gt;自带 K8s 集群（macOS&amp;#x2F;Windows）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;minikube&lt;/td&gt;
+&lt;td&gt;v1.30+&lt;/td&gt;
+&lt;td&gt;轻量本地集群&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;kubectl&lt;/td&gt;
+&lt;td&gt;v1.28+&lt;/td&gt;
+&lt;td&gt;K8s 命令行工具&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Helm&lt;/td&gt;
+&lt;td&gt;v3.12+&lt;/td&gt;
+&lt;td&gt;K8s 包管理器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;推荐一键安装&#34;&gt;&lt;a href=&#34;#推荐一键安装&#34; class=&#34;headerlink&#34; title=&#34;推荐一键安装&#34;&gt;&lt;/a&gt;推荐一键安装&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Windows (choco)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;choco install kubernetes-cli helm minikube&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# macOS (brew)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;brew install kubectl helm minikube&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Linux&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -LO &lt;span class=&#34;string&#34;&gt;&amp;quot;https://dl.k8s.io/release/&lt;span class=&#34;subst&#34;&gt;$(curl -L -s https://dl.k8s.io/release/stable.txt)&lt;/span&gt;/bin/linux/amd64/kubectl&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;快速启动集群&#34;&gt;&lt;a href=&#34;#快速启动集群&#34; class=&#34;headerlink&#34; title=&#34;快速启动集群&#34;&gt;&lt;/a&gt;快速启动集群&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# minikube&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;minikube start --cpus=4 --memory=8g&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;kubectl get nodes&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Helm 初始化（v3 不需要 tiller）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;helm repo add bitnami https://charts.bitnami.com/bitnami&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;helm repo update&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;helm search repo bitnami/nginx&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;七、学习工具推荐&#34;&gt;&lt;a href=&#34;#七、学习工具推荐&#34; class=&#34;headerlink&#34; title=&#34;七、学习工具推荐&#34;&gt;&lt;/a&gt;七、学习工具推荐&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;用途&lt;/th&gt;
+&lt;th&gt;工具&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;笔记&lt;/td&gt;
+&lt;td&gt;Obsidian &amp;#x2F; Notion &amp;#x2F; 飞书文档&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;思维导图&lt;/td&gt;
+&lt;td&gt;XMind &amp;#x2F; 飞书思维导图&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;命令行录屏&lt;/td&gt;
+&lt;td&gt;asciinema（记录实操回放）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;K8s 可视化&lt;/td&gt;
+&lt;td&gt;k9s（终端 UI） &amp;#x2F; Lens（桌面端）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;YAML 校验&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;kubectl explain&lt;/code&gt; &amp;#x2F; &lt;code&gt;helm lint&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;在线实验&lt;/td&gt;
+&lt;td&gt;Play with Kubernetes (killer.sh)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;刷题&lt;/td&gt;
+&lt;td&gt;CKAD 模拟题 &amp;#x2F; killer.sh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;八、小技巧&#34;&gt;&lt;a href=&#34;#八、小技巧&#34; class=&#34;headerlink&#34; title=&#34;八、小技巧&#34;&gt;&lt;/a&gt;八、小技巧&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;学一个做一个&lt;/strong&gt;：看完一个概念，立刻 &lt;code&gt;kubectl&lt;/code&gt; 敲一遍，不要光看不练&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;用别名省时间&lt;/strong&gt;：&lt;code&gt;alias k=kubectl&lt;/code&gt;，&lt;code&gt;alias kgp=&amp;#39;kubectl get pods&amp;#39;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;日报驱动学习&lt;/strong&gt;：每周写一篇 K8s 学习笔记发博客，输出倒逼输入&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;加班日稳住节奏&lt;/strong&gt;：哪怕只看 10 分钟文档也要保持每日连续性&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;善用 &lt;code&gt;kubectl explain&lt;/code&gt;&lt;/strong&gt;：比查文档快，随时随地查资源字段&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 必设别名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; k=&lt;span class=&#34;string&#34;&gt;&amp;#x27;kubectl&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kgp=&lt;span class=&#34;string&#34;&gt;&amp;#x27;k get pods&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kgs=&lt;span class=&#34;string&#34;&gt;&amp;#x27;k get svc&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kgd=&lt;span class=&#34;string&#34;&gt;&amp;#x27;k get deployment&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kaf=&lt;span class=&#34;string&#34;&gt;&amp;#x27;k apply -f&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;alias&lt;/span&gt; kdf=&lt;span class=&#34;string&#34;&gt;&amp;#x27;k delete -f&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;九、学习计划时间表（日历视图）&#34;&gt;&lt;a href=&#34;#九、学习计划时间表（日历视图）&#34; class=&#34;headerlink&#34; title=&#34;九、学习计划时间表（日历视图）&#34;&gt;&lt;/a&gt;九、学习计划时间表（日历视图）&lt;/h2&gt;&lt;h3 id=&#34;每周重复节奏&#34;&gt;&lt;a href=&#34;#每周重复节奏&#34; class=&#34;headerlink&#34; title=&#34;每周重复节奏&#34;&gt;&lt;/a&gt;每周重复节奏&lt;/h3&gt;&lt;figure class=&#34;highlight x86asm&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;周一 🕐 加班日 → 最小动作（复习 + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt; 知识点）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;周二 🕐 加班日 → 最小动作&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;周三 🌟 自由日 → 动手实践（&lt;span class=&#34;number&#34;&gt;2h&lt;/span&gt;）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;周四 🕐 加班日 → 最小动作&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;周五 🌟 自由日 → 动手实践（&lt;span class=&#34;number&#34;&gt;2h&lt;/span&gt;）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;周六 🎯 → 集中攻坚（&lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;4h&lt;/span&gt;）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;周日 🎯 → 集中攻坚（&lt;span class=&#34;number&#34;&gt;3&lt;/span&gt;-&lt;span class=&#34;number&#34;&gt;4h&lt;/span&gt;）&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;每周保底投入：&lt;/strong&gt; 4 天×1h（加班日） + 2 天×2h（自由日晚） + 2 天×3h（周末） ≈ &lt;strong&gt;14h&amp;#x2F;周&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;坚持这个节奏，6 周就能从零到上手干活 💪&lt;/p&gt;
+&lt;/blockquote&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

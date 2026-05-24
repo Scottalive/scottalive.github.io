@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>AI 日报 2026-05-20 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">AI 日报 2026-05-20</h1>
+    <div class="post-meta">
+      <span class="post-date">2026-05-20 22:00</span>
+      <span class="post-word-count">2925 字</span>
+      <span class="post-reading-time">约 9 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/AI%E6%97%A5%E6%8A%A5/">AI日报</a>
+      
+      <a href="/tags/AI/">AI</a>
+      
+      <a href="/tags/GitHub%E7%83%AD%E9%97%A8/">GitHub热门</a>
+      
+      <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+      
+      <a href="/tags/%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF/">技术趋势</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#今日热点">今日热点</a>
+      
+      <a class="toc-level-2" href="#github-热门-ai-项目">GitHub 热门 AI 项目</a>
+      
+      <a class="toc-level-3" href="#1-codegraph-为-ai-编程助手打造的知识图谱">1. codegraph — 为 AI 编程助手打造的知识图谱</a>
+      
+      <a class="toc-level-3" href="#2-academic-research-skills-claude-code-学术研究全流程">2. academic-research-skills — Claude Code 学术研究全流程</a>
+      
+      <a class="toc-level-3" href="#3-agentmemory-ai-编码-agent-的持久化记忆">3. agentmemory — AI 编码 Agent 的持久化记忆</a>
+      
+      <a class="toc-level-3" href="#4-ai-engineering-from-scratch-从零开始的-ai-工程">4. ai-engineering-from-scratch — 从零开始的 AI 工程</a>
+      
+      <a class="toc-level-3" href="#5-oh-my-pi-终端的-ai-编码-agent">5. oh-my-pi — 终端的 AI 编码 Agent</a>
+      
+      <a class="toc-level-3" href="#6-vimax-agentic-视频生成">6. ViMax — Agentic 视频生成</a>
+      
+      <a class="toc-level-3" href="#7-cli-anything-让所有软件-agent-native">7. CLI-Anything — 让所有软件 Agent-Native</a>
+      
+      <a class="toc-level-3" href="#8-andrej-karpathy-skills-karpathy-版-claude-code-配置">8. andrej-karpathy-skills — Karpathy 版 Claude Code 配置</a>
+      
+      <a class="toc-level-3" href="#其他值得关注的项目">其他值得关注的项目</a>
+      
+      <a class="toc-level-2" href="#新工具-x2f-产品速览">新工具 &amp;#x2F; 产品速览</a>
+      
+      <a class="toc-level-3" href="#google-ix2fo-2026-系列发布">🏢 Google I&amp;#x2F;O 2026 系列发布</a>
+      
+      <a class="toc-level-3" href="#corti-symphony-for-speech-to-text">🏥 Corti Symphony for Speech-to-Text</a>
+      
+      <a class="toc-level-3" href="#aws-捕获-fal">☁️ AWS 捕获 fal</a>
+      
+      <a class="toc-level-3" href="#claude-agent-企业-api-安全连接">🔧 Claude Agent 企业 API 安全连接</a>
+      
+      <a class="toc-level-3" href="#firefox-将摇一摇总结带到-android">🦊 Firefox 将「摇一摇总结」带到 Android</a>
+      
+      <a class="toc-level-2" href="#行业动态">行业动态</a>
+      
+      <a class="toc-level-3" href="#andrej-karpathy-加入-anthropic">🔄 Andrej Karpathy 加入 Anthropic</a>
+      
+      <a class="toc-level-3" href="#google-ai-定价策略转向">💰 Google AI 定价策略转向</a>
+      
+      <a class="toc-level-3" href="#linkedin-打击-ai-垃圾评论">📝 LinkedIn 打击 AI 垃圾评论</a>
+      
+      <a class="toc-level-3" href="#apple-推进-ai-写作辅助">📱 Apple 推进 AI 写作辅助</a>
+      
+      <a class="toc-level-3" href="#google-25-年来首次重新设计搜索框">🔍 Google 25 年来首次重新设计搜索框</a>
+      
+      <a class="toc-level-3" href="#langsmith-engine-自动化-agent-调试循环">🔌 LangSmith Engine 自动化 Agent 调试循环</a>
+      
+      <a class="toc-level-3" href="#ai-正在取代它需要学习的专家">⚠️ AI 正在取代它需要学习的专家</a>
+      
+      <a class="toc-level-2" href="#技术洞见">技术洞见</a>
+      
+      <a class="toc-level-3" href="#趋势一agent-工具的基础设施化">趋势一：Agent 工具的「基础设施化」</a>
+      
+      <a class="toc-level-3" href="#趋势二多模态模型大一统">趋势二：多模态模型大一统</a>
+      
+      <a class="toc-level-3" href="#趋势三agent-经济的平台化">趋势三：Agent 经济的「平台化」</a>
+      
+      <a class="toc-level-2" href="#热门前瞻流程图">热门前瞻流程图</a>
+      
+      <a class="toc-level-2" href="#结语">结语</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="今日热点"><a href="#今日热点" class="headerlink" title="今日热点"></a>今日热点</h2><p>今日 AI 圈的关键词是 **「Agent 工具链」**和 <strong>「多模态大一统」</strong>。GitHub 上 Agent 辅助开发工具全面爆发，codegraph、agentmemory 等项目以单日千星的速度狂飙。Google I&#x2F;O 2026 接连放出 Gemini 3.5 Flash（号称年省十亿美元）、Gemini Omni（any-to-any 多模态）和 Gemini Spark（全天候 AI Agent）三连击。与此同时，Andrej Karpathy 官宣加入 Anthropic，预示着前沿 AI 人才争夺战进入新阶段。</p>
+<hr>
+<h2 id="github-热门-ai-项目"><a href="#GitHub-热门-AI-项目" class="headerlink" title="GitHub 热门 AI 项目"></a>GitHub 热门 AI 项目</h2><h3 id="1-codegraph-为-ai-编程助手打造的知识图谱"><a href="#1-codegraph-—-为-AI-编程助手打造的知识图谱" class="headerlink" title="1. codegraph — 为 AI 编程助手打造的知识图谱"></a>1. codegraph — 为 AI 编程助手打造的知识图谱</h3><ul>
+<li><strong>Stars:</strong> ⭐ 8,015（今日 +1,910 🔥）</li>
+<li><strong>语言:</strong> TypeScript</li>
+<li><strong>地址:</strong> <a target="_blank" rel="noopener" href="https://github.com/colbymchenry/codegraph">colbymchenry&#x2F;codegraph</a></li>
+</ul>
+<p>codegraph 为 Claude Code、Codex、Cursor、OpenCode 等 AI 编码工具提供<strong>预索引的代码知识图谱</strong>。项目将代码库的结构（函数、类、调用关系）预先解析为图结构，让 AI 在推理时可以直接查询图中的节点和边，无需反复读取完整代码上下文。</p>
+<p><strong>核心价值:</strong> 减少 Token 消耗和工具调用次数，加快推理速度，全部本地运行无数据泄露风险。</p>
+<p><strong>技术栈:</strong> TypeScript + Graph 数据结构 + LSP 协议集成。</p>
+<p><strong>适用场景:</strong> 大型代码库的 AI 辅助开发、团队知识复用、代码重构分析。</p>
+<h3 id="2-academic-research-skills-claude-code-学术研究全流程"><a href="#2-academic-research-skills-—-Claude-Code-学术研究全流程" class="headerlink" title="2. academic-research-skills — Claude Code 学术研究全流程"></a>2. academic-research-skills — Claude Code 学术研究全流程</h3><ul>
+<li><strong>Stars:</strong> ⭐ 15,301（今日 +1,639 🔥）</li>
+<li><strong>语言:</strong> Python</li>
+<li><strong>地址:</strong> <a target="_blank" rel="noopener" href="https://github.com/Imbad0202/academic-research-skills">Imbad0202&#x2F;academic-research-skills</a></li>
+</ul>
+<p>一个为 Claude Code 定制的学术研究工作流框架：research → write → review → revise → finalize。覆盖从文献调研到论文终稿的全流程，让 AI 成为研究者的”第二大脑”。</p>
+<p><strong>技术栈:</strong> Python + Claude Code API + Markdown pipeline。</p>
+<p><strong>适用场景:</strong> 学术写作、文献综述、论文审稿、研究生和科研人员。</p>
+<h3 id="3-agentmemory-ai-编码-agent-的持久化记忆"><a href="#3-agentmemory-—-AI-编码-Agent-的持久化记忆" class="headerlink" title="3. agentmemory — AI 编码 Agent 的持久化记忆"></a>3. agentmemory — AI 编码 Agent 的持久化记忆</h3><ul>
+<li><strong>Stars:</strong> ⭐ 14,781（今日 +1,121 🔥）</li>
+<li><strong>语言:</strong> TypeScript</li>
+<li><strong>地址:</strong> <a target="_blank" rel="noopener" href="https://github.com/rohitg00/agentmemory">rohitg00&#x2F;agentmemory</a></li>
+</ul>
+<p>号称”基于真实世界基准测试的 #1 持久化记忆方案”。解决 AI 编码 Agent 的”金鱼记忆”问题——让 Agent 跨会话记住项目上下文、开发偏好、历史决策。</p>
+<p><strong>技术栈:</strong> TypeScript + 向量数据库 + 记忆检索算法。</p>
+<p><strong>适用场景:</strong> 长期 AI 编码助手、个人 AI 工作流、项目级记忆管理。</p>
+<h3 id="4-ai-engineering-from-scratch-从零开始的-ai-工程"><a href="#4-ai-engineering-from-scratch-—-从零开始的-AI-工程" class="headerlink" title="4. ai-engineering-from-scratch — 从零开始的 AI 工程"></a>4. ai-engineering-from-scratch — 从零开始的 AI 工程</h3><ul>
+<li><strong>Stars:</strong> ⭐ 9,060（今日 +762 🔥）</li>
+<li><strong>语言:</strong> Python</li>
+<li><strong>地址:</strong> <a target="_blank" rel="noopener" href="https://github.com/rohitg00/ai-engineering-from-scratch">rohitg00&#x2F;ai-engineering-from-scratch</a></li>
+</ul>
+<p>“Learn it. Build it. Ship it.” 一个 AI 工程实战教程，从基础原理讲到产品落地。不仅是代码教程，更包含系统设计和工程实践。</p>
+<h3 id="5-oh-my-pi-终端的-ai-编码-agent"><a href="#5-oh-my-pi-—-终端的-AI-编码-Agent" class="headerlink" title="5. oh-my-pi — 终端的 AI 编码 Agent"></a>5. oh-my-pi — 终端的 AI 编码 Agent</h3><ul>
+<li><strong>Stars:</strong> ⭐ 5,231（今日 +237 🔥）</li>
+<li><strong>语言:</strong> TypeScript</li>
+<li><strong>地址:</strong> <a target="_blank" rel="noopener" href="https://github.com/can1357/oh-my-pi">can1357&#x2F;oh-my-pi</a></li>
+</ul>
+<p>⌥ 终端 AI 编码 Agent，支持 hash-anchored edits（哈希锚定编辑）、优化工具集、LSP、Python 执行、浏览器、子 Agent 等。定位是用键盘驱动的全栈 AI 开发终端。</p>
+<h3 id="6-vimax-agentic-视频生成"><a href="#6-ViMax-—-Agentic-视频生成" class="headerlink" title="6. ViMax — Agentic 视频生成"></a>6. ViMax — Agentic 视频生成</h3><ul>
+<li><strong>Stars:</strong> ⭐ 5,826（今日 +692 🔥）</li>
+<li><strong>语言:</strong> Python</li>
+<li><strong>地址:</strong> <a target="_blank" rel="noopener" href="https://github.com/HKUDS/ViMax">HKUDS&#x2F;ViMax</a></li>
+</ul>
+<p>“Agentic Video Generation: Director, Screenwriter, Producer, and Video Generator All-in-One”。将视频生成流程拆解为多个 Agent 角色协作——导演、编剧、制片和视频生成器各司其职。</p>
+<h3 id="7-cli-anything-让所有软件-agent-native"><a href="#7-CLI-Anything-—-让所有软件-Agent-Native" class="headerlink" title="7. CLI-Anything — 让所有软件 Agent-Native"></a>7. CLI-Anything — 让所有软件 Agent-Native</h3><ul>
+<li><strong>Stars:</strong> 未完全显示</li>
+<li><strong>地址:</strong> <a target="_blank" rel="noopener" href="https://github.com/HKUDS/CLI-Anything">HKUDS&#x2F;CLI-Anything</a></li>
+</ul>
+<p>“Making ALL Software Agent-Native”——通过 CLI 接口将任意软件暴露给 AI Agent，让传统软件也能被 Agent 调用和编排。</p>
+<h3 id="8-andrej-karpathy-skills-karpathy-版-claude-code-配置"><a href="#8-andrej-karpathy-skills-—-Karpathy-版-Claude-Code-配置" class="headerlink" title="8. andrej-karpathy-skills — Karpathy 版 Claude Code 配置"></a>8. andrej-karpathy-skills — Karpathy 版 Claude Code 配置</h3><ul>
+<li><strong>地址:</strong> <a target="_blank" rel="noopener" href="https://github.com/multica-ai/andrej-karpathy-skills">multica-ai&#x2F;andrej-karpathy-skills</a></li>
+</ul>
+<p>项目将 Andrej Karpathy 关于 LLM 编码陷阱的观察提炼为一份 CLAUDE.md 文件，让 Claude Code 更好地遵循最佳实践。正好 Karpathy 今日官宣加入 Anthropic，可谓相得益彰。</p>
+<h3 id="其他值得关注的项目"><a href="#其他值得关注的项目" class="headerlink" title="其他值得关注的项目"></a>其他值得关注的项目</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>anthropics&#x2F;claude-plugins-official</strong></td>
+<td>Anthropic 官方 Claude Code 插件目录</td>
+</tr>
+<tr>
+<td><strong>obra&#x2F;superpowers</strong></td>
+<td>Agentic 技能框架与软件开发方法论</td>
+</tr>
+<tr>
+<td><strong>msitarzewski&#x2F;agency-agents</strong></td>
+<td>一站式 AI Agency 框架（从前端到 Reddit 运营）</td>
+</tr>
+<tr>
+<td><strong>tinyhumansai&#x2F;openhuman</strong></td>
+<td>私有、简洁、强大的个人 AI 超级智能</td>
+</tr>
+<tr>
+<td><strong>ggml-org&#x2F;llama.cpp</strong></td>
+<td>经典 C&#x2F;C++ LLM 推理引擎（持续更新）</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="新工具-x2f-产品速览"><a href="#新工具-产品速览" class="headerlink" title="新工具 &#x2F; 产品速览"></a>新工具 &#x2F; 产品速览</h2><h3 id="google-ix2fo-2026-系列发布"><a href="#🏢-Google-I-O-2026-系列发布" class="headerlink" title="🏢 Google I&#x2F;O 2026 系列发布"></a>🏢 Google I&#x2F;O 2026 系列发布</h3><p>Google 在本周 I&#x2F;O 大会上密集发布了一系列 AI 产品，成为今日最大的行业新闻源：</p>
+<p><strong>Gemini 3.5 Flash</strong> — 号称能帮企业级 AI 成本<strong>年省超过 10 亿美元</strong>。打破了”越智能越慢越贵”的行业铁律，在推理速度和成本之间找到新平衡点。</p>
+<p><strong>Gemini Omni</strong> — “any-to-any” 多模态模型，将文本→图像、图像→视频、视频→视频、音频生成整合到一个基础模型中。这是 Google 整合多模态生成能力的一步大棋。</p>
+<p><strong>Gemini Spark</strong> — 全天候个人 AI Agent，能在笔记本电脑合上、手机锁屏时继续工作：起草邮件、监控收件箱、整理文档，甚至未来可以替你花钱。</p>
+<p><strong>AI Ultra 降价</strong> — 从 $249.99&#x2F;月降到 $100&#x2F;月（$200 版本额外包含 Project Genie），性价比大幅提升。</p>
+<p><strong>Project Genie 扩展</strong> — AI 世界模型现在支持基于真实地点（通过 Street View 数据）生成交互式体验。</p>
+<h3 id="corti-symphony-for-speech-to-text"><a href="#🏥-Corti-Symphony-for-Speech-to-Text" class="headerlink" title="🏥 Corti Symphony for Speech-to-Text"></a>🏥 Corti Symphony for Speech-to-Text</h3><p>医疗 AI 公司 Corti 发布 Symphony 医学语音识别模型，在医学术语准确率上超越 OpenAI，专为实时听写、对话转录和批量音频处理设计。</p>
+<h3 id="aws-捕获-fal"><a href="#☁️-AWS-捕获-fal" class="headerlink" title="☁️ AWS 捕获 fal"></a>☁️ AWS 捕获 fal</h3><p>AWS 赢得 AI 媒体生成明星创企 fal 作为其优先云提供商。大型媒体集团可通过托管服务安全地实验最新工具。</p>
+<h3 id="claude-agent-企业-api-安全连接"><a href="#🔧-Claude-Agent-企业-API-安全连接" class="headerlink" title="🔧 Claude Agent 企业 API 安全连接"></a>🔧 Claude Agent 企业 API 安全连接</h3><p>Anthropic 推出了自托管沙箱和 MCP 隧道方案，让 Claude Agent 能安全连接企业内部 API，不泄露凭证——将凭证控制权放在网络边界。</p>
+<h3 id="firefox-将摇一摇总结带到-android"><a href="#🦊-Firefox-将「摇一摇总结」带到-Android" class="headerlink" title="🦊 Firefox 将「摇一摇总结」带到 Android"></a>🦊 Firefox 将「摇一摇总结」带到 Android</h3><p>继 iOS 版本后，Firefox Android 用户现可摇动设备对 5000 字以下的网页生成 AI 摘要。</p>
+<hr>
+<h2 id="行业动态"><a href="#行业动态" class="headerlink" title="行业动态"></a>行业动态</h2><h3 id="andrej-karpathy-加入-anthropic"><a href="#🔄-Andrej-Karpathy-加入-Anthropic" class="headerlink" title="🔄 Andrej Karpathy 加入 Anthropic"></a>🔄 Andrej Karpathy 加入 Anthropic</h3><p>前 OpenAI 联合创始人、前 Tesla AI 负责人 Andrej Karpathy 官宣加入 Anthropic 从事研发工作。他曾创办 AI 原生教育项目，表示教育仍是他的 passion，未来会再回来。这是继 Anthropic 从 OpenAI、Google、Meta 不断吸纳人才后的又一重磅签约。</p>
+<h3 id="google-ai-定价策略转向"><a href="#💰-Google-AI-定价策略转向" class="headerlink" title="💰 Google AI 定价策略转向"></a>💰 Google AI 定价策略转向</h3><p>从 $250&#x2F;月降至 $100&#x2F;月，与 OpenAI Pro 的 $100&#x2F;$200 定价完全对标。AI 平台的价格战正在从 API 层延伸到消费层。</p>
+<h3 id="linkedin-打击-ai-垃圾评论"><a href="#📝-LinkedIn-打击-AI-垃圾评论" class="headerlink" title="📝 LinkedIn 打击 AI 垃圾评论"></a>📝 LinkedIn 打击 AI 垃圾评论</h3><p>LinkedIn 开始限制”低质量”AI 生成的评论可见性，包括自动化工具发布的重复内容、没有新增信息的老调重弹。平台已于年初开始限制”回收”内容，现在扩展到评论区。</p>
+<h3 id="apple-推进-ai-写作辅助"><a href="#📱-Apple-推进-AI-写作辅助" class="headerlink" title="📱 Apple 推进 AI 写作辅助"></a>📱 Apple 推进 AI 写作辅助</h3><p>据 Bloomberg 的 Mark Gurman 报道，Apple 计划在 iOS 27 中内置类似 Grammarly 的 AI 语法检查和写作建议功能，预计在 WWDC 上正式发布。同时 Siri 将迎来大幅重构。</p>
+<h3 id="google-25-年来首次重新设计搜索框"><a href="#🔍-Google-25-年来首次重新设计搜索框" class="headerlink" title="🔍 Google 25 年来首次重新设计搜索框"></a>🔍 Google 25 年来首次重新设计搜索框</h3><p>从单一白色输入框转向 AI 驱动的搜索界面。这一变化的影响可能比表面上看起来深远得多——搜索的范式从”关键词匹配”转向”意图理解”。</p>
+<h3 id="langsmith-engine-自动化-agent-调试循环"><a href="#🔌-LangSmith-Engine-自动化-Agent-调试循环" class="headerlink" title="🔌 LangSmith Engine 自动化 Agent 调试循环"></a>🔌 LangSmith Engine 自动化 Agent 调试循环</h3><p>LangSmith Engine 现在可以自动检测 Agent 失败、诊断原因、甚至起草修复 PR。但报告指出，多模型企业仍需要中立的可观测性层。</p>
+<h3 id="ai-正在取代它需要学习的专家"><a href="#⚠️-AI-正在取代它需要学习的专家" class="headerlink" title="⚠️ AI 正在取代它需要学习的专家"></a>⚠️ AI 正在取代它需要学习的专家</h3><p>VentureBeat 刊登了一篇发人深省的评论：AI 系统要持续进步，需要人类专家提供训练数据——但 AI 正在逐步取代这些专家，造成自我循环的”知识断层风险”。</p>
+<hr>
+<h2 id="技术洞见"><a href="#技术洞见" class="headerlink" title="技术洞见"></a>技术洞见</h2><h3 id="趋势一agent-工具的基础设施化"><a href="#趋势一：Agent-工具的「基础设施化」" class="headerlink" title="趋势一：Agent 工具的「基础设施化」"></a>趋势一：Agent 工具的「基础设施化」</h3><p>过去几个月，AI 编码 Agent 从”能用”进化到了”好用”，而驱动这一转型的正是底层基础设施的成熟。今天的 GitHub Trending 清晰地反映了这一趋势：</p>
+<figure class="highlight sqf"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Agent</span> 编码工具演进路径</span><br><span class="line"></span><br><span class="line"><span class="number">2024</span>         <span class="number">2025</span>            <span class="number">2026</span></span><br><span class="line">Chat  ───→  Code <span class="built_in">Agent</span> ───→  <span class="built_in">Agent</span> 工具链生态</span><br><span class="line">                                   │</span><br><span class="line">                    ┌──────────────┼──────────────┐</span><br><span class="line">                    ▼              ▼              ▼</span><br><span class="line">                 codegraph     agentmemory    CLI-Anything</span><br><span class="line">                 (知识图谱)     (持久化记忆)    (接口泛化)</span><br><span class="line">                    │              │              │</span><br><span class="line">                    └──────────────┼──────────────┘</span><br><span class="line">                                   ▼</span><br><span class="line">                          <span class="built_in">Agent</span> 可以像人类开发者一样</span><br><span class="line">                          拥有「长期记忆」和「结构化理解」</span><br></pre></td></tr></table></figure>
+
+<p>这意味着：</p>
+<ol>
+<li><strong>记忆成为标配</strong> — agentmemory 单日破千星说明 Agent 记忆已从”锦上添花”变为”核心能力”</li>
+<li><strong>图结构代替纯文本</strong> — codegraph 的走红印证了”AI 需要结构化代码理解”这一判断</li>
+<li><strong>接口泛化</strong>— CLI-Anything 的思路是将所有软件变成 Agent 可调用的工具，这比 MCP 协议更轻量</li>
+</ol>
+<h3 id="趋势二多模态模型大一统"><a href="#趋势二：多模态模型大一统" class="headerlink" title="趋势二：多模态模型大一统"></a>趋势二：多模态模型大一统</h3><p>Google 的 Gemini Omni 和 ViMax 项目指向同一个方向：<strong>多模态生成正在从”拼接多个单模态模型”走向”一个模型搞定一切”</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    subgraph &quot;旧范式：拼接式多模态&quot;</span><br><span class="line">        A[文本模型] --&gt;|生成提示| B[图像模型]</span><br><span class="line">        B --&gt;|生成帧| C[视频模型]</span><br><span class="line">        C --&gt;|生成| D[最终视频]</span><br><span class="line">        A --&gt; E[音频模型]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    subgraph &quot;新范式：统一模型&quot;</span><br><span class="line">        F[单一基础模型] --&gt; G[文本]</span><br><span class="line">        F --&gt; H[图像]</span><br><span class="line">        F --&gt; I[视频]</span><br><span class="line">        F --&gt; J[音频]</span><br><span class="line">        K[统一编辑表面] --&gt; L[任意模态编辑]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    style F fill:#4A90D9,color:#fff</span><br><span class="line">    style K fill:#50C878,color:#fff</span><br></pre></td></tr></table></figure>
+
+<p>多模态统一模型的优势：</p>
+<ul>
+<li><strong>消除模态转换的信息损失</strong> — 不再需要在文本→图像的转换中丢失语义细节</li>
+<li><strong>统一的编辑界面</strong> — 对视频帧的描述性修改可以直接影响音频和文本内容</li>
+<li><strong>知识跨模态迁移</strong> — 视觉概念可以直接增强文本理解</li>
+</ul>
+<h3 id="趋势三agent-经济的平台化"><a href="#趋势三：Agent-经济的「平台化」" class="headerlink" title="趋势三：Agent 经济的「平台化」"></a>趋势三：Agent 经济的「平台化」</h3><p>从 Google Gemini Spark 到 Claude 的 enterprise API 连接，再到 LangSmith Engine 的自动调试，我们看到一个清晰的信号：<strong>AI Agent 正在从”单点工具”走向”平台级基础设施”</strong>。</p>
+<p>Google 的 Gemini Spark 甚至可以在你离线时继续工作——这意味着 Agent 的运行模式正在从”Prompt → Response”的同步交互，转向 7x24 的异步后台服务。未来的操作系统可能不再是”应用启动器”，而是”Agent 托管平台”。</p>
+<hr>
+<h2 id="热门前瞻流程图"><a href="#热门前瞻流程图" class="headerlink" title="热门前瞻流程图"></a>热门前瞻流程图</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    subgraph &quot;今日 GitHub Trending AI 项目全景&quot;</span><br><span class="line">        direction TB</span><br><span class="line">        </span><br><span class="line">        A[Agent 工具链] --&gt; B[codegraph&lt;br/&gt;代码知识图谱]</span><br><span class="line">        A --&gt; C[agentmemory&lt;br/&gt;持久化记忆]</span><br><span class="line">        A --&gt; D[oh-my-pi&lt;br/&gt;终端 Agent]</span><br><span class="line">        A --&gt; E[CLI-Anything&lt;br/&gt;接口泛化]</span><br><span class="line">        </span><br><span class="line">        F[学术/研究] --&gt; G[academic-research-skills&lt;br/&gt;研究全流程]</span><br><span class="line">        F --&gt; H[ai-engineering-from-scratch&lt;br/&gt;AI工程实战]</span><br><span class="line">        </span><br><span class="line">        I[多模态/生成] --&gt; J[ViMax&lt;br/&gt;Agentic视频生成]</span><br><span class="line">        I --&gt; K[CLI-Anything&lt;br/&gt;统一接口]</span><br><span class="line">        </span><br><span class="line">        L[生态/配置] --&gt; M[claude-plugins-official&lt;br/&gt;官方插件]</span><br><span class="line">        L --&gt; N[andrej-karpathy-skills&lt;br/&gt;最佳实践]</span><br><span class="line">        L --&gt; O[superpowers&lt;br/&gt;技能框架]</span><br><span class="line">    end</span><br><span class="line"></span><br><span class="line">    style A fill:#FF6B6B,color:#fff</span><br><span class="line">    style F fill:#4ECDC4,color:#fff</span><br><span class="line">    style I fill:#45B7D1,color:#fff</span><br><span class="line">    style L fill:#96CEB4,color:#fff</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>今日的 AI 日报呈现了一个清晰的画面：<strong>Agent 工具链正在快速基础设施化</strong>，Google I&#x2F;O 的密集发布则标志着科技巨头正式进入”Agent 平台”竞争阶段。对开发者来说，现在是认真学习 Agent 工具链的最佳时机——这些基础设施发展到今天，已经足够让个人开发者也能构建出令人惊叹的 AI 原生应用。</p>
+<p>本周 Karpathy 加入 Anthropic、Google 全面重定义搜索界面、Corti 在垂直医疗领域超越通用模型……每一个信号都在提醒我们：AI 不再是单一赛道，而是正在重塑每一个行业的基础架构。</p>
+<hr>
+<p><em>数据来源：GitHub Trending、The Verge、VentureBeat</em><br><em>发布时间：2026-05-20 22:00 (Asia&#x2F;Shanghai)</em></p>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-21/">上一篇：AI 日报 2026-05-21</a>
+  
+  
+  <a class="next" href="/computer-science/devops/k8s-context-switch/">下一篇：单机内 K8S 集群环境切换指南</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* code block copy button */
+  (function() {
+    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+      var wrap = document.createElement('div');
+      wrap.style.position = 'relative';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      var btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = '复制';
+      btn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        navigator.clipboard.writeText(text).then(function() {
+          btn.textContent = '已复制';
+          btn.classList.add('copied');
+          setTimeout(function() {
+            btn.textContent = '复制';
+            btn.classList.remove('copied');
+          }, 2000);
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    /* 匹配 mermaid 图表的关键词（首行判断） */
+    var MERMAID_RE = /^(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram|gantt|pie|erDiagram|journey|gitgraph|mindmap|timeline|zenuml|sankey|xychart|block|packet)/i;
+
+    /**
+     * Hexo 默认高亮插件将 markdown 代码块渲染为：
+     *   <figure class="highlight plaintext">
+     *     <table><tr><td class="code"><pre><span class="line">...</span>...</pre></td></tr></table>
+     *   </figure>
+     * 因此无法通过 code.language-mermaid 选择器定位。
+     * 改为：匹配所有 figure.highlight.plaintext，提取其文本内容并检查首行是否为 mermaid 关键字。
+     */
+    function findMermaidBlocks() {
+      var blocks = [];
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext');
+      for (var i = 0; i < figs.length; i++) {
+        var fig = figs[i];
+        if (fig.dataset.mermaidRendered) continue;
+
+        var lines = fig.querySelectorAll('.line');
+        if (!lines.length) continue;
+
+        var code = '';
+        for (var j = 0; j < lines.length; j++) {
+          code += lines[j].textContent + '\n';
+        }
+        code = code.trim();
+
+        /* 只处理首行为 mermaid 关键词的块 */
+        var firstLine = code.split('\n')[0].trim();
+        if (!MERMAID_RE.test(firstLine)) continue;
+
+        blocks.push({ fig: fig, code: code });
+      }
+      return blocks;
+    }
+
+    async function renderMermaid() {
+      var blocks = findMermaidBlocks();
+      for (var i = 0; i < blocks.length; i++) {
+        var fig = blocks[i].fig;
+        var origCode = blocks[i].code;
+        fig.dataset.mermaidRendered = '1';
+
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        fig.parentNode.replaceChild(container, fig);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>
