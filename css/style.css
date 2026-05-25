@@ -679,6 +679,20 @@ pre code {
 }
 
 /* ===== Code/流程图 视频播放器风格遮罩 ===== */
+.mermaid-container {
+  position: relative;
+  margin: 24px 0;
+  padding: 20px;
+  background: rgba(128,128,128,0.04);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  text-align: center;
+}
+.mermaid-container svg {
+  max-width: 100%;
+  height: auto;
+}
 .code-block-wrap {
   position: relative;
 }
