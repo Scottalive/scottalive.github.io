@@ -126,24 +126,24 @@
     </article>
     
     <article class="category-post-card">
-      <a class="category-post-link" href="/computer-science/java/javase/String%E7%B1%BB/">
-        <div class="category-post-date">2023-03-31</div>
-        <h2 class="category-post-title">String类</h2>
-        <div class="category-post-meta">
-          <span>1370 字</span>
-          <span>约 5 分钟</span>
-        </div>
-        
-      </a>
-    </article>
-    
-    <article class="category-post-card">
       <a class="category-post-link" href="/computer-science/java/javase/%E6%97%A5%E6%9C%9F%E7%B1%BB/">
         <div class="category-post-date">2023-03-31</div>
         <h2 class="category-post-title">日期类</h2>
         <div class="category-post-meta">
           <span>3539 字</span>
           <span>约 12 分钟</span>
+        </div>
+        
+      </a>
+    </article>
+    
+    <article class="category-post-card">
+      <a class="category-post-link" href="/computer-science/java/javase/String%E7%B1%BB/">
+        <div class="category-post-date">2023-03-31</div>
+        <h2 class="category-post-title">String类</h2>
+        <div class="category-post-meta">
+          <span>1370 字</span>
+          <span>约 5 分钟</span>
         </div>
         
       </a>
@@ -353,29 +353,97 @@
   </script>
 
   <script>
-  /* code block copy button */
+  /* code block copy button + enlarge modal */
   (function() {
+    /* close modal utility */
+    function closeModal(overlay) {
+      if (overlay) overlay.remove();
+      document.body.style.overflow = '';
+    }
+
+    function openCodeModal(html, isMermaid) {
+      var overlay = document.createElement('div');
+      overlay.className = 'code-modal-overlay';
+
+      var content = document.createElement('div');
+      content.className = 'code-modal-content' + (isMermaid ? ' mermaid-modal' : '');
+
+      if (isMermaid) {
+        content.innerHTML = html;
+      } else {
+        var pre = document.createElement('pre');
+        var code = document.createElement('code');
+        code.textContent = html;
+        pre.appendChild(code);
+        content.appendChild(pre);
+      }
+
+      var closeBtn = document.createElement('button');
+      closeBtn.className = 'code-modal-close';
+      closeBtn.textContent = '×';
+      closeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        closeModal(overlay);
+      });
+      content.appendChild(closeBtn);
+
+      overlay.appendChild(content);
+      document.body.appendChild(overlay);
+      document.body.style.overflow = 'hidden';
+
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeModal(overlay);
+      });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { closeModal(overlay); document.removeEventListener('keydown', esc); }
+      });
+    }
+
+    /* code block: add copy + enlarge buttons */
     document.querySelectorAll('.post-content pre').forEach(function(pre) {
       var wrap = document.createElement('div');
       wrap.style.position = 'relative';
       pre.parentNode.insertBefore(wrap, pre);
       wrap.appendChild(pre);
 
-      var btn = document.createElement('button');
-      btn.className = 'copy-btn';
-      btn.textContent = '复制';
-      btn.addEventListener('click', function() {
+      /* copy button */
+      var copyBtn = document.createElement('button');
+      copyBtn.className = 'copy-btn';
+      copyBtn.textContent = '复制';
+      copyBtn.addEventListener('click', function() {
         var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
         navigator.clipboard.writeText(text).then(function() {
-          btn.textContent = '已复制';
-          btn.classList.add('copied');
+          copyBtn.textContent = '已复制';
+          copyBtn.classList.add('copied');
           setTimeout(function() {
-            btn.textContent = '复制';
-            btn.classList.remove('copied');
+            copyBtn.textContent = '复制';
+            copyBtn.classList.remove('copied');
           }, 2000);
         });
       });
-      wrap.appendChild(btn);
+      wrap.appendChild(copyBtn);
+
+      /* enlarge button */
+      var enlBtn = document.createElement('button');
+      enlBtn.className = 'enlarge-btn';
+      enlBtn.textContent = '🔍 放大';
+      enlBtn.addEventListener('click', function() {
+        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        openCodeModal(text, false);
+      });
+      wrap.appendChild(enlBtn);
+    });
+
+    /* Mermaid containers: add enlarge button */
+    document.addEventListener('click', function(e) {
+      var container = e.target.closest('.mermaid-container');
+      if (!container) return;
+      /* only react to the enlarge button inside */
+      if (!e.target.classList.contains('enlarge-btn') && !e.target.closest('.enlarge-btn')) return;
+      var svg = container.querySelector('svg');
+      if (svg) {
+        openCodeModal(svg.outerHTML, true);
+      }
     });
   })();
   </script>
@@ -442,6 +510,10 @@
 
         try {
           await mermaid.run({ nodes: [container] });
+          var enlBtn = document.createElement('button');
+          enlBtn.className = 'enlarge-btn';
+          enlBtn.textContent = '🔍 放大';
+          container.appendChild(enlBtn);
         } catch(e) {
           container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
           container.removeAttribute('data-orig');
@@ -471,6 +543,14 @@
           });
           if (containers.length > 0) {
             try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+            containers.forEach(function(c) {
+              if (!c.querySelector('.enlarge-btn')) {
+                var enlBtn = document.createElement('button');
+                enlBtn.className = 'enlarge-btn';
+                enlBtn.textContent = '🔍 放大';
+                c.appendChild(enlBtn);
+              }
+            });
           }
         }, 150);
       });
