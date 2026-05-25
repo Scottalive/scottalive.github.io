@@ -303,46 +303,6 @@
       
       
       <article class="category-card">
-        <a class="category-card-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Java/%E7%AE%97%E6%B3%95/">
-          <div class="category-card-head">
-            <div>
-              <h2 class="category-card-title">算法</h2>
-              <p class="category-card-meta">
-                <span>8 篇文章</span>
-                
-                <span>最近更新 2026-05-02</span>
-                
-              </p>
-            </div>
-            <span class="category-card-count">8</span>
-          </div>
-
-          
-          <ul class="category-card-posts">
-            
-            <li>
-              <span>05-02</span>
-              <strong>动态规划算法详解</strong>
-            </li>
-            
-            <li>
-              <span>09-24</span>
-              <strong>力扣算法题-5-最长回文子串</strong>
-            </li>
-            
-            <li>
-              <span>09-22</span>
-              <strong>力扣算法题-4-整数反转</strong>
-            </li>
-            
-          </ul>
-          
-        </a>
-      </article>
-    
-      
-      
-      <article class="category-card">
         <a class="category-card-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Java/JavaSE/">
           <div class="category-card-head">
             <div>
@@ -373,6 +333,46 @@
             <li>
               <span>03-31</span>
               <strong>String类</strong>
+            </li>
+            
+          </ul>
+          
+        </a>
+      </article>
+    
+      
+      
+      <article class="category-card">
+        <a class="category-card-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Java/%E7%AE%97%E6%B3%95/">
+          <div class="category-card-head">
+            <div>
+              <h2 class="category-card-title">算法</h2>
+              <p class="category-card-meta">
+                <span>8 篇文章</span>
+                
+                <span>最近更新 2026-05-02</span>
+                
+              </p>
+            </div>
+            <span class="category-card-count">8</span>
+          </div>
+
+          
+          <ul class="category-card-posts">
+            
+            <li>
+              <span>05-02</span>
+              <strong>动态规划算法详解</strong>
+            </li>
+            
+            <li>
+              <span>09-24</span>
+              <strong>力扣算法题-5-最长回文子串</strong>
+            </li>
+            
+            <li>
+              <span>09-22</span>
+              <strong>力扣算法题-4-整数反转</strong>
             </li>
             
           </ul>
@@ -568,36 +568,6 @@
       
       
       <article class="category-card">
-        <a class="category-card-link" href="/categories/%E7%94%9F%E6%B4%BB%E4%B9%A0%E6%83%AF/">
-          <div class="category-card-head">
-            <div>
-              <h2 class="category-card-title">生活习惯</h2>
-              <p class="category-card-meta">
-                <span>1 篇文章</span>
-                
-                <span>最近更新 2023-09-17</span>
-                
-              </p>
-            </div>
-            <span class="category-card-count">1</span>
-          </div>
-
-          
-          <ul class="category-card-posts">
-            
-            <li>
-              <span>09-17</span>
-              <strong>坏习惯</strong>
-            </li>
-            
-          </ul>
-          
-        </a>
-      </article>
-    
-      
-      
-      <article class="category-card">
         <a class="category-card-link" href="/categories/%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B/">
           <div class="category-card-head">
             <div>
@@ -618,6 +588,36 @@
             <li>
               <span>06-22</span>
               <strong>个人原则</strong>
+            </li>
+            
+          </ul>
+          
+        </a>
+      </article>
+    
+      
+      
+      <article class="category-card">
+        <a class="category-card-link" href="/categories/%E7%94%9F%E6%B4%BB%E4%B9%A0%E6%83%AF/">
+          <div class="category-card-head">
+            <div>
+              <h2 class="category-card-title">生活习惯</h2>
+              <p class="category-card-meta">
+                <span>1 篇文章</span>
+                
+                <span>最近更新 2023-09-17</span>
+                
+              </p>
+            </div>
+            <span class="category-card-count">1</span>
+          </div>
+
+          
+          <ul class="category-card-posts">
+            
+            <li>
+              <span>09-17</span>
+              <strong>坏习惯</strong>
             </li>
             
           </ul>
@@ -1077,8 +1077,11 @@
     var mo = setInterval(function() {
       addMermaidOverlay();
       var left = document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)');
-      if (!left.length) clearInterval(mo);
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext:not([data-mermaid-rendered])');
+      if (!left.length && !figs.length) clearInterval(mo);
     }, 300);
+    /* 最多跑 8 秒后自动停止 */
+    setTimeout(function() { if (mo) clearInterval(mo); }, 8000);
   })();
   </script>
 

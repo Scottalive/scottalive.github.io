@@ -434,8 +434,11 @@
     var mo = setInterval(function() {
       addMermaidOverlay();
       var left = document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)');
-      if (!left.length) clearInterval(mo);
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext:not([data-mermaid-rendered])');
+      if (!left.length && !figs.length) clearInterval(mo);
     }, 300);
+    /* 最多跑 8 秒后自动停止 */
+    setTimeout(function() { if (mo) clearInterval(mo); }, 8000);
   })();
   </script>
 
