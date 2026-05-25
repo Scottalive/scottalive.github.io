@@ -331,64 +331,123 @@
   </script>
 
   <script>
-  /* code block copy button + enlarge modal */
+  /* Code + Mermaid Viewer — 视频播放器风格 */
   (function() {
-    /* close modal utility */
-    function closeModal(overlay) {
-      if (overlay) overlay.remove();
-      document.body.style.overflow = '';
+    var activeOverlay = null;
+
+    function closeViewer() {
+      if (!activeOverlay) return;
+      activeOverlay.style.opacity = '0';
+      var content = activeOverlay.querySelector('.code-viewer');
+      if (content) {
+        content.style.transform = 'translateY(32px) scale(0.96)';
+        content.style.opacity = '0';
+      }
+      setTimeout(function() {
+        if (activeOverlay) { activeOverlay.remove(); activeOverlay = null; }
+        document.body.style.overflow = '';
+      }, 200);
     }
 
-    function openCodeModal(html, isMermaid) {
+    function openViewer(opts) {
+      if (activeOverlay) closeViewer();
+      var title = opts.title || '代码块';
+      var bodyHtml = opts.bodyHtml || '';
+      var copyText = opts.copyText || '';
+      var isMermaid = opts.isMermaid || false;
+
       var overlay = document.createElement('div');
-      overlay.className = 'code-modal-overlay';
+      overlay.className = 'code-viewer-overlay';
+      overlay.style.opacity = '0';
 
-      var content = document.createElement('div');
-      content.className = 'code-modal-content' + (isMermaid ? ' mermaid-modal' : '');
+      var viewer = document.createElement('div');
+      viewer.className = 'code-viewer';
 
-      if (isMermaid) {
-        content.innerHTML = html;
-      } else {
-        var pre = document.createElement('pre');
-        var code = document.createElement('code');
-        code.textContent = html;
-        pre.appendChild(code);
-        content.appendChild(pre);
+      /* --- Toolbar --- */
+      var toolbar = document.createElement('div');
+      toolbar.className = 'code-viewer-toolbar';
+
+      var titleSpan = document.createElement('span');
+      titleSpan.className = 'code-viewer-title';
+      titleSpan.innerHTML = '<span class="icon">' + (isMermaid ? '📊' : '&lt;/&gt;') + '</span> ' + title;
+      toolbar.appendChild(titleSpan);
+
+      var actions = document.createElement('div');
+      actions.className = 'code-viewer-actions';
+
+      if (copyText) {
+        var copyBtn = document.createElement('button');
+        copyBtn.className = 'code-viewer-btn';
+        copyBtn.innerHTML = '📋 复制代码';
+        copyBtn.addEventListener('click', function() {
+          navigator.clipboard.writeText(copyText).then(function() {
+            copyBtn.innerHTML = '✅ 已复制';
+            copyBtn.classList.add('copied');
+            setTimeout(function() {
+              copyBtn.innerHTML = '📋 复制代码';
+              copyBtn.classList.remove('copied');
+            }, 2000);
+          });
+        });
+        actions.appendChild(copyBtn);
       }
 
       var closeBtn = document.createElement('button');
-      closeBtn.className = 'code-modal-close';
-      closeBtn.textContent = '×';
+      closeBtn.className = 'code-viewer-close';
+      closeBtn.innerHTML = '✕';
       closeBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        closeModal(overlay);
+        closeViewer();
       });
-      content.appendChild(closeBtn);
+      actions.appendChild(closeBtn);
 
-      overlay.appendChild(content);
+      toolbar.appendChild(actions);
+      viewer.appendChild(toolbar);
+
+      /* --- Body --- */
+      var body = document.createElement('div');
+      body.className = 'code-viewer-body' + (isMermaid ? ' mermaid-body' : '');
+      if (isMermaid) {
+        body.innerHTML = bodyHtml;
+      } else {
+        var pre = document.createElement('pre');
+        var code = document.createElement('code');
+        code.textContent = bodyHtml;
+        pre.appendChild(code);
+        body.appendChild(pre);
+      }
+      viewer.appendChild(body);
+
+      overlay.appendChild(viewer);
       document.body.appendChild(overlay);
       document.body.style.overflow = 'hidden';
+      activeOverlay = overlay;
 
+      /* animate in */
+      requestAnimationFrame(function() { overlay.style.opacity = '1'; });
+
+      /* close on backdrop click */
       overlay.addEventListener('click', function(e) {
-        if (e.target === overlay) closeModal(overlay);
+        if (e.target === overlay) closeViewer();
       });
       document.addEventListener('keydown', function esc(e) {
-        if (e.key === 'Escape') { closeModal(overlay); document.removeEventListener('keydown', esc); }
+        if (e.key === 'Escape') { closeViewer(); document.removeEventListener('keydown', esc); }
       });
     }
 
-    /* code block: add copy + enlarge buttons */
+    /* ---- 代码块：视频播放器遮罩 ---- */
     document.querySelectorAll('.post-content pre').forEach(function(pre) {
       var wrap = document.createElement('div');
-      wrap.style.position = 'relative';
+      wrap.className = 'code-block-wrap';
       pre.parentNode.insertBefore(wrap, pre);
       wrap.appendChild(pre);
 
-      /* copy button */
+      /* 复制按钮（保留） */
       var copyBtn = document.createElement('button');
       copyBtn.className = 'copy-btn';
       copyBtn.textContent = '复制';
-      copyBtn.addEventListener('click', function() {
+      copyBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
         var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
         navigator.clipboard.writeText(text).then(function() {
           copyBtn.textContent = '已复制';
@@ -401,28 +460,81 @@
       });
       wrap.appendChild(copyBtn);
 
-      /* enlarge button */
-      var enlBtn = document.createElement('button');
-      enlBtn.className = 'enlarge-btn';
-      enlBtn.textContent = '🔍 放大';
-      enlBtn.addEventListener('click', function() {
-        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
-        openCodeModal(text, false);
+      /* 视频播放器样式的悬浮遮罩 */
+      var overlay = document.createElement('div');
+      overlay.className = 'code-block-overlay';
+      overlay.innerHTML = '<button class="code-block-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>';
+
+      var codeText = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+      var lines = codeText.split('\n').length;
+
+      var bar = document.createElement('div');
+      bar.className = 'code-block-bar';
+      bar.innerHTML = '<span>' + lines + ' 行 &middot; 点击全屏查看</span>';
+
+      overlay.addEventListener('click', function() {
+        openViewer({
+          title: '代码块',
+          bodyHtml: codeText,
+          copyText: codeText
+        });
       });
-      wrap.appendChild(enlBtn);
+
+      wrap.appendChild(overlay);
+      wrap.appendChild(bar);
     });
 
-    /* Mermaid containers: add enlarge button */
-    document.addEventListener('click', function(e) {
-      var container = e.target.closest('.mermaid-container');
-      if (!container) return;
-      /* only react to the enlarge button inside */
-      if (!e.target.classList.contains('enlarge-btn') && !e.target.closest('.enlarge-btn')) return;
-      var svg = container.querySelector('svg');
-      if (svg) {
-        openCodeModal(svg.outerHTML, true);
-      }
-    });
+    /* ---- Mermaid 容器：视频播放器遮罩 ---- */
+    /* 使用事件委托，因为 Mermaid 是异步渲染的 */
+    var origAddOverlay = function(container) {
+      if (container.querySelector('.code-block-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'code-block-overlay';
+      overlay.innerHTML = '<button class="code-block-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>';
+
+      var bar = document.createElement('div');
+      bar.className = 'code-block-bar';
+      bar.innerHTML = '<span>流程图 &middot; 点击放大查看</span>';
+
+      overlay.addEventListener('click', function() {
+        var origCode = container.getAttribute('data-orig');
+        if (!origCode) return;
+        /* 重新渲染 Mermaid 为大尺寸 */
+        var tmp = document.createElement('div');
+        tmp.textContent = origCode;
+        mermaid.run({ nodes: [tmp] }).then(function() {
+          openViewer({
+            title: '流程图',
+            bodyHtml: tmp.innerHTML,
+            isMermaid: true,
+            copyText: origCode
+          });
+        }).catch(function() {
+          openViewer({
+            title: '流程图（源码）',
+            bodyHtml: origCode,
+            copyText: origCode
+          });
+        });
+      });
+
+      container.appendChild(overlay);
+      container.appendChild(bar);
+    };
+
+    /* 给已有的 Mermaid 容器加遮罩（首次加载后） */
+    var readyCheck = setInterval(function() {
+      var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+      var done = true;
+      containers.forEach(function(c) {
+        if (c.querySelector('svg') && !c.querySelector('.code-block-overlay')) {
+          origAddOverlay(c);
+        }
+        if (!c.querySelector('.code-block-overlay')) done = false;
+      });
+      if (done) clearInterval(readyCheck);
+    }, 200);
   })();
   </script>
 
@@ -488,10 +600,6 @@
 
         try {
           await mermaid.run({ nodes: [container] });
-          var enlBtn = document.createElement('button');
-          enlBtn.className = 'enlarge-btn';
-          enlBtn.textContent = '🔍 放大';
-          container.appendChild(enlBtn);
         } catch(e) {
           container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
           container.removeAttribute('data-orig');
@@ -521,14 +629,6 @@
           });
           if (containers.length > 0) {
             try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
-            containers.forEach(function(c) {
-              if (!c.querySelector('.enlarge-btn')) {
-                var enlBtn = document.createElement('button');
-                enlBtn.className = 'enlarge-btn';
-                enlBtn.textContent = '🔍 放大';
-                c.appendChild(enlBtn);
-              }
-            });
           }
         }, 150);
       });

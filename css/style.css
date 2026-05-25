@@ -587,19 +587,6 @@ a:hover { color: var(--primary-dark); }
 }
 
 /* ===== Mermaid 流程图 ===== */
-.mermaid-container {
-  margin: 24px 0;
-  padding: 20px;
-  background: rgba(128,128,128,0.04);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  overflow-x: auto;
-  text-align: center;
-}
-.mermaid-container svg {
-  max-width: 100%;
-  height: auto;
-}
 .mermaid-error {
   color: #e74c3c;
   background: rgba(231,76,60,0.06);
@@ -691,130 +678,255 @@ pre code {
   color: #11111b;
 }
 
-/* enlarge button for code blocks / mermaid */
-.enlarge-btn {
-  position: absolute;
-  top: 8px;
-  right: 64px;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 5px 12px;
-  border: none;
-  border-radius: 6px;
-  background: rgba(255,255,255,0.08);
-  color: #cdd6f4;
-  font-size: 0.78rem;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.2s;
-  line-height: 1.5;
-}
-.enlarge-btn:hover {
-  background: rgba(255,255,255,0.16);
-}
-
-.mermaid-container .enlarge-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: rgba(0,0,0,0.06);
-  color: var(--text-light);
-}
-.mermaid-container .enlarge-btn:hover {
-  background: rgba(0,0,0,0.12);
-}
-[data-theme="dark"] .mermaid-container .enlarge-btn {
-  background: rgba(255,255,255,0.08);
-  color: #cdd6f4;
-}
-[data-theme="dark"] .mermaid-container .enlarge-btn:hover {
-  background: rgba(255,255,255,0.16);
-}
-
-.mermaid-container {
+/* ===== Video-player style overlay ===== */
+.code-block-wrap {
   position: relative;
 }
+.mermaid-container {
+  position: relative;
+  margin: 24px 0;
+  padding: 20px;
+  background: rgba(128,128,128,0.04);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  text-align: center;
+}
 
-/* ===== Code / Mermaid Modal ===== */
-.code-modal-overlay {
-  position: fixed;
+/* Hover overlay — like video player */
+.code-block-overlay {
+  position: absolute;
   inset: 0;
-  z-index: 2000;
-  background: rgba(0,0,0,0.82);
+  background: rgba(0,0,0,0.55);
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: fadeIn 0.2s;
-  padding: 32px;
-}
-.code-modal-content {
-  background: #1e1e2e;
+  opacity: 0;
+  transition: opacity 0.25s;
+  cursor: pointer;
+  z-index: 5;
   border-radius: var(--radius);
-  max-width: 95vw;
-  max-height: 90vh;
-  overflow: auto;
-  box-shadow: 0 8px 50px rgba(0,0,0,0.5);
-  animation: zoomIn 0.25s;
+}
+.code-block-wrap:hover .code-block-overlay,
+.mermaid-container:hover .code-block-overlay {
+  opacity: 1;
+}
+
+/* ▶ play button */
+.code-block-play-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+}
+.code-block-play-btn:hover {
+  transform: scale(1.12);
+  background: #fff;
+}
+.code-block-play-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: #1e1e2e;
+  margin-left: 3px;
+}
+
+/* Bottom bar — line count etc */
+.code-block-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 36px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.55));
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 0 14px 7px;
+  opacity: 0;
+  transition: opacity 0.25s;
+  pointer-events: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  z-index: 6;
+}
+.code-block-wrap:hover .code-block-bar,
+.mermaid-container:hover .code-block-bar {
+  opacity: 1;
+}
+.code-block-bar span {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+}
+
+/* ===== Code Viewer Modal (视频播放器风格) ===== */
+@keyframes viewerFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes viewerSlideUp {
+  from { opacity: 0; transform: translateY(32px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.code-viewer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  transition: opacity 0.2s;
+}
+.code-viewer {
+  background: var(--card-bg);
+  border-radius: 14px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   position: relative;
+  animation: viewerSlideUp 0.3s ease-out;
+  transition: width 0.1s, height 0.1s;
+  resize: both;
+  min-width: 420px;
+  min-height: 280px;
+  width: 88vw;
+  max-width: 1100px;
+  height: 78vh;
+  max-height: 780px;
 }
-.code-modal-content pre {
-  margin: 0;
-  padding: 32px;
-  border-radius: var(--radius);
-  max-height: 85vh;
+
+/* Toolbar */
+.code-viewer-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--card-bg);
+  flex-shrink: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.code-viewer-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.code-viewer-title .icon {
+  font-size: 1rem;
+}
+.code-viewer-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.code-viewer-btn {
+  padding: 5px 13px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.75rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.18s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.code-viewer-btn:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+.code-viewer-btn.copied {
+  background: #a6e3a1;
+  color: #11111b;
+  border-color: #a6e3a1;
+}
+[data-theme="dark"] .code-viewer-btn.copied {
+  background: #a6e3a1;
+  color: #11111b;
+  border-color: #a6e3a1;
+}
+.code-viewer-close {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.18s;
+}
+.code-viewer-close:hover {
+  background: rgba(0,0,0,0.06);
+  color: var(--text);
+}
+[data-theme="dark"] .code-viewer-close:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* Body */
+.code-viewer-body {
+  flex: 1;
   overflow: auto;
   background: #1e1e2e;
-  font-size: 0.95rem;
-  line-height: 1.7;
 }
-.code-modal-content pre code {
+.code-viewer-body pre {
+  margin: 0;
+  padding: 24px;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 100%;
+}
+.code-viewer-body pre code {
   background: none;
   color: #cdd6f4;
   padding: 0;
 }
-.code-modal-close {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 36px;
-  height: 36px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.1);
-  color: #cdd6f4;
-  font-size: 1.2rem;
-  cursor: pointer;
+[data-theme="dark"] .code-viewer-body {
+  background: #11111b;
+}
+
+/* Mermaid in viewer */
+.code-viewer-body.mermaid-body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s;
-  z-index: 10;
-}
-.code-modal-close:hover {
-  background: rgba(255,255,255,0.2);
-}
-
-/* Mermaid modal — larger SVG */
-.code-modal-content.mermaid-modal {
-  background: var(--card-bg);
+  background: var(--bg);
   padding: 32px;
-  text-align: center;
+  min-height: 300px;
 }
-.code-modal-content.mermaid-modal svg {
-  max-width: 90vw;
-  max-height: 80vh;
-  width: auto;
+.code-viewer-body.mermaid-body svg {
+  max-width: 100%;
   height: auto;
 }
-[data-theme="dark"] .code-modal-content {
-  background: #1e1e2e;
-}
-[data-theme="dark"] .code-modal-content pre {
-  background: #1e1e2e;
-}
-
-/* Enlarge button for mermaid-container — top-right positioning */
 
 /* ===== 分页 ===== */
 .pagination {
