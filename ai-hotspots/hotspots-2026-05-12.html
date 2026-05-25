@@ -381,8 +381,8 @@
 
     /* ---- 事件委托：处理代码块 / Mermaid 点击 ---- */
     document.addEventListener('click', function(e) {
-      /* look up for a .code-block-overlay or .code-block-play */
-      var overlay = e.target.closest('.code-block-overlay, .code-block-play');
+      /* only react to the play button, not the whole overlay */
+      var overlay = e.target.closest('.code-block-play');
       if (!overlay) return;
       var wrap = overlay.closest('.code-block-wrap, .mermaid-container');
       if (!wrap) return;

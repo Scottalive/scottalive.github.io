@@ -68,9 +68,9 @@
     <div class="post-tags">
       标签：
       
-      <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%88%86%E4%BA%AB/">个人分享</a>
-      
       <a href="/tags/%E5%9D%8F%E4%B9%A0%E6%83%AF/">坏习惯</a>
+      
+      <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%88%86%E4%BA%AB/">个人分享</a>
       
     </div>
     
@@ -409,8 +409,8 @@
 
     /* ---- 事件委托：处理代码块 / Mermaid 点击 ---- */
     document.addEventListener('click', function(e) {
-      /* look up for a .code-block-overlay or .code-block-play */
-      var overlay = e.target.closest('.code-block-overlay, .code-block-play');
+      /* only react to the play button, not the whole overlay */
+      var overlay = e.target.closest('.code-block-play');
       if (!overlay) return;
       var wrap = overlay.closest('.code-block-wrap, .mermaid-container');
       if (!wrap) return;
