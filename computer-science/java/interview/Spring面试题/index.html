@@ -447,210 +447,166 @@
   </script>
 
   <script>
-  /* Code + Mermaid Viewer — 视频播放器风格 */
+  /* Code + Mermaid — 视频播放器风格放大查看 */
   (function() {
-    var activeOverlay = null;
+    'use strict';
+    var currentViewer = null;
 
-    function closeViewer() {
-      if (!activeOverlay) return;
-      activeOverlay.style.opacity = '0';
-      var content = activeOverlay.querySelector('.code-viewer');
-      if (content) {
-        content.style.transform = 'translateY(32px) scale(0.96)';
-        content.style.opacity = '0';
-      }
-      setTimeout(function() {
-        if (activeOverlay) { activeOverlay.remove(); activeOverlay = null; }
-        document.body.style.overflow = '';
-      }, 200);
-    }
-
-    function openViewer(opts) {
-      if (activeOverlay) closeViewer();
-      var title = opts.title || '代码块';
-      var bodyHtml = opts.bodyHtml || '';
-      var copyText = opts.copyText || '';
-      var isMermaid = opts.isMermaid || false;
+    /* ---- 弹窗 ---- */
+    function showViewer(opts) {
+      if (currentViewer) { currentViewer.remove(); currentViewer = null; }
+      var isMermaid = !!opts.isMermaid;
 
       var overlay = document.createElement('div');
       overlay.className = 'code-viewer-overlay';
-      overlay.style.opacity = '0';
 
       var viewer = document.createElement('div');
       viewer.className = 'code-viewer';
 
-      /* --- Toolbar --- */
-      var toolbar = document.createElement('div');
-      toolbar.className = 'code-viewer-toolbar';
+      /* toolbar */
+      var tb = document.createElement('div');
+      tb.className = 'code-viewer-toolbar';
+      tb.innerHTML = '<span class="code-viewer-title">' +
+        '<span>' + (isMermaid ? '📊' : '&lt;/&gt;') + '</span> ' + opts.title + '</span>' +
+        '<div class="code-viewer-actions">' +
+        (opts.copyText ? '<button class="code-viewer-btn" data-copy>📋 复制</button>' : '') +
+        '<button class="code-viewer-close">✕</button></div>';
+      viewer.appendChild(tb);
 
-      var titleSpan = document.createElement('span');
-      titleSpan.className = 'code-viewer-title';
-      titleSpan.innerHTML = '<span class="icon">' + (isMermaid ? '📊' : '&lt;/&gt;') + '</span> ' + title;
-      toolbar.appendChild(titleSpan);
-
-      var actions = document.createElement('div');
-      actions.className = 'code-viewer-actions';
-
-      if (copyText) {
-        var copyBtn = document.createElement('button');
-        copyBtn.className = 'code-viewer-btn';
-        copyBtn.innerHTML = '📋 复制代码';
-        copyBtn.addEventListener('click', function() {
-          navigator.clipboard.writeText(copyText).then(function() {
-            copyBtn.innerHTML = '✅ 已复制';
-            copyBtn.classList.add('copied');
-            setTimeout(function() {
-              copyBtn.innerHTML = '📋 复制代码';
-              copyBtn.classList.remove('copied');
-            }, 2000);
-          });
-        });
-        actions.appendChild(copyBtn);
-      }
-
-      var closeBtn = document.createElement('button');
-      closeBtn.className = 'code-viewer-close';
-      closeBtn.innerHTML = '✕';
-      closeBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        closeViewer();
-      });
-      actions.appendChild(closeBtn);
-
-      toolbar.appendChild(actions);
-      viewer.appendChild(toolbar);
-
-      /* --- Body --- */
+      /* body */
       var body = document.createElement('div');
       body.className = 'code-viewer-body' + (isMermaid ? ' mermaid-body' : '');
       if (isMermaid) {
-        body.innerHTML = bodyHtml;
+        body.innerHTML = opts.bodyHtml;
       } else {
-        var pre = document.createElement('pre');
-        var code = document.createElement('code');
-        code.textContent = bodyHtml;
-        pre.appendChild(code);
-        body.appendChild(pre);
+        body.innerHTML = '<pre><code>' + escHtml(opts.bodyHtml) + '</code></pre>';
       }
       viewer.appendChild(body);
-
       overlay.appendChild(viewer);
       document.body.appendChild(overlay);
       document.body.style.overflow = 'hidden';
-      activeOverlay = overlay;
+      currentViewer = overlay;
 
-      /* animate in */
-      requestAnimationFrame(function() { overlay.style.opacity = '1'; });
+      /* copy logic */
+      var copyBtn = tb.querySelector('[data-copy]');
+      if (copyBtn && opts.copyText) {
+        copyBtn.addEventListener('click', function() {
+          navigator.clipboard.writeText(opts.copyText).then(function() {
+            copyBtn.textContent = '✅ 已复制';
+            copyBtn.classList.add('copied');
+            setTimeout(function() { copyBtn.textContent = '📋 复制'; copyBtn.classList.remove('copied'); }, 2000);
+          });
+        });
+      }
 
-      /* close on backdrop click */
-      overlay.addEventListener('click', function(e) {
-        if (e.target === overlay) closeViewer();
-      });
-      document.addEventListener('keydown', function esc(e) {
-        if (e.key === 'Escape') { closeViewer(); document.removeEventListener('keydown', esc); }
-      });
+      /* close handlers */
+      tb.querySelector('.code-viewer-close').addEventListener('click', closeViewer);
+      overlay.addEventListener('click', function(e) { if (e.target === overlay) closeViewer(); });
+      document.addEventListener('keydown', onEsc);
     }
 
-    /* ---- 代码块：视频播放器遮罩 ---- */
-    document.querySelectorAll('.post-content pre').forEach(function(pre) {
+    function closeViewer() {
+      if (!currentViewer) return;
+      currentViewer.remove(); currentViewer = null;
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onEsc);
+    }
+    function onEsc(e) { if (e.key === 'Escape') closeViewer(); }
+
+    function escHtml(s) {
+      return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    /* ---- 事件委托：处理代码块 / Mermaid 点击 ---- */
+    document.addEventListener('click', function(e) {
+      /* look up for a .code-block-overlay or .code-block-play */
+      var overlay = e.target.closest('.code-block-overlay, .code-block-play');
+      if (!overlay) return;
+      var wrap = overlay.closest('.code-block-wrap, .mermaid-container');
+      if (!wrap) return;
+
+      if (wrap.classList.contains('code-block-wrap')) {
+        /* 代码块 */
+        var pre = wrap.querySelector('pre');
+        if (!pre) return;
+        var text = pre.innerText || pre.textContent || '';
+        showViewer({ title: '代码块', bodyHtml: text, copyText: text });
+      } else {
+        /* Mermaid 流程图 */
+        var origCode = wrap.getAttribute('data-orig');
+        if (!origCode) return;
+        /* 重新渲染大图 */
+        var tmp = document.createElement('div');
+        tmp.textContent = origCode;
+        if (typeof mermaid !== 'undefined' && mermaid.run) {
+          mermaid.run({ nodes: [tmp] }).then(function() {
+            showViewer({ title: '流程图', bodyHtml: tmp.innerHTML, isMermaid: true, copyText: origCode });
+          }).catch(function() {
+            showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+          });
+        } else {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        }
+      }
+    });
+
+    /* ---- 初始化：给每个代码块包上 play 遮罩 ---- */
+    var preList = document.querySelectorAll('.post-content figure.highlight td.code pre, .post-content > pre');
+    preList.forEach(function(pre) {
+      if (pre.closest('.code-block-wrap')) return; /* 已包装 */
       var wrap = document.createElement('div');
       wrap.className = 'code-block-wrap';
       pre.parentNode.insertBefore(wrap, pre);
       wrap.appendChild(pre);
 
-      /* 复制按钮（保留） */
+      /* 复制按钮 */
       var copyBtn = document.createElement('button');
       copyBtn.className = 'copy-btn';
       copyBtn.textContent = '复制';
       copyBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        var text = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
+        var text = pre.innerText || pre.textContent || '';
         navigator.clipboard.writeText(text).then(function() {
           copyBtn.textContent = '已复制';
           copyBtn.classList.add('copied');
-          setTimeout(function() {
-            copyBtn.textContent = '复制';
-            copyBtn.classList.remove('copied');
-          }, 2000);
+          setTimeout(function() { copyBtn.textContent = '复制'; copyBtn.classList.remove('copied'); }, 2000);
         });
       });
       wrap.appendChild(copyBtn);
 
-      /* 视频播放器样式的悬浮遮罩 */
-      var overlay = document.createElement('div');
-      overlay.className = 'code-block-overlay';
-      overlay.innerHTML = '<button class="code-block-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>';
+      /* 悬浮遮罩（视频播放器风格） */
+      var lineCount = (pre.innerText || '').split('\n').length;
+      var ov = document.createElement('div');
+      ov.className = 'code-block-overlay';
+      ov.innerHTML = '<button class="code-block-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>';
+      wrap.appendChild(ov);
 
-      var codeText = pre.querySelector('code') ? pre.querySelector('code').innerText : pre.innerText;
-      var lines = codeText.split('\n').length;
-
-      var bar = document.createElement('div');
-      bar.className = 'code-block-bar';
-      bar.innerHTML = '<span>' + lines + ' 行 &middot; 点击全屏查看</span>';
-
-      overlay.addEventListener('click', function() {
-        openViewer({
-          title: '代码块',
-          bodyHtml: codeText,
-          copyText: codeText
-        });
-      });
-
-      wrap.appendChild(overlay);
-      wrap.appendChild(bar);
+      var info = document.createElement('div');
+      info.className = 'code-block-info';
+      info.innerHTML = '<span>' + lineCount + ' 行</span>';
+      wrap.appendChild(info);
     });
 
-    /* ---- Mermaid 容器：视频播放器遮罩 ---- */
-    /* 使用事件委托，因为 Mermaid 是异步渲染的 */
-    var origAddOverlay = function(container) {
-      if (container.querySelector('.code-block-overlay')) return;
-
-      var overlay = document.createElement('div');
-      overlay.className = 'code-block-overlay';
-      overlay.innerHTML = '<button class="code-block-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>';
-
-      var bar = document.createElement('div');
-      bar.className = 'code-block-bar';
-      bar.innerHTML = '<span>流程图 &middot; 点击放大查看</span>';
-
-      overlay.addEventListener('click', function() {
-        var origCode = container.getAttribute('data-orig');
-        if (!origCode) return;
-        /* 重新渲染 Mermaid 为大尺寸 */
-        var tmp = document.createElement('div');
-        tmp.textContent = origCode;
-        mermaid.run({ nodes: [tmp] }).then(function() {
-          openViewer({
-            title: '流程图',
-            bodyHtml: tmp.innerHTML,
-            isMermaid: true,
-            copyText: origCode
-          });
-        }).catch(function() {
-          openViewer({
-            title: '流程图（源码）',
-            bodyHtml: origCode,
-            copyText: origCode
-          });
-        });
+    /* ---- Mermaid 容器遮罩 ---- */
+    function addMermaidOverlay() {
+      document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)').forEach(function(c) {
+        if (!c.querySelector('svg')) return;
+        c.classList.add('has-overlay');
+        var ov = document.createElement('div');
+        ov.className = 'code-block-overlay';
+        ov.innerHTML = '<button class="code-block-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>';
+        c.appendChild(ov);
+        var info = document.createElement('div');
+        info.className = 'code-block-info';
+        info.innerHTML = '<span>流程图</span>';
+        c.appendChild(info);
       });
-
-      container.appendChild(overlay);
-      container.appendChild(bar);
-    };
-
-    /* 给已有的 Mermaid 容器加遮罩（首次加载后） */
-    var readyCheck = setInterval(function() {
-      var containers = document.querySelectorAll('.mermaid-container[data-orig]');
-      var done = true;
-      containers.forEach(function(c) {
-        if (c.querySelector('svg') && !c.querySelector('.code-block-overlay')) {
-          origAddOverlay(c);
-        }
-        if (!c.querySelector('.code-block-overlay')) done = false;
-      });
-      if (done) clearInterval(readyCheck);
-    }, 200);
+    }
+    var mo = setInterval(function() {
+      addMermaidOverlay();
+      var left = document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)');
+      if (!left.length) clearInterval(mo);
+    }, 300);
   })();
   </script>
 
