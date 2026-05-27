@@ -12,20 +12,10 @@
         <category>GitHub热门</category>
         <category>人工智能</category>
         <category>技术趋势</category>
-        <category>坏习惯</category>
-        <category>个人分享</category>
         <category>原则</category>
         <category>个人详情</category>
-        <category>Kubernetes</category>
-        <category>k8s</category>
-        <category>容器编排</category>
-        <category>DevOps</category>
-        <category>运维</category>
-        <category>kubeconfig</category>
-        <category>kubectl</category>
-        <category>Context</category>
-        <category>Helm</category>
-        <category>学习计划</category>
+        <category>个人分享</category>
+        <category>坏习惯</category>
         <category>GPT-5.5</category>
         <category>OpenAI</category>
         <category>Codex</category>
@@ -40,34 +30,44 @@
         <category>NousResearch</category>
         <category>进阶</category>
         <category>配置</category>
-        <category>LLM</category>
-        <category>RAG</category>
-        <category>知识库</category>
-        <category>SSE</category>
-        <category>HTTP</category>
-        <category>OpenSRE</category>
-        <category>SRE</category>
-        <category>故障排查</category>
         <category>高阶</category>
         <category>自动化</category>
+        <category>心理学知识</category>
+        <category>阿德勒心理学</category>
+        <category>自卑与超越</category>
+        <category>Kubernetes</category>
+        <category>k8s</category>
+        <category>容器编排</category>
+        <category>DevOps</category>
+        <category>运维</category>
+        <category>kubeconfig</category>
+        <category>kubectl</category>
+        <category>Context</category>
+        <category>Helm</category>
+        <category>学习计划</category>
         <category>网络安全</category>
         <category>SQL注入</category>
         <category>XSS</category>
         <category>CSRF</category>
         <category>DDoS</category>
         <category>渗透测试</category>
-        <category>心理学知识</category>
-        <category>阿德勒心理学</category>
-        <category>自卑与超越</category>
         <category>力扣算法题</category>
+        <category>LLM</category>
+        <category>RAG</category>
+        <category>知识库</category>
+        <category>OpenSRE</category>
+        <category>SRE</category>
+        <category>故障排查</category>
+        <category>SSE</category>
+        <category>HTTP</category>
         <category>算法</category>
         <category>动态规划</category>
         <category>JavaSE</category>
-        <category>接口开发</category>
-        <category>开发注意事项</category>
         <category>Java开发面试题</category>
         <category>SpringBoot</category>
         <category>Spring</category>
+        <category>接口开发</category>
+        <category>开发注意事项</category>
         <category>微服务</category>
         <category>python</category>
         <item>
@@ -11119,6 +11119,95 @@
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/String%E7%B1%BB/</guid>
+            <title>String类</title>
+            <link>https://scottalive.github.io/computer-science/java/javase/String%E7%B1%BB/</link>
+            <category>编程笔记</category>
+            <category>JavaSE</category>
+            <pubDate>Fri, 31 Mar 2023 09:37:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h3 id=&#34;String类&#34;&gt;&lt;a href=&#34;#String类&#34; class=&#34;headerlink&#34; title=&#34;String类&#34;&gt;&lt;/a&gt;String类&lt;/h3&gt;&lt;p&gt;​		&lt;code&gt;String&lt;/code&gt;是&lt;code&gt;Java&lt;/code&gt;中非常常用的一个类，它代表了一个字符串对象。在&lt;code&gt;Java&lt;/code&gt;中，字符串是不可变的，也就是说，一旦一个字符串对象被创建，它的值就不能被改变。因此，每次对字符串进行修改，都会创建一个新的字符串对象。&lt;/p&gt;
+&lt;h3 id=&#34;String类为什么是不可变的？&#34;&gt;&lt;a href=&#34;#String类为什么是不可变的？&#34; class=&#34;headerlink&#34; title=&#34;String类为什么是不可变的？&#34;&gt;&lt;/a&gt;String类为什么是不可变的？&lt;/h3&gt;&lt;p&gt;​		String类的不可变特性指的是String实例的值一旦被创建就不能被修改。这意味着对一个String对象进行操作时，如果需要修改其值，实际上是创建了一个新的String对象，并将新对象的引用赋给原对象。这种特性有助于提高程序的性能和安全性。&lt;/p&gt;
+&lt;p&gt;​		从源码层面来看，String类中的不可变特性是通过使用final关键字和private修饰符来实现的。String类中的每个方法都不会修改原有的String对象，而是返回一个新的String对象，以保持原有的String对象的不可变性。&lt;/p&gt;
+&lt;p&gt;​		例如，String类中的&lt;code&gt;concat&lt;/code&gt;方法可以将两个字符串连接起来，返回一个新的String对象，而不会修改原有的字符串：&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;World&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str3&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str1.concat(str2); &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象，值为&amp;quot;HelloWorld&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;​		另外，String类还有一种常用的创建方式，即使用字符串字面值创建对象。这种方式在Java虚拟机中被优化，称为字符串常量池（String Pool）。当使用字符串字面值创建一个String对象时，Java虚拟机会首先在字符串常量池中查找是否已存在该值的字符串对象，如果存在则返回该对象的引用，否则创建一个新的String对象并加入字符串常量池。例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象并加入字符串常量池&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;// 直接返回字符串常量池中的引用，与str1引用同一个对象&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str3&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;String&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象，不在字符串常量池中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;​		由于String的不可变特性和字符串常量池的存在，可以安全地共享字符串对象，从而提高程序的性能和安全性。&lt;/p&gt;
+&lt;h3 id=&#34;String类有很多实用的方法，例如：&#34;&gt;&lt;a href=&#34;#String类有很多实用的方法，例如：&#34; class=&#34;headerlink&#34; title=&#34;String类有很多实用的方法，例如：&#34;&gt;&lt;/a&gt;&lt;strong&gt;String类有很多实用的方法，例如：&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;length()&lt;/code&gt;：获取字符串的长度。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;charAt(int index)&lt;/code&gt;：获取指定索引位置的字符。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;substring(int beginIndex, int endIndex)&lt;/code&gt;：获取指定索引范围内的子字符串。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;concat(String str)&lt;/code&gt;：将指定字符串连接到此字符串的末尾。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;indexOf(String str)&lt;/code&gt;：返回指定子字符串第一次出现的索引。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;equals(Object anObject)&lt;/code&gt;：将此字符串与指定对象进行比较。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;toUpperCase()&lt;/code&gt;：将字符串中的所有字符转换为大写。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;toLowerCase()&lt;/code&gt;：将字符串中的所有字符转换为小写。&lt;/li&gt;
+&lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;以下是String类的常用方法的例子：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;length()&lt;/code&gt;方法：获取字符串的长度。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.length(); &lt;span class=&#34;comment&#34;&gt;// length = 12&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;charAt(int index)&lt;/code&gt;方法：获取指定位置的字符。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.charAt(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// c = &amp;#x27;e&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;substring(int beginIndex, int endIndex)&lt;/code&gt;方法：获取指定位置范围内的子字符串。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;subStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.substring(&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// subStr = &amp;quot;Hello&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;code&gt;indexOf(String str)&lt;/code&gt;方法：获取指定字符串在该字符串中第一次出现的位置。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.indexOf(&lt;span class=&#34;string&#34;&gt;&amp;quot;World&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// index = 6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;&lt;code&gt;lastIndexOf(String str)&lt;/code&gt;方法：获取指定字符串在该字符串中最后一次出现的位置。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.lastIndexOf(&lt;span class=&#34;string&#34;&gt;&amp;quot;l&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// index = 9&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;&lt;code&gt;equals(Object obj)&lt;/code&gt;方法：比较字符串是否相等。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;isEqual&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str1.equals(str2); &lt;span class=&#34;comment&#34;&gt;// isEqual = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;&lt;code&gt;startsWith(String prefix)&lt;/code&gt;方法：判断字符串是否以指定字符串开头。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;startsWith&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.startsWith(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// startsWith = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;&lt;code&gt;endsWith(String suffix)&lt;/code&gt;方法：判断字符串是否以指定字符串结尾。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;endsWith&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.endsWith(&lt;span class=&#34;string&#34;&gt;&amp;quot;World!&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// endsWith = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;&lt;code&gt;replace(char oldChar, char newChar)&lt;/code&gt;方法：用指定字符替换字符串中的所有指定字符。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;newStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.replace(&lt;span class=&#34;string&#34;&gt;&amp;#x27;o&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;#x27;*&amp;#x27;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// newStr = &amp;quot;Hell* W*rld!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;&lt;code&gt;toLowerCase()&lt;/code&gt;方法和&lt;code&gt;toUpperCase()&lt;/code&gt;方法：将字符串转换为小写或大写。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;lowerCaseStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.toLowerCase(); &lt;span class=&#34;comment&#34;&gt;// lowerCaseStr = &amp;quot;hello world!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;upperCaseStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.toUpperCase(); &lt;span class=&#34;comment&#34;&gt;// upperCaseStr = &amp;quot;HELLO WORLD!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;String类其他特性&#34;&gt;&lt;a href=&#34;#String类其他特性&#34; class=&#34;headerlink&#34; title=&#34;String类其他特性&#34;&gt;&lt;/a&gt;String类其他特性&lt;/h3&gt;&lt;p&gt;​		&lt;code&gt;String&lt;/code&gt;类还支持字符串拼接操作。在&lt;code&gt;Java 5&lt;/code&gt;之前，通常使用字符串拼接操作符&lt;code&gt;+&lt;/code&gt;来实现字符串拼接，例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt; + &lt;span class=&#34;string&#34;&gt;&amp;quot; &amp;quot;&lt;/span&gt; + &lt;span class=&#34;string&#34;&gt;&amp;quot;world!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;​		在&lt;code&gt;Java 5&lt;/code&gt;及之后的版本中，还引入了&lt;code&gt;StringBuilder&lt;/code&gt;和&lt;code&gt;StringBuffer&lt;/code&gt;两个类来优化字符串拼接操作。这两个类可以动态地添加、修改和删除字符串中的字符，并且能够避免频繁创建新的字符串对象。例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;StringBuilder&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;sb&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;StringBuilder&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot; &amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot;world!&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; sb.toString();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;​		当需要在多线程环境下使用字符串拼接操作时，应该使用&lt;code&gt;StringBuffer&lt;/code&gt;类。如果在单线程环境下使用字符串拼接操作，或者需要更高的性能，应该使用&lt;code&gt;StringBuilder&lt;/code&gt;类。&lt;/p&gt;
+&lt;p&gt;​		总之，&lt;code&gt;String&lt;/code&gt;类是&lt;code&gt;Java&lt;/code&gt;中非常常用的一个类，它不仅支持字符串的基本操作，还提供了丰富的字符串处理方法，对于&lt;code&gt;Java&lt;/code&gt;程序开发来说是一个必不可少的类。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/%E6%97%A5%E6%9C%9F%E7%B1%BB/</guid>
             <title>日期类</title>
             <link>https://scottalive.github.io/computer-science/java/javase/%E6%97%A5%E6%9C%9F%E7%B1%BB/</link>
@@ -11399,95 +11488,6 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/String%E7%B1%BB/</guid>
-            <title>String类</title>
-            <link>https://scottalive.github.io/computer-science/java/javase/String%E7%B1%BB/</link>
-            <category>编程笔记</category>
-            <category>JavaSE</category>
-            <pubDate>Fri, 31 Mar 2023 09:37:00 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;String类&#34;&gt;&lt;a href=&#34;#String类&#34; class=&#34;headerlink&#34; title=&#34;String类&#34;&gt;&lt;/a&gt;String类&lt;/h3&gt;&lt;p&gt;​		&lt;code&gt;String&lt;/code&gt;是&lt;code&gt;Java&lt;/code&gt;中非常常用的一个类，它代表了一个字符串对象。在&lt;code&gt;Java&lt;/code&gt;中，字符串是不可变的，也就是说，一旦一个字符串对象被创建，它的值就不能被改变。因此，每次对字符串进行修改，都会创建一个新的字符串对象。&lt;/p&gt;
-&lt;h3 id=&#34;String类为什么是不可变的？&#34;&gt;&lt;a href=&#34;#String类为什么是不可变的？&#34; class=&#34;headerlink&#34; title=&#34;String类为什么是不可变的？&#34;&gt;&lt;/a&gt;String类为什么是不可变的？&lt;/h3&gt;&lt;p&gt;​		String类的不可变特性指的是String实例的值一旦被创建就不能被修改。这意味着对一个String对象进行操作时，如果需要修改其值，实际上是创建了一个新的String对象，并将新对象的引用赋给原对象。这种特性有助于提高程序的性能和安全性。&lt;/p&gt;
-&lt;p&gt;​		从源码层面来看，String类中的不可变特性是通过使用final关键字和private修饰符来实现的。String类中的每个方法都不会修改原有的String对象，而是返回一个新的String对象，以保持原有的String对象的不可变性。&lt;/p&gt;
-&lt;p&gt;​		例如，String类中的&lt;code&gt;concat&lt;/code&gt;方法可以将两个字符串连接起来，返回一个新的String对象，而不会修改原有的字符串：&lt;/p&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;World&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str3&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str1.concat(str2); &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象，值为&amp;quot;HelloWorld&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;​		另外，String类还有一种常用的创建方式，即使用字符串字面值创建对象。这种方式在Java虚拟机中被优化，称为字符串常量池（String Pool）。当使用字符串字面值创建一个String对象时，Java虚拟机会首先在字符串常量池中查找是否已存在该值的字符串对象，如果存在则返回该对象的引用，否则创建一个新的String对象并加入字符串常量池。例如：&lt;/p&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象并加入字符串常量池&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;// 直接返回字符串常量池中的引用，与str1引用同一个对象&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str3&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;String&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象，不在字符串常量池中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;​		由于String的不可变特性和字符串常量池的存在，可以安全地共享字符串对象，从而提高程序的性能和安全性。&lt;/p&gt;
-&lt;h3 id=&#34;String类有很多实用的方法，例如：&#34;&gt;&lt;a href=&#34;#String类有很多实用的方法，例如：&#34; class=&#34;headerlink&#34; title=&#34;String类有很多实用的方法，例如：&#34;&gt;&lt;/a&gt;&lt;strong&gt;String类有很多实用的方法，例如：&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;length()&lt;/code&gt;：获取字符串的长度。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;charAt(int index)&lt;/code&gt;：获取指定索引位置的字符。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;substring(int beginIndex, int endIndex)&lt;/code&gt;：获取指定索引范围内的子字符串。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;concat(String str)&lt;/code&gt;：将指定字符串连接到此字符串的末尾。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;indexOf(String str)&lt;/code&gt;：返回指定子字符串第一次出现的索引。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;equals(Object anObject)&lt;/code&gt;：将此字符串与指定对象进行比较。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;toUpperCase()&lt;/code&gt;：将字符串中的所有字符转换为大写。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;toLowerCase()&lt;/code&gt;：将字符串中的所有字符转换为小写。&lt;/li&gt;
-&lt;li&gt;…&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;以下是String类的常用方法的例子：&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;length()&lt;/code&gt;方法：获取字符串的长度。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.length(); &lt;span class=&#34;comment&#34;&gt;// length = 12&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;code&gt;charAt(int index)&lt;/code&gt;方法：获取指定位置的字符。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.charAt(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// c = &amp;#x27;e&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&lt;code&gt;substring(int beginIndex, int endIndex)&lt;/code&gt;方法：获取指定位置范围内的子字符串。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;subStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.substring(&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// subStr = &amp;quot;Hello&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;&lt;code&gt;indexOf(String str)&lt;/code&gt;方法：获取指定字符串在该字符串中第一次出现的位置。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.indexOf(&lt;span class=&#34;string&#34;&gt;&amp;quot;World&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// index = 6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;&lt;code&gt;lastIndexOf(String str)&lt;/code&gt;方法：获取指定字符串在该字符串中最后一次出现的位置。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.lastIndexOf(&lt;span class=&#34;string&#34;&gt;&amp;quot;l&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// index = 9&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;6&#34;&gt;
-&lt;li&gt;&lt;code&gt;equals(Object obj)&lt;/code&gt;方法：比较字符串是否相等。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;isEqual&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str1.equals(str2); &lt;span class=&#34;comment&#34;&gt;// isEqual = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;7&#34;&gt;
-&lt;li&gt;&lt;code&gt;startsWith(String prefix)&lt;/code&gt;方法：判断字符串是否以指定字符串开头。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;startsWith&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.startsWith(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// startsWith = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;8&#34;&gt;
-&lt;li&gt;&lt;code&gt;endsWith(String suffix)&lt;/code&gt;方法：判断字符串是否以指定字符串结尾。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;endsWith&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.endsWith(&lt;span class=&#34;string&#34;&gt;&amp;quot;World!&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// endsWith = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;9&#34;&gt;
-&lt;li&gt;&lt;code&gt;replace(char oldChar, char newChar)&lt;/code&gt;方法：用指定字符替换字符串中的所有指定字符。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;newStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.replace(&lt;span class=&#34;string&#34;&gt;&amp;#x27;o&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;#x27;*&amp;#x27;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// newStr = &amp;quot;Hell* W*rld!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;10&#34;&gt;
-&lt;li&gt;&lt;code&gt;toLowerCase()&lt;/code&gt;方法和&lt;code&gt;toUpperCase()&lt;/code&gt;方法：将字符串转换为小写或大写。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;lowerCaseStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.toLowerCase(); &lt;span class=&#34;comment&#34;&gt;// lowerCaseStr = &amp;quot;hello world!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;upperCaseStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.toUpperCase(); &lt;span class=&#34;comment&#34;&gt;// upperCaseStr = &amp;quot;HELLO WORLD!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h3 id=&#34;String类其他特性&#34;&gt;&lt;a href=&#34;#String类其他特性&#34; class=&#34;headerlink&#34; title=&#34;String类其他特性&#34;&gt;&lt;/a&gt;String类其他特性&lt;/h3&gt;&lt;p&gt;​		&lt;code&gt;String&lt;/code&gt;类还支持字符串拼接操作。在&lt;code&gt;Java 5&lt;/code&gt;之前，通常使用字符串拼接操作符&lt;code&gt;+&lt;/code&gt;来实现字符串拼接，例如：&lt;/p&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt; + &lt;span class=&#34;string&#34;&gt;&amp;quot; &amp;quot;&lt;/span&gt; + &lt;span class=&#34;string&#34;&gt;&amp;quot;world!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;​		在&lt;code&gt;Java 5&lt;/code&gt;及之后的版本中，还引入了&lt;code&gt;StringBuilder&lt;/code&gt;和&lt;code&gt;StringBuffer&lt;/code&gt;两个类来优化字符串拼接操作。这两个类可以动态地添加、修改和删除字符串中的字符，并且能够避免频繁创建新的字符串对象。例如：&lt;/p&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;StringBuilder&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;sb&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;StringBuilder&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot; &amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot;world!&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; sb.toString();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;​		当需要在多线程环境下使用字符串拼接操作时，应该使用&lt;code&gt;StringBuffer&lt;/code&gt;类。如果在单线程环境下使用字符串拼接操作，或者需要更高的性能，应该使用&lt;code&gt;StringBuilder&lt;/code&gt;类。&lt;/p&gt;
-&lt;p&gt;​		总之，&lt;code&gt;String&lt;/code&gt;类是&lt;code&gt;Java&lt;/code&gt;中非常常用的一个类，它不仅支持字符串的基本操作，还提供了丰富的字符串处理方法，对于&lt;code&gt;Java&lt;/code&gt;程序开发来说是一个必不可少的类。&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
             <title>Java基本数据类型</title>
             <link>https://scottalive.github.io/computer-science/java/javase/Java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
@@ -11711,6 +11711,15 @@
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
+            <title>Java8新特性</title>
+            <link>https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</link>
+            <category>编程笔记</category>
+            <category>JavaSE</category>
+            <pubDate>Thu, 30 Mar 2023 11:43:30 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;Java8新特性&#34;&gt;&lt;a href=&#34;#Java8新特性&#34; class=&#34;headerlink&#34; title=&#34;Java8新特性&#34;&gt;&lt;/a&gt;Java8新特性&lt;/h2&gt; ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/</guid>
             <title>Java发展历程</title>
             <link>https://scottalive.github.io/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/</link>
@@ -11921,13 +11930,162 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
-            <title>Java8新特性</title>
-            <link>https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</link>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/python/basic/01.%E5%88%9D%E8%AF%86Python/</guid>
+            <title>初识Python</title>
+            <link>https://scottalive.github.io/computer-science/python/basic/01.%E5%88%9D%E8%AF%86Python/</link>
             <category>编程笔记</category>
-            <category>JavaSE</category>
-            <pubDate>Thu, 30 Mar 2023 11:43:30 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;Java8新特性&#34;&gt;&lt;a href=&#34;#Java8新特性&#34; class=&#34;headerlink&#34; title=&#34;Java8新特性&#34;&gt;&lt;/a&gt;Java8新特性&lt;/h2&gt; ]]></description>
+            <category>python</category>
+            <pubDate>Wed, 29 Mar 2023 23:51:49 +0800</pubDate>
+            <description><![CDATA[ &lt;h3 id=&#34;Python简介&#34;&gt;&lt;a href=&#34;#Python简介&#34; class=&#34;headerlink&#34; title=&#34;Python简介&#34;&gt;&lt;/a&gt;Python简介&lt;/h3&gt;&lt;h4 id=&#34;Python的历史&#34;&gt;&lt;a href=&#34;#Python的历史&#34; class=&#34;headerlink&#34; title=&#34;Python的历史&#34;&gt;&lt;/a&gt;Python的历史&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;1989年圣诞节：&lt;code&gt;Guido von Rossum&lt;/code&gt;开始写&lt;code&gt;Python&lt;/code&gt;语言的编译器。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;1991年2月：第一个&lt;code&gt;Python&lt;/code&gt;编译器（同时也是解释器）诞生，它是用C语言实现的（后面），可以调用C语言的库函数。在最早的版本中，&lt;code&gt;Python&lt;/code&gt;已经提供了对“类”，“函数”，“异常处理”等构造块的支持，还有对列表、字典等核心数据类型，同时支持以模块为基础来构造应用程序。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;1994年1月：&lt;code&gt;Python 1.0&lt;/code&gt;正式发布。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;2000年10月16日：&lt;code&gt;Python 2.0&lt;/code&gt;发布，增加了完整的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6_(%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8)&#34;&gt;垃圾回收&lt;/a&gt;，提供了对&lt;a href=&#34;https://zh.wikipedia.org/wiki/Unicode&#34;&gt;Unicode&lt;/a&gt;的支持。与此同时，&lt;code&gt;Python&lt;/code&gt;的整个开发过程更加透明，社区对开发进度的影响逐渐扩大，生态圈开始慢慢形成。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;2008年12月3日：&lt;code&gt;Python 3.0&lt;/code&gt;发布，它并不完全兼容之前的Python代码，不过因为目前还有不少公司在项目和运维中使用Python 2.x版本，所以&lt;code&gt;Python 3.x&lt;/code&gt;的很多新特性后来也被移植到&lt;code&gt;Python 2.6/2.7&lt;/code&gt;版本中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;目前我使用的&lt;code&gt;Python 3.7.x&lt;/code&gt;的版本是在2018年发布的，&lt;code&gt;Python&lt;/code&gt;的版本号分为三段，形如A.B.C。其中A表示大版本号，一般当整体重写，或出现不向后兼容的改变时，增加A；B表示功能更新，出现新功能时增加B；C表示小的改动（例如：修复了某个&lt;code&gt;Bug&lt;/code&gt;），只要有修改就增加C。如果对&lt;code&gt;Python&lt;/code&gt;的历史感兴趣，可以阅读名为&lt;a href=&#34;http://www.cnblogs.com/vamei/archive/2013/02/06/2892628.html&#34;&gt;《Python简史》&lt;/a&gt;的网络文章。&lt;/p&gt;
+&lt;h4 id=&#34;Python的优缺点&#34;&gt;&lt;a href=&#34;#Python的优缺点&#34; class=&#34;headerlink&#34; title=&#34;Python的优缺点&#34;&gt;&lt;/a&gt;Python的优缺点&lt;/h4&gt;&lt;p&gt;&lt;code&gt;Python&lt;/code&gt;的优点很多，简单的可以总结为以下几点。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;简单明了，学习曲线低，比很多编程语言都容易上手。&lt;/li&gt;
+&lt;li&gt;开放源代码，拥有强大的社区和生态圈，尤其是在数据分析和机器学习领域。&lt;/li&gt;
+&lt;li&gt;解释型语言，天生具有平台可移植性，代码可以工作于不同的操作系统。&lt;/li&gt;
+&lt;li&gt;对两种主流的编程范式（面向对象编程和函数式编程）都提供了支持。&lt;/li&gt;
+&lt;li&gt;代码规范程度高，可读性强，适合有代码洁癖和强迫症的人群。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;Python&lt;/code&gt;的缺点主要集中在以下几点。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;执行效率稍低，对执行效率要求高的部分可以由其他语言（如：C、C++）编写。&lt;/li&gt;
+&lt;li&gt;代码无法加密，但是现在很多公司都不销售卖软件而是销售服务，这个问题会被弱化。&lt;/li&gt;
+&lt;li&gt;在开发时可以选择的框架太多（如Web框架就有100多个），有选择的地方就有错误。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;Python的应用领域&#34;&gt;&lt;a href=&#34;#Python的应用领域&#34; class=&#34;headerlink&#34; title=&#34;Python的应用领域&#34;&gt;&lt;/a&gt;Python的应用领域&lt;/h4&gt;&lt;p&gt;目前&lt;code&gt;Python&lt;/code&gt;在&lt;code&gt;Web&lt;/code&gt;应用后端开发、云基础设施建设、&lt;code&gt;DevOps&lt;/code&gt;、网络数据采集（爬虫）、自动化测试、数据分析、机器学习等领域都有着广泛的应用。&lt;/p&gt;
+&lt;h3 id=&#34;安装Python解释器&#34;&gt;&lt;a href=&#34;#安装Python解释器&#34; class=&#34;headerlink&#34; title=&#34;安装Python解释器&#34;&gt;&lt;/a&gt;安装Python解释器&lt;/h3&gt;&lt;p&gt;想要开始&lt;code&gt;Python&lt;/code&gt;编程之旅，首先得在自己使用的计算机上安装&lt;code&gt;Python&lt;/code&gt;解释器环境，下面将以安装官方的&lt;code&gt;Python&lt;/code&gt;解释器为例，讲解如何在不同的操作系统上安装&lt;code&gt;Python&lt;/code&gt;环境。官方的&lt;code&gt;Python&lt;/code&gt;解释器是用C语言实现的，也是使用最为广泛的Python解释器，通常称之为&lt;code&gt;CPython&lt;/code&gt;。除此之外，&lt;code&gt;Python&lt;/code&gt;解释器还有&lt;code&gt;Java&lt;/code&gt;语言实现的&lt;code&gt;Jython&lt;/code&gt;、C#语言实现的&lt;code&gt;IronPython&lt;/code&gt;以及&lt;code&gt;PyPy&lt;/code&gt;、&lt;code&gt;Brython&lt;/code&gt;、&lt;code&gt;Pyston&lt;/code&gt;等版本，有兴趣的读者可以自行了解。&lt;/p&gt;
+&lt;h4 id=&#34;Windows环境&#34;&gt;&lt;a href=&#34;#Windows环境&#34; class=&#34;headerlink&#34; title=&#34;Windows环境&#34;&gt;&lt;/a&gt;Windows环境&lt;/h4&gt;&lt;p&gt;可以在&lt;a href=&#34;https://www.python.org/&#34;&gt;Python官方网站&lt;/a&gt;下载到&lt;code&gt;Python&lt;/code&gt;的&lt;code&gt;Windows&lt;/code&gt;安装程序（exe文件），需要注意的是如果在Windows 7环境下安装&lt;code&gt;Python 3.x&lt;/code&gt;，需要先安装&lt;code&gt;Service Pack 1&lt;/code&gt;补丁包（可以通过一些工具软件自动安装系统补丁的功能来安装），安装过程建议勾选“&lt;code&gt;Add Python 3.x to PATH&lt;/code&gt;”（将Python 3.x添加到PATH环境变量）并选择自定义安装，在设置“&lt;code&gt;Optional Features&lt;/code&gt;”界面最好将“&lt;code&gt;pip&lt;/code&gt;”、“&lt;code&gt;tcl/tk&lt;/code&gt;”、“&lt;code&gt;Python test suite&lt;/code&gt;”等项全部勾选上。强烈建议选择自定义的安装路径并保证路径中没有中文。安装完成会看到“&lt;code&gt;Setup was successful&lt;/code&gt;”的提示。如果稍后运行Python程序时，出现因为缺失一些动态链接库文件而导致Python解释器无法工作的问题，可以按照下面的方法加以解决。&lt;/p&gt;
+&lt;p&gt;如果系统显示api-ms-win-crt*.dll文件缺失，可以参照&lt;a href=&#34;https://zhuanlan.zhihu.com/p/32087135&#34;&gt;《api-ms-win-crt*.dll缺失原因分析和解决方法》&lt;/a&gt;一文讲解的方法进行处理或者直接在&lt;a href=&#34;https://www.microsoft.com/zh-cn/download/details.aspx?id=48145&#34;&gt;微软官网&lt;/a&gt;下载&lt;code&gt;Visual C++ Redistributable for Visual Studio 2015&lt;/code&gt;文件进行修复；如果是因为更新Windows的DirectX之后导致某些动态链接库文件缺失问题，可以下载一个&lt;a href=&#34;https://dl.pconline.com.cn/download/360074-1.html&#34;&gt;DirectX修复工具&lt;/a&gt;进行修复。&lt;/p&gt;
+&lt;h4 id=&#34;Linux环境&#34;&gt;&lt;a href=&#34;#Linux环境&#34; class=&#34;headerlink&#34; title=&#34;Linux环境&#34;&gt;&lt;/a&gt;Linux环境&lt;/h4&gt;&lt;p&gt;&lt;code&gt;Linux&lt;/code&gt;环境自带了&lt;code&gt;Python 2.x&lt;/code&gt;版本，但是如果要更新到3.x的版本，可以在&lt;a href=&#34;https://www.python.org/&#34;&gt;Python的官方网站&lt;/a&gt;下载&lt;code&gt;Python&lt;/code&gt;的源代码并通过源代码构建安装的方式进行安装，具体的步骤如下所示（以&lt;code&gt;CentOS&lt;/code&gt;为例）。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装依赖库（因为没有这些依赖库可能在源代码构件安装时因为缺失底层依赖库而失败）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;yum -y install wget gcc zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;下载&lt;code&gt;Python&lt;/code&gt;源代码并解压缩到指定目录。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;wget https://www.python.org/ftp/python/3.7.6/Python-3.7.6.tar.xz&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;xz -d Python-3.7.6.tar.xz&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tar -xvf Python-3.7.6.tar&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;切换至Python源代码目录并执行下面的命令进行配置和安装。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cd Python-3.7.6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;./configure --prefix=/usr/local/python37 --enable-optimizations&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;make &amp;amp;&amp;amp; make install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;修改用户主目录下名为.bash_profile的文件，配置PATH环境变量并使其生效。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cd ~&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;vim .bash_profile&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;... 此处省略上面的代码 ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export PATH=$PATH:/usr/local/python37/bin&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;... 此处省略下面的代码 ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;激活环境变量。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;source .bash_profile&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&#34;macOS环境&#34;&gt;&lt;a href=&#34;#macOS环境&#34; class=&#34;headerlink&#34; title=&#34;macOS环境&#34;&gt;&lt;/a&gt;macOS环境&lt;/h4&gt;&lt;p&gt;&lt;code&gt;macOS&lt;/code&gt;也自带了&lt;code&gt;Python 2.x&lt;/code&gt;版本，可以通过&lt;a href=&#34;https://www.python.org/&#34;&gt;Python的官方网站&lt;/a&gt;提供的安装文件（pkg文件）安装&lt;code&gt;Python 3.x&lt;/code&gt;的版本。默认安装完成后，可以通过在终端执行&lt;code&gt;python&lt;/code&gt;命令来启动2.x版本的&lt;code&gt;Python&lt;/code&gt;解释器，启动3.x版本的&lt;code&gt;Python&lt;/code&gt;解释器需要执行&lt;code&gt;python3&lt;/code&gt;命令。&lt;/p&gt;
+&lt;h3 id=&#34;运行Python程序&#34;&gt;&lt;a href=&#34;#运行Python程序&#34; class=&#34;headerlink&#34; title=&#34;运行Python程序&#34;&gt;&lt;/a&gt;运行Python程序&lt;/h3&gt;&lt;h4 id=&#34;确认Python的版本&#34;&gt;&lt;a href=&#34;#确认Python的版本&#34; class=&#34;headerlink&#34; title=&#34;确认Python的版本&#34;&gt;&lt;/a&gt;确认Python的版本&lt;/h4&gt;&lt;p&gt;可以Windows的命令行提示符中键入下面的命令。&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python --version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在Linux或macOS系统的终端中键入下面的命令。&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python3 --version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;当然也可以先输入&lt;code&gt;python&lt;/code&gt;或&lt;code&gt;python3&lt;/code&gt;进入交互式环境，再执行以下的代码检查Python的版本。&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; sys&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(sys.version_info)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(sys.version)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&#34;编写Python源代码&#34;&gt;&lt;a href=&#34;#编写Python源代码&#34; class=&#34;headerlink&#34; title=&#34;编写Python源代码&#34;&gt;&lt;/a&gt;编写Python源代码&lt;/h4&gt;&lt;p&gt;可以用文本编辑工具（推荐使用&lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;Sublime&lt;/a&gt;、&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;等高级文本编辑工具）编写Python源代码并用py作为后缀名保存该文件，代码内容如下所示。&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;hello, world!&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&#34;运行程序&#34;&gt;&lt;a href=&#34;#运行程序&#34; class=&#34;headerlink&#34; title=&#34;运行程序&#34;&gt;&lt;/a&gt;运行程序&lt;/h4&gt;&lt;p&gt;切换到源代码所在的目录并执行下面的命令，看看屏幕上是否输出了”hello, world!”。&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python hello.py&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python3 hello.py&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&#34;代码中的注释&#34;&gt;&lt;a href=&#34;#代码中的注释&#34; class=&#34;headerlink&#34; title=&#34;代码中的注释&#34;&gt;&lt;/a&gt;代码中的注释&lt;/h4&gt;&lt;p&gt;注释是编程语言的一个重要组成部分，用于在源代码中解释代码的作用从而增强程序的可读性和可维护性，当然也可以将源代码中不需要参与运行的代码段通过注释来去掉，这一点在调试程序的时候经常用到。注释在随源代码进入预处理器或编译时会被移除，不会在目标代码中保留也不会影响程序的执行结果。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;单行注释 - 以#和空格开头的部分&lt;/li&gt;
+&lt;li&gt;多行注释 - 三个引号开头，三个引号结尾&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;第一个Python程序 - hello, world!&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;向伟大的Dennis M. Ritchie先生致敬&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;Version: 0.1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;Author: 骆昊&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;hello, world!&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# print(&amp;quot;你好, 世界！&amp;quot;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;Python开发工具&#34;&gt;&lt;a href=&#34;#Python开发工具&#34; class=&#34;headerlink&#34; title=&#34;Python开发工具&#34;&gt;&lt;/a&gt;Python开发工具&lt;/h3&gt;&lt;h4 id=&#34;IDLE-自带的集成开发工具&#34;&gt;&lt;a href=&#34;#IDLE-自带的集成开发工具&#34; class=&#34;headerlink&#34; title=&#34;IDLE - 自带的集成开发工具&#34;&gt;&lt;/a&gt;IDLE - 自带的集成开发工具&lt;/h4&gt;&lt;p&gt;&lt;code&gt;IDLE&lt;/code&gt;是安装&lt;code&gt;Python&lt;/code&gt;环境时自带的集成开发工具，如下图所示。但是由于&lt;code&gt;IDLE&lt;/code&gt;的用户体验并不是那么好所以很少在实际开发中被采用。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/./res/python-idle.png&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;IPython-更好的交互式编程工具&#34;&gt;&lt;a href=&#34;#IPython-更好的交互式编程工具&#34; class=&#34;headerlink&#34; title=&#34;IPython - 更好的交互式编程工具&#34;&gt;&lt;/a&gt;IPython - 更好的交互式编程工具&lt;/h4&gt;&lt;p&gt;&lt;code&gt;IPython&lt;/code&gt;是一种基于&lt;code&gt;Python&lt;/code&gt;的交互式解释器。相较于原生的Python交互式环境，&lt;code&gt;IPython&lt;/code&gt;提供了更为强大的编辑和交互功能。可以通过Python的包管理工具pip安装&lt;code&gt;IPython&lt;/code&gt;，具体的操作如下所示。&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip install ipython&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip3 install ipython&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;安装成功后，可以通过下面的ipython命令启动&lt;code&gt;IPython&lt;/code&gt;，如下图所示。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/./res/python-ipython.png&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;Sublime-Text-高级文本编辑器&#34;&gt;&lt;a href=&#34;#Sublime-Text-高级文本编辑器&#34; class=&#34;headerlink&#34; title=&#34;Sublime Text - 高级文本编辑器&#34;&gt;&lt;/a&gt;Sublime Text - 高级文本编辑器&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;/./res/python-sublime.png&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;首先可以通过&lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;官方网站&lt;/a&gt;下载安装程序安装&lt;code&gt;Sublime Text 3&lt;/code&gt;或&lt;code&gt;Sublime Text 2&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装包管理工具。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;通过快捷键&lt;code&gt;Ctrl+&lt;/code&gt;或者在View菜单中选择&lt;code&gt;Show Console&lt;/code&gt;打开控制台，输入下面的代码。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Sublime 3&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt;  urllib.request,os;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pf=&lt;span class=&#34;string&#34;&gt;&amp;#x27;Package Control.sublime-package&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ipp=sublime.installed_packages_path();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;open&lt;/span&gt;(os.path.join(ipp,pf),&lt;span class=&#34;string&#34;&gt;&amp;#x27;wb&amp;#x27;&lt;/span&gt;).write(urllib.request.urlopen(&lt;span class=&#34;string&#34;&gt;&amp;#x27;http://sublime.wbond.net/&amp;#x27;&lt;/span&gt;+pf.replace(&lt;span class=&#34;string&#34;&gt;&amp;#x27; &amp;#x27;&lt;/span&gt;,&lt;span class=&#34;string&#34;&gt;&amp;#x27;%20&amp;#x27;&lt;/span&gt;)).read())&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;Sublime 2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt;  urllib2,os;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pf=&lt;span class=&#34;string&#34;&gt;&amp;#x27;Package Control.sublime-package&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ipp=sublime.installed_packages_path();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;os.makedirs(ipp)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; notos.path.exists(ipp):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;pass&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;literal&#34;&gt;None&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler()));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;open&lt;/span&gt;(os.path.join(ipp,pf),&lt;span class=&#34;string&#34;&gt;&amp;#x27;wb&amp;#x27;&lt;/span&gt;).write(urllib2.urlopen(&lt;span class=&#34;string&#34;&gt;&amp;#x27;http://sublime.wbond.net/&amp;#x27;&lt;/span&gt;+pf.replace(&lt;span class=&#34;string&#34;&gt;&amp;#x27; &amp;#x27;&lt;/span&gt;,&lt;span class=&#34;string&#34;&gt;&amp;#x27;%20&amp;#x27;&lt;/span&gt;)).read());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;Please restart Sublime Text to finish installation&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;在浏览器中输入  &lt;a href=&#34;https://sublime.wbond.net/Package%20Control.sublime-package&#34;&gt;https://sublime.wbond.net/Package%20Control.sublime-package&lt;/a&gt; 下载包管理工具的安装包，并找到安装Sublime目录下名为&amp;quot;Installed Packages&amp;quot;的目录，把刚才下载的文件放到这个文件加下，然后重启Sublime Text就搞定了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装插件。通过&lt;code&gt;Preference&lt;/code&gt;菜单的&lt;code&gt;Package Control&lt;/code&gt;或快捷键&lt;code&gt;Ctrl+Shift+P&lt;/code&gt;打开命令面板，在面板中输入&lt;code&gt;Install Package&lt;/code&gt;就可以找到安装插件的工具，然后再查找需要的插件。我们推荐大家安装以下几个插件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;SublimeCodeIntel&lt;/code&gt; - 代码自动补全工具插件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Emmet&lt;/code&gt; - 前端开发代码模板插件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Git&lt;/code&gt; - 版本控制工具插件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Python PEP8 Autoformat&lt;/code&gt; - &lt;code&gt;PEP8&lt;/code&gt;规范自动格式化插件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ConvertToUTF8&lt;/code&gt; - 将本地编码转换为&lt;code&gt;UTF-8&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：事实上&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;可能是更好的选择，它不用花钱并提供了更为完整和强大的功能，有兴趣的读者可以自行研究。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;PyCharm-Python开发神器&#34;&gt;&lt;a href=&#34;#PyCharm-Python开发神器&#34; class=&#34;headerlink&#34; title=&#34;PyCharm - Python开发神器&#34;&gt;&lt;/a&gt;PyCharm - Python开发神器&lt;/h4&gt;&lt;p&gt;PyCharm的安装、配置和使用在&lt;a href=&#34;../%E7%95%AA%E5%A4%96%E7%AF%87/%E7%8E%A9%E8%BD%ACPyCharm.md&#34;&gt;《玩转PyCharm》&lt;/a&gt;进行了介绍，有兴趣的读者可以选择阅读。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/./res/python-pycharm.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;练习&#34;&gt;&lt;a href=&#34;#练习&#34; class=&#34;headerlink&#34; title=&#34;练习&#34;&gt;&lt;/a&gt;练习&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;在&lt;code&gt;Python&lt;/code&gt;交互式环境中输入下面的代码并查看结果，请尝试将看到的内容翻译成中文。&lt;/p&gt;
+ &lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; this&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：输入上面的代码，在&lt;code&gt;Python&lt;/code&gt;的交互式环境中可以看到Tim Peter撰写的&lt;a href=&#34;../Python%E4%B9%8B%E7%A6%85.md&#34;&gt;“Python之禅”&lt;/a&gt;，里面讲述的道理不仅仅适用于Python，也适用于其他编程语言。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;学习使用turtle在屏幕上绘制图形。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：turtle是Python内置的一个非常有趣的模块，特别适合对计算机程序设计进行初体验的小伙伴，它最早是Logo语言的一部分，Logo语言是Wally Feurzig和Seymour Papert在1966发明的编程语言。&lt;/p&gt;
+&lt;/blockquote&gt;
+ &lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; turtle&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.pensize(&lt;span class=&#34;number&#34;&gt;4&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.pencolor(&lt;span class=&#34;string&#34;&gt;&amp;#x27;red&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.forward(&lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.right(&lt;span class=&#34;number&#34;&gt;90&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.forward(&lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.right(&lt;span class=&#34;number&#34;&gt;90&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.forward(&lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.right(&lt;span class=&#34;number&#34;&gt;90&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.forward(&lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.mainloop()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;提示&lt;/strong&gt;：本章提供的代码中还有画国旗和画小猪佩奇的代码，有兴趣的读者请自行研究。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+ ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</guid>
@@ -12374,164 +12532,6 @@
 &lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;EnumName&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;enumValue1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; EnumName.ENUM_VALUE1;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;EnumName&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;enumValue2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; EnumName.ENUM_VALUE1;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;System.out.println(enumValue1 == enumValue2); &lt;span class=&#34;comment&#34;&gt;// 输出 &amp;quot;true&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 &lt;p&gt;以上是Java枚举的基本使用方法。&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://scottalive.github.io/computer-science/python/basic/01.%E5%88%9D%E8%AF%86Python/</guid>
-            <title>初识Python</title>
-            <link>https://scottalive.github.io/computer-science/python/basic/01.%E5%88%9D%E8%AF%86Python/</link>
-            <category>编程笔记</category>
-            <category>python</category>
-            <pubDate>Wed, 29 Mar 2023 23:51:49 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;Python简介&#34;&gt;&lt;a href=&#34;#Python简介&#34; class=&#34;headerlink&#34; title=&#34;Python简介&#34;&gt;&lt;/a&gt;Python简介&lt;/h3&gt;&lt;h4 id=&#34;Python的历史&#34;&gt;&lt;a href=&#34;#Python的历史&#34; class=&#34;headerlink&#34; title=&#34;Python的历史&#34;&gt;&lt;/a&gt;Python的历史&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;1989年圣诞节：&lt;code&gt;Guido von Rossum&lt;/code&gt;开始写&lt;code&gt;Python&lt;/code&gt;语言的编译器。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;1991年2月：第一个&lt;code&gt;Python&lt;/code&gt;编译器（同时也是解释器）诞生，它是用C语言实现的（后面），可以调用C语言的库函数。在最早的版本中，&lt;code&gt;Python&lt;/code&gt;已经提供了对“类”，“函数”，“异常处理”等构造块的支持，还有对列表、字典等核心数据类型，同时支持以模块为基础来构造应用程序。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;1994年1月：&lt;code&gt;Python 1.0&lt;/code&gt;正式发布。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;2000年10月16日：&lt;code&gt;Python 2.0&lt;/code&gt;发布，增加了完整的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6_(%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8)&#34;&gt;垃圾回收&lt;/a&gt;，提供了对&lt;a href=&#34;https://zh.wikipedia.org/wiki/Unicode&#34;&gt;Unicode&lt;/a&gt;的支持。与此同时，&lt;code&gt;Python&lt;/code&gt;的整个开发过程更加透明，社区对开发进度的影响逐渐扩大，生态圈开始慢慢形成。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;2008年12月3日：&lt;code&gt;Python 3.0&lt;/code&gt;发布，它并不完全兼容之前的Python代码，不过因为目前还有不少公司在项目和运维中使用Python 2.x版本，所以&lt;code&gt;Python 3.x&lt;/code&gt;的很多新特性后来也被移植到&lt;code&gt;Python 2.6/2.7&lt;/code&gt;版本中。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;目前我使用的&lt;code&gt;Python 3.7.x&lt;/code&gt;的版本是在2018年发布的，&lt;code&gt;Python&lt;/code&gt;的版本号分为三段，形如A.B.C。其中A表示大版本号，一般当整体重写，或出现不向后兼容的改变时，增加A；B表示功能更新，出现新功能时增加B；C表示小的改动（例如：修复了某个&lt;code&gt;Bug&lt;/code&gt;），只要有修改就增加C。如果对&lt;code&gt;Python&lt;/code&gt;的历史感兴趣，可以阅读名为&lt;a href=&#34;http://www.cnblogs.com/vamei/archive/2013/02/06/2892628.html&#34;&gt;《Python简史》&lt;/a&gt;的网络文章。&lt;/p&gt;
-&lt;h4 id=&#34;Python的优缺点&#34;&gt;&lt;a href=&#34;#Python的优缺点&#34; class=&#34;headerlink&#34; title=&#34;Python的优缺点&#34;&gt;&lt;/a&gt;Python的优缺点&lt;/h4&gt;&lt;p&gt;&lt;code&gt;Python&lt;/code&gt;的优点很多，简单的可以总结为以下几点。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;简单明了，学习曲线低，比很多编程语言都容易上手。&lt;/li&gt;
-&lt;li&gt;开放源代码，拥有强大的社区和生态圈，尤其是在数据分析和机器学习领域。&lt;/li&gt;
-&lt;li&gt;解释型语言，天生具有平台可移植性，代码可以工作于不同的操作系统。&lt;/li&gt;
-&lt;li&gt;对两种主流的编程范式（面向对象编程和函数式编程）都提供了支持。&lt;/li&gt;
-&lt;li&gt;代码规范程度高，可读性强，适合有代码洁癖和强迫症的人群。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;code&gt;Python&lt;/code&gt;的缺点主要集中在以下几点。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;执行效率稍低，对执行效率要求高的部分可以由其他语言（如：C、C++）编写。&lt;/li&gt;
-&lt;li&gt;代码无法加密，但是现在很多公司都不销售卖软件而是销售服务，这个问题会被弱化。&lt;/li&gt;
-&lt;li&gt;在开发时可以选择的框架太多（如Web框架就有100多个），有选择的地方就有错误。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;Python的应用领域&#34;&gt;&lt;a href=&#34;#Python的应用领域&#34; class=&#34;headerlink&#34; title=&#34;Python的应用领域&#34;&gt;&lt;/a&gt;Python的应用领域&lt;/h4&gt;&lt;p&gt;目前&lt;code&gt;Python&lt;/code&gt;在&lt;code&gt;Web&lt;/code&gt;应用后端开发、云基础设施建设、&lt;code&gt;DevOps&lt;/code&gt;、网络数据采集（爬虫）、自动化测试、数据分析、机器学习等领域都有着广泛的应用。&lt;/p&gt;
-&lt;h3 id=&#34;安装Python解释器&#34;&gt;&lt;a href=&#34;#安装Python解释器&#34; class=&#34;headerlink&#34; title=&#34;安装Python解释器&#34;&gt;&lt;/a&gt;安装Python解释器&lt;/h3&gt;&lt;p&gt;想要开始&lt;code&gt;Python&lt;/code&gt;编程之旅，首先得在自己使用的计算机上安装&lt;code&gt;Python&lt;/code&gt;解释器环境，下面将以安装官方的&lt;code&gt;Python&lt;/code&gt;解释器为例，讲解如何在不同的操作系统上安装&lt;code&gt;Python&lt;/code&gt;环境。官方的&lt;code&gt;Python&lt;/code&gt;解释器是用C语言实现的，也是使用最为广泛的Python解释器，通常称之为&lt;code&gt;CPython&lt;/code&gt;。除此之外，&lt;code&gt;Python&lt;/code&gt;解释器还有&lt;code&gt;Java&lt;/code&gt;语言实现的&lt;code&gt;Jython&lt;/code&gt;、C#语言实现的&lt;code&gt;IronPython&lt;/code&gt;以及&lt;code&gt;PyPy&lt;/code&gt;、&lt;code&gt;Brython&lt;/code&gt;、&lt;code&gt;Pyston&lt;/code&gt;等版本，有兴趣的读者可以自行了解。&lt;/p&gt;
-&lt;h4 id=&#34;Windows环境&#34;&gt;&lt;a href=&#34;#Windows环境&#34; class=&#34;headerlink&#34; title=&#34;Windows环境&#34;&gt;&lt;/a&gt;Windows环境&lt;/h4&gt;&lt;p&gt;可以在&lt;a href=&#34;https://www.python.org/&#34;&gt;Python官方网站&lt;/a&gt;下载到&lt;code&gt;Python&lt;/code&gt;的&lt;code&gt;Windows&lt;/code&gt;安装程序（exe文件），需要注意的是如果在Windows 7环境下安装&lt;code&gt;Python 3.x&lt;/code&gt;，需要先安装&lt;code&gt;Service Pack 1&lt;/code&gt;补丁包（可以通过一些工具软件自动安装系统补丁的功能来安装），安装过程建议勾选“&lt;code&gt;Add Python 3.x to PATH&lt;/code&gt;”（将Python 3.x添加到PATH环境变量）并选择自定义安装，在设置“&lt;code&gt;Optional Features&lt;/code&gt;”界面最好将“&lt;code&gt;pip&lt;/code&gt;”、“&lt;code&gt;tcl/tk&lt;/code&gt;”、“&lt;code&gt;Python test suite&lt;/code&gt;”等项全部勾选上。强烈建议选择自定义的安装路径并保证路径中没有中文。安装完成会看到“&lt;code&gt;Setup was successful&lt;/code&gt;”的提示。如果稍后运行Python程序时，出现因为缺失一些动态链接库文件而导致Python解释器无法工作的问题，可以按照下面的方法加以解决。&lt;/p&gt;
-&lt;p&gt;如果系统显示api-ms-win-crt*.dll文件缺失，可以参照&lt;a href=&#34;https://zhuanlan.zhihu.com/p/32087135&#34;&gt;《api-ms-win-crt*.dll缺失原因分析和解决方法》&lt;/a&gt;一文讲解的方法进行处理或者直接在&lt;a href=&#34;https://www.microsoft.com/zh-cn/download/details.aspx?id=48145&#34;&gt;微软官网&lt;/a&gt;下载&lt;code&gt;Visual C++ Redistributable for Visual Studio 2015&lt;/code&gt;文件进行修复；如果是因为更新Windows的DirectX之后导致某些动态链接库文件缺失问题，可以下载一个&lt;a href=&#34;https://dl.pconline.com.cn/download/360074-1.html&#34;&gt;DirectX修复工具&lt;/a&gt;进行修复。&lt;/p&gt;
-&lt;h4 id=&#34;Linux环境&#34;&gt;&lt;a href=&#34;#Linux环境&#34; class=&#34;headerlink&#34; title=&#34;Linux环境&#34;&gt;&lt;/a&gt;Linux环境&lt;/h4&gt;&lt;p&gt;&lt;code&gt;Linux&lt;/code&gt;环境自带了&lt;code&gt;Python 2.x&lt;/code&gt;版本，但是如果要更新到3.x的版本，可以在&lt;a href=&#34;https://www.python.org/&#34;&gt;Python的官方网站&lt;/a&gt;下载&lt;code&gt;Python&lt;/code&gt;的源代码并通过源代码构建安装的方式进行安装，具体的步骤如下所示（以&lt;code&gt;CentOS&lt;/code&gt;为例）。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;安装依赖库（因为没有这些依赖库可能在源代码构件安装时因为缺失底层依赖库而失败）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;yum -y install wget gcc zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;下载&lt;code&gt;Python&lt;/code&gt;源代码并解压缩到指定目录。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;wget https://www.python.org/ftp/python/3.7.6/Python-3.7.6.tar.xz&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;xz -d Python-3.7.6.tar.xz&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tar -xvf Python-3.7.6.tar&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;切换至Python源代码目录并执行下面的命令进行配置和安装。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cd Python-3.7.6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;./configure --prefix=/usr/local/python37 --enable-optimizations&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;make &amp;amp;&amp;amp; make install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;修改用户主目录下名为.bash_profile的文件，配置PATH环境变量并使其生效。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cd ~&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;vim .bash_profile&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;... 此处省略上面的代码 ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export PATH=$PATH:/usr/local/python37/bin&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;... 此处省略下面的代码 ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;激活环境变量。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;source .bash_profile&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h4 id=&#34;macOS环境&#34;&gt;&lt;a href=&#34;#macOS环境&#34; class=&#34;headerlink&#34; title=&#34;macOS环境&#34;&gt;&lt;/a&gt;macOS环境&lt;/h4&gt;&lt;p&gt;&lt;code&gt;macOS&lt;/code&gt;也自带了&lt;code&gt;Python 2.x&lt;/code&gt;版本，可以通过&lt;a href=&#34;https://www.python.org/&#34;&gt;Python的官方网站&lt;/a&gt;提供的安装文件（pkg文件）安装&lt;code&gt;Python 3.x&lt;/code&gt;的版本。默认安装完成后，可以通过在终端执行&lt;code&gt;python&lt;/code&gt;命令来启动2.x版本的&lt;code&gt;Python&lt;/code&gt;解释器，启动3.x版本的&lt;code&gt;Python&lt;/code&gt;解释器需要执行&lt;code&gt;python3&lt;/code&gt;命令。&lt;/p&gt;
-&lt;h3 id=&#34;运行Python程序&#34;&gt;&lt;a href=&#34;#运行Python程序&#34; class=&#34;headerlink&#34; title=&#34;运行Python程序&#34;&gt;&lt;/a&gt;运行Python程序&lt;/h3&gt;&lt;h4 id=&#34;确认Python的版本&#34;&gt;&lt;a href=&#34;#确认Python的版本&#34; class=&#34;headerlink&#34; title=&#34;确认Python的版本&#34;&gt;&lt;/a&gt;确认Python的版本&lt;/h4&gt;&lt;p&gt;可以Windows的命令行提示符中键入下面的命令。&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python --version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;在Linux或macOS系统的终端中键入下面的命令。&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python3 --version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;当然也可以先输入&lt;code&gt;python&lt;/code&gt;或&lt;code&gt;python3&lt;/code&gt;进入交互式环境，再执行以下的代码检查Python的版本。&lt;/p&gt;
-&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; sys&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(sys.version_info)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(sys.version)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h4 id=&#34;编写Python源代码&#34;&gt;&lt;a href=&#34;#编写Python源代码&#34; class=&#34;headerlink&#34; title=&#34;编写Python源代码&#34;&gt;&lt;/a&gt;编写Python源代码&lt;/h4&gt;&lt;p&gt;可以用文本编辑工具（推荐使用&lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;Sublime&lt;/a&gt;、&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;等高级文本编辑工具）编写Python源代码并用py作为后缀名保存该文件，代码内容如下所示。&lt;/p&gt;
-&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;hello, world!&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h4 id=&#34;运行程序&#34;&gt;&lt;a href=&#34;#运行程序&#34; class=&#34;headerlink&#34; title=&#34;运行程序&#34;&gt;&lt;/a&gt;运行程序&lt;/h4&gt;&lt;p&gt;切换到源代码所在的目录并执行下面的命令，看看屏幕上是否输出了”hello, world!”。&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python hello.py&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;或&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python3 hello.py&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h4 id=&#34;代码中的注释&#34;&gt;&lt;a href=&#34;#代码中的注释&#34; class=&#34;headerlink&#34; title=&#34;代码中的注释&#34;&gt;&lt;/a&gt;代码中的注释&lt;/h4&gt;&lt;p&gt;注释是编程语言的一个重要组成部分，用于在源代码中解释代码的作用从而增强程序的可读性和可维护性，当然也可以将源代码中不需要参与运行的代码段通过注释来去掉，这一点在调试程序的时候经常用到。注释在随源代码进入预处理器或编译时会被移除，不会在目标代码中保留也不会影响程序的执行结果。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;单行注释 - 以#和空格开头的部分&lt;/li&gt;
-&lt;li&gt;多行注释 - 三个引号开头，三个引号结尾&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;第一个Python程序 - hello, world!&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;向伟大的Dennis M. Ritchie先生致敬&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;Version: 0.1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;Author: 骆昊&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;hello, world!&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# print(&amp;quot;你好, 世界！&amp;quot;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h3 id=&#34;Python开发工具&#34;&gt;&lt;a href=&#34;#Python开发工具&#34; class=&#34;headerlink&#34; title=&#34;Python开发工具&#34;&gt;&lt;/a&gt;Python开发工具&lt;/h3&gt;&lt;h4 id=&#34;IDLE-自带的集成开发工具&#34;&gt;&lt;a href=&#34;#IDLE-自带的集成开发工具&#34; class=&#34;headerlink&#34; title=&#34;IDLE - 自带的集成开发工具&#34;&gt;&lt;/a&gt;IDLE - 自带的集成开发工具&lt;/h4&gt;&lt;p&gt;&lt;code&gt;IDLE&lt;/code&gt;是安装&lt;code&gt;Python&lt;/code&gt;环境时自带的集成开发工具，如下图所示。但是由于&lt;code&gt;IDLE&lt;/code&gt;的用户体验并不是那么好所以很少在实际开发中被采用。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/./res/python-idle.png&#34;&gt;&lt;/p&gt;
-&lt;h4 id=&#34;IPython-更好的交互式编程工具&#34;&gt;&lt;a href=&#34;#IPython-更好的交互式编程工具&#34; class=&#34;headerlink&#34; title=&#34;IPython - 更好的交互式编程工具&#34;&gt;&lt;/a&gt;IPython - 更好的交互式编程工具&lt;/h4&gt;&lt;p&gt;&lt;code&gt;IPython&lt;/code&gt;是一种基于&lt;code&gt;Python&lt;/code&gt;的交互式解释器。相较于原生的Python交互式环境，&lt;code&gt;IPython&lt;/code&gt;提供了更为强大的编辑和交互功能。可以通过Python的包管理工具pip安装&lt;code&gt;IPython&lt;/code&gt;，具体的操作如下所示。&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip install ipython&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;或&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip3 install ipython&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;安装成功后，可以通过下面的ipython命令启动&lt;code&gt;IPython&lt;/code&gt;，如下图所示。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/./res/python-ipython.png&#34;&gt;&lt;/p&gt;
-&lt;h4 id=&#34;Sublime-Text-高级文本编辑器&#34;&gt;&lt;a href=&#34;#Sublime-Text-高级文本编辑器&#34; class=&#34;headerlink&#34; title=&#34;Sublime Text - 高级文本编辑器&#34;&gt;&lt;/a&gt;Sublime Text - 高级文本编辑器&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;/./res/python-sublime.png&#34;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;首先可以通过&lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;官方网站&lt;/a&gt;下载安装程序安装&lt;code&gt;Sublime Text 3&lt;/code&gt;或&lt;code&gt;Sublime Text 2&lt;/code&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;安装包管理工具。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;通过快捷键&lt;code&gt;Ctrl+&lt;/code&gt;或者在View菜单中选择&lt;code&gt;Show Console&lt;/code&gt;打开控制台，输入下面的代码。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Sublime 3&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt;  urllib.request,os;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pf=&lt;span class=&#34;string&#34;&gt;&amp;#x27;Package Control.sublime-package&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ipp=sublime.installed_packages_path();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;open&lt;/span&gt;(os.path.join(ipp,pf),&lt;span class=&#34;string&#34;&gt;&amp;#x27;wb&amp;#x27;&lt;/span&gt;).write(urllib.request.urlopen(&lt;span class=&#34;string&#34;&gt;&amp;#x27;http://sublime.wbond.net/&amp;#x27;&lt;/span&gt;+pf.replace(&lt;span class=&#34;string&#34;&gt;&amp;#x27; &amp;#x27;&lt;/span&gt;,&lt;span class=&#34;string&#34;&gt;&amp;#x27;%20&amp;#x27;&lt;/span&gt;)).read())&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;Sublime 2&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt;  urllib2,os;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pf=&lt;span class=&#34;string&#34;&gt;&amp;#x27;Package Control.sublime-package&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ipp=sublime.installed_packages_path();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;os.makedirs(ipp)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; notos.path.exists(ipp):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;pass&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;literal&#34;&gt;None&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler()));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;open&lt;/span&gt;(os.path.join(ipp,pf),&lt;span class=&#34;string&#34;&gt;&amp;#x27;wb&amp;#x27;&lt;/span&gt;).write(urllib2.urlopen(&lt;span class=&#34;string&#34;&gt;&amp;#x27;http://sublime.wbond.net/&amp;#x27;&lt;/span&gt;+pf.replace(&lt;span class=&#34;string&#34;&gt;&amp;#x27; &amp;#x27;&lt;/span&gt;,&lt;span class=&#34;string&#34;&gt;&amp;#x27;%20&amp;#x27;&lt;/span&gt;)).read());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;Please restart Sublime Text to finish installation&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;在浏览器中输入  &lt;a href=&#34;https://sublime.wbond.net/Package%20Control.sublime-package&#34;&gt;https://sublime.wbond.net/Package%20Control.sublime-package&lt;/a&gt; 下载包管理工具的安装包，并找到安装Sublime目录下名为&amp;quot;Installed Packages&amp;quot;的目录，把刚才下载的文件放到这个文件加下，然后重启Sublime Text就搞定了。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;安装插件。通过&lt;code&gt;Preference&lt;/code&gt;菜单的&lt;code&gt;Package Control&lt;/code&gt;或快捷键&lt;code&gt;Ctrl+Shift+P&lt;/code&gt;打开命令面板，在面板中输入&lt;code&gt;Install Package&lt;/code&gt;就可以找到安装插件的工具，然后再查找需要的插件。我们推荐大家安装以下几个插件：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;SublimeCodeIntel&lt;/code&gt; - 代码自动补全工具插件。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Emmet&lt;/code&gt; - 前端开发代码模板插件。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Git&lt;/code&gt; - 版本控制工具插件。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Python PEP8 Autoformat&lt;/code&gt; - &lt;code&gt;PEP8&lt;/code&gt;规范自动格式化插件。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ConvertToUTF8&lt;/code&gt; - 将本地编码转换为&lt;code&gt;UTF-8&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：事实上&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;可能是更好的选择，它不用花钱并提供了更为完整和强大的功能，有兴趣的读者可以自行研究。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&#34;PyCharm-Python开发神器&#34;&gt;&lt;a href=&#34;#PyCharm-Python开发神器&#34; class=&#34;headerlink&#34; title=&#34;PyCharm - Python开发神器&#34;&gt;&lt;/a&gt;PyCharm - Python开发神器&lt;/h4&gt;&lt;p&gt;PyCharm的安装、配置和使用在&lt;a href=&#34;../%E7%95%AA%E5%A4%96%E7%AF%87/%E7%8E%A9%E8%BD%ACPyCharm.md&#34;&gt;《玩转PyCharm》&lt;/a&gt;进行了介绍，有兴趣的读者可以选择阅读。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/./res/python-pycharm.png&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;练习&#34;&gt;&lt;a href=&#34;#练习&#34; class=&#34;headerlink&#34; title=&#34;练习&#34;&gt;&lt;/a&gt;练习&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;在&lt;code&gt;Python&lt;/code&gt;交互式环境中输入下面的代码并查看结果，请尝试将看到的内容翻译成中文。&lt;/p&gt;
- &lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; this&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：输入上面的代码，在&lt;code&gt;Python&lt;/code&gt;的交互式环境中可以看到Tim Peter撰写的&lt;a href=&#34;../Python%E4%B9%8B%E7%A6%85.md&#34;&gt;“Python之禅”&lt;/a&gt;，里面讲述的道理不仅仅适用于Python，也适用于其他编程语言。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;学习使用turtle在屏幕上绘制图形。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：turtle是Python内置的一个非常有趣的模块，特别适合对计算机程序设计进行初体验的小伙伴，它最早是Logo语言的一部分，Logo语言是Wally Feurzig和Seymour Papert在1966发明的编程语言。&lt;/p&gt;
-&lt;/blockquote&gt;
- &lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; turtle&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.pensize(&lt;span class=&#34;number&#34;&gt;4&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.pencolor(&lt;span class=&#34;string&#34;&gt;&amp;#x27;red&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.forward(&lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.right(&lt;span class=&#34;number&#34;&gt;90&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.forward(&lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.right(&lt;span class=&#34;number&#34;&gt;90&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.forward(&lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.right(&lt;span class=&#34;number&#34;&gt;90&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.forward(&lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.mainloop()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;提示&lt;/strong&gt;：本章提供的代码中还有画国旗和画小猪佩奇的代码，有兴趣的读者请自行研究。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
  ]]></description>
         </item>
     </channel>
