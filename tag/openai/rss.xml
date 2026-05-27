@@ -5,10 +5,8 @@
         <link>https://scottalive.github.io</link>
         <description>编程笔记 &amp; 资料分享</description>
         <language>zh-CN</language>
-        <pubDate>Fri, 08 May 2026 22:00:00 +0800</pubDate>
-        <lastBuildDate>Fri, 08 May 2026 22:00:00 +0800</lastBuildDate>
-        <category>坏习惯</category>
-        <category>个人分享</category>
+        <pubDate>Wed, 27 May 2026 09:39:00 +0800</pubDate>
+        <lastBuildDate>Wed, 27 May 2026 09:39:00 +0800</lastBuildDate>
         <category>AI日报</category>
         <category>AI</category>
         <category>GitHub热门</category>
@@ -16,28 +14,27 @@
         <category>技术趋势</category>
         <category>原则</category>
         <category>个人详情</category>
-        <category>心理学知识</category>
-        <category>阿德勒心理学</category>
-        <category>自卑与超越</category>
+        <category>个人分享</category>
         <category>Kubernetes</category>
         <category>k8s</category>
-        <category>kubeconfig</category>
-        <category>kubectl</category>
-        <category>Context</category>
-        <category>DevOps</category>
-        <category>Helm</category>
-        <category>学习计划</category>
         <category>容器编排</category>
+        <category>DevOps</category>
         <category>运维</category>
+        <category>坏习惯</category>
         <category>网络安全</category>
         <category>SQL注入</category>
         <category>XSS</category>
         <category>CSRF</category>
         <category>DDoS</category>
         <category>渗透测试</category>
+        <category>kubeconfig</category>
+        <category>kubectl</category>
+        <category>Context</category>
         <category>GPT-5.5</category>
         <category>OpenAI</category>
         <category>Codex</category>
+        <category>Helm</category>
+        <category>学习计划</category>
         <category>ClaudeCode</category>
         <category>开发工具</category>
         <category>编程笔记</category>
@@ -45,30 +42,199 @@
         <category>Agent</category>
         <category>NousResearch</category>
         <category>开源</category>
-        <category>进阶</category>
-        <category>配置</category>
-        <category>高阶</category>
-        <category>自动化</category>
+        <category>编程助手</category>
         <category>LLM</category>
         <category>RAG</category>
         <category>知识库</category>
+        <category>SSE</category>
+        <category>HTTP</category>
+        <category>Gemini</category>
+        <category>高阶</category>
+        <category>自动化</category>
+        <category>进阶</category>
+        <category>配置</category>
         <category>OpenSRE</category>
         <category>SRE</category>
         <category>故障排查</category>
-        <category>Gemini</category>
-        <category>SSE</category>
-        <category>HTTP</category>
-        <category>接口开发</category>
-        <category>开发注意事项</category>
-        <category>微服务</category>
-        <category>JavaSE</category>
+        <category>心理学知识</category>
+        <category>阿德勒心理学</category>
+        <category>自卑与超越</category>
         <category>力扣算法题</category>
         <category>算法</category>
         <category>动态规划</category>
+        <category>JavaSE</category>
         <category>Java开发面试题</category>
         <category>SpringBoot</category>
         <category>Spring</category>
+        <category>接口开发</category>
+        <category>开发注意事项</category>
+        <category>微服务</category>
         <category>python</category>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/Codex-CLI-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+            <title>Codex CLI 安装与使用指南</title>
+            <link>https://scottalive.github.io/computer-science/ai-tools/Codex-CLI-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+            <category>AI</category>
+            <category>OpenAI</category>
+            <category>Codex</category>
+            <category>开发工具</category>
+            <category>编程助手</category>
+            <pubDate>Wed, 27 May 2026 09:39:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;什么是-Codex-CLI？&#34;&gt;&lt;a href=&#34;#什么是-Codex-CLI？&#34; class=&#34;headerlink&#34; title=&#34;什么是 Codex CLI？&#34;&gt;&lt;/a&gt;什么是 Codex CLI？&lt;/h2&gt;&lt;p&gt;Codex CLI 是 OpenAI 推出的一款&lt;strong&gt;轻量级编程智能体&lt;/strong&gt;，运行在你的本地终端中。与传统的 AI 助手不同，它不是一个聊天窗口——它是一个真正的”智能体”，可以直接读取你的代码库、编辑文件、执行命令、提交 Git 操作，并在沙盒环境中运行代码。&lt;/p&gt;
+&lt;p&gt;Codex CLI 是 ChatGPT 中 Codex 功能的命令行版本，支持三种产品形态：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Codex CLI（终端）&lt;/strong&gt;：直接在命令行中与你对话、辅助编程&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Codex App（桌面应用）&lt;/strong&gt;：独立的桌面应用体验，运行 &lt;code&gt;codex app&lt;/code&gt; 启动&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Codex IDE（编辑器集成）&lt;/strong&gt;：支持 VS Code、Cursor、Windsurf 等编辑器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Codex CLI 完全在&lt;strong&gt;本地运行&lt;/strong&gt;，你的代码不会上传到云端，仅指令和必要的上下文会发送给 OpenAI 的模型进行处理。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;安装指南&#34;&gt;&lt;a href=&#34;#安装指南&#34; class=&#34;headerlink&#34; title=&#34;安装指南&#34;&gt;&lt;/a&gt;安装指南&lt;/h2&gt;&lt;h3 id=&#34;系统要求&#34;&gt;&lt;a href=&#34;#系统要求&#34; class=&#34;headerlink&#34; title=&#34;系统要求&#34;&gt;&lt;/a&gt;系统要求&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;要求&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;操作系统&lt;/td&gt;
+&lt;td&gt;macOS 12+、Ubuntu 20.04+ &amp;#x2F; Debian 10+、&lt;strong&gt;Windows 11（需 WSL2）&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Git（可选）&lt;/td&gt;
+&lt;td&gt;2.23+，用于内置 PR 辅助功能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;内存&lt;/td&gt;
+&lt;td&gt;最低 4GB，推荐 8GB+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Rust 工具链&lt;/td&gt;
+&lt;td&gt;如果要从源码构建，需安装&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[选择安装方式] --&amp;gt; B&amp;#123;你的操作系统?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|macOS| C1[curl 一键安装]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|Linux| C2[curl 一键安装]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|Windows| C3[PowerShell 安装&amp;lt;br&amp;gt;或 WSL2]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|macOS| D1[Homebrew 安装]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|任意平台| E[npm 全局安装]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|任意平台| F[下载 GitHub Release]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|任意平台| G[从源码编译]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;方式一：一键安装脚本（推荐）&#34;&gt;&lt;a href=&#34;#方式一：一键安装脚本（推荐）&#34; class=&#34;headerlink&#34; title=&#34;方式一：一键安装脚本（推荐）&#34;&gt;&lt;/a&gt;方式一：一键安装脚本（推荐）&lt;/h3&gt;&lt;p&gt;这是最简便的方式，适合大多数用户。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;macOS &amp;#x2F; Linux：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;curl -fsSL https://chatgpt.com/codex/install.sh | sh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;Windows（PowerShell）：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight powershell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;powershell &lt;span class=&#34;literal&#34;&gt;-ExecutionPolicy&lt;/span&gt; ByPass &lt;span class=&#34;literal&#34;&gt;-c&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;irm https://chatgpt.com/codex/install.ps1 | iex&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;方式二：包管理器安装&#34;&gt;&lt;a href=&#34;#方式二：包管理器安装&#34; class=&#34;headerlink&#34; title=&#34;方式二：包管理器安装&#34;&gt;&lt;/a&gt;方式二：包管理器安装&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;通过 npm 安装（跨平台）：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install -g @openai/codex&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;通过 Homebrew 安装（macOS）：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;brew install --cask codex&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;方式三：从-GitHub-Release-下载&#34;&gt;&lt;a href=&#34;#方式三：从-GitHub-Release-下载&#34; class=&#34;headerlink&#34; title=&#34;方式三：从 GitHub Release 下载&#34;&gt;&lt;/a&gt;方式三：从 GitHub Release 下载&lt;/h3&gt;&lt;p&gt;前往 &lt;a href=&#34;https://github.com/openai/codex/releases/latest&#34;&gt;GitHub Releases 页面&lt;/a&gt; 下载适合你平台的预编译二进制文件。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;平台&lt;/th&gt;
+&lt;th&gt;架构&lt;/th&gt;
+&lt;th&gt;下载文件&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;macOS&lt;/td&gt;
+&lt;td&gt;Apple Silicon (arm64)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;codex-aarch64-apple-darwin.tar.gz&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;macOS&lt;/td&gt;
+&lt;td&gt;Intel (x86_64)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;codex-x86_64-apple-darwin.tar.gz&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Linux&lt;/td&gt;
+&lt;td&gt;x86_64&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;codex-x86_64-unknown-linux-musl.tar.gz&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Linux&lt;/td&gt;
+&lt;td&gt;arm64&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;codex-aarch64-unknown-linux-musl.tar.gz&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;下载解压后，建议将可执行文件重命名为 &lt;code&gt;codex&lt;/code&gt; 并放入 &lt;code&gt;PATH&lt;/code&gt; 中：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 以 Linux x86_64 为例&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tar xzf codex-x86_64-unknown-linux-musl.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;mv&lt;/span&gt; codex-x86_64-unknown-linux-musl /usr/local/bin/codex&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;chmod&lt;/span&gt; +x /usr/local/bin/codex&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;方式四：从源码构建&#34;&gt;&lt;a href=&#34;#方式四：从源码构建&#34; class=&#34;headerlink&#34; title=&#34;方式四：从源码构建&#34;&gt;&lt;/a&gt;方式四：从源码构建&lt;/h3&gt;&lt;p&gt;如果你希望自行编译最新版本或参与开发：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 克隆仓库&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;git &lt;span class=&#34;built_in&#34;&gt;clone&lt;/span&gt; https://github.com/openai/codex.git&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;cd&lt;/span&gt; codex/codex-rs&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 安装 Rust 工具链（如尚未安装）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl --proto &lt;span class=&#34;string&#34;&gt;&amp;#x27;=https&amp;#x27;&lt;/span&gt; --tlsv1.2 -sSf https://sh.rustup.rs | sh&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;source&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;&lt;span class=&#34;variable&#34;&gt;$HOME&lt;/span&gt;/.cargo/env&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;rustup component add rustfmt clippy&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 安装构建工具&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cargo install --locked just&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cargo install --locked cargo-nextest&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 构建 Codex&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cargo build&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 运行 TUI 界面&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cargo run --bin codex -- &lt;span class=&#34;string&#34;&gt;&amp;quot;介绍这个代码库&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;首次使用与身份验证&#34;&gt;&lt;a href=&#34;#首次使用与身份验证&#34; class=&#34;headerlink&#34; title=&#34;首次使用与身份验证&#34;&gt;&lt;/a&gt;首次使用与身份验证&lt;/h2&gt;&lt;p&gt;安装完成后，在终端中运行：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;codex&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;首次运行时，Codex CLI 会提示你登录。&lt;/p&gt;
+&lt;h3 id=&#34;验证方式一：ChatGPT-账号登录（推荐）&#34;&gt;&lt;a href=&#34;#验证方式一：ChatGPT-账号登录（推荐）&#34; class=&#34;headerlink&#34; title=&#34;验证方式一：ChatGPT 账号登录（推荐）&#34;&gt;&lt;/a&gt;验证方式一：ChatGPT 账号登录（推荐）&lt;/h3&gt;&lt;p&gt;选择 &lt;strong&gt;“Sign in with ChatGPT”&lt;/strong&gt;，使用你的 ChatGPT Plus、Pro、Business、Edu 或 Enterprise 订阅即可使用。不同订阅计划包含不同的 Codex 使用额度。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;查看你的 ChatGPT 计划包含的 Codex 权益：&lt;a href=&#34;https://help.openai.com/en/articles/11369540-codex-in-chatgpt&#34;&gt;OpenAI 帮助文档&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;验证方式二：API-Key-登录&#34;&gt;&lt;a href=&#34;#验证方式二：API-Key-登录&#34; class=&#34;headerlink&#34; title=&#34;验证方式二：API Key 登录&#34;&gt;&lt;/a&gt;验证方式二：API Key 登录&lt;/h3&gt;&lt;p&gt;如果你有 OpenAI API 订阅，也可以通过 API Key 验证，但这需要进行&lt;a href=&#34;https://developers.openai.com/codex/auth#sign-in-with-an-api-key&#34;&gt;额外配置&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;基本使用&#34;&gt;&lt;a href=&#34;#基本使用&#34; class=&#34;headerlink&#34; title=&#34;基本使用&#34;&gt;&lt;/a&gt;基本使用&lt;/h2&gt;&lt;h3 id=&#34;启动交互模式&#34;&gt;&lt;a href=&#34;#启动交互模式&#34; class=&#34;headerlink&#34; title=&#34;启动交互模式&#34;&gt;&lt;/a&gt;启动交互模式&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;codex&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;这将启动 Codex CLI 的 TUI（文本用户界面），你可以在其中直接输入指令。Codex 会理解你的代码库上下文，并执行相应的操作：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;读取和分析文件&lt;/li&gt;
+&lt;li&gt;创建和编辑代码&lt;/li&gt;
+&lt;li&gt;运行终端命令&lt;/li&gt;
+&lt;li&gt;执行 Git 操作&lt;/li&gt;
+&lt;li&gt;在沙盒中运行代码并查看结果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;非交互式执行（单次任务）&#34;&gt;&lt;a href=&#34;#非交互式执行（单次任务）&#34; class=&#34;headerlink&#34; title=&#34;非交互式执行（单次任务）&#34;&gt;&lt;/a&gt;非交互式执行（单次任务）&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;codex &lt;span class=&#34;built_in&#34;&gt;exec&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;给这个项目添加 README.md&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code&gt;codex exec&lt;/code&gt; 模式适合集成到脚本或 CI&amp;#x2F;CD 流水线中。&lt;/p&gt;
+&lt;h3 id=&#34;配置文件&#34;&gt;&lt;a href=&#34;#配置文件&#34; class=&#34;headerlink&#34; title=&#34;配置文件&#34;&gt;&lt;/a&gt;配置文件&lt;/h3&gt;&lt;p&gt;Codex CLI 支持通过多种方式配置：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 指定配置目录&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;codex -c log_dir=./.codex-log&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;查看日志：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;tail&lt;/span&gt; -F ./.codex-log/codex-tui.log&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;基础交互流程&#34;&gt;&lt;a href=&#34;#基础交互流程&#34; class=&#34;headerlink&#34; title=&#34;基础交互流程&#34;&gt;&lt;/a&gt;基础交互流程&lt;/h3&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sequenceDiagram&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant 你 as 开发者&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant Codex as Codex CLI&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant LLM as OpenAI 模型&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant Env as 本地环境&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    你-&amp;gt;&amp;gt;Codex: 输入指令（如&amp;quot;添加用户登录功能&amp;quot;）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Codex-&amp;gt;&amp;gt;LLM: 发送指令+代码上下文&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    LLM-&amp;gt;&amp;gt;Codex: 返回执行计划&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Codex-&amp;gt;&amp;gt;你: 展示计划并请求确认&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    你-&amp;gt;&amp;gt;Codex: 确认执行&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Codex-&amp;gt;&amp;gt;Env: 读取/编辑文件、运行命令&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Env--&amp;gt;&amp;gt;Codex: 执行结果&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Codex-&amp;gt;&amp;gt;LLM: 发送执行结果&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    LLM-&amp;gt;&amp;gt;Codex: 分析结果并决定下一步&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Codex--&amp;gt;&amp;gt;你: 展示完成情况&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;核心特性&#34;&gt;&lt;a href=&#34;#核心特性&#34; class=&#34;headerlink&#34; title=&#34;核心特性&#34;&gt;&lt;/a&gt;核心特性&lt;/h2&gt;&lt;h3 id=&#34;1-真正的自主编程&#34;&gt;&lt;a href=&#34;#1-真正的自主编程&#34; class=&#34;headerlink&#34; title=&#34;1. 真正的自主编程&#34;&gt;&lt;/a&gt;1. 真正的自主编程&lt;/h3&gt;&lt;p&gt;Codex CLI 不仅仅是一个代码补全工具。它能理解复杂的编程任务，自主规划执行步骤，并在需要时向你请求确认。从项目初始化到功能开发、测试编写、重构，它都能胜任。&lt;/p&gt;
+&lt;h3 id=&#34;2-本地代码库理解&#34;&gt;&lt;a href=&#34;#2-本地代码库理解&#34; class=&#34;headerlink&#34; title=&#34;2. 本地代码库理解&#34;&gt;&lt;/a&gt;2. 本地代码库理解&lt;/h3&gt;&lt;p&gt;Codex CLI 运行在本地，能直接访问你的完整代码库。它不需要将代码上传到任何服务器——仅指令和必要的上下文会发送到 OpenAI 的模型。&lt;/p&gt;
+&lt;h3 id=&#34;3-安全的沙盒执行&#34;&gt;&lt;a href=&#34;#3-安全的沙盒执行&#34; class=&#34;headerlink&#34; title=&#34;3. 安全的沙盒执行&#34;&gt;&lt;/a&gt;3. 安全的沙盒执行&lt;/h3&gt;&lt;p&gt;当 Codex 需要运行代码时，它会在本地的沙盒环境中执行，确保不会意外影响你的系统。&lt;/p&gt;
+&lt;h3 id=&#34;4-MCP（Model-Context-Protocol）支持&#34;&gt;&lt;a href=&#34;#4-MCP（Model-Context-Protocol）支持&#34; class=&#34;headerlink&#34; title=&#34;4. MCP（Model Context Protocol）支持&#34;&gt;&lt;/a&gt;4. MCP（Model Context Protocol）支持&lt;/h3&gt;&lt;p&gt;Codex CLI 支持通过 MCP 协议集成外部工具，包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;连接数据库&lt;/li&gt;
+&lt;li&gt;调用外部 API&lt;/li&gt;
+&lt;li&gt;集成自定义工具链&lt;/li&gt;
+&lt;li&gt;读取远程服务数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-回顾与搜索&#34;&gt;&lt;a href=&#34;#5-回顾与搜索&#34; class=&#34;headerlink&#34; title=&#34;5. 回顾与搜索&#34;&gt;&lt;/a&gt;5. 回顾与搜索&lt;/h3&gt;&lt;p&gt;Codex CLI 支持搜索本地对话历史，包括大小写不敏感的内容匹配和结果预览，方便你回顾之前的编程会话。&lt;/p&gt;
+&lt;h3 id=&#34;6-多配置文件管理&#34;&gt;&lt;a href=&#34;#6-多配置文件管理&#34; class=&#34;headerlink&#34; title=&#34;6. 多配置文件管理&#34;&gt;&lt;/a&gt;6. 多配置文件管理&lt;/h3&gt;&lt;p&gt;支持通过 &lt;code&gt;--profile&lt;/code&gt; 参数选择不同的配置文件，适合在不同的工作场景（工作项目、个人项目、不同代码库）之间切换。&lt;/p&gt;
+&lt;h2 id=&#34;使用场景&#34;&gt;&lt;a href=&#34;#使用场景&#34; class=&#34;headerlink&#34; title=&#34;使用场景&#34;&gt;&lt;/a&gt;使用场景&lt;/h2&gt;&lt;h3 id=&#34;快速原型开发&#34;&gt;&lt;a href=&#34;#快速原型开发&#34; class=&#34;headerlink&#34; title=&#34;快速原型开发&#34;&gt;&lt;/a&gt;快速原型开发&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;codex &lt;span class=&#34;string&#34;&gt;&amp;quot;创建一个 FastAPI 项目，包含用户认证和 CRUD API&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;Codex 会自动创建项目结构、安装依赖、编写代码，让你在几分钟内获得可运行的原型。&lt;/p&gt;
+&lt;h3 id=&#34;代码重构与优化&#34;&gt;&lt;a href=&#34;#代码重构与优化&#34; class=&#34;headerlink&#34; title=&#34;代码重构与优化&#34;&gt;&lt;/a&gt;代码重构与优化&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;codex &lt;span class=&#34;string&#34;&gt;&amp;quot;将这个模块中的回调函数全部改为 async/await 模式&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;调试与修复&#34;&gt;&lt;a href=&#34;#调试与修复&#34; class=&#34;headerlink&#34; title=&#34;调试与修复&#34;&gt;&lt;/a&gt;调试与修复&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;codex &lt;span class=&#34;string&#34;&gt;&amp;quot;运行测试，分析失败原因并修复&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;代码审查&#34;&gt;&lt;a href=&#34;#代码审查&#34; class=&#34;headerlink&#34; title=&#34;代码审查&#34;&gt;&lt;/a&gt;代码审查&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;codex &lt;span class=&#34;string&#34;&gt;&amp;quot;审查这个目录下最近修改的代码，找出潜在问题&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;文档生成&#34;&gt;&lt;a href=&#34;#文档生成&#34; class=&#34;headerlink&#34; title=&#34;文档生成&#34;&gt;&lt;/a&gt;文档生成&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;codex &lt;span class=&#34;string&#34;&gt;&amp;quot;为这个 API 模块生成详细的文档注释&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;常见问题&#34;&gt;&lt;a href=&#34;#常见问题&#34; class=&#34;headerlink&#34; title=&#34;常见问题&#34;&gt;&lt;/a&gt;常见问题&lt;/h2&gt;&lt;h3 id=&#34;Q-Codex-CLI-与-GitHub-Copilot-有什么区别？&#34;&gt;&lt;a href=&#34;#Q-Codex-CLI-与-GitHub-Copilot-有什么区别？&#34; class=&#34;headerlink&#34; title=&#34;Q: Codex CLI 与 GitHub Copilot 有什么区别？&#34;&gt;&lt;/a&gt;Q: Codex CLI 与 GitHub Copilot 有什么区别？&lt;/h3&gt;&lt;p&gt;Codex CLI 是&lt;strong&gt;自主编程智能体&lt;/strong&gt;，可以独立完成整个编程任务；而 GitHub Copilot 主要是&lt;strong&gt;代码补全工具&lt;/strong&gt;，在你编写代码时提供建议。两者互补使用效果更好。&lt;/p&gt;
+&lt;h3 id=&#34;Q-我的代码会上传到-OpenAI-吗？&#34;&gt;&lt;a href=&#34;#Q-我的代码会上传到-OpenAI-吗？&#34; class=&#34;headerlink&#34; title=&#34;Q: 我的代码会上传到 OpenAI 吗？&#34;&gt;&lt;/a&gt;Q: 我的代码会上传到 OpenAI 吗？&lt;/h3&gt;&lt;p&gt;Codex CLI 本身运行在本地，只有你向 Codex 发出的指令和必要的代码上下文会被发送到 OpenAI 进行处理。如果你对隐私敏感，可以在使用前查阅 OpenAI 的数据处理政策。&lt;/p&gt;
+&lt;h3 id=&#34;Q-Windows-是否原生支持？&#34;&gt;&lt;a href=&#34;#Q-Windows-是否原生支持？&#34; class=&#34;headerlink&#34; title=&#34;Q: Windows 是否原生支持？&#34;&gt;&lt;/a&gt;Q: Windows 是否原生支持？&lt;/h3&gt;&lt;p&gt;Codex CLI 在 Windows 上需要 &lt;strong&gt;WSL2&lt;/strong&gt; 环境。如果你没有 WSL2，可以通过 npm 安装，但某些功能可能受限。&lt;/p&gt;
+&lt;h3 id=&#34;Q-如何卸载？&#34;&gt;&lt;a href=&#34;#Q-如何卸载？&#34; class=&#34;headerlink&#34; title=&#34;Q: 如何卸载？&#34;&gt;&lt;/a&gt;Q: 如何卸载？&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# npm 安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;npm uninstall -g @openai/codex&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Homebrew 安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;brew uninstall --cask codex&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 一键脚本安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;rm&lt;/span&gt; $(&lt;span class=&#34;built_in&#34;&gt;which&lt;/span&gt; codex)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;rm&lt;/span&gt; -rf ~/.codex&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;Codex CLI 是 OpenAI 推出的新一代编程智能体，它将强大的 AI 能力直接带入终端。与传统的 AI 编程助手相比，Codex CLI 更像一个真正的协作者——它能理解项目全局、自主执行任务、并持续迭代改进。&lt;/p&gt;
+&lt;p&gt;对于习惯命令行的开发者来说，Codex CLI 提供了一种高效、专注的编程方式，尤其适合快速原型开发、代码重构和自动化任务。结合其 MCP 扩展能力和沙盒执行环境，它正在重新定义终端编程的可能性。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;相关资源：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/openai/codex&#34;&gt;GitHub 仓库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.openai.com/codex&#34;&gt;Codex 官方文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://chatgpt.com/codex&#34;&gt;ChatGPT 中的 Codex 功能介绍&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/openai/codex/releases/latest&#34;&gt;最新 Release 下载&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-08/</guid>
             <title>AI 日报 2026-05-08</title>
