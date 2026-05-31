@@ -3,7 +3,7 @@
     <id>https://scottalive.github.io</id>
     <title>沉鱼的博客 • Posts by &#34;人工智能&#34; tag</title>
     <link href="https://scottalive.github.io" />
-    <updated>2026-05-30T14:00:00.000Z</updated>
+    <updated>2026-05-31T14:00:00.000Z</updated>
     <category term="AI日报" />
     <category term="AI" />
     <category term="GitHub热门" />
@@ -12,61 +12,162 @@
     <category term="原则" />
     <category term="个人详情" />
     <category term="个人分享" />
-    <category term="Kubernetes" />
-    <category term="k8s" />
-    <category term="kubeconfig" />
-    <category term="kubectl" />
-    <category term="Context" />
-    <category term="DevOps" />
-    <category term="容器编排" />
-    <category term="运维" />
     <category term="坏习惯" />
-    <category term="Helm" />
-    <category term="学习计划" />
     <category term="GPT-5.5" />
     <category term="OpenAI" />
     <category term="Codex" />
     <category term="ClaudeCode" />
-    <category term="Gemini" />
     <category term="开发工具" />
-    <category term="开源" />
     <category term="编程笔记" />
     <category term="编程助手" />
     <category term="Hermes" />
     <category term="Agent" />
     <category term="NousResearch" />
+    <category term="开源" />
+    <category term="高阶" />
+    <category term="自动化" />
+    <category term="LLM" />
+    <category term="RAG" />
+    <category term="知识库" />
     <category term="网络安全" />
     <category term="SQL注入" />
     <category term="XSS" />
     <category term="CSRF" />
     <category term="DDoS" />
     <category term="渗透测试" />
+    <category term="Gemini" />
     <category term="进阶" />
     <category term="配置" />
-    <category term="高阶" />
-    <category term="自动化" />
+    <category term="Kubernetes" />
+    <category term="k8s" />
+    <category term="kubeconfig" />
+    <category term="kubectl" />
+    <category term="Context" />
+    <category term="DevOps" />
     <category term="OpenSRE" />
     <category term="SRE" />
+    <category term="运维" />
     <category term="故障排查" />
     <category term="心理学知识" />
     <category term="阿德勒心理学" />
     <category term="自卑与超越" />
+    <category term="容器编排" />
     <category term="SSE" />
     <category term="HTTP" />
+    <category term="Helm" />
+    <category term="学习计划" />
     <category term="力扣算法题" />
-    <category term="LLM" />
-    <category term="RAG" />
-    <category term="知识库" />
     <category term="算法" />
-    <category term="动态规划" />
     <category term="JavaSE" />
     <category term="Java开发面试题" />
+    <category term="动态规划" />
     <category term="SpringBoot" />
     <category term="Spring" />
     <category term="接口开发" />
     <category term="开发注意事项" />
     <category term="微服务" />
     <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-31/</id>
+        <title>AI 日报 2026-05-31</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-31/"/>
+        <content type="html">&lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;Anthropic 以近万亿美元估值完成 Series H 融资（$900B），估值甩开 OpenAI（$730B）。AI Agent 赛道进入”重建期”，企业开始直面可靠性问题。Microsoft 正打造整合 GitHub Copilot、Copilot Chat 的”超级应用”。GitHub 热度方面，Hermes Agent 的 WebUI 项目爆发、Model Context Protocol 生态向大规模 Agent 团队协作演进，”从零训练 LLM”教学项目狂揽 627 日增星，反映出开发者社区对 AI 底层能力构建的持续热情。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;1-Hermes-WebUI-—-Agent-的轻量级-Web-门户&#34;&gt;&lt;a href=&#34;#1-Hermes-WebUI-—-Agent-的轻量级-Web-门户&#34; class=&#34;headerlink&#34; title=&#34;1. Hermes WebUI — Agent 的轻量级 Web 门户&#34;&gt;&lt;/a&gt;1. Hermes WebUI — Agent 的轻量级 Web 门户&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;项目&lt;/strong&gt;: &lt;a href=&#34;https://github.com/nesquena/hermes-webui&#34;&gt;nesquena&amp;#x2F;hermes-webui&lt;/a&gt;&lt;br&gt;&lt;strong&gt;语言&lt;/strong&gt;: Python | ☆ 9,635 | 今日 +320&lt;/p&gt;
+&lt;p&gt;Hermes Agent 是 Nous Research 推出的自主 AI Agent，植根于服务器端，通过终端或消息应用交互，具备持续记忆和长期运行积累能力。Hermes WebUI 则为其提供了一个三栏式的深色主题网页界面——左栏管理会话和导航，中栏聊天交互，右栏浏览工作区文件。底部作曲栏以圆形 Context Ring 直观展示 Token 用量。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;技术要点&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;零构建工具链，纯 Python + 原生 JS，无框架依赖&lt;/li&gt;
+&lt;li&gt;与 CLI 功能完全对等，通过 SSH 隧道安全访问&lt;/li&gt;
+&lt;li&gt;所有操作复用现有 Hermes Agent 和模型，无需额外配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：适合需要长期运行的自主 Agent 团队，通过 WebUI 降低了对 SSH 和终端的使用门槛，尤其适合远程团队协作和手机端快速查看。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[用户] --&amp;gt; B[浏览器 - Hermes WebUI]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[SSH 隧道]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[Hermes Agent 服务器]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[LLM 模型后端]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; F[工作区文件系统]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; G[会话/记忆存储]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; H[Context Ring Token监控]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; I[消息应用 / CLI]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style A fill:#4a6cf7,color:#fff&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style B fill:#6c5ce7,color:#fff&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style D fill:#00b894,color:#fff&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;2-Harness-—-构建-Agent-团队的元技能框架&#34;&gt;&lt;a href=&#34;#2-Harness-—-构建-Agent-团队的元技能框架&#34; class=&#34;headerlink&#34; title=&#34;2. Harness — 构建 Agent 团队的元技能框架&#34;&gt;&lt;/a&gt;2. Harness — 构建 Agent 团队的元技能框架&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;项目&lt;/strong&gt;: &lt;a href=&#34;https://github.com/revfactory/harness&#34;&gt;revfactory&amp;#x2F;harness&lt;/a&gt;&lt;br&gt;&lt;strong&gt;语言&lt;/strong&gt;: HTML | ☆ 4,460 | 今日 +318&lt;/p&gt;
+&lt;p&gt;Harness 是一个极具前瞻性的元技能（Meta-Skill）框架，能够&lt;strong&gt;设计特定领域的 Agent 团队、定义专业化 Agent，并自动生成它们所需的技能文件&lt;/strong&gt;。它本质上是”Agent 的生产线”——你描述一个领域，它就能编排出一组协同工作的子 Agent。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;技术亮点&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;元技能自动生成 Agent 团队的技能定义文件&lt;/li&gt;
+&lt;li&gt;支持 Agent 角色分离（研究员、编码员、审查员等）&lt;/li&gt;
+&lt;li&gt;生成的技能可直接供 Claude Code 等工具使用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：企业级 Agent 工作流编排、复杂多步骤任务的 Agent 团队组建、领域特定的自动化流水线。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[用户描述领域需求] --&amp;gt; B[Harness 元技能引擎]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[定义 Agent 团队架构]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[Agent-1: 研究员]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; E[Agent-2: 编码实现]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; F[Agent-3: 质量审查]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; G[生成对应技能文件]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; G&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H[部署至 Claude Code/Codex]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; I[团队协同执行任务]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style B fill:#e17055,color:#fff&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style H fill:#0984e3,color:#fff&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style I fill:#00b894,color:#fff&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;3-Train-LLM-From-Scratch-—-手把手教你训练-LLM&#34;&gt;&lt;a href=&#34;#3-Train-LLM-From-Scratch-—-手把手教你训练-LLM&#34; class=&#34;headerlink&#34; title=&#34;3. Train LLM From Scratch — 手把手教你训练 LLM&#34;&gt;&lt;/a&gt;3. Train LLM From Scratch — 手把手教你训练 LLM&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;项目&lt;/strong&gt;: &lt;a href=&#34;https://github.com/FareedKhan-dev/train-llm-from-scratch&#34;&gt;FareedKhan-dev&amp;#x2F;train-llm-from-scratch&lt;/a&gt;&lt;br&gt;&lt;strong&gt;语言&lt;/strong&gt;: Jupyter Notebook | ☆ 2,625 | 今日 +627（日增之星）&lt;/p&gt;
+&lt;p&gt;今日增长最迅猛的项目，&lt;strong&gt;日增 627 Star&lt;/strong&gt;，反映出开发者社区对 LLM 底层原理的强烈求知欲。该项目提供了一个清晰的方法论链路：从数据下载到文本生成，完整呈现训练一个大语言模型的全部流程。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;内容涵盖&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据采集与清洗&lt;/li&gt;
+&lt;li&gt;Tokenizer 训练&lt;/li&gt;
+&lt;li&gt;模型架构搭建（Transformer）&lt;/li&gt;
+&lt;li&gt;训练循环实现&lt;/li&gt;
+&lt;li&gt;推理与文本生成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：AI 研究者、学生、想深入理解 LLM 工作机制的开发者。同时也是高校深度学习课程的绝佳实战材料。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4-VoxCPM2-—-开源多语言语音生成&#34;&gt;&lt;a href=&#34;#4-VoxCPM2-—-开源多语言语音生成&#34; class=&#34;headerlink&#34; title=&#34;4. VoxCPM2 — 开源多语言语音生成&#34;&gt;&lt;/a&gt;4. VoxCPM2 — 开源多语言语音生成&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;项目&lt;/strong&gt;: &lt;a href=&#34;https://github.com/OpenBMB/VoxCPM&#34;&gt;OpenBMB&amp;#x2F;VoxCPM&lt;/a&gt;&lt;br&gt;&lt;strong&gt;语言&lt;/strong&gt;: Python（推测）&lt;/p&gt;
+&lt;p&gt;清华大学 OpenBMB 团队推出的 VoxCPM2，主打&lt;strong&gt;无 Tokenizer 的多语言语音生成&lt;/strong&gt;。核心亮点包括创造性语音设计、逼真的语音克隆能力。在 TTS 领域，”无 Tokenizer”架构是一个重要的技术方向——它绕过了传统的文本分词步骤，直接从语义空间映射到声学特征，从而减少信息损失。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;5-Compound-Engineering-Plugin-—-Agent-开发工具链插件&#34;&gt;&lt;a href=&#34;#5-Compound-Engineering-Plugin-—-Agent-开发工具链插件&#34; class=&#34;headerlink&#34; title=&#34;5. Compound Engineering Plugin — Agent 开发工具链插件&#34;&gt;&lt;/a&gt;5. Compound Engineering Plugin — Agent 开发工具链插件&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;项目&lt;/strong&gt;: &lt;a href=&#34;https://github.com/EveryInc/compound-engineering-plugin&#34;&gt;EveryInc&amp;#x2F;compound-engineering-plugin&lt;/a&gt;&lt;br&gt;&lt;strong&gt;语言&lt;/strong&gt;: TypeScript | ☆ 18,565 | 今日 +243&lt;/p&gt;
+&lt;p&gt;这是 Compound Engineering 官方为 Claude Code、Codex、Cursor 等主流 Agent 编码工具打造的插件生态。188K Star 的基础设施表明，”为 Agent 写插件”正在成为一种新的开发范式——如同当年 VS Code 的插件生态那样，Agent 工具的插件市场正在萌芽。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;6-Supermemory-—-AI-时代的记忆引擎&#34;&gt;&lt;a href=&#34;#6-Supermemory-—-AI-时代的记忆引擎&#34; class=&#34;headerlink&#34; title=&#34;6. Supermemory — AI 时代的记忆引擎&#34;&gt;&lt;/a&gt;6. Supermemory — AI 时代的记忆引擎&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;项目&lt;/strong&gt;: &lt;a href=&#34;https://github.com/supermemoryai/supermemory&#34;&gt;supermemoryai&amp;#x2F;supermemory&lt;/a&gt;&lt;br&gt;&lt;strong&gt;语言&lt;/strong&gt;: TypeScript | ☆ 23,088 | 今日 +236&lt;/p&gt;
+&lt;p&gt;一个极速、可扩展的记忆引擎，定位为”AI 时代的 Memory API”。核心解决的是 Agent 的&lt;strong&gt;长期记忆&lt;/strong&gt;问题——大多数 AI Agent 每次对话都是”失忆”状态，Supermemory 提供了持久化记忆层。23K 的 Star 表明市场对这个方向的强烈认可。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;7-Project-N-O-M-A-D-—-带-AI-的离线生存计算机&#34;&gt;&lt;a href=&#34;#7-Project-N-O-M-A-D-—-带-AI-的离线生存计算机&#34; class=&#34;headerlink&#34; title=&#34;7. Project N.O.M.A.D — 带 AI 的离线生存计算机&#34;&gt;&lt;/a&gt;7. Project N.O.M.A.D — 带 AI 的离线生存计算机&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;项目&lt;/strong&gt;: &lt;a href=&#34;https://github.com/Crosstalk-Solutions/project-nomad&#34;&gt;Crosstalk-Solutions&amp;#x2F;project-nomad&lt;/a&gt;&lt;br&gt;&lt;strong&gt;语言&lt;/strong&gt;: TypeScript | ☆ 27,539 | 今日 +372&lt;/p&gt;
+&lt;p&gt;一个全功能的离线生存计算机，集成了关键工具、知识库和 AI 能力。它的定位非常独特——在无网络环境下仍然能提供 AI 辅助。这在极端环境、军事行动、灾后应急等场景中有巨大价值。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;8-MoneyPrinterTurbo-—-AI-一键短视频生成&#34;&gt;&lt;a href=&#34;#8-MoneyPrinterTurbo-—-AI-一键短视频生成&#34; class=&#34;headerlink&#34; title=&#34;8. MoneyPrinterTurbo — AI 一键短视频生成&#34;&gt;&lt;/a&gt;8. MoneyPrinterTurbo — AI 一键短视频生成&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;项目&lt;/strong&gt;: &lt;a href=&#34;https://github.com/harry0703/MoneyPrinterTurbo&#34;&gt;harry0703&amp;#x2F;MoneyPrinterTurbo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;利用 AI 大模型一键生成高清短视频。这种”文字→视频”的 AI 工作流正在成为内容创作者的标配工具，大幅降低了视频制作门槛。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;9-Claude-Code-—-终端里的-Agent-编码助手&#34;&gt;&lt;a href=&#34;#9-Claude-Code-—-终端里的-Agent-编码助手&#34; class=&#34;headerlink&#34; title=&#34;9. Claude Code — 终端里的 Agent 编码助手&#34;&gt;&lt;/a&gt;9. Claude Code — 终端里的 Agent 编码助手&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;项目&lt;/strong&gt;: &lt;a href=&#34;https://github.com/anthropics/claude-code&#34;&gt;anthropics&amp;#x2F;claude-code&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Anthropic 官方出品的 Agent 编码工具，直接跑在终端里，能理解整个代码库，通过自然语言指令执行编码任务、解释复杂代码、处理 Git 工作流。作为收费产品开源，体现了 Anthropic 抢占开发者心智的野心。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;h3 id=&#34;OpenAI-Codex-登陆-Windows&#34;&gt;&lt;a href=&#34;#OpenAI-Codex-登陆-Windows&#34; class=&#34;headerlink&#34; title=&#34;OpenAI Codex 登陆 Windows&#34;&gt;&lt;/a&gt;OpenAI Codex 登陆 Windows&lt;/h3&gt;&lt;p&gt;OpenAI Codex 的 Computer Use 功能现已支持 Windows 平台，可以直接「看」到你的屏幕并执行操作。用户甚至可以在离开电脑时通过 ChatGPT App 远程管理和审查 Codex 的任务——这已经接近「AI 私人助手」的形态了。&lt;/p&gt;
+&lt;h3 id=&#34;Microsoft-打造-AI-“超级应用”&#34;&gt;&lt;a href=&#34;#Microsoft-打造-AI-“超级应用”&#34; class=&#34;headerlink&#34; title=&#34;Microsoft 打造 AI “超级应用”&#34;&gt;&lt;/a&gt;Microsoft 打造 AI “超级应用”&lt;/h3&gt;&lt;p&gt;Fortune 报道称，Microsoft 正在将 GitHub Copilot、Copilot 聊天机器人、Copilot Cowork 以及内部名为「Autopilot」的 Agent 工作流整合到一个超级应用中。这本质上是对标 OpenAI 的「超级应用」战略，两大巨头在入口层面的争夺战进入白热化。&lt;/p&gt;
+&lt;h3 id=&#34;Copilot-Health-AI-预览版上线&#34;&gt;&lt;a href=&#34;#Copilot-Health-AI-预览版上线&#34; class=&#34;headerlink&#34; title=&#34;Copilot Health AI 预览版上线&#34;&gt;&lt;/a&gt;Copilot Health AI 预览版上线&lt;/h3&gt;&lt;p&gt;Microsoft 推出了 Copilot Health AI 预览版，能够分析医疗记录。医疗是 AI 最具社会价值的落地场景之一，但数据隐私和准确性是最大挑战。&lt;/p&gt;
+&lt;h3 id=&#34;Figma-Make-双路-GitHub-集成&#34;&gt;&lt;a href=&#34;#Figma-Make-双路-GitHub-集成&#34; class=&#34;headerlink&#34; title=&#34;Figma Make 双路 GitHub 集成&#34;&gt;&lt;/a&gt;Figma Make 双路 GitHub 集成&lt;/h3&gt;&lt;p&gt;Figma Make 现已支持直接编辑生产代码库——设计师在 Figma 中的修改可以双向同步到 GitHub 仓库，生成线上可用代码并内建治理机制。这意味着设计师和工程师的协作边界正在消失。&lt;/p&gt;
+&lt;h3 id=&#34;Anthropic-Claude-Opus-4-8&#34;&gt;&lt;a href=&#34;#Anthropic-Claude-Opus-4-8&#34; class=&#34;headerlink&#34; title=&#34;Anthropic Claude Opus 4.8&#34;&gt;&lt;/a&gt;Anthropic Claude Opus 4.8&lt;/h3&gt;&lt;p&gt;Anthropic 推出 Claude Opus 4.8，Fast Mode 价格降至原来的 1&amp;#x2F;3，安全对齐水平接近之前的 Mythos 级别。这一定价策略是在正面硬撼 GPT-5.5 的价格体系。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;h3 id=&#34;Anthropic-万亿美元估值&#34;&gt;&lt;a href=&#34;#Anthropic-万亿美元估值&#34; class=&#34;headerlink&#34; title=&#34;Anthropic 万亿美元估值&#34;&gt;&lt;/a&gt;Anthropic 万亿美元估值&lt;/h3&gt;&lt;p&gt;Anthropic 完成 $65B 的 Series H 融资，估值高达 &lt;strong&gt;$900B&lt;/strong&gt;，超越 OpenAI 上轮 $730B 的估值。资金将用于安全研究、计算资源扩展和产品规模化。这场资本军备竞赛表明，AI 头部公司的估值天花板远未到达。&lt;/p&gt;
+&lt;h3 id=&#34;AI-Agent-进入”重建期”&#34;&gt;&lt;a href=&#34;#AI-Agent-进入”重建期”&#34; class=&#34;headerlink&#34; title=&#34;AI Agent 进入”重建期”&#34;&gt;&lt;/a&gt;AI Agent 进入”重建期”&lt;/h3&gt;&lt;p&gt;VentureBeat 深度报道指出，企业级 AI Agent 在生产环境中正面临严峻的可靠性挑战。长时运行的工作流必须处理崩溃恢复、状态保持、推理成本管理以及跨 API&amp;#x2F;企业系统的协调问题。&lt;strong&gt;LLM 性能并不决定 Agent 的上线成功率&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;Mistral-AI-发布-Vibe-并进军工业&#34;&gt;&lt;a href=&#34;#Mistral-AI-发布-Vibe-并进军工业&#34; class=&#34;headerlink&#34; title=&#34;Mistral AI 发布 Vibe 并进军工业&#34;&gt;&lt;/a&gt;Mistral AI 发布 Vibe 并进军工业&lt;/h3&gt;&lt;p&gt;法国 AI 公司 Mistral AI 在巴黎 AI NOW Summit 上发布了 Vibe 产品线，宣布进入工业 AI 领域（如飞机机翼的物理仿真），并布局自有数据中心。公司目前 1,000 人规模，2026 年营收目标 €10 亿（$11.7 亿）。从 2023 年 15 人团队起步到如今的工业级布局，增长堪称惊人。&lt;/p&gt;
+&lt;h3 id=&#34;DeepSeek-架构挑战硅谷&#34;&gt;&lt;a href=&#34;#DeepSeek-架构挑战硅谷&#34; class=&#34;headerlink&#34; title=&#34;DeepSeek 架构挑战硅谷&#34;&gt;&lt;/a&gt;DeepSeek 架构挑战硅谷&lt;/h3&gt;&lt;p&gt;VentureBeat 报道称 DeepSeek 的激进架构正在”粉碎硅谷的 Token 护城河”。其技术路线迫使美国头部公司重新审视推理成本结构。&lt;/p&gt;
+&lt;h3 id=&#34;MiniMax-M3-模型曝光&#34;&gt;&lt;a href=&#34;#MiniMax-M3-模型曝光&#34; class=&#34;headerlink&#34; title=&#34;MiniMax M3 模型曝光&#34;&gt;&lt;/a&gt;MiniMax M3 模型曝光&lt;/h3&gt;&lt;p&gt;MiniMax 预告下一代 M3 模型，采用新的稀疏注意力机制，响应速度提升 &lt;strong&gt;15.6 倍&lt;/strong&gt;。稀疏注意力是提高长上下文推理效率的关键路径。&lt;/p&gt;
+&lt;h3 id=&#34;OpenAI-下架-Canvas-界面&#34;&gt;&lt;a href=&#34;#OpenAI-下架-Canvas-界面&#34; class=&#34;headerlink&#34; title=&#34;OpenAI 下架 Canvas 界面&#34;&gt;&lt;/a&gt;OpenAI 下架 Canvas 界面&lt;/h3&gt;&lt;p&gt;随着 GPT-5.5 系列的推进，OpenAI 宣布将逐步关闭 ChatGPT 的 Canvas 界面（代码&amp;#x2F;文本并排编辑），并优化 GPT-5.5 Instant 的回复长度，”减少子弹点过重”的问题。&lt;/p&gt;
+&lt;h3 id=&#34;伊利诺伊州-AI-安全法案&#34;&gt;&lt;a href=&#34;#伊利诺伊州-AI-安全法案&#34; class=&#34;headerlink&#34; title=&#34;伊利诺伊州 AI 安全法案&#34;&gt;&lt;/a&gt;伊利诺伊州 AI 安全法案&lt;/h3&gt;&lt;p&gt;伊利诺伊州接近通过一项比加州和纽约更严格的 AI 安全法案，要求独立审计和举报人保护。AI 监管的州级竞赛正在加速。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;趋势一：Agent-可靠性-模型能力&#34;&gt;&lt;a href=&#34;#趋势一：Agent-可靠性-模型能力&#34; class=&#34;headerlink&#34; title=&#34;趋势一：Agent 可靠性 &amp;gt; 模型能力&#34;&gt;&lt;/a&gt;趋势一：Agent 可靠性 &amp;gt; 模型能力&lt;/h3&gt;&lt;p&gt;从 VentureBeat 的分析到 Harness 框架的爆火，再到 Project N.O.M.A.D 的离线 Agent 思路，一个明确的信号是：&lt;strong&gt;Agent 行业正在从「模型竞赛」转向「可靠性竞赛」&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;开发者的注意力已经从”哪个 LLM 更强”转向”如何让 Agent 可靠地运行数小时、数天”。这包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;崩溃恢复与状态持久化&lt;/li&gt;
+&lt;li&gt;跨工具&amp;#x2F;API 的协调编排&lt;/li&gt;
+&lt;li&gt;推理成本优化（MiniMax 的 15.6x 加速、DeepSeek 的架构创新）&lt;/li&gt;
+&lt;li&gt;安全的远程任务管理（Codex Windows 远程控制）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 2024 [&amp;quot;2024: 模型能力竞赛&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A1[更大参数] --&amp;gt; A2[更长上下文] --&amp;gt; A3[更好基准]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 2025-2026 [&amp;quot;2025-2026: Agent 可靠性竞赛&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B1[状态持久化] --&amp;gt; B2[崩溃恢复]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B3[成本优化] --&amp;gt; B4[多工具编排]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B5[安全管控] --&amp;gt; B6[远程监控]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    2024 --&amp;gt;|范式转变| 2025-2026&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style 2024 fill:#dfe6e9,color:#2d3436&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style 2025-2026 fill:#74b9ff,color:#2d3436&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;趋势二：Agent-团队化与元技能自动化&#34;&gt;&lt;a href=&#34;#趋势二：Agent-团队化与元技能自动化&#34; class=&#34;headerlink&#34; title=&#34;趋势二：Agent 团队化与元技能自动化&#34;&gt;&lt;/a&gt;趋势二：Agent 团队化与元技能自动化&lt;/h3&gt;&lt;p&gt;Harness 和 Hermes WebUI 代表了两条通向 Agent 团队化的路径：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;自上而下&lt;/strong&gt;（Harness）：通过元技能框架自动生成专业 Agent 团队，先有组织架构再分配任务&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自下而上&lt;/strong&gt;（Hermes）：让单个 Agent 变得足够好用，通过持久化和记忆能力自然地参与团队协作&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Compound Engineering Plugin 生态的 188K Star 则是 Agent 插件经济的雏形。可以预见，未来半年到一年内会涌现大量”Agent 市场”，Agent 的能力边界将通过插件体系无限拓展。&lt;/p&gt;
+&lt;p&gt;从 Train LLM From Scratch 日增 627 Star 也能看出，尽管行业在前沿狂奔，大量开发者仍在补 LLM 底层知识。这说明 AI 行业的&lt;strong&gt;人才供给深度远不够&lt;/strong&gt;——“会调 API”和”懂训练”之间有巨大的鸿沟，而这个鸿沟本身就意味着机会。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;数据来源：GitHub Trending、VentureBeat、The Verge | 生成时间：2026-05-31 22:00 CST&lt;/em&gt;&lt;/p&gt;
+</content>
+        <category term="AI日报" />
+        <category term="AI" />
+        <category term="GitHub热门" />
+        <category term="人工智能" />
+        <category term="技术趋势" />
+        <updated>2026-05-31T14:00:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-30/</id>
         <title>AI 日报 2026-05-30</title>
