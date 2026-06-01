@@ -5,8 +5,8 @@
         <link>https://scottalive.github.io</link>
         <description>编程笔记 &amp; 资料分享</description>
         <language>zh-CN</language>
-        <pubDate>Sun, 31 May 2026 22:00:00 +0800</pubDate>
-        <lastBuildDate>Sun, 31 May 2026 22:00:00 +0800</lastBuildDate>
+        <pubDate>Mon, 01 Jun 2026 22:00:00 +0800</pubDate>
+        <lastBuildDate>Mon, 01 Jun 2026 22:00:00 +0800</lastBuildDate>
         <category>AI日报</category>
         <category>AI</category>
         <category>GitHub热门</category>
@@ -70,6 +70,112 @@
         <category>SpringBoot</category>
         <category>微服务</category>
         <category>python</category>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-01/</guid>
+            <title>AI 日报 2026-06-01</title>
+            <link>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-01/</link>
+            <category>AI日报</category>
+            <category>AI</category>
+            <category>GitHub热门</category>
+            <category>人工智能</category>
+            <category>技术趋势</category>
+            <pubDate>Mon, 01 Jun 2026 22:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;AI-日报-2026-06-01&#34;&gt;&lt;a href=&#34;#AI-日报-2026-06-01&#34; class=&#34;headerlink&#34; title=&#34;AI 日报 2026-06-01&#34;&gt;&lt;/a&gt;AI 日报 2026-06-01&lt;/h1&gt;&lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;Anthropic 完成 650 亿美元 H 轮融资，估值逼近 9000 亿美元超越 OpenAI；OpenAI Codex 正式登陆 Windows，AI 操控电脑时代到来；GitHub 上多个 AI Agent 框架和工具集中爆发——Compound Engineering 插件、Oh-My-Pi 终端 Agent 等新项目强势崛起。与此同时，NVIDIA 发布 Cosmos 3 物理 AI 世界模型，1-Bit 图像生成模型让 4B 参数模型也能跑在本地设备上。AI 领域正在从”大模型竞赛”转向”Agent + 工具 + 端侧智能”的全面落地阶段。&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;1-supermemoryai-supermemory-🌟&#34;&gt;&lt;a href=&#34;#1-supermemoryai-supermemory-🌟&#34; class=&#34;headerlink&#34; title=&#34;1. supermemoryai&amp;#x2F;supermemory 🌟&#34;&gt;&lt;/a&gt;1. supermemoryai&amp;#x2F;supermemory 🌟&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;⭐ 23,737 stars | +660 today | TypeScript&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;超级记忆引擎，号称”AI 时代的 Memory API”。这个项目提供了一个极速、可扩展的记忆存储和检索层，让 AI 应用能够持久化用户记忆并在对话中回忆。对于构建个性化 AI 助手来说，这是基础设施级别的项目。它的核心卖点就是&lt;strong&gt;速度&lt;/strong&gt;和&lt;strong&gt;可扩展性&lt;/strong&gt;——不是简单包装向量数据库，而是从底层做了深度优化。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;技术栈：&lt;/strong&gt; TypeScript, Vector DB, OpenAI&amp;#x2F;Anthropic Embeddings&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;应用场景：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;长期记忆型聊天机器人&lt;/li&gt;
+&lt;li&gt;跨会话用户偏好管理&lt;/li&gt;
+&lt;li&gt;Agent 知识召回系统&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-D4Vinci-Scrapling-🕷️&#34;&gt;&lt;a href=&#34;#2-D4Vinci-Scrapling-🕷️&#34; class=&#34;headerlink&#34; title=&#34;2. D4Vinci&amp;#x2F;Scrapling 🕷️&#34;&gt;&lt;/a&gt;2. D4Vinci&amp;#x2F;Scrapling 🕷️&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;⭐ 57,602 stars | +1,475 today | Python&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;自适应的 Web 抓取框架，能处理从单次请求到全站爬虫的所有需求。今天暴增 1475 stars，热度爆炸。对于 AI 应用来说，高质量数据源是稀缺资源，Scrapling 解决了从网页中提取结构化数据的痛点。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;应用场景：&lt;/strong&gt; AI 训练数据采集、RAG 系统的数据管道、竞争情报监控&lt;/p&gt;
+&lt;h3 id=&#34;3-EveryInc-compound-engineering-plugin-🔌&#34;&gt;&lt;a href=&#34;#3-EveryInc-compound-engineering-plugin-🔌&#34; class=&#34;headerlink&#34; title=&#34;3. EveryInc&amp;#x2F;compound-engineering-plugin 🔌&#34;&gt;&lt;/a&gt;3. EveryInc&amp;#x2F;compound-engineering-plugin 🔌&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;⭐ 18,980 stars | +428 today | TypeScript&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Compound Engineering 的官方插件，支持 Claude Code、Codex、Cursor 等多个 AI 编码工具。它提供了一种”组合式工程”的方法论——将复杂任务拆解为多个子 Agent 各司其职，每个 Agent 专注于特定领域。这是一个典型的 Agent 编排框架。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;graph TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[开发者需求] --&amp;gt; B[Compound Engineering Plugin]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[Claude Code Agent]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; D[Codex Agent]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; E[Cursor Agent]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; F[前端模块]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; G[后端API]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; H[数据库操作]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; I[最终产品]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; I&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; I&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style A fill:#f9f,stroke:#333,stroke-width:2px&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style B fill:#bbf,stroke:#333,stroke-width:2px&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style I fill:#bfb,stroke:#333,stroke-width:2px&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;4-can1357-oh-my-pi-💻&#34;&gt;&lt;a href=&#34;#4-can1357-oh-my-pi-💻&#34; class=&#34;headerlink&#34; title=&#34;4. can1357&amp;#x2F;oh-my-pi 💻&#34;&gt;&lt;/a&gt;4. can1357&amp;#x2F;oh-my-pi 💻&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;⭐ 9,311 stars | +333 today | TypeScript&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一个面向终端的 AI 编码 Agent，特色是 hash-anchored edits（哈希锚定编辑）、优化的工具链、集成 LSP、浏览器、子 Agent 等功能。可以理解为”终端里的 Cursor”——直接在命令行中通过 AI 辅助编写和修改代码。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;技术亮点：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;哈希锚定编辑&lt;/strong&gt;：确保 AI 修改的文件版本准确，避免并发冲突&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多工具集成&lt;/strong&gt;：LSP 智能提示 + 浏览器自动化 + 文件系统操作&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;子 Agent 架构&lt;/strong&gt;：复杂任务可派生子 Agent 并行处理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-revfactory-harness-🔧&#34;&gt;&lt;a href=&#34;#5-revfactory-harness-🔧&#34; class=&#34;headerlink&#34; title=&#34;5. revfactory&amp;#x2F;harness 🔧&#34;&gt;&lt;/a&gt;5. revfactory&amp;#x2F;harness 🔧&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;⭐ 4,977 stars | +527 today | HTML&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一个”元技能（meta-skill）”工具，用于设计领域特定的 Agent 团队。它定义专门化的 Agent，并生成 Agent 所需的技能。本质上是&lt;strong&gt;Agent 的制造工厂&lt;/strong&gt;——你只需要描述业务需求，Harness 就会自动设计出由多个专精 Agent 组成的协作团队。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[业务需求描述] --&amp;gt; B[Harness 元技能引擎]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C&amp;#123;Agent 团队设计&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[数据分析 Agent]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; E[代码开发 Agent]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; F[测试验证 Agent]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; G[技能生成]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; G&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H[可部署的 Agent 团队]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style A fill:#e1f5fe&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style B fill:#ffcc80&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style H fill:#c8e6c9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;6-FareedKhan-dev-train-llm-from-scratch-🤖&#34;&gt;&lt;a href=&#34;#6-FareedKhan-dev-train-llm-from-scratch-🤖&#34; class=&#34;headerlink&#34; title=&#34;6. FareedKhan-dev&amp;#x2F;train-llm-from-scratch 🤖&#34;&gt;&lt;/a&gt;6. FareedKhan-dev&amp;#x2F;train-llm-from-scratch 🤖&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;⭐ 3,472 stars | +860 today | Jupyter Notebook&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一个从零训练 LLM 的实用教程，涵盖从数据下载到文本生成的全流程。860 的日增显示社区对”理解 LLM 底层”的需求依然强烈。项目特点是&lt;strong&gt;注重实操&lt;/strong&gt;——不是堆理论，而是提供可运行的代码和清晰的步骤说明。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;覆盖内容：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;数据采集与清洗&lt;/li&gt;
+&lt;li&gt;Tokenization 方案&lt;/li&gt;
+&lt;li&gt;模型架构搭建（Transformer）&lt;/li&gt;
+&lt;li&gt;训练与微调&lt;/li&gt;
+&lt;li&gt;推理部署&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;7-TauricResearch-TradingAgents-💹&#34;&gt;&lt;a href=&#34;#7-TauricResearch-TradingAgents-💹&#34; class=&#34;headerlink&#34; title=&#34;7. TauricResearch&amp;#x2F;TradingAgents 💹&#34;&gt;&lt;/a&gt;7. TauricResearch&amp;#x2F;TradingAgents 💹&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;多 Agent LLM 金融交易框架&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;结合 LLM 和多智能体系统的量化交易框架。每个 Agent 负责不同的分析角色（技术分析、基本面分析、风险管理等），通过 Agent 间的协作达成交易决策。这是 AI Agent 在金融领域的一个落地标杆。&lt;/p&gt;
+&lt;h3 id=&#34;8-OpenBMB-VoxCPM-🗣️&#34;&gt;&lt;a href=&#34;#8-OpenBMB-VoxCPM-🗣️&#34; class=&#34;headerlink&#34; title=&#34;8. OpenBMB&amp;#x2F;VoxCPM 🗣️&#34;&gt;&lt;/a&gt;8. OpenBMB&amp;#x2F;VoxCPM 🗣️&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;无 Tokenizer 的多语言语音生成&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;清华 OpenBMB 团队的新作，VoxCPM2 主打 Tokenizer-Free TTS。无需分词器即可生成多语言语音，支持创意语音设计和真实人声克隆。在 TTS 领域是一次重要的架构简化。&lt;/p&gt;
+&lt;h3 id=&#34;9-p-e-w-heretic-✂️&#34;&gt;&lt;a href=&#34;#9-p-e-w-heretic-✂️&#34; class=&#34;headerlink&#34; title=&#34;9. p-e-w&amp;#x2F;heretic ✂️&#34;&gt;&lt;/a&gt;9. p-e-w&amp;#x2F;heretic ✂️&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;语言模型的自动审查移除&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一个颇有争议但技术含量很高的项目——自动移除语言模型中的审查机制。该项目本质上是做模型编辑（model editing），在保持模型性能的同时抹去安全对齐层。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;h3 id=&#34;OpenAI-Codex-正式登陆-Windows&#34;&gt;&lt;a href=&#34;#OpenAI-Codex-正式登陆-Windows&#34; class=&#34;headerlink&#34; title=&#34;OpenAI Codex 正式登陆 Windows&#34;&gt;&lt;/a&gt;OpenAI Codex 正式登陆 Windows&lt;/h3&gt;&lt;p&gt;Codex 的计算机使用（Computer Use）功能扩展到 Windows 平台。它能”看”到屏幕并执行操作——打开应用、操作文件、填写表单。更贴心的是：你可以通过 ChatGPT App 远程查看和审批 Codex 的任务进度。&lt;/p&gt;
+&lt;h3 id=&#34;Microsoft-AI-“超级应用”-正在酝酿&#34;&gt;&lt;a href=&#34;#Microsoft-AI-“超级应用”-正在酝酿&#34; class=&#34;headerlink&#34; title=&#34;Microsoft AI “超级应用” 正在酝酿&#34;&gt;&lt;/a&gt;Microsoft AI “超级应用” 正在酝酿&lt;/h3&gt;&lt;p&gt;据 Fortune 报道，微软正在打造一个整合 GitHub Copilot、Copilot 聊天机器人、Copilot Cowork 以及内部名为 “Autopilot” 的新 Agent 工作流能力的超级应用。这将是微软版本的 OpenAI 超级应用战略。&lt;/p&gt;
+&lt;h3 id=&#34;Anthropic-H-轮融资-650-亿，估值-9000-亿&#34;&gt;&lt;a href=&#34;#Anthropic-H-轮融资-650-亿，估值-9000-亿&#34; class=&#34;headerlink&#34; title=&#34;Anthropic H 轮融资 650 亿，估值 9000 亿&#34;&gt;&lt;/a&gt;Anthropic H 轮融资 650 亿，估值 9000 亿&lt;/h3&gt;&lt;p&gt;Anthropic 完成 650 亿美元 Series H 融资，估值 9000 亿美元，超越 OpenAI 的 7300 亿估值。资金将投入安全研究、算力扩展和产品规模化。AI 军备竞赛进入资本密集阶段。&lt;/p&gt;
+&lt;h3 id=&#34;NVIDIA-Cosmos-3-—-物理-AI-世界模型&#34;&gt;&lt;a href=&#34;#NVIDIA-Cosmos-3-—-物理-AI-世界模型&#34; class=&#34;headerlink&#34; title=&#34;NVIDIA Cosmos 3 — 物理 AI 世界模型&#34;&gt;&lt;/a&gt;NVIDIA Cosmos 3 — 物理 AI 世界模型&lt;/h3&gt;&lt;p&gt;NVIDIA 发布 Cosmos 3，面向物理 AI 推理的世界模型和行动模型。这是为机器人、自动驾驶等物理世界应用准备的视觉推理基础模型。&lt;/p&gt;
+&lt;h3 id=&#34;Figma-Make-现在能编辑生产代码了&#34;&gt;&lt;a href=&#34;#Figma-Make-现在能编辑生产代码了&#34; class=&#34;headerlink&#34; title=&#34;Figma Make 现在能编辑生产代码了&#34;&gt;&lt;/a&gt;Figma Make 现在能编辑生产代码了&lt;/h3&gt;&lt;p&gt;Figma Make 连接生产或沙箱仓库，用可视化界面直接编辑真实代码。设计师和开发者之间的墙正在倒塌。&lt;/p&gt;
+&lt;h3 id=&#34;OpenAI-正在淘汰-Canvas-界面&#34;&gt;&lt;a href=&#34;#OpenAI-正在淘汰-Canvas-界面&#34; class=&#34;headerlink&#34; title=&#34;OpenAI 正在淘汰 Canvas 界面&#34;&gt;&lt;/a&gt;OpenAI 正在淘汰 Canvas 界面&lt;/h3&gt;&lt;p&gt;GPT-5.5 不再支持 Canvas，原因是新模型本身的交互方式已足够高效。同时 OpenAI 正在精简 GPT-5.5 Instant 的回复长度，减少”弹幕式”文本。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;h3 id=&#34;🏛️-伊利诺伊州-AI-安全法通过&#34;&gt;&lt;a href=&#34;#🏛️-伊利诺伊州-AI-安全法通过&#34; class=&#34;headerlink&#34; title=&#34;🏛️ 伊利诺伊州 AI 安全法通过&#34;&gt;&lt;/a&gt;🏛️ 伊利诺伊州 AI 安全法通过&lt;/h3&gt;&lt;p&gt;伊利诺伊州议会通过 AI 安全法案，要求 AI 公司进行独立审计并设立举报人保护制度。该法案比加州和纽约的类似法律覆盖面更广，州长 Pritzker 已表示将签署。AI 立法正在从”自愿承诺”走向”强制执行”。&lt;/p&gt;
+&lt;h3 id=&#34;🚨-ChatGPT-for-Google-Sheets-数据泄露事件&#34;&gt;&lt;a href=&#34;#🚨-ChatGPT-for-Google-Sheets-数据泄露事件&#34; class=&#34;headerlink&#34; title=&#34;🚨 ChatGPT for Google Sheets 数据泄露事件&#34;&gt;&lt;/a&gt;🚨 ChatGPT for Google Sheets 数据泄露事件&lt;/h3&gt;&lt;p&gt;安全公司 PromptArmor 披露，ChatGPT for Google Sheets 插件存在数据外泄风险——它会将整个工作簿内容传输至外部服务器。267 points 的 HN 热度说明社区对 AI 插件安全的关注度持续升高。&lt;/p&gt;
+&lt;h3 id=&#34;💡-Google-新增-Gemini-聊天分享功能&#34;&gt;&lt;a href=&#34;#💡-Google-新增-Gemini-聊天分享功能&#34; class=&#34;headerlink&#34; title=&#34;💡 Google 新增 Gemini 聊天分享功能&#34;&gt;&lt;/a&gt;💡 Google 新增 Gemini 聊天分享功能&lt;/h3&gt;&lt;p&gt;Google Workspace 即将允许用户通过 Google Drive 分享 Gemini 对话快照。接收方可继续对话，但修改不会影响原拥有者的对话线程。6 月 3 日起逐步推送。&lt;/p&gt;
+&lt;h3 id=&#34;🔥-Amazon-关停-AI-使用排行榜&#34;&gt;&lt;a href=&#34;#🔥-Amazon-关停-AI-使用排行榜&#34; class=&#34;headerlink&#34; title=&#34;🔥 Amazon 关停 AI 使用排行榜&#34;&gt;&lt;/a&gt;🔥 Amazon 关停 AI 使用排行榜&lt;/h3&gt;&lt;p&gt;Amazon 内部曾有一个追踪员工 AI 使用率的排行榜，结果导致员工为了让 AI Agent 做无意义任务以刷排名。最终 Amazon 关停了该工具，高管明确表示”不要为了用 AI 而用 AI”。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;趋势一：Agent-架构从”单体”走向”技能工厂”&#34;&gt;&lt;a href=&#34;#趋势一：Agent-架构从”单体”走向”技能工厂”&#34; class=&#34;headerlink&#34; title=&#34;趋势一：Agent 架构从”单体”走向”技能工厂”&#34;&gt;&lt;/a&gt;趋势一：Agent 架构从”单体”走向”技能工厂”&lt;/h3&gt;&lt;p&gt;今天 GitHub 上的多个热门项目指向同一个趋势：&lt;strong&gt;Agent 不再是一个黑盒，而是一个被动态组装的能力单元&lt;/strong&gt;。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;项目&lt;/th&gt;
+&lt;th&gt;核心理念&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;revfactory&amp;#x2F;harness&lt;/td&gt;
+&lt;td&gt;根据需求自动生成 Agent 团队和技能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Compound Engineering Plugin&lt;/td&gt;
+&lt;td&gt;跨工具 Agent 编排&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;oh-my-pi&lt;/td&gt;
+&lt;td&gt;终端内子 Agent 协作&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TradingAgents&lt;/td&gt;
+&lt;td&gt;金融领域的多角色 Agent 协作&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;这些项目的共同思路是：&lt;strong&gt;Agent &amp;#x3D; 技能 + 协作协议&lt;/strong&gt;，而非一个巨大的 prompt。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TB&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph &amp;quot;传统单体 Agent&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A1[巨大 Prompt] --&amp;gt; A2[单一 LLM]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A2 --&amp;gt; A3[有限能力]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph &amp;quot;新型技能工厂架构&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B1[需求描述] --&amp;gt; B2[元技能引擎]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B2 --&amp;gt; B3[技能1: 代码编写]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B2 --&amp;gt; B4[技能2: 数据分析]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B2 --&amp;gt; B5[技能3: 浏览器操作]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B2 --&amp;gt; B6[技能4: 文件管理]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B3 &amp;amp; B4 &amp;amp; B5 &amp;amp; B6 --&amp;gt; B7[编排层/协议]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B7 --&amp;gt; B8[输出]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style A1 fill:#ffcdd2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style A3 fill:#ffcdd2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style B2 fill:#bbdefb&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style B7 fill:#c8e6c9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style B8 fill:#c8e6c9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;趋势二：端侧-AI-物理世界落地加速&#34;&gt;&lt;a href=&#34;#趋势二：端侧-AI-物理世界落地加速&#34; class=&#34;headerlink&#34; title=&#34;趋势二：端侧 AI + 物理世界落地加速&#34;&gt;&lt;/a&gt;趋势二：端侧 AI + 物理世界落地加速&lt;/h3&gt;&lt;p&gt;从 NVIDIA Cosmos 3（物理世界模型）、1-Bit Bonsai Image 4B（本地图像生成）、到 VoxCPM（端侧 TTS），再到 “A 10 year old Xeon is all you need”（2016 年的 Xeon 也能跑 Gemma 4）——AI 正在从云端的”巨无霸”走向本地的”小精灵”。端侧推理、物理世界交互、老旧硬件焕新，这些信号说明 AI 的部署范式正在发生根本性转变。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;结语&#34;&gt;&lt;a href=&#34;#结语&#34; class=&#34;headerlink&#34; title=&#34;结语&#34;&gt;&lt;/a&gt;结语&lt;/h2&gt;&lt;p&gt;2026 年 6 月的第一天，AI 领域的步伐没有停歇。Anthropic 的估值神话、Agent 技术的”工厂化”演进、AI 立法从州到联邦的铺开，以及端侧部署的加速——这一天向我们展示了一个正在快速裂变和落地的 AI 生态。明天又会有什么惊喜？敬请关注。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;本文由 AI 自动生成，数据来源：GitHub Trending、Hacker News、The Verge&lt;/em&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-31/</guid>
             <title>AI 日报 2026-05-31</title>
