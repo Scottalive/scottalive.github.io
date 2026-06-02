@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>AI 日报 2026-06-02 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">AI 日报 2026-06-02</h1>
+    <div class="post-meta">
+      <span class="post-date">2026-06-02 23:20</span>
+      <span class="post-word-count">2344 字</span>
+      <span class="post-reading-time">约 8 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/AI%E6%97%A5%E6%8A%A5/">AI日报</a>
+      
+      <a href="/tags/AI/">AI</a>
+      
+      <a href="/tags/GitHub%E7%83%AD%E9%97%A8/">GitHub热门</a>
+      
+      <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+      
+      <a href="/tags/%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF/">技术趋势</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#今日热点">今日热点</a>
+      
+      <a class="toc-level-2" href="#github-热门-ai-项目">GitHub 热门 AI 项目</a>
+      
+      <a class="toc-level-3" href="#odysseus-自托管-ai-工作区两天-27-万星">🔥 Odysseus — 自托管 AI 工作区，两天 2.7 万星</a>
+      
+      <a class="toc-level-3" href="#skill-creator-把任意-api-变成-cli-技能">🧰 skill-creator — 把任意 API 变成 CLI 技能</a>
+      
+      <a class="toc-level-3" href="#其他值得关注的开源项目">📊 其他值得关注的开源项目</a>
+      
+      <a class="toc-level-2" href="#新工具-x2f-产品速览">新工具 &amp;#x2F; 产品速览</a>
+      
+      <a class="toc-level-3" href="#microsoft-正在构建-ai超级应用">🏢 Microsoft 正在构建 AI「超级应用」</a>
+      
+      <a class="toc-level-3" href="#openai-codex-登陆-windows">🗺️ OpenAI Codex 登陆 Windows</a>
+      
+      <a class="toc-level-3" href="#openai-日落-canvas-界面">📉 OpenAI 日落 Canvas 界面</a>
+      
+      <a class="toc-level-3" href="#microsoft-copilot-health-ai">🏥 Microsoft Copilot Health AI</a>
+      
+      <a class="toc-level-2" href="#行业动态">行业动态</a>
+      
+      <a class="toc-level-3" href="#佛罗里达起诉-openai">⚖️ 佛罗里达起诉 OpenAI</a>
+      
+      <a class="toc-level-3" href="#minimax-m3-用-5-10-成本实现顶级性能">🇨🇳 MiniMax M3 — 用 5-10% 成本实现顶级性能</a>
+      
+      <a class="toc-level-3" href="#nvidia-rtx-spark超级芯片">🪟 Nvidia RTX Spark「超级芯片」</a>
+      
+      <a class="toc-level-3" href="#apple-wwdc-下周开幕-siri-大升级在即">🍎 Apple WWDC 下周开幕 — Siri 大升级在即</a>
+      
+      <a class="toc-level-3" href="#其他重要动态">🤖 其他重要动态</a>
+      
+      <a class="toc-level-2" href="#技术洞见">技术洞见</a>
+      
+      <a class="toc-level-3" href="#趋势一自托管-ai-从极客玩具到刚需">🔮 趋势一：自托管 AI — 从极客玩具到刚需</a>
+      
+      <a class="toc-level-3" href="#趋势二ai-超级应用竞赛加速">🔮 趋势二：AI 超级应用竞赛加速</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h1 id="AI-日报-2026-06-02"><a href="#AI-日报-2026-06-02" class="headerlink" title="AI 日报 2026-06-02"></a>AI 日报 2026-06-02</h1><h2 id="今日热点"><a href="#今日热点" class="headerlink" title="今日热点"></a>今日热点</h2><p>今日 AI 圈关键词：<strong>Odysseus 自托管 AI 工作区爆发、微软 AI 超级应用浮出水面、MiniMax M3 以 5-10% 成本吊打 GPT-5.5、佛罗里达起诉 OpenAI 安全争议</strong>。PewDiePie 关联项目 Odysseus 两天斩获 2.7 万星，重新引爆「自托管 AI」叙事；微软酝酿将 Copilot 全线产品整合为超级应用；MiniMax M3 用经济成本实现顶级 benchmark 表现，中国 AI 效率竞赛再下一城。</p>
+<hr>
+<h2 id="github-热门-ai-项目"><a href="#GitHub-热门-AI-项目" class="headerlink" title="GitHub 热门 AI 项目"></a>GitHub 热门 AI 项目</h2><h3 id="odysseus-自托管-ai-工作区两天-27-万星"><a href="#🔥-Odysseus-—-自托管-AI-工作区，两天-2-7-万星" class="headerlink" title="🔥 Odysseus — 自托管 AI 工作区，两天 2.7 万星"></a>🔥 Odysseus — 自托管 AI 工作区，两天 2.7 万星</h3><ul>
+<li><strong>地址</strong>: <a target="_blank" rel="noopener" href="https://github.com/pewdiepie-archdaemon/odysseus">pewdiepie-archdaemon&#x2F;odysseus</a></li>
+<li><strong>语言</strong>: JavaScript</li>
+<li><strong>Stars</strong>: 27,717 ⭐（5 月 31 日创建，两天内爆发）</li>
+<li><strong>Forks</strong>: 3,348</li>
+</ul>
+<p>Odysseus 是一个<strong>自托管（self-hosted）AI 工作空间</strong>，用户可以在自己的服务器上运行类似 ChatGPT 的 AI 助手体验。其核心卖点在于<strong>完全隐私、无数据外泄</strong>——所有 AI 推理都在本地完成。</p>
+<p>结合 PewDiePie 社区的超高声量，Odysseus 迅速成为本周最受关注的 AI 开源项目。它的爆发也反映了社区对「OpenAI 依赖症」的反思——越来越多的用户希望拥有可控、可定制的 AI 环境。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    A[用户本地部署] --&gt; B[Odysseus Docker 容器]</span><br><span class="line">    B --&gt; C[本地 LLM 推理引擎]</span><br><span class="line">    B --&gt; D[知识库 RAG 模块]</span><br><span class="line">    B --&gt; E[插件系统/MCP 支持]</span><br><span class="line">    C --&gt; F[API 网关]</span><br><span class="line">    D --&gt; F</span><br><span class="line">    E --&gt; F</span><br><span class="line">    F --&gt; G[Web Chat UI]</span><br><span class="line">    F --&gt; H[API 外部调用]</span><br><span class="line">    </span><br><span class="line">    style B fill:#4a90d9,color:#fff</span><br><span class="line">    style C fill:#f0ad4e,color:#fff</span><br><span class="line">    style D fill:#5cb85c,color:#fff</span><br><span class="line">    style E fill:#d9534f,color:#fff</span><br></pre></td></tr></table></figure>
+
+<p><strong>为什么会火？</strong> 自托管 AI 正在从极客玩具演变为刚需。随着 OpenAI 的 API 成本波动、数据隐私政策收紧，个人开发者和中小企业需要一个没有月费、不泄露数据的替代方案。</p>
+<hr>
+<h3 id="skill-creator-把任意-api-变成-cli-技能"><a href="#🧰-skill-creator-—-把任意-API-变成-CLI-技能" class="headerlink" title="🧰 skill-creator — 把任意 API 变成 CLI 技能"></a>🧰 skill-creator — 把任意 API 变成 CLI 技能</h3><ul>
+<li><strong>地址</strong>: <a target="_blank" rel="noopener" href="https://github.com/sandiiarov/skill-creator">sandiiarov&#x2F;skill-creator</a></li>
+<li><strong>创建</strong>: 2026-05-21</li>
+<li><strong>描述</strong>: 将任何 MCP 服务器、OpenAPI 规范或 GraphQL 端点转换为运行时 CLI</li>
+</ul>
+<p>skill-creator 的核心理念是**「API 即 CLI」**——无需手动编写 SDK 或客户端代码，只需提供 OpenAPI 规范或 MCP 配置文件，就能自动生成可在终端直接调用的 CLI 工具。</p>
+<p>这是一个典型的 <strong>Agent 工具生态</strong>基础设施项目。随着 AI Agent 越来越多地通过 MCP 协议与外部工具交互，每多一个可动态生成的 CLI 工具，Agent 的能力边界就扩大一圈。</p>
+<hr>
+<h3 id="其他值得关注的开源项目"><a href="#📊-其他值得关注的开源项目" class="headerlink" title="📊 其他值得关注的开源项目"></a>📊 其他值得关注的开源项目</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>描述</th>
+<th>亮点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>aBaiAutoplus</td>
+<td>AI 自动化增强工具</td>
+<td>日增长迅速</td>
+</tr>
+<tr>
+<td>GordenPPTSkill</td>
+<td>AI 驱动的 PPT 生成技能</td>
+<td>办公自动化方向</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="新工具-x2f-产品速览"><a href="#新工具-产品速览" class="headerlink" title="新工具 &#x2F; 产品速览"></a>新工具 &#x2F; 产品速览</h2><h3 id="microsoft-正在构建-ai超级应用"><a href="#🏢-Microsoft-正在构建-AI「超级应用」" class="headerlink" title="🏢 Microsoft 正在构建 AI「超级应用」"></a>🏢 Microsoft 正在构建 AI「超级应用」</h3><p>据 Fortune 报道，微软正在打造一款<strong>整合性 AI 超级应用</strong>，将以下产品融合到一个统一界面中：</p>
+<ul>
+<li><strong>GitHub Copilot</strong> — 代码助手</li>
+<li><strong>Copilot Chatbot</strong> — 通用 AI 对话</li>
+<li><strong>Copilot Cowork</strong> — 协作 AI</li>
+<li><strong>Autopilot</strong>（内部名） — 全新的 Agent 工作流引擎</li>
+</ul>
+<p>这实际上是微软版本的「OpenAI 超级应用」战略——将生产力工具深度智能化，让 AI 成为 Office 365、GitHub、Windows 等产品的交互中枢。如果计划落地，Copilot 将从「侧边栏助手」升级为「操作系统级 AI 入口」。</p>
+<h3 id="openai-codex-登陆-windows"><a href="#🗺️-OpenAI-Codex-登陆-Windows" class="headerlink" title="🗺️ OpenAI Codex 登陆 Windows"></a>🗺️ OpenAI Codex 登陆 Windows</h3><p>继 Mac 版本之后，OpenAI Codex 的「Computer Use」功能正式登陆 Windows。Codex 能够「看到」用户屏幕，直接代表用户操作设备执行任务。更重要的是，用户可以通过 ChatGPT App 远程监控 Codex 的执行任务。</p>
+<p><strong>影响评估</strong>：操作系统级的 AI Agent 代理能力，正在从 Mac 扩展到 Windows 生态，这是 AI「操控电脑」能力迈向通用化的关键步骤。</p>
+<h3 id="openai-日落-canvas-界面"><a href="#📉-OpenAI-日落-Canvas-界面" class="headerlink" title="📉 OpenAI 日落 Canvas 界面"></a>📉 OpenAI 日落 Canvas 界面</h3><p>OpenAI 宣布 ChatGPT 的 Canvas（画布）界面将不再与 GPT-5.5 Instant 和 GPT-5.5 Thinking 兼容。Canvas 曾在 2024 年推出时因为「并排编辑代码&#x2F;文本」功能受到开发者和写作者的欢迎，但最终被新模型压缩为内联体验。</p>
+<p>同时，OpenAI 也在压缩 GPT-5.5 Instant 的回复长度，减少「子弹头列表」式输出，回归更自然、更简洁的对话风格。</p>
+<h3 id="microsoft-copilot-health-ai"><a href="#🏥-Microsoft-Copilot-Health-AI" class="headerlink" title="🏥 Microsoft Copilot Health AI"></a>🏥 Microsoft Copilot Health AI</h3><p>Microsoft 推出 Copilot Health AI 预览版，能够分析用户的医疗记录并提供健康洞察。这一功能标志着 AI 从「办公场景」进入「医疗健康」这一高敏感领域——隐私、合规、准确性的挑战不言而喻。</p>
+<hr>
+<h2 id="行业动态"><a href="#行业动态" class="headerlink" title="行业动态"></a>行业动态</h2><h3 id="佛罗里达起诉-openai"><a href="#⚖️-佛罗里达起诉-OpenAI" class="headerlink" title="⚖️ 佛罗里达起诉 OpenAI"></a>⚖️ 佛罗里达起诉 OpenAI</h3><p>佛罗里达州总检察长 James Uthmeier 对 OpenAI 及 CEO Sam Altman 提起诉讼，指控 ChatGPT 的使用可能导致用户「自残、认知下降和行为成瘾」。该州正在寻求法院禁令和经济处罚，同时针对 OpenAI 的刑事调查仍在进行中。</p>
+<p>这是继多个国家监管压力之后，美国州级政府对 AI 安全问题的<strong>首次重大法律行动</strong>。整个 AI 行业都在关注此案的走向——如果佛罗里达胜诉，可能引发连锁诉讼潮，迫使 AI 公司在安全与成瘾问题上做出根本性改变。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A[佛罗里达起诉 OpenAI] --&gt; B[安全指控]</span><br><span class="line">    A --&gt; C[刑事调查]</span><br><span class="line">    A --&gt; D[寻求法院禁令]</span><br><span class="line">    </span><br><span class="line">    B --&gt; E[自残风险]</span><br><span class="line">    B --&gt; F[认知下降]</span><br><span class="line">    B --&gt; G[行为成瘾]</span><br><span class="line">    </span><br><span class="line">    D --&gt; H[行业影响]</span><br><span class="line">    H --&gt; I[AI 安全标准强化]</span><br><span class="line">    H --&gt; J[年龄验证/使用限制]</span><br><span class="line">    H --&gt; K[心理健康免责声明]</span><br><span class="line">    </span><br><span class="line">    style A fill:#d9534f,color:#fff</span><br><span class="line">    style H fill:#f0ad4e,color:#fff</span><br></pre></td></tr></table></figure>
+
+<h3 id="minimax-m3-用-5-10-成本实现顶级性能"><a href="#🇨🇳-MiniMax-M3-—-用-5-10-成本实现顶级性能" class="headerlink" title="🇨🇳 MiniMax M3 — 用 5-10% 成本实现顶级性能"></a>🇨🇳 MiniMax M3 — 用 5-10% 成本实现顶级性能</h3><p>VentureBeat 报道，MiniMax 的 M3 模型在关键基准测试中超越了 GPT-5.5 和 Gemini 3.1 Pro，而推理成本仅为前者的 5-10%。这不仅是中国 AI 公司在模型效率上的又一次里程碑，也再次质疑了「更大模型 &#x3D; 更好结果」的主流叙事。</p>
+<p><strong>趋势判断</strong>：模型效率竞赛正在取代纯参数竞赛。谁能用更少的算力实现同样的效果，谁就能在部署成本和能耗上获得压倒性优势。</p>
+<h3 id="nvidia-rtx-spark超级芯片"><a href="#🪟-Nvidia-RTX-Spark「超级芯片」" class="headerlink" title="🪟 Nvidia RTX Spark「超级芯片」"></a>🪟 Nvidia RTX Spark「超级芯片」</h3><p>Nvidia 在 Computex 上发布了 RTX Spark 系列——面向 Windows 笔记本电脑的 AI「超级芯片」，同时推出了 DLSS 4.5 光线重建技术，使用第二代 Transformer AI 模型生成更高质量像素。</p>
+<p>RTX Spark 的核心信号是：<strong>AI 推理正在从云端走向终端</strong>。本地 AI 算力将是 2026-2027 年 PC 市场最大的卖点之一。</p>
+<h3 id="apple-wwdc-下周开幕-siri-大升级在即"><a href="#🍎-Apple-WWDC-下周开幕-—-Siri-大升级在即" class="headerlink" title="🍎 Apple WWDC 下周开幕 — Siri 大升级在即"></a>🍎 Apple WWDC 下周开幕 — Siri 大升级在即</h3><p>Apple 的 Greg Joswiak 在社交媒体上预告了一个「发光的 logo」，暗示下周 WWDC 上 Siri 将迎来重大升级。传闻称 iOS 27 将包括 Siri 的全新 AI 驱动界面，这是自 Siri 诞生以来最大的一次重构。</p>
+<h3 id="其他重要动态"><a href="#🤖-其他重要动态" class="headerlink" title="🤖 其他重要动态"></a>🤖 其他重要动态</h3><table>
+<thead>
+<tr>
+<th>事件</th>
+<th>要点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Zip AI Agents</strong></td>
+<td>采购领域 AI Agent，阻止财务人员将合同上传到个人 ChatGPT</td>
+</tr>
+<tr>
+<td><strong>Google 重新设计搜索框</strong></td>
+<td>25 年来首次大改，AI 驱动的搜索交互重构</td>
+</tr>
+<tr>
+<td><strong>Recording Academy CEO</strong></td>
+<td>谈人类创造力 vs AI 时代的平衡</td>
+</tr>
+<tr>
+<td><strong>Switchbot 收购 Nanoleaf</strong></td>
+<td>智能家居整合加速，$4000 万交易</td>
+</tr>
+<tr>
+<td><strong>AI 公司拍摄你做家务</strong></td>
+<td>作为家用机器人训练数据</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="技术洞见"><a href="#技术洞见" class="headerlink" title="技术洞见"></a>技术洞见</h2><h3 id="趋势一自托管-ai-从极客玩具到刚需"><a href="#🔮-趋势一：自托管-AI-—-从极客玩具到刚需" class="headerlink" title="🔮 趋势一：自托管 AI — 从极客玩具到刚需"></a>🔮 趋势一：自托管 AI — 从极客玩具到刚需</h3><p>Odysseus 两天 27k 星不是偶然。它背后是三个因素的叠加：</p>
+<ol>
+<li><strong>成本焦虑</strong> — 云 API 价格波动 + 月费模式带来的长期成本不确定性</li>
+<li><strong>隐私觉醒</strong> — 企业和个人用户越来越介意数据被第三方模型处理</li>
+<li><strong>模型能力成熟</strong> — 开源模型（Llama 3、Mistral 等）已经足够胜任日常任务</li>
+</ol>
+<p>自托管 AI 的基础设施正在快速成熟——一键部署、Docker 化、MCP 插件系统、本地 RAG——这些组件让非技术用户也能在 10 分钟内搭建自己的 AI 助手。</p>
+<blockquote>
+<p><strong>预测</strong>：2026 年下半年将出现更多「自托管 AI 平台」级项目，类似 WordPress 之于网站的定位——让任何人拥有自己的 AI。</p>
+</blockquote>
+<h3 id="趋势二ai-超级应用竞赛加速"><a href="#🔮-趋势二：AI-超级应用竞赛加速" class="headerlink" title="🔮 趋势二：AI 超级应用竞赛加速"></a>🔮 趋势二：AI 超级应用竞赛加速</h3><p>Microsoft 的 Copilot 超级应用、OpenAI 的 Codex 跨平台 Agent、Google Gemini on Workspace——三家巨头正在殊途同归地走向同一个方向：<strong>AI 作为操作系统级入口</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    subgraph Microsoft[Microsoft 策略]</span><br><span class="line">        M1[GitHub Copilot] --&gt; M2[Copilot Chat]</span><br><span class="line">        M2 --&gt; M3[Copilot Cowork]</span><br><span class="line">        M3 --&gt; M4[Autopilot Agent]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph OpenAI[OpenAI 策略]</span><br><span class="line">        O1[ChatGPT] --&gt; O2[Codex Mac]</span><br><span class="line">        O2 --&gt; O3[Codex Windows]</span><br><span class="line">        O3 --&gt; O4[Computer Use Agent]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph Google[Google 策略]</span><br><span class="line">        G1[Gemini] --&gt; G2[Workspace 集成]</span><br><span class="line">        G2 --&gt; G3[Drive 共享]</span><br><span class="line">        G3 --&gt; G4[搜索框 AI 化]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    MS[Microsoft Super App] --&gt; Target[统一 AI 入口]</span><br><span class="line">    OS[OpenAI Super App] --&gt; Target</span><br><span class="line">    GS[Google AI Workspace] --&gt; Target</span><br><span class="line">    </span><br><span class="line">    style Target fill:#5cb85c,color:#fff</span><br></pre></td></tr></table></figure>
+
+<p>关键观察：三家公司的「超级应用」策略正在趋同，但路径不同：</p>
+<ul>
+<li><strong>Microsoft</strong> 从生产力工具向上整合（B2B）</li>
+<li><strong>OpenAI</strong> 从对话体验向外延伸（B2C + 设备控制）</li>
+<li><strong>Google</strong> 从搜索和文档向内收缩（B2B2C）</li>
+</ul>
+<p>这场三线竞赛的输赢，将决定未来五年 AI 交互的默认入口在哪里。</p>
+<hr>
+<p><em>数据来源：GitHub API、The Verge、VentureBeat。部分数据源（GitHub Trending 页面、Hacker News）因网络限制未获取到，已通过 API 搜索和替代新闻源补充。</em></p>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  
+  <a class="next" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-01/">下一篇：AI 日报 2026-06-01</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* Code + Mermaid — 视频播放器风格放大查看 */
+  (function() {
+    'use strict';
+    var currentViewer = null;
+
+    /* ---- 弹窗 ---- */
+    function showViewer(opts) {
+      if (currentViewer) { currentViewer.remove(); currentViewer = null; }
+      var isMermaid = !!opts.isMermaid;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'code-viewer-overlay';
+
+      var viewer = document.createElement('div');
+      viewer.className = 'code-viewer';
+
+      /* toolbar */
+      var tb = document.createElement('div');
+      tb.className = 'code-viewer-toolbar';
+      var actionsHtml = '<div class="code-viewer-actions">';
+      if (isMermaid && opts.bodyHtml) {
+        actionsHtml += '<button class="code-viewer-btn" data-dl>⬇ 下载图片</button>';
+      } else if (opts.copyText) {
+        actionsHtml += '<button class="code-viewer-btn" data-copy>📋 复制</button>';
+      }
+      actionsHtml += '<button class="code-viewer-close">✕</button></div>';
+      tb.innerHTML = '<span class="code-viewer-title">' +
+        '<span>' + (isMermaid ? '📊' : '&lt;/&gt;') + '</span> ' + opts.title + '</span>' + actionsHtml;
+      viewer.appendChild(tb);
+
+      /* body */
+      var body = document.createElement('div');
+      body.className = 'code-viewer-body' + (isMermaid ? ' mermaid-body' : '');
+      if (isMermaid) {
+        body.innerHTML = opts.bodyHtml;
+      } else {
+        body.innerHTML = '<pre><code>' + escHtml(opts.bodyHtml) + '</code></pre>';
+      }
+      viewer.appendChild(body);
+      overlay.appendChild(viewer);
+      document.body.appendChild(overlay);
+      document.body.style.overflow = 'hidden';
+      currentViewer = overlay;
+
+      /* copy logic */
+      var copyBtn = tb.querySelector('[data-copy]');
+      if (copyBtn && opts.copyText) {
+        copyBtn.addEventListener('click', function() {
+          navigator.clipboard.writeText(opts.copyText).then(function() {
+            copyBtn.textContent = '✅ 已复制';
+            copyBtn.classList.add('copied');
+            setTimeout(function() { copyBtn.textContent = '📋 复制'; copyBtn.classList.remove('copied'); }, 2000);
+          });
+        });
+      }
+
+      /* download image logic */
+      var dlBtn = tb.querySelector('[data-dl]');
+      if (dlBtn && isMermaid && opts.bodyHtml) {
+        dlBtn.addEventListener('click', function() {
+          var svgEl = body.querySelector('svg');
+          if (!svgEl) return;
+          var svgClone = svgEl.cloneNode(true);
+          svgClone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+          var serializer = new XMLSerializer();
+          var svgStr = serializer.serializeToString(svgClone);
+          var blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = (opts.title || '流程图') + '.svg';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          dlBtn.textContent = '✅ 已下载';
+          setTimeout(function() { dlBtn.textContent = '⬇ 下载图片'; }, 2000);
+        });
+      }
+
+      /* close handlers */
+      tb.querySelector('.code-viewer-close').addEventListener('click', closeViewer);
+      overlay.addEventListener('click', function(e) { if (e.target === overlay) closeViewer(); });
+      document.addEventListener('keydown', onEsc);
+    }
+
+    function closeViewer() {
+      if (!currentViewer) return;
+      currentViewer.remove(); currentViewer = null;
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onEsc);
+    }
+    function onEsc(e) { if (e.key === 'Escape') closeViewer(); }
+
+    function escHtml(s) {
+      return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    /* ---- 事件委托：处理代码块 / Mermaid 点击 ---- */
+    document.addEventListener('click', function(e) {
+      /* only react to the play button, not the whole overlay */
+      var overlay = e.target.closest('.code-block-play');
+      if (!overlay) return;
+      var wrap = overlay.closest('.code-block-wrap, .mermaid-container');
+      if (!wrap) return;
+
+      if (wrap.classList.contains('code-block-wrap')) {
+        /* 代码块 */
+        var pre = wrap.querySelector('pre');
+        if (!pre) return;
+        var text = pre.innerText || pre.textContent || '';
+        showViewer({ title: '代码块', bodyHtml: text, copyText: text });
+      } else {
+        /* Mermaid 流程图 */
+        var origCode = wrap.getAttribute('data-orig');
+        if (!origCode) return;
+        /* 使用 mermaid.render() 获取 SVG 字符串 */
+        if (typeof mermaid !== 'undefined' && mermaid.render) {
+          var uid = 'mermaid-viewer-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
+          mermaid.render(uid, origCode).then(function(result) {
+            showViewer({ title: '流程图', bodyHtml: result.svg, isMermaid: true });
+          }).catch(function(err) {
+            showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+          });
+        } else if (typeof mermaid !== 'undefined' && mermaid.run) {
+          /* fallback to run() */
+          var tmp = document.createElement('div');
+          tmp.textContent = origCode;
+          mermaid.run({ nodes: [tmp] }).then(function() {
+            showViewer({ title: '流程图', bodyHtml: tmp.innerHTML || origCode, isMermaid: true });
+          }).catch(function() {
+            showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+          });
+        } else {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        }
+      }
+    });
+
+    /* ---- 初始化：给每个代码块包上 play 遮罩 ---- */
+    var preList = document.querySelectorAll('.post-content figure.highlight td.code pre, .post-content > pre');
+    preList.forEach(function(pre) {
+      if (pre.closest('.code-block-wrap')) return; /* 已包装 */
+      var wrap = document.createElement('div');
+      wrap.className = 'code-block-wrap';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      /* 复制按钮 */
+      var copyBtn = document.createElement('button');
+      copyBtn.className = 'copy-btn';
+      copyBtn.textContent = '复制';
+      copyBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var text = pre.innerText || pre.textContent || '';
+        navigator.clipboard.writeText(text).then(function() {
+          copyBtn.textContent = '已复制';
+          copyBtn.classList.add('copied');
+          setTimeout(function() { copyBtn.textContent = '复制'; copyBtn.classList.remove('copied'); }, 2000);
+        });
+      });
+      wrap.appendChild(copyBtn);
+
+      /* 悬浮遮罩（视频播放器风格） */
+      var lineCount = (pre.innerText || '').split('\n').length;
+      var ov = document.createElement('div');
+      ov.className = 'code-block-overlay';
+      ov.innerHTML = '<button class="code-block-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>';
+      wrap.appendChild(ov);
+
+      var info = document.createElement('div');
+      info.className = 'code-block-info';
+      info.innerHTML = '<span>' + lineCount + ' 行</span>';
+      wrap.appendChild(info);
+    });
+
+    /* ---- Mermaid 容器遮罩 ---- */
+    function addMermaidOverlay() {
+      document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)').forEach(function(c) {
+        if (!c.querySelector('svg')) return;
+        c.classList.add('has-overlay');
+        var ov = document.createElement('div');
+        ov.className = 'code-block-overlay';
+        ov.innerHTML = '<button class="code-block-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>';
+        c.appendChild(ov);
+        var info = document.createElement('div');
+        info.className = 'code-block-info';
+        info.innerHTML = '<span>流程图</span>';
+        c.appendChild(info);
+      });
+    }
+    var mo = setInterval(function() {
+      addMermaidOverlay();
+      var left = document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)');
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext:not([data-mermaid-rendered])');
+      if (!left.length && !figs.length) clearInterval(mo);
+    }, 300);
+    /* 最多跑 8 秒后自动停止 */
+    setTimeout(function() { if (mo) clearInterval(mo); }, 8000);
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    /* 匹配 mermaid 图表的关键词（首行判断） */
+    var MERMAID_RE = /^(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram|gantt|pie|erDiagram|journey|gitgraph|mindmap|timeline|zenuml|sankey|xychart|block|packet)/i;
+
+    /**
+     * Hexo 默认高亮插件将 markdown 代码块渲染为：
+     *   <figure class="highlight plaintext">
+     *     <table><tr><td class="code"><pre><span class="line">...</span>...</pre></td></tr></table>
+     *   </figure>
+     * 因此无法通过 code.language-mermaid 选择器定位。
+     * 改为：匹配所有 figure.highlight.plaintext，提取其文本内容并检查首行是否为 mermaid 关键字。
+     */
+    function findMermaidBlocks() {
+      var blocks = [];
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext');
+      for (var i = 0; i < figs.length; i++) {
+        var fig = figs[i];
+        if (fig.dataset.mermaidRendered) continue;
+
+        var lines = fig.querySelectorAll('.line');
+        if (!lines.length) continue;
+
+        var code = '';
+        for (var j = 0; j < lines.length; j++) {
+          code += lines[j].textContent + '\n';
+        }
+        code = code.trim();
+
+        /* 只处理首行为 mermaid 关键词的块 */
+        var firstLine = code.split('\n')[0].trim();
+        if (!MERMAID_RE.test(firstLine)) continue;
+
+        blocks.push({ fig: fig, code: code });
+      }
+      return blocks;
+    }
+
+    async function renderMermaid() {
+      var blocks = findMermaidBlocks();
+      for (var i = 0; i < blocks.length; i++) {
+        var fig = blocks[i].fig;
+        var origCode = blocks[i].code;
+        fig.dataset.mermaidRendered = '1';
+
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        fig.parentNode.replaceChild(container, fig);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>
