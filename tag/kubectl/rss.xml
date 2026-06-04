@@ -12,10 +12,10 @@
         <category>GitHub热门</category>
         <category>人工智能</category>
         <category>技术趋势</category>
-        <category>坏习惯</category>
-        <category>个人分享</category>
         <category>原则</category>
         <category>个人详情</category>
+        <category>个人分享</category>
+        <category>坏习惯</category>
         <category>GPT-5.5</category>
         <category>OpenAI</category>
         <category>Codex</category>
@@ -27,43 +27,43 @@
         <category>编程笔记</category>
         <category>Hermes</category>
         <category>Agent</category>
+        <category>高阶</category>
+        <category>自动化</category>
         <category>NousResearch</category>
         <category>进阶</category>
         <category>配置</category>
-        <category>高阶</category>
-        <category>自动化</category>
-        <category>Kubernetes</category>
-        <category>k8s</category>
-        <category>kubeconfig</category>
-        <category>kubectl</category>
-        <category>Context</category>
-        <category>DevOps</category>
-        <category>Helm</category>
-        <category>学习计划</category>
-        <category>容器编排</category>
+        <category>OpenSRE</category>
+        <category>SRE</category>
         <category>运维</category>
-        <category>心理学知识</category>
-        <category>阿德勒心理学</category>
-        <category>自卑与超越</category>
+        <category>故障排查</category>
+        <category>LLM</category>
+        <category>RAG</category>
+        <category>知识库</category>
+        <category>SSE</category>
+        <category>HTTP</category>
         <category>网络安全</category>
         <category>SQL注入</category>
         <category>XSS</category>
         <category>CSRF</category>
         <category>DDoS</category>
         <category>渗透测试</category>
+        <category>Kubernetes</category>
+        <category>k8s</category>
+        <category>容器编排</category>
+        <category>DevOps</category>
+        <category>kubeconfig</category>
+        <category>kubectl</category>
+        <category>Context</category>
+        <category>Helm</category>
+        <category>学习计划</category>
+        <category>心理学知识</category>
+        <category>阿德勒心理学</category>
+        <category>自卑与超越</category>
         <category>力扣算法题</category>
-        <category>LLM</category>
-        <category>RAG</category>
-        <category>知识库</category>
-        <category>SSE</category>
-        <category>HTTP</category>
         <category>算法</category>
-        <category>OpenSRE</category>
-        <category>SRE</category>
-        <category>故障排查</category>
+        <category>动态规划</category>
         <category>JavaSE</category>
         <category>Java开发面试题</category>
-        <category>动态规划</category>
         <category>SpringBoot</category>
         <category>Spring</category>
         <category>接口开发</category>
@@ -76,10 +76,10 @@
             <link>https://scottalive.github.io/computer-science/devops/k8s-context-switch/</link>
             <category>Kubernetes</category>
             <category>k8s</category>
+            <category>DevOps</category>
             <category>kubeconfig</category>
             <category>kubectl</category>
             <category>Context</category>
-            <category>DevOps</category>
             <pubDate>Wed, 20 May 2026 16:30:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;单机内-K8S-集群环境切换指南&#34;&gt;&lt;a href=&#34;#单机内-K8S-集群环境切换指南&#34; class=&#34;headerlink&#34; title=&#34;单机内 K8S 集群环境切换指南&#34;&gt;&lt;/a&gt;单机内 K8S 集群环境切换指南&lt;/h1&gt;&lt;p&gt;在实际开发运维中，很少有人只用一个 K8S 集群。本地有 Minikube 或 Kind 的测试集群，公司有开发、预发、生产等多套环境，还可能涉及公有云托管的 K8S（如 TKE、ACK、EKS）。&lt;strong&gt;如何在一台机器上优雅地管理多个集群环境，并在它们之间快速切换？&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;本文从 &lt;strong&gt;kubeconfig&lt;/strong&gt; 的底层结构出发，覆盖多集群配置、Context 切换、文件合并、安全认证等全流程，让你在单机环境中像「切换频道」一样切换 K8S 集群。&lt;/p&gt;
