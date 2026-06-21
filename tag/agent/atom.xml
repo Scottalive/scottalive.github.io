@@ -3,70 +3,275 @@
     <id>https://scottalive.github.io</id>
     <title>沉鱼的博客 • Posts by &#34;agent&#34; tag</title>
     <link href="https://scottalive.github.io" />
-    <updated>2026-05-08T14:39:00.000Z</updated>
-    <category term="AI日报" />
-    <category term="AI" />
-    <category term="GitHub热门" />
-    <category term="人工智能" />
-    <category term="技术趋势" />
+    <updated>2026-06-21T12:14:00.000Z</updated>
     <category term="原则" />
     <category term="个人详情" />
     <category term="个人分享" />
+    <category term="AI" />
+    <category term="AI日报" />
+    <category term="GitHub热门" />
+    <category term="人工智能" />
+    <category term="技术趋势" />
     <category term="坏习惯" />
-    <category term="Kubernetes" />
-    <category term="k8s" />
-    <category term="容器编排" />
-    <category term="DevOps" />
+    <category term="GPT-5.5" />
+    <category term="OpenAI" />
+    <category term="Codex" />
+    <category term="开发工具" />
+    <category term="编程助手" />
+    <category term="Hermes" />
+    <category term="Agent" />
+    <category term="v0.17" />
+    <category term="自动化" />
+    <category term="高阶" />
+    <category term="NousResearch" />
+    <category term="开源" />
+    <category term="ClaudeCode" />
+    <category term="编程笔记" />
+    <category term="Gemini" />
+    <category term="SSE" />
+    <category term="HTTP" />
+    <category term="OpenSRE" />
+    <category term="SRE" />
     <category term="运维" />
+    <category term="故障排查" />
     <category term="网络安全" />
     <category term="SQL注入" />
     <category term="XSS" />
     <category term="CSRF" />
     <category term="DDoS" />
     <category term="渗透测试" />
+    <category term="Kubernetes" />
+    <category term="k8s" />
+    <category term="容器编排" />
+    <category term="DevOps" />
     <category term="kubeconfig" />
     <category term="kubectl" />
     <category term="Context" />
-    <category term="GPT-5.5" />
-    <category term="OpenAI" />
-    <category term="Codex" />
     <category term="Helm" />
     <category term="学习计划" />
-    <category term="ClaudeCode" />
-    <category term="Gemini" />
-    <category term="开发工具" />
-    <category term="开源" />
-    <category term="编程笔记" />
-    <category term="编程助手" />
-    <category term="Hermes" />
-    <category term="Agent" />
-    <category term="NousResearch" />
+    <category term="心理学知识" />
     <category term="进阶" />
     <category term="配置" />
-    <category term="高阶" />
-    <category term="自动化" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
     <category term="LLM" />
     <category term="RAG" />
     <category term="知识库" />
-    <category term="OpenSRE" />
-    <category term="SRE" />
-    <category term="故障排查" />
-    <category term="SSE" />
-    <category term="HTTP" />
-    <category term="心理学知识" />
-    <category term="阿德勒心理学" />
-    <category term="自卑与超越" />
-    <category term="力扣算法题" />
-    <category term="算法" />
-    <category term="动态规划" />
     <category term="JavaSE" />
-    <category term="Java开发面试题" />
-    <category term="SpringBoot" />
-    <category term="Spring" />
     <category term="接口开发" />
     <category term="开发注意事项" />
     <category term="微服务" />
+    <category term="力扣算法题" />
+    <category term="算法" />
+    <category term="动态规划" />
+    <category term="Java开发面试题" />
+    <category term="SpringBoot" />
     <category term="python" />
+    <category term="Spring" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/Hermes-Agent-v0.17-%E6%96%B0%E7%89%B9%E6%80%A7%E4%B8%8E%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95/</id>
+        <title>Hermes Agent v0.17 &#34;The Reach Release&#34; —— 新特性与进阶用法全解析</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/Hermes-Agent-v0.17-%E6%96%B0%E7%89%B9%E6%80%A7%E4%B8%8E%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95/"/>
+        <content type="html">&lt;p&gt;&lt;img src=&#34;/images/hermes-agent/og-image.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2026 年 6 月 19 日&lt;/strong&gt;，Nous Research 正式发布了 Hermes Agent v0.17.0（代号 “The Reach Release”）。距离 v0.16.0 仅两周，这个版本带来了 &lt;strong&gt;&lt;del&gt;1,475 个提交、&lt;/del&gt;800 个合并 PR、1,693 个文件变更、300+ 个 issue 关闭&lt;/strong&gt;，邀请 245 位社区贡献者共同参与。如果你还在用旧版本，是时候更新了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本文聚焦 v0.17.0 的 &lt;strong&gt;核心新特性&lt;/strong&gt; 和 &lt;strong&gt;实战进阶用法&lt;/strong&gt;，搭配流程图和配图帮你快速上手。如果你还没安装 Hermes Agent，建议先阅读系列前几篇。&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;一键更新&#34;&gt;&lt;a href=&#34;#一键更新&#34; class=&#34;headerlink&#34; title=&#34;一键更新&#34;&gt;&lt;/a&gt;一键更新&lt;/h2&gt;&lt;p&gt;升级到最新版很简单：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;hermes update&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;或者在 CLI 中通过 &lt;code&gt;/model&lt;/code&gt; 确认当前版本后运行 &lt;code&gt;hermes doctor&lt;/code&gt; 检查一切正常。&lt;/p&gt;
+&lt;p&gt;更新日志完整版：&lt;a href=&#34;https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.19&#34;&gt;GitHub Releases v2026.6.19&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;一、背景异步-Subagent-——-再也不用干等了&#34;&gt;&lt;a href=&#34;#一、背景异步-Subagent-——-再也不用干等了&#34; class=&#34;headerlink&#34; title=&#34;一、背景异步 Subagent —— 再也不用干等了&#34;&gt;&lt;/a&gt;一、背景异步 Subagent —— 再也不用干等了&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;核心痛点解决：&lt;/strong&gt; 之前 &lt;code&gt;delegate_task()&lt;/code&gt; 是同步阻塞的——启动一个子 Agent 后，主会话必须等它做完才能继续。现在支持 &lt;code&gt;background=true&lt;/code&gt; 了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;用法示例&#34;&gt;&lt;a href=&#34;#用法示例&#34; class=&#34;headerlink&#34; title=&#34;用法示例&#34;&gt;&lt;/a&gt;用法示例&lt;/h3&gt;&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 启动一个后台子 Agent，立即返回句柄&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;delegate_task(&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    background=&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    prompt=&lt;span class=&#34;string&#34;&gt;&amp;quot;调研最新的 Rust Web 框架趋势，写出报告保存在 ~/reports/rust-trends.md&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 你继续和 Hermes 聊别的事，完成后结果自动回来&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[主会话] --&amp;gt;|delegate_task background=true| B[后台子 Agent]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt;|继续聊天或做其他任务| C[主会话继续工作]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|完成后自动插入新 Turn| A&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style B fill:#f9f,stroke:#333,stroke-width:2px&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style A fill:#bbf,stroke:#333,stroke-width:2px&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;实战场景：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;发起一个长时间的研究任务，同时处理日常聊天&lt;/li&gt;
+&lt;li&gt;并行构建多个代码模块&lt;/li&gt;
+&lt;li&gt;同时在多个仓库中执行审计&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;桌面端增强：子-Agent-监视窗口&#34;&gt;&lt;a href=&#34;#桌面端增强：子-Agent-监视窗口&#34; class=&#34;headerlink&#34; title=&#34;桌面端增强：子 Agent 监视窗口&#34;&gt;&lt;/a&gt;桌面端增强：子 Agent 监视窗口&lt;/h3&gt;&lt;p&gt;v0.17 的桌面 App 新增了 &lt;strong&gt;Live Subagent Watch-Windows&lt;/strong&gt;——后台子 Agent 的活动会实时流式显示在独立窗格中：&lt;/p&gt;
+&lt;figure class=&#34;highlight mipsasm&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;┌─────────────────────────────────┐&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│ 📋 &lt;span class=&#34;keyword&#34;&gt;Subagent: &lt;/span&gt;research-rs        │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│ ─────────────────────────────── │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│ ✓ 搜索 GitHub: &lt;span class=&#34;string&#34;&gt;&amp;quot;Rust web 2026&amp;quot;&lt;/span&gt; │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│ ✓ 分析 Axum vs Actix 对比      │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│ ✓ 生成报告草稿                  │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;│ 📎 最终报告已保存               │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;└─────────────────────────────────┘&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;二、自动化蓝图-——-从此告别-Cron-语法&#34;&gt;&lt;a href=&#34;#二、自动化蓝图-——-从此告别-Cron-语法&#34; class=&#34;headerlink&#34; title=&#34;二、自动化蓝图 —— 从此告别 Cron 语法&#34;&gt;&lt;/a&gt;二、自动化蓝图 —— 从此告别 Cron 语法&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;核心痛点解决：&lt;/strong&gt; 再也不用记 &lt;code&gt;0 8 * * *&lt;/code&gt; 了。Hermes 提供&lt;strong&gt;自动化蓝图系统（Automation Blueprints）&lt;/strong&gt;，你只要用自然语言描述”每天 8 点给我发日报”，剩下的交给它。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;如何创建&#34;&gt;&lt;a href=&#34;#如何创建&#34; class=&#34;headerlink&#34; title=&#34;如何创建&#34;&gt;&lt;/a&gt;如何创建&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 在 CLI 中直接说：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;每天早上 9 点检查 Hacker News 的 AI 新闻，汇总后发到 Telegram&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;Hermes 会自动识别你的意图，询问缺少的参数，然后生成一个 Cron 任务。整个过程无需手动写任何 Cron 表达式。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sequenceDiagram&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant U as 你&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant H as Hermes Agent&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant C as Cron Scheduler&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    U-&amp;gt;&amp;gt;H: &amp;quot;每天早上 9 点发 AI 新闻摘要给我&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H-&amp;gt;&amp;gt;U: 确认：时间 09:00，来源 HN，发送到 Telegram？&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    U-&amp;gt;&amp;gt;H: 确认&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H-&amp;gt;&amp;gt;C: 创建 Cron Job（自动生成 Blueprint）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Note over C: 每天 09:00 自动运行&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C-&amp;gt;&amp;gt;H: 触发任务&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H-&amp;gt;&amp;gt;C: 抓取 HN + 汇总&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C-&amp;gt;&amp;gt;U: 发送摘要到 Telegram&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;蓝图的管理命令&#34;&gt;&lt;a href=&#34;#蓝图的管理命令&#34; class=&#34;headerlink&#34; title=&#34;蓝图的管理命令&#34;&gt;&lt;/a&gt;蓝图的管理命令&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 查看所有蓝图&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/cron list&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 暂停一个任务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/cron pause &amp;lt;job_id&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 恢复&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/cron resume &amp;lt;job_id&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 手动触发（不等待 Cron 周期）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/cron run &amp;lt;job_id&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 编辑已有任务 —— 无需删除重建&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/cron edit &amp;lt;job_id&amp;gt; --schedule &lt;span class=&#34;string&#34;&gt;&amp;quot;每隔 4 小时&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 给任务挂载 Skill&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/cron add &lt;span class=&#34;string&#34;&gt;&amp;quot;每天 8 点&amp;quot;&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;检查 feeds&amp;quot;&lt;/span&gt; --skill blogwatcher&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 挂载多个 Skill&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/cron add &lt;span class=&#34;string&#34;&gt;&amp;quot;每 6 小时&amp;quot;&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;汇总本地信息&amp;quot;&lt;/span&gt; --skill blogwatcher --skill maps&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;💡 &lt;strong&gt;小技巧：&lt;/strong&gt; Cron 任务支持 &lt;code&gt;--workdir&lt;/code&gt; 参数，可以指定工作目录来加载该目录下的 AGENTS.md 上下文文件，适合在项目仓库中执行定期任务。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;三、iMessage-集成-——-打破蓝绿气泡壁垒&#34;&gt;&lt;a href=&#34;#三、iMessage-集成-——-打破蓝绿气泡壁垒&#34; class=&#34;headerlink&#34; title=&#34;三、iMessage 集成 —— 打破蓝绿气泡壁垒&#34;&gt;&lt;/a&gt;三、iMessage 集成 —— 打破蓝绿气泡壁垒&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;这是 v0.17 最令人兴奋的特性之一 —— Hermes 现在可以通过 &lt;strong&gt;Photon Spectrum&lt;/strong&gt; 直接收发 iMessage，&lt;strong&gt;不需要 Mac 中继、不需要 BlueBubbles 中转&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;配置方式&#34;&gt;&lt;a href=&#34;#配置方式&#34; class=&#34;headerlink&#34; title=&#34;配置方式&#34;&gt;&lt;/a&gt;配置方式&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 登录 Photon&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes photon login&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 在浏览器中完成设备授权&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 然后就可以在 iMessage 中直接和 Hermes 对话了&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;如果你的家人和朋友都在「蓝泡泡」里，现在 Hermes 也能在那里出现了。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;四、MCP-集成-——-连接外部生态&#34;&gt;&lt;a href=&#34;#四、MCP-集成-——-连接外部生态&#34; class=&#34;headerlink&#34; title=&#34;四、MCP 集成 —— 连接外部生态&#34;&gt;&lt;/a&gt;四、MCP 集成 —— 连接外部生态&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Hermes 内置了对 MCP（Model Context Protocol）的支持，可以连接任何 MCP 服务器来扩展能力。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;快速配置&#34;&gt;&lt;a href=&#34;#快速配置&#34; class=&#34;headerlink&#34; title=&#34;快速配置&#34;&gt;&lt;/a&gt;快速配置&lt;/h3&gt;&lt;p&gt;在 &lt;code&gt;~/.hermes/config.yaml&lt;/code&gt; 中添加：&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;mcp_servers:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;filesystem:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;command:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;npx&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;args:&lt;/span&gt; [&lt;span class=&#34;string&#34;&gt;&amp;quot;-y&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;@modelcontextprotocol/server-filesystem&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;/home/user/projects&amp;quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;github:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;command:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;npx&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;args:&lt;/span&gt; [&lt;span class=&#34;string&#34;&gt;&amp;quot;-y&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;@modelcontextprotocol/server-github&amp;quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;env:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;      &lt;span class=&#34;attr&#34;&gt;GITHUB_PERSONAL_ACCESS_TOKEN:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;***&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;使用内置-MCP-目录&#34;&gt;&lt;a href=&#34;#使用内置-MCP-目录&#34; class=&#34;headerlink&#34; title=&#34;使用内置 MCP 目录&#34;&gt;&lt;/a&gt;使用内置 MCP 目录&lt;/h3&gt;&lt;p&gt;v0.17 提供了一个精选 MCP 目录，一键安装 Nous 审核过的 MCP 服务：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;hermes mcp           &lt;span class=&#34;comment&#34;&gt;# 交互式选择器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes mcp catalog   &lt;span class=&#34;comment&#34;&gt;# 查看可用列表&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes mcp install n8n  &lt;span class=&#34;comment&#34;&gt;# 安装 n8n MCP&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;安装时会自动探测 MCP 服务暴露的工具，让你选择要暴露哪些：&lt;/p&gt;
+&lt;figure class=&#34;highlight prolog&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;symbol&#34;&gt;Select&lt;/span&gt; tools for &lt;span class=&#34;string&#34;&gt;&amp;#x27;linear&amp;#x27;&lt;/span&gt; (&lt;span class=&#34;symbol&#34;&gt;SPACE&lt;/span&gt; toggle, &lt;span class=&#34;symbol&#34;&gt;ENTER&lt;/span&gt; confirm)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; [x] find_issues     查找匹配的 issue&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; [x] create_issue    创建新的 issue&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt; [ ] delete_workspace 删除 &lt;span class=&#34;symbol&#34;&gt;Linear&lt;/span&gt; 工作区&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph &amp;quot;Hermes Agent&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A[MCP 客户端]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph &amp;quot;MCP 生态&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B[GitHub MCP]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C[文件系统 MCP]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        D[n8n MCP]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        E[自定义 MCP]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph &amp;quot;外部服务&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        F[GitHub API]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        G[本地文件系统]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        H[n8n 工作流]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        I[内部 API]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; B --&amp;gt; F&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; C --&amp;gt; G&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; D --&amp;gt; H&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; E --&amp;gt; I&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style A fill:#bbf,stroke:#333,stroke-width:2px&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;五、内存系统重大升级-——-原子批量操作&#34;&gt;&lt;a href=&#34;#五、内存系统重大升级-——-原子批量操作&#34; class=&#34;headerlink&#34; title=&#34;五、内存系统重大升级 —— 原子批量操作&#34;&gt;&lt;/a&gt;五、内存系统重大升级 —— 原子批量操作&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;核心痛点解决：&lt;/strong&gt; 之前当内存快满时，需要先 &lt;code&gt;remove&lt;/code&gt; 再 &lt;code&gt;add&lt;/code&gt;，两步可能跨越多次 Turn，经常失败。v0.17 引入了 &lt;strong&gt;原子批量操作（atomic batch operations）&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;新-API&#34;&gt;&lt;a href=&#34;#新-API&#34; class=&#34;headerlink&#34; title=&#34;新 API&#34;&gt;&lt;/a&gt;新 API&lt;/h3&gt;&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;memory(&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    target=&lt;span class=&#34;string&#34;&gt;&amp;quot;memory&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    operations=[&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;quot;action&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;remove&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;old_text&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;old project path&amp;quot;&lt;/span&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;quot;action&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;replace&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;old_text&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;project uses&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;content&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;主项目已迁移到 ~/code/new-project&amp;quot;&lt;/span&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;quot;action&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;add&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;content&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;新项目使用 Go 1.22 开发&amp;quot;&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;三个操作在&lt;strong&gt;单次调用内原子完成&lt;/strong&gt;，即使新增内容会超出字符预算，也可以先腾出空间。不再有”内存满了，下个 Turn 再删除”的脆弱流程。&lt;/p&gt;
+&lt;h3 id=&#34;内存容量管理&#34;&gt;&lt;a href=&#34;#内存容量管理&#34; class=&#34;headerlink&#34; title=&#34;内存容量管理&#34;&gt;&lt;/a&gt;内存容量管理&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;存储区&lt;/th&gt;
+&lt;th&gt;限制&lt;/th&gt;
+&lt;th&gt;典型条目数&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;MEMORY.md&lt;/td&gt;
+&lt;td&gt;2,200 字符&lt;/td&gt;
+&lt;td&gt;8-15 条&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;USER.md&lt;/td&gt;
+&lt;td&gt;1,375 字符&lt;/td&gt;
+&lt;td&gt;5-10 条&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;💡 内存使用率超过 &lt;strong&gt;80%&lt;/strong&gt; 时建议主动合并精简。Hermes 会自动做这件事——但你也可以手动介入，把三个分散的项目记录合并成一条综合描述。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;六、图片编辑-——-从生成到修图&#34;&gt;&lt;a href=&#34;#六、图片编辑-——-从生成到修图&#34; class=&#34;headerlink&#34; title=&#34;六、图片编辑 —— 从生成到修图&#34;&gt;&lt;/a&gt;六、图片编辑 —— 从生成到修图&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;image_generate&lt;/code&gt; 工具现在支持 &lt;strong&gt;图片到图片（image-to-image）&lt;/strong&gt; 的编辑模式，支持所有主流图片提供商。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;用法&#34;&gt;&lt;a href=&#34;#用法&#34; class=&#34;headerlink&#34; title=&#34;用法&#34;&gt;&lt;/a&gt;用法&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;把这个 logo 改成蓝色&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;去掉背景&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;把这张草图渲染成 3D 效果&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[输入图片] --&amp;gt; B[image_generate]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C[编辑提示词] --&amp;gt; B&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; D[输出图片]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style B fill:#9f9,stroke:#333,stroke-width:2px&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;传递一张现有图片 + 修改提示词，路由自动匹配到后端编辑端点。同一个 &lt;code&gt;image_generate&lt;/code&gt; 工具，不用学新命令。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;七、桌面-App-重大升级&#34;&gt;&lt;a href=&#34;#七、桌面-App-重大升级&#34; class=&#34;headerlink&#34; title=&#34;七、桌面 App 重大升级&#34;&gt;&lt;/a&gt;七、桌面 App 重大升级&lt;/h2&gt;&lt;p&gt;v0.16 发布了桌面 App，v0.17 将其升级为&lt;strong&gt;真正的日常主力工具&lt;/strong&gt;：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;新特性&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;🎮 &lt;strong&gt;可重绑定快捷键&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;任意快捷键自定义，像 VS Code 一样配置&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🔔 &lt;strong&gt;原生系统通知&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;按类型开关通知&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;📺 &lt;strong&gt;子 Agent 监视窗&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;独立窗格实时查看子 Agent 活动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🎨 &lt;strong&gt;VS Code 主题支持&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;安装任意 Marketplace 主题&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🖥️ &lt;strong&gt;可调节终端面板&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;仿 VS Code 终端，支持拖拽调整大小&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;📝 &lt;strong&gt;按线程保留草稿&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;切换线程不会丢输入&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🌐 &lt;strong&gt;RTL&amp;#x2F;Bidi 文字支持&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;阿拉伯语、希伯来语正确渲染&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;👤 &lt;strong&gt;Dashboard 全功能配置&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;浏览器中构建完整 Profile，无需手写 YAML&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;八、Skills-Hub-改版-——-像逛应用商店一样装-Skill&#34;&gt;&lt;a href=&#34;#八、Skills-Hub-改版-——-像逛应用商店一样装-Skill&#34; class=&#34;headerlink&#34; title=&#34;八、Skills Hub 改版 —— 像逛应用商店一样装 Skill&#34;&gt;&lt;/a&gt;八、Skills Hub 改版 —— 像逛应用商店一样装 Skill&lt;/h2&gt;&lt;p&gt;Dashboard 中的 Skills Hub 完全重写：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;连接 Hub 目录&lt;/strong&gt;：从 OpenAI、Anthropic、HuggingFace、NVIDIA 等可信源浏览&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;精选推荐（Featured）&lt;/strong&gt;：首页展示精选 Skill&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安装前预览&lt;/strong&gt;：查看完整 Skill 内容再决定是否安装&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安全扫描&lt;/strong&gt;：每个 Skill 自动扫描恶意模式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;条件激活（Conditional-Activation）&#34;&gt;&lt;a href=&#34;#条件激活（Conditional-Activation）&#34; class=&#34;headerlink&#34; title=&#34;条件激活（Conditional Activation）&#34;&gt;&lt;/a&gt;条件激活（Conditional Activation）&lt;/h3&gt;&lt;p&gt;Skill 现在可以根据当前可用工具&lt;strong&gt;自动显示或隐藏&lt;/strong&gt;：&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;metadata:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;hermes:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;fallback_for_toolsets:&lt;/span&gt; [&lt;span class=&#34;string&#34;&gt;web&lt;/span&gt;]   &lt;span class=&#34;comment&#34;&gt;# 只有在 web 工具集不可用时才显示&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;requires_toolsets:&lt;/span&gt; [&lt;span class=&#34;string&#34;&gt;terminal&lt;/span&gt;]  &lt;span class=&#34;comment&#34;&gt;# 只有 terminal 可用时才显示&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;例如内置的 &lt;code&gt;duckduckgo-search&lt;/code&gt; Skill 设置 &lt;code&gt;fallback_for_toolsets: [web]&lt;/code&gt;，当你有付费的 Firecrawl API Key 时它自动隐藏；没有 API Key 时自动出现作为替代。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;九、WhatsApp-Business-API-富文本-Telegram&#34;&gt;&lt;a href=&#34;#九、WhatsApp-Business-API-富文本-Telegram&#34; class=&#34;headerlink&#34; title=&#34;九、WhatsApp Business API + 富文本 Telegram&#34;&gt;&lt;/a&gt;九、WhatsApp Business API + 富文本 Telegram&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;WhatsApp Business Cloud API&lt;/strong&gt;：Meta 官方适配器，不再需要 QR 扫码桥接进程&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Telegram 富文本渲染&lt;/strong&gt;：Bot API 10.1 原生富文本，自动美化长消息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;十、Curator-成本优化&#34;&gt;&lt;a href=&#34;#十、Curator-成本优化&#34; class=&#34;headerlink&#34; title=&#34;十、Curator 成本优化&#34;&gt;&lt;/a&gt;十、Curator 成本优化&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;v0.17 默认不再在常规运行中花费 aux-model token 做 Skill 合并。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 旧行为（v0.16）：每次 curator 运行都消耗 token 做合并&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 新行为（v0.17）：默认只做简单的&amp;quot;清理过期 Skill&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 如果你想恢复旧行为（主动合并）：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;curator:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;consolidate:&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;或者手动触发：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;hermes curator run --consolidate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;日常后台维护现在&lt;strong&gt;零 token 成本&lt;/strong&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;总结：v0-17-重点一览&#34;&gt;&lt;a href=&#34;#总结：v0-17-重点一览&#34; class=&#34;headerlink&#34; title=&#34;总结：v0.17 重点一览&#34;&gt;&lt;/a&gt;总结：v0.17 重点一览&lt;/h2&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;gantt&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    title Hermes Agent v0.17 功能雷达&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    dateFormat  YYYY-MM-DD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    axisFormat  %m-%d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    section 通信&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    iMessage (Photon)       :done, 2026-06-19, 1d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    WhatsApp Business API   :done, 2026-06-19, 1d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Telegram 富文本          :done, 2026-06-19, 1d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Raft 网络               :done, 2026-06-19, 1d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    section 能力&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    异步 Subagent           :done, 2026-06-19, 1d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    图片编辑                :done, 2026-06-19, 1d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    自动化蓝图              :done, 2026-06-19, 1d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    内存批量操作            :done, 2026-06-19, 1d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    section 体验&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    桌面 App 强化           :done, 2026-06-19, 1d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Skills Hub 重写         :done, 2026-06-19, 1d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Dashboard Profile 构建器 :done, 2026-06-19, 1d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Curator 成本优化         :done, 2026-06-19, 1d&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;升级建议：&lt;/strong&gt; 如果你正在使用 Hermes Agent，强烈建议立即运行 &lt;code&gt;hermes update&lt;/code&gt;。v0.17 在通信覆盖、自动化、内存系统和成本控制方面都有质的飞跃。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;新用户入门：&lt;/strong&gt; 如果还没安装，运行以下命令即可：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Linux / macOS / WSL&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Windows（PowerShell）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;iex (irm https://hermes-agent.nousresearch.com/install.ps1)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;然后 &lt;code&gt;hermes setup&lt;/code&gt; 走一遍配置向导，最快路径是 &lt;code&gt;hermes setup --portal&lt;/code&gt; 一键登录 Nous Portal。&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;扩展阅读：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/Hermes-Agent-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/&#34;&gt;Hermes Agent 安装与使用指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/Hermes-Agent-%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/&#34;&gt;Hermes Agent 配置与进阶使用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/Hermes-Agent-%E9%AB%98%E9%98%B6%E7%94%A8%E6%B3%95/&#34;&gt;Hermes Agent 高阶用法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hermes-agent.nousresearch.com/docs/&#34;&gt;Hermes Agent 官方文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/NousResearch/hermes-agent/releases/tag/v2026.6.19&#34;&gt;GitHub Releases 页面&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+</content>
+        <category term="AI" />
+        <category term="开发工具" />
+        <category term="Hermes" />
+        <category term="Agent" />
+        <category term="v0.17" />
+        <category term="自动化" />
+        <updated>2026-06-21T12:14:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://scottalive.github.io/computer-science/ai-tools/Hermes-Agent-%E9%AB%98%E9%98%B6%E7%94%A8%E6%B3%95/</id>
         <title>Hermes Agent 高阶用法 —— 打造你的专属 AI 工作流</title>
@@ -286,8 +491,8 @@
         <category term="开发工具" />
         <category term="Hermes" />
         <category term="Agent" />
-        <category term="高阶" />
         <category term="自动化" />
+        <category term="高阶" />
         <updated>2026-05-08T14:39:00.000Z</updated>
     </entry>
     <entry>
@@ -1184,10 +1389,10 @@
 </content>
         <category term="AI" />
         <category term="开发工具" />
-        <category term="开源" />
         <category term="Hermes" />
         <category term="Agent" />
         <category term="NousResearch" />
+        <category term="开源" />
         <updated>2026-05-05T15:20:00.000Z</updated>
     </entry>
 </feed>
