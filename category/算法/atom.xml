@@ -9,63 +9,63 @@
     <category term="GitHub热门" />
     <category term="人工智能" />
     <category term="技术趋势" />
-    <category term="原则" />
-    <category term="个人详情" />
+    <category term="坏习惯" />
     <category term="个人分享" />
     <category term="Kubernetes" />
     <category term="k8s" />
     <category term="容器编排" />
     <category term="DevOps" />
     <category term="运维" />
+    <category term="Helm" />
+    <category term="学习计划" />
     <category term="kubeconfig" />
     <category term="kubectl" />
     <category term="Context" />
-    <category term="坏习惯" />
+    <category term="原则" />
+    <category term="个人详情" />
+    <category term="GPT-5.5" />
+    <category term="OpenAI" />
+    <category term="Codex" />
+    <category term="ClaudeCode" />
+    <category term="Gemini" />
+    <category term="开发工具" />
+    <category term="开源" />
+    <category term="编程笔记" />
+    <category term="编程助手" />
+    <category term="Hermes" />
+    <category term="Agent" />
+    <category term="高阶" />
+    <category term="自动化" />
+    <category term="v0.17" />
     <category term="网络安全" />
     <category term="SQL注入" />
     <category term="XSS" />
     <category term="CSRF" />
     <category term="DDoS" />
     <category term="渗透测试" />
+    <category term="NousResearch" />
+    <category term="进阶" />
+    <category term="配置" />
     <category term="心理学知识" />
     <category term="阿德勒心理学" />
     <category term="自卑与超越" />
-    <category term="Helm" />
-    <category term="学习计划" />
-    <category term="GPT-5.5" />
-    <category term="OpenAI" />
-    <category term="Codex" />
-    <category term="ClaudeCode" />
-    <category term="开发工具" />
-    <category term="编程笔记" />
-    <category term="编程助手" />
-    <category term="Hermes" />
-    <category term="Agent" />
-    <category term="NousResearch" />
-    <category term="开源" />
-    <category term="v0.17" />
-    <category term="自动化" />
-    <category term="接口开发" />
-    <category term="开发注意事项" />
-    <category term="LLM" />
-    <category term="RAG" />
-    <category term="知识库" />
     <category term="SSE" />
     <category term="HTTP" />
-    <category term="Gemini" />
-    <category term="JavaSE" />
-    <category term="高阶" />
-    <category term="Java开发面试题" />
-    <category term="SpringBoot" />
-    <category term="Spring" />
-    <category term="进阶" />
-    <category term="配置" />
     <category term="OpenSRE" />
     <category term="SRE" />
     <category term="故障排查" />
+    <category term="LLM" />
+    <category term="RAG" />
+    <category term="知识库" />
+    <category term="JavaSE" />
+    <category term="Java开发面试题" />
+    <category term="Spring" />
+    <category term="SpringBoot" />
+    <category term="力扣算法题" />
     <category term="算法" />
     <category term="动态规划" />
-    <category term="力扣算法题" />
+    <category term="接口开发" />
+    <category term="开发注意事项" />
     <category term="微服务" />
     <category term="python" />
     <entry>
@@ -379,8 +379,8 @@
 &lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;Solution&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; String &lt;span class=&#34;title function_&#34;&gt;longestPalindrome&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(String s)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (s == &lt;span class=&#34;literal&#34;&gt;null&lt;/span&gt; || s.length() &amp;lt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;start&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, end = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;; i &amp;lt; s.length(); i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;len1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; expandAroundCenter(s, i, i);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;len2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; expandAroundCenter(s, i, i + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;len&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; Math.max(len1, len2);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (len &amp;gt; end - start) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                start = i - (len - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;) / &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                end = i + len / &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; s.substring(start, end + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;expandAroundCenter&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(String s, &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; left, &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; right)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; (left &amp;gt;= &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt; &amp;amp;&amp;amp; right &amp;lt; s.length() &amp;amp;&amp;amp; s.charAt(left) == s.charAt(right)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            --left;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            ++right;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; right - left - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 </content>
-        <category term="算法" />
         <category term="力扣算法题" />
+        <category term="算法" />
         <updated>2023-09-24T14:33:00.000Z</updated>
     </entry>
     <entry>
@@ -422,8 +422,8 @@
 &lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;Solution&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;reverse&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; x)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt;(x!=&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;comment&#34;&gt;//每次取末尾数字&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;tmp&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; x%&lt;span class=&#34;number&#34;&gt;10&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;comment&#34;&gt;//判断是否 大于 最大32位整数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (res&amp;gt;&lt;span class=&#34;number&#34;&gt;214748364&lt;/span&gt; || (res==&lt;span class=&#34;number&#34;&gt;214748364&lt;/span&gt; &amp;amp;&amp;amp; tmp&amp;gt;&lt;span class=&#34;number&#34;&gt;7&lt;/span&gt;)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;comment&#34;&gt;//判断是否 小于 最小32位整数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (res&amp;lt;-&lt;span class=&#34;number&#34;&gt;214748364&lt;/span&gt; || (res==-&lt;span class=&#34;number&#34;&gt;214748364&lt;/span&gt; &amp;amp;&amp;amp; tmp&amp;lt;-&lt;span class=&#34;number&#34;&gt;8&lt;/span&gt;)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            res = res*&lt;span class=&#34;number&#34;&gt;10&lt;/span&gt; + tmp;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            x /= &lt;span class=&#34;number&#34;&gt;10&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; res;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 </content>
-        <category term="算法" />
         <category term="力扣算法题" />
+        <category term="算法" />
         <updated>2023-09-21T18:43:00.000Z</updated>
     </entry>
     <entry>
