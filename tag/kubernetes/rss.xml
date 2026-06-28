@@ -12,20 +12,10 @@
         <category>GitHub热门</category>
         <category>人工智能</category>
         <category>技术趋势</category>
-        <category>坏习惯</category>
-        <category>个人分享</category>
-        <category>Kubernetes</category>
-        <category>k8s</category>
-        <category>容器编排</category>
-        <category>DevOps</category>
-        <category>运维</category>
-        <category>Helm</category>
-        <category>学习计划</category>
-        <category>kubeconfig</category>
-        <category>kubectl</category>
-        <category>Context</category>
         <category>原则</category>
         <category>个人详情</category>
+        <category>个人分享</category>
+        <category>坏习惯</category>
         <category>GPT-5.5</category>
         <category>OpenAI</category>
         <category>Codex</category>
@@ -37,36 +27,46 @@
         <category>编程助手</category>
         <category>Hermes</category>
         <category>Agent</category>
-        <category>高阶</category>
-        <category>自动化</category>
         <category>v0.17</category>
+        <category>自动化</category>
+        <category>NousResearch</category>
+        <category>进阶</category>
+        <category>配置</category>
+        <category>高阶</category>
+        <category>OpenSRE</category>
+        <category>SRE</category>
+        <category>运维</category>
+        <category>故障排查</category>
+        <category>LLM</category>
+        <category>RAG</category>
+        <category>知识库</category>
+        <category>心理学知识</category>
+        <category>SSE</category>
+        <category>HTTP</category>
         <category>网络安全</category>
         <category>SQL注入</category>
         <category>XSS</category>
         <category>CSRF</category>
         <category>DDoS</category>
         <category>渗透测试</category>
-        <category>NousResearch</category>
-        <category>进阶</category>
-        <category>配置</category>
-        <category>心理学知识</category>
         <category>阿德勒心理学</category>
         <category>自卑与超越</category>
-        <category>SSE</category>
-        <category>HTTP</category>
-        <category>OpenSRE</category>
-        <category>SRE</category>
-        <category>故障排查</category>
-        <category>LLM</category>
-        <category>RAG</category>
-        <category>知识库</category>
+        <category>Kubernetes</category>
+        <category>k8s</category>
+        <category>容器编排</category>
+        <category>DevOps</category>
+        <category>kubeconfig</category>
+        <category>kubectl</category>
+        <category>Context</category>
+        <category>力扣算法题</category>
+        <category>Helm</category>
+        <category>学习计划</category>
+        <category>算法</category>
         <category>JavaSE</category>
         <category>Java开发面试题</category>
-        <category>Spring</category>
-        <category>SpringBoot</category>
-        <category>力扣算法题</category>
-        <category>算法</category>
         <category>动态规划</category>
+        <category>SpringBoot</category>
+        <category>Spring</category>
         <category>接口开发</category>
         <category>开发注意事项</category>
         <category>微服务</category>
@@ -228,11 +228,11 @@
             <guid isPermalink="true">https://scottalive.github.io/computer-science/devops/k8s-command-guide/</guid>
             <title>K8s 使用指南 — 各类场景命令全解</title>
             <link>https://scottalive.github.io/computer-science/devops/k8s-command-guide/</link>
+            <category>运维</category>
             <category>Kubernetes</category>
             <category>k8s</category>
             <category>容器编排</category>
             <category>DevOps</category>
-            <category>运维</category>
             <pubDate>Sat, 16 May 2026 10:03:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;Kubernetes-使用指南-—-各类场景命令全解&#34;&gt;&lt;a href=&#34;#Kubernetes-使用指南-—-各类场景命令全解&#34; class=&#34;headerlink&#34; title=&#34;Kubernetes 使用指南 — 各类场景命令全解&#34;&gt;&lt;/a&gt;Kubernetes 使用指南 — 各类场景命令全解&lt;/h1&gt;&lt;p&gt;Kubernetes（简称 K8s）是当前业界标准的容器编排平台。无论你是刚入门的学习者，还是日常运维的一线工程师，掌握 &lt;strong&gt;kubectl&lt;/strong&gt; 的核心命令都至关重要。&lt;/p&gt;
 &lt;p&gt;本文将按照 &lt;strong&gt;实际场景&lt;/strong&gt; 组织命令，告别枯燥的 API 罗列，让你遇到问题时能快速找到对应「武器」。&lt;/p&gt;
