@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <title>AI 日报 2026-07-09 | 沉鱼的博客</title>
+  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  <script>
+  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var isDark = saved === 'dark' || (!saved && prefersDark);
+    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
+    window.__theme = isDark ? 'dark' : 'light';
+  })();
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
+      <p class="site-subtitle">了解自我，超越自我</p>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <!-- <a href="/downloads">资源</a> -->
+        <a href="/about">关于</a>
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
+          <div id="search-results"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <h1 class="post-title">AI 日报 2026-07-09</h1>
+    <div class="post-meta">
+      <span class="post-date">2026-07-09 22:00</span>
+      <span class="post-word-count">2725 字</span>
+      <span class="post-reading-time">约 9 分钟</span>
+    </div>
+    
+    <div class="post-categories">
+      分类：
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+      
+      <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
+      
+    </div>
+    
+    
+    <div class="post-tags">
+      标签：
+      
+      <a href="/tags/AI%E6%97%A5%E6%8A%A5/">AI日报</a>
+      
+      <a href="/tags/AI/">AI</a>
+      
+      <a href="/tags/GitHub%E7%83%AD%E9%97%A8/">GitHub热门</a>
+      
+      <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+      
+      <a href="/tags/%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF/">技术趋势</a>
+      
+    </div>
+    
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#今日热点">今日热点</a>
+      
+      <a class="toc-level-2" href="#github-热门-ai-项目">GitHub 热门 AI 项目</a>
+      
+      <a class="toc-level-3" href="#1-strix-开源-ai-渗透测试工具">⭐ 1. Strix — 开源 AI 渗透测试工具</a>
+      
+      <a class="toc-level-3" href="#2-hugging-face-speech-to-speech-本地语音-agent-框架">⭐ 2. Hugging Face Speech-to-Speech — 本地语音 Agent 框架</a>
+      
+      <a class="toc-level-3" href="#3-browser-usex2fvideo-use-用编码-agent-剪辑视频">⭐ 3. browser-use&amp;#x2F;video-use — 用编码 Agent 剪辑视频</a>
+      
+      <a class="toc-level-3" href="#4-kyutai-labsx2fpocket-tts-在-cpu-上跑的-tts">⭐ 4. kyutai-labs&amp;#x2F;pocket-tts — 在 CPU 上跑的 TTS</a>
+      
+      <a class="toc-level-3" href="#5-xbtlinx2fai-berkshire-ai-时代的价值投资研究框架">⭐ 5. xbtlin&amp;#x2F;ai-berkshire — AI 时代的价值投资研究框架</a>
+      
+      <a class="toc-level-3" href="#6-其他值得关注的项目">⭐ 6. 其他值得关注的项目</a>
+      
+      <a class="toc-level-2" href="#新工具-x2f-产品速览">新工具 &amp;#x2F; 产品速览</a>
+      
+      <a class="toc-level-3" href="#openai-gpt-live-全双工语音模型">🎙️ OpenAI GPT-Live — 全双工语音模型</a>
+      
+      <a class="toc-level-3" href="#openai-gpt-56-套件获批发布">🧠 OpenAI GPT-5.6 套件获批发布</a>
+      
+      <a class="toc-level-3" href="#amazon-moonraker-ai-agent-追赶计划">🦾 Amazon “Moonraker” — AI Agent 追赶计划</a>
+      
+      <a class="toc-level-3" href="#notion-agents-独立-ai-agent-应用">📱 Notion Agents — 独立 AI Agent 应用</a>
+      
+      <a class="toc-level-2" href="#行业动态">行业动态</a>
+      
+      <a class="toc-level-3" href="#ai-芯片需求推动三星利润飙升-19-倍">📊 AI 芯片需求推动三星利润飙升 19 倍</a>
+      
+      <a class="toc-level-3" href="#spacex-的-grok-45-以半价挑战市场">💰 SpaceX 的 Grok 4.5 以半价挑战市场</a>
+      
+      <a class="toc-level-3" href="#slackbot-salesforce-深度整合">🔌 Slackbot + Salesforce 深度整合</a>
+      
+      <a class="toc-level-3" href="#行业人事变动">🎬 行业人事变动</a>
+      
+      <a class="toc-level-2" href="#技术洞见">技术洞见</a>
+      
+      <a class="toc-level-3" href="#趋势一ai-agent-走向工具化而非聊天化">趋势一：AI Agent 走向”工具化”而非”聊天化”</a>
+      
+      <a class="toc-level-3" href="#趋势二语音-ai-的去云端化运动">趋势二：语音 AI 的”去云端化”运动</a>
+      
+      <a class="toc-level-3" href="#小结">小结</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h1 id="AI-日报-2026-07-09"><a href="#AI-日报-2026-07-09" class="headerlink" title="AI 日报 2026-07-09"></a>AI 日报 2026-07-09</h1><h2 id="今日热点"><a href="#今日热点" class="headerlink" title="今日热点"></a>今日热点</h2><p>今日 AI 领域迎来多重重磅消息。OpenAI 的 GPT-5.6 模型套件（Sol、Terra、Luna）获美国政府批准公开发布，同时推出 GPT-Live 全双工语音模型；GitHub 上 AI 安全工具 <strong>Strix</strong> 周增超万星成为最大黑马；Hugging Face 发布开源语音 Agent 框架，AI 语音交互进入可本地部署的新阶段。行业方面，Amazon 秘密推进 “Moonraker” AI Agent 项目，Notion 推出独立 Agent 应用，AI 基础设施军备竞赛正推动三星利润飙升 19 倍。</p>
+<hr>
+<h2 id="github-热门-ai-项目"><a href="#GitHub-热门-AI-项目" class="headerlink" title="GitHub 热门 AI 项目"></a>GitHub 热门 AI 项目</h2><h3 id="1-strix-开源-ai-渗透测试工具"><a href="#⭐-1-Strix-—-开源-AI-渗透测试工具" class="headerlink" title="⭐ 1. Strix — 开源 AI 渗透测试工具"></a>⭐ 1. Strix — 开源 AI 渗透测试工具</h3><p><strong>Strix</strong> 本周狂揽 10,274 颗星，总星数突破 39,000，是本周期最耀眼的项目。它是一个完全开源的 AI 渗透测试工具，通过自主 AI Agent 模拟真实黑客的攻击路径，实现对 Web 应用的动态安全检测。</p>
+<p><strong>核心能力：</strong></p>
+<ul>
+<li><strong>多 Agent 编排</strong>：多个 AI 渗透测试 Agent 协同工作，覆盖侦察、漏洞利用、验证全流程</li>
+<li><strong>真实 Exploit 验证</strong>：产出可工作的 PoC（Proof of Concept），拒绝传统扫描器的误报</li>
+<li><strong>开发者优先的 CLI</strong>：每个发现附带修复建议，支持自动生成补丁和合规报告</li>
+<li><strong>CI&#x2F;CD 集成</strong>：直接在 GitHub Actions 中运行，PR 阶段即可拦截不安全代码</li>
+</ul>
+<p><strong>技术栈：</strong> Python、Docker（沙箱运行）、支持 OpenAI &#x2F; Anthropic &#x2F; Google 等多种 LLM 后端</p>
+<p><strong>应用场景：</strong> 安全团队快速渗透测试、DevSecOps CI&#x2F;CD 集成、Bug Bounty 自动化</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    A[开发者提交代码] --&gt; B[GitHub Actions 触发 Strix]</span><br><span class="line">    B --&gt; C[多 Agent 安全评估]</span><br><span class="line">    C --&gt; D&#123;发现漏洞?&#125;</span><br><span class="line">    D --&gt;|是| E[生成 PoC 与修复建议]</span><br><span class="line">    D --&gt;|否| F[通过安全检查]</span><br><span class="line">    E --&gt; G[自动创建 Issue / PR Comment]</span><br><span class="line">    G --&gt; H[开发者修复并合并]</span><br><span class="line">    F --&gt; H</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-hugging-face-speech-to-speech-本地语音-agent-框架"><a href="#⭐-2-Hugging-Face-Speech-to-Speech-—-本地语音-Agent-框架" class="headerlink" title="⭐ 2. Hugging Face Speech-to-Speech — 本地语音 Agent 框架"></a>⭐ 2. Hugging Face Speech-to-Speech — 本地语音 Agent 框架</h3><p>Hugging Face 开源的 <strong>speech-to-speech</strong> 项目（5,777⭐，周增 736⭐）提供了一个低延迟、完全模块化的语音 Agent 管道，将经典语音管线 (VAD→STT→LLM→TTS) 打包为一个 OpenAI Realtime 兼容的 WebSocket API。</p>
+<p><strong>亮点：</strong></p>
+<ul>
+<li>所有组件均可替换：VAD（语音活动检测）、STT（语音转文字）、LLM、TTS</li>
+<li>LLM 支持 OpenAI 协议兼容的任何后端，包括本地 vLLM &#x2F; llama.cpp</li>
+<li>已用于数千台 Reachy Mini 机器人（真实生产环境验证）</li>
+<li>一行命令即可启动：<code>speech-to-speech</code></li>
+</ul>
+<p><strong>技术栈：</strong> Python、WebSocket、OpenAI Realtime API 协议、llama.cpp</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    A[麦克风输入] --&gt; B[VAD 语音活动检测]</span><br><span class="line">    B --&gt; C[STT 语音转文字]</span><br><span class="line">    C --&gt; D[LLM 推理]</span><br><span class="line">    D --&gt; E[TTS 语音合成]</span><br><span class="line">    E --&gt; F[扬声器输出]</span><br><span class="line">    </span><br><span class="line">    G[Silero VAD] --&gt; B</span><br><span class="line">    H[Parakeet TDT / Whisper] --&gt; C</span><br><span class="line">    I[Gemma 4 / GPT / Claude] --&gt; D</span><br><span class="line">    J[Qwen3-TTS / Parler] --&gt; E</span><br><span class="line">    </span><br><span class="line">    style A fill:#1a237e,color:#fff</span><br><span class="line">    style F fill:#1a237e,color:#fff</span><br><span class="line">    style G fill:#4a148c,color:#fff</span><br><span class="line">    style H fill:#4a148c,color:#fff</span><br><span class="line">    style I fill:#4a148c,color:#fff</span><br><span class="line">    style J fill:#4a148c,color:#fff</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="3-browser-usex2fvideo-use-用编码-agent-剪辑视频"><a href="#⭐-3-browser-use-video-use-—-用编码-Agent-剪辑视频" class="headerlink" title="⭐ 3. browser-use&#x2F;video-use — 用编码 Agent 剪辑视频"></a>⭐ 3. browser-use&#x2F;video-use — 用编码 Agent 剪辑视频</h3><p>来自 browser-use 团队的新作 <strong>video-use</strong>（16,186⭐，周增 3,054⭐）允许你通过自然语言和 Claude Code 等编码 Agent 直接剪辑视频。</p>
+<p><strong>功能特性：</strong></p>
+<ul>
+<li>自动剪切填充词（um、uh）和镜头间的空白片段</li>
+<li>自动调色（暖色电影感、中性鲜明或其他自定义 ffmpeg 链）</li>
+<li>30ms 音频淡入淡出，杜绝爆音</li>
+<li>自动生成字幕（2 字大写风格或自定义）</li>
+<li>支持 HyperFrames、Remotion、Manim 等多种动画引擎生成覆盖层</li>
+<li>自我评估渲染质量，每个剪辑边界自动检查</li>
+<li>会话记忆持久化到 project.md，下次继续</li>
+</ul>
+<p><strong>最酷的部分：</strong> 直接把原始素材扔进文件夹，用自然语言告诉 Agent 你想怎么剪，它就能输出成品。完全开源。</p>
+<hr>
+<h3 id="4-kyutai-labsx2fpocket-tts-在-cpu-上跑的-tts"><a href="#⭐-4-kyutai-labs-pocket-tts-—-在-CPU-上跑的-TTS" class="headerlink" title="⭐ 4. kyutai-labs&#x2F;pocket-tts — 在 CPU 上跑的 TTS"></a>⭐ 4. kyutai-labs&#x2F;pocket-tts — 在 CPU 上跑的 TTS</h3><p><strong>Pocket TTS</strong>（6,778⭐，周增 1,819⭐）是一套能在普通 CPU 上运行的轻量级文本转语音方案。Kyutai 实验室曾以 Hibiki &#x2F; Moshi 闻名，这次他们把 TTS 的硬件门槛降到了最低。</p>
+<p>这意味着一台没有 GPU 的笔记本，甚至树莓派，都能跑出流畅的语音合成。配合上述 Hugging Face speech-to-speech 框架，完全本地化的语音 AI 体验正在成为现实。</p>
+<hr>
+<h3 id="5-xbtlinx2fai-berkshire-ai-时代的价值投资研究框架"><a href="#⭐-5-xbtlin-ai-berkshire-—-AI-时代的价值投资研究框架" class="headerlink" title="⭐ 5. xbtlin&#x2F;ai-berkshire — AI 时代的价值投资研究框架"></a>⭐ 5. xbtlin&#x2F;ai-berkshire — AI 时代的价值投资研究框架</h3><p><strong>ai-berkshire</strong>（12,266⭐，周增 3,960⭐）是一个基于 Claude Code &#x2F; Codex 的价值投资研究框架，融合了巴菲特、芒格、段永平、李录四位大师的投资方法论，采用<strong>多 Agent 对抗性分析</strong>机制生成研究报告。</p>
+<p>作为中文开发者社区的现象级项目，它将 AI Agent 的应用延伸到金融投资分析这一垂直领域，展示了 Agent 在复杂决策场景中的潜力。</p>
+<hr>
+<h3 id="6-其他值得关注的项目"><a href="#⭐-6-其他值得关注的项目" class="headerlink" title="⭐ 6. 其他值得关注的项目"></a>⭐ 6. 其他值得关注的项目</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>Stars</th>
+<th>本周增长</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>alirezarezvani&#x2F;claude-skills</td>
+<td>21.8K</td>
+<td>2,068</td>
+<td>345+ Claude Code 技能&#x2F;插件合集</td>
+</tr>
+<tr>
+<td>cheahjs&#x2F;free-llm-api-resources</td>
+<td>26.5K</td>
+<td>2,005</td>
+<td>免费 LLM 推理 API 清单</td>
+</tr>
+<tr>
+<td>harvard-edge&#x2F;cs249r_book</td>
+<td>27.2K</td>
+<td>2,085</td>
+<td>哈佛《机器学习系统》开源教材</td>
+</tr>
+<tr>
+<td>NVlabs&#x2F;ProtoMotions</td>
+<td>2.0K</td>
+<td>154</td>
+<td>NVIDIA GPU 加速数字人仿真框架</td>
+</tr>
+<tr>
+<td>ai-boost&#x2F;awesome-harness-engineering</td>
+<td>2.9K</td>
+<td>591</td>
+<td>AI Agent 工具链（MCP、权限、编排）</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="新工具-x2f-产品速览"><a href="#新工具-产品速览" class="headerlink" title="新工具 &#x2F; 产品速览"></a>新工具 &#x2F; 产品速览</h2><h3 id="openai-gpt-live-全双工语音模型"><a href="#🎙️-OpenAI-GPT-Live-—-全双工语音模型" class="headerlink" title="🎙️ OpenAI GPT-Live — 全双工语音模型"></a>🎙️ OpenAI GPT-Live — 全双工语音模型</h3><p>OpenAI 发布了 <strong>GPT-Live-1</strong> 和 <strong>GPT-Live-1 mini</strong>，这是两个支持全双工（full-duplex）对话的语音模型。核心突破在于：</p>
+<ul>
+<li>双方可以同时说话，不再需要”你等我说完”的轮次限制</li>
+<li>GPT-Live-1 成为 ChatGPT Plus&#x2F;Pro 用户的默认语音模型</li>
+<li>GPT-Live-1 mini 面向免费用户</li>
+<li>后续将开放 API，开发者可申请提前体验</li>
+</ul>
+<p>这标志着 AI 语音交互从”一问一答”迈入”自然对话”时代——更像和真人通电话，而不是对讲机。</p>
+<h3 id="openai-gpt-56-套件获批发布"><a href="#🧠-OpenAI-GPT-5-6-套件获批发布" class="headerlink" title="🧠 OpenAI GPT-5.6 套件获批发布"></a>🧠 OpenAI GPT-5.6 套件获批发布</h3><p>特朗普政府为 OpenAI 的 GPT-5.6 模型套件亮了绿灯。该套件包含三个模型：</p>
+<ul>
+<li><strong>Sol</strong> — 旗舰模型，旗舰性能</li>
+<li><strong>Terra</strong> — 中端模型，适用于”高容量工作负载”</li>
+<li><strong>Luna</strong> — “快速且经济”的日常模型</li>
+</ul>
+<p>三个模型的定位明显在向分层服务发展，类似汽车市场的高端&#x2F;中端&#x2F;经济型策略。</p>
+<h3 id="amazon-moonraker-ai-agent-追赶计划"><a href="#🦾-Amazon-“Moonraker”-—-AI-Agent-追赶计划" class="headerlink" title="🦾 Amazon “Moonraker” — AI Agent 追赶计划"></a>🦾 Amazon “Moonraker” — AI Agent 追赶计划</h3><p>据 Business Insider 报道，Amazon 正在推进代号 <strong>Moonraker</strong> 的秘密项目，旨在让 Alexa AI 能够处理更高级的多步骤任务。内部文件显示该项目成本高昂——Amazon 正努力追赶 Google、OpenAI 等竞品在 Agent 领域的发展步伐。</p>
+<h3 id="notion-agents-独立-ai-agent-应用"><a href="#📱-Notion-Agents-—-独立-AI-Agent-应用" class="headerlink" title="📱 Notion Agents — 独立 AI Agent 应用"></a>📱 Notion Agents — 独立 AI Agent 应用</h3><p>Notion 出人意料地推出了一款独立 App——<strong>Notion Agents</strong>（iOS），专门用于与自定义 AI Agent 或 ChatGPT、Gemini、Claude 等模型对话。这不是 Notion 笔记应用的延伸，而是一个全新的聊天式 AI 交互界面。</p>
+<hr>
+<h2 id="行业动态"><a href="#行业动态" class="headerlink" title="行业动态"></a>行业动态</h2><h3 id="ai-芯片需求推动三星利润飙升-19-倍"><a href="#📊-AI-芯片需求推动三星利润飙升-19-倍" class="headerlink" title="📊 AI 芯片需求推动三星利润飙升 19 倍"></a>📊 AI 芯片需求推动三星利润飙升 19 倍</h3><p>三星电子发布了惊人的第二季度财报预告：<strong>运营利润同比增长 19 倍</strong>，超过过去三年的利润总和。背后推手正是 AI 数据中心对内存芯片的爆发式需求。这也间接导致 PC 出货量两年来首次下降（IDC 数据：同比 -4.9%），内存芯片优先供应 AI 领域挤压了消费市场。</p>
+<h3 id="spacex-的-grok-45-以半价挑战市场"><a href="#💰-SpaceX-的-Grok-4-5-以半价挑战市场" class="headerlink" title="💰 SpaceX 的 Grok 4.5 以半价挑战市场"></a>💰 SpaceX 的 Grok 4.5 以半价挑战市场</h3><p>xAI（马斯克旗下）的 Grok 4.5 以竞品一半的价格推出，试图在成本战中撼动 Anthropic 和 OpenAI 的市场地位。AI 模型的定价战正变得越来越激烈，对开发者来说这无疑是好事。</p>
+<h3 id="slackbot-salesforce-深度整合"><a href="#🔌-Slackbot-Salesforce-深度整合" class="headerlink" title="🔌 Slackbot + Salesforce 深度整合"></a>🔌 Slackbot + Salesforce 深度整合</h3><p>时隔五年、耗资 277 亿美元收购 Salesforce 后，Slack 终于拿出了实质性的整合成果：<strong>Slackbot 现在可以直接调取 CRM 数据、生成 Tableau 图表、发送 DocuSign 合同</strong>——全部通过自然语言对话完成。这是企业 AI Agent 落地的典型案例。</p>
+<h3 id="行业人事变动"><a href="#🎬-行业人事变动" class="headerlink" title="🎬 行业人事变动"></a>🎬 行业人事变动</h3><ul>
+<li><strong>OpenAI 首席未来学家 Joshua Achiam</strong> 离职。他在 X 上表示”没有具体原因”，但认为”可以在前沿实验室之外推进使命”。他最近在 Musk v. Altman 诉讼中作证。</li>
+<li><strong>Midjourney 与迪士尼、环球影业的版权诉讼</strong>仍在继续，如今华纳兄弟也加入了原告阵营。AI 生成内容的版权边界仍是悬而未决的核心问题。</li>
+</ul>
+<hr>
+<h2 id="技术洞见"><a href="#技术洞见" class="headerlink" title="技术洞见"></a>技术洞见</h2><h3 id="趋势一ai-agent-走向工具化而非聊天化"><a href="#趋势一：AI-Agent-走向”工具化”而非”聊天化”" class="headerlink" title="趋势一：AI Agent 走向”工具化”而非”聊天化”"></a>趋势一：AI Agent 走向”工具化”而非”聊天化”</h3><p>观察今日的 GitHub 热门项目，一个清晰的信号浮现：开发者不再满足于”和 AI 聊天”，而是<strong>把 AI Agent 当作工具来使用</strong>。</p>
+<ul>
+<li>Strix 把 Agent 用作<strong>安全测试工具</strong>（替代人工渗透测试）</li>
+<li>video-use 把 Agent 当作<strong>视频编辑器</strong>（替代 Premiere&#x2F;Final Cut）</li>
+<li>ai-berkshire 把 Agent 当作<strong>投资分析工具</strong>（替代研究报告）</li>
+<li>Hugging Face speech-to-speech 把 Agent 做成<strong>语音交互管道</strong>（替代 Twilio&#x2F;语音 API）</li>
+</ul>
+<p>每个案例中，Agent 不再是一个”聊天的东西”，而是一个可编程、可集成、可自动化的<strong>功能组件</strong>。这预示着 AI Agent 正在经历从”演示品”到”生产力工具”的关键跃迁。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    subgraph &quot;2024: 聊天范式&quot;</span><br><span class="line">        A1[用户输入提示词] --&gt; A2[AI 回复文本]</span><br><span class="line">        A2 --&gt; A3[用户手动复制/操作]</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    subgraph &quot;2026: 工具范式&quot;</span><br><span class="line">        B1[用户定义目标] --&gt; B2[Agent 自主执行]</span><br><span class="line">        B2 --&gt; B3&#123;多步骤工作流&#125;</span><br><span class="line">        B3 --&gt; B4[调用 API / 写文件 / 运行代码]</span><br><span class="line">        B3 --&gt; B5[自我验证与迭代]</span><br><span class="line">        B3 --&gt; B6[生成最终产出]</span><br><span class="line">        B4 --&gt; B7[交付结果]</span><br><span class="line">        B5 --&gt; B7</span><br><span class="line">        B6 --&gt; B7</span><br><span class="line">    end</span><br><span class="line">    </span><br><span class="line">    A3 -.-&gt;|关键转变| B1</span><br></pre></td></tr></table></figure>
+
+<h3 id="趋势二语音-ai-的去云端化运动"><a href="#趋势二：语音-AI-的”去云端化”运动" class="headerlink" title="趋势二：语音 AI 的”去云端化”运动"></a>趋势二：语音 AI 的”去云端化”运动</h3><p>Hugging Face 的 speech-to-speech 和 Kyutai 的 pocket-tts 指向同一个方向：<strong>语音 AI 正在本地化</strong>。</p>
+<p>过去，语音 AI &#x3D; 调用云端 API（高延迟、按量计费、网络依赖）。现在：</p>
+<ul>
+<li>STT 模型（Whisper、Parakeet TDT）可以在边缘设备运行</li>
+<li>TTS 模型（Qwen3-TTS、Pocket TTS）可以在 CPU 上实时合成</li>
+<li>LLM（Gemma 4、Llama 3）量化后能在消费级硬件运行</li>
+<li>整个语音管线可完全本地部署，延迟控制在实时交互范围内</li>
+</ul>
+<p>当语音 AI 不再需要”联网”才能工作，真正的语音交互设备（智能家居、机器人、汽车）将迎来爆发。</p>
+<hr>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>今天的 AI 世界有两条主线交织演进：<strong>Agent 的工程化落地</strong>（从演示到工具）和<strong>模型的去中心化部署</strong>（从云端到本地）。无论你是开发者、创业者还是技术观察者，关注这两条线，就能看清明年的技术方位。</p>
+<hr>
+<p><em>本日报由 AI 自动采集生成，数据来源包括 GitHub Trending、VentureBeat、The Verge。</em></p>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  
+  <a class="next" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-08/">下一篇：AI 日报 2026-07-08</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var next = currentlyDark ? '' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next || 'light');
+      window.__theme = next || 'light';
+      notifyGiscus(next || 'light');
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* Code + Mermaid — 视频播放器风格放大查看 */
+  (function() {
+    'use strict';
+    var currentViewer = null;
+
+    /* ---- 弹窗 ---- */
+    function showViewer(opts) {
+      if (currentViewer) { currentViewer.remove(); currentViewer = null; }
+      var isMermaid = !!opts.isMermaid;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'code-viewer-overlay';
+
+      var viewer = document.createElement('div');
+      viewer.className = 'code-viewer';
+
+      /* toolbar */
+      var tb = document.createElement('div');
+      tb.className = 'code-viewer-toolbar';
+      var actionsHtml = '<div class="code-viewer-actions">';
+      if (isMermaid && opts.bodyHtml) {
+        actionsHtml += '<button class="code-viewer-btn" data-dl>⬇ 下载图片</button>';
+      } else if (opts.copyText) {
+        actionsHtml += '<button class="code-viewer-btn" data-copy>📋 复制</button>';
+      }
+      actionsHtml += '<button class="code-viewer-close">✕</button></div>';
+      tb.innerHTML = '<span class="code-viewer-title">' +
+        '<span>' + (isMermaid ? '📊' : '&lt;/&gt;') + '</span> ' + opts.title + '</span>' + actionsHtml;
+      viewer.appendChild(tb);
+
+      /* body */
+      var body = document.createElement('div');
+      body.className = 'code-viewer-body' + (isMermaid ? ' mermaid-body' : '');
+      if (isMermaid) {
+        body.innerHTML = opts.bodyHtml;
+      } else {
+        body.innerHTML = '<pre><code>' + escHtml(opts.bodyHtml) + '</code></pre>';
+      }
+      viewer.appendChild(body);
+      overlay.appendChild(viewer);
+      document.body.appendChild(overlay);
+      document.body.style.overflow = 'hidden';
+      currentViewer = overlay;
+
+      /* copy logic */
+      var copyBtn = tb.querySelector('[data-copy]');
+      if (copyBtn && opts.copyText) {
+        copyBtn.addEventListener('click', function() {
+          navigator.clipboard.writeText(opts.copyText).then(function() {
+            copyBtn.textContent = '✅ 已复制';
+            copyBtn.classList.add('copied');
+            setTimeout(function() { copyBtn.textContent = '📋 复制'; copyBtn.classList.remove('copied'); }, 2000);
+          });
+        });
+      }
+
+      /* download image logic */
+      var dlBtn = tb.querySelector('[data-dl]');
+      if (dlBtn && isMermaid && opts.bodyHtml) {
+        dlBtn.addEventListener('click', function() {
+          var svgEl = body.querySelector('svg');
+          if (!svgEl) return;
+          var svgClone = svgEl.cloneNode(true);
+          svgClone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+          var serializer = new XMLSerializer();
+          var svgStr = serializer.serializeToString(svgClone);
+          var blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = (opts.title || '流程图') + '.svg';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          dlBtn.textContent = '✅ 已下载';
+          setTimeout(function() { dlBtn.textContent = '⬇ 下载图片'; }, 2000);
+        });
+      }
+
+      /* close handlers */
+      tb.querySelector('.code-viewer-close').addEventListener('click', closeViewer);
+      overlay.addEventListener('click', function(e) { if (e.target === overlay) closeViewer(); });
+      document.addEventListener('keydown', onEsc);
+    }
+
+    function closeViewer() {
+      if (!currentViewer) return;
+      currentViewer.remove(); currentViewer = null;
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onEsc);
+    }
+    function onEsc(e) { if (e.key === 'Escape') closeViewer(); }
+
+    function escHtml(s) {
+      return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    /* ---- 事件委托：处理代码块 / Mermaid 点击 ---- */
+    document.addEventListener('click', function(e) {
+      /* only react to the play button, not the whole overlay */
+      var overlay = e.target.closest('.code-block-play');
+      if (!overlay) return;
+      var wrap = overlay.closest('.code-block-wrap, .mermaid-container');
+      if (!wrap) return;
+
+      if (wrap.classList.contains('code-block-wrap')) {
+        /* 代码块 */
+        var pre = wrap.querySelector('pre');
+        if (!pre) return;
+        var text = pre.innerText || pre.textContent || '';
+        showViewer({ title: '代码块', bodyHtml: text, copyText: text });
+      } else {
+        /* Mermaid 流程图 */
+        var origCode = wrap.getAttribute('data-orig');
+        if (!origCode) return;
+        /* 使用 mermaid.render() 获取 SVG 字符串 */
+        if (typeof mermaid !== 'undefined' && mermaid.render) {
+          var uid = 'mermaid-viewer-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
+          mermaid.render(uid, origCode).then(function(result) {
+            showViewer({ title: '流程图', bodyHtml: result.svg, isMermaid: true });
+          }).catch(function(err) {
+            showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+          });
+        } else if (typeof mermaid !== 'undefined' && mermaid.run) {
+          /* fallback to run() */
+          var tmp = document.createElement('div');
+          tmp.textContent = origCode;
+          mermaid.run({ nodes: [tmp] }).then(function() {
+            showViewer({ title: '流程图', bodyHtml: tmp.innerHTML || origCode, isMermaid: true });
+          }).catch(function() {
+            showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+          });
+        } else {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        }
+      }
+    });
+
+    /* ---- 初始化：给每个代码块包上 play 遮罩 ---- */
+    var preList = document.querySelectorAll('.post-content figure.highlight td.code pre, .post-content > pre');
+    preList.forEach(function(pre) {
+      if (pre.closest('.code-block-wrap')) return; /* 已包装 */
+      var wrap = document.createElement('div');
+      wrap.className = 'code-block-wrap';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      /* 复制按钮 */
+      var copyBtn = document.createElement('button');
+      copyBtn.className = 'copy-btn';
+      copyBtn.textContent = '复制';
+      copyBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var text = pre.innerText || pre.textContent || '';
+        navigator.clipboard.writeText(text).then(function() {
+          copyBtn.textContent = '已复制';
+          copyBtn.classList.add('copied');
+          setTimeout(function() { copyBtn.textContent = '复制'; copyBtn.classList.remove('copied'); }, 2000);
+        });
+      });
+      wrap.appendChild(copyBtn);
+
+      /* 悬浮遮罩（视频播放器风格） */
+      var lineCount = (pre.innerText || '').split('\n').length;
+      var ov = document.createElement('div');
+      ov.className = 'code-block-overlay';
+      ov.innerHTML = '<button class="code-block-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>';
+      wrap.appendChild(ov);
+
+      var info = document.createElement('div');
+      info.className = 'code-block-info';
+      info.innerHTML = '<span>' + lineCount + ' 行</span>';
+      wrap.appendChild(info);
+    });
+
+    /* ---- Mermaid 容器遮罩 ---- */
+    function addMermaidOverlay() {
+      document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)').forEach(function(c) {
+        if (!c.querySelector('svg')) return;
+        c.classList.add('has-overlay');
+        var ov = document.createElement('div');
+        ov.className = 'code-block-overlay';
+        ov.innerHTML = '<button class="code-block-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>';
+        c.appendChild(ov);
+        var info = document.createElement('div');
+        info.className = 'code-block-info';
+        info.innerHTML = '<span>流程图</span>';
+        c.appendChild(info);
+      });
+    }
+    var mo = setInterval(function() {
+      addMermaidOverlay();
+      var left = document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)');
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext:not([data-mermaid-rendered])');
+      if (!left.length && !figs.length) clearInterval(mo);
+    }, 300);
+    /* 最多跑 8 秒后自动停止 */
+    setTimeout(function() { if (mo) clearInterval(mo); }, 8000);
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    /* 匹配 mermaid 图表的关键词（首行判断） */
+    var MERMAID_RE = /^(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram|gantt|pie|erDiagram|journey|gitgraph|mindmap|timeline|zenuml|sankey|xychart|block|packet)/i;
+
+    /**
+     * Hexo 默认高亮插件将 markdown 代码块渲染为：
+     *   <figure class="highlight plaintext">
+     *     <table><tr><td class="code"><pre><span class="line">...</span>...</pre></td></tr></table>
+     *   </figure>
+     * 因此无法通过 code.language-mermaid 选择器定位。
+     * 改为：匹配所有 figure.highlight.plaintext，提取其文本内容并检查首行是否为 mermaid 关键字。
+     */
+    function findMermaidBlocks() {
+      var blocks = [];
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext');
+      for (var i = 0; i < figs.length; i++) {
+        var fig = figs[i];
+        if (fig.dataset.mermaidRendered) continue;
+
+        var lines = fig.querySelectorAll('.line');
+        if (!lines.length) continue;
+
+        var code = '';
+        for (var j = 0; j < lines.length; j++) {
+          code += lines[j].textContent + '\n';
+        }
+        code = code.trim();
+
+        /* 只处理首行为 mermaid 关键词的块 */
+        var firstLine = code.split('\n')[0].trim();
+        if (!MERMAID_RE.test(firstLine)) continue;
+
+        blocks.push({ fig: fig, code: code });
+      }
+      return blocks;
+    }
+
+    async function renderMermaid() {
+      var blocks = findMermaidBlocks();
+      for (var i = 0; i < blocks.length; i++) {
+        var fig = blocks[i].fig;
+        var origCode = blocks[i].code;
+        fig.dataset.mermaidRendered = '1';
+
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        fig.parentNode.replaceChild(container, fig);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <!-- 统计 API 待接入 -->
+  <script>
+  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  </script>
+</body>
+</html>
