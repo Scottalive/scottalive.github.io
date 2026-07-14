@@ -3,7 +3,7 @@
     <id>https://scottalive.github.io</id>
     <title>沉鱼的博客 • Posts by &#34;github热门&#34; tag</title>
     <link href="https://scottalive.github.io" />
-    <updated>2026-07-13T14:00:00.000Z</updated>
+    <updated>2026-07-14T14:00:00.000Z</updated>
     <category term="AI日报" />
     <category term="AI" />
     <category term="GitHub热门" />
@@ -13,11 +13,20 @@
     <category term="个人详情" />
     <category term="个人分享" />
     <category term="坏习惯" />
+    <category term="心理学知识" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
     <category term="Kubernetes" />
     <category term="k8s" />
     <category term="容器编排" />
     <category term="DevOps" />
     <category term="运维" />
+    <category term="网络安全" />
+    <category term="SQL注入" />
+    <category term="XSS" />
+    <category term="CSRF" />
+    <category term="DDoS" />
+    <category term="渗透测试" />
     <category term="kubeconfig" />
     <category term="kubectl" />
     <category term="Context" />
@@ -30,44 +39,183 @@
     <category term="Gemini" />
     <category term="开发工具" />
     <category term="开源" />
-    <category term="编程笔记" />
-    <category term="编程助手" />
     <category term="Hermes" />
     <category term="Agent" />
-    <category term="v0.17" />
+    <category term="高阶" />
     <category term="自动化" />
+    <category term="编程助手" />
+    <category term="编程笔记" />
+    <category term="v0.17" />
     <category term="NousResearch" />
     <category term="进阶" />
     <category term="配置" />
-    <category term="高阶" />
-    <category term="OpenSRE" />
-    <category term="SRE" />
-    <category term="故障排查" />
     <category term="LLM" />
     <category term="RAG" />
     <category term="知识库" />
+    <category term="OpenSRE" />
+    <category term="SRE" />
+    <category term="故障排查" />
     <category term="SSE" />
     <category term="HTTP" />
-    <category term="网络安全" />
-    <category term="SQL注入" />
-    <category term="XSS" />
-    <category term="CSRF" />
-    <category term="DDoS" />
-    <category term="渗透测试" />
-    <category term="心理学知识" />
-    <category term="阿德勒心理学" />
-    <category term="自卑与超越" />
+    <category term="JavaSE" />
     <category term="力扣算法题" />
     <category term="算法" />
     <category term="动态规划" />
-    <category term="JavaSE" />
     <category term="Java开发面试题" />
-    <category term="SpringBoot" />
-    <category term="Spring" />
     <category term="接口开发" />
     <category term="开发注意事项" />
+    <category term="Spring" />
+    <category term="SpringBoot" />
     <category term="微服务" />
     <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-14/</id>
+        <title>AI 日报 2026-07-14</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-14/"/>
+        <content type="html">&lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;OpenAI 本周大招频出——ChatGPT Work 正式发布，基于 GPT-5.6 的云端 AI Agent 可跨 Slack、Gmail 和日历自主完成任务；Anthropic 继续疯狂挖人，前 Monzo CEO Tom Blomfield 从 YC 离职加入 AI 计算团队；Meta “Iris” AI 芯片计划 9 月投产。开源这边，Graphify 日增 1,858 星登顶 AI 工具榜首，AI 量化交易赛道 Vibe-Trading 已破 2.2 万星——开源 Agent 正从”玩具”走向”工具”。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;1-🔥-Graphify-Labs-graphify-—-AI-知识图谱引擎&#34;&gt;&lt;a href=&#34;#1-🔥-Graphify-Labs-graphify-—-AI-知识图谱引擎&#34; class=&#34;headerlink&#34; title=&#34;1. 🔥 Graphify-Labs&amp;#x2F;graphify — AI 知识图谱引擎&#34;&gt;&lt;/a&gt;1. 🔥 Graphify-Labs&amp;#x2F;graphify — AI 知识图谱引擎&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;: 85,737 🌟 | &lt;strong&gt;今日增长&lt;/strong&gt;: +1,858&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;: Python&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;简介&lt;/strong&gt;: 将任意代码文件夹、SQL Schema、R 脚本、文档、论文甚至图片&amp;#x2F;视频转化为可查询的知识图谱。支持 Claude Code、Codex、OpenCode、Cursor、Gemini CLI 等主流 AI 编码助手。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;graphify 能让你在 coding 时直接”问”代码库——“这段 SQL 关联了哪些表？””这个函数谁在调用？”——把静态文件变成智能问答系统。它在 7 月突然暴涨，说明开发者对 AI 辅助开发的理解正在从”补全代码”升级到”理解代码”。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Mermaid 架构图：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[代码/文档/图片/视频] --&amp;gt; B[Graphify 解析引擎]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[实体提取]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; D[关系构建]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; E[向量化索引]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C &amp;amp; D &amp;amp; E --&amp;gt; F[(知识图谱)]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G[Claude Code]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; H[Codex]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; I[Cursor]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; J[Gemini CLI]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G &amp;amp; H &amp;amp; I &amp;amp; J --&amp;gt; K[开发者查询]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    K --&amp;gt; L&amp;#123;自然语言问答&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    L --&amp;gt; M[&amp;quot;这个函数被谁调用？&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    L --&amp;gt; N[&amp;quot;数据库 Schema 关系？&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    L --&amp;gt; O[&amp;quot;基础设施架构图？&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h3 id=&#34;2-🤖-HKUDS-Vibe-Trading-—-AI-量化交易-Agent&#34;&gt;&lt;a href=&#34;#2-🤖-HKUDS-Vibe-Trading-—-AI-量化交易-Agent&#34; class=&#34;headerlink&#34; title=&#34;2. 🤖 HKUDS&amp;#x2F;Vibe-Trading — AI 量化交易 Agent&#34;&gt;&lt;/a&gt;2. 🤖 HKUDS&amp;#x2F;Vibe-Trading — AI 量化交易 Agent&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;: 22,513 🌟 | &lt;strong&gt;今日增长&lt;/strong&gt;: +1,265&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;: Python&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;简介&lt;/strong&gt;: 主打”Vibe Trading”理念的个人 AI 交易 Agent，帮你做投资决策。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这个项目把 LLM Agent 接入量化交易场景，用自然语言交互替代复杂的策略代码。技术栈包括 Python + 主流 LLM API + 实时市场数据。当 AI Agent 开始管你的钱，监管、透明性、幻觉风险都是绕不开的话题，但开源社区的狂热追捧说明一件事：个人 AI 交易员正在成为”下个风口”。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-🧠-Shubhamsaboo-awesome-llm-apps-—-LLM-应用大全&#34;&gt;&lt;a href=&#34;#3-🧠-Shubhamsaboo-awesome-llm-apps-—-LLM-应用大全&#34; class=&#34;headerlink&#34; title=&#34;3. 🧠 Shubhamsaboo&amp;#x2F;awesome-llm-apps — LLM 应用大全&#34;&gt;&lt;/a&gt;3. 🧠 Shubhamsaboo&amp;#x2F;awesome-llm-apps — LLM 应用大全&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;: 未显示具体数字（热门榜前三）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;简介&lt;/strong&gt;: 100+ 可直接运行的 AI Agent 和 RAG 应用合集，”clone、customize、ship”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这是目前最实用的 LLM 工程参考书——从简单的 RAG 到复杂的多 Agent 协作系统应有尽有。如果你正在学习 AI 应用开发，这个 repo 比任何教程都值钱。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4-🎨-Nutlope-hallmark-—-反-AI-味的设计规范&#34;&gt;&lt;a href=&#34;#4-🎨-Nutlope-hallmark-—-反-AI-味的设计规范&#34; class=&#34;headerlink&#34; title=&#34;4. 🎨 Nutlope&amp;#x2F;hallmark — 反 AI 味的设计规范&#34;&gt;&lt;/a&gt;4. 🎨 Nutlope&amp;#x2F;hallmark — 反 AI 味的设计规范&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;: 5,808 🌟 | &lt;strong&gt;今日增长&lt;/strong&gt;: +1,010&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;: CSS&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;简介&lt;/strong&gt;: 为 Claude Code、Cursor、Codex 提供”Anti-AI-slop”设计规范，让 AI 生成的代码&amp;#x2F;设计不再有”AI 味”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;“AI slop”（AI 垃圾感）是社区新造的词——指 AI 输出那种千篇一律的”套话感”。hallmark 通过精细的 CSS 规范来约束 AI Coding 工具的输出风格，让代码设计看起来像”人写的”。这个需求本身就说明：AI 辅助开发已经到了需要谈”品味”的阶段了。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;5-🛡️-Dicklesworthstone-destructive-command-guard-—-Agent-安全守卫&#34;&gt;&lt;a href=&#34;#5-🛡️-Dicklesworthstone-destructive-command-guard-—-Agent-安全守卫&#34; class=&#34;headerlink&#34; title=&#34;5. 🛡️ Dicklesworthstone&amp;#x2F;destructive_command_guard — Agent 安全守卫&#34;&gt;&lt;/a&gt;5. 🛡️ Dicklesworthstone&amp;#x2F;destructive_command_guard — Agent 安全守卫&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;: 4,141 🌟 | &lt;strong&gt;今日增长&lt;/strong&gt;: +481&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;: Rust&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;简介&lt;/strong&gt;: 阻止 AI Agent 执行危险的 git 和 shell 命令。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;当 AI Agent 开始自动操作终端，”rm -rf &amp;#x2F;“ 就不是段子了。dcg 是个 Rust 编写的轻量级卫士，拦截所有高风险操作，给人类留一个确认窗口。安全性是 AI Agent 走向生产环境必须跨越的坎。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;6-💼-virattt-ai-hedge-fund-—-AI-对冲基金团队&#34;&gt;&lt;a href=&#34;#6-💼-virattt-ai-hedge-fund-—-AI-对冲基金团队&#34; class=&#34;headerlink&#34; title=&#34;6. 💼 virattt&amp;#x2F;ai-hedge-fund — AI 对冲基金团队&#34;&gt;&lt;/a&gt;6. 💼 virattt&amp;#x2F;ai-hedge-fund — AI 对冲基金团队&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;: 热门新项目&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;简介&lt;/strong&gt;: 多个 AI Agent 组成的虚拟对冲基金团队，模拟真实量化基金运作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;与 Vibe-Trading 个人版不同，这个项目更偏向机构级多 Agent 协作框架。每个 Agent 扮演不同角色（分析师、交易员、风控），共同完成投资决策。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;7-🌐-chenyme-grok2api-—-Grok-多账号-API-网关&#34;&gt;&lt;a href=&#34;#7-🌐-chenyme-grok2api-—-Grok-多账号-API-网关&#34; class=&#34;headerlink&#34; title=&#34;7. 🌐 chenyme&amp;#x2F;grok2api — Grok 多账号 API 网关&#34;&gt;&lt;/a&gt;7. 🌐 chenyme&amp;#x2F;grok2api — Grok 多账号 API 网关&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;: 未标注&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;简介&lt;/strong&gt;: 面向 Grok Build、Grok Web 和 Grok Console 的多账号 API 网关，实现 Grok 系列的 API 化调用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;当 xAI 的 Grok 也走向”Build”生态，API 网关类的需求自然水涨船高。Chenyme 这个项目本质上是给 Grok 加了一层统一接入层，支持多账号负载均衡。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;Mermaid-AI-项目生态全景&#34;&gt;&lt;a href=&#34;#Mermaid-AI-项目生态全景&#34; class=&#34;headerlink&#34; title=&#34;Mermaid: AI 项目生态全景&#34;&gt;&lt;/a&gt;Mermaid: AI 项目生态全景&lt;/h3&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 开发工具&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        G[Graphify&amp;lt;br/&amp;gt;知识图谱]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        H[Hallmark&amp;lt;br/&amp;gt;设计规范]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        S[Skills&amp;lt;br/&amp;gt;CLI 规范]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 金融AI&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        VT[Vibe-Trading&amp;lt;br/&amp;gt;个人交易]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        AH[AI Hedge Fund&amp;lt;br/&amp;gt;机构量化]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 安全&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        DC[DestructiveGuard&amp;lt;br/&amp;gt;命令卫士]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 平台&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        AL[Awesome-LLM-Apps&amp;lt;br/&amp;gt;100+应用范例]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        G2[Grok2API&amp;lt;br/&amp;gt;多账号网关]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    AL --&amp;gt; 开发者&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; 开发者&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; 开发者&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    VT --&amp;gt; 投资者&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    AH --&amp;gt; 机构&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    DC --&amp;gt; Agent开发者&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G2 --&amp;gt; Grok用户&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style G fill:#e1f5fe&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style VT fill:#f3e5f5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style DC fill:#ffebee&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style H fill:#e8f5e9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;h3 id=&#34;OpenAI-ChatGPT-Work-—-云上-AI-Agent-平台&#34;&gt;&lt;a href=&#34;#OpenAI-ChatGPT-Work-—-云上-AI-Agent-平台&#34; class=&#34;headerlink&#34; title=&#34;OpenAI ChatGPT Work — 云上 AI Agent 平台&#34;&gt;&lt;/a&gt;OpenAI ChatGPT Work — 云上 AI Agent 平台&lt;/h3&gt;&lt;p&gt;OpenAI 于 7 月 10 日正式发布 &lt;strong&gt;ChatGPT Work&lt;/strong&gt;，基于最新旗舰模型 GPT-5.6，定位是”云端 AI 工作助理”。核心能力：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;跨应用任务执行&lt;/strong&gt;：连接 Slack、Gmail、日历、文件等，自主完成任务链&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;长任务续航&lt;/strong&gt;：可连续工作数小时，分解复杂项目并逐步完成&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;输出多样化&lt;/strong&gt;：生成文档、电子表格、PPT、报告、网站等&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;与 Codex 协同&lt;/strong&gt;：ChatGPT Work 整合了 Codex 能力，但 OpenAI 承诺 Codex 独立版”不会下线”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这意味着 OpenAI 正式从”聊天机器人”转向”AI 同事”——ChatGPT Work 不再只是回答问题，而是替你干活。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;Google-Gemini-进驻-Chrome（英国率先上线）&#34;&gt;&lt;a href=&#34;#Google-Gemini-进驻-Chrome（英国率先上线）&#34; class=&#34;headerlink&#34; title=&#34;Google Gemini 进驻 Chrome（英国率先上线）&#34;&gt;&lt;/a&gt;Google Gemini 进驻 Chrome（英国率先上线）&lt;/h3&gt;&lt;p&gt;经过一年多的等待，英国 Chrome 用户可以正式在浏览器内调用 Gemini 了——跨标签对比信息、摘要网页内容、提问。欧盟用户仍需等待。这是 Google “Agentic Era” 战略的关键一步：把 AI 嵌入浏览器这个最常用的入口。&lt;/p&gt;
+&lt;h3 id=&#34;Meta-“Iris”-AI-芯片计划-9-月量产&#34;&gt;&lt;a href=&#34;#Meta-“Iris”-AI-芯片计划-9-月量产&#34; class=&#34;headerlink&#34; title=&#34;Meta “Iris” AI 芯片计划 9 月量产&#34;&gt;&lt;/a&gt;Meta “Iris” AI 芯片计划 9 月量产&lt;/h3&gt;&lt;p&gt;Meta 自主研发的 AI 训练&amp;#x2F;推理芯片（代号 Iris）计划 9 月投产，加入 MTIA（Meta Training and Inference Accelerator）家族。Meta 计划每六个月推出一代新芯片，逐步减少对 NVIDIA 和 AMD 的依赖。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;h3 id=&#34;Anthropic-疯狂挖人：前-Monzo-CEO-加盟&#34;&gt;&lt;a href=&#34;#Anthropic-疯狂挖人：前-Monzo-CEO-加盟&#34; class=&#34;headerlink&#34; title=&#34;Anthropic 疯狂挖人：前 Monzo CEO 加盟&#34;&gt;&lt;/a&gt;Anthropic 疯狂挖人：前 Monzo CEO 加盟&lt;/h3&gt;&lt;p&gt;Anthropic 的招聘势头丝毫没有放缓。前 Monzo CEO 兼联合创始人 &lt;strong&gt;Tom Blomfield&lt;/strong&gt; 宣布从 Y Combinator 离职，加入 Anthropic AI 计算团队。这是继 Google 诺贝尔奖得主 John Jumper、前 Tesla AI 负责人 Andrej Karpathy 之后，Anthropic 近月来的又一重磅收购。&lt;/p&gt;
+&lt;p&gt;这条信号很明确：&lt;strong&gt;Anthropic 在基础设施和计算能力上正在加注&lt;/strong&gt;，挖来顶级工程管理者说明他们不只是在做模型，而是在搭建下一代 AI 基础设施。&lt;/p&gt;
+&lt;h3 id=&#34;OpenAI-权力重组：Greg-Brockman-全面掌舵产品&#34;&gt;&lt;a href=&#34;#OpenAI-权力重组：Greg-Brockman-全面掌舵产品&#34; class=&#34;headerlink&#34; title=&#34;OpenAI 权力重组：Greg Brockman 全面掌舵产品&#34;&gt;&lt;/a&gt;OpenAI 权力重组：Greg Brockman 全面掌舵产品&lt;/h3&gt;&lt;p&gt;OpenAI 正经历 IPO 前的人事与权力整合。Greg Brockman 接替因医疗休假离任的 Fidji Simo，全面掌管产品线。CNBC 称这一整合发生在 IPO 前夕并非巧合——投资人喜欢看到”一个人说了算”的清晰架构。&lt;/p&gt;
+&lt;h3 id=&#34;TikTok-整治-AI-垃圾内容&#34;&gt;&lt;a href=&#34;#TikTok-整治-AI-垃圾内容&#34; class=&#34;headerlink&#34; title=&#34;TikTok 整治 AI 垃圾内容&#34;&gt;&lt;/a&gt;TikTok 整治 AI 垃圾内容&lt;/h3&gt;&lt;p&gt;TikTok 正在测试改进版垃圾检测系统，重点识别 AI 生成的垃圾内容——涉及政治、时事、金融建议、医疗信息等领域。这是一个信号：AI 生成内容的水位已经高到平台不得不下场干预了。&lt;/p&gt;
+&lt;h3 id=&#34;Patreon-Cloudflare-联手封锁-AI-爬虫&#34;&gt;&lt;a href=&#34;#Patreon-Cloudflare-联手封锁-AI-爬虫&#34; class=&#34;headerlink&#34; title=&#34;Patreon + Cloudflare 联手封锁 AI 爬虫&#34;&gt;&lt;/a&gt;Patreon + Cloudflare 联手封锁 AI 爬虫&lt;/h3&gt;&lt;p&gt;Patreon CEO 宣布与 Cloudflare 合作，阻止 AI 爬虫抓取创作者内容进行训练。Cloudflare 去年已默认封锁 AI 爬虫，近期又推出了更细粒度的爬虫控制策略。&lt;strong&gt;创作者 vs AI 训练的数据权之争正在升级。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;The-New-York-Times-指控-OpenAI-隐匿证据&#34;&gt;&lt;a href=&#34;#The-New-York-Times-指控-OpenAI-隐匿证据&#34; class=&#34;headerlink&#34; title=&#34;The New York Times 指控 OpenAI 隐匿证据&#34;&gt;&lt;/a&gt;The New York Times 指控 OpenAI 隐匿证据&lt;/h3&gt;&lt;p&gt;在最新法庭文件中，NYT 等出版商指控 OpenAI 在版权诉讼中”隐匿证据”。这场诉讼的结果可能定义 AI 训练数据使用的合法边界。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;趋势一：AI-Agent-从”聊天”到”干活”的质变&#34;&gt;&lt;a href=&#34;#趋势一：AI-Agent-从”聊天”到”干活”的质变&#34; class=&#34;headerlink&#34; title=&#34;趋势一：AI Agent 从”聊天”到”干活”的质变&#34;&gt;&lt;/a&gt;趋势一：AI Agent 从”聊天”到”干活”的质变&lt;/h3&gt;&lt;p&gt;本周最核心的信号来自 OpenAI ChatGPT Work 的发布。如果说 2025 年是 AI Chatbot 的成熟之年，那么 &lt;strong&gt;2026 年就是 AI Agent 的生产力之年&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;从开源社区也能印证这个趋势：GitHub 上 top 增长的 AI 项目无一例外都是 &lt;strong&gt;“可执行 Agent”&lt;/strong&gt; ——graphify（帮你理解代码）、Vibe-Trading（帮你投资）、awesome-llm-apps（100+ 可直接运行的 Agent 范本）。Agent 不再只是概念验证，而是开始完成真实工作。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 2024-2025: Chatbot 时代&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A1[ChatGPT/Claude/Gemini&amp;lt;br/&amp;gt;问答式交互]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A2[用户提问&amp;lt;br/&amp;gt;AI 回答]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 2026: Agent 时代&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B1[ChatGPT Work&amp;lt;br/&amp;gt;自主完成任务链]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B2[跨应用协作&amp;lt;br/&amp;gt;Slack/Email/Calendar]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B3[长续航任务&amp;lt;br/&amp;gt;数小时持续工作]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 开源印证&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C1[Graphify 85k★&amp;lt;br/&amp;gt;代码理解Agent]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C2[Vibe-Trading 22k★&amp;lt;br/&amp;gt;交易Agent]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C3[DCG 4k★&amp;lt;br/&amp;gt;安全Agent]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A1 --&amp;gt;|GPT-5.6 能力跃迁| B1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B1 --&amp;gt; B2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B1 --&amp;gt; B3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B1 -.-&amp;gt;|社区驱动| C1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B1 -.-&amp;gt;|社区驱动| C2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B1 -.-&amp;gt;|社区驱动| C3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;趋势二：AI-安全与治理正在成为刚需&#34;&gt;&lt;a href=&#34;#趋势二：AI-安全与治理正在成为刚需&#34; class=&#34;headerlink&#34; title=&#34;趋势二：AI 安全与治理正在成为刚需&#34;&gt;&lt;/a&gt;趋势二：AI 安全与治理正在成为刚需&lt;/h3&gt;&lt;p&gt;当 AI 开始操作你的终端、管理你的代码、执行金融交易，安全和治理就不再是”可选”而是”必需”。&lt;/p&gt;
+&lt;p&gt;本周多个事件指向同一个方向：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;destructive_command_guard&lt;/strong&gt; 日增 481 星——开发者需要 Agent 安全防护&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TikTok 整治 AI 垃圾&lt;/strong&gt;——平台被迫下场干预 AI 生成内容&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Patreon + Cloudflare 封锁 AI 爬虫&lt;/strong&gt;——数据权博弈升级&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NYT vs OpenAI 证据纠纷&lt;/strong&gt;——法律边界正在画下&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;AI 的能力越强，人类对它的”信任基础设施”就越重要。安全工具（如 DCG）、数据权协议、内容治理、监管框架——这些”非模型”的要素，正在成为决定 AI 能否真正落地的关键。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;📊-今日数据速览&#34;&gt;&lt;a href=&#34;#📊-今日数据速览&#34; class=&#34;headerlink&#34; title=&#34;📊 今日数据速览&#34;&gt;&lt;/a&gt;📊 今日数据速览&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;项目&lt;/th&gt;
+&lt;th&gt;Stars&lt;/th&gt;
+&lt;th&gt;日增&lt;/th&gt;
+&lt;th&gt;类别&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;Graphify&lt;/td&gt;
+&lt;td&gt;85,737&lt;/td&gt;
+&lt;td&gt;+1,858&lt;/td&gt;
+&lt;td&gt;AI 知识图谱&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Vibe-Trading&lt;/td&gt;
+&lt;td&gt;22,513&lt;/td&gt;
+&lt;td&gt;+1,265&lt;/td&gt;
+&lt;td&gt;AI 量化交易&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Hallmark&lt;/td&gt;
+&lt;td&gt;5,808&lt;/td&gt;
+&lt;td&gt;+1,010&lt;/td&gt;
+&lt;td&gt;AI 设计规范&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DestructiveGuard&lt;/td&gt;
+&lt;td&gt;4,141&lt;/td&gt;
+&lt;td&gt;+481&lt;/td&gt;
+&lt;td&gt;Agent 安全&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OpenCut&lt;/td&gt;
+&lt;td&gt;68,694&lt;/td&gt;
+&lt;td&gt;+4,349&lt;/td&gt;
+&lt;td&gt;开源视频编辑&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Penpot&lt;/td&gt;
+&lt;td&gt;55,958&lt;/td&gt;
+&lt;td&gt;+264&lt;/td&gt;
+&lt;td&gt;开源设计平台&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;数据来源：GitHub Trending (2026-07-14)、The Verge、VentureBeat&lt;/em&gt;&lt;/p&gt;
+</content>
+        <category term="AI日报" />
+        <category term="AI" />
+        <category term="GitHub热门" />
+        <category term="人工智能" />
+        <category term="技术趋势" />
+        <updated>2026-07-14T14:00:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-13/</id>
         <title>AI 日报 2026-07-13</title>
