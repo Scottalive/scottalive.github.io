@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230a0e14'/%3E%3Ctext x='18' y='68' font-size='52' fill='%2300ff9c' font-family='monospace'%3E%26gt;_%3C/text%3E%3C/svg%3E">
+  <title>OpenSRE 进阶实战：排查方法论与报告解读指南 | 沉鱼的博客</title>
+  
+  <meta name="description" content="编程笔记 &amp; 资料分享">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="沉鱼的博客">
+  <meta property="og:title" content="OpenSRE 进阶实战：排查方法论与报告解读指南 | 沉鱼的博客">
+  <meta property="og:description" content="编程笔记 &amp; 资料分享">
+  <meta property="og:url" content="https://scottalive.github.io/computer-science/ai-tools/OpenSRE-进阶实战-排查与报告指南/">
+  <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="OpenSRE 进阶实战：排查方法论与报告解读指南 | 沉鱼的博客">
+  <meta name="twitter:description" content="编程笔记 &amp; 资料分享">
+  <meta name="twitter:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="/atom.xml">
+  <link rel="stylesheet" href="/css/style.css?v=202607190200">
+  <script>
+  /* 深色为默认主题，仅当用户显式选择浅色时才切换；body 渲染前确定，避免闪烁 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var theme = saved === 'light' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    window.__theme = theme;
+  })();
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/"><span class="prompt-path">~/</span>blog<span class="cursor"></span></a></h1>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <a href="/about">关于</a>
+      </nav>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="search..." autocomplete="off">
+        <div id="search-results"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <div class="post-path">
+      <a href="/">~</a>/<a href="/archives">posts</a>/<span class="pd">computer-science/ai-tools/OpenSRE-进阶实战-排查与报告指南.md</span>
+    </div>
+    <h1 class="post-title">OpenSRE 进阶实战：排查方法论与报告解读指南</h1>
+    <div class="post-meta">
+      <span>2026-05-11 01:10</span>
+      <span>3502 字 · 约 11 分钟</span>
+      
+        
+        <a class="bkt" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+        
+        <a class="bkt" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
+        
+      
+      
+        
+        <a class="bkt cyan" href="/tags/OpenSRE/">#OpenSRE</a>
+        
+        <a class="bkt cyan" href="/tags/SRE/">#SRE</a>
+        
+        <a class="bkt cyan" href="/tags/AI%E8%BF%90%E7%BB%B4/">#AI运维</a>
+        
+        <a class="bkt cyan" href="/tags/%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/">#故障排查</a>
+        
+        <a class="bkt cyan" href="/tags/%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/">#根因分析</a>
+        
+        <a class="bkt cyan" href="/tags/DevOps/">#DevOps</a>
+        
+      
+    </div>
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#引言">引言</a>
+      
+      <a class="toc-level-2" href="#一交互式-shell-深度使用">一、交互式 Shell 深度使用</a>
+      
+      <a class="toc-level-3" href="#11-会话管理">1.1 会话管理</a>
+      
+      <a class="toc-level-3" href="#12-effort-推理深度详解">1.2 /effort 推理深度详解</a>
+      
+      <a class="toc-level-3" href="#13-使用技巧">1.3 使用技巧</a>
+      
+      <a class="toc-level-2" href="#二单次调查模式">二、单次调查模式</a>
+      
+      <a class="toc-level-3" href="#21-基本用法">2.1 基本用法</a>
+      
+      <a class="toc-level-3" href="#22-告警文件格式">2.2 告警文件格式</a>
+      
+      <a class="toc-level-2" href="#三排查方法论">三、排查方法论</a>
+      
+      <a class="toc-level-3" href="#31-opensre-的排查流程">3.1 OpenSRE 的排查流程</a>
+      
+      <a class="toc-level-3" href="#32-典型排查场景">3.2 典型排查场景</a>
+      
+      <a class="toc-level-3" href="#33-排查最佳实践">3.3 排查最佳实践</a>
+      
+      <a class="toc-level-2" href="#四部署进阶与注意事项">四、部署进阶与注意事项</a>
+      
+      <a class="toc-level-3" href="#41-部署方案对比">4.1 部署方案对比</a>
+      
+      <a class="toc-level-3" href="#42-环境变量配置详解">4.2 环境变量配置详解</a>
+      
+      <a class="toc-level-3" href="#43-关键注意事项">4.3 关键注意事项</a>
+      
+      <a class="toc-level-2" href="#五调查报告解读">五、调查报告解读</a>
+      
+      <a class="toc-level-3" href="#51-报告结构">5.1 报告结构</a>
+      
+      <a class="toc-level-3" href="#52-如何阅读报告">5.2 如何阅读报告</a>
+      
+      <a class="toc-level-3" href="#53-报告输出与分享">5.3 报告输出与分享</a>
+      
+      <a class="toc-level-2" href="#六常见问题排查">六、常见问题排查</a>
+      
+      <a class="toc-level-3" href="#61-安装问题">6.1 安装问题</a>
+      
+      <a class="toc-level-3" href="#62-运行时问题">6.2 运行时问题</a>
+      
+      <a class="toc-level-3" href="#63-性能问题">6.3 性能问题</a>
+      
+      <a class="toc-level-2" href="#七遥测与隐私">七、遥测与隐私</a>
+      
+      <a class="toc-level-2" href="#八总结">八、总结</a>
+      
+      <a class="toc-level-3" href="#使用建议梯度">使用建议梯度</a>
+      
+      <a class="toc-level-3" href="#参考链接">参考链接</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>在<a href="/2026/05/11/OpenSRE-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">上一篇文章</a>中，我们介绍了 OpenSRE 的安装与基础用法。本文将深入探讨三个实战核心话题：<strong>如何高效使用 OpenSRE 进行生产故障排查</strong>、<strong>使用过程中的关键注意事项</strong>，以及<strong>如何理解和运用它生成的调查报告</strong>。</p>
+<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Tracer-Cloud/OpenSRE">GitHub - Tracer-Cloud&#x2F;OpenSRE</a></p>
+<blockquote>
+<p>阅读本文需要你已经完成 <code>opensre onboard</code> 初始化配置。如果还没有，请先参考上一篇安装指南。</p>
+</blockquote>
+<hr>
+<h2 id="一交互式-shell-深度使用"><a href="#一、交互式-Shell-深度使用" class="headerlink" title="一、交互式 Shell 深度使用"></a>一、交互式 Shell 深度使用</h2><h3 id="11-会话管理"><a href="#1-1-会话管理" class="headerlink" title="1.1 会话管理"></a>1.1 会话管理</h3><p>启动 OpenSRE 交互式 Shell（需要 TTY 终端）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opensre</span><br></pre></td></tr></table></figure>
+
+<p>进入后在提示符下直接描述故障现象，OpenSRE 会自动拉取关联数据并启动调查。关键命令：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/help</code></td>
+<td>查看完整帮助</td>
+<td>忘记命令时</td>
+</tr>
+<tr>
+<td><code>/status</code></td>
+<td>查看当前调查状态</td>
+<td>调查中途确认进度</td>
+</tr>
+<tr>
+<td><code>/clear</code></td>
+<td>清屏</td>
+<td>输出过多时</td>
+</tr>
+<tr>
+<td><code>/reset</code></td>
+<td>重置会话</td>
+<td>开始新的独立调查</td>
+</tr>
+<tr>
+<td><code>/trust</code></td>
+<td>启用信任模式</td>
+<td>允许执行修复动作</td>
+</tr>
+<tr>
+<td><code>/effort low|medium|high|xhigh|max</code></td>
+<td>调推理深度</td>
+<td>控制 AI 思考深度与成本</td>
+</tr>
+<tr>
+<td><code>/exit</code></td>
+<td>退出</td>
+<td>结束会话</td>
+</tr>
+</tbody></table>
+<h3 id="12-effort-推理深度详解"><a href="#1-2-effort-推理深度详解" class="headerlink" title="1.2 /effort 推理深度详解"></a>1.2 <code>/effort</code> 推理深度详解</h3><p>这是影响调查质量和成本的关键参数，仅对 OpenAI 和 Codex 提供商生效：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/effort low      <span class="comment"># 快速排查，适合已知模式的简单告警</span></span><br><span class="line">/effort medium   <span class="comment"># 默认级别，平衡速度与深度</span></span><br><span class="line">/effort high     <span class="comment"># 复杂故障，需要跨系统关联分析</span></span><br><span class="line">/effort xhigh    <span class="comment"># 根因模糊、涉及多层依赖的疑难杂症</span></span><br><span class="line">/effort max      <span class="comment"># 极限推理，最大程度挖掘关联线索</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>建议策略：</strong></p>
+<ul>
+<li>初次调查用 <code>medium</code>，先看全局</li>
+<li>根因不明确时升级到 <code>high</code></li>
+<li>生产 P0 事故直接 <code>xhigh</code> 或 <code>max</code></li>
+<li>日常巡检&#x2F;已知问题用 <code>low</code></li>
+</ul>
+<h3 id="13-使用技巧"><a href="#1-3-使用技巧" class="headerlink" title="1.3 使用技巧"></a>1.3 使用技巧</h3><p><strong>逐步聚焦法：</strong> 不要在第一条消息里把所有信息塞进去。先描述告警现象 → 让 OpenSRE 拉取上下文 → 根据初步发现追问 → 逐步收敛到根因。这比一次性大段描述效果好得多。</p>
+<p><strong>善用 <code>Ctrl+C</code>：</strong> 如果当前调查方向不对，直接按 <code>Ctrl+C</code> 取消——<strong>不会丢失会话状态</strong>，你可以立即调整描述重新开始。</p>
+<hr>
+<h2 id="二单次调查模式"><a href="#二、单次调查模式" class="headerlink" title="二、单次调查模式"></a>二、单次调查模式</h2><h3 id="21-基本用法"><a href="#2-1-基本用法" class="headerlink" title="2.1 基本用法"></a>2.1 基本用法</h3><p>直接对告警文件执行一次性调查（无需进入交互式 Shell）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opensre investigate -i &lt;告警JSON文件路径&gt;</span><br></pre></td></tr></table></figure>
+
+<p>OpenSRE 内置了大量测试用例，可以用来快速验证环境：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Kubernetes 告警场景</span></span><br><span class="line">opensre investigate -i tests/e2e/kubernetes/fixtures/datadog_k8s_alert.json</span><br><span class="line"></span><br><span class="line"><span class="comment"># RDS Postgres 合成场景</span></span><br><span class="line">opensre investigate -i tests/synthetic/rds_postgres/fixtures/alert.json</span><br></pre></td></tr></table></figure>
+
+<h3 id="22-告警文件格式"><a href="#2-2-告警文件格式" class="headerlink" title="2.2 告警文件格式"></a>2.2 告警文件格式</h3><p>告警文件是 JSON 格式，OpenSRE 会解析其中的关键字段来启动调查。一个典型的告警文件结构：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;CPU throttling detected on payment-service&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;severity&quot;</span><span class="punctuation">:</span> <span class="string">&quot;critical&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;service&quot;</span><span class="punctuation">:</span> <span class="string">&quot;payment-service&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;environment&quot;</span><span class="punctuation">:</span> <span class="string">&quot;production&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;metrics&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;cpu_throttle_pct&quot;</span><span class="punctuation">:</span> <span class="number">85</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;memory_usage_mb&quot;</span><span class="punctuation">:</span> <span class="number">2048</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;timeframe&quot;</span><span class="punctuation">:</span> <span class="string">&quot;last 15 minutes&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;links&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;dashboard&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://grafana.example.com/d/...&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;runbook&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://wiki.example.com/runbooks/payment-cpu&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>关键在于提供足够上下文：受影响的 <strong>服务名</strong>、<strong>环境标识</strong>、<strong>关键指标异常值</strong>和<strong>时间窗口</strong>。Runbook 链接尤其重要——OpenSRE 会读取并应用其中的排查步骤。</p>
+<hr>
+<h2 id="三排查方法论"><a href="#三、排查方法论" class="headerlink" title="三、排查方法论"></a>三、排查方法论</h2><h3 id="31-opensre-的排查流程"><a href="#3-1-OpenSRE-的排查流程" class="headerlink" title="3.1 OpenSRE 的排查流程"></a>3.1 OpenSRE 的排查流程</h3><p>当告警触发时，OpenSRE 自动执行以下流程：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A[📨 收到告警] --&gt; B[🔍 提取告警上下文]</span><br><span class="line">    B --&gt; C&#123;连接可观测性平台&#125;</span><br><span class="line">    C --&gt; D1[拉取关联日志]</span><br><span class="line">    C --&gt; D2[拉取关联指标]</span><br><span class="line">    C --&gt; D3[拉取链路追踪]</span><br><span class="line">    D1 --&gt; E[🧠 跨系统推理]</span><br><span class="line">    D2 --&gt; E</span><br><span class="line">    D3 --&gt; E</span><br><span class="line">    E --&gt; F[📋 匹配 Runbook 步骤]</span><br><span class="line">    F --&gt; G[📊 生成根因假设]</span><br><span class="line">    G --&gt; H&#123;假设验证&#125;</span><br><span class="line">    H --&gt;|证据充分| I[📝 生成调查报告]</span><br><span class="line">    H --&gt;|证据不足| J[深入拉取更多数据]</span><br><span class="line">    J --&gt; G</span><br><span class="line">    I --&gt; K[📤 推送到 Slack/PagerDuty]</span><br></pre></td></tr></table></figure>
+
+<h3 id="32-典型排查场景"><a href="#3-2-典型排查场景" class="headerlink" title="3.2 典型排查场景"></a>3.2 典型排查场景</h3><h4 id="场景一：Kubernetes-Pod-CPU-限流"><a href="#场景一：Kubernetes-Pod-CPU-限流" class="headerlink" title="场景一：Kubernetes Pod CPU 限流"></a>场景一：Kubernetes Pod CPU 限流</h4><p><strong>现象：</strong> payment-service Pod 持续触发 CPU throttling 告警。</p>
+<p><strong>在交互式 Shell 中的排查思路：</strong></p>
+<figure class="highlight node-repl"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">payment-service 在过去 <span class="number">15</span> 分钟内 <span class="variable constant_">CPU</span> throttling 达到 <span class="number">85</span>%，</span></span><br><span class="line">  这个服务部署在 Kubernetes production 集群，请帮我排查根因</span><br><span class="line"></span><br><span class="line">  ← OpenSRE 拉取 K8s metrics、Pod 日志、相关 Deployment 配置</span><br><span class="line"></span><br><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">看看同一时间段内有没有相关的 deployment 变更记录</span></span><br><span class="line"></span><br><span class="line">  ← OpenSRE 查询 GitOps/ArgoCD 变更历史</span><br><span class="line"></span><br><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">对比 throttling 开始前后的 <span class="variable constant_">HPA</span> 缩放事件</span></span><br><span class="line"></span><br><span class="line">  ← OpenSRE 分析 HPA 行为和资源配额</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键操作：</strong></p>
+<ul>
+<li>先让 OpenSRE 拉取关联数据，不要跳过这一步</li>
+<li>根据初步发现引导下一步方向（变更？流量尖峰？资源泄漏？）</li>
+<li>要求对比分析（变更前后、不同 Pod 之间）</li>
+</ul>
+<h4 id="场景二：数据库响应延迟"><a href="#场景二：数据库响应延迟" class="headerlink" title="场景二：数据库响应延迟"></a>场景二：数据库响应延迟</h4><p><strong>现象：</strong> RDS PostgreSQL 查询延迟从 50ms 飙升至 2s。</p>
+<p><strong>排查策略：</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">&gt; production 环境 RDS PostgreSQL 主库查询延迟从 <span class="number">50</span>ms 升到 <span class="number">2</span>s，</span><br><span class="line">  时间范围：最近 <span class="number">30</span> 分钟，请分析可能原因</span><br><span class="line"></span><br><span class="line">  ← OpenSRE 拉取 RDS metrics、慢查询日志、连接数</span><br><span class="line"></span><br><span class="line">&gt; 检查是否有锁等待或长事务</span><br><span class="line"></span><br><span class="line">  ← OpenSRE 查询 pg_stat_activity、锁信息</span><br><span class="line"></span><br><span class="line">&gt; 对比延迟上升前后的查询模式变化</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：</strong> OpenSRE 在数据库场景下会连接你配置的数据库实例。确保相关凭证已在 <code>onboard</code> 时配置好。</p>
+<h3 id="33-排查最佳实践"><a href="#3-3-排查最佳实践" class="headerlink" title="3.3 排查最佳实践"></a>3.3 排查最佳实践</h3><p><strong>1. 时间窗口要精确</strong><br>不要说 “最近出问题了”，要说 “过去 30 分钟内”，让 OpenSRE 能精确限定数据拉取范围。</p>
+<p><strong>2. 提供环境和服务名</strong><br>“staging 环境的 recommendation-service” 远比 “有个服务挂了” 有效。</p>
+<p><strong>3. 给出已知指标异常值</strong><br>如果你已经在 Grafana&#x2F;Datadog 上看到了具体异常指标，直接告诉 OpenSRE，可以加速定位。</p>
+<p><strong>4. 分步推进，不要一次给太多</strong><br>让 AI 先看全局再深入局部，保持单轮信息量适中。这是 LLM 交互的黄金法则。</p>
+<hr>
+<h2 id="四部署进阶与注意事项"><a href="#四、部署进阶与注意事项" class="headerlink" title="四、部署进阶与注意事项"></a>四、部署进阶与注意事项</h2><h3 id="41-部署方案对比"><a href="#4-1-部署方案对比" class="headerlink" title="4.1 部署方案对比"></a>4.1 部署方案对比</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>LangGraph Platform（推荐）</th>
+<th>Railway（自托管）</th>
+<th>本地模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>适用场景</td>
+<td>生产环境</td>
+<td>中小团队自托管</td>
+<td>个人开发&#x2F;测试</td>
+</tr>
+<tr>
+<td>运维复杂度</td>
+<td>低</td>
+<td>中</td>
+<td>极低</td>
+</tr>
+<tr>
+<td>可扩展性</td>
+<td>高</td>
+<td>中</td>
+<td>受限</td>
+</tr>
+<tr>
+<td>成本</td>
+<td>按量付费</td>
+<td>固定成本</td>
+<td>仅本地算力</td>
+</tr>
+<tr>
+<td>Postgres&#x2F;Redis</td>
+<td>平台托管</td>
+<td>需自行配置</td>
+<td>不需要</td>
+</tr>
+</tbody></table>
+<h3 id="42-环境变量配置详解"><a href="#4-2-环境变量配置详解" class="headerlink" title="4.2 环境变量配置详解"></a>4.2 环境变量配置详解</h3><p>核心环境变量（按优先级排列）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># === 必备：LLM 配置 ===</span></span><br><span class="line"><span class="built_in">export</span> LLM_PROVIDER=anthropic           <span class="comment"># anthropic | openai | gemini | openrouter | ollama</span></span><br><span class="line"><span class="built_in">export</span> ANTHROPIC_API_KEY=sk-ant-xxx     <span class="comment"># 对应提供商的 API Key</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># === 部署模式 ===</span></span><br><span class="line"><span class="built_in">export</span> OPENSRE_DEPLOYMENT_METHOD=<span class="built_in">local</span>  <span class="comment"># local | railway | langsmith</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># === 可观测性集成（按需配置）===</span></span><br><span class="line"><span class="comment"># Datadog</span></span><br><span class="line"><span class="built_in">export</span> DATADOG_API_KEY=xxx</span><br><span class="line"><span class="built_in">export</span> DATADOG_APP_KEY=xxx</span><br><span class="line"></span><br><span class="line"><span class="comment"># Grafana</span></span><br><span class="line"><span class="built_in">export</span> GRAFANA_URL=https://grafana.example.com</span><br><span class="line"><span class="built_in">export</span> GRAFANA_API_KEY=xxx</span><br><span class="line"></span><br><span class="line"><span class="comment"># AWS</span></span><br><span class="line"><span class="built_in">export</span> AWS_ACCESS_KEY_ID=xxx</span><br><span class="line"><span class="built_in">export</span> AWS_SECRET_ACCESS_KEY=xxx</span><br><span class="line"><span class="built_in">export</span> AWS_DEFAULT_REGION=us-east-1</span><br><span class="line"></span><br><span class="line"><span class="comment"># Slack 通知</span></span><br><span class="line"><span class="built_in">export</span> SLACK_BOT_TOKEN=xoxb-xxx</span><br><span class="line"><span class="built_in">export</span> SLACK_CHANNEL=<span class="comment">#incidents</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># === 数据库/Redis（Railway 部署必须）===</span></span><br><span class="line"><span class="built_in">export</span> DATABASE_URI=postgresql://user:pass@host:5432/opensre</span><br><span class="line"><span class="built_in">export</span> REDIS_URI=redis://user:pass@host:6379</span><br><span class="line"></span><br><span class="line"><span class="comment"># === 遥测控制 ===</span></span><br><span class="line"><span class="built_in">export</span> OPENSRE_NO_TELEMETRY=1           <span class="comment"># 完全关闭遥测</span></span><br><span class="line"><span class="comment"># 或分别控制：</span></span><br><span class="line"><span class="built_in">export</span> OPENSRE_ANALYTICS_DISABLED=1     <span class="comment"># 仅关闭 PostHog 分析</span></span><br><span class="line"><span class="built_in">export</span> OPENSRE_SENTRY_DISABLED=1        <span class="comment"># 仅关闭 Sentry 错误报告</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="43-关键注意事项"><a href="#4-3-关键注意事项" class="headerlink" title="4.3 关键注意事项"></a>4.3 关键注意事项</h3><h4 id="⚠️-安全注意事项"><a href="#⚠️-安全注意事项" class="headerlink" title="⚠️ 安全注意事项"></a>⚠️ 安全注意事项</h4><ol>
+<li><strong>API Key 管理：</strong> 使用环境变量或密钥管理服务，<strong>绝对不要</strong>硬编码在代码或配置文件中提交到 Git</li>
+<li><strong>信任模式风险：</strong> <code>/trust</code> 命令允许 OpenSRE 执行修复动作，仅在确认环境隔离且评估风险后使用</li>
+<li><strong>数据传输：</strong> OpenSRE 默认将对话记录保存在本地。部署到 LangGraph&#x2F;Railway 时，确保传输通道加密</li>
+<li><strong>敏感信息：</strong> 告警文件不要包含明文密码或 token。OpenSRE 的遥测会主动过滤敏感字段</li>
+</ol>
+<h4 id="⚠️-集成注意事项"><a href="#⚠️-集成注意事项" class="headerlink" title="⚠️ 集成注意事项"></a>⚠️ 集成注意事项</h4><ol>
+<li><strong>权限最小化：</strong> 给 OpenSRE 配置的 API Key&#x2F;Service Account 应该只有<strong>只读</strong>权限（除非需要自动修复）</li>
+<li><strong>网络连通性：</strong> 确保 OpenSRE 所在环境能访问所有集成的可观测性平台（Grafana、Datadog、CloudWatch 等）</li>
+<li><strong>速率限制：</strong> 大量告警时注意 LLM API 的速率限制。建议配置合理的告警聚合策略</li>
+<li><strong>Kubernetes RBAC：</strong> 如果连接 K8s 集群，使用只读 ServiceAccount，限制 namespace 范围</li>
+</ol>
+<h4 id="⚠️-版本注意事项"><a href="#⚠️-版本注意事项" class="headerlink" title="⚠️ 版本注意事项"></a>⚠️ 版本注意事项</h4><ol>
+<li><strong>Public Alpha 状态：</strong> API 和集成接口可能发生变化，升级前查看 Changelog</li>
+<li><strong><code>--main</code> 分支风险：</strong> 从 main 分支安装可能包含未充分测试的功能，生产环境建议用稳定版</li>
+<li><strong>更新前备份：</strong> 执行 <code>opensre update</code> 前，考虑备份 <code>~/.config/opensre/</code> 目录</li>
+</ol>
+<hr>
+<h2 id="五调查报告解读"><a href="#五、调查报告解读" class="headerlink" title="五、调查报告解读"></a>五、调查报告解读</h2><h3 id="51-报告结构"><a href="#5-1-报告结构" class="headerlink" title="5.1 报告结构"></a>5.1 报告结构</h3><p>OpenSRE 生成的调查报告通常包含以下部分：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">📊 INVESTIGATION REPORT</span></span><br><span class="line"><span class="section">========================</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> EXECUTIVE SUMMARY（执行摘要）</span><br><span class="line"><span class="bullet">   -</span> 事故级别、影响范围、持续时间</span><br><span class="line"><span class="bullet">   -</span> 根因一句话总结</span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> TIMELINE（时间线）</span><br><span class="line"><span class="bullet">   -</span> 告警触发时间</span><br><span class="line"><span class="bullet">   -</span> 各系统异常时间点</span><br><span class="line"><span class="bullet">   -</span> 关键事件序列</span><br><span class="line"></span><br><span class="line"><span class="bullet">3.</span> EVIDENCE（证据链）</span><br><span class="line"><span class="bullet">   -</span> 异常日志片段</span><br><span class="line"><span class="bullet">   -</span> 指标异常截图/数据</span><br><span class="line"><span class="bullet">   -</span> 链路追踪中的异常 Span</span><br><span class="line"><span class="bullet">   -</span> 配置变更记录</span><br><span class="line"></span><br><span class="line"><span class="bullet">4.</span> ROOT CAUSE ANALYSIS（根因分析）</span><br><span class="line"><span class="bullet">   -</span> 直接原因</span><br><span class="line"><span class="bullet">   -</span> 间接原因（配置、容量、代码缺陷）</span><br><span class="line"><span class="bullet">   -</span> 触发条件</span><br><span class="line"></span><br><span class="line"><span class="bullet">5.</span> IMPACT ASSESSMENT（影响评估）</span><br><span class="line"><span class="bullet">   -</span> 受影响的服务和用户</span><br><span class="line"><span class="bullet">   -</span> 业务指标变化</span><br><span class="line"></span><br><span class="line"><span class="bullet">6.</span> REMEDIATION（修复建议）</span><br><span class="line"><span class="bullet">   -</span> 立即修复步骤</span><br><span class="line"><span class="bullet">   -</span> 长期改进建议</span><br><span class="line"></span><br><span class="line"><span class="bullet">7.</span> RELATED RESOURCES（相关资源）</span><br><span class="line"><span class="bullet">   -</span> Dashboard 链接</span><br><span class="line"><span class="bullet">   -</span> Runbook 引用</span><br><span class="line"><span class="bullet">   -</span> 历史相似事件</span><br></pre></td></tr></table></figure>
+
+<h3 id="52-如何阅读报告"><a href="#5-2-如何阅读报告" class="headerlink" title="5.2 如何阅读报告"></a>5.2 如何阅读报告</h3><p><strong>第一步：看 Executive Summary（30 秒）</strong></p>
+<p>快速判断事故严重程度和大致方向。如果摘要里出现了 “root cause identified” 且证据充分，可以跳到修复建议。如果是 “inconclusive”，需要继续往下看。</p>
+<p><strong>第二步：核查 Timeline（2 分钟）</strong></p>
+<p>时间线是你验证结论的关键工具。问自己：</p>
+<ul>
+<li>告警时间是否与你已知的变更时间匹配？</li>
+<li>是否存在级联效应（服务 A 异常 → 服务 B 异常）？</li>
+<li>时间窗口是否合理？</li>
+</ul>
+<p><strong>第三条：审阅 Evidence（5 分钟）</strong></p>
+<p>这是最重要的环节。<strong>不要盲信 AI 的结论</strong>——亲自检查：</p>
+<ul>
+<li>日志片段是否来自正确的服务和时间窗口？</li>
+<li>指标异常是否真的存在，还是噪声？</li>
+<li>链路追踪的异常 Span 是否确实是根因而非症状？</li>
+<li>配置变更记录是否与实际运维操作一致？</li>
+</ul>
+<p><strong>第四步：评估根因可信度（3 分钟）</strong></p>
+<p>评估标准：</p>
+<ul>
+<li>✅ <strong>高可信度：</strong> 有直接日志证据 + 指标拐点对齐 + 变更记录匹配</li>
+<li>⚠️ <strong>中可信度：</strong> 有间接证据但缺少直接日志，或有多个可能的根因并列</li>
+<li>❌ <strong>低可信度：</strong> 证据稀疏，主要是推理而非实证，标记为 “inconclusive”</li>
+</ul>
+<h3 id="53-报告输出与分享"><a href="#5-3-报告输出与分享" class="headerlink" title="5.3 报告输出与分享"></a>5.3 报告输出与分享</h3><p>OpenSRE 支持将报告推送到协作工具：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置 Slack 通知后，调查完成自动推送</span></span><br><span class="line"><span class="built_in">export</span> SLACK_BOT_TOKEN=xoxb-xxx</span><br><span class="line"><span class="built_in">export</span> SLACK_CHANNEL=<span class="comment">#incidents</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>手动分享建议：</strong></p>
+<ul>
+<li>事故复盘会：直接用报告的时间线和证据链作为讨论基础</li>
+<li>Postmortem 文档：在报告基础上补充人工判断和决策过程</li>
+<li>知识沉淀：将报告关联的 Runbook 更新到 Wiki，形成正向循环</li>
+</ul>
+<hr>
+<h2 id="六常见问题排查"><a href="#六、常见问题排查" class="headerlink" title="六、常见问题排查"></a>六、常见问题排查</h2><h3 id="61-安装问题"><a href="#6-1-安装问题" class="headerlink" title="6.1 安装问题"></a>6.1 安装问题</h3><table>
+<thead>
+<tr>
+<th>问题</th>
+<th>排查方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>安装脚本报错</td>
+<td>检查网络代理设置；确认 <code>curl</code> 版本 ≥ 7.x</td>
+</tr>
+<tr>
+<td>Homebrew 找不到 tap</td>
+<td>先 <code>brew update</code>，确保 brew 版本最新</td>
+</tr>
+<tr>
+<td><code>opensre: command not found</code></td>
+<td>检查 PATH 是否包含安装目录，重启终端</td>
+</tr>
+<tr>
+<td><code>make: command not found</code></td>
+<td><code>brew install make</code> (macOS)</td>
+</tr>
+</tbody></table>
+<h3 id="62-运行时问题"><a href="#6-2-运行时问题" class="headerlink" title="6.2 运行时问题"></a>6.2 运行时问题</h3><table>
+<thead>
+<tr>
+<th>问题</th>
+<th>排查方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Docker 未运行</td>
+<td>启动 Docker Desktop &#x2F; OrbStack &#x2F; Colima</td>
+</tr>
+<tr>
+<td>LLM 连接失败</td>
+<td>检查 API Key 是否正确，网络是否能访问 API 端点</td>
+</tr>
+<tr>
+<td>集成工具连接超时</td>
+<td>确认目标服务 URL 和凭证正确，检查防火墙</td>
+</tr>
+<tr>
+<td>调查结果不准确</td>
+<td>尝试提高 <code>/effort</code> 级别，或提供更详细的上下文</td>
+</tr>
+<tr>
+<td>Railway 部署后一直不健康</td>
+<td>确认 <code>DATABASE_URI</code> 和 <code>REDIS_URI</code> 已正确配置</td>
+</tr>
+</tbody></table>
+<h3 id="63-性能问题"><a href="#6-3-性能问题" class="headerlink" title="6.3 性能问题"></a>6.3 性能问题</h3><ul>
+<li><strong>调查耗时过长</strong>：降低 <code>/effort</code> 级别，减少关联的数据源数量</li>
+<li><strong>API 限流</strong>：检查 LLM 提供商的速率限制配额，必要时升级套餐</li>
+<li><strong>内存占用高</strong>：避免同时运行多个调查实例，完成一个再开始下一个</li>
+</ul>
+<hr>
+<h2 id="七遥测与隐私"><a href="#七、遥测与隐私" class="headerlink" title="七、遥测与隐私"></a>七、遥测与隐私</h2><p>OpenSRE 默认启用匿名遥测（PostHog 产品分析 + Sentry 错误报告）。</p>
+<p><strong>收集什么：</strong> 命令使用情况、成功&#x2F;失败状态、大致的运行时长、CLI&#x2F;Python&#x2F;OS&#x2F;架构信息。<strong>不收集</strong>告警内容、文件内容、主机名、凭证或 PII。</p>
+<p><strong>关闭方式：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 一行全部关闭</span></span><br><span class="line"><span class="built_in">export</span> OPENSRE_NO_TELEMETRY=1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 仅关闭分析，保留错误报告</span></span><br><span class="line"><span class="built_in">export</span> OPENSRE_ANALYTICS_DISABLED=1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 仅关闭错误报告</span></span><br><span class="line"><span class="built_in">export</span> OPENSRE_SENTRY_DISABLED=1</span><br></pre></td></tr></table></figure>
+
+<p><strong>企业环境建议：</strong> 生产环境建议设置 <code>OPENSRE_NO_TELEMETRY=1</code>，除非你有审计需求需要保留 Sentry 错误报告。</p>
+<hr>
+<h2 id="八总结"><a href="#八、总结" class="headerlink" title="八、总结"></a>八、总结</h2><p>OpenSRE 代表了 AI 运维从「辅助」走向「自主」的重要一步。它的核心价值不在于替代 SRE 工程师，而在于：</p>
+<ul>
+<li><strong>缩短 MTTR（平均修复时间）：</strong> 自动拉取证据、生成假设，把人的精力集中在判断和决策上</li>
+<li><strong>标准化排查流程：</strong> 每次调查遵循统一方法论，减少凭经验「碰运气」的情况</li>
+<li><strong>知识沉淀：</strong> 调查报告 + Runbook 引用形成可复用的知识库</li>
+</ul>
+<h3 id="使用建议梯度"><a href="#使用建议梯度" class="headerlink" title="使用建议梯度"></a>使用建议梯度</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    A[阶段一：本地体验] --&gt; B[阶段二：单服务接入]</span><br><span class="line">    B --&gt; C[阶段三：团队试点]</span><br><span class="line">    C --&gt; D[阶段四：生产部署]</span><br><span class="line"></span><br><span class="line">    A -.- A1[个人开发者\n了解工作流]</span><br><span class="line">    B -.- B1[接入 1-2 个服务\n验证效果]</span><br><span class="line">    C -.- C1[团队共享经验\n完善 Runbook]</span><br><span class="line">    D -.- D1[完整可观测栈\n自动响应告警]</span><br></pre></td></tr></table></figure>
+
+<p>当前项目处于 Public Alpha 阶段，适合早期采用者探索和反馈。随着 API 稳定和集成成熟，它有望成为 AI 驱动 SRE 的事实标准。</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.opensre.com/docs">OpenSRE 官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Tracer-Cloud/OpenSRE">GitHub 仓库</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.opensre.com/docs/quickstart">OpenSRE Quickstart</a></li>
+<li><a target="_blank" rel="noopener" href="https://opensre.com/docs/faq">FAQ</a></li>
+<li><a target="_blank" rel="noopener" href="https://discord.gg/7NTpevXf7w">Discord 社区</a></li>
+<li><a target="_blank" rel="noopener" href="https://trust.tracer.cloud/">安全与信任中心</a></li>
+</ul>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-11/">AI 日报 2026-05-11</a>
+  
+  
+  <a class="next" href="/computer-science/ai-tools/OpenSRE-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">OpenSRE 安装与使用指南</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;·&nbsp; uv:<span id="site-uv">-</span> &nbsp;pv:<span id="site-pv">-</span> &nbsp;·&nbsp; <a href="/atom.xml" title="RSS 订阅">[rss]</a> &nbsp;·&nbsp; powered by <a href="https://hexo.io" target="_blank" rel="noopener">hexo</a></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle：深色为默认，按钮在 dark/light 间切换 */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      var next = currentlyDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      window.__theme = next;
+      notifyGiscus(next);
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* Code + Mermaid — 视频播放器风格放大查看 */
+  (function() {
+    'use strict';
+    var currentViewer = null;
+
+    /* ---- 弹窗 ---- */
+    function showViewer(opts) {
+      if (currentViewer) { currentViewer.remove(); currentViewer = null; }
+      var isMermaid = !!opts.isMermaid;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'code-viewer-overlay';
+
+      var viewer = document.createElement('div');
+      viewer.className = 'code-viewer';
+
+      /* toolbar */
+      var tb = document.createElement('div');
+      tb.className = 'code-viewer-toolbar';
+      var actionsHtml = '<div class="code-viewer-actions">';
+      if (isMermaid && opts.bodyHtml) {
+        actionsHtml += '<button class="code-viewer-btn" data-dl>⬇ 下载图片</button>';
+      } else if (opts.copyText) {
+        actionsHtml += '<button class="code-viewer-btn" data-copy>📋 复制</button>';
+      }
+      actionsHtml += '<button class="code-viewer-close">✕</button></div>';
+      tb.innerHTML = '<span class="code-viewer-title">' +
+        '<span>' + (isMermaid ? '📊' : '&lt;/&gt;') + '</span> ' + opts.title + '</span>' + actionsHtml;
+      viewer.appendChild(tb);
+
+      /* body */
+      var body = document.createElement('div');
+      body.className = 'code-viewer-body' + (isMermaid ? ' mermaid-body' : '');
+      if (isMermaid) {
+        body.innerHTML = opts.bodyHtml;
+      } else {
+        body.innerHTML = '<pre><code>' + escHtml(opts.bodyHtml) + '</code></pre>';
+      }
+      viewer.appendChild(body);
+      overlay.appendChild(viewer);
+      document.body.appendChild(overlay);
+      document.body.style.overflow = 'hidden';
+      currentViewer = overlay;
+
+      /* copy logic */
+      var copyBtn = tb.querySelector('[data-copy]');
+      if (copyBtn && opts.copyText) {
+        copyBtn.addEventListener('click', function() {
+          navigator.clipboard.writeText(opts.copyText).then(function() {
+            copyBtn.textContent = '✅ 已复制';
+            copyBtn.classList.add('copied');
+            setTimeout(function() { copyBtn.textContent = '📋 复制'; copyBtn.classList.remove('copied'); }, 2000);
+          });
+        });
+      }
+
+      /* download image logic */
+      var dlBtn = tb.querySelector('[data-dl]');
+      if (dlBtn && isMermaid && opts.bodyHtml) {
+        dlBtn.addEventListener('click', function() {
+          var svgEl = body.querySelector('svg');
+          if (!svgEl) return;
+          var svgClone = svgEl.cloneNode(true);
+          svgClone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+          var serializer = new XMLSerializer();
+          var svgStr = serializer.serializeToString(svgClone);
+          var blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = (opts.title || '流程图') + '.svg';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          dlBtn.textContent = '✅ 已下载';
+          setTimeout(function() { dlBtn.textContent = '⬇ 下载图片'; }, 2000);
+        });
+      }
+
+      /* close handlers */
+      tb.querySelector('.code-viewer-close').addEventListener('click', closeViewer);
+      overlay.addEventListener('click', function(e) { if (e.target === overlay) closeViewer(); });
+      document.addEventListener('keydown', onEsc);
+    }
+
+    function closeViewer() {
+      if (!currentViewer) return;
+      currentViewer.remove(); currentViewer = null;
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onEsc);
+    }
+    function onEsc(e) { if (e.key === 'Escape') closeViewer(); }
+
+    function escHtml(s) {
+      return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    /* ---- 事件委托：仅 Mermaid 流程图支持点击放大 ---- */
+    document.addEventListener('click', function(e) {
+      /* only react to the play button, not the whole overlay */
+      var overlay = e.target.closest('.code-block-play');
+      if (!overlay) return;
+      var wrap = overlay.closest('.mermaid-container');
+      if (!wrap) return;
+
+      var origCode = wrap.getAttribute('data-orig');
+      if (!origCode) return;
+      /* 使用 mermaid.render() 获取 SVG 字符串 */
+      if (typeof mermaid !== 'undefined' && mermaid.render) {
+        var uid = 'mermaid-viewer-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
+        mermaid.render(uid, origCode).then(function(result) {
+          showViewer({ title: '流程图', bodyHtml: result.svg, isMermaid: true });
+        }).catch(function(err) {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        });
+      } else if (typeof mermaid !== 'undefined' && mermaid.run) {
+        /* fallback to run() */
+        var tmp = document.createElement('div');
+        tmp.textContent = origCode;
+        mermaid.run({ nodes: [tmp] }).then(function() {
+          showViewer({ title: '流程图', bodyHtml: tmp.innerHTML || origCode, isMermaid: true });
+        }).catch(function() {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        });
+      } else {
+        showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+      }
+    });
+
+    /* ---- 初始化：给每个代码块加复制按钮（不加放大遮罩） ---- */
+    var preList = document.querySelectorAll('.post-content figure.highlight td.code pre, .post-content > pre');
+    preList.forEach(function(pre) {
+      if (pre.closest('.code-block-wrap')) return; /* 已包装 */
+      var wrap = document.createElement('div');
+      wrap.className = 'code-block-wrap';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      /* 复制按钮 */
+      var copyBtn = document.createElement('button');
+      copyBtn.className = 'copy-btn';
+      copyBtn.textContent = '复制';
+      copyBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var text = pre.innerText || pre.textContent || '';
+        navigator.clipboard.writeText(text).then(function() {
+          copyBtn.textContent = '已复制';
+          copyBtn.classList.add('copied');
+          setTimeout(function() { copyBtn.textContent = '复制'; copyBtn.classList.remove('copied'); }, 2000);
+        });
+      });
+      wrap.appendChild(copyBtn);
+    });
+
+    /* ---- Mermaid 容器遮罩 ---- */
+    function addMermaidOverlay() {
+      document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)').forEach(function(c) {
+        if (!c.querySelector('svg')) return;
+        c.classList.add('has-overlay');
+        var ov = document.createElement('div');
+        ov.className = 'code-block-overlay';
+        ov.innerHTML = '<button class="code-block-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>';
+        c.appendChild(ov);
+        var info = document.createElement('div');
+        info.className = 'code-block-info';
+        info.innerHTML = '<span>流程图</span>';
+        c.appendChild(info);
+      });
+    }
+    var mo = setInterval(function() {
+      addMermaidOverlay();
+      var left = document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)');
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext:not([data-mermaid-rendered])');
+      if (!left.length && !figs.length) clearInterval(mo);
+    }, 300);
+    /* 最多跑 8 秒后自动停止 */
+    setTimeout(function() { if (mo) clearInterval(mo); }, 8000);
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: isDark ? 'dark' : 'default',
+      securityLevel: 'loose'
+    });
+
+    /* 匹配 mermaid 图表的关键词（首行判断） */
+    var MERMAID_RE = /^(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram|gantt|pie|erDiagram|journey|gitgraph|mindmap|timeline|zenuml|sankey|xychart|block|packet)/i;
+
+    /**
+     * Hexo 默认高亮插件将 markdown 代码块渲染为：
+     *   <figure class="highlight plaintext">
+     *     <table><tr><td class="code"><pre><span class="line">...</span>...</pre></td></tr></table>
+     * 因此无法通过 code.language-mermaid 选择器定位。
+     * 改为：匹配所有 figure.highlight.plaintext，提取其文本内容并检查首行是否为 mermaid 关键字。
+     */
+    function findMermaidBlocks() {
+      var blocks = [];
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext');
+      for (var i = 0; i < figs.length; i++) {
+        var fig = figs[i];
+        if (fig.dataset.mermaidRendered) continue;
+
+        var lines = fig.querySelectorAll('.line');
+        if (!lines.length) continue;
+
+        var code = '';
+        for (var j = 0; j < lines.length; j++) {
+          code += lines[j].textContent + '\n';
+        }
+        code = code.trim();
+
+        /* 只处理首行为 mermaid 关键词的块 */
+        var firstLine = code.split('\n')[0].trim();
+        if (!MERMAID_RE.test(firstLine)) continue;
+
+        blocks.push({ fig: fig, code: code });
+      }
+      return blocks;
+    }
+
+    async function renderMermaid() {
+      var blocks = findMermaidBlocks();
+      for (var i = 0; i < blocks.length; i++) {
+        var fig = blocks[i].fig;
+        var origCode = blocks[i].code;
+        fig.dataset.mermaidRendered = '1';
+
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        fig.parentNode.replaceChild(container, fig);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+          mermaid.initialize({
+            startOnLoad: false,
+            theme: isDark ? 'dark' : 'default',
+            securityLevel: 'loose'
+          });
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <script>
+  /* Matrix 字符雨背景：全屏 canvas 垫底，跟随主题色，空闲/隐藏时暂停 */
+  (function() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var cv = document.createElement('canvas');
+    cv.id = 'matrix-bg';
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;';
+    cv.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var fontSize = 16, cols, drops;
+    var CHARS = '0123456789abcdef{}[]()<>/\\$#*+=;:constfnlet=>';
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(innerWidth / fontSize);
+      drops = [];
+      for (var i = 0; i < cols; i++) drops[i] = Math.random() * -60;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function themeColors() {
+      var s = getComputedStyle(document.documentElement);
+      var green = s.getPropertyValue('--green').trim() || '#00ff9c';
+      var bg = s.getPropertyValue('--bg').trim() || '#0a0e14';
+      return { green: green, bg: bg };
+    }
+    var colors = themeColors();
+    /* 主题切换时更新颜色 */
+    var toggle = document.getElementById('dark-toggle');
+    if (toggle) toggle.addEventListener('click', function() {
+      setTimeout(function() { colors = themeColors(); }, 50);
+    });
+
+    function hexToRgb(hex) {
+      var m = hex.replace('#', '');
+      if (m.length === 3) m = m[0]+m[0]+m[1]+m[1]+m[2]+m[2];
+      var n = parseInt(m, 16);
+      return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+    }
+
+    var running = true, last = 0;
+    function tick(ts) {
+      if (!running) return;
+      /* 限流 ~20fps，字符雨不需要高帧率 */
+      if (ts - last < 50) { requestAnimationFrame(tick); return; }
+      last = ts;
+
+      var rgb = hexToRgb(colors.bg);
+      ctx.fillStyle = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.09)';
+      ctx.fillRect(0, 0, innerWidth, innerHeight);
+      ctx.font = fontSize + 'px ' + fontFamily;
+
+      var g = hexToRgb(colors.green);
+      for (var i = 0; i < cols; i++) {
+        var ch = CHARS[Math.floor(Math.random() * CHARS.length)];
+        /* 头部亮、尾部暗：每列首字符高亮 */
+        var head = Math.random() > 0.96;
+        ctx.fillStyle = 'rgba(' + g[0] + ',' + g[1] + ',' + g[2] + ',' + (head ? 0.9 : 0.45) + ')';
+        ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+        drops[i]++;
+        if (drops[i] * fontSize > innerHeight && Math.random() > 0.975) drops[i] = 0;
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        running = false;
+      } else if (!running) {
+        running = true;
+        last = 0;
+        requestAnimationFrame(tick);
+      }
+    });
+  })();
+  </script>
+
+  <script>
+  /* 点击字符爆裂动效：终端字形 + 重力 + 淡出，颜色跟随主题主色 */
+  (function() {
+    var cv = document.createElement('canvas');
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:9999;';
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var GLYPHS = '01<>/#$*{}[];=+';
+    var parts = [];
+    var raf = null;
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function burst(x, y) {
+      var color = getComputedStyle(document.documentElement)
+        .getPropertyValue('--green').trim() || '#00ff9c';
+      for (var i = 0; i < 16; i++) {
+        var a = Math.random() * Math.PI * 2;
+        var sp = 2 + Math.random() * 5;
+        parts.push({
+          x: x, y: y,
+          vx: Math.cos(a) * sp,
+          vy: Math.sin(a) * sp - 2.5,
+          ch: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
+          life: 1,
+          size: 11 + Math.random() * 7,
+          color: color
+        });
+      }
+      if (!raf) raf = requestAnimationFrame(tick);
+    }
+
+    function tick() {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      for (var i = parts.length - 1; i >= 0; i--) {
+        var p = parts[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.22;           /* 重力 */
+        p.vx *= 0.985;
+        p.life -= 0.018;
+        if (p.life <= 0) { parts.splice(i, 1); continue; }
+        ctx.globalAlpha = Math.max(p.life, 0);
+        ctx.fillStyle = p.color;
+        ctx.font = p.size + 'px ' + fontFamily;
+        ctx.fillText(p.ch, p.x, p.y);
+      }
+      ctx.globalAlpha = 1;
+      raf = parts.length ? requestAnimationFrame(tick) : (ctx.clearRect(0, 0, innerWidth, innerHeight), null);
+    }
+
+    document.addEventListener('pointerdown', function(e) {
+      burst(e.clientX, e.clientY);
+    }, { passive: true });
+  })();
+  </script>
+
+  <!-- 访问量统计（counter-api · Vercel KV） -->
+  <script>
+  (function() {
+    /* TODO(一次性): 部署 counter-api 到 Vercel 后，把下面的地址改成实际域名 */
+    var COUNTER_API = 'https://blog-counter-api.vercel.app/api/counter';
+    if (!COUNTER_API) return;
+
+    /* 访客 ID：localStorage 持久化，用于 UV 去重 */
+    var vid = localStorage.getItem('visitor-id');
+    if (!vid) {
+      vid = 'v-' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      localStorage.setItem('visitor-id', vid);
+    }
+
+    fetch(COUNTER_API, { headers: { 'x-visitor-id': vid } })
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        if (d && d.uv != null) document.getElementById('site-uv').textContent = d.uv;
+        if (d && d.pv != null) document.getElementById('site-pv').textContent = d.pv;
+      })
+      .catch(function() { /* 统计不可用时静默，保持 '-' */ });
+  })();
+  </script>
+
+  <script>
+  /* 按 / 聚焦搜索框，Esc 取消焦点（终端式快捷键） */
+  (function() {
+    document.addEventListener('keydown', function(e) {
+      var typing = /^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName);
+      if (e.key === '/' && !typing) {
+        e.preventDefault();
+        document.getElementById('search-input').focus();
+      } else if (e.key === 'Escape' && typing) {
+        document.activeElement.blur();
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

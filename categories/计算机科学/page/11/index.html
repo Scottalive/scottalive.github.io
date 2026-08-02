@@ -3,17 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230a0e14'/%3E%3Ctext x='18' y='68' font-size='52' fill='%2300ff9c' font-family='monospace'%3E%26gt;_%3C/text%3E%3C/svg%3E">
   <title>沉鱼的博客</title>
-  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  
+  <meta name="description" content="编程笔记 &amp; 资料分享">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="沉鱼的博客">
+  <meta property="og:title" content="沉鱼的博客">
+  <meta property="og:description" content="编程笔记 &amp; 资料分享">
+  <meta property="og:url" content="https://scottalive.github.io/categories/计算机科学/page/11/index.html">
+  <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="沉鱼的博客">
+  <meta name="twitter:description" content="编程笔记 &amp; 资料分享">
+  <meta name="twitter:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="/atom.xml">
+  <link rel="stylesheet" href="/css/style.css?v=202607190200">
   <script>
-  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  /* 深色为默认主题，仅当用户显式选择浅色时才切换；body 渲染前确定，避免闪烁 */
   (function() {
     var saved = localStorage.getItem('theme');
-    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var isDark = saved === 'dark' || (!saved && prefersDark);
-    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
-    window.__theme = isDark ? 'dark' : 'light';
+    var theme = saved === 'light' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    window.__theme = theme;
   })();
   </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
@@ -23,279 +35,159 @@
 
   <header class="site-header">
     <div class="container">
-      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
-      <p class="site-subtitle">了解自我，超越自我</p>
+      <h1 class="site-title"><a href="/"><span class="prompt-path">~/</span>blog<span class="cursor"></span></a></h1>
       <nav class="site-nav">
         <a href="/">首页</a>
         <a href="/archives">归档</a>
         <a href="/categories">分类</a>
         <a href="/tags">标签</a>
-        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-hotspots">AI热点</a>
         <a href="/ai-daily">AI日报</a>
-        <!-- <a href="/downloads">资源</a> -->
         <a href="/about">关于</a>
-        <div class="search-box">
-          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
-          <div id="search-results"></div>
-        </div>
       </nav>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="search..." autocomplete="off">
+        <div id="search-results"></div>
+      </div>
     </div>
   </header>
 
   <main class="site-main">
     <div class="container">
-      
+      <!-- 分类详情 -->
 
-<section class="category-page-shell">
-  <header class="category-page-hero">
-    <span class="categories-kicker">Category</span>
-    <h1 class="category-page-title">计算机科学</h1>
-    <p class="category-page-desc">这个分类下共收录 <strong>152</strong> 篇文章，按时间倒序展示。</p>
-  </header>
 
-  <section class="category-page-feed">
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/python/basic/38.%E6%B7%B1%E5%85%A5MySQL/">深入MySQL</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2025-04-14</span>
-        <span class="post-card-word-count">8074 字 · 约 24 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/python/basic/37.SQL%E8%AF%A6%E8%A7%A3/">SQL 和 MySQL 详解</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2025-04-14</span>
-        <span class="post-card-word-count">15486 字 · 约 51 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/python/basic/36.%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8CMySQL%E6%A6%82%E8%BF%B0/">关系型数据库和MySQL概述</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2025-04-14</span>
-        <span class="post-card-word-count">3276 字 · 约 10 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/python/basic/31-35.%E7%8E%A9%E8%BD%ACLinux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">玩转Linux操作系统</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2025-04-14</span>
-        <span class="post-card-word-count">14354 字 · 约 51 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/python/basic/21-30.Web%E5%89%8D%E7%AB%AF%E6%A6%82%E8%BF%B0/">Web前端概述</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2025-04-14</span>
-        <span class="post-card-word-count">5064 字 · 约 20 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/python/basic/16-20.Python%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6/">Python语言进阶</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2025-04-14</span>
-        <span class="post-card-word-count">9201 字 · 约 33 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/python/basic/15.%E5%9B%BE%E5%83%8F%E5%92%8C%E5%8A%9E%E5%85%AC%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/">图像和办公文档处理</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2025-04-14</span>
-        <span class="post-card-word-count">1231 字 · 约 5 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/python/basic/14.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">网络编程入门</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2025-04-14</span>
-        <span class="post-card-word-count">5600 字 · 约 17 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/python/basic/13.%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/">进程和线程</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2025-04-14</span>
-        <span class="post-card-word-count">6020 字 · 约 19 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/python/basic/12.%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">使用正则表达式</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2025-04-14</span>
-        <span class="post-card-word-count">3166 字 · 约 10 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/">Python</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/Python/Python%E5%9F%BA%E7%A1%80/">Python基础</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-  </section>
-
-  
-  <nav class="pagination">
-    
-    <a class="prev" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/page/10/">上一页</a>
-    
-    <span class="page-number">11 / 16</span>
-    
-    <a class="next" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/page/12/">下一页</a>
-    
-  </nav>
-  
+<section class="page-hero">
+  <div class="term">
+    <div class="term-bar">
+      <span class="term-dots"></span>
+      <span class="term-title">~/blog/categories/计算机科学 — zsh</span>
+    </div>
+    <div class="term-body">
+      <div class="tl"><span class="ps">~ $</span> ls -lt categories/<span class="pd">计算机科学/</span></div>
+      <div class="page-hero-stats"><span><strong>154</strong> posts</span></div>
+    </div>
+  </div>
 </section>
+
+<div class="post-list">
+  
+  <a class="pl-item" href="/computer-science/python/basic/40.%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0%E5%92%8CHiveSQL/">
+    <div class="pl-top">
+      <span class="pl-title">Hive简介</span>
+      <span class="pl-date">2025-04-14</span>
+    </div>
+    <div class="pl-meta">
+      <span>1063 字 · 约 4 分钟</span>
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/python/basic/39.Python%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%85%A5MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/">
+    <div class="pl-top">
+      <span class="pl-title">Python程序接入MySQL数据库</span>
+      <span class="pl-date">2025-04-14</span>
+    </div>
+    <div class="pl-meta">
+      <span>2799 字 · 约 10 分钟</span>
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/python/basic/38.%E6%B7%B1%E5%85%A5MySQL/">
+    <div class="pl-top">
+      <span class="pl-title">深入MySQL</span>
+      <span class="pl-date">2025-04-14</span>
+    </div>
+    <div class="pl-meta">
+      <span>8074 字 · 约 24 分钟</span>
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/python/basic/37.SQL%E8%AF%A6%E8%A7%A3/">
+    <div class="pl-top">
+      <span class="pl-title">SQL 和 MySQL 详解</span>
+      <span class="pl-date">2025-04-14</span>
+    </div>
+    <div class="pl-meta">
+      <span>15486 字 · 约 51 分钟</span>
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/python/basic/36.%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8CMySQL%E6%A6%82%E8%BF%B0/">
+    <div class="pl-top">
+      <span class="pl-title">关系型数据库和MySQL概述</span>
+      <span class="pl-date">2025-04-14</span>
+    </div>
+    <div class="pl-meta">
+      <span>3276 字 · 约 10 分钟</span>
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/python/basic/31-35.%E7%8E%A9%E8%BD%ACLinux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+    <div class="pl-top">
+      <span class="pl-title">玩转Linux操作系统</span>
+      <span class="pl-date">2025-04-14</span>
+    </div>
+    <div class="pl-meta">
+      <span>14354 字 · 约 51 分钟</span>
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/python/basic/21-30.Web%E5%89%8D%E7%AB%AF%E6%A6%82%E8%BF%B0/">
+    <div class="pl-top">
+      <span class="pl-title">Web前端概述</span>
+      <span class="pl-date">2025-04-14</span>
+    </div>
+    <div class="pl-meta">
+      <span>5064 字 · 约 20 分钟</span>
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/python/basic/16-20.Python%E8%AF%AD%E8%A8%80%E8%BF%9B%E9%98%B6/">
+    <div class="pl-top">
+      <span class="pl-title">Python语言进阶</span>
+      <span class="pl-date">2025-04-14</span>
+    </div>
+    <div class="pl-meta">
+      <span>9201 字 · 约 33 分钟</span>
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/python/basic/15.%E5%9B%BE%E5%83%8F%E5%92%8C%E5%8A%9E%E5%85%AC%E6%96%87%E6%A1%A3%E5%A4%84%E7%90%86/">
+    <div class="pl-top">
+      <span class="pl-title">图像和办公文档处理</span>
+      <span class="pl-date">2025-04-14</span>
+    </div>
+    <div class="pl-meta">
+      <span>1231 字 · 约 5 分钟</span>
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/python/basic/14.%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E5%BC%80%E5%8F%91/">
+    <div class="pl-top">
+      <span class="pl-title">网络编程入门</span>
+      <span class="pl-date">2025-04-14</span>
+    </div>
+    <div class="pl-meta">
+      <span>5600 字 · 约 17 分钟</span>
+    </div>
+  </a>
+  
+</div>
+
+
+<nav class="pagination">
+  <a class="prev" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/page/10/">上一页</a>
+  <span class="page-number">[11/16]</span>
+  <a class="next" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/page/12/">下一页</a>
+</nav>
+
 
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+      <p>&copy; 2026 沉鱼 &nbsp;·&nbsp; uv:<span id="site-uv">-</span> &nbsp;pv:<span id="site-pv">-</span> &nbsp;·&nbsp; <a href="/atom.xml" title="RSS 订阅">[rss]</a> &nbsp;·&nbsp; powered by <a href="https://hexo.io" target="_blank" rel="noopener">hexo</a></p>
     </div>
   </footer>
 
@@ -410,7 +302,7 @@
   </script>
 
   <script>
-  /* dark mode toggle */
+  /* dark mode toggle：深色为默认，按钮在 dark/light 间切换 */
   (function() {
     var btn = document.getElementById('dark-toggle');
     function notifyGiscus(theme) {
@@ -419,12 +311,12 @@
       iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
     }
     btn.addEventListener('click', function() {
-      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      var next = currentlyDark ? '' : 'dark';
+      var currentlyDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      var next = currentlyDark ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next || 'light');
-      window.__theme = next || 'light';
-      notifyGiscus(next || 'light');
+      localStorage.setItem('theme', next);
+      window.__theme = next;
+      notifyGiscus(next);
     });
   })();
   </script>
@@ -553,48 +445,39 @@
       return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
     }
 
-    /* ---- 事件委托：处理代码块 / Mermaid 点击 ---- */
+    /* ---- 事件委托：仅 Mermaid 流程图支持点击放大 ---- */
     document.addEventListener('click', function(e) {
       /* only react to the play button, not the whole overlay */
       var overlay = e.target.closest('.code-block-play');
       if (!overlay) return;
-      var wrap = overlay.closest('.code-block-wrap, .mermaid-container');
+      var wrap = overlay.closest('.mermaid-container');
       if (!wrap) return;
 
-      if (wrap.classList.contains('code-block-wrap')) {
-        /* 代码块 */
-        var pre = wrap.querySelector('pre');
-        if (!pre) return;
-        var text = pre.innerText || pre.textContent || '';
-        showViewer({ title: '代码块', bodyHtml: text, copyText: text });
-      } else {
-        /* Mermaid 流程图 */
-        var origCode = wrap.getAttribute('data-orig');
-        if (!origCode) return;
-        /* 使用 mermaid.render() 获取 SVG 字符串 */
-        if (typeof mermaid !== 'undefined' && mermaid.render) {
-          var uid = 'mermaid-viewer-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
-          mermaid.render(uid, origCode).then(function(result) {
-            showViewer({ title: '流程图', bodyHtml: result.svg, isMermaid: true });
-          }).catch(function(err) {
-            showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
-          });
-        } else if (typeof mermaid !== 'undefined' && mermaid.run) {
-          /* fallback to run() */
-          var tmp = document.createElement('div');
-          tmp.textContent = origCode;
-          mermaid.run({ nodes: [tmp] }).then(function() {
-            showViewer({ title: '流程图', bodyHtml: tmp.innerHTML || origCode, isMermaid: true });
-          }).catch(function() {
-            showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
-          });
-        } else {
+      var origCode = wrap.getAttribute('data-orig');
+      if (!origCode) return;
+      /* 使用 mermaid.render() 获取 SVG 字符串 */
+      if (typeof mermaid !== 'undefined' && mermaid.render) {
+        var uid = 'mermaid-viewer-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
+        mermaid.render(uid, origCode).then(function(result) {
+          showViewer({ title: '流程图', bodyHtml: result.svg, isMermaid: true });
+        }).catch(function(err) {
           showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
-        }
+        });
+      } else if (typeof mermaid !== 'undefined' && mermaid.run) {
+        /* fallback to run() */
+        var tmp = document.createElement('div');
+        tmp.textContent = origCode;
+        mermaid.run({ nodes: [tmp] }).then(function() {
+          showViewer({ title: '流程图', bodyHtml: tmp.innerHTML || origCode, isMermaid: true });
+        }).catch(function() {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        });
+      } else {
+        showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
       }
     });
 
-    /* ---- 初始化：给每个代码块包上 play 遮罩 ---- */
+    /* ---- 初始化：给每个代码块加复制按钮（不加放大遮罩） ---- */
     var preList = document.querySelectorAll('.post-content figure.highlight td.code pre, .post-content > pre');
     preList.forEach(function(pre) {
       if (pre.closest('.code-block-wrap')) return; /* 已包装 */
@@ -617,18 +500,6 @@
         });
       });
       wrap.appendChild(copyBtn);
-
-      /* 悬浮遮罩（视频播放器风格） */
-      var lineCount = (pre.innerText || '').split('\n').length;
-      var ov = document.createElement('div');
-      ov.className = 'code-block-overlay';
-      ov.innerHTML = '<button class="code-block-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>';
-      wrap.appendChild(ov);
-
-      var info = document.createElement('div');
-      info.className = 'code-block-info';
-      info.innerHTML = '<span>' + lineCount + ' 行</span>';
-      wrap.appendChild(info);
     });
 
     /* ---- Mermaid 容器遮罩 ---- */
@@ -661,7 +532,7 @@
   <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
   <script>
   (function() {
-    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
     mermaid.initialize({
       startOnLoad: false,
       theme: isDark ? 'dark' : 'default',
@@ -675,7 +546,6 @@
      * Hexo 默认高亮插件将 markdown 代码块渲染为：
      *   <figure class="highlight plaintext">
      *     <table><tr><td class="code"><pre><span class="line">...</span>...</pre></td></tr></table>
-     *   </figure>
      * 因此无法通过 code.language-mermaid 选择器定位。
      * 改为：匹配所有 figure.highlight.plaintext，提取其文本内容并检查首行是否为 mermaid 关键字。
      */
@@ -740,7 +610,7 @@
             el.innerHTML = '';
             el.textContent = el.getAttribute('data-orig');
           }
-          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
           mermaid.initialize({
             startOnLoad: false,
             theme: isDark ? 'dark' : 'default',
@@ -755,9 +625,197 @@
   })();
   </script>
 
-  <!-- 统计 API 待接入 -->
   <script>
-  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  /* Matrix 字符雨背景：全屏 canvas 垫底，跟随主题色，空闲/隐藏时暂停 */
+  (function() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var cv = document.createElement('canvas');
+    cv.id = 'matrix-bg';
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;';
+    cv.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var fontSize = 16, cols, drops;
+    var CHARS = '0123456789abcdef{}[]()<>/\\$#*+=;:constfnlet=>';
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(innerWidth / fontSize);
+      drops = [];
+      for (var i = 0; i < cols; i++) drops[i] = Math.random() * -60;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function themeColors() {
+      var s = getComputedStyle(document.documentElement);
+      var green = s.getPropertyValue('--green').trim() || '#00ff9c';
+      var bg = s.getPropertyValue('--bg').trim() || '#0a0e14';
+      return { green: green, bg: bg };
+    }
+    var colors = themeColors();
+    /* 主题切换时更新颜色 */
+    var toggle = document.getElementById('dark-toggle');
+    if (toggle) toggle.addEventListener('click', function() {
+      setTimeout(function() { colors = themeColors(); }, 50);
+    });
+
+    function hexToRgb(hex) {
+      var m = hex.replace('#', '');
+      if (m.length === 3) m = m[0]+m[0]+m[1]+m[1]+m[2]+m[2];
+      var n = parseInt(m, 16);
+      return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+    }
+
+    var running = true, last = 0;
+    function tick(ts) {
+      if (!running) return;
+      /* 限流 ~20fps，字符雨不需要高帧率 */
+      if (ts - last < 50) { requestAnimationFrame(tick); return; }
+      last = ts;
+
+      var rgb = hexToRgb(colors.bg);
+      ctx.fillStyle = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.09)';
+      ctx.fillRect(0, 0, innerWidth, innerHeight);
+      ctx.font = fontSize + 'px ' + fontFamily;
+
+      var g = hexToRgb(colors.green);
+      for (var i = 0; i < cols; i++) {
+        var ch = CHARS[Math.floor(Math.random() * CHARS.length)];
+        /* 头部亮、尾部暗：每列首字符高亮 */
+        var head = Math.random() > 0.96;
+        ctx.fillStyle = 'rgba(' + g[0] + ',' + g[1] + ',' + g[2] + ',' + (head ? 0.9 : 0.45) + ')';
+        ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+        drops[i]++;
+        if (drops[i] * fontSize > innerHeight && Math.random() > 0.975) drops[i] = 0;
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        running = false;
+      } else if (!running) {
+        running = true;
+        last = 0;
+        requestAnimationFrame(tick);
+      }
+    });
+  })();
+  </script>
+
+  <script>
+  /* 点击字符爆裂动效：终端字形 + 重力 + 淡出，颜色跟随主题主色 */
+  (function() {
+    var cv = document.createElement('canvas');
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:9999;';
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var GLYPHS = '01<>/#$*{}[];=+';
+    var parts = [];
+    var raf = null;
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function burst(x, y) {
+      var color = getComputedStyle(document.documentElement)
+        .getPropertyValue('--green').trim() || '#00ff9c';
+      for (var i = 0; i < 16; i++) {
+        var a = Math.random() * Math.PI * 2;
+        var sp = 2 + Math.random() * 5;
+        parts.push({
+          x: x, y: y,
+          vx: Math.cos(a) * sp,
+          vy: Math.sin(a) * sp - 2.5,
+          ch: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
+          life: 1,
+          size: 11 + Math.random() * 7,
+          color: color
+        });
+      }
+      if (!raf) raf = requestAnimationFrame(tick);
+    }
+
+    function tick() {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      for (var i = parts.length - 1; i >= 0; i--) {
+        var p = parts[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.22;           /* 重力 */
+        p.vx *= 0.985;
+        p.life -= 0.018;
+        if (p.life <= 0) { parts.splice(i, 1); continue; }
+        ctx.globalAlpha = Math.max(p.life, 0);
+        ctx.fillStyle = p.color;
+        ctx.font = p.size + 'px ' + fontFamily;
+        ctx.fillText(p.ch, p.x, p.y);
+      }
+      ctx.globalAlpha = 1;
+      raf = parts.length ? requestAnimationFrame(tick) : (ctx.clearRect(0, 0, innerWidth, innerHeight), null);
+    }
+
+    document.addEventListener('pointerdown', function(e) {
+      burst(e.clientX, e.clientY);
+    }, { passive: true });
+  })();
+  </script>
+
+  <!-- 访问量统计（counter-api · Vercel KV） -->
+  <script>
+  (function() {
+    /* TODO(一次性): 部署 counter-api 到 Vercel 后，把下面的地址改成实际域名 */
+    var COUNTER_API = 'https://blog-counter-api.vercel.app/api/counter';
+    if (!COUNTER_API) return;
+
+    /* 访客 ID：localStorage 持久化，用于 UV 去重 */
+    var vid = localStorage.getItem('visitor-id');
+    if (!vid) {
+      vid = 'v-' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      localStorage.setItem('visitor-id', vid);
+    }
+
+    fetch(COUNTER_API, { headers: { 'x-visitor-id': vid } })
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        if (d && d.uv != null) document.getElementById('site-uv').textContent = d.uv;
+        if (d && d.pv != null) document.getElementById('site-pv').textContent = d.pv;
+      })
+      .catch(function() { /* 统计不可用时静默，保持 '-' */ });
+  })();
+  </script>
+
+  <script>
+  /* 按 / 聚焦搜索框，Esc 取消焦点（终端式快捷键） */
+  (function() {
+    document.addEventListener('keydown', function(e) {
+      var typing = /^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName);
+      if (e.key === '/' && !typing) {
+        e.preventDefault();
+        document.getElementById('search-input').focus();
+      } else if (e.key === 'Escape' && typing) {
+        document.activeElement.blur();
+      }
+    });
+  })();
   </script>
 </body>
 </html>

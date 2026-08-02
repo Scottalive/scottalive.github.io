@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://scottalive.github.io</id>
+    <title>沉鱼的博客 • Posts by &#34;grafana&#34; tag</title>
+    <link href="https://scottalive.github.io" />
+    <updated>2026-05-13T03:44:00.000Z</updated>
+    <category term="坏习惯" />
+    <category term="个人分享" />
+    <category term="原则" />
+    <category term="个人详情" />
+    <category term="AI" />
+    <category term="AI日报" />
+    <category term="GitHub热门" />
+    <category term="人工智能" />
+    <category term="技术趋势" />
+    <category term="GPT-5.5" />
+    <category term="OpenAI" />
+    <category term="Codex" />
+    <category term="ClaudeCode" />
+    <category term="Gemini" />
+    <category term="开发工具" />
+    <category term="开源" />
+    <category term="编程笔记" />
+    <category term="Hermes" />
+    <category term="Agent" />
+    <category term="高阶" />
+    <category term="自动化" />
+    <category term="编程助手" />
+    <category term="v0.17" />
+    <category term="OpenSRE" />
+    <category term="SRE" />
+    <category term="AI运维" />
+    <category term="故障排查" />
+    <category term="根因分析" />
+    <category term="DevOps" />
+    <category term="LLM" />
+    <category term="RAG" />
+    <category term="知识库" />
+    <category term="SSE" />
+    <category term="HTTP" />
+    <category term="NousResearch" />
+    <category term="Grafana" />
+    <category term="可观测性" />
+    <category term="网络安全" />
+    <category term="SQL注入" />
+    <category term="XSS" />
+    <category term="CSRF" />
+    <category term="DDoS" />
+    <category term="渗透测试" />
+    <category term="Kubernetes" />
+    <category term="k8s" />
+    <category term="容器编排" />
+    <category term="运维" />
+    <category term="进阶" />
+    <category term="配置" />
+    <category term="kubeconfig" />
+    <category term="kubectl" />
+    <category term="Context" />
+    <category term="心理学知识" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
+    <category term="Helm" />
+    <category term="学习计划" />
+    <category term="力扣算法题" />
+    <category term="算法" />
+    <category term="动态规划" />
+    <category term="JavaSE" />
+    <category term="Java开发面试题" />
+    <category term="SpringBoot" />
+    <category term="Spring" />
+    <category term="接口开发" />
+    <category term="开发注意事项" />
+    <category term="微服务" />
+    <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/devops/opensre-grafana-integration/</id>
+        <title>OpenSRE 如何接通 Grafana：从零到一键告警排查</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/devops/opensre-grafana-integration/"/>
+        <content type="html">&lt;blockquote&gt;
+&lt;p&gt;当告警响起，OpenSRE 如何自动从 Grafana 拉取日志、指标和链路数据，并在你打开电脑之前完成根因分析？这篇文章带你从头搭建 OpenSRE ↔ Grafana 的连接。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;先认识两位主角&#34;&gt;&lt;a href=&#34;#先认识两位主角&#34; class=&#34;headerlink&#34; title=&#34;先认识两位主角&#34;&gt;&lt;/a&gt;先认识两位主角&lt;/h2&gt;&lt;h3 id=&#34;OpenSRE&#34;&gt;&lt;a href=&#34;#OpenSRE&#34; class=&#34;headerlink&#34; title=&#34;OpenSRE&#34;&gt;&lt;/a&gt;OpenSRE&lt;/h3&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/Tracer-Cloud/opensre&#34;&gt;OpenSRE&lt;/a&gt; 是 Tracer Cloud 开源的 AI SRE Agent 框架。它的核心思路很简单：&lt;strong&gt;把告警调查这件事交给 AI agent&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;当生产环境告警触发时，OpenSRE 会自动：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;接收告警&lt;/strong&gt; — 从 Prometheus Alertmanager、Datadog、Grafana Alerting 等渠道接入&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;收集上下文&lt;/strong&gt; — 拉取关联日志、指标曲线、调用链、最近部署记录&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多假设并行推理&lt;/strong&gt; — 自动形成多个根因假设并逐一验证&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;输出报告&lt;/strong&gt; — 给出结构化的根因分析 + 建议操作，推送到 Slack &amp;#x2F; PagerDuty&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;一句话总结：&lt;strong&gt;你起床看到的是结论，不是一堆告警噪音。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;Grafana（在-OpenSRE-语境下）&#34;&gt;&lt;a href=&#34;#Grafana（在-OpenSRE-语境下）&#34; class=&#34;headerlink&#34; title=&#34;Grafana（在 OpenSRE 语境下）&#34;&gt;&lt;/a&gt;Grafana（在 OpenSRE 语境下）&lt;/h3&gt;&lt;p&gt;在 OpenSRE 的集成体系里，Grafana 不只是那个画仪表盘的工具，而是作为&lt;strong&gt;可观测性数据中枢&lt;/strong&gt;被接入。OpenSRE 通过 Grafana 的 API 间接访问其背后的三大数据引擎：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;组件&lt;/th&gt;
+&lt;th&gt;用途&lt;/th&gt;
+&lt;th&gt;对 OpenSRE 的意义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Loki&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;日志聚合&lt;/td&gt;
+&lt;td&gt;AI agent 检索异常时间窗口内的日志，快速定位报错堆栈&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Mimir&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;指标存储&lt;/td&gt;
+&lt;td&gt;查询 CPU &amp;#x2F; 内存 &amp;#x2F; QPS 等时序指标，判断是否有资源瓶颈&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Tempo&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;分布式追踪&lt;/td&gt;
+&lt;td&gt;追踪请求在微服务间的调用链路，找到第一个出错的节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;OpenSRE 目前支持 &lt;strong&gt;60+ 工具集成&lt;/strong&gt;，Grafana 是其中最重要的观测性接入点之一。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第一步：在-Grafana-创建-Service-Account-Token&#34;&gt;&lt;a href=&#34;#第一步：在-Grafana-创建-Service-Account-Token&#34; class=&#34;headerlink&#34; title=&#34;第一步：在 Grafana 创建 Service Account Token&#34;&gt;&lt;/a&gt;第一步：在 Grafana 创建 Service Account Token&lt;/h2&gt;&lt;p&gt;OpenSRE 通过 Grafana 的 HTTP API 来查询 Loki &amp;#x2F; Mimir &amp;#x2F; Tempo 的数据。因此，你需要在 Grafana 里创建一个 &lt;strong&gt;Service Account&lt;/strong&gt; 并生成令牌。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ 注意：Service Account 和 API Key 不同。Grafana 已经将 API Key 标记为过时，推荐使用 Service Account Token。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;操作步骤&#34;&gt;&lt;a href=&#34;#操作步骤&#34; class=&#34;headerlink&#34; title=&#34;操作步骤&#34;&gt;&lt;/a&gt;操作步骤&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;1. 进入 Service Account 管理页面&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;登录 Grafana → 左侧菜单点击 &lt;strong&gt;Administration&lt;/strong&gt; → &lt;strong&gt;Users and access&lt;/strong&gt; → &lt;strong&gt;Service accounts&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 新建 Service Account&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;点击 &lt;strong&gt;Add service account&lt;/strong&gt;，填写 Display name（例如 &lt;code&gt;opensre-agent&lt;/code&gt;），点击 &lt;strong&gt;Create&lt;/strong&gt;。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;命名建议：使用一致的命名规范，如 &lt;code&gt;&amp;lt;应用&amp;gt;-&amp;lt;环境&amp;gt;&lt;/code&gt;，方便后续管理多实例。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;3. 生成 Token&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;进入刚创建的 Service Account → 点击 &lt;strong&gt;Add service account token&lt;/strong&gt; → 填写 Token 名称（如 &lt;code&gt;opensre-read-token&lt;/code&gt;）→ 可选设置过期时间 → 点击 &lt;strong&gt;Generate token&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4. 复制并保存 Token&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Token 只显示这一次，格式类似 &lt;code&gt;glsa_xxxxxxxxxxxxxxxxxxxxxxxxxxxx&lt;/code&gt;。复制后妥善保管。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5. 分配权限&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;为新创建的 Service Account 分配角色。至少需要：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对 Loki &amp;#x2F; Mimir &amp;#x2F; Tempo 数据源的 &lt;strong&gt;查询权限&lt;/strong&gt;（&lt;code&gt;datasources:query&lt;/code&gt;）&lt;/li&gt;
+&lt;li&gt;对相关 Dashboard 的 &lt;strong&gt;读取权限&lt;/strong&gt;（&lt;code&gt;datasources:read&lt;/code&gt;）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果使用 Grafana Enterprise，还可以借助 RBAC 实现更精细的权限控制。最简方案是直接赋予 &lt;code&gt;Viewer&lt;/code&gt; 角色。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;第二步：在-OpenSRE-中配置-Grafana-集成&#34;&gt;&lt;a href=&#34;#第二步：在-OpenSRE-中配置-Grafana-集成&#34; class=&#34;headerlink&#34; title=&#34;第二步：在 OpenSRE 中配置 Grafana 集成&#34;&gt;&lt;/a&gt;第二步：在 OpenSRE 中配置 Grafana 集成&lt;/h2&gt;&lt;p&gt;OpenSRE 的配置有两种路径：**Web UI（企业版）**和 &lt;strong&gt;CLI 环境变量&lt;/strong&gt;，选其一即可。&lt;/p&gt;
+&lt;h3 id=&#34;方式一：Web-UI-配置（推荐，适用于团队使用）&#34;&gt;&lt;a href=&#34;#方式一：Web-UI-配置（推荐，适用于团队使用）&#34; class=&#34;headerlink&#34; title=&#34;方式一：Web UI 配置（推荐，适用于团队使用）&#34;&gt;&lt;/a&gt;方式一：Web UI 配置（推荐，适用于团队使用）&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;登录 &lt;a href=&#34;https://app.tracer.cloud/&#34;&gt;app.tracer.cloud&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;进入 &lt;strong&gt;Integrations&lt;/strong&gt; → &lt;strong&gt;Grafana&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;填写以下信息：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字段&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;th&gt;示例&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Name&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;自定义名称，用于区分多实例&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;prod-grafana&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Endpoint URL&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Grafana 实例地址&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;https://grafana.your-company.com&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;API Key&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;上一步生成的 Service Account Token&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;glsa_xxxx...&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;点击 &lt;strong&gt;Save&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;配置完成后，同一组织下的所有成员都能使用这个集成。&lt;/p&gt;
+&lt;h3 id=&#34;方式二：CLI-环境变量（适用于本地开发-单机部署）&#34;&gt;&lt;a href=&#34;#方式二：CLI-环境变量（适用于本地开发-单机部署）&#34; class=&#34;headerlink&#34; title=&#34;方式二：CLI 环境变量（适用于本地开发 &amp;#x2F; 单机部署）&#34;&gt;&lt;/a&gt;方式二：CLI 环境变量（适用于本地开发 &amp;#x2F; 单机部署）&lt;/h3&gt;&lt;p&gt;如果用的是 &lt;code&gt;opensre&lt;/code&gt; CLI 二进制文件，通过环境变量配置：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; GRAFANA_INSTANCE_URL=&lt;span class=&#34;string&#34;&gt;&amp;quot;https://grafana.your-company.com&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; GRAFANA_READ_TOKEN=&lt;span class=&#34;string&#34;&gt;&amp;quot;glsa_xxxx...&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;opensre onboard  &lt;span class=&#34;comment&#34;&gt;# 或 opensre integrations setup&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;运行 &lt;code&gt;opensre integrations verify&lt;/code&gt; 验证连接是否正常：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;opensre integrations verify grafana&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;多实例配置：生产-预发布隔离&#34;&gt;&lt;a href=&#34;#多实例配置：生产-预发布隔离&#34; class=&#34;headerlink&#34; title=&#34;多实例配置：生产 &amp;#x2F; 预发布隔离&#34;&gt;&lt;/a&gt;多实例配置：生产 &amp;#x2F; 预发布隔离&lt;/h2&gt;&lt;p&gt;实际场景中，一个团队往往有多个 Grafana 实例（生产环境 + 预发布环境）。OpenSRE 支持&lt;strong&gt;多实例配置&lt;/strong&gt;，让 AI agent 在排查不同环境的告警时自动路由到正确的数据源。&lt;/p&gt;
+&lt;h3 id=&#34;环境变量方式&#34;&gt;&lt;a href=&#34;#环境变量方式&#34; class=&#34;headerlink&#34; title=&#34;环境变量方式&#34;&gt;&lt;/a&gt;环境变量方式&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; GRAFANA_INSTANCES=&lt;span class=&#34;string&#34;&gt;&amp;#x27;[&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;  &amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;    &amp;quot;name&amp;quot;: &amp;quot;prod&amp;quot;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;    &amp;quot;tags&amp;quot;: &amp;#123;&amp;quot;env&amp;quot;: &amp;quot;prod&amp;quot;&amp;#125;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;    &amp;quot;endpoint&amp;quot;: &amp;quot;https://prod.grafana.net&amp;quot;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;    &amp;quot;api_key&amp;quot;: &amp;quot;glsa_prod_xxxx&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;  &amp;#125;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;  &amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;    &amp;quot;name&amp;quot;: &amp;quot;staging&amp;quot;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;    &amp;quot;tags&amp;quot;: &amp;#123;&amp;quot;env&amp;quot;: &amp;quot;staging&amp;quot;&amp;#125;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;    &amp;quot;endpoint&amp;quot;: &amp;quot;https://staging.grafana.net&amp;quot;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;    &amp;quot;api_key&amp;quot;: &amp;quot;glsa_staging_xxxx&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;  &amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;]&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;告警中指定实例&#34;&gt;&lt;a href=&#34;#告警中指定实例&#34; class=&#34;headerlink&#34; title=&#34;告警中指定实例&#34;&gt;&lt;/a&gt;告警中指定实例&lt;/h3&gt;&lt;p&gt;告警载荷可以携带 &lt;code&gt;grafana_instance&lt;/code&gt; 字段，OpenSRE 会据此选择对应的实例：&lt;/p&gt;
+&lt;figure class=&#34;highlight json&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;alert_source&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;grafana&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;grafana_instance&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;staging&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;annotations&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;&amp;quot;summary&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;预发布环境订单服务延迟过高&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;&amp;quot;description&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;P99 延迟超过 2s，持续 5 分钟&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;如果告警未指定实例，OpenSRE 默认使用配置列表中的第一个实例。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;OpenSRE-如何使用-Grafana-数据？&#34;&gt;&lt;a href=&#34;#OpenSRE-如何使用-Grafana-数据？&#34; class=&#34;headerlink&#34; title=&#34;OpenSRE 如何使用 Grafana 数据？&#34;&gt;&lt;/a&gt;OpenSRE 如何使用 Grafana 数据？&lt;/h2&gt;&lt;p&gt;连接打通之后，来看看一次完整的自动化排查流程：&lt;/p&gt;
+&lt;figure class=&#34;highlight x86asm&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;告警触发&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;OpenSRE 接收告警&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ├── 解析告警元信息（服务名、时间窗口、指标名）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ├── 通过 Grafana API 并行查询：&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  │   ├── Loki：拉取异常时间段的错误日志&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  │   ├── Mimir：查询相关指标走势（&lt;span class=&#34;meta&#34;&gt;CPU&lt;/span&gt; spike？内存泄漏？）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  │   └── Tempo：追踪慢请求的完整调用链路&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ├── 结合其他集成数据：&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  │   ├── GitHub：检查最近部署 / 配置变更&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  │   ├── Kubernetes：查看 Pod 状态和事件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  │   └── AWS CloudWatch：对比基础设施指标&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ├── 多假设并行推理 → 确定最可能的根因&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  │&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ▼&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;生成报告 → 推送到 Slack / PagerDuty&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;关键设计亮点：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;并行查询&lt;/strong&gt; — 不是逐个排查，而是同时拉取日志、指标、链路，大幅缩短调查时间&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;证据关联&lt;/strong&gt; — 每个结论都附带数据来源，不是凭空猜测&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;置信度评估&lt;/strong&gt; — AI 会对每个假设给出置信度，低置信度时建议人工介入&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;实战演示&#34;&gt;&lt;a href=&#34;#实战演示&#34; class=&#34;headerlink&#34; title=&#34;实战演示&#34;&gt;&lt;/a&gt;实战演示&lt;/h2&gt;&lt;h3 id=&#34;启动交互式排查&#34;&gt;&lt;a href=&#34;#启动交互式排查&#34; class=&#34;headerlink&#34; title=&#34;启动交互式排查&#34;&gt;&lt;/a&gt;启动交互式排查&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;opensre&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;进入 REPL 后，用自然语言描述问题：&lt;/p&gt;
+&lt;figure class=&#34;highlight node-repl&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;language-javascript&#34;&gt;grafana 告警说 payment-service 的 &lt;span class=&#34;variable constant_&#34;&gt;P99&lt;/span&gt; 延迟飙到 &lt;span class=&#34;number&#34;&gt;3&lt;/span&gt; 秒了，帮我查一下&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;OpenSRE 会：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;自动读取 Grafana 告警规则配置&lt;/li&gt;
+&lt;li&gt;查询 Mimir 中 payment-service 的延迟指标&lt;/li&gt;
+&lt;li&gt;在 Loki 中搜索对应时间窗口的 ERROR 日志&lt;/li&gt;
+&lt;li&gt;通过 Tempo 追踪慢请求链路&lt;/li&gt;
+&lt;li&gt;询问你最近有没有部署或配置变更&lt;/li&gt;
+&lt;li&gt;给出根因分析&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;文件式排查&#34;&gt;&lt;a href=&#34;#文件式排查&#34; class=&#34;headerlink&#34; title=&#34;文件式排查&#34;&gt;&lt;/a&gt;文件式排查&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;opensre investigate -i alert_payload.json --output rca.json&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code&gt;alert_payload.json&lt;/code&gt; 示例：&lt;/p&gt;
+&lt;figure class=&#34;highlight json&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;alert_source&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;grafana&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;grafana_instance&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;prod&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;title&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;payment-service 高延迟&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;severity&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;critical&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;service&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;payment-service&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;metric&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;http_request_duration_seconds_p99&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;threshold&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;3.0&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;current_value&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;3.8&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;window&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;5m&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;输出文件结构：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;theory/hypothesis_1.md   &lt;span class=&#34;comment&#34;&gt;# 假设1：数据库连接池耗尽&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;theory/hypothesis_2.md   &lt;span class=&#34;comment&#34;&gt;# 假设2：上游服务响应变慢&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;report.md                &lt;span class=&#34;comment&#34;&gt;# 最终根因分析报告&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;rca.json                 &lt;span class=&#34;comment&#34;&gt;# 结构化机读输出&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;常见问题排查&#34;&gt;&lt;a href=&#34;#常见问题排查&#34; class=&#34;headerlink&#34; title=&#34;常见问题排查&#34;&gt;&lt;/a&gt;常见问题排查&lt;/h2&gt;&lt;h3 id=&#34;Q1-opensre-integrations-verify-grafana-报-401&#34;&gt;&lt;a href=&#34;#Q1-opensre-integrations-verify-grafana-报-401&#34; class=&#34;headerlink&#34; title=&#34;Q1: opensre integrations verify grafana 报 401&#34;&gt;&lt;/a&gt;Q1: &lt;code&gt;opensre integrations verify grafana&lt;/code&gt; 报 401&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;原因&lt;/strong&gt;：Token 无效或已过期。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;检查 Token 是否完整复制（不要漏掉 &lt;code&gt;glsa_&lt;/code&gt; 前缀）&lt;/li&gt;
+&lt;li&gt;在 Grafana 中确认 Service Account 未被禁用&lt;/li&gt;
+&lt;li&gt;如果 Token 过期，重新生成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;Q2-能连接-Grafana，但查不到-Loki-Mimir-Tempo-数据&#34;&gt;&lt;a href=&#34;#Q2-能连接-Grafana，但查不到-Loki-Mimir-Tempo-数据&#34; class=&#34;headerlink&#34; title=&#34;Q2: 能连接 Grafana，但查不到 Loki &amp;#x2F; Mimir &amp;#x2F; Tempo 数据&#34;&gt;&lt;/a&gt;Q2: 能连接 Grafana，但查不到 Loki &amp;#x2F; Mimir &amp;#x2F; Tempo 数据&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;原因&lt;/strong&gt;：Service Account 权限不足。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;确认 Service Account 至少有 &lt;code&gt;Viewer&lt;/code&gt; 角色&lt;/li&gt;
+&lt;li&gt;检查数据源权限：Grafana → Data Sources → 目标数据源 → Permissions → 确认 Service Account 有 Query 权限&lt;/li&gt;
+&lt;li&gt;验证命令：用 Token 直接调用 Grafana API 测试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;curl -H &lt;span class=&#34;string&#34;&gt;&amp;quot;Authorization: Bearer glsa_xxxx&amp;quot;&lt;/span&gt; \&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;string&#34;&gt;&amp;quot;https://grafana.example.com/api/datasources&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;Q3-多实例配置不生效&#34;&gt;&lt;a href=&#34;#Q3-多实例配置不生效&#34; class=&#34;headerlink&#34; title=&#34;Q3: 多实例配置不生效&#34;&gt;&lt;/a&gt;Q3: 多实例配置不生效&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;原因&lt;/strong&gt;：环境变量 &lt;code&gt;GRAFANA_INSTANCES&lt;/code&gt; 和本地存储文件 &lt;code&gt;~/.config/opensre/integrations.json&lt;/code&gt; 冲突时，&lt;strong&gt;存储文件优先级更高&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;要么删除存储文件中对应的 Grafana 记录，仅使用环境变量&lt;/li&gt;
+&lt;li&gt;要么直接在存储文件中配置多实例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;最佳实践&#34;&gt;&lt;a href=&#34;#最佳实践&#34; class=&#34;headerlink&#34; title=&#34;最佳实践&#34;&gt;&lt;/a&gt;最佳实践&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Token 最小权限原则&lt;/strong&gt; — 只给 &lt;code&gt;Viewer&lt;/code&gt; 角色，OpenSRE 只需要读数据&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多实例命名规范&lt;/strong&gt; — 使用 &lt;code&gt;prod&lt;/code&gt; &amp;#x2F; &lt;code&gt;staging&lt;/code&gt; &amp;#x2F; &lt;code&gt;dev&lt;/code&gt; 等统一标签，方便告警路由&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Token 定期轮换&lt;/strong&gt; — 建议每 90 天更换一次，可以设置 Service Account Token 的过期时间&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;先验证再上线&lt;/strong&gt; — 每次修改配置后执行 &lt;code&gt;opensre integrations verify grafana&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;告警中携带实例信息&lt;/strong&gt; — 多环境场景下，在告警规则里添加 &lt;code&gt;grafana_instance&lt;/code&gt; 注解&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;OpenSRE 接通 Grafana 的精髓只有两步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;在 Grafana 创建 Service Account Token&lt;/strong&gt;（30 秒）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;在 OpenSRE 填入 URL + Token&lt;/strong&gt;（30 秒）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;一分钟打通后，这个 AI agent 就拥有了读取你全部日志（Loki）、指标（Mimir）和链路（Tempo）的能力。当告警凌晨响起来，它在你睡着的时候就把根因查好了。&lt;/p&gt;
+&lt;p&gt;这不是魔法，只是把 SRE 日常的排查动作流程化、并行化，交给了 AI。&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考文档：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.opensre.com/docs&#34;&gt;OpenSRE 官方文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://grafana.com/docs/grafana/latest/administration/service-accounts/&#34;&gt;Grafana Service Account 文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.opensre.com/docs/multi-instance-integrations&#34;&gt;OpenSRE 多实例集成指南&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+</content>
+        <category term="AI" />
+        <category term="OpenSRE" />
+        <category term="SRE" />
+        <category term="Grafana" />
+        <category term="可观测性" />
+        <updated>2026-05-13T03:44:00.000Z</updated>
+    </entry>
+</feed>

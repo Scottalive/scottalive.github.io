@@ -1,0 +1,369 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://scottalive.github.io</id>
+    <title>沉鱼的博客 • Posts by &#34;根因分析&#34; tag</title>
+    <link href="https://scottalive.github.io" />
+    <updated>2026-05-10T17:10:00.000Z</updated>
+    <category term="坏习惯" />
+    <category term="个人分享" />
+    <category term="原则" />
+    <category term="个人详情" />
+    <category term="AI" />
+    <category term="AI日报" />
+    <category term="GitHub热门" />
+    <category term="人工智能" />
+    <category term="技术趋势" />
+    <category term="GPT-5.5" />
+    <category term="OpenAI" />
+    <category term="Codex" />
+    <category term="ClaudeCode" />
+    <category term="Gemini" />
+    <category term="开发工具" />
+    <category term="开源" />
+    <category term="编程笔记" />
+    <category term="Hermes" />
+    <category term="Agent" />
+    <category term="高阶" />
+    <category term="自动化" />
+    <category term="编程助手" />
+    <category term="v0.17" />
+    <category term="OpenSRE" />
+    <category term="SRE" />
+    <category term="AI运维" />
+    <category term="故障排查" />
+    <category term="根因分析" />
+    <category term="DevOps" />
+    <category term="LLM" />
+    <category term="RAG" />
+    <category term="知识库" />
+    <category term="SSE" />
+    <category term="HTTP" />
+    <category term="NousResearch" />
+    <category term="Grafana" />
+    <category term="可观测性" />
+    <category term="网络安全" />
+    <category term="SQL注入" />
+    <category term="XSS" />
+    <category term="CSRF" />
+    <category term="DDoS" />
+    <category term="渗透测试" />
+    <category term="Kubernetes" />
+    <category term="k8s" />
+    <category term="容器编排" />
+    <category term="运维" />
+    <category term="进阶" />
+    <category term="配置" />
+    <category term="kubeconfig" />
+    <category term="kubectl" />
+    <category term="Context" />
+    <category term="心理学知识" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
+    <category term="Helm" />
+    <category term="学习计划" />
+    <category term="力扣算法题" />
+    <category term="算法" />
+    <category term="动态规划" />
+    <category term="JavaSE" />
+    <category term="Java开发面试题" />
+    <category term="SpringBoot" />
+    <category term="Spring" />
+    <category term="接口开发" />
+    <category term="开发注意事项" />
+    <category term="微服务" />
+    <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/OpenSRE-%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98-%E6%8E%92%E6%9F%A5%E4%B8%8E%E6%8A%A5%E5%91%8A%E6%8C%87%E5%8D%97/</id>
+        <title>OpenSRE 进阶实战：排查方法论与报告解读指南</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/OpenSRE-%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98-%E6%8E%92%E6%9F%A5%E4%B8%8E%E6%8A%A5%E5%91%8A%E6%8C%87%E5%8D%97/"/>
+        <content type="html">&lt;h2 id=&#34;引言&#34;&gt;&lt;a href=&#34;#引言&#34; class=&#34;headerlink&#34; title=&#34;引言&#34;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;在&lt;a href=&#34;/2026/05/11/OpenSRE-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/&#34;&gt;上一篇文章&lt;/a&gt;中，我们介绍了 OpenSRE 的安装与基础用法。本文将深入探讨三个实战核心话题：&lt;strong&gt;如何高效使用 OpenSRE 进行生产故障排查&lt;/strong&gt;、&lt;strong&gt;使用过程中的关键注意事项&lt;/strong&gt;，以及&lt;strong&gt;如何理解和运用它生成的调查报告&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;项目地址：&lt;a href=&#34;https://github.com/Tracer-Cloud/OpenSRE&#34;&gt;GitHub - Tracer-Cloud&amp;#x2F;OpenSRE&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;阅读本文需要你已经完成 &lt;code&gt;opensre onboard&lt;/code&gt; 初始化配置。如果还没有，请先参考上一篇安装指南。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;一、交互式-Shell-深度使用&#34;&gt;&lt;a href=&#34;#一、交互式-Shell-深度使用&#34; class=&#34;headerlink&#34; title=&#34;一、交互式 Shell 深度使用&#34;&gt;&lt;/a&gt;一、交互式 Shell 深度使用&lt;/h2&gt;&lt;h3 id=&#34;1-1-会话管理&#34;&gt;&lt;a href=&#34;#1-1-会话管理&#34; class=&#34;headerlink&#34; title=&#34;1.1 会话管理&#34;&gt;&lt;/a&gt;1.1 会话管理&lt;/h3&gt;&lt;p&gt;启动 OpenSRE 交互式 Shell（需要 TTY 终端）：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;opensre&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;进入后在提示符下直接描述故障现象，OpenSRE 会自动拉取关联数据并启动调查。关键命令：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;th&gt;作用&lt;/th&gt;
+&lt;th&gt;使用场景&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/help&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;查看完整帮助&lt;/td&gt;
+&lt;td&gt;忘记命令时&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/status&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;查看当前调查状态&lt;/td&gt;
+&lt;td&gt;调查中途确认进度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/clear&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;清屏&lt;/td&gt;
+&lt;td&gt;输出过多时&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/reset&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;重置会话&lt;/td&gt;
+&lt;td&gt;开始新的独立调查&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/trust&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;启用信任模式&lt;/td&gt;
+&lt;td&gt;允许执行修复动作&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/effort low|medium|high|xhigh|max&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;调推理深度&lt;/td&gt;
+&lt;td&gt;控制 AI 思考深度与成本&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/exit&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;退出&lt;/td&gt;
+&lt;td&gt;结束会话&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;1-2-effort-推理深度详解&#34;&gt;&lt;a href=&#34;#1-2-effort-推理深度详解&#34; class=&#34;headerlink&#34; title=&#34;1.2 /effort 推理深度详解&#34;&gt;&lt;/a&gt;1.2 &lt;code&gt;/effort&lt;/code&gt; 推理深度详解&lt;/h3&gt;&lt;p&gt;这是影响调查质量和成本的关键参数，仅对 OpenAI 和 Codex 提供商生效：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;/effort low      &lt;span class=&#34;comment&#34;&gt;# 快速排查，适合已知模式的简单告警&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/effort medium   &lt;span class=&#34;comment&#34;&gt;# 默认级别，平衡速度与深度&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/effort high     &lt;span class=&#34;comment&#34;&gt;# 复杂故障，需要跨系统关联分析&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/effort xhigh    &lt;span class=&#34;comment&#34;&gt;# 根因模糊、涉及多层依赖的疑难杂症&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;/effort max      &lt;span class=&#34;comment&#34;&gt;# 极限推理，最大程度挖掘关联线索&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;建议策略：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;初次调查用 &lt;code&gt;medium&lt;/code&gt;，先看全局&lt;/li&gt;
+&lt;li&gt;根因不明确时升级到 &lt;code&gt;high&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;生产 P0 事故直接 &lt;code&gt;xhigh&lt;/code&gt; 或 &lt;code&gt;max&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;日常巡检&amp;#x2F;已知问题用 &lt;code&gt;low&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;1-3-使用技巧&#34;&gt;&lt;a href=&#34;#1-3-使用技巧&#34; class=&#34;headerlink&#34; title=&#34;1.3 使用技巧&#34;&gt;&lt;/a&gt;1.3 使用技巧&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;逐步聚焦法：&lt;/strong&gt; 不要在第一条消息里把所有信息塞进去。先描述告警现象 → 让 OpenSRE 拉取上下文 → 根据初步发现追问 → 逐步收敛到根因。这比一次性大段描述效果好得多。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;善用 &lt;code&gt;Ctrl+C&lt;/code&gt;：&lt;/strong&gt; 如果当前调查方向不对，直接按 &lt;code&gt;Ctrl+C&lt;/code&gt; 取消——&lt;strong&gt;不会丢失会话状态&lt;/strong&gt;，你可以立即调整描述重新开始。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;二、单次调查模式&#34;&gt;&lt;a href=&#34;#二、单次调查模式&#34; class=&#34;headerlink&#34; title=&#34;二、单次调查模式&#34;&gt;&lt;/a&gt;二、单次调查模式&lt;/h2&gt;&lt;h3 id=&#34;2-1-基本用法&#34;&gt;&lt;a href=&#34;#2-1-基本用法&#34; class=&#34;headerlink&#34; title=&#34;2.1 基本用法&#34;&gt;&lt;/a&gt;2.1 基本用法&lt;/h3&gt;&lt;p&gt;直接对告警文件执行一次性调查（无需进入交互式 Shell）：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;opensre investigate -i &amp;lt;告警JSON文件路径&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;OpenSRE 内置了大量测试用例，可以用来快速验证环境：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Kubernetes 告警场景&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;opensre investigate -i tests/e2e/kubernetes/fixtures/datadog_k8s_alert.json&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# RDS Postgres 合成场景&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;opensre investigate -i tests/synthetic/rds_postgres/fixtures/alert.json&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;2-2-告警文件格式&#34;&gt;&lt;a href=&#34;#2-2-告警文件格式&#34; class=&#34;headerlink&#34; title=&#34;2.2 告警文件格式&#34;&gt;&lt;/a&gt;2.2 告警文件格式&lt;/h3&gt;&lt;p&gt;告警文件是 JSON 格式，OpenSRE 会解析其中的关键字段来启动调查。一个典型的告警文件结构：&lt;/p&gt;
+&lt;figure class=&#34;highlight json&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;title&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;CPU throttling detected on payment-service&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;severity&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;critical&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;service&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;payment-service&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;environment&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;production&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;metrics&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;&amp;quot;cpu_throttle_pct&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;85&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;&amp;quot;memory_usage_mb&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;2048&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;timeframe&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;last 15 minutes&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;&amp;quot;links&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;&amp;quot;dashboard&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;https://grafana.example.com/d/...&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;,&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;&amp;quot;runbook&amp;quot;&lt;/span&gt;&lt;span class=&#34;punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;https://wiki.example.com/runbooks/payment-cpu&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;关键在于提供足够上下文：受影响的 &lt;strong&gt;服务名&lt;/strong&gt;、&lt;strong&gt;环境标识&lt;/strong&gt;、&lt;strong&gt;关键指标异常值&lt;/strong&gt;和&lt;strong&gt;时间窗口&lt;/strong&gt;。Runbook 链接尤其重要——OpenSRE 会读取并应用其中的排查步骤。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;三、排查方法论&#34;&gt;&lt;a href=&#34;#三、排查方法论&#34; class=&#34;headerlink&#34; title=&#34;三、排查方法论&#34;&gt;&lt;/a&gt;三、排查方法论&lt;/h2&gt;&lt;h3 id=&#34;3-1-OpenSRE-的排查流程&#34;&gt;&lt;a href=&#34;#3-1-OpenSRE-的排查流程&#34; class=&#34;headerlink&#34; title=&#34;3.1 OpenSRE 的排查流程&#34;&gt;&lt;/a&gt;3.1 OpenSRE 的排查流程&lt;/h3&gt;&lt;p&gt;当告警触发时，OpenSRE 自动执行以下流程：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[📨 收到告警] --&amp;gt; B[🔍 提取告警上下文]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C&amp;#123;连接可观测性平台&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D1[拉取关联日志]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D2[拉取关联指标]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D3[拉取链路追踪]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D1 --&amp;gt; E[🧠 跨系统推理]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D2 --&amp;gt; E&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D3 --&amp;gt; E&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F[📋 匹配 Runbook 步骤]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G[📊 生成根因假设]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H&amp;#123;假设验证&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt;|证据充分| I[📝 生成调查报告]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt;|证据不足| J[深入拉取更多数据]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    J --&amp;gt; G&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    I --&amp;gt; K[📤 推送到 Slack/PagerDuty]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;3-2-典型排查场景&#34;&gt;&lt;a href=&#34;#3-2-典型排查场景&#34; class=&#34;headerlink&#34; title=&#34;3.2 典型排查场景&#34;&gt;&lt;/a&gt;3.2 典型排查场景&lt;/h3&gt;&lt;h4 id=&#34;场景一：Kubernetes-Pod-CPU-限流&#34;&gt;&lt;a href=&#34;#场景一：Kubernetes-Pod-CPU-限流&#34; class=&#34;headerlink&#34; title=&#34;场景一：Kubernetes Pod CPU 限流&#34;&gt;&lt;/a&gt;场景一：Kubernetes Pod CPU 限流&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;现象：&lt;/strong&gt; payment-service Pod 持续触发 CPU throttling 告警。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;在交互式 Shell 中的排查思路：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight node-repl&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;language-javascript&#34;&gt;payment-service 在过去 &lt;span class=&#34;number&#34;&gt;15&lt;/span&gt; 分钟内 &lt;span class=&#34;variable constant_&#34;&gt;CPU&lt;/span&gt; throttling 达到 &lt;span class=&#34;number&#34;&gt;85&lt;/span&gt;%，&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  这个服务部署在 Kubernetes production 集群，请帮我排查根因&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ← OpenSRE 拉取 K8s metrics、Pod 日志、相关 Deployment 配置&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;language-javascript&#34;&gt;看看同一时间段内有没有相关的 deployment 变更记录&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ← OpenSRE 查询 GitOps/ArgoCD 变更历史&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;language-javascript&#34;&gt;对比 throttling 开始前后的 &lt;span class=&#34;variable constant_&#34;&gt;HPA&lt;/span&gt; 缩放事件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ← OpenSRE 分析 HPA 行为和资源配额&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;关键操作：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先让 OpenSRE 拉取关联数据，不要跳过这一步&lt;/li&gt;
+&lt;li&gt;根据初步发现引导下一步方向（变更？流量尖峰？资源泄漏？）&lt;/li&gt;
+&lt;li&gt;要求对比分析（变更前后、不同 Pod 之间）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;场景二：数据库响应延迟&#34;&gt;&lt;a href=&#34;#场景二：数据库响应延迟&#34; class=&#34;headerlink&#34; title=&#34;场景二：数据库响应延迟&#34;&gt;&lt;/a&gt;场景二：数据库响应延迟&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;现象：&lt;/strong&gt; RDS PostgreSQL 查询延迟从 50ms 飙升至 2s。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;排查策略：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight pgsql&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; production 环境 RDS PostgreSQL 主库查询延迟从 &lt;span class=&#34;number&#34;&gt;50&lt;/span&gt;ms 升到 &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;s，&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  时间范围：最近 &lt;span class=&#34;number&#34;&gt;30&lt;/span&gt; 分钟，请分析可能原因&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ← OpenSRE 拉取 RDS metrics、慢查询日志、连接数&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; 检查是否有锁等待或长事务&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  ← OpenSRE 查询 pg_stat_activity、锁信息&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;gt; 对比延迟上升前后的查询模式变化&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt; OpenSRE 在数据库场景下会连接你配置的数据库实例。确保相关凭证已在 &lt;code&gt;onboard&lt;/code&gt; 时配置好。&lt;/p&gt;
+&lt;h3 id=&#34;3-3-排查最佳实践&#34;&gt;&lt;a href=&#34;#3-3-排查最佳实践&#34; class=&#34;headerlink&#34; title=&#34;3.3 排查最佳实践&#34;&gt;&lt;/a&gt;3.3 排查最佳实践&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;1. 时间窗口要精确&lt;/strong&gt;&lt;br&gt;不要说 “最近出问题了”，要说 “过去 30 分钟内”，让 OpenSRE 能精确限定数据拉取范围。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 提供环境和服务名&lt;/strong&gt;&lt;br&gt;“staging 环境的 recommendation-service” 远比 “有个服务挂了” 有效。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. 给出已知指标异常值&lt;/strong&gt;&lt;br&gt;如果你已经在 Grafana&amp;#x2F;Datadog 上看到了具体异常指标，直接告诉 OpenSRE，可以加速定位。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4. 分步推进，不要一次给太多&lt;/strong&gt;&lt;br&gt;让 AI 先看全局再深入局部，保持单轮信息量适中。这是 LLM 交互的黄金法则。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;四、部署进阶与注意事项&#34;&gt;&lt;a href=&#34;#四、部署进阶与注意事项&#34; class=&#34;headerlink&#34; title=&#34;四、部署进阶与注意事项&#34;&gt;&lt;/a&gt;四、部署进阶与注意事项&lt;/h2&gt;&lt;h3 id=&#34;4-1-部署方案对比&#34;&gt;&lt;a href=&#34;#4-1-部署方案对比&#34; class=&#34;headerlink&#34; title=&#34;4.1 部署方案对比&#34;&gt;&lt;/a&gt;4.1 部署方案对比&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;维度&lt;/th&gt;
+&lt;th&gt;LangGraph Platform（推荐）&lt;/th&gt;
+&lt;th&gt;Railway（自托管）&lt;/th&gt;
+&lt;th&gt;本地模式&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;适用场景&lt;/td&gt;
+&lt;td&gt;生产环境&lt;/td&gt;
+&lt;td&gt;中小团队自托管&lt;/td&gt;
+&lt;td&gt;个人开发&amp;#x2F;测试&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;运维复杂度&lt;/td&gt;
+&lt;td&gt;低&lt;/td&gt;
+&lt;td&gt;中&lt;/td&gt;
+&lt;td&gt;极低&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;可扩展性&lt;/td&gt;
+&lt;td&gt;高&lt;/td&gt;
+&lt;td&gt;中&lt;/td&gt;
+&lt;td&gt;受限&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;成本&lt;/td&gt;
+&lt;td&gt;按量付费&lt;/td&gt;
+&lt;td&gt;固定成本&lt;/td&gt;
+&lt;td&gt;仅本地算力&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Postgres&amp;#x2F;Redis&lt;/td&gt;
+&lt;td&gt;平台托管&lt;/td&gt;
+&lt;td&gt;需自行配置&lt;/td&gt;
+&lt;td&gt;不需要&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;4-2-环境变量配置详解&#34;&gt;&lt;a href=&#34;#4-2-环境变量配置详解&#34; class=&#34;headerlink&#34; title=&#34;4.2 环境变量配置详解&#34;&gt;&lt;/a&gt;4.2 环境变量配置详解&lt;/h3&gt;&lt;p&gt;核心环境变量（按优先级排列）：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# === 必备：LLM 配置 ===&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; LLM_PROVIDER=anthropic           &lt;span class=&#34;comment&#34;&gt;# anthropic | openai | gemini | openrouter | ollama&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; ANTHROPIC_API_KEY=sk-ant-xxx     &lt;span class=&#34;comment&#34;&gt;# 对应提供商的 API Key&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# === 部署模式 ===&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; OPENSRE_DEPLOYMENT_METHOD=&lt;span class=&#34;built_in&#34;&gt;local&lt;/span&gt;  &lt;span class=&#34;comment&#34;&gt;# local | railway | langsmith&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# === 可观测性集成（按需配置）===&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Datadog&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; DATADOG_API_KEY=xxx&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; DATADOG_APP_KEY=xxx&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Grafana&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; GRAFANA_URL=https://grafana.example.com&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; GRAFANA_API_KEY=xxx&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# AWS&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; AWS_ACCESS_KEY_ID=xxx&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; AWS_SECRET_ACCESS_KEY=xxx&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; AWS_DEFAULT_REGION=us-east-1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Slack 通知&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; SLACK_BOT_TOKEN=xoxb-xxx&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; SLACK_CHANNEL=&lt;span class=&#34;comment&#34;&gt;#incidents&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# === 数据库/Redis（Railway 部署必须）===&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; DATABASE_URI=postgresql://user:pass@host:5432/opensre&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; REDIS_URI=redis://user:pass@host:6379&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# === 遥测控制 ===&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; OPENSRE_NO_TELEMETRY=1           &lt;span class=&#34;comment&#34;&gt;# 完全关闭遥测&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 或分别控制：&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; OPENSRE_ANALYTICS_DISABLED=1     &lt;span class=&#34;comment&#34;&gt;# 仅关闭 PostHog 分析&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; OPENSRE_SENTRY_DISABLED=1        &lt;span class=&#34;comment&#34;&gt;# 仅关闭 Sentry 错误报告&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;4-3-关键注意事项&#34;&gt;&lt;a href=&#34;#4-3-关键注意事项&#34; class=&#34;headerlink&#34; title=&#34;4.3 关键注意事项&#34;&gt;&lt;/a&gt;4.3 关键注意事项&lt;/h3&gt;&lt;h4 id=&#34;⚠️-安全注意事项&#34;&gt;&lt;a href=&#34;#⚠️-安全注意事项&#34; class=&#34;headerlink&#34; title=&#34;⚠️ 安全注意事项&#34;&gt;&lt;/a&gt;⚠️ 安全注意事项&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;API Key 管理：&lt;/strong&gt; 使用环境变量或密钥管理服务，&lt;strong&gt;绝对不要&lt;/strong&gt;硬编码在代码或配置文件中提交到 Git&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信任模式风险：&lt;/strong&gt; &lt;code&gt;/trust&lt;/code&gt; 命令允许 OpenSRE 执行修复动作，仅在确认环境隔离且评估风险后使用&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据传输：&lt;/strong&gt; OpenSRE 默认将对话记录保存在本地。部署到 LangGraph&amp;#x2F;Railway 时，确保传输通道加密&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;敏感信息：&lt;/strong&gt; 告警文件不要包含明文密码或 token。OpenSRE 的遥测会主动过滤敏感字段&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;⚠️-集成注意事项&#34;&gt;&lt;a href=&#34;#⚠️-集成注意事项&#34; class=&#34;headerlink&#34; title=&#34;⚠️ 集成注意事项&#34;&gt;&lt;/a&gt;⚠️ 集成注意事项&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;权限最小化：&lt;/strong&gt; 给 OpenSRE 配置的 API Key&amp;#x2F;Service Account 应该只有&lt;strong&gt;只读&lt;/strong&gt;权限（除非需要自动修复）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;网络连通性：&lt;/strong&gt; 确保 OpenSRE 所在环境能访问所有集成的可观测性平台（Grafana、Datadog、CloudWatch 等）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;速率限制：&lt;/strong&gt; 大量告警时注意 LLM API 的速率限制。建议配置合理的告警聚合策略&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Kubernetes RBAC：&lt;/strong&gt; 如果连接 K8s 集群，使用只读 ServiceAccount，限制 namespace 范围&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;⚠️-版本注意事项&#34;&gt;&lt;a href=&#34;#⚠️-版本注意事项&#34; class=&#34;headerlink&#34; title=&#34;⚠️ 版本注意事项&#34;&gt;&lt;/a&gt;⚠️ 版本注意事项&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Public Alpha 状态：&lt;/strong&gt; API 和集成接口可能发生变化，升级前查看 Changelog&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;--main&lt;/code&gt; 分支风险：&lt;/strong&gt; 从 main 分支安装可能包含未充分测试的功能，生产环境建议用稳定版&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;更新前备份：&lt;/strong&gt; 执行 &lt;code&gt;opensre update&lt;/code&gt; 前，考虑备份 &lt;code&gt;~/.config/opensre/&lt;/code&gt; 目录&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;五、调查报告解读&#34;&gt;&lt;a href=&#34;#五、调查报告解读&#34; class=&#34;headerlink&#34; title=&#34;五、调查报告解读&#34;&gt;&lt;/a&gt;五、调查报告解读&lt;/h2&gt;&lt;h3 id=&#34;5-1-报告结构&#34;&gt;&lt;a href=&#34;#5-1-报告结构&#34; class=&#34;headerlink&#34; title=&#34;5.1 报告结构&#34;&gt;&lt;/a&gt;5.1 报告结构&lt;/h3&gt;&lt;p&gt;OpenSRE 生成的调查报告通常包含以下部分：&lt;/p&gt;
+&lt;figure class=&#34;highlight markdown&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;📊 INVESTIGATION REPORT&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;section&#34;&gt;========================&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;1.&lt;/span&gt; EXECUTIVE SUMMARY（执行摘要）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 事故级别、影响范围、持续时间&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 根因一句话总结&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;2.&lt;/span&gt; TIMELINE（时间线）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 告警触发时间&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 各系统异常时间点&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 关键事件序列&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;3.&lt;/span&gt; EVIDENCE（证据链）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 异常日志片段&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 指标异常截图/数据&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 链路追踪中的异常 Span&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 配置变更记录&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;4.&lt;/span&gt; ROOT CAUSE ANALYSIS（根因分析）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 直接原因&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 间接原因（配置、容量、代码缺陷）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 触发条件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;5.&lt;/span&gt; IMPACT ASSESSMENT（影响评估）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 受影响的服务和用户&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 业务指标变化&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;6.&lt;/span&gt; REMEDIATION（修复建议）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 立即修复步骤&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 长期改进建议&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;7.&lt;/span&gt; RELATED RESOURCES（相关资源）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; Dashboard 链接&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; Runbook 引用&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;bullet&#34;&gt;   -&lt;/span&gt; 历史相似事件&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;5-2-如何阅读报告&#34;&gt;&lt;a href=&#34;#5-2-如何阅读报告&#34; class=&#34;headerlink&#34; title=&#34;5.2 如何阅读报告&#34;&gt;&lt;/a&gt;5.2 如何阅读报告&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;第一步：看 Executive Summary（30 秒）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;快速判断事故严重程度和大致方向。如果摘要里出现了 “root cause identified” 且证据充分，可以跳到修复建议。如果是 “inconclusive”，需要继续往下看。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;第二步：核查 Timeline（2 分钟）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;时间线是你验证结论的关键工具。问自己：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;告警时间是否与你已知的变更时间匹配？&lt;/li&gt;
+&lt;li&gt;是否存在级联效应（服务 A 异常 → 服务 B 异常）？&lt;/li&gt;
+&lt;li&gt;时间窗口是否合理？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;第三条：审阅 Evidence（5 分钟）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这是最重要的环节。&lt;strong&gt;不要盲信 AI 的结论&lt;/strong&gt;——亲自检查：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;日志片段是否来自正确的服务和时间窗口？&lt;/li&gt;
+&lt;li&gt;指标异常是否真的存在，还是噪声？&lt;/li&gt;
+&lt;li&gt;链路追踪的异常 Span 是否确实是根因而非症状？&lt;/li&gt;
+&lt;li&gt;配置变更记录是否与实际运维操作一致？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;第四步：评估根因可信度（3 分钟）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;评估标准：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ &lt;strong&gt;高可信度：&lt;/strong&gt; 有直接日志证据 + 指标拐点对齐 + 变更记录匹配&lt;/li&gt;
+&lt;li&gt;⚠️ &lt;strong&gt;中可信度：&lt;/strong&gt; 有间接证据但缺少直接日志，或有多个可能的根因并列&lt;/li&gt;
+&lt;li&gt;❌ &lt;strong&gt;低可信度：&lt;/strong&gt; 证据稀疏，主要是推理而非实证，标记为 “inconclusive”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-3-报告输出与分享&#34;&gt;&lt;a href=&#34;#5-3-报告输出与分享&#34; class=&#34;headerlink&#34; title=&#34;5.3 报告输出与分享&#34;&gt;&lt;/a&gt;5.3 报告输出与分享&lt;/h3&gt;&lt;p&gt;OpenSRE 支持将报告推送到协作工具：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 配置 Slack 通知后，调查完成自动推送&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; SLACK_BOT_TOKEN=xoxb-xxx&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; SLACK_CHANNEL=&lt;span class=&#34;comment&#34;&gt;#incidents&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;手动分享建议：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;事故复盘会：直接用报告的时间线和证据链作为讨论基础&lt;/li&gt;
+&lt;li&gt;Postmortem 文档：在报告基础上补充人工判断和决策过程&lt;/li&gt;
+&lt;li&gt;知识沉淀：将报告关联的 Runbook 更新到 Wiki，形成正向循环&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;六、常见问题排查&#34;&gt;&lt;a href=&#34;#六、常见问题排查&#34; class=&#34;headerlink&#34; title=&#34;六、常见问题排查&#34;&gt;&lt;/a&gt;六、常见问题排查&lt;/h2&gt;&lt;h3 id=&#34;6-1-安装问题&#34;&gt;&lt;a href=&#34;#6-1-安装问题&#34; class=&#34;headerlink&#34; title=&#34;6.1 安装问题&#34;&gt;&lt;/a&gt;6.1 安装问题&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;问题&lt;/th&gt;
+&lt;th&gt;排查方法&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;安装脚本报错&lt;/td&gt;
+&lt;td&gt;检查网络代理设置；确认 &lt;code&gt;curl&lt;/code&gt; 版本 ≥ 7.x&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Homebrew 找不到 tap&lt;/td&gt;
+&lt;td&gt;先 &lt;code&gt;brew update&lt;/code&gt;，确保 brew 版本最新&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;opensre: command not found&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;检查 PATH 是否包含安装目录，重启终端&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;make: command not found&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;brew install make&lt;/code&gt; (macOS)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;6-2-运行时问题&#34;&gt;&lt;a href=&#34;#6-2-运行时问题&#34; class=&#34;headerlink&#34; title=&#34;6.2 运行时问题&#34;&gt;&lt;/a&gt;6.2 运行时问题&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;问题&lt;/th&gt;
+&lt;th&gt;排查方法&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;Docker 未运行&lt;/td&gt;
+&lt;td&gt;启动 Docker Desktop &amp;#x2F; OrbStack &amp;#x2F; Colima&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LLM 连接失败&lt;/td&gt;
+&lt;td&gt;检查 API Key 是否正确，网络是否能访问 API 端点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;集成工具连接超时&lt;/td&gt;
+&lt;td&gt;确认目标服务 URL 和凭证正确，检查防火墙&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;调查结果不准确&lt;/td&gt;
+&lt;td&gt;尝试提高 &lt;code&gt;/effort&lt;/code&gt; 级别，或提供更详细的上下文&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Railway 部署后一直不健康&lt;/td&gt;
+&lt;td&gt;确认 &lt;code&gt;DATABASE_URI&lt;/code&gt; 和 &lt;code&gt;REDIS_URI&lt;/code&gt; 已正确配置&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;6-3-性能问题&#34;&gt;&lt;a href=&#34;#6-3-性能问题&#34; class=&#34;headerlink&#34; title=&#34;6.3 性能问题&#34;&gt;&lt;/a&gt;6.3 性能问题&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;调查耗时过长&lt;/strong&gt;：降低 &lt;code&gt;/effort&lt;/code&gt; 级别，减少关联的数据源数量&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;API 限流&lt;/strong&gt;：检查 LLM 提供商的速率限制配额，必要时升级套餐&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内存占用高&lt;/strong&gt;：避免同时运行多个调查实例，完成一个再开始下一个&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;七、遥测与隐私&#34;&gt;&lt;a href=&#34;#七、遥测与隐私&#34; class=&#34;headerlink&#34; title=&#34;七、遥测与隐私&#34;&gt;&lt;/a&gt;七、遥测与隐私&lt;/h2&gt;&lt;p&gt;OpenSRE 默认启用匿名遥测（PostHog 产品分析 + Sentry 错误报告）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;收集什么：&lt;/strong&gt; 命令使用情况、成功&amp;#x2F;失败状态、大致的运行时长、CLI&amp;#x2F;Python&amp;#x2F;OS&amp;#x2F;架构信息。&lt;strong&gt;不收集&lt;/strong&gt;告警内容、文件内容、主机名、凭证或 PII。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关闭方式：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 一行全部关闭&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; OPENSRE_NO_TELEMETRY=1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 仅关闭分析，保留错误报告&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; OPENSRE_ANALYTICS_DISABLED=1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 仅关闭错误报告&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; OPENSRE_SENTRY_DISABLED=1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;企业环境建议：&lt;/strong&gt; 生产环境建议设置 &lt;code&gt;OPENSRE_NO_TELEMETRY=1&lt;/code&gt;，除非你有审计需求需要保留 Sentry 错误报告。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;八、总结&#34;&gt;&lt;a href=&#34;#八、总结&#34; class=&#34;headerlink&#34; title=&#34;八、总结&#34;&gt;&lt;/a&gt;八、总结&lt;/h2&gt;&lt;p&gt;OpenSRE 代表了 AI 运维从「辅助」走向「自主」的重要一步。它的核心价值不在于替代 SRE 工程师，而在于：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;缩短 MTTR（平均修复时间）：&lt;/strong&gt; 自动拉取证据、生成假设，把人的精力集中在判断和决策上&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;标准化排查流程：&lt;/strong&gt; 每次调查遵循统一方法论，减少凭经验「碰运气」的情况&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;知识沉淀：&lt;/strong&gt; 调查报告 + Runbook 引用形成可复用的知识库&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;使用建议梯度&#34;&gt;&lt;a href=&#34;#使用建议梯度&#34; class=&#34;headerlink&#34; title=&#34;使用建议梯度&#34;&gt;&lt;/a&gt;使用建议梯度&lt;/h3&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[阶段一：本地体验] --&amp;gt; B[阶段二：单服务接入]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[阶段三：团队试点]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[阶段四：生产部署]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A -.- A1[个人开发者\n了解工作流]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B -.- B1[接入 1-2 个服务\n验证效果]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C -.- C1[团队共享经验\n完善 Runbook]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D -.- D1[完整可观测栈\n自动响应告警]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;当前项目处于 Public Alpha 阶段，适合早期采用者探索和反馈。随着 API 稳定和集成成熟，它有望成为 AI 驱动 SRE 的事实标准。&lt;/p&gt;
+&lt;h3 id=&#34;参考链接&#34;&gt;&lt;a href=&#34;#参考链接&#34; class=&#34;headerlink&#34; title=&#34;参考链接&#34;&gt;&lt;/a&gt;参考链接&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.opensre.com/docs&#34;&gt;OpenSRE 官方文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Tracer-Cloud/OpenSRE&#34;&gt;GitHub 仓库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.opensre.com/docs/quickstart&#34;&gt;OpenSRE Quickstart&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://opensre.com/docs/faq&#34;&gt;FAQ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://discord.gg/7NTpevXf7w&#34;&gt;Discord 社区&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://trust.tracer.cloud/&#34;&gt;安全与信任中心&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="OpenSRE" />
+        <category term="SRE" />
+        <category term="AI运维" />
+        <category term="故障排查" />
+        <category term="根因分析" />
+        <category term="DevOps" />
+        <updated>2026-05-10T17:10:00.000Z</updated>
+    </entry>
+</feed>

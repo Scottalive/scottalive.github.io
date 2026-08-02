@@ -3,17 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230a0e14'/%3E%3Ctext x='18' y='68' font-size='52' fill='%2300ff9c' font-family='monospace'%3E%26gt;_%3C/text%3E%3C/svg%3E">
   <title>沉鱼的博客</title>
-  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  
+  <meta name="description" content="编程笔记 &amp; 资料分享">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="沉鱼的博客">
+  <meta property="og:title" content="沉鱼的博客">
+  <meta property="og:description" content="编程笔记 &amp; 资料分享">
+  <meta property="og:url" content="https://scottalive.github.io/index.html">
+  <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="沉鱼的博客">
+  <meta name="twitter:description" content="编程笔记 &amp; 资料分享">
+  <meta name="twitter:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="/atom.xml">
+  <link rel="stylesheet" href="/css/style.css?v=202607190200">
   <script>
-  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  /* 深色为默认主题，仅当用户显式选择浅色时才切换；body 渲染前确定，避免闪烁 */
   (function() {
     var saved = localStorage.getItem('theme');
-    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var isDark = saved === 'dark' || (!saved && prefersDark);
-    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
-    window.__theme = isDark ? 'dark' : 'light';
+    var theme = saved === 'light' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    window.__theme = theme;
   })();
   </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
@@ -23,445 +35,406 @@
 
   <header class="site-header">
     <div class="container">
-      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
-      <p class="site-subtitle">了解自我，超越自我</p>
+      <h1 class="site-title"><a href="/"><span class="prompt-path">~/</span>blog<span class="cursor"></span></a></h1>
       <nav class="site-nav">
         <a href="/">首页</a>
         <a href="/archives">归档</a>
         <a href="/categories">分类</a>
         <a href="/tags">标签</a>
-        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-hotspots">AI热点</a>
         <a href="/ai-daily">AI日报</a>
-        <!-- <a href="/downloads">资源</a> -->
         <a href="/about">关于</a>
-        <div class="search-box">
-          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
-          <div id="search-results"></div>
-        </div>
       </nav>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="search..." autocomplete="off">
+        <div id="search-results"></div>
+      </div>
     </div>
   </header>
 
   <main class="site-main">
     <div class="container">
-      <section class="home-hero home-hero-illustrated">
-  <div class="home-hero-copy">
-    <span class="home-eyebrow">Personal Blog / Notes / Archive</span>
-    <h2 class="home-hero-title">沉鱼的博客</h2>
-    <p class="home-hero-desc">编程笔记 &amp; 资料分享</p>
-    <p class="home-hero-subdesc">了解自我，超越自我</p>
-    <p class="home-hero-intro">
-      以编程笔记为主，沉淀 Java、Python、算法等实战内容；穿插心理学阅读和个人整理；
-      AI 行业热点追踪与 AI 日报紧跟前沿动态。把零散知识做成可回看的记录。
-    </p>
-    <div class="home-hero-actions btn-bottom">
-      <a class="home-action primary" href="/archives">查看归档</a>
-      <a class="home-action" href="/downloads">资源整理</a>
-      <a class="home-action" href="/about">关于我</a>
+      <!-- 首页：终端 hero + 最新 AI 日报 + 最近文章 -->
+<section class="home-hero">
+  <div class="term">
+    <div class="term-bar">
+      <span class="term-dots"></span>
+      <span class="term-title">chenyu@blog: ~ — zsh</span>
     </div>
-  </div>
-
-  <div class="home-hero-art">
-    <span class="home-eyebrow">沉淀 / 连接 / 回看</span>
-    <div class="home-art-grid">
-      <a class="home-art-card" href="/archives">
-        <span class="home-art-card-icon">&#128187;</span>
-        <strong>编程笔记</strong>
-        <span>Java / Python / 算法</span>
-      </a>
-      <a class="home-art-card" href="/categories">
-        <span class="home-art-card-icon">&#128451;</span>
-        <strong>分类归档</strong>
-        <span>按主题梳理长期内容</span>
-      </a>
-      <a class="home-art-card" href="/categories">
-        <span class="home-art-card-icon">&#129504;</span>
-        <strong>心理学阅读</strong>
-        <span>记录理解自己的过程</span>
-      </a>
-      <a class="home-art-card" href="/downloads">
-        <span class="home-art-card-icon">&#128194;</span>
-        <strong>资源整理</strong>
-        <span>把零散收藏做成目录</span>
-      </a>
-      <a class="home-art-card hotspot-card" href="/ai-hotspots">
-        <span class="home-art-card-icon">&#9889;</span>
-        <strong>AI热点</strong>
-        <span>追踪 AI 行业最新动态</span>
-      </a>
-      <a class="home-art-card ai-daily-card" href="/ai-daily">
-        <span class="home-art-card-icon">&#128240;</span>
-        <strong>AI日报</strong>
-        <span>每日 AI 前沿速览</span>
-      </a>
+    <div class="term-body hero-flex">
+      <div class="hero-main">
+        <div class="tl"><span class="ps">~ $</span> <span class="cmd" data-cmd="whoami"></span></div>
+        <div class="tl out" data-out><span class="hero-name">沉鱼的博客</span> — 编程笔记 &amp; 资料分享</div>
+        <div class="tl" style="margin-top:10px"><span class="ps">~ $</span> <span class="cmd" data-cmd="cat about.txt"></span></div>
+        <div class="tl out hero-desc" data-out>
+          以编程笔记为主，沉淀 Java、Python、算法等实战内容；穿插心理学阅读和个人整理；
+          AI 行业热点追踪与 AI 日报紧跟前沿动态。
+        </div>
+        <div class="tl" style="margin-top:10px"><span class="ps">~ $</span> <span class="cmd" data-cmd="ls links/"></span></div>
+        <div class="hero-links" data-out>
+          <a href="/archives">archives/</a>
+          <a href="/categories">categories/</a>
+          <a href="/tags">tags/</a>
+          <a href="/ai-hotspots">ai-hotspots/</a>
+          <a href="/ai-daily">ai-daily/</a>
+          <a href="/about">about.md</a>
+        </div>
+        <div class="stat-line" data-out>
+          <span><strong>159</strong> posts</span>
+          <span><strong>18</strong> categories</span>
+          <span><strong>68</strong> tags</span>
+          <span><strong>135</strong> resources</span>
+        </div>
+        <div class="tl" data-final style="margin-top:12px"><span class="ps">~ $</span> <span class="cursor"></span></div>
+      </div>
+      <div class="hero-donut" data-out>
+        <div class="tl"><span class="ps">~ $</span> ./donut --ascii</div>
+        <pre id="donut" aria-hidden="true"></pre>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="home-stat-grid">
-  <a class="home-stat-card" href="/archives">
-    <span class="home-stat-icon">&#128221;</span>
-    <span class="home-stat-value">157</span>
-    <span class="home-stat-label">文章</span>
-  </a>
-  <a class="home-stat-card" href="/categories">
-    <span class="home-stat-icon">&#128193;</span>
-    <span class="home-stat-value">18</span>
-    <span class="home-stat-label">分类</span>
-  </a>
-  <a class="home-stat-card" href="/tags">
-    <span class="home-stat-icon">&#127991;</span>
-    <span class="home-stat-value">64</span>
-    <span class="home-stat-label">标签</span>
-  </a>
-  <a class="home-stat-card" href="/downloads">
-    <span class="home-stat-icon">&#128230;</span>
-    <span class="home-stat-value">135</span>
-    <span class="home-stat-label">资源</span>
-  </a>
+<script>
+/* ===== 终端打字机 ===== */
+(function() {
+  var hero = document.querySelector('.home-hero');
+  if (!hero) return;
+  var cmds = Array.prototype.slice.call(hero.querySelectorAll('.cmd'));
+  var outs = Array.prototype.slice.call(hero.querySelectorAll('[data-out]'));
+  var final = hero.querySelector('[data-final]');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* 无 JS 动画兜底：直接显示全部 */
+  function showAll() {
+    cmds.forEach(function(c) { c.textContent = c.getAttribute('data-cmd'); });
+    outs.forEach(function(o) { o.classList.remove('pending'); });
+    if (final) final.classList.remove('pending');
+  }
+
+  if (reduce) { showAll(); return; }
+
+  /* 先隐藏输出行，命令逐字打出 */
+  outs.forEach(function(o) { o.classList.add('pending'); });
+  if (final) final.classList.add('pending');
+
+  /* 步骤序列：cmd → 其后的连续 out 行；未被链到的 out（如甜甜圈）追加在最后 */
+  var steps = [];
+  cmds.forEach(function(c) {
+    steps.push({ el: c, cmd: c.getAttribute('data-cmd') });
+    var node = c.closest('.tl').nextElementSibling;
+    while (node && node.hasAttribute('data-out')) {
+      steps.push({ el: node, cmd: null });
+      node = node.nextElementSibling;
+    }
+  });
+  outs.forEach(function(o) {
+    if (!steps.some(function(s) { return s.el === o; })) steps.push({ el: o, cmd: null });
+  });
+  if (final) steps.push({ el: final, cmd: null });
+
+  var si = 0;
+  function next() {
+    if (si >= steps.length) return;
+    var step = steps[si++];
+    if (step.cmd === null) {
+      step.el.classList.remove('pending');
+      setTimeout(next, 220);
+      return;
+    }
+    var i = 0;
+    var cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    step.el.appendChild(cursor);
+    (function tick() {
+      if (i < step.cmd.length) {
+        step.el.insertBefore(document.createTextNode(step.cmd[i++]), cursor);
+        setTimeout(tick, 45 + Math.random() * 50);
+      } else {
+        cursor.remove();
+        setTimeout(next, 160);
+      }
+    })();
+  }
+  next();
+})();
+</script>
+
+<script>
+/* ===== ASCII 3D 甜甜圈（donut.c 移植：真实 3D 透视投影 + 光照） ===== */
+(function() {
+  var pre = document.getElementById('donut');
+  if (!pre) return;
+  var W = 44, H = 22;
+  var K2 = 5, R1 = 1, R2 = 2;
+  var K1 = W * K2 * 3 / (8 * (R1 + R2));
+  var A = 0, B = 0, raf = null;
+  var chars = '.,-~:;=!*#$@';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function frame() {
+    A += 0.045; B += 0.02;
+    var b = new Array(W * H).fill(' ');
+    var z = new Array(W * H).fill(0);
+    for (var j = 0; j < 6.28; j += 0.07) {
+      var d = Math.cos(j), f = Math.sin(j);
+      for (var i = 0; i < 6.28; i += 0.02) {
+        var c = Math.sin(i), l = Math.cos(i);
+        var e = Math.sin(A), g = Math.cos(A);
+        var h = d + R2;
+        var D = 1 / (c * h * e + f * g + 5);
+        var m = Math.cos(B), n = Math.sin(B);
+        var t = c * h * g - f * e;
+        var x = Math.floor(W / 2 + K1 * D * (l * h * m - t * n));
+        var y = Math.floor(H / 2 + (K1 / 2) * D * (l * h * n + t * m));
+        var o = x + W * y;
+        var N = Math.floor(8 * ((f * e - c * d * g) * m - c * d * e - f * g - l * d * n));
+        if (y >= 0 && y < H && x >= 0 && x < W && D > z[o]) {
+          z[o] = D;
+          b[o] = chars[N > 0 ? N : 0];
+        }
+      }
+    }
+    var s = '';
+    for (var k = 0; k < W * H; k++) s += (k % W === W - 1) ? b[k] + '\n' : b[k];
+    pre.textContent = s;
+    if (!reduce) raf = requestAnimationFrame(frame);
+  }
+
+  frame();
+
+  /* 标签页不可见时暂停，省电 */
+  document.addEventListener('visibilitychange', function() {
+    if (reduce) return;
+    if (document.hidden) {
+      if (raf) cancelAnimationFrame(raf), raf = null;
+    } else if (!raf) {
+      raf = requestAnimationFrame(frame);
+    }
+  });
+})();
+</script>
+
+
+
+
+<section class="section-head">
+  <h3 class="section-title"><span class="ps">~ $</span> tail -1 ai-daily.log
+    <a class="section-more" href="/ai-daily">全部日报 →</a>
+  </h3>
 </section>
-
-<div class="home-grid">
-  <section class="home-feed">
-    
-
-    
-    <div class="home-section-head">
-      <div>
-        <span class="home-section-kicker">AI Daily</span>
-        <h3 class="home-section-title">最新 AI 日报</h3>
-      </div>
-      <a class="home-section-link" href="/ai-daily">全部日报 →</a>
+<div class="post-list">
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-15/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-07-15</span>
+      <span class="pl-date">2026-07-15</span>
     </div>
-    <article class="post-item ai-daily-featured">
-      <span class="ai-daily-badge">&#9889; AI 日报</span>
-      <h2 class="post-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-15/">AI 日报 2026-07-15</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2026-07-15</span>
-        <span class="post-card-word-count">2760 字 · 约 9 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
-          
-        </span>
-        
-      </div>
-      
-      
-      <div class="ai-daily-hot-topic">
-        <span class="ai-daily-hot-topic-label">&#128293; 今日热点</span>
-        <p class="ai-daily-hot-topic-text">今日 OpenAI 正式推出 ChatGPT Work，一款基于 GPT-5.6 的云端 AI 代理，可跨 Slack、Gmail、GitHub 自主执行复杂任务，标志着 AI 从对话工具向工作平台的跃迁。与此同时，Apple Intelligence 获准在中国上线，将接入阿里 Qwen 和百度文心模型；Anthropic 推出 Claude for Teachers 面向 K-12 教育领域。GitHub 热门项目方面，AI 设计工具 Hallmark 单日增长 1,119 星，AI 伴侣项目 AIRI 持续火爆，编码代理 Open Interpreter 迎来重大更新。
-&lt;hr&gt;</p>
-      </div>
-      
-      <a class="ai-daily-featured-read" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-15/">阅读全文 &rarr;</a>
-    </article>
-    
-
-    <div class="home-section-head">
-      <div>
-        <span class="home-section-kicker">Latest Posts</span>
-        <h3 class="home-section-title">最近更新</h3>
-      </div>
-      <a class="home-section-link" href="/archives">全部文章</a>
-    </div>
-
     
     
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/ai-tools/Hermes-Agent-v0.17-%E6%96%B0%E7%89%B9%E6%80%A7%E4%B8%8E%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95/">Hermes Agent v0.17 &#34;The Reach Release&#34; —— 新特性与进阶用法全解析</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2026-06-21</span>
-        <span class="post-card-word-count">2570 字 · 约 9 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
-          
-        </span>
-        
-      </div>
-      
-      <div class="post-excerpt"><p><img src="/images/hermes-agent/og-image.png"></p>
-<blockquote>
-<p><strong>2026 年 6 月 19 日</strong>，Nous Research 正式发布了 Hermes Agent v0.17.0（代号 “The Reach Release”）。距离 v0.16.0 仅两周，这个版本带来了 <strong><del>1,475 个提交、</del>800 个合并 PR、1,693 个文件变更、300+ 个 issue 关闭</strong>，邀请 245 位社区贡献者共同参与。如果你还在用旧版本，是时候更新了。</p>
-</blockquote>
-<p>本文聚焦 v0.17.0 的 <strong>核心新特性</strong> 和 <strong>实战进阶用法</strong>，搭配流程图和配图帮你快速上手。如果你还没安装 Hermes Agent，建议先阅读系列前几篇。</p></div>
-      
-    </article>
+    <p class="pl-excerpt">今日 OpenAI 正式推出 ChatGPT Work，一款基于 GPT-5.6 的云端 AI 代理，可跨 Slack、Gmail、GitHub 自主执行复杂任务，标志着 AI 从对话工具向工作平台的跃迁。与此同时，Apple Intelligence 获准在中国上线，将接入阿里...</p>
     
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/ai-tools/Codex-CLI-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">Codex CLI 安装与使用指南</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2026-05-27</span>
-        <span class="post-card-word-count">2051 字 · 约 7 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/devops/k8s-context-switch/">单机内 K8S 集群环境切换指南</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2026-05-20</span>
-        <span class="post-card-word-count">2573 字 · 约 9 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/DevOps/">DevOps</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/devops/k8s-command-guide/">K8s 使用指南 — 各类场景命令全解</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2026-05-16</span>
-        <span class="post-card-word-count">3208 字 · 约 13 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/DevOps/">DevOps</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/ai-tools/OpenSRE-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">OpenSRE 安装与使用指南</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2026-05-11</span>
-        <span class="post-card-word-count">1176 字 · 约 4 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/ai-tools/Hermes-Agent-%E9%AB%98%E9%98%B6%E7%94%A8%E6%B3%95/">Hermes Agent 高阶用法 —— 打造你的专属 AI 工作流</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2026-05-08</span>
-        <span class="post-card-word-count">3151 字 · 约 10 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/network-security/common-attack-defense/">常见网络安全攻防技术</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2026-05-08</span>
-        <span class="post-card-word-count">2747 字 · 约 10 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a>
-          
-        </span>
-        
-      </div>
-      
-      <div class="post-excerpt"><blockquote>
-<p>网络安全的本质是攻防对抗。本文梳理了最常见的攻击手法与对应的防御策略，帮助开发者建立基本的安全意识。</p>
-</blockquote></div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/devops/k8s-helm-study-plan/">K8s + Helm 每日学习计划</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2026-05-08</span>
-        <span class="post-card-word-count">2119 字 · 约 7 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/DevOps/">DevOps</a>
-          
-        </span>
-        
-      </div>
-      
-      <div class="post-excerpt"><blockquote>
-<p>一份贴合上班族节奏的 K8s + Helm 学习计划。<br>总周期约 6-8 周，每天投入 1-2h，碎片时间利用到位即可。</p>
-</blockquote></div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/ai-tools/Hermes-Agent-%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/">Hermes Agent 配置与进阶使用 —— 从入门到精通</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2026-05-07</span>
-        <span class="post-card-word-count">4516 字 · 约 16 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-    <article class="post-item">
-      <h2 class="post-title">
-        <a href="/computer-science/ai-tools/Hermes-Agent-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">Hermes Agent 安装与使用指南 —— Nous Research 自进化 AI 代理</a>
-      </h2>
-      <div class="post-meta">
-        <span class="post-date">2026-05-05</span>
-        <span class="post-card-word-count">2156 字 · 约 7 分钟</span>
-        
-        <span class="post-category">
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-          
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
-          
-        </span>
-        
-      </div>
-      
-    </article>
-    
-
-    
-    <nav class="pagination">
-      
-      <span class="page-number">1 / 12</span>
-      
-      <a class="next" href="/page/2/">下一页</a>
-      
-    </nav>
-    
-  </section>
-
-  <aside class="home-sidebar">
-    <section class="sidebar-card sidebar-intro">
-      <span class="sidebar-card-kicker">Overview</span>
-      <h3>这个站点在写什么</h3>
-      <p>以编程笔记为主，穿插个人整理、心理学阅读和资源归档，尽量把零散内容沉淀成能回看的记录。</p>
-    </section>
-
-    <section class="sidebar-card">
-      <span class="sidebar-card-kicker">Quick Links</span>
-      <h3>常用入口</h3>
-      <nav class="sidebar-links">
-        <a href="/archives">文章归档</a>
-        <a href="/categories">分类浏览</a>
-        <a href="/tags">标签索引</a>
-        <a href="/ai-hotspots">AI 行业热点</a>
-        <a href="/ai-daily">AI 日报</a>
-        <a href="/downloads">资源下载</a>
-        <a href="/about">关于页面</a>
-      </nav>
-    </section>
-
-    <section class="sidebar-card">
-      <span class="sidebar-card-kicker">Recent</span>
-      <h3>最近文章</h3>
-      <ul class="sidebar-posts">
-        
-        
-        <li>
-          <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-15/">AI 日报 2026-07-15</a>
-          <span>2026-07-15</span>
-        </li>
-        
-        <li>
-          <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-14/">AI 日报 2026-07-14</a>
-          <span>2026-07-14</span>
-        </li>
-        
-        <li>
-          <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-13/">AI 日报 2026-07-13</a>
-          <span>2026-07-13</span>
-        </li>
-        
-        <li>
-          <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-12/">AI 日报 2026-07-12</a>
-          <span>2026-07-12</span>
-        </li>
-        
-        <li>
-          <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-11/">AI 日报 2026-07-11</a>
-          <span>2026-07-11</span>
-        </li>
-        
-      </ul>
-    </section>
-  </aside>
+  </a>
 </div>
+
+
+<section class="section-head">
+  <h3 class="section-title"><span class="ps">~ $</span> ls -lt posts/ | head
+    <a class="section-more" href="/archives">全部文章 →</a>
+  </h3>
+</section>
+
+
+
+<div class="post-list">
+  
+  <a class="pl-item" href="/computer-science/ai-tools/Hermes-Agent-v0.17-%E6%96%B0%E7%89%B9%E6%80%A7%E4%B8%8E%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95/">
+    <div class="pl-top">
+      <span class="pl-title">Hermes Agent v0.17 &#34;The Reach Release&#34; —— 新特性与进阶用法全解析</span>
+      <span class="pl-date">2026-06-21</span>
+    </div>
+    <div class="pl-meta">
+      <span>2570 字 · 约 9 分钟</span>
+      
+        
+        <span class="bkt">计算机科学</span>
+        
+        <span class="bkt">AI工具</span>
+        
+      
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/Codex-CLI-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
+    <div class="pl-top">
+      <span class="pl-title">Codex CLI 安装与使用指南</span>
+      <span class="pl-date">2026-05-27</span>
+    </div>
+    <div class="pl-meta">
+      <span>2051 字 · 约 7 分钟</span>
+      
+        
+        <span class="bkt">计算机科学</span>
+        
+        <span class="bkt">AI工具</span>
+        
+      
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/devops/k8s-context-switch/">
+    <div class="pl-top">
+      <span class="pl-title">单机内 K8S 集群环境切换指南</span>
+      <span class="pl-date">2026-05-20</span>
+    </div>
+    <div class="pl-meta">
+      <span>2573 字 · 约 9 分钟</span>
+      
+        
+        <span class="bkt">计算机科学</span>
+        
+        <span class="bkt">DevOps</span>
+        
+      
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/devops/k8s-command-guide/">
+    <div class="pl-top">
+      <span class="pl-title">K8s 使用指南 — 各类场景命令全解</span>
+      <span class="pl-date">2026-05-16</span>
+    </div>
+    <div class="pl-meta">
+      <span>3208 字 · 约 13 分钟</span>
+      
+        
+        <span class="bkt">计算机科学</span>
+        
+        <span class="bkt">DevOps</span>
+        
+      
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/devops/opensre-grafana-integration/">
+    <div class="pl-top">
+      <span class="pl-title">OpenSRE 如何接通 Grafana：从零到一键告警排查</span>
+      <span class="pl-date">2026-05-13</span>
+    </div>
+    <div class="pl-meta">
+      <span>2172 字 · 约 7 分钟</span>
+      
+        
+        <span class="bkt">计算机科学</span>
+        
+        <span class="bkt">DevOps</span>
+        
+      
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/OpenSRE-%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98-%E6%8E%92%E6%9F%A5%E4%B8%8E%E6%8A%A5%E5%91%8A%E6%8C%87%E5%8D%97/">
+    <div class="pl-top">
+      <span class="pl-title">OpenSRE 进阶实战：排查方法论与报告解读指南</span>
+      <span class="pl-date">2026-05-11</span>
+    </div>
+    <div class="pl-meta">
+      <span>3502 字 · 约 11 分钟</span>
+      
+        
+        <span class="bkt">计算机科学</span>
+        
+        <span class="bkt">AI工具</span>
+        
+      
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/OpenSRE-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
+    <div class="pl-top">
+      <span class="pl-title">OpenSRE 安装与使用指南</span>
+      <span class="pl-date">2026-05-11</span>
+    </div>
+    <div class="pl-meta">
+      <span>1176 字 · 约 4 分钟</span>
+      
+        
+        <span class="bkt">计算机科学</span>
+        
+        <span class="bkt">AI工具</span>
+        
+      
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/Hermes-Agent-%E9%AB%98%E9%98%B6%E7%94%A8%E6%B3%95/">
+    <div class="pl-top">
+      <span class="pl-title">Hermes Agent 高阶用法 —— 打造你的专属 AI 工作流</span>
+      <span class="pl-date">2026-05-08</span>
+    </div>
+    <div class="pl-meta">
+      <span>3151 字 · 约 10 分钟</span>
+      
+        
+        <span class="bkt">计算机科学</span>
+        
+        <span class="bkt">AI工具</span>
+        
+      
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/network-security/common-attack-defense/">
+    <div class="pl-top">
+      <span class="pl-title">常见网络安全攻防技术</span>
+      <span class="pl-date">2026-05-08</span>
+    </div>
+    <div class="pl-meta">
+      <span>2747 字 · 约 10 分钟</span>
+      
+        
+        <span class="bkt">计算机科学</span>
+        
+        <span class="bkt">网络安全</span>
+        
+      
+    </div>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/devops/k8s-helm-study-plan/">
+    <div class="pl-top">
+      <span class="pl-title">K8s + Helm 每日学习计划</span>
+      <span class="pl-date">2026-05-08</span>
+    </div>
+    <div class="pl-meta">
+      <span>2119 字 · 约 7 分钟</span>
+      
+        
+        <span class="bkt">计算机科学</span>
+        
+        <span class="bkt">DevOps</span>
+        
+      
+    </div>
+  </a>
+  
+</div>
+
+
+<nav class="pagination">
+  
+  <span class="page-number">[1/12]</span>
+  
+  <a class="next" href="/page/2/">下一页</a>
+  
+</nav>
+
 
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+      <p>&copy; 2026 沉鱼 &nbsp;·&nbsp; uv:<span id="site-uv">-</span> &nbsp;pv:<span id="site-pv">-</span> &nbsp;·&nbsp; <a href="/atom.xml" title="RSS 订阅">[rss]</a> &nbsp;·&nbsp; powered by <a href="https://hexo.io" target="_blank" rel="noopener">hexo</a></p>
     </div>
   </footer>
 
@@ -576,7 +549,7 @@
   </script>
 
   <script>
-  /* dark mode toggle */
+  /* dark mode toggle：深色为默认，按钮在 dark/light 间切换 */
   (function() {
     var btn = document.getElementById('dark-toggle');
     function notifyGiscus(theme) {
@@ -585,12 +558,12 @@
       iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
     }
     btn.addEventListener('click', function() {
-      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      var next = currentlyDark ? '' : 'dark';
+      var currentlyDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      var next = currentlyDark ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next || 'light');
-      window.__theme = next || 'light';
-      notifyGiscus(next || 'light');
+      localStorage.setItem('theme', next);
+      window.__theme = next;
+      notifyGiscus(next);
     });
   })();
   </script>
@@ -719,48 +692,39 @@
       return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
     }
 
-    /* ---- 事件委托：处理代码块 / Mermaid 点击 ---- */
+    /* ---- 事件委托：仅 Mermaid 流程图支持点击放大 ---- */
     document.addEventListener('click', function(e) {
       /* only react to the play button, not the whole overlay */
       var overlay = e.target.closest('.code-block-play');
       if (!overlay) return;
-      var wrap = overlay.closest('.code-block-wrap, .mermaid-container');
+      var wrap = overlay.closest('.mermaid-container');
       if (!wrap) return;
 
-      if (wrap.classList.contains('code-block-wrap')) {
-        /* 代码块 */
-        var pre = wrap.querySelector('pre');
-        if (!pre) return;
-        var text = pre.innerText || pre.textContent || '';
-        showViewer({ title: '代码块', bodyHtml: text, copyText: text });
-      } else {
-        /* Mermaid 流程图 */
-        var origCode = wrap.getAttribute('data-orig');
-        if (!origCode) return;
-        /* 使用 mermaid.render() 获取 SVG 字符串 */
-        if (typeof mermaid !== 'undefined' && mermaid.render) {
-          var uid = 'mermaid-viewer-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
-          mermaid.render(uid, origCode).then(function(result) {
-            showViewer({ title: '流程图', bodyHtml: result.svg, isMermaid: true });
-          }).catch(function(err) {
-            showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
-          });
-        } else if (typeof mermaid !== 'undefined' && mermaid.run) {
-          /* fallback to run() */
-          var tmp = document.createElement('div');
-          tmp.textContent = origCode;
-          mermaid.run({ nodes: [tmp] }).then(function() {
-            showViewer({ title: '流程图', bodyHtml: tmp.innerHTML || origCode, isMermaid: true });
-          }).catch(function() {
-            showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
-          });
-        } else {
+      var origCode = wrap.getAttribute('data-orig');
+      if (!origCode) return;
+      /* 使用 mermaid.render() 获取 SVG 字符串 */
+      if (typeof mermaid !== 'undefined' && mermaid.render) {
+        var uid = 'mermaid-viewer-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
+        mermaid.render(uid, origCode).then(function(result) {
+          showViewer({ title: '流程图', bodyHtml: result.svg, isMermaid: true });
+        }).catch(function(err) {
           showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
-        }
+        });
+      } else if (typeof mermaid !== 'undefined' && mermaid.run) {
+        /* fallback to run() */
+        var tmp = document.createElement('div');
+        tmp.textContent = origCode;
+        mermaid.run({ nodes: [tmp] }).then(function() {
+          showViewer({ title: '流程图', bodyHtml: tmp.innerHTML || origCode, isMermaid: true });
+        }).catch(function() {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        });
+      } else {
+        showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
       }
     });
 
-    /* ---- 初始化：给每个代码块包上 play 遮罩 ---- */
+    /* ---- 初始化：给每个代码块加复制按钮（不加放大遮罩） ---- */
     var preList = document.querySelectorAll('.post-content figure.highlight td.code pre, .post-content > pre');
     preList.forEach(function(pre) {
       if (pre.closest('.code-block-wrap')) return; /* 已包装 */
@@ -783,18 +747,6 @@
         });
       });
       wrap.appendChild(copyBtn);
-
-      /* 悬浮遮罩（视频播放器风格） */
-      var lineCount = (pre.innerText || '').split('\n').length;
-      var ov = document.createElement('div');
-      ov.className = 'code-block-overlay';
-      ov.innerHTML = '<button class="code-block-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>';
-      wrap.appendChild(ov);
-
-      var info = document.createElement('div');
-      info.className = 'code-block-info';
-      info.innerHTML = '<span>' + lineCount + ' 行</span>';
-      wrap.appendChild(info);
     });
 
     /* ---- Mermaid 容器遮罩 ---- */
@@ -827,7 +779,7 @@
   <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
   <script>
   (function() {
-    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
     mermaid.initialize({
       startOnLoad: false,
       theme: isDark ? 'dark' : 'default',
@@ -841,7 +793,6 @@
      * Hexo 默认高亮插件将 markdown 代码块渲染为：
      *   <figure class="highlight plaintext">
      *     <table><tr><td class="code"><pre><span class="line">...</span>...</pre></td></tr></table>
-     *   </figure>
      * 因此无法通过 code.language-mermaid 选择器定位。
      * 改为：匹配所有 figure.highlight.plaintext，提取其文本内容并检查首行是否为 mermaid 关键字。
      */
@@ -906,7 +857,7 @@
             el.innerHTML = '';
             el.textContent = el.getAttribute('data-orig');
           }
-          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
           mermaid.initialize({
             startOnLoad: false,
             theme: isDark ? 'dark' : 'default',
@@ -921,9 +872,197 @@
   })();
   </script>
 
-  <!-- 统计 API 待接入 -->
   <script>
-  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  /* Matrix 字符雨背景：全屏 canvas 垫底，跟随主题色，空闲/隐藏时暂停 */
+  (function() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var cv = document.createElement('canvas');
+    cv.id = 'matrix-bg';
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;';
+    cv.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var fontSize = 16, cols, drops;
+    var CHARS = '0123456789abcdef{}[]()<>/\\$#*+=;:constfnlet=>';
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(innerWidth / fontSize);
+      drops = [];
+      for (var i = 0; i < cols; i++) drops[i] = Math.random() * -60;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function themeColors() {
+      var s = getComputedStyle(document.documentElement);
+      var green = s.getPropertyValue('--green').trim() || '#00ff9c';
+      var bg = s.getPropertyValue('--bg').trim() || '#0a0e14';
+      return { green: green, bg: bg };
+    }
+    var colors = themeColors();
+    /* 主题切换时更新颜色 */
+    var toggle = document.getElementById('dark-toggle');
+    if (toggle) toggle.addEventListener('click', function() {
+      setTimeout(function() { colors = themeColors(); }, 50);
+    });
+
+    function hexToRgb(hex) {
+      var m = hex.replace('#', '');
+      if (m.length === 3) m = m[0]+m[0]+m[1]+m[1]+m[2]+m[2];
+      var n = parseInt(m, 16);
+      return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+    }
+
+    var running = true, last = 0;
+    function tick(ts) {
+      if (!running) return;
+      /* 限流 ~20fps，字符雨不需要高帧率 */
+      if (ts - last < 50) { requestAnimationFrame(tick); return; }
+      last = ts;
+
+      var rgb = hexToRgb(colors.bg);
+      ctx.fillStyle = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.09)';
+      ctx.fillRect(0, 0, innerWidth, innerHeight);
+      ctx.font = fontSize + 'px ' + fontFamily;
+
+      var g = hexToRgb(colors.green);
+      for (var i = 0; i < cols; i++) {
+        var ch = CHARS[Math.floor(Math.random() * CHARS.length)];
+        /* 头部亮、尾部暗：每列首字符高亮 */
+        var head = Math.random() > 0.96;
+        ctx.fillStyle = 'rgba(' + g[0] + ',' + g[1] + ',' + g[2] + ',' + (head ? 0.9 : 0.45) + ')';
+        ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+        drops[i]++;
+        if (drops[i] * fontSize > innerHeight && Math.random() > 0.975) drops[i] = 0;
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        running = false;
+      } else if (!running) {
+        running = true;
+        last = 0;
+        requestAnimationFrame(tick);
+      }
+    });
+  })();
+  </script>
+
+  <script>
+  /* 点击字符爆裂动效：终端字形 + 重力 + 淡出，颜色跟随主题主色 */
+  (function() {
+    var cv = document.createElement('canvas');
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:9999;';
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var GLYPHS = '01<>/#$*{}[];=+';
+    var parts = [];
+    var raf = null;
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function burst(x, y) {
+      var color = getComputedStyle(document.documentElement)
+        .getPropertyValue('--green').trim() || '#00ff9c';
+      for (var i = 0; i < 16; i++) {
+        var a = Math.random() * Math.PI * 2;
+        var sp = 2 + Math.random() * 5;
+        parts.push({
+          x: x, y: y,
+          vx: Math.cos(a) * sp,
+          vy: Math.sin(a) * sp - 2.5,
+          ch: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
+          life: 1,
+          size: 11 + Math.random() * 7,
+          color: color
+        });
+      }
+      if (!raf) raf = requestAnimationFrame(tick);
+    }
+
+    function tick() {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      for (var i = parts.length - 1; i >= 0; i--) {
+        var p = parts[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.22;           /* 重力 */
+        p.vx *= 0.985;
+        p.life -= 0.018;
+        if (p.life <= 0) { parts.splice(i, 1); continue; }
+        ctx.globalAlpha = Math.max(p.life, 0);
+        ctx.fillStyle = p.color;
+        ctx.font = p.size + 'px ' + fontFamily;
+        ctx.fillText(p.ch, p.x, p.y);
+      }
+      ctx.globalAlpha = 1;
+      raf = parts.length ? requestAnimationFrame(tick) : (ctx.clearRect(0, 0, innerWidth, innerHeight), null);
+    }
+
+    document.addEventListener('pointerdown', function(e) {
+      burst(e.clientX, e.clientY);
+    }, { passive: true });
+  })();
+  </script>
+
+  <!-- 访问量统计（counter-api · Vercel KV） -->
+  <script>
+  (function() {
+    /* TODO(一次性): 部署 counter-api 到 Vercel 后，把下面的地址改成实际域名 */
+    var COUNTER_API = 'https://blog-counter-api.vercel.app/api/counter';
+    if (!COUNTER_API) return;
+
+    /* 访客 ID：localStorage 持久化，用于 UV 去重 */
+    var vid = localStorage.getItem('visitor-id');
+    if (!vid) {
+      vid = 'v-' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      localStorage.setItem('visitor-id', vid);
+    }
+
+    fetch(COUNTER_API, { headers: { 'x-visitor-id': vid } })
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        if (d && d.uv != null) document.getElementById('site-uv').textContent = d.uv;
+        if (d && d.pv != null) document.getElementById('site-pv').textContent = d.pv;
+      })
+      .catch(function() { /* 统计不可用时静默，保持 '-' */ });
+  })();
+  </script>
+
+  <script>
+  /* 按 / 聚焦搜索框，Esc 取消焦点（终端式快捷键） */
+  (function() {
+    document.addEventListener('keydown', function(e) {
+      var typing = /^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName);
+      if (e.key === '/' && !typing) {
+        e.preventDefault();
+        document.getElementById('search-input').focus();
+      } else if (e.key === 'Escape' && typing) {
+        document.activeElement.blur();
+      }
+    });
+  })();
   </script>
 </body>
 </html>

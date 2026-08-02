@@ -3,17 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230a0e14'/%3E%3Ctext x='18' y='68' font-size='52' fill='%2300ff9c' font-family='monospace'%3E%26gt;_%3C/text%3E%3C/svg%3E">
   <title>AI 日报 | 沉鱼的博客</title>
-  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  
+  <meta name="description" content="编程笔记 &amp; 资料分享">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="沉鱼的博客">
+  <meta property="og:title" content="AI 日报 | 沉鱼的博客">
+  <meta property="og:description" content="编程笔记 &amp; 资料分享">
+  <meta property="og:url" content="https://scottalive.github.io/ai-daily/index.html">
+  <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AI 日报 | 沉鱼的博客">
+  <meta name="twitter:description" content="编程笔记 &amp; 资料分享">
+  <meta name="twitter:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="/atom.xml">
+  <link rel="stylesheet" href="/css/style.css?v=202607190200">
   <script>
-  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  /* 深色为默认主题，仅当用户显式选择浅色时才切换；body 渲染前确定，避免闪烁 */
   (function() {
     var saved = localStorage.getItem('theme');
-    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var isDark = saved === 'dark' || (!saved && prefersDark);
-    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
-    window.__theme = isDark ? 'dark' : 'light';
+    var theme = saved === 'light' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    window.__theme = theme;
   })();
   </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
@@ -23,22 +35,20 @@
 
   <header class="site-header">
     <div class="container">
-      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
-      <p class="site-subtitle">了解自我，超越自我</p>
+      <h1 class="site-title"><a href="/"><span class="prompt-path">~/</span>blog<span class="cursor"></span></a></h1>
       <nav class="site-nav">
         <a href="/">首页</a>
         <a href="/archives">归档</a>
         <a href="/categories">分类</a>
         <a href="/tags">标签</a>
-        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-hotspots">AI热点</a>
         <a href="/ai-daily">AI日报</a>
-        <!-- <a href="/downloads">资源</a> -->
         <a href="/about">关于</a>
-        <div class="search-box">
-          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
-          <div id="search-results"></div>
-        </div>
       </nav>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="search..." autocomplete="off">
+        <div id="search-results"></div>
+      </div>
     </div>
   </header>
 
@@ -47,172 +57,132 @@
       <!-- AI 日报 - 列表页 -->
 
 
-<section class="category-page-shell">
-  <header class="category-page-hero">
-    <span class="categories-kicker">AI Daily</span>
-    <h1 class="category-page-title">AI日报</h1>
-    <p class="category-page-desc">每日 AI 领域前沿动态、热门 GitHub 项目、行业洞察速览。</p>
-    <div class="archive-hero-stats" style="margin-top:14px">
-      <span><strong>46</strong> 期日报</span>
-      <span>每日更新</span>
+<section class="page-hero">
+  <div class="term">
+    <div class="term-bar">
+      <span class="term-dots"></span>
+      <span class="term-title">~/blog/ai-daily — zsh</span>
     </div>
-  </header>
-
-  <div class="ai-daily-feed">
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-07-15</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-15/">AI 日报 2026-07-15</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">今日 OpenAI 正式推出 ChatGPT Work，一款基于 GPT-5.6 的云端 AI 代理，可跨 Slack、Gmail、GitHub 自主执行复杂任务，标志着 AI 从对话工具向工作平台的跃迁。与此同时，Apple Intelligence 获准在中国上线，将接入阿里 Qwen 和百度文心模型；Anthropic 推出 Claude for Teachers 面向 K-12 教育领域。GitHub 热门项目方面，AI 设计工具 Hallmark 单日增长 1,119 星，AI 伴侣项目 AIRI 持续火爆，编码代理 Open Interpreter 迎来重大更新。
-&lt;hr&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-07-14</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-14/">AI 日报 2026-07-14</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">OpenAI 本周大招频出——ChatGPT Work 正式发布，基于 GPT-5.6 的云端 AI Agent 可跨 Slack、Gmail 和日历自主完成任务；Anthropic 继续疯狂挖人，前 Monzo CEO Tom Blomfield 从 YC 离职加入 AI 计算团队；Meta “Iris” AI 芯片计划 9 月投产。开源这边，Graphify 日增 1,858 星登顶 AI 工具榜首，AI 量化交易赛道 Vibe-Trading 已破 2.2 万星——开源 Agent 正从”玩具”走向”工具”。
-&lt;hr&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-07-13</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-13/">AI 日报 2026-07-13</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">今日 AI 领域迎来重磅发布：OpenAI 正式推出 ChatGPT Work，将 ChatGPT 从对话式 AI 升级为云端自主工作平台，支持跨邮件、Slack、日历等应用的复杂多步骤任务执行。与此同时，DeepSeek 将 V4-Pro 模型价格骤降 75%，揭示出 Agent 系统的”100 倍 Token 膨胀”难题——推理成本下降但 Agent 工作流的 Token 消耗增长更快。GitHub 方面，Graphify 以 83K+ Star 领跑，为 AI 编程助手提供知识图谱能力；OpenCut 作为开源 CapCut 替代方案持续火爆。
-&lt;hr&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-07-12</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-12/">AI 日报 2026-07-12</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">OpenAI 在本周正式推出 ChatGPT Work——基于 GPT-5.6 的云端 AI Agent，可在 Slack、邮箱、日历间自主执行复杂任务；与此同时，Meta 的定制 AI 芯片 “Iris” 计划 9 月投产，试图摆脱对 NVIDIA 的依赖。GitHub 方面，Anthropic 的 Claude Cookbooks 以 464 日增星领跑，AI Agent 生态持续爆发。
-&lt;hr&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-07-11</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-11/">AI 日报 2026-07-11</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">OpenAI 昨日正式发布 ChatGPT Work，一款基于 GPT-5.6 的云端 AI Agent，标志 ChatGPT 从对话工具升级为自主工作平台。与此同时，GitHub 上 MCP 生态持续爆发——DesktopCommanderMCP 单日狂揽 900+ Star，Stitch Skills 和 Anthropic Cookbooks 也表现抢眼。行业层面，Meta Iris AI 芯片即将量产，而企业 GPU 利用率不足 50% 的数据引发了对 AI 基建泡沫的广泛讨论。
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-07-10</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-10/">AI 日报 2026-07-10</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">AI 代理工具生态持续爆发：GitHub 上 Agent Skills 相关项目霸榜，addyosmani&amp;#x2F;agent-skills 以 76K+ Star 高居榜首；TencentDB 开源 Agent Memory 方案引发关注。产品侧，OpenAI 正式推出 GPT-Live 全双工语音模型，让 ChatGPT 对话更自然；Slack 的 AI Agent 深度集成 Salesforce 全线产品；Meta 确认自研 AI 芯片 “Iris” 将于九月量产。AI Agent 正从概念走向基础设施化。
-&lt;hr&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-07-09</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-09/">AI 日报 2026-07-09</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">今日 AI 领域迎来多重重磅消息。OpenAI 的 GPT-5.6 模型套件（Sol、Terra、Luna）获美国政府批准公开发布，同时推出 GPT-Live 全双工语音模型；GitHub 上 AI 安全工具 Strix 周增超万星成为最大黑马；Hugging Face 发布开源语音 Agent 框架，AI 语音交互进入可本地部署的新阶段。行业方面，Amazon 秘密推进 “Moonraker” AI Agent 项目，Notion 推出独立 Agent 应用，AI 基础设施军备竞赛正推动三星利润飙升 19 倍。
-&lt;hr&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-07-08</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-08/">AI 日报 2026-07-08</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">今日 AI 领域风云激荡：OpenAI 获特朗普政府绿灯，GPT-5.6 系列（Sol&amp;#x2F;Terra&amp;#x2F;Luna）正式获批公开发布；Anthropic 双线出击——Claude Cowork 扩展至移动端和网页端，同时以 20 年长约锁定肯塔基州 AI 数据中心；GitHub 上 AI 求职框架、Agent 技能库、Agent 长期记忆等项目持续引爆开发者社区。模型竞争、Agent 工具链、AI 基础设施三大主线齐头并进。
-&lt;hr&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-07-07</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-07/">AI 日报 2026-07-07</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">Anthropic 发布 J-lens 技术揭示 Claude 内部”全局工作空间”，引发 AI 可解释性新讨论；腾讯开源 Hy3 模型以 GLM-5.2 一半尺寸实现全面对标；GitHub 上 &lt;code&gt;agent-skills&lt;/code&gt; 项目星数突破 7 万，AI 编程 Agent 生态持续升温。此外，伊利诺伊州 AI 安全法案正式签署，Reddit 全面打击 AI 垃圾内容，AI 治理进入深水区。
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
-
-&lt;hr&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-07-06</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-06/">AI 日报 2026-07-06</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">2026年7月6日，AI领域热闹非凡。Anthropic 在 Claude Fable 5 恢复上线后，又推出 Sonnet 5 大幅降价抢滩市场；Google 迎来25年来首次搜索框大改版，AI Mode 全面整合；GitHub 上 Agent 生态持续爆发——开源 AI Agent 技能仓库单日暴涨超千星，系统提示词泄露仓库也突破5万星。与此同时，企业落地 AI Agent 的理性声音也在增多：摩根士丹利和 Trunk Tools 的实践表明，”不那么自主”的 Agent 反而更能交付商业价值。
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
-
-&lt;hr&gt;</div>
-    </article>
-    
+    <div class="term-body">
+      <div class="tl"><span class="ps">~ $</span> tail -f ai-daily.log</div>
+      <div class="page-hero-desc">每日 AI 领域前沿动态、热门 GitHub 项目、行业洞察速览。</div>
+      <div class="page-hero-stats"><span><strong>46</strong> issues</span> · <span>每日更新</span></div>
+    </div>
   </div>
-
-  
-  <nav class="pagination">
-    
-    <span class="page-number">1 / 5</span>
-    
-    <a class="next" href="/ai-daily/page/2/">下一页</a>
-    
-  </nav>
-  
 </section>
+
+
+<div class="post-list">
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-15/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-07-15</span>
+      <span class="pl-date">2026-07-15</span>
+    </div>
+    
+    <p class="pl-excerpt">今日 OpenAI 正式推出 ChatGPT Work，一款基于 GPT-5.6 的云端 AI 代理，可跨 Slack、Gmail、GitHub 自主执行复杂任务，标志着 AI 从对话工具向工作平台的跃迁。与此同时，Apple Intelligence 获准在中国上线，将接入阿里...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-14/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-07-14</span>
+      <span class="pl-date">2026-07-14</span>
+    </div>
+    
+    <p class="pl-excerpt">OpenAI 本周大招频出——ChatGPT Work 正式发布，基于 GPT-5.6 的云端 AI Agent 可跨 Slack、Gmail 和日历自主完成任务；Anthropic 继续疯狂挖人，前 Monzo CEO Tom Blomfield 从 YC 离职加入 AI 计算...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-13/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-07-13</span>
+      <span class="pl-date">2026-07-13</span>
+    </div>
+    
+    <p class="pl-excerpt">今日 AI 领域迎来重磅发布：OpenAI 正式推出 ChatGPT Work，将 ChatGPT 从对话式 AI 升级为云端自主工作平台，支持跨邮件、Slack、日历等应用的复杂多步骤任务执行。与此同时，DeepSeek 将 V4-Pro 模型价格骤降 75%，揭示出 Agen...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-12/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-07-12</span>
+      <span class="pl-date">2026-07-12</span>
+    </div>
+    
+    <p class="pl-excerpt">OpenAI 在本周正式推出 ChatGPT Work——基于 GPT-5.6 的云端 AI Agent，可在 Slack、邮箱、日历间自主执行复杂任务；与此同时，Meta 的定制 AI 芯片 “Iris” 计划 9 月投产，试图摆脱对 NVIDIA 的依赖。GitHub 方面，...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-11/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-07-11</span>
+      <span class="pl-date">2026-07-11</span>
+    </div>
+    
+    <p class="pl-excerpt">OpenAI 昨日正式发布 ChatGPT Work，一款基于 GPT-5.6 的云端 AI Agent，标志 ChatGPT 从对话工具升级为自主工作平台。与此同时，GitHub 上 MCP 生态持续爆发——DesktopCommanderMCP 单日狂揽 900+ Star，...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-10/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-07-10</span>
+      <span class="pl-date">2026-07-10</span>
+    </div>
+    
+    <p class="pl-excerpt">AI 代理工具生态持续爆发：GitHub 上 Agent Skills 相关项目霸榜，addyosmani&amp;#x2F;agent-skills 以 76K+ Star 高居榜首；TencentDB 开源 Agent Memory 方案引发关注。产品侧，OpenAI 正式推出 GP...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-09/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-07-09</span>
+      <span class="pl-date">2026-07-09</span>
+    </div>
+    
+    <p class="pl-excerpt">今日 AI 领域迎来多重重磅消息。OpenAI 的 GPT-5.6 模型套件（Sol、Terra、Luna）获美国政府批准公开发布，同时推出 GPT-Live 全双工语音模型；GitHub 上 AI 安全工具 Strix 周增超万星成为最大黑马；Hugging Face 发布开源...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-08/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-07-08</span>
+      <span class="pl-date">2026-07-08</span>
+    </div>
+    
+    <p class="pl-excerpt">今日 AI 领域风云激荡：OpenAI 获特朗普政府绿灯，GPT-5.6 系列（Sol&amp;#x2F;Terra&amp;#x2F;Luna）正式获批公开发布；Anthropic 双线出击——Claude Cowork 扩展至移动端和网页端，同时以 20 年长约锁定肯塔基州 AI 数据中心；...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-07/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-07-07</span>
+      <span class="pl-date">2026-07-07</span>
+    </div>
+    
+    <p class="pl-excerpt">Anthropic 发布 J-lens 技术揭示 Claude 内部”全局工作空间”，引发 AI 可解释性新讨论；腾讯开源 Hy3 模型以 GLM-5.2 一半尺寸实现全面对标；GitHub 上 agent-skills 项目星数突破 7 万，AI 编程 Agent 生态持续升温...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-06/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-07-06</span>
+      <span class="pl-date">2026-07-06</span>
+    </div>
+    
+    <p class="pl-excerpt">2026年7月6日，AI领域热闹非凡。Anthropic 在 Claude Fable 5 恢复上线后，又推出 Sonnet 5 大幅降价抢滩市场；Google 迎来25年来首次搜索框大改版，AI Mode 全面整合；GitHub 上 Agent 生态持续爆发——开源 AI Ag...</p>
+  </a>
+  
+</div>
+
+
+
+<nav class="pagination">
+  
+  <span class="page-number">[1/5]</span>
+  
+  <a class="next" href="/ai-daily/page/2/">下一页</a>
+  
+</nav>
+
 
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+      <p>&copy; 2026 沉鱼 &nbsp;·&nbsp; uv:<span id="site-uv">-</span> &nbsp;pv:<span id="site-pv">-</span> &nbsp;·&nbsp; <a href="/atom.xml" title="RSS 订阅">[rss]</a> &nbsp;·&nbsp; powered by <a href="https://hexo.io" target="_blank" rel="noopener">hexo</a></p>
     </div>
   </footer>
 
@@ -327,7 +297,7 @@
   </script>
 
   <script>
-  /* dark mode toggle */
+  /* dark mode toggle：深色为默认，按钮在 dark/light 间切换 */
   (function() {
     var btn = document.getElementById('dark-toggle');
     function notifyGiscus(theme) {
@@ -336,12 +306,12 @@
       iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
     }
     btn.addEventListener('click', function() {
-      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      var next = currentlyDark ? '' : 'dark';
+      var currentlyDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      var next = currentlyDark ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next || 'light');
-      window.__theme = next || 'light';
-      notifyGiscus(next || 'light');
+      localStorage.setItem('theme', next);
+      window.__theme = next;
+      notifyGiscus(next);
     });
   })();
   </script>
@@ -470,48 +440,39 @@
       return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
     }
 
-    /* ---- 事件委托：处理代码块 / Mermaid 点击 ---- */
+    /* ---- 事件委托：仅 Mermaid 流程图支持点击放大 ---- */
     document.addEventListener('click', function(e) {
       /* only react to the play button, not the whole overlay */
       var overlay = e.target.closest('.code-block-play');
       if (!overlay) return;
-      var wrap = overlay.closest('.code-block-wrap, .mermaid-container');
+      var wrap = overlay.closest('.mermaid-container');
       if (!wrap) return;
 
-      if (wrap.classList.contains('code-block-wrap')) {
-        /* 代码块 */
-        var pre = wrap.querySelector('pre');
-        if (!pre) return;
-        var text = pre.innerText || pre.textContent || '';
-        showViewer({ title: '代码块', bodyHtml: text, copyText: text });
-      } else {
-        /* Mermaid 流程图 */
-        var origCode = wrap.getAttribute('data-orig');
-        if (!origCode) return;
-        /* 使用 mermaid.render() 获取 SVG 字符串 */
-        if (typeof mermaid !== 'undefined' && mermaid.render) {
-          var uid = 'mermaid-viewer-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
-          mermaid.render(uid, origCode).then(function(result) {
-            showViewer({ title: '流程图', bodyHtml: result.svg, isMermaid: true });
-          }).catch(function(err) {
-            showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
-          });
-        } else if (typeof mermaid !== 'undefined' && mermaid.run) {
-          /* fallback to run() */
-          var tmp = document.createElement('div');
-          tmp.textContent = origCode;
-          mermaid.run({ nodes: [tmp] }).then(function() {
-            showViewer({ title: '流程图', bodyHtml: tmp.innerHTML || origCode, isMermaid: true });
-          }).catch(function() {
-            showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
-          });
-        } else {
+      var origCode = wrap.getAttribute('data-orig');
+      if (!origCode) return;
+      /* 使用 mermaid.render() 获取 SVG 字符串 */
+      if (typeof mermaid !== 'undefined' && mermaid.render) {
+        var uid = 'mermaid-viewer-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
+        mermaid.render(uid, origCode).then(function(result) {
+          showViewer({ title: '流程图', bodyHtml: result.svg, isMermaid: true });
+        }).catch(function(err) {
           showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
-        }
+        });
+      } else if (typeof mermaid !== 'undefined' && mermaid.run) {
+        /* fallback to run() */
+        var tmp = document.createElement('div');
+        tmp.textContent = origCode;
+        mermaid.run({ nodes: [tmp] }).then(function() {
+          showViewer({ title: '流程图', bodyHtml: tmp.innerHTML || origCode, isMermaid: true });
+        }).catch(function() {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        });
+      } else {
+        showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
       }
     });
 
-    /* ---- 初始化：给每个代码块包上 play 遮罩 ---- */
+    /* ---- 初始化：给每个代码块加复制按钮（不加放大遮罩） ---- */
     var preList = document.querySelectorAll('.post-content figure.highlight td.code pre, .post-content > pre');
     preList.forEach(function(pre) {
       if (pre.closest('.code-block-wrap')) return; /* 已包装 */
@@ -534,18 +495,6 @@
         });
       });
       wrap.appendChild(copyBtn);
-
-      /* 悬浮遮罩（视频播放器风格） */
-      var lineCount = (pre.innerText || '').split('\n').length;
-      var ov = document.createElement('div');
-      ov.className = 'code-block-overlay';
-      ov.innerHTML = '<button class="code-block-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>';
-      wrap.appendChild(ov);
-
-      var info = document.createElement('div');
-      info.className = 'code-block-info';
-      info.innerHTML = '<span>' + lineCount + ' 行</span>';
-      wrap.appendChild(info);
     });
 
     /* ---- Mermaid 容器遮罩 ---- */
@@ -578,7 +527,7 @@
   <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
   <script>
   (function() {
-    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
     mermaid.initialize({
       startOnLoad: false,
       theme: isDark ? 'dark' : 'default',
@@ -592,7 +541,6 @@
      * Hexo 默认高亮插件将 markdown 代码块渲染为：
      *   <figure class="highlight plaintext">
      *     <table><tr><td class="code"><pre><span class="line">...</span>...</pre></td></tr></table>
-     *   </figure>
      * 因此无法通过 code.language-mermaid 选择器定位。
      * 改为：匹配所有 figure.highlight.plaintext，提取其文本内容并检查首行是否为 mermaid 关键字。
      */
@@ -657,7 +605,7 @@
             el.innerHTML = '';
             el.textContent = el.getAttribute('data-orig');
           }
-          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
           mermaid.initialize({
             startOnLoad: false,
             theme: isDark ? 'dark' : 'default',
@@ -672,9 +620,197 @@
   })();
   </script>
 
-  <!-- 统计 API 待接入 -->
   <script>
-  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  /* Matrix 字符雨背景：全屏 canvas 垫底，跟随主题色，空闲/隐藏时暂停 */
+  (function() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var cv = document.createElement('canvas');
+    cv.id = 'matrix-bg';
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;';
+    cv.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var fontSize = 16, cols, drops;
+    var CHARS = '0123456789abcdef{}[]()<>/\\$#*+=;:constfnlet=>';
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(innerWidth / fontSize);
+      drops = [];
+      for (var i = 0; i < cols; i++) drops[i] = Math.random() * -60;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function themeColors() {
+      var s = getComputedStyle(document.documentElement);
+      var green = s.getPropertyValue('--green').trim() || '#00ff9c';
+      var bg = s.getPropertyValue('--bg').trim() || '#0a0e14';
+      return { green: green, bg: bg };
+    }
+    var colors = themeColors();
+    /* 主题切换时更新颜色 */
+    var toggle = document.getElementById('dark-toggle');
+    if (toggle) toggle.addEventListener('click', function() {
+      setTimeout(function() { colors = themeColors(); }, 50);
+    });
+
+    function hexToRgb(hex) {
+      var m = hex.replace('#', '');
+      if (m.length === 3) m = m[0]+m[0]+m[1]+m[1]+m[2]+m[2];
+      var n = parseInt(m, 16);
+      return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+    }
+
+    var running = true, last = 0;
+    function tick(ts) {
+      if (!running) return;
+      /* 限流 ~20fps，字符雨不需要高帧率 */
+      if (ts - last < 50) { requestAnimationFrame(tick); return; }
+      last = ts;
+
+      var rgb = hexToRgb(colors.bg);
+      ctx.fillStyle = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.09)';
+      ctx.fillRect(0, 0, innerWidth, innerHeight);
+      ctx.font = fontSize + 'px ' + fontFamily;
+
+      var g = hexToRgb(colors.green);
+      for (var i = 0; i < cols; i++) {
+        var ch = CHARS[Math.floor(Math.random() * CHARS.length)];
+        /* 头部亮、尾部暗：每列首字符高亮 */
+        var head = Math.random() > 0.96;
+        ctx.fillStyle = 'rgba(' + g[0] + ',' + g[1] + ',' + g[2] + ',' + (head ? 0.9 : 0.45) + ')';
+        ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+        drops[i]++;
+        if (drops[i] * fontSize > innerHeight && Math.random() > 0.975) drops[i] = 0;
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        running = false;
+      } else if (!running) {
+        running = true;
+        last = 0;
+        requestAnimationFrame(tick);
+      }
+    });
+  })();
+  </script>
+
+  <script>
+  /* 点击字符爆裂动效：终端字形 + 重力 + 淡出，颜色跟随主题主色 */
+  (function() {
+    var cv = document.createElement('canvas');
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:9999;';
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var GLYPHS = '01<>/#$*{}[];=+';
+    var parts = [];
+    var raf = null;
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function burst(x, y) {
+      var color = getComputedStyle(document.documentElement)
+        .getPropertyValue('--green').trim() || '#00ff9c';
+      for (var i = 0; i < 16; i++) {
+        var a = Math.random() * Math.PI * 2;
+        var sp = 2 + Math.random() * 5;
+        parts.push({
+          x: x, y: y,
+          vx: Math.cos(a) * sp,
+          vy: Math.sin(a) * sp - 2.5,
+          ch: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
+          life: 1,
+          size: 11 + Math.random() * 7,
+          color: color
+        });
+      }
+      if (!raf) raf = requestAnimationFrame(tick);
+    }
+
+    function tick() {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      for (var i = parts.length - 1; i >= 0; i--) {
+        var p = parts[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.22;           /* 重力 */
+        p.vx *= 0.985;
+        p.life -= 0.018;
+        if (p.life <= 0) { parts.splice(i, 1); continue; }
+        ctx.globalAlpha = Math.max(p.life, 0);
+        ctx.fillStyle = p.color;
+        ctx.font = p.size + 'px ' + fontFamily;
+        ctx.fillText(p.ch, p.x, p.y);
+      }
+      ctx.globalAlpha = 1;
+      raf = parts.length ? requestAnimationFrame(tick) : (ctx.clearRect(0, 0, innerWidth, innerHeight), null);
+    }
+
+    document.addEventListener('pointerdown', function(e) {
+      burst(e.clientX, e.clientY);
+    }, { passive: true });
+  })();
+  </script>
+
+  <!-- 访问量统计（counter-api · Vercel KV） -->
+  <script>
+  (function() {
+    /* TODO(一次性): 部署 counter-api 到 Vercel 后，把下面的地址改成实际域名 */
+    var COUNTER_API = 'https://blog-counter-api.vercel.app/api/counter';
+    if (!COUNTER_API) return;
+
+    /* 访客 ID：localStorage 持久化，用于 UV 去重 */
+    var vid = localStorage.getItem('visitor-id');
+    if (!vid) {
+      vid = 'v-' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      localStorage.setItem('visitor-id', vid);
+    }
+
+    fetch(COUNTER_API, { headers: { 'x-visitor-id': vid } })
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        if (d && d.uv != null) document.getElementById('site-uv').textContent = d.uv;
+        if (d && d.pv != null) document.getElementById('site-pv').textContent = d.pv;
+      })
+      .catch(function() { /* 统计不可用时静默，保持 '-' */ });
+  })();
+  </script>
+
+  <script>
+  /* 按 / 聚焦搜索框，Esc 取消焦点（终端式快捷键） */
+  (function() {
+    document.addEventListener('keydown', function(e) {
+      var typing = /^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName);
+      if (e.key === '/' && !typing) {
+        e.preventDefault();
+        document.getElementById('search-input').focus();
+      } else if (e.key === 'Escape' && typing) {
+        document.activeElement.blur();
+      }
+    });
+  })();
   </script>
 </body>
 </html>

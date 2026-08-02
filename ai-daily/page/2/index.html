@@ -3,17 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230984e3'/%3E%3Ctext x='50' y='72' font-size='60' text-anchor='middle' fill='white'%3E鱼%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230a0e14'/%3E%3Ctext x='18' y='68' font-size='52' fill='%2300ff9c' font-family='monospace'%3E%26gt;_%3C/text%3E%3C/svg%3E">
   <title>沉鱼的博客</title>
-  <link rel="stylesheet" href="/css/style.css?v=202605052015">
+  
+  <meta name="description" content="编程笔记 &amp; 资料分享">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="沉鱼的博客">
+  <meta property="og:title" content="沉鱼的博客">
+  <meta property="og:description" content="编程笔记 &amp; 资料分享">
+  <meta property="og:url" content="https://scottalive.github.io/ai-daily/page/2/index.html">
+  <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="沉鱼的博客">
+  <meta name="twitter:description" content="编程笔记 &amp; 资料分享">
+  <meta name="twitter:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="/atom.xml">
+  <link rel="stylesheet" href="/css/style.css?v=202607190200">
   <script>
-  /* 必须在 body 渲染前确定主题，保证 giscus 等组件能拿到正确的初始值 */
+  /* 深色为默认主题，仅当用户显式选择浅色时才切换；body 渲染前确定，避免闪烁 */
   (function() {
     var saved = localStorage.getItem('theme');
-    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var isDark = saved === 'dark' || (!saved && prefersDark);
-    if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
-    window.__theme = isDark ? 'dark' : 'light';
+    var theme = saved === 'light' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    window.__theme = theme;
   })();
   </script>
 <meta name="generator" content="Hexo 6.3.0"></head>
@@ -23,22 +35,20 @@
 
   <header class="site-header">
     <div class="container">
-      <h1 class="site-title"><a href="/">沉鱼的博客</a></h1>
-      <p class="site-subtitle">了解自我，超越自我</p>
+      <h1 class="site-title"><a href="/"><span class="prompt-path">~/</span>blog<span class="cursor"></span></a></h1>
       <nav class="site-nav">
         <a href="/">首页</a>
         <a href="/archives">归档</a>
         <a href="/categories">分类</a>
         <a href="/tags">标签</a>
-        <a href="/ai-hotspots">AI行业热点</a>
+        <a href="/ai-hotspots">AI热点</a>
         <a href="/ai-daily">AI日报</a>
-        <!-- <a href="/downloads">资源</a> -->
         <a href="/about">关于</a>
-        <div class="search-box">
-          <input type="text" id="search-input" placeholder="搜索..." autocomplete="off">
-          <div id="search-results"></div>
-        </div>
       </nav>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="search..." autocomplete="off">
+        <div id="search-results"></div>
+      </div>
     </div>
   </header>
 
@@ -47,171 +57,134 @@
       <!-- AI 日报 - 列表页 -->
 
 
-<section class="category-page-shell">
-  <header class="category-page-hero">
-    <span class="categories-kicker">AI Daily</span>
-    <h1 class="category-page-title">AI日报</h1>
-    <p class="category-page-desc">每日 AI 领域前沿动态、热门 GitHub 项目、行业洞察速览。</p>
-    <div class="archive-hero-stats" style="margin-top:14px">
-      <span><strong>46</strong> 期日报</span>
-      <span>每日更新</span>
+<section class="page-hero">
+  <div class="term">
+    <div class="term-bar">
+      <span class="term-dots"></span>
+      <span class="term-title">~/blog/ai-daily — zsh</span>
     </div>
-  </header>
-
-  <div class="ai-daily-feed">
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-07-05</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-05/">AI 日报 2026-07-05</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">2026 年 7 月 5 日，AI 领域呈现两大趋势：Agent 生态爆发与工具链深度整合。GitHub 上 AI 编程助手相关项目持续火热——OpenAI 推出 Codex ↔ Claude Code 互操作插件，Anthropic 发布 Claude Sonnet 5 以低价抢占 API 市场。阿里巴巴旗下 Page-Agent 实现纯前端 GUI Agent 方案，引发开发者关注。同时，安全领域的 AI 应用（Strix 渗透测试工具）和 Agent Token 优化（Alibaba 新框架节省 99% Token）也传来突破性进展。
-&lt;hr&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-06-20</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-20/">AI 日报 2026-06-20</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">本周 AI 圈异常热闹：Google 时隔 25 年重新设计了搜索框——背后是 AI 驱动的全面重构；Anthropic 大幅升级 Claude Design，修复了标志性的”token 燃烧”问题；而来自 Weibo 的 VibeThinker-3B 以 3B 参数对标千亿级模型，让整个社区重新思考”规模是否就是一切”。GitHub 上，headroom 以日增 3786 星登顶，Codebase Memory MCP 和 Kilo Code 紧随其后，代码智能和 Agent 工具仍是开发者最追捧的方向。</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-06-11</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-11/">AI 日报 2026-06-11</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">今日 AI 圈异常热闹：Anthropic 的 Fable 5 &amp;#x2F; Mythos 模型因数据保留和护栏问题遭遇安全社区强烈反弹；Google 发布 DiffusionGemma 并行解码模型；GPT-5.5 在最新 Agent 基准测试中反超 Claude Fable 5；微软开源 SkillOpt 自动优化 AI Agent 技能；研究人员仅用 $1,500 从头训练出 1B 推理模型。开源社区方面，huggingface 启动 DeepSeek-R1 开源复现项目，Cohere 发布可在单卡 H100 上运行的 30B 编码 Agent。
-&lt;hr&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-06-06</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-06/">AI 日报 2026-06-06</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">本周 AI 行业迎来密集发布：微软 Build 2026 开发者大会成为绝对焦点，接连推出 MXC 操作系统级 AI Agent 沙盒和 Surface RTX Spark Dev Box 本地 AI 工作站；Anthropic 披露内部 80% 新生产代码由 Claude 编写，标志着 AI 编程已跨越临界点；Google 发布开源 Gemma 4 12B 多模态小模型；OpenAI 向 Codex 引入企业级工作空间功能。与此同时，阿里巴巴 Qwen3.7-Plus 以极低价格加入多模态模型战局，Perplexity 发布混合本地-云端推理系统。
-&lt;hr&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-06-05</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-05/">AI 日报 2026-06-05</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">今日 AI 领域迎来多重突破：Perplexity 在 Computex 2026 发布混合本地-云端推理系统，微软联手 OpenAI、NVIDIA 推出 AI Agent 操作系统级沙箱 MXC。开源社区方面，headroom（低损耗 Token 压缩）以单日 2500+ Star 引爆讨论，open-notebook 作为 Notebook LM 的开源替代持续升温。Anthropic 就”递归自我改进”（RSI）发表官方声明，引发行业对 AI 自主进化的新一轮思考。
-&lt;hr&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-06-04</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-04/">AI 日报 2026-06-04</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">今日 AI 领域波澜壮阔：ChatGPT 月活突破 10 亿，成为史上增长最快的应用；MiniMax M3 以 GPT-5.5 十分之一的成本实现性能超越，震惊业界；Microsoft Build 2026 连发重磅产品——本地 AI 工作站 Surface RTX Spark Dev Box、OS 级 AI Agent 沙箱 MXC，以及 Project Solara 智能操作系统。GitHub 上，自托管 AI 工作空间项目 odysseus 在短短数日内狂揽 48K+ Star，成为当日最亮眼的开源新星。
-&lt;hr&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-06-03</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-03/">AI 日报 2026-06-03</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">微软发布 MAI-Code-1-Flash 编程模型，在 SWE-Bench 全系基准上超越 Claude Haiku 4.5，且 token 消耗降低 60%；OpenAI Codex 周活用户突破 500 万，正从编程工具向通用 Agent 平台转型；MiniMax M3 以 GPT-5.5 和 Gemini 3.1 Pro 的 5%-10% 成本实现同等甚至更优性能，开源 AI 生态迎来新变量。与此同时，AI Agent 的企业级可靠性问题正成为行业焦点，多家公司开始从”堆模型能力”转向”体系化重建”。
-&lt;hr&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-06-02</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-02/">AI 日报 2026-06-02</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">今日 AI 圈关键词：Odysseus 自托管 AI 工作区爆发、微软 AI 超级应用浮出水面、MiniMax M3 以 5-10% 成本吊打 GPT-5.5、佛罗里达起诉 OpenAI 安全争议。PewDiePie 关联项目 Odysseus 两天斩获 2.7 万星，重新引爆「自托管 AI」叙事；微软酝酿将 Copilot 全线产品整合为超级应用；MiniMax M3 用经济成本实现顶级 benchmark 表现，中国 AI 效率竞赛再下一城。
-&lt;hr&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-06-01</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-01/">AI 日报 2026-06-01</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">Anthropic 完成 650 亿美元 H 轮融资，估值逼近 9000 亿美元超越 OpenAI；OpenAI Codex 正式登陆 Windows，AI 操控电脑时代到来；GitHub 上多个 AI Agent 框架和工具集中爆发——Compound Engineering 插件、Oh-My-Pi 终端 Agent 等新项目强势崛起。与此同时，NVIDIA 发布 Cosmos 3 物理 AI 世界模型，1-Bit 图像生成模型让 4B 参数模型也能跑在本地设备上。AI 领域正在从”大模型竞赛”转向”Agent + 工具 + 端侧智能”的全面落地阶段。
-&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
-
-&lt;hr&gt;</div>
-    </article>
-    
-    <article class="ai-daily-card">
-      <div class="ai-daily-card-meta">
-        <span class="ai-daily-card-date">2026-05-31</span>
-        <span class="ai-daily-card-badge">AI 日报</span>
-      </div>
-      <h2 class="ai-daily-card-title">
-        <a href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-31/">AI 日报 2026-05-31</a>
-      </h2>
-      
-      <div class="ai-daily-card-excerpt">Anthropic 以近万亿美元估值完成 Series H 融资（$900B），估值甩开 OpenAI（$730B）。AI Agent 赛道进入”重建期”，企业开始直面可靠性问题。Microsoft 正打造整合 GitHub Copilot、Copilot Chat 的”超级应用”。GitHub 热度方面，Hermes Agent 的 WebUI 项目爆发、Model Context Protocol 生态向大规模 Agent 团队协作演进，”从零训练 LLM”教学项目狂揽 627 日增星，反映出开发者社区对 AI 底层能力构建的持续热情。
-&lt;hr&gt;</div>
-    </article>
-    
+    <div class="term-body">
+      <div class="tl"><span class="ps">~ $</span> tail -f ai-daily.log</div>
+      <div class="page-hero-desc">每日 AI 领域前沿动态、热门 GitHub 项目、行业洞察速览。</div>
+      <div class="page-hero-stats"><span><strong>46</strong> issues</span> · <span>每日更新</span></div>
+    </div>
   </div>
-
-  
-  <nav class="pagination">
-    
-    <a class="prev" href="/ai-daily/">上一页</a>
-    
-    <span class="page-number">2 / 5</span>
-    
-    <a class="next" href="/ai-daily/page/3/">下一页</a>
-    
-  </nav>
-  
 </section>
+
+
+<div class="post-list">
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-05/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-07-05</span>
+      <span class="pl-date">2026-07-05</span>
+    </div>
+    
+    <p class="pl-excerpt">2026 年 7 月 5 日，AI 领域呈现两大趋势：Agent 生态爆发与工具链深度整合。GitHub 上 AI 编程助手相关项目持续火热——OpenAI 推出 Codex ↔ Claude Code 互操作插件，Anthropic 发布 Claude Sonnet 5 以低价...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-20/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-06-20</span>
+      <span class="pl-date">2026-06-20</span>
+    </div>
+    
+    <p class="pl-excerpt">本周 AI 圈异常热闹：Google 时隔 25 年重新设计了搜索框——背后是 AI 驱动的全面重构；Anthropic 大幅升级 Claude Design，修复了标志性的”token 燃烧”问题；而来自 Weibo 的 VibeThinker-3B 以 3B 参数对标千亿级模...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-11/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-06-11</span>
+      <span class="pl-date">2026-06-11</span>
+    </div>
+    
+    <p class="pl-excerpt">今日 AI 圈异常热闹：Anthropic 的 Fable 5 &amp;#x2F; Mythos 模型因数据保留和护栏问题遭遇安全社区强烈反弹；Google 发布 DiffusionGemma 并行解码模型；GPT-5.5 在最新 Agent 基准测试中反超 Claude Fable ...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-06/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-06-06</span>
+      <span class="pl-date">2026-06-06</span>
+    </div>
+    
+    <p class="pl-excerpt">本周 AI 行业迎来密集发布：微软 Build 2026 开发者大会成为绝对焦点，接连推出 MXC 操作系统级 AI Agent 沙盒和 Surface RTX Spark Dev Box 本地 AI 工作站；Anthropic 披露内部 80% 新生产代码由 Claude 编写...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-05/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-06-05</span>
+      <span class="pl-date">2026-06-05</span>
+    </div>
+    
+    <p class="pl-excerpt">今日 AI 领域迎来多重突破：Perplexity 在 Computex 2026 发布混合本地-云端推理系统，微软联手 OpenAI、NVIDIA 推出 AI Agent 操作系统级沙箱 MXC。开源社区方面，headroom（低损耗 Token 压缩）以单日 2500+ St...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-04/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-06-04</span>
+      <span class="pl-date">2026-06-04</span>
+    </div>
+    
+    <p class="pl-excerpt">今日 AI 领域波澜壮阔：ChatGPT 月活突破 10 亿，成为史上增长最快的应用；MiniMax M3 以 GPT-5.5 十分之一的成本实现性能超越，震惊业界；Microsoft Build 2026 连发重磅产品——本地 AI 工作站 Surface RTX Spark ...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-03/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-06-03</span>
+      <span class="pl-date">2026-06-03</span>
+    </div>
+    
+    <p class="pl-excerpt">微软发布 MAI-Code-1-Flash 编程模型，在 SWE-Bench 全系基准上超越 Claude Haiku 4.5，且 token 消耗降低 60%；OpenAI Codex 周活用户突破 500 万，正从编程工具向通用 Agent 平台转型；MiniMax M3 以...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-02/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-06-02</span>
+      <span class="pl-date">2026-06-02</span>
+    </div>
+    
+    <p class="pl-excerpt">今日 AI 圈关键词：Odysseus 自托管 AI 工作区爆发、微软 AI 超级应用浮出水面、MiniMax M3 以 5-10% 成本吊打 GPT-5.5、佛罗里达起诉 OpenAI 安全争议。PewDiePie 关联项目 Odysseus 两天斩获 2.7 万星，重新引爆「...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-06-01/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-06-01</span>
+      <span class="pl-date">2026-06-01</span>
+    </div>
+    
+    <p class="pl-excerpt">Anthropic 完成 650 亿美元 H 轮融资，估值逼近 9000 亿美元超越 OpenAI；OpenAI Codex 正式登陆 Windows，AI 操控电脑时代到来；GitHub 上多个 AI Agent 框架和工具集中爆发——Compound Engineering ...</p>
+  </a>
+  
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-31/">
+    <div class="pl-top">
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-05-31</span>
+      <span class="pl-date">2026-05-31</span>
+    </div>
+    
+    <p class="pl-excerpt">Anthropic 以近万亿美元估值完成 Series H 融资（$900B），估值甩开 OpenAI（$730B）。AI Agent 赛道进入”重建期”，企业开始直面可靠性问题。Microsoft 正打造整合 GitHub Copilot、Copilot Chat 的”超级应用...</p>
+  </a>
+  
+</div>
+
+
+
+<nav class="pagination">
+  
+  <a class="prev" href="/ai-daily/">上一页</a>
+  
+  <span class="page-number">[2/5]</span>
+  
+  <a class="next" href="/ai-daily/page/3/">下一页</a>
+  
+</nav>
+
 
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2026 沉鱼 &nbsp;|&nbsp; 访客 <span id="site-uv">-</span> &nbsp;|&nbsp; 浏览 <span id="site-pv">-</span></p>
+      <p>&copy; 2026 沉鱼 &nbsp;·&nbsp; uv:<span id="site-uv">-</span> &nbsp;pv:<span id="site-pv">-</span> &nbsp;·&nbsp; <a href="/atom.xml" title="RSS 订阅">[rss]</a> &nbsp;·&nbsp; powered by <a href="https://hexo.io" target="_blank" rel="noopener">hexo</a></p>
     </div>
   </footer>
 
@@ -326,7 +299,7 @@
   </script>
 
   <script>
-  /* dark mode toggle */
+  /* dark mode toggle：深色为默认，按钮在 dark/light 间切换 */
   (function() {
     var btn = document.getElementById('dark-toggle');
     function notifyGiscus(theme) {
@@ -335,12 +308,12 @@
       iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
     }
     btn.addEventListener('click', function() {
-      var currentlyDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      var next = currentlyDark ? '' : 'dark';
+      var currentlyDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      var next = currentlyDark ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next || 'light');
-      window.__theme = next || 'light';
-      notifyGiscus(next || 'light');
+      localStorage.setItem('theme', next);
+      window.__theme = next;
+      notifyGiscus(next);
     });
   })();
   </script>
@@ -469,48 +442,39 @@
       return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
     }
 
-    /* ---- 事件委托：处理代码块 / Mermaid 点击 ---- */
+    /* ---- 事件委托：仅 Mermaid 流程图支持点击放大 ---- */
     document.addEventListener('click', function(e) {
       /* only react to the play button, not the whole overlay */
       var overlay = e.target.closest('.code-block-play');
       if (!overlay) return;
-      var wrap = overlay.closest('.code-block-wrap, .mermaid-container');
+      var wrap = overlay.closest('.mermaid-container');
       if (!wrap) return;
 
-      if (wrap.classList.contains('code-block-wrap')) {
-        /* 代码块 */
-        var pre = wrap.querySelector('pre');
-        if (!pre) return;
-        var text = pre.innerText || pre.textContent || '';
-        showViewer({ title: '代码块', bodyHtml: text, copyText: text });
-      } else {
-        /* Mermaid 流程图 */
-        var origCode = wrap.getAttribute('data-orig');
-        if (!origCode) return;
-        /* 使用 mermaid.render() 获取 SVG 字符串 */
-        if (typeof mermaid !== 'undefined' && mermaid.render) {
-          var uid = 'mermaid-viewer-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
-          mermaid.render(uid, origCode).then(function(result) {
-            showViewer({ title: '流程图', bodyHtml: result.svg, isMermaid: true });
-          }).catch(function(err) {
-            showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
-          });
-        } else if (typeof mermaid !== 'undefined' && mermaid.run) {
-          /* fallback to run() */
-          var tmp = document.createElement('div');
-          tmp.textContent = origCode;
-          mermaid.run({ nodes: [tmp] }).then(function() {
-            showViewer({ title: '流程图', bodyHtml: tmp.innerHTML || origCode, isMermaid: true });
-          }).catch(function() {
-            showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
-          });
-        } else {
+      var origCode = wrap.getAttribute('data-orig');
+      if (!origCode) return;
+      /* 使用 mermaid.render() 获取 SVG 字符串 */
+      if (typeof mermaid !== 'undefined' && mermaid.render) {
+        var uid = 'mermaid-viewer-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
+        mermaid.render(uid, origCode).then(function(result) {
+          showViewer({ title: '流程图', bodyHtml: result.svg, isMermaid: true });
+        }).catch(function(err) {
           showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
-        }
+        });
+      } else if (typeof mermaid !== 'undefined' && mermaid.run) {
+        /* fallback to run() */
+        var tmp = document.createElement('div');
+        tmp.textContent = origCode;
+        mermaid.run({ nodes: [tmp] }).then(function() {
+          showViewer({ title: '流程图', bodyHtml: tmp.innerHTML || origCode, isMermaid: true });
+        }).catch(function() {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        });
+      } else {
+        showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
       }
     });
 
-    /* ---- 初始化：给每个代码块包上 play 遮罩 ---- */
+    /* ---- 初始化：给每个代码块加复制按钮（不加放大遮罩） ---- */
     var preList = document.querySelectorAll('.post-content figure.highlight td.code pre, .post-content > pre');
     preList.forEach(function(pre) {
       if (pre.closest('.code-block-wrap')) return; /* 已包装 */
@@ -533,18 +497,6 @@
         });
       });
       wrap.appendChild(copyBtn);
-
-      /* 悬浮遮罩（视频播放器风格） */
-      var lineCount = (pre.innerText || '').split('\n').length;
-      var ov = document.createElement('div');
-      ov.className = 'code-block-overlay';
-      ov.innerHTML = '<button class="code-block-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>';
-      wrap.appendChild(ov);
-
-      var info = document.createElement('div');
-      info.className = 'code-block-info';
-      info.innerHTML = '<span>' + lineCount + ' 行</span>';
-      wrap.appendChild(info);
     });
 
     /* ---- Mermaid 容器遮罩 ---- */
@@ -577,7 +529,7 @@
   <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
   <script>
   (function() {
-    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
     mermaid.initialize({
       startOnLoad: false,
       theme: isDark ? 'dark' : 'default',
@@ -591,7 +543,6 @@
      * Hexo 默认高亮插件将 markdown 代码块渲染为：
      *   <figure class="highlight plaintext">
      *     <table><tr><td class="code"><pre><span class="line">...</span>...</pre></td></tr></table>
-     *   </figure>
      * 因此无法通过 code.language-mermaid 选择器定位。
      * 改为：匹配所有 figure.highlight.plaintext，提取其文本内容并检查首行是否为 mermaid 关键字。
      */
@@ -656,7 +607,7 @@
             el.innerHTML = '';
             el.textContent = el.getAttribute('data-orig');
           }
-          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
           mermaid.initialize({
             startOnLoad: false,
             theme: isDark ? 'dark' : 'default',
@@ -671,9 +622,197 @@
   })();
   </script>
 
-  <!-- 统计 API 待接入 -->
   <script>
-  /* TODO: 接入自建统计 API，更新 #site-pv 和 #site-uv */
+  /* Matrix 字符雨背景：全屏 canvas 垫底，跟随主题色，空闲/隐藏时暂停 */
+  (function() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var cv = document.createElement('canvas');
+    cv.id = 'matrix-bg';
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;';
+    cv.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var fontSize = 16, cols, drops;
+    var CHARS = '0123456789abcdef{}[]()<>/\\$#*+=;:constfnlet=>';
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(innerWidth / fontSize);
+      drops = [];
+      for (var i = 0; i < cols; i++) drops[i] = Math.random() * -60;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function themeColors() {
+      var s = getComputedStyle(document.documentElement);
+      var green = s.getPropertyValue('--green').trim() || '#00ff9c';
+      var bg = s.getPropertyValue('--bg').trim() || '#0a0e14';
+      return { green: green, bg: bg };
+    }
+    var colors = themeColors();
+    /* 主题切换时更新颜色 */
+    var toggle = document.getElementById('dark-toggle');
+    if (toggle) toggle.addEventListener('click', function() {
+      setTimeout(function() { colors = themeColors(); }, 50);
+    });
+
+    function hexToRgb(hex) {
+      var m = hex.replace('#', '');
+      if (m.length === 3) m = m[0]+m[0]+m[1]+m[1]+m[2]+m[2];
+      var n = parseInt(m, 16);
+      return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+    }
+
+    var running = true, last = 0;
+    function tick(ts) {
+      if (!running) return;
+      /* 限流 ~20fps，字符雨不需要高帧率 */
+      if (ts - last < 50) { requestAnimationFrame(tick); return; }
+      last = ts;
+
+      var rgb = hexToRgb(colors.bg);
+      ctx.fillStyle = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.09)';
+      ctx.fillRect(0, 0, innerWidth, innerHeight);
+      ctx.font = fontSize + 'px ' + fontFamily;
+
+      var g = hexToRgb(colors.green);
+      for (var i = 0; i < cols; i++) {
+        var ch = CHARS[Math.floor(Math.random() * CHARS.length)];
+        /* 头部亮、尾部暗：每列首字符高亮 */
+        var head = Math.random() > 0.96;
+        ctx.fillStyle = 'rgba(' + g[0] + ',' + g[1] + ',' + g[2] + ',' + (head ? 0.9 : 0.45) + ')';
+        ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+        drops[i]++;
+        if (drops[i] * fontSize > innerHeight && Math.random() > 0.975) drops[i] = 0;
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        running = false;
+      } else if (!running) {
+        running = true;
+        last = 0;
+        requestAnimationFrame(tick);
+      }
+    });
+  })();
+  </script>
+
+  <script>
+  /* 点击字符爆裂动效：终端字形 + 重力 + 淡出，颜色跟随主题主色 */
+  (function() {
+    var cv = document.createElement('canvas');
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:9999;';
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var GLYPHS = '01<>/#$*{}[];=+';
+    var parts = [];
+    var raf = null;
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function burst(x, y) {
+      var color = getComputedStyle(document.documentElement)
+        .getPropertyValue('--green').trim() || '#00ff9c';
+      for (var i = 0; i < 16; i++) {
+        var a = Math.random() * Math.PI * 2;
+        var sp = 2 + Math.random() * 5;
+        parts.push({
+          x: x, y: y,
+          vx: Math.cos(a) * sp,
+          vy: Math.sin(a) * sp - 2.5,
+          ch: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
+          life: 1,
+          size: 11 + Math.random() * 7,
+          color: color
+        });
+      }
+      if (!raf) raf = requestAnimationFrame(tick);
+    }
+
+    function tick() {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      for (var i = parts.length - 1; i >= 0; i--) {
+        var p = parts[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.22;           /* 重力 */
+        p.vx *= 0.985;
+        p.life -= 0.018;
+        if (p.life <= 0) { parts.splice(i, 1); continue; }
+        ctx.globalAlpha = Math.max(p.life, 0);
+        ctx.fillStyle = p.color;
+        ctx.font = p.size + 'px ' + fontFamily;
+        ctx.fillText(p.ch, p.x, p.y);
+      }
+      ctx.globalAlpha = 1;
+      raf = parts.length ? requestAnimationFrame(tick) : (ctx.clearRect(0, 0, innerWidth, innerHeight), null);
+    }
+
+    document.addEventListener('pointerdown', function(e) {
+      burst(e.clientX, e.clientY);
+    }, { passive: true });
+  })();
+  </script>
+
+  <!-- 访问量统计（counter-api · Vercel KV） -->
+  <script>
+  (function() {
+    /* TODO(一次性): 部署 counter-api 到 Vercel 后，把下面的地址改成实际域名 */
+    var COUNTER_API = 'https://blog-counter-api.vercel.app/api/counter';
+    if (!COUNTER_API) return;
+
+    /* 访客 ID：localStorage 持久化，用于 UV 去重 */
+    var vid = localStorage.getItem('visitor-id');
+    if (!vid) {
+      vid = 'v-' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      localStorage.setItem('visitor-id', vid);
+    }
+
+    fetch(COUNTER_API, { headers: { 'x-visitor-id': vid } })
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        if (d && d.uv != null) document.getElementById('site-uv').textContent = d.uv;
+        if (d && d.pv != null) document.getElementById('site-pv').textContent = d.pv;
+      })
+      .catch(function() { /* 统计不可用时静默，保持 '-' */ });
+  })();
+  </script>
+
+  <script>
+  /* 按 / 聚焦搜索框，Esc 取消焦点（终端式快捷键） */
+  (function() {
+    document.addEventListener('keydown', function(e) {
+      var typing = /^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName);
+      if (e.key === '/' && !typing) {
+        e.preventDefault();
+        document.getElementById('search-input').focus();
+      } else if (e.key === 'Escape' && typing) {
+        document.activeElement.blur();
+      }
+    });
+  })();
   </script>
 </body>
 </html>
