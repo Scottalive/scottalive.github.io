@@ -1,9 +1,9 @@
 /* ==========================================================================
-   沉鱼的博客 · Terminal Geek Theme
-   设计语言：终端窗口 + 等宽字体 + 荧光绿主色（深色优先，浅色可切换）
+   娌夐奔鐨勫崥瀹?路 Terminal Geek Theme
+   璁捐璇█锛氱粓绔獥鍙?+ 绛夊瀛椾綋 + 鑽у厜缁夸富鑹诧紙娣辫壊浼樺厛锛屾祬鑹插彲鍒囨崲锛?
    ========================================================================== */
 
-/* ---------- 设计变量 ---------- */
+/* ---------- 璁捐鍙橀噺 ---------- */
 :root {
   --bg: #0a0e14;
   --bg2: #0d1219;
@@ -44,7 +44,7 @@
   --glow: none;
 }
 
-/* ---------- 基础 ---------- */
+/* ---------- 鍩虹 ---------- */
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -71,11 +71,11 @@ body {
 a { color: var(--green); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* ---------- Matrix 字符雨背景 ---------- */
+/* ---------- Matrix 瀛楃闆ㄨ儗鏅?---------- */
 #matrix-bg { opacity: 0.5; }
 [data-theme="light"] #matrix-bg { opacity: 0.28; }
 
-/* ---------- 自定义鼠标光标（终端风箭头，随主题换色） ---------- */
+/* ---------- 鑷畾涔夐紶鏍囧厜鏍囷紙缁堢椋庣澶达紝闅忎富棰樻崲鑹诧級 ---------- */
 body {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22'%3E%3Cpath d='M4 2 L4 17.5 L8.4 13.6 L11.6 20.5 L14.2 19.2 L11 12.4 L17 12.4 Z' fill='%230a0e14' stroke='%2300ff9c' stroke-width='1.6' stroke-linejoin='round'/%3E%3C/svg%3E") 4 2, auto;
 }
@@ -111,7 +111,7 @@ hr {
 
 .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
 
-/* ---------- 终端窗口组件 ---------- */
+/* ---------- 缁堢绐楀彛缁勪欢 ---------- */
 .term {
   background: var(--bg2);
   border: 1px solid var(--border);
@@ -151,24 +151,24 @@ hr {
 
 .term-body { padding: 18px 20px; }
 
-/* 终端文本行 */
+/* 缁堢鏂囨湰琛?*/
 .tl { margin: 2px 0; word-wrap: break-word; }
 .tl.out { color: var(--dim); }
 .tl .ps { color: var(--green); -webkit-user-select: none; -moz-user-select: none; user-select: none; }
-.tl .pd { color: var(--cyan); } /* 路径部分 */
+.tl .pd { color: var(--cyan); } /* 璺緞閮ㄥ垎 */
 
-/* 闪烁光标 */
+/* 闂儊鍏夋爣 */
 .cursor::after {
-  content: "█";
+  content: "鈻?;
   color: var(--green);
   animation: blink 1.06s step-end infinite;
 }
 @keyframes blink { 50% { opacity: 0; } }
 
-/* 注释行 `# ...` */
+/* 娉ㄩ噴琛?`# ...` */
 .cmd-comment { color: var(--faint); }
 
-/* ---------- 顶部导航 ---------- */
+/* ---------- 椤堕儴瀵艰埅 ---------- */
 .site-header {
   position: sticky;
   top: 0;
@@ -216,7 +216,7 @@ hr {
 .site-nav > a::before { content: "["; color: var(--faint); }
 .site-nav > a::after { content: "]"; color: var(--faint); }
 
-/* 搜索 */
+/* 鎼滅储 */
 .search-box { position: relative; flex-shrink: 0; }
 
 #search-input {
@@ -242,7 +242,6 @@ hr {
   pointer-events: none;
 }
 #search-input:focus { border-color: var(--green); width: 220px; }
-#search-input::-moz-placeholder { color: var(--faint); }
 #search-input::placeholder { color: var(--faint); }
 
 #search-results {
@@ -283,7 +282,7 @@ hr {
 .search-empty { padding: 14px; color: var(--dim); font-size: 13px; }
 mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 
-/* ---------- 主区域 / 页脚 ---------- */
+/* ---------- 涓诲尯鍩?/ 椤佃剼 ---------- */
 .site-main { min-height: calc(100vh - 200px); padding: 28px 0 48px; }
 
 .site-footer {
@@ -295,7 +294,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 }
 .site-footer p { margin: 0; }
 
-/* 浮动按钮 */
+/* 娴姩鎸夐挳 */
 #back-to-top,
 #dark-toggle {
   position: fixed;
@@ -320,7 +319,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 #back-to-top:hover,
 #dark-toggle:hover { border-color: var(--green); }
 
-/* ---------- 区块标题（命令行风格） ---------- */
+/* ---------- 鍖哄潡鏍囬锛堝懡浠よ椋庢牸锛?---------- */
 .section-head { margin: 34px 0 14px; }
 .section-head:first-child { margin-top: 0; }
 .section-title {
@@ -333,7 +332,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 .section-more { float: right; font-size: 12.5px; color: var(--dim); }
 .section-more:hover { color: var(--green); }
 
-/* ---------- 文章列表行（ls 输出风格） ---------- */
+/* ---------- 鏂囩珷鍒楄〃琛岋紙ls 杈撳嚭椋庢牸锛?---------- */
 .post-list { border-top: 1px dashed var(--border); }
 
 .pl-item {
@@ -351,7 +350,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
   gap: 10px;
 }
 .pl-top::before {
-  content: "▸";
+  content: "鈻?;
   color: var(--green);
   flex-shrink: 0;
 }
@@ -382,7 +381,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
   color: var(--dim);
 }
 
-/* 方括号标签 */
+/* 鏂规嫭鍙锋爣绛?*/
 .bkt {
   color: var(--purple);
   font-size: 12px;
@@ -392,7 +391,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 .bkt.yellow { color: var(--yellow); }
 .bkt.cyan { color: var(--cyan); }
 
-/* ---------- 首页 hero ---------- */
+/* ---------- 棣栭〉 hero ---------- */
 .home-hero { margin-bottom: 8px; }
 .home-hero .term-body { padding: 22px 24px; }
 .hero-flex { display: flex; gap: 26px; align-items: flex-start; }
@@ -401,13 +400,13 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 .hero-desc { color: var(--dim); }
 .hero-links { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px 18px; }
 .hero-links a { font-size: 13px; }
-.hero-links a::before { content: "→ "; color: var(--faint); }
+.hero-links a::before { content: "鈫?"; color: var(--faint); }
 
-/* 打字机：未揭示的行占位但不显示 */
+/* 鎵撳瓧鏈猴細鏈彮绀虹殑琛屽崰浣嶄絾涓嶆樉绀?*/
 [data-out].pending,
 [data-final].pending { visibility: hidden; }
 
-/* ASCII 3D 甜甜圈 */
+/* ASCII 3D 鐢滅敎鍦?*/
 .hero-donut { flex-shrink: 0; }
 .hero-donut .tl { margin-bottom: 8px; }
 #donut {
@@ -434,7 +433,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 }
 .stat-line strong { color: var(--green); font-weight: 600; }
 
-/* ---------- 归档（git-log 风格） ---------- */
+/* ---------- 褰掓。锛坓it-log 椋庢牸锛?---------- */
 .gitlog { margin-top: 8px; }
 
 .gl-year {
@@ -471,7 +470,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 .gl-title { color: var(--text); font-size: 13.5px; }
 .gl-cat { margin-left: 10px; }
 
-/* ---------- 分类（tree 风格） ---------- */
+/* ---------- 鍒嗙被锛坱ree 椋庢牸锛?---------- */
 .ctree { line-height: 1.9; }
 
 .ct-line { display: block; color: var(--text); }
@@ -482,7 +481,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 .ct-count { color: var(--faint); font-size: 12.5px; }
 .ct-latest { color: var(--faint); font-size: 12px; }
 
-/* ---------- 标签 ---------- */
+/* ---------- 鏍囩 ---------- */
 .taggrid {
   display: flex;
   flex-wrap: wrap;
@@ -502,7 +501,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 .tg-item:hover { border-color: var(--purple); text-decoration: none; }
 .tg-item .tg-count { color: var(--faint); font-size: 11px; }
 
-/* ---------- 分页 ---------- */
+/* ---------- 鍒嗛〉 ---------- */
 .pagination {
   display: flex;
   align-items: center;
@@ -513,10 +512,10 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 }
 .pagination .page-number { color: var(--dim); }
 .pagination a { color: var(--green); }
-.pagination .prev::before { content: "← "; }
-.pagination .next::after { content: " →"; }
+.pagination .prev::before { content: "鈫?"; }
+.pagination .next::after { content: " 鈫?; }
 
-/* ---------- 文章详情页 ---------- */
+/* ---------- 鏂囩珷璇︽儏椤?---------- */
 .post-full { max-width: 100%; }
 
 .post-header {
@@ -552,7 +551,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 }
 .post-meta a { color: var(--purple); }
 
-/* 目录 */
+/* 鐩綍 */
 .toc-wrap {
   background: var(--bg2);
   border: 1px solid var(--border);
@@ -564,9 +563,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 .toc-wrap summary {
   cursor: pointer;
   color: var(--cyan);
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   outline: none;
 }
 .toc-wrap summary::before { content: "$ cat toc"; }
@@ -574,11 +571,11 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 .toc { margin-top: 10px; display: flex; flex-direction: column; gap: 2px; }
 .toc a { color: var(--dim); }
 .toc a:hover { color: var(--green); }
-.toc a.toc-level-2::before { content: "├─ "; color: var(--faint); }
+.toc a.toc-level-2::before { content: "鈹溾攢 "; color: var(--faint); }
 .toc a.toc-level-3 { padding-left: 22px; font-size: 12.5px; }
-.toc a.toc-level-3::before { content: "└─ "; color: var(--faint); }
+.toc a.toc-level-3::before { content: "鈹斺攢 "; color: var(--faint); }
 
-/* 正文排版 */
+/* 姝ｆ枃鎺掔増 */
 .post-content { font-size: 15px; line-height: 1.85; word-wrap: break-word; }
 .post-content > :first-child { margin-top: 0; }
 
@@ -658,7 +655,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
   font-weight: 600;
 }
 
-/* Hexo 代码高亮 figure */
+/* Hexo 浠ｇ爜楂樹寒 figure */
 .post-content figure.highlight {
   margin: 1.2em 0;
   background: var(--bg2);
@@ -674,9 +671,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
   text-align: right;
   color: var(--faint);
   border-right: 1px solid var(--border);
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 .post-content figure.highlight td.code { padding: 0; }
 .post-content figure.highlight pre {
@@ -707,7 +702,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
   font-size: inherit;
 }
 
-/* highlight.js 配色（终端调色板） */
+/* highlight.js 閰嶈壊锛堢粓绔皟鑹叉澘锛?*/
 .highlight .keyword,
 .highlight .selector-tag,
 .highlight .tag { color: var(--purple); }
@@ -736,7 +731,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 .highlight .emphasis { font-style: italic; }
 .highlight .strong { font-weight: bold; }
 
-/* 上一篇 / 下一篇 */
+/* 涓婁竴绡?/ 涓嬩竴绡?*/
 .post-nav {
   display: flex;
   justify-content: space-between;
@@ -747,20 +742,20 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
   font-size: 13px;
 }
 .post-nav a { max-width: 48%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.post-nav .prev::before { content: "← "; color: var(--faint); }
+.post-nav .prev::before { content: "鈫?"; color: var(--faint); }
 .post-nav .next { margin-left: auto; }
-.post-nav .next::after { content: " →"; color: var(--faint); }
+.post-nav .next::after { content: " 鈫?; color: var(--faint); }
 
 .post-comments { margin-top: 36px; }
 
-/* ---------- 页面头（各索引页通用） ---------- */
+/* ---------- 椤甸潰澶达紙鍚勭储寮曢〉閫氱敤锛?---------- */
 .page-hero { margin-bottom: 20px; }
 .page-hero .term-body { padding: 16px 20px; }
 .page-hero-desc { color: var(--dim); margin: 4px 0 0; font-size: 13px; }
 .page-hero-stats { margin-top: 8px; color: var(--faint); font-size: 12.5px; }
 .page-hero-stats strong { color: var(--green); font-weight: 600; }
 
-/* ---------- 下载页 ---------- */
+/* ---------- 涓嬭浇椤?---------- */
 .dl-list { border-top: 1px dashed var(--border); }
 .dl-row {
   display: flex;
@@ -795,7 +790,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
   border-radius: var(--radius);
 }
 
-/* ---------- 代码块 / Mermaid 弹窗 ---------- */
+/* ---------- 浠ｇ爜鍧?/ Mermaid 寮圭獥 ---------- */
 .code-block-wrap { position: relative; }
 .code-block-wrap .copy-btn {
   position: absolute;
@@ -817,43 +812,28 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 .code-block-wrap .copy-btn:hover { color: var(--green); border-color: var(--green); }
 .code-block-wrap .copy-btn.copied { color: var(--green); opacity: 1; }
 
-.code-block-overlay {
+/* Mermaid 容器：点击放大（无遮罩，仅角落小按钮） */
+.mermaid-expand-btn {
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(10, 14, 20, 0.55);
-  opacity: 0;
-  transition: opacity 0.18s;
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  padding: 4px;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  color: var(--dim);
   cursor: pointer;
-  border-radius: var(--radius);
+  opacity: 0;
+  transition: opacity 0.18s, color 0.15s, border-color 0.15s;
   z-index: 2;
 }
-.code-block-wrap:hover .code-block-overlay,
-.mermaid-container:hover .code-block-overlay { opacity: 1; }
-
-.code-block-play {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: 2px solid var(--green);
-  background: rgba(10, 14, 20, 0.8);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.code-block-play svg { width: 22px; height: 22px; fill: var(--green); margin-left: 3px; }
-
-.code-block-info {
-  position: absolute;
-  left: 10px;
-  bottom: 8px;
-  font-size: 11px;
-  color: var(--faint);
-  z-index: 3;
-  pointer-events: none;
+.mermaid-container:hover .mermaid-expand-btn { opacity: 1; }
+.mermaid-expand-btn:hover { color: var(--green); border-color: var(--green); }
+.mermaid-expand-btn svg { width: 100%; height: 100%; display: block; }
+@media (max-width: 720px) {
+  .mermaid-expand-btn { opacity: 0.6; } /* 触屏无 hover，常显 */
 }
 
 .code-viewer-overlay {
@@ -910,26 +890,61 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 }
 .code-viewer-body pre { margin: 0; white-space: pre; }
 .code-viewer-body.mermaid-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  overflow: auto;
+  text-align: center;
   background: var(--bg);
 }
-.code-viewer-body.mermaid-body svg { max-width: 100%; }
+/* 放大查看：SVG 至少铺满弹窗宽度，超出可滚动 */
+.code-viewer-body.mermaid-body svg {
+  width: auto;
+  min-width: 100%;
+  max-width: none !important;
+  height: auto;
+}
 
 .mermaid-container {
   position: relative;
-  margin: 1.2em 0;
-  padding: 16px;
-  background: var(--bg2);
+  margin: 1.4em 0;
+  padding: 22px 16px 16px;
+  background:
+    radial-gradient(ellipse at top left, rgba(0, 255, 156, 0.07), transparent 55%),
+    var(--bg2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow-x: auto;
   text-align: center;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
+.mermaid-container:hover {
+  border-color: var(--border2);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+}
+[data-theme="light"] .mermaid-container {
+  background:
+    radial-gradient(ellipse at top left, rgba(10, 125, 74, 0.05), transparent 55%),
+    var(--bg2);
+}
+[data-theme="light"] .mermaid-container:hover {
+  box-shadow: 0 4px 14px rgba(120, 110, 80, 0.16);
+}
+/* 缁堢椋庡皬鏍囩 */
+.mermaid-container::before {
+  content: '$ mermaid';
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--dim);
+  opacity: 0.75;
+  pointer-events: none;
+  z-index: 1;
+}
+.mermaid-container svg { max-width: 100%; height: auto; }
 .mermaid-error { color: var(--red); font-size: 13px; text-align: left; white-space: pre-wrap; }
 
-/* ---------- 响应式 ---------- */
+/* ---------- 鍝嶅簲寮?---------- */
 @media (max-width: 720px) {
   body { font-size: 14px; }
 
