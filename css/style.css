@@ -159,7 +159,7 @@ hr {
 
 /* 闂儊鍏夋爣 */
 .cursor::after {
-  content: "鈻?;
+  content: "█";
   color: var(--green);
   animation: blink 1.06s step-end infinite;
 }
@@ -242,6 +242,7 @@ hr {
   pointer-events: none;
 }
 #search-input:focus { border-color: var(--green); width: 220px; }
+#search-input::-moz-placeholder { color: var(--faint); }
 #search-input::placeholder { color: var(--faint); }
 
 #search-results {
@@ -350,7 +351,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
   gap: 10px;
 }
 .pl-top::before {
-  content: "鈻?;
+  content: "█";
   color: var(--green);
   flex-shrink: 0;
 }
@@ -512,8 +513,8 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 }
 .pagination .page-number { color: var(--dim); }
 .pagination a { color: var(--green); }
-.pagination .prev::before { content: "鈫?"; }
-.pagination .next::after { content: " 鈫?; }
+.pagination .prev::before { content: "← "; }
+.pagination .next::after { content: " →"; }
 
 /* ---------- 鏂囩珷璇︽儏椤?---------- */
 .post-full { max-width: 100%; }
@@ -563,7 +564,9 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 .toc-wrap summary {
   cursor: pointer;
   color: var(--cyan);
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   outline: none;
 }
 .toc-wrap summary::before { content: "$ cat toc"; }
@@ -671,7 +674,9 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
   text-align: right;
   color: var(--faint);
   border-right: 1px solid var(--border);
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .post-content figure.highlight td.code { padding: 0; }
 .post-content figure.highlight pre {
@@ -742,9 +747,9 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
   font-size: 13px;
 }
 .post-nav a { max-width: 48%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.post-nav .prev::before { content: "鈫?"; color: var(--faint); }
+.post-nav .prev::before { content: "← "; color: var(--faint); }
 .post-nav .next { margin-left: auto; }
-.post-nav .next::after { content: " 鈫?; color: var(--faint); }
+.post-nav .next::after { content: " →"; color: var(--faint); }
 
 .post-comments { margin-top: 36px; }
 
