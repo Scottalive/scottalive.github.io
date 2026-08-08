@@ -401,7 +401,7 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 .hero-desc { color: var(--dim); }
 .hero-links { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px 18px; }
 .hero-links a { font-size: 13px; }
-.hero-links a::before { content: "鈫?"; color: var(--faint); }
+.hero-links a::before { content: "\2192\0020"; color: var(--faint); }
 
 /* 鎵撳瓧鏈猴細鏈彮绀虹殑琛屽崰浣嶄絾涓嶆樉绀?*/
 [data-out].pending,
@@ -574,9 +574,9 @@ mark { background: var(--yellow); color: var(--bg); padding: 0 1px; }
 .toc { margin-top: 10px; display: flex; flex-direction: column; gap: 2px; }
 .toc a { color: var(--dim); }
 .toc a:hover { color: var(--green); }
-.toc a.toc-level-2::before { content: "鈹溾攢 "; color: var(--faint); }
+.toc a.toc-level-2::before { content: "\251C\2500\0020"; color: var(--faint); }
 .toc a.toc-level-3 { padding-left: 22px; font-size: 12.5px; }
-.toc a.toc-level-3::before { content: "鈹斺攢 "; color: var(--faint); }
+.toc a.toc-level-3::before { content: "\2514\2500\0020"; color: var(--faint); }
 
 /* 姝ｆ枃鎺掔増 */
 .post-content { font-size: 15px; line-height: 1.85; word-wrap: break-word; }
