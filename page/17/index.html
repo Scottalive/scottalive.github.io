@@ -11,7 +11,7 @@
   <meta property="og:site_name" content="沉鱼的博客">
   <meta property="og:title" content="沉鱼的博客">
   <meta property="og:description" content="编程笔记 &amp; 资料分享">
-  <meta property="og:url" content="https://scottalive.github.io/tags/技术趋势/page/5/index.html">
+  <meta property="og:url" content="https://scottalive.github.io/page/17/index.html">
   <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="沉鱼的博客">
@@ -54,162 +54,207 @@
 
   <main class="site-main">
     <div class="container">
-      <!-- 标签详情 -->
-<section class="page-hero">
+      <!-- 首页：终端 hero + 最新 AI 日报 + 最近文章 -->
+<section class="home-hero">
   <div class="term">
     <div class="term-bar">
       <span class="term-dots"></span>
-      <span class="term-title">~/blog/tags/技术趋势 — zsh</span>
+      <span class="term-title">chenyu@blog: ~ — zsh</span>
     </div>
-    <div class="term-body">
-      <div class="tl"><span class="ps">~ $</span> grep -r "<span class="pd">技术趋势</span>" posts/ -l</div>
-      <div class="page-hero-stats"><span><strong>8</strong> matches</span></div>
+    <div class="term-body hero-flex">
+      <div class="hero-main">
+        <div class="tl"><span class="ps">~ $</span> <span class="cmd" data-cmd="whoami"></span></div>
+        <div class="tl out" data-out><span class="hero-name">沉鱼的博客</span> — 编程笔记 &amp; 资料分享</div>
+        <div class="tl" style="margin-top:10px"><span class="ps">~ $</span> <span class="cmd" data-cmd="cat about.txt"></span></div>
+        <div class="tl out hero-desc" data-out>
+          以编程笔记为主，沉淀 Java、Python、算法等实战内容；穿插心理学阅读和个人整理；
+          AI 行业热点追踪与 AI 日报紧跟前沿动态。
+        </div>
+        <div class="tl" style="margin-top:10px"><span class="ps">~ $</span> <span class="cmd" data-cmd="ls links/"></span></div>
+        <div class="hero-links" data-out>
+          <a href="/archives">archives/</a>
+          <a href="/categories">categories/</a>
+          <a href="/tags">tags/</a>
+          <a href="/ai-hotspots">ai-hotspots/</a>
+          <a href="/ai-daily">ai-daily/</a>
+          <a href="/about">about.md</a>
+        </div>
+        <div class="stat-line" data-out>
+          <span><strong>161</strong> posts</span>
+          <span><strong>18</strong> categories</span>
+          <span><strong>68</strong> tags</span>
+          <span><strong>135</strong> resources</span>
+        </div>
+        <div class="tl" data-final style="margin-top:12px"><span class="ps">~ $</span> <span class="cursor"></span></div>
+      </div>
+      <div class="hero-donut" data-out>
+        <div class="tl"><span class="ps">~ $</span> ./donut --ascii</div>
+        <pre id="donut" aria-hidden="true"></pre>
+      </div>
     </div>
   </div>
 </section>
 
+<script>
+/* ===== 终端打字机 ===== */
+(function() {
+  var hero = document.querySelector('.home-hero');
+  if (!hero) return;
+  var cmds = Array.prototype.slice.call(hero.querySelectorAll('.cmd'));
+  var outs = Array.prototype.slice.call(hero.querySelectorAll('[data-out]'));
+  var final = hero.querySelector('[data-final]');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* 无 JS 动画兜底：直接显示全部 */
+  function showAll() {
+    cmds.forEach(function(c) { c.textContent = c.getAttribute('data-cmd'); });
+    outs.forEach(function(o) { o.classList.remove('pending'); });
+    if (final) final.classList.remove('pending');
+  }
+
+  if (reduce) { showAll(); return; }
+
+  /* 先隐藏输出行，命令逐字打出 */
+  outs.forEach(function(o) { o.classList.add('pending'); });
+  if (final) final.classList.add('pending');
+
+  /* 步骤序列：cmd → 其后的连续 out 行；未被链到的 out（如甜甜圈）追加在最后 */
+  var steps = [];
+  cmds.forEach(function(c) {
+    steps.push({ el: c, cmd: c.getAttribute('data-cmd') });
+    var node = c.closest('.tl').nextElementSibling;
+    while (node && node.hasAttribute('data-out')) {
+      steps.push({ el: node, cmd: null });
+      node = node.nextElementSibling;
+    }
+  });
+  outs.forEach(function(o) {
+    if (!steps.some(function(s) { return s.el === o; })) steps.push({ el: o, cmd: null });
+  });
+  if (final) steps.push({ el: final, cmd: null });
+
+  var si = 0;
+  function next() {
+    if (si >= steps.length) return;
+    var step = steps[si++];
+    if (step.cmd === null) {
+      step.el.classList.remove('pending');
+      setTimeout(next, 220);
+      return;
+    }
+    var i = 0;
+    var cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    step.el.appendChild(cursor);
+    (function tick() {
+      if (i < step.cmd.length) {
+        step.el.insertBefore(document.createTextNode(step.cmd[i++]), cursor);
+        setTimeout(tick, 45 + Math.random() * 50);
+      } else {
+        cursor.remove();
+        setTimeout(next, 160);
+      }
+    })();
+  }
+  next();
+})();
+</script>
+
+<script>
+/* ===== ASCII 3D 甜甜圈（donut.c 移植：真实 3D 透视投影 + 光照） ===== */
+(function() {
+  var pre = document.getElementById('donut');
+  if (!pre) return;
+  var W = 44, H = 22;
+  var K2 = 5, R1 = 1, R2 = 2;
+  var K1 = W * K2 * 3 / (8 * (R1 + R2));
+  var A = 0, B = 0, raf = null;
+  var chars = '.,-~:;=!*#$@';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function frame() {
+    A += 0.045; B += 0.02;
+    var b = new Array(W * H).fill(' ');
+    var z = new Array(W * H).fill(0);
+    for (var j = 0; j < 6.28; j += 0.07) {
+      var d = Math.cos(j), f = Math.sin(j);
+      for (var i = 0; i < 6.28; i += 0.02) {
+        var c = Math.sin(i), l = Math.cos(i);
+        var e = Math.sin(A), g = Math.cos(A);
+        var h = d + R2;
+        var D = 1 / (c * h * e + f * g + 5);
+        var m = Math.cos(B), n = Math.sin(B);
+        var t = c * h * g - f * e;
+        var x = Math.floor(W / 2 + K1 * D * (l * h * m - t * n));
+        var y = Math.floor(H / 2 + (K1 / 2) * D * (l * h * n + t * m));
+        var o = x + W * y;
+        var N = Math.floor(8 * ((f * e - c * d * g) * m - c * d * e - f * g - l * d * n));
+        if (y >= 0 && y < H && x >= 0 && x < W && D > z[o]) {
+          z[o] = D;
+          b[o] = chars[N > 0 ? N : 0];
+        }
+      }
+    }
+    var s = '';
+    for (var k = 0; k < W * H; k++) s += (k % W === W - 1) ? b[k] + '\n' : b[k];
+    pre.textContent = s;
+    if (!reduce) raf = requestAnimationFrame(frame);
+  }
+
+  frame();
+
+  /* 标签页不可见时暂停，省电 */
+  document.addEventListener('visibilitychange', function() {
+    if (reduce) return;
+    if (document.hidden) {
+      if (raf) cancelAnimationFrame(raf), raf = null;
+    } else if (!raf) {
+      raf = requestAnimationFrame(frame);
+    }
+  });
+})();
+</script>
+
+
+
+
+<section class="section-head">
+  <h3 class="section-title"><span class="ps">~ $</span> tail -1 ai-daily.log
+    <a class="section-more" href="/ai-daily">全部日报 →</a>
+  </h3>
+</section>
 <div class="post-list">
-  
-  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-12/">
+  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-08-07/">
     <div class="pl-top">
-      <span class="pl-title">AI 日报 2026-05-12</span>
-      <span class="pl-date">2026-05-12</span>
+      <span class="pl-title"><span class="bkt yellow">AI日报</span> AI 日报 2026-08-07</span>
+      <span class="pl-date">2026-08-07</span>
     </div>
-    <div class="pl-meta">
-      <span>3794 字 · 约 12 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">AI工具</span>
-        
-      
-    </div>
+    
+    
+    <p class="pl-excerpt">Agent 生态继续井喷：PrimeIntellect 发布自我改进型 RLM 编码 Agent（单日 +2,271 Star），Cloudflare 推出”给 Agent 一台电脑”的 computer 项目，addyosmani 的 agent-skills 突破 8.3 万...</p>
+    
   </a>
-  
-  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-11/">
-    <div class="pl-top">
-      <span class="pl-title">AI 日报 2026-05-11</span>
-      <span class="pl-date">2026-05-11</span>
-    </div>
-    <div class="pl-meta">
-      <span>2476 字 · 约 8 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">AI工具</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-10/">
-    <div class="pl-top">
-      <span class="pl-title">AI 日报 2026-05-10</span>
-      <span class="pl-date">2026-05-10</span>
-    </div>
-    <div class="pl-meta">
-      <span>2334 字 · 约 7 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">AI工具</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-09/">
-    <div class="pl-top">
-      <span class="pl-title">AI 日报 2026-05-09</span>
-      <span class="pl-date">2026-05-09</span>
-    </div>
-    <div class="pl-meta">
-      <span>1940 字 · 约 6 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">AI工具</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-08/">
-    <div class="pl-top">
-      <span class="pl-title">AI 日报 2026-05-08</span>
-      <span class="pl-date">2026-05-08</span>
-    </div>
-    <div class="pl-meta">
-      <span>2358 字 · 约 7 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">AI工具</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-07/">
-    <div class="pl-top">
-      <span class="pl-title">AI 日报 2026-05-07</span>
-      <span class="pl-date">2026-05-07</span>
-    </div>
-    <div class="pl-meta">
-      <span>3036 字 · 约 9 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">AI工具</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/ai-daily/AI%E6%97%A5%E6%8A%A5-2026-05-05/">
-    <div class="pl-top">
-      <span class="pl-title">AI 日报 2026-05-05</span>
-      <span class="pl-date">2026-05-05</span>
-    </div>
-    <div class="pl-meta">
-      <span>2351 字 · 约 7 分钟</span>
-      
-        
-        <span class="bkt">AI日报</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-05/">
-    <div class="pl-top">
-      <span class="pl-title">AI 日报 2026-05-05</span>
-      <span class="pl-date">2026-05-05</span>
-    </div>
-    <div class="pl-meta">
-      <span>2645 字 · 约 9 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">AI工具</span>
-        
-      
-    </div>
-  </a>
+</div>
+
+
+<section class="section-head">
+  <h3 class="section-title"><span class="ps">~ $</span> ls -lt posts/ | head
+    <a class="section-more" href="/archives">全部文章 →</a>
+  </h3>
+</section>
+
+
+
+<div class="post-list">
   
 </div>
 
 
 <nav class="pagination">
-  <a class="prev" href="/tags/%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF/page/4/">上一页</a>
-  <span class="page-number">[5/5]</span>
+  
+  <a class="prev" href="/page/16/">上一页</a>
+  
+  <span class="page-number">[17/12]</span>
   
 </nav>
 
