@@ -3,16 +3,16 @@
     <id>https://scottalive.github.io</id>
     <title>沉鱼的博客 • Posts by &#34;github热门&#34; tag</title>
     <link href="https://scottalive.github.io" />
-    <updated>2026-08-07T14:00:00.000Z</updated>
+    <updated>2026-08-21T14:00:00.000Z</updated>
     <category term="AI日报" />
     <category term="AI" />
     <category term="GitHub热门" />
     <category term="人工智能" />
     <category term="技术趋势" />
-    <category term="坏习惯" />
-    <category term="个人分享" />
     <category term="原则" />
     <category term="个人详情" />
+    <category term="个人分享" />
+    <category term="坏习惯" />
     <category term="Kubernetes" />
     <category term="k8s" />
     <category term="容器编排" />
@@ -20,48 +20,48 @@
     <category term="运维" />
     <category term="Helm" />
     <category term="学习计划" />
+    <category term="kubeconfig" />
+    <category term="kubectl" />
+    <category term="Context" />
     <category term="OpenSRE" />
     <category term="Grafana" />
     <category term="SRE" />
     <category term="可观测性" />
-    <category term="kubeconfig" />
-    <category term="kubectl" />
-    <category term="Context" />
     <category term="GPT-5.5" />
     <category term="OpenAI" />
     <category term="Codex" />
-    <category term="ClaudeCode" />
-    <category term="Gemini" />
-    <category term="开发工具" />
-    <category term="开源" />
-    <category term="编程助手" />
-    <category term="编程笔记" />
     <category term="Hermes" />
     <category term="Agent" />
     <category term="v0.17" />
     <category term="自动化" />
+    <category term="开发工具" />
     <category term="NousResearch" />
+    <category term="开源" />
+    <category term="ClaudeCode" />
+    <category term="Gemini" />
+    <category term="高阶" />
+    <category term="编程笔记" />
+    <category term="编程助手" />
     <category term="进阶" />
     <category term="配置" />
-    <category term="高阶" />
-    <category term="故障排查" />
-    <category term="LLM" />
-    <category term="RAG" />
-    <category term="知识库" />
-    <category term="AI运维" />
-    <category term="根因分析" />
-    <category term="SSE" />
-    <category term="HTTP" />
     <category term="网络安全" />
     <category term="SQL注入" />
     <category term="XSS" />
     <category term="CSRF" />
     <category term="DDoS" />
     <category term="渗透测试" />
+    <category term="AI运维" />
+    <category term="故障排查" />
+    <category term="根因分析" />
+    <category term="LLM" />
+    <category term="RAG" />
+    <category term="知识库" />
     <category term="心理学知识" />
-    <category term="力扣算法题" />
     <category term="阿德勒心理学" />
     <category term="自卑与超越" />
+    <category term="SSE" />
+    <category term="HTTP" />
+    <category term="力扣算法题" />
     <category term="算法" />
     <category term="动态规划" />
     <category term="JavaSE" />
@@ -72,6 +72,85 @@
     <category term="开发注意事项" />
     <category term="微服务" />
     <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-08-21/</id>
+        <title>AI 日报 2026-08-21</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-08-21/"/>
+        <content type="html">&lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;资本与开源两条线同时加速：支付巨头 Stripe 宣布以 75 亿美元收购 AI 模型网关 OpenRouter，模型分发渠道的「收费站」价值被正式定价；GitHub Trending 上，Agent 基础设施类项目继续霸榜——记忆管理、技能框架、插件规范、本地多 Agent 编排成为最密集的战场。另一边，Unitree 登陆上海科创板首日大涨，人形机器人的「数据闭环」模式引发泡沫讨论，AI 行业的造富与质疑从未如此并行。&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;1-santifer-career-ops-——-开源-AI-求职助手&#34;&gt;&lt;a href=&#34;#1-santifer-career-ops-——-开源-AI-求职助手&#34; class=&#34;headerlink&#34; title=&#34;1. santifer&amp;#x2F;career-ops —— 开源 AI 求职助手&#34;&gt;&lt;/a&gt;1. santifer&amp;#x2F;career-ops —— 开源 AI 求职助手&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Star 数&lt;/strong&gt;：66,397（今日 +855）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：JavaScript&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：开源 AI 求职全流程工具，可在本地 AI 编码 CLI（Claude Code、Codex、OpenCode、Antigravity 等）中运行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;功能上覆盖求职的完整漏斗：自动扫描招聘网站 → 用结构化 A-F 评分规则对职位进行 1.0–5.0 打分 → 按岗位定制简历 → 追踪投递进度。它把「求职」从一个重复劳动密集的流程，变成了一个可量化、可自动化的数据管道，本质上是 Agentic Workflow 在 HR 场景的落地样板。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;技术亮点&lt;/strong&gt;：不依赖独立服务端，直接寄生在主流 AI 编码 CLI 中运行，体现了当前「技能（skills）即应用分发层」的新趋势——工具不再以独立 App 形态存在，而是以可插拔技能的形式融入 Agent 的工作流。&lt;/p&gt;
+&lt;h3 id=&#34;2-akitaonrails-ai-memory-——-Agent-编码-CLI-的长期记忆方案&#34;&gt;&lt;a href=&#34;#2-akitaonrails-ai-memory-——-Agent-编码-CLI-的长期记忆方案&#34; class=&#34;headerlink&#34; title=&#34;2. akitaonrails&amp;#x2F;ai-memory —— Agent 编码 CLI 的长期记忆方案&#34;&gt;&lt;/a&gt;2. akitaonrails&amp;#x2F;ai-memory —— Agent 编码 CLI 的长期记忆方案&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Star 数&lt;/strong&gt;：3,456（今日 +335）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Rust&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：为各类 Agent 编码 CLI 提供长期记忆，并支持在不同 Agent 供应商之间做交接（handoff）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这是今日榜单上最值得关注的方向之一。当前主流编码 Agent 的短板恰恰是「上下文即失忆」——每次会话都像第一次见面。ai-memory 用 Rust 实现了一个跨工具的记忆层：把项目知识、用户偏好、历史决策持久化，让 Claude Code 会话结束后，Codex 还能接着干。它解决的是 Agent 的「连续性」问题，这在多 Agent 协作、长周期项目维护中几乎是刚需。&lt;/p&gt;
+&lt;h3 id=&#34;3-volcengine-OpenViking-——-自进化上下文数据库&#34;&gt;&lt;a href=&#34;#3-volcengine-OpenViking-——-自进化上下文数据库&#34; class=&#34;headerlink&#34; title=&#34;3. volcengine&amp;#x2F;OpenViking —— 自进化上下文数据库&#34;&gt;&lt;/a&gt;3. volcengine&amp;#x2F;OpenViking —— 自进化上下文数据库&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Star 数&lt;/strong&gt;：新上榜（字节跳动开源）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：为 AI Agent 设计的自进化上下文数据库，统一 Agent 记忆、知识 RAG 与技能（Skills）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;「自进化」是关键词：传统 RAG 是静态索引 + 检索，OpenViking 则把记忆、知识、技能三者统一到一个可自我更新的存储体系中——Agent 用得越多，数据库结构越贴合实际任务。这背后的技术判断是：Agent 的智能上限不在模型参数，而在它能稳定访问的「外部上下文」的质量与组织方式。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[Agent 运行时] --&amp;gt; B&amp;#123;上下文请求&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|长期记忆| C[Memory Store&amp;lt;br/&amp;gt;会话/决策/偏好]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|知识检索| D[RAG 索引&amp;lt;br/&amp;gt;文档/代码/FAQ]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|能力调用| E[Skills 注册表&amp;lt;br/&amp;gt;工具/插件/技能]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; F[自进化引擎]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; F&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt;|结构优化/去重/关联| C&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt;|索引重建| D&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;4-cursor-plugins-——-Cursor-插件规范与官方插件&#34;&gt;&lt;a href=&#34;#4-cursor-plugins-——-Cursor-插件规范与官方插件&#34; class=&#34;headerlink&#34; title=&#34;4. cursor&amp;#x2F;plugins —— Cursor 插件规范与官方插件&#34;&gt;&lt;/a&gt;4. cursor&amp;#x2F;plugins —— Cursor 插件规范与官方插件&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Star 数&lt;/strong&gt;：3,936（今日 +473）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：TypeScript&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：Cursor 官方插件规范与插件仓库，定义了 Cursor 生态的扩展方式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Cursor 从「AI 编辑器」转向「Agent 平台」的信号越来越明显：开放插件规范意味着第三方可以深度接入编辑器的 Agent 循环（上下文注入、工具调用、UI 扩展）。当编辑器成为 Agent 的主要驻地，插件体系就是它的 App Store——谁掌握了插件生态，谁就掌握了下一波开发者工作流的分发权。&lt;/p&gt;
+&lt;h3 id=&#34;5-chaitanyagiri-munder-difflin-——-本地多-Agent-编排&#34;&gt;&lt;a href=&#34;#5-chaitanyagiri-munder-difflin-——-本地多-Agent-编排&#34; class=&#34;headerlink&#34; title=&#34;5. chaitanyagiri&amp;#x2F;munder-difflin —— 本地多 Agent 编排&#34;&gt;&lt;/a&gt;5. chaitanyagiri&amp;#x2F;munder-difflin —— 本地多 Agent 编排&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Star 数&lt;/strong&gt;：3,031（今日 +517）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：TypeScript&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：本地运行的多 Agent 协作框架（harness）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在云端 Agent 平台纷纷收费的背景下，本地多 Agent 编排成了新的兴奋点。munder-difflin 提供的是在自己机器上编排多个 Agent 协作的基础设施：任务拆分、结果聚合、上下文共享。配合今日榜单上大量的「本地优先」项目（OpenLogi、turbovec），可以清晰看到一条主线——开发者正在把 AI 基础设施搬回本地，追求数据主权与成本可控。&lt;/p&gt;
+&lt;h3 id=&#34;6-Tencent-AI-Infra-Guard-——-AI-全栈红队平台&#34;&gt;&lt;a href=&#34;#6-Tencent-AI-Infra-Guard-——-AI-全栈红队平台&#34; class=&#34;headerlink&#34; title=&#34;6. Tencent&amp;#x2F;AI-Infra-Guard —— AI 全栈红队平台&#34;&gt;&lt;/a&gt;6. Tencent&amp;#x2F;AI-Infra-Guard —— AI 全栈红队平台&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Star 数&lt;/strong&gt;：4,842（今日 +28）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Python&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：腾讯开源的 AI 安全平台，覆盖 Agent 扫描、Skills 扫描、MCP 扫描、AI 基础设施扫描与 LLM 越狱评估。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;随着 Agent 与 MCP（模型上下文协议）生态爆发，攻击面也从「提示词」扩展到了「工具层」。AI-Infra-Guard 的价值在于把红队能力产品化：不只是测模型会不会被越狱，还扫描 Agent 能触达的每一条工具链路。安全基础设施终于开始追上 Agent 基础设施的扩张速度。&lt;/p&gt;
+&lt;h3 id=&#34;其他值得关注&#34;&gt;&lt;a href=&#34;#其他值得关注&#34; class=&#34;headerlink&#34; title=&#34;其他值得关注&#34;&gt;&lt;/a&gt;其他值得关注&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;obra&amp;#x2F;superpowers&lt;/strong&gt;：Agentic 技能框架与软件开发方法论，主打「真正可用的 Agent 开发流程」。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;modular&amp;#x2F;modular&lt;/strong&gt;：Modular 平台（含 MAX 编译器与 Mojo 语言），继续夯实 AI 高性能计算底座。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RyanCodrai&amp;#x2F;turbovec&lt;/strong&gt;：基于 TurboQuant 的向量索引，Rust 编写 + Python 绑定，瞄准推理侧向量检索的性能优化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;harry0703&amp;#x2F;MoneyPrinterTurbo&lt;/strong&gt;：AI 一键生成高清短视频的老牌项目依旧在榜，内容自动化赛道热度不减。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具 &amp;#x2F; 产品速览&#34;&gt;&lt;/a&gt;新工具 &amp;#x2F; 产品速览&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Adobe Firefly AI 音频工具正式 GA&lt;/strong&gt;：Generate Music、Generate Speech、Sound Effects 三款音频生成工具结束 Beta 全面开放，同时 Firefly AI Assistant 推出带每日免费额度的体验版——Adobe 正用免费额度换取 AI 功能的用户习惯。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gemini in Chrome 全面登陆 Android&lt;/strong&gt;：Google 的 AI 浏览器助手向美国全部 Android 用户开放，支持网页总结、问答、图像生成等能力，浏览器正式成为 Gemini 的常驻入口。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Claude 深度集成 Gmail 与 Google Drive&lt;/strong&gt;：Anthropic 扩展了 Claude 对 Google 办公套件的访问能力，同时 Claude Cowork 的开放范围继续扩大——办公数据与 Agent 工作台的连接越来越深。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Stripe 75 亿美元收购 OpenRouter&lt;/strong&gt;：OpenRouter 作为聚合多家模型 API 的网关，是开发者调用 AI 模型的「统一入口」。这笔收购把支付基础设施与模型分发捆绑在一起——Stripe 买下的不只是流量，更是 AI 应用层交易流水的入口。消息称这是 Stripe 历史上规模最大的收购之一。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SpaceX 被曝曾洽谈收购 Cognition AI&lt;/strong&gt;：Bloomberg 报道 SpaceX 曾向 AI 编程公司 Cognition（Devin 的开发商）提出收购意向，但 Cognition CEO Scott Wu 公开否认「公司不卖，也没谈过」。无论真假，「AI 编程公司成为收购目标」本身已是行业常态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Unitree 上市首日大涨，人形机器人泡沫讨论升温&lt;/strong&gt;：Unitree 完成 9.04 亿美元上海 IPO，但 FT 调查揭示一个隐忧——大量人形机器人公司的收入来自政府背景的培训中心，后者再把训练数据卖回给行业，形成「机器人吃自己尾巴」的数据闭环，市场开始警惕类 GPU 资产证券化的循环叙事重演。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Google 以 1000 万美元拍下 Spirit Airlines 业务数据&lt;/strong&gt;：在破产拍卖中购得日历、文档、邮件、员工聊天等数据用于 AI 训练，官方强调数据将经第三方严格去标识化——AI 训练数据来源的边界问题再次被摆上台面。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OpenAI 权力结构微调&lt;/strong&gt;：The Verge 报道 Sam Altman 仍是 CEO，但日常运营已由二号人物主导——头部 AI 公司的治理结构正在向「创始人掌战略、职业经理人管执行」的方向演化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;洞见一：Agent-的「记忆层」正在成为新一代基础设施&#34;&gt;&lt;a href=&#34;#洞见一：Agent-的「记忆层」正在成为新一代基础设施&#34; class=&#34;headerlink&#34; title=&#34;洞见一：Agent 的「记忆层」正在成为新一代基础设施&#34;&gt;&lt;/a&gt;洞见一：Agent 的「记忆层」正在成为新一代基础设施&lt;/h3&gt;&lt;p&gt;今天榜单上至少四个项目在做同一件事——给 Agent 补记忆：ai-memory（跨工具长期记忆）、OpenViking（自进化上下文数据库）、obra&amp;#x2F;superpowers（技能即方法论）、cursor&amp;#x2F;plugins（插件化上下文扩展）。&lt;/p&gt;
+&lt;p&gt;背后的逻辑很清晰：模型能力已经「通货膨胀」，但 Agent 的实用性仍卡在上下文管理上。谁能把「记忆 + 知识 + 技能」组织成一套可持续进化的系统，谁就掌握了 Agent 生产力的下一个杠杆。未来的竞争焦点，将从「更好的模型」转向「更好的记忆与工具编排」。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[第一代: 单次对话] --&amp;gt;|无状态| B[第二代: 长上下文窗口]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|窗口有限| C[第三代: RAG 外部知识]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|静态索引| D[第四代: 自进化记忆层&amp;lt;br/&amp;gt;记忆+知识+技能统一管理]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt;|跨工具持久化| E[多 Agent 交接与协作]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;洞见二：AI-安全的攻击面正在从「提示词」迁移到「工具链路」&#34;&gt;&lt;a href=&#34;#洞见二：AI-安全的攻击面正在从「提示词」迁移到「工具链路」&#34; class=&#34;headerlink&#34; title=&#34;洞见二：AI 安全的攻击面正在从「提示词」迁移到「工具链路」&#34;&gt;&lt;/a&gt;洞见二：AI 安全的攻击面正在从「提示词」迁移到「工具链路」&lt;/h3&gt;&lt;p&gt;AI-Infra-Guard 的上榜是一个标志性事件：当 Agent 能自主调用 MCP 工具、读写外部系统时，安全的焦点就不再是「模型会不会说错话」，而是「Agent 的工具链路会不会被利用」。MCP 扫描、技能扫描、基础设施扫描成为新的安全品类。&lt;/p&gt;
+&lt;p&gt;对开发者而言，这意味着两件事：一是接入第三方 Agent 技能&amp;#x2F;MCP 服务时要默认不信任；二是安全测试要从「单点 prompt 测试」升级为「全链路红队演练」。安全能力的建设速度，将直接决定 Agent 生态能走多远。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;数据来源：GitHub Trending（2026-08-21）、The Verge、VentureBeat。本文为 AI 辅助整理，仅代表当日信息快照。&lt;/em&gt;&lt;/p&gt;
+</content>
+        <category term="AI日报" />
+        <category term="AI" />
+        <category term="GitHub热门" />
+        <category term="人工智能" />
+        <category term="技术趋势" />
+        <updated>2026-08-21T14:00:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-08-07/</id>
         <title>AI 日报 2026-08-07</title>
