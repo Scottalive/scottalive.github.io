@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230a0e14'/%3E%3Ctext x='18' y='68' font-size='52' fill='%2300ff9c' font-family='monospace'%3E%26gt;_%3C/text%3E%3C/svg%3E">
-  <title>沉鱼的博客</title>
+  <title>AI 热点综述 - 2026-08-23 | 沉鱼的博客</title>
   
-  <meta name="description" content="编程笔记 &amp; 资料分享">
+  <meta name="description" content="AI 行业热点综述 — 2026-08-23">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="沉鱼的博客">
-  <meta property="og:title" content="沉鱼的博客">
-  <meta property="og:description" content="编程笔记 &amp; 资料分享">
-  <meta property="og:url" content="https://scottalive.github.io/tags/JavaSE/page/2/index.html">
+  <meta property="og:title" content="AI 热点综述 - 2026-08-23 | 沉鱼的博客">
+  <meta property="og:description" content="AI 行业热点综述 — 2026-08-23">
+  <meta property="og:url" content="https://scottalive.github.io/ai-hotspots/AI-Hotspots-2026-08-23.html">
   <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="沉鱼的博客">
-  <meta name="twitter:description" content="编程笔记 &amp; 资料分享">
+  <meta name="twitter:title" content="AI 热点综述 - 2026-08-23 | 沉鱼的博客">
+  <meta name="twitter:description" content="AI 行业热点综述 — 2026-08-23">
   <meta name="twitter:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
   <link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="/atom.xml">
   <link rel="stylesheet" href="/css/style.css?v=202607190200">
@@ -54,126 +54,82 @@
 
   <main class="site-main">
     <div class="container">
-      <!-- 标签详情 -->
-<section class="page-hero">
-  <div class="term">
-    <div class="term-bar">
-      <span class="term-dots"></span>
-      <span class="term-title">~/blog/tags/JavaSE — zsh</span>
+      <!-- AI 行业热点 - 文章详情页 -->
+<article class="post-full">
+  <header class="post-header">
+    <div class="post-path">
+      <a href="/">~</a>/<a href="/ai-hotspots">ai-hotspots</a>/<span class="pd">2026-08-23.md</span>
     </div>
-    <div class="term-body">
-      <div class="tl"><span class="ps">~ $</span> grep -r "<span class="pd">JavaSE</span>" posts/ -l</div>
-      <div class="page-hero-stats"><span><strong>5</strong> matches</span></div>
+    <h1 class="post-title">AI 热点综述 - 2026-08-23</h1>
+    <div class="post-meta">
+      <span>2026-08-23 23:01</span>
+      <span class="bkt cyan">AI热点</span>
     </div>
+  </header>
+
+  <div class="post-content">
+    <h2 id="codex-用量限制更新明天修复付费订阅全部重置"><a href="#🔄-Codex-用量限制更新：明天修复，付费订阅全部重置" class="headerlink" title="🔄 Codex 用量限制更新：明天修复，付费订阅全部重置"></a>🔄 Codex 用量限制更新：明天修复，付费订阅全部重置</h2><p><strong>Thibault Sottiaux</strong>（OpenAI Codex 团队）带来了用量限制风波的最新进展（<strong>1382 ❤️ &#x2F; 113 🔄</strong>）：</p>
+<blockquote>
+<p><strong>“关于 Codex 的用量限制更新。我们发现了（a）长会话多次压缩时图片处理存在低效、（b）Computer History 的 p95+ 用量偏高、（c）一个本用于生成会话标题的功能比预期消耗更多用量。我们已经组建了一个 tiger team 全面排查，明天就上线修复。我们还发现了一个完全不相关、能显著提升效率的新方法，下周开工。作为明天部分修复的一部分，我们会为所有付费订阅做一次完整的用量重置。明天见。”</strong></p>
+</blockquote>
+<p>信息量很大：<strong>承认了三个具体的用量泄漏点</strong>（图片压缩、Computer History、标题生成），并给出”所有付费订阅全额重置”的补偿方案。这是对上周社区质疑的直接回应——<strong>OpenAI 正在用”透明 + 补偿”的方式重建信任</strong>。那句”tiger team 明天修复”的承诺值得留意，明后天应该会有更详细的公告。</p>
+<h2 id="madhu-gurueval-系列-part-6hill-climbing的实操心法"><a href="#🏗️-Madhu-Guru：Eval-系列-Part-6——“hill-climbing”的实操心法" class="headerlink" title="🏗️ Madhu Guru：Eval 系列 Part 6——“hill climbing”的实操心法"></a>🏗️ Madhu Guru：Eval 系列 Part 6——“hill climbing”的实操心法</h2><p><strong>Madhu Guru</strong> 的 “How to build great evals” 系列来到第 6 部分（<strong>143 ❤️ &#x2F; 8 🔄</strong>），主题是 <strong>hill climbing（爬山式优化）</strong>：</p>
+<blockquote>
+<p><strong>“在 evals 上做 hill climbing，说白了就是：挑一个重要的维度，然后朝它优化。可以是基于最新生产数据提升高价值用户旅程上的现有功能质量，也可以是扩展到相邻用例、降低成本或延迟。实际工作归结为更好的 harness 和模型选择——prompt eng、context eng、memory、post training、确定性的传统代码等等。你（Part 3 里的）失败模式分类法，就是判断产品哪里在挣扎的好指南针。比如工具调用失败最常见——你深入一看，发现一次性塞了 20 个工具进 context，其实每个任务只需要 3-5 个。这里的 hill climbing 就是做 context eng，在正确阶段只给正确的工具，迭代到好用为止。或者拿降本目标举例——我建议先用最好的模型发布产品，把质量拉满，等确认用户爱了，再做 hill climbing：用更小、更便宜、更快的模型逼近同样的质量，方法还是那套——harness 和模型。关键是要有 evals 告诉你到底有没有在往对的方向走。”</strong></p>
+</blockquote>
+<p>配合今天 <strong>Aaron Levie</strong> 的同题观点（<strong>138 ❤️ &#x2F; 12 🔄</strong>）：</p>
+<blockquote>
+<p><strong>“AI 的扩散速度，比大多数人意识到的更受『有没有好的 evals』限制。每轮模型发布时你能看到的那种 evals 非常有用，但它只告诉你通用 AI 进步的形态和模型的相对能力。更大的空间在针对企业主要工作流的 evals——细化到具体某家公司的特定流程。这会是一个巨大的市场，因为你无法自动化你无法评估其进展的东西。企业不能只靠感觉走。”</strong></p>
+</blockquote>
+<p><strong>“你无法自动化你无法评估的东西”</strong>——eval 正在从工程话题升级为商业话题。做 AI 产品的团队，这套 hill climbing 方法论值得全文转给队友。</p>
+<h2 id="peter-yang隐私清理实操-一个叫-x2ffuck-cancer-的-ai-skill"><a href="#🔐-Peter-Yang：隐私清理实操-一个叫-fuck-cancer-的-AI-skill" class="headerlink" title="🔐 Peter Yang：隐私清理实操 + 一个叫 &#x2F;fuck-cancer 的 AI skill"></a>🔐 Peter Yang：隐私清理实操 + 一个叫 &#x2F;fuck-cancer 的 AI skill</h2><p><strong>Peter Yang</strong> 连发三条，两条和”数据主权”有关：</p>
+<blockquote>
+<p><strong>“如果你在乎隐私：1. 打开 Chrome 的 Google 账号设置；2. 把这个 prompt 丢给 Codex 或 Claude Code，告诉它你浏览器里有打开的标签页；3. 挑出你想移除的，让 AI 去做。我刚断掉了半打不应该再拥有我 Google 信息的应用。”</strong>（447 ❤️ &#x2F; 23 🔄）</p>
+</blockquote>
+<blockquote>
+<p><strong>“看起来现在可以删除外部数据了（比如我的 36 条 Gmail 记录），去 Google 的 Data Privacy 设置里往下滚就有。Kudos 给 Instinct 团队，他们听了反馈并且发货很快。涉及隐私与信任的事，我一向有什么说什么。”</strong>（13 ❤️）</p>
+</blockquote>
+<p><strong>“让 AI 帮你清理授权”</strong>——把 agent 用在隐私管理上，是个成本极低、信任感极强的用例，大概率会带动一波”AI 隐私管家”的玩法。</p>
+<p>第三条则是他正在做的公益向 AI skill（<strong>188 ❤️ &#x2F; 5 🔄</strong>）：</p>
+<blockquote>
+<p><strong>“我在做一个新的 AI skill，叫 &#x2F;fuck-cancer。目标是帮患者和他们的家人走完整个流程、保持信息同步。应该包含什么？”</strong></p>
+</blockquote>
+<p>公开征集需求来做一个医疗陪伴类 skill，评论区应该会有不少真实诉求——这种”开放开发”的姿势本身就很 agent-native。</p>
+<h2 id="zara-zhang为什么牛人都在离开大公司"><a href="#🏢-Zara-Zhang：为什么牛人都在离开大公司" class="headerlink" title="🏢 Zara Zhang：为什么牛人都在离开大公司"></a>🏢 Zara Zhang：为什么牛人都在离开大公司</h2><p><strong>Zara Zhang</strong> 提出了一个值得反复咀嚼的观察（<strong>147 ❤️ &#x2F; 7 🔄</strong>）：</p>
+<blockquote>
+<p><strong>“有个现象：有才华的人做自己的事时，AI 可以让他们发挥出 10 倍的潜力；但同样一个人放进大型组织，潜力最多提升 20%（有时候甚至还会下降）。这就是为什么我看到越来越多有才华的人离开大公司。（唯一的例外大概是 OpenAI&#x2F;Anthropic 这样的顶级 AI 实验室。）”</strong></p>
+</blockquote>
+<p>这条和她的另一条形成完美互文（<strong>336 ❤️ &#x2F; 20 🔄</strong>）：</p>
+<blockquote>
+<p><strong>“每个在 AI 使用上领先的人，都觉得自己落后。”</strong></p>
+</blockquote>
+<p>“10x vs 20%”的对比直指一个结构性变化：<strong>AI 把个人生产力的上限抬到了组织之上</strong>——这对组织形态的冲击才刚刚开始。而”领先者觉得自己落后”则精准描述了当下 AI 圈弥漫的 FOMO：<strong>信息密度越高，越觉得追不上</strong>。两条都值得转。</p>
+<h2 id="nikunj-kothari对-ragebait-投资人的犀利吐槽"><a href="#💸-Nikunj-Kothari：对-ragebait-投资人的犀利吐槽" class="headerlink" title="💸 Nikunj Kothari：对 ragebait 投资人的犀利吐槽"></a>💸 Nikunj Kothari：对 ragebait 投资人的犀利吐槽</h2><p><strong>Nikunj Kothari</strong> 今天火力全开，先是回应了某起 Doxxing 事件（<strong>23 ❤️</strong>）：</p>
+<blockquote>
+<p><strong>“几点：1）这些是 Twitter DM，我尽量回复能帮的冷消息，但这条不该通过我的标准。2）人肉搜索不是我的风格，希望他们学到了教训。3）我怎么说都不够强调——找到对的人给你建议有多重要。看到很多真有本事的有才华年轻人玩这些愚蠢的游戏，我血压都高了。”</strong></p>
+</blockquote>
+<p>接着一句金句直击当下融资乱象（<strong>370 ❤️ &#x2F; 4 🔄</strong>）：</p>
+<blockquote>
+<p><strong>“孩子们，我不知道你们听谁的建议，但『先 ragebait 投资人、再甩 SAFE 文档让人直接打钱』——这不是投资运作的方式。”</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>“我们吐槽 X 上的 slop，但 LinkedIn 的 slop 已经到了难以想象的地步 🤮”</strong>（40 ❤️ &#x2F; 1 🔄）</p>
+</blockquote>
+<p>在”AI 融资过热、野路子盛行”的当口，这条冷静的提醒很有价值——<strong>热度是放大器，不是信用背书</strong>。</p>
+<h2 id="其他值得关注"><a href="#🚀-其他值得关注" class="headerlink" title="🚀 其他值得关注"></a>🚀 其他值得关注</h2><ul>
+<li><strong>Amjad Masad</strong>（Replit CEO）：<em>“一周有 7 天，也就是 7 次发布。”</em>（<strong>70 ❤️ &#x2F; 4 🔄</strong>）；另一条 <em>“‘很快’原来是 3 个月。”</em>（<strong>643 ❤️ &#x2F; 43 🔄</strong>）——Replit 的高频发布节奏和 Free Mode 之后的产品节奏感，依旧是社区关注焦点。</li>
+<li><strong>Guillermo Rauch</strong>（Vercel CEO）：<em>“旧金山是人间的天堂。”</em>（<strong>1084 ❤️ &#x2F; 20 🔄</strong>），以及一条关于美国与阿根廷的”做多宣言”（<strong>735 ❤️ &#x2F; 30 🔄</strong>）——AI 创始人们的”地理叙事”越来越像资产配置。</li>
+<li><strong>Dan Shipper</strong>（Every）：<em>“我们在招人！@every”</em>（<strong>131 ❤️ &#x2F; 3 🔄</strong>），以及 <em>“agent native ftw”</em>（<strong>149 ❤️ &#x2F; 1 🔄</strong>）——“agent-native”正在成为产品团队的新标签，Every 这家”AI 原生媒体公司”的扩张也值得关注。</li>
+</ul>
+<hr>
+<p><em>数据来源：<a target="_blank" rel="noopener" href="https://github.com/zarazhangrui/follow-builders">Follow Builders</a> · 2026-08-23</em></p>
+
   </div>
-</section>
+</article>
 
-<div class="post-list">
-  
-  <a class="pl-item" href="/computer-science/java/javase/%E6%97%A5%E6%9C%9F%E7%B1%BB/">
-    <div class="pl-top">
-      <span class="pl-title">日期类</span>
-      <span class="pl-date">2023-03-31</span>
-    </div>
-    <div class="pl-meta">
-      <span>3539 字 · 约 12 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">Java</span>
-        
-        <span class="bkt">JavaSE</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/java/javase/Java%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
-    <div class="pl-top">
-      <span class="pl-title">Java基本数据类型</span>
-      <span class="pl-date">2023-03-31</span>
-    </div>
-    <div class="pl-meta">
-      <span>2377 字 · 约 8 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">Java</span>
-        
-        <span class="bkt">JavaSE</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/">
-    <div class="pl-top">
-      <span class="pl-title">Java发展历程</span>
-      <span class="pl-date">2023-03-30</span>
-    </div>
-    <div class="pl-meta">
-      <span>4044 字 · 约 12 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">Java</span>
-        
-        <span class="bkt">JavaSE</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/">
-    <div class="pl-top">
-      <span class="pl-title">Java8新特性</span>
-      <span class="pl-date">2023-03-30</span>
-    </div>
-    <div class="pl-meta">
-      <span>4 字 · 约 1 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">Java</span>
-        
-        <span class="bkt">JavaSE</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/java/javase/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-    <div class="pl-top">
-      <span class="pl-title">Java面对对象程序设计</span>
-      <span class="pl-date">2023-03-29</span>
-    </div>
-    <div class="pl-meta">
-      <span>6826 字 · 约 20 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">Java</span>
-        
-        <span class="bkt">JavaSE</span>
-        
-      
-    </div>
-  </a>
-  
-</div>
-
-
-<nav class="pagination">
-  <a class="prev" href="/tags/JavaSE/">上一页</a>
-  <span class="page-number">[2/2]</span>
-  
+<nav class="post-nav">
+  <a class="prev" href="/ai-hotspots">返回 AI 行业热点</a>
 </nav>
-
 
     </div>
   </main>
