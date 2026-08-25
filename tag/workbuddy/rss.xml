@@ -1,0 +1,445 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>沉鱼的博客 • Posts by &#34;workbuddy&#34; tag</title>
+        <link>https://scottalive.github.io</link>
+        <description>编程笔记 &amp; 资料分享</description>
+        <language>zh-CN</language>
+        <pubDate>Wed, 26 Aug 2026 01:00:00 +0800</pubDate>
+        <lastBuildDate>Wed, 26 Aug 2026 01:00:00 +0800</lastBuildDate>
+        <category>坏习惯</category>
+        <category>个人分享</category>
+        <category>AI日报</category>
+        <category>AI</category>
+        <category>GitHub热门</category>
+        <category>人工智能</category>
+        <category>技术趋势</category>
+        <category>原则</category>
+        <category>个人详情</category>
+        <category>GPT-5.5</category>
+        <category>OpenAI</category>
+        <category>Codex</category>
+        <category>ClaudeCode</category>
+        <category>Gemini</category>
+        <category>开发工具</category>
+        <category>开源</category>
+        <category>编程笔记</category>
+        <category>编程助手</category>
+        <category>Hermes</category>
+        <category>Agent</category>
+        <category>NousResearch</category>
+        <category>DeepSeek</category>
+        <category>Harness</category>
+        <category>插件</category>
+        <category>安装教程</category>
+        <category>v0.20</category>
+        <category>语音交互</category>
+        <category>A2A</category>
+        <category>Webhook</category>
+        <category>自动化</category>
+        <category>OpenSRE</category>
+        <category>SRE</category>
+        <category>运维</category>
+        <category>故障排查</category>
+        <category>进阶</category>
+        <category>配置</category>
+        <category>LLM</category>
+        <category>RAG</category>
+        <category>知识库</category>
+        <category>高阶</category>
+        <category>AI运维</category>
+        <category>根因分析</category>
+        <category>DevOps</category>
+        <category>Kubernetes</category>
+        <category>k8s</category>
+        <category>kubeconfig</category>
+        <category>kubectl</category>
+        <category>Context</category>
+        <category>SSE</category>
+        <category>HTTP</category>
+        <category>WorkBuddy</category>
+        <category>腾讯</category>
+        <category>办公自动化</category>
+        <category>AI工具</category>
+        <category>v0.17</category>
+        <category>容器编排</category>
+        <category>Grafana</category>
+        <category>可观测性</category>
+        <category>Helm</category>
+        <category>学习计划</category>
+        <category>网络安全</category>
+        <category>SQL注入</category>
+        <category>XSS</category>
+        <category>CSRF</category>
+        <category>DDoS</category>
+        <category>渗透测试</category>
+        <category>心理学知识</category>
+        <category>阿德勒心理学</category>
+        <category>自卑与超越</category>
+        <category>JavaSE</category>
+        <category>Java开发面试题</category>
+        <category>Spring</category>
+        <category>SpringBoot</category>
+        <category>接口开发</category>
+        <category>开发注意事项</category>
+        <category>微服务</category>
+        <category>python</category>
+        <category>力扣算法题</category>
+        <category>算法</category>
+        <category>动态规划</category>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/WorkBuddy-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+            <title>WorkBuddy 安装与使用指南 —— 腾讯 AI 专家团办公工作台深度上手</title>
+            <link>https://scottalive.github.io/computer-science/ai-tools/WorkBuddy-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+            <category>AI</category>
+            <category>Agent</category>
+            <category>安装教程</category>
+            <category>WorkBuddy</category>
+            <category>腾讯</category>
+            <category>办公自动化</category>
+            <category>AI工具</category>
+            <pubDate>Wed, 26 Aug 2026 01:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;&lt;img src=&#34;/images/workbuddy/hero-expert-team.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;WorkBuddy&lt;/strong&gt; 是腾讯推出的&lt;strong&gt;全场景职场 AI 智能体桌面工作台&lt;/strong&gt;（腾讯云代码助手 CodeBuddy 家族产品）。最新版本 &lt;strong&gt;5.3.14（2026-08-17）&lt;/strong&gt;。它的口号是 &lt;strong&gt;“Work Smarter, with Experts”&lt;/strong&gt;——不只是聊天机器人，而是你的一句话指令 + 100 多位领域专家组成的”虚拟团队”，自主规划、并行执行、交付可验收的结果。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;和传统 AI 对话不同，WorkBuddy 不仅能”听懂人话”，还能”带脑子思考”并”实际操作本地文件”：生成文档、分析数据、做 PPT、批量整理文件、深度调研、写代码……真正帮你把活干完。&lt;/p&gt;
+&lt;p&gt;本文从零开始：安装 → 登录 → 第一个任务 → 专家&amp;#x2F;技能&amp;#x2F;模型&amp;#x2F;远程助理等深度功能，一篇文章吃透。&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;一、核心概念：先搞懂-WorkBuddy-的工作方式&#34;&gt;&lt;a href=&#34;#一、核心概念：先搞懂-WorkBuddy-的工作方式&#34; class=&#34;headerlink&#34; title=&#34;一、核心概念：先搞懂 WorkBuddy 的工作方式&#34;&gt;&lt;/a&gt;一、核心概念：先搞懂 WorkBuddy 的工作方式&lt;/h2&gt;&lt;h3 id=&#34;1-1-一句话-→-自主执行-→-可验收交付&#34;&gt;&lt;a href=&#34;#1-1-一句话-→-自主执行-→-可验收交付&#34; class=&#34;headerlink&#34; title=&#34;1.1 一句话 → 自主执行 → 可验收交付&#34;&gt;&lt;/a&gt;1.1 一句话 → 自主执行 → 可验收交付&lt;/h3&gt;&lt;p&gt;WorkBuddy 的核心优势：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;一句话下达任务&lt;/strong&gt;：用自然语言描述需求，无需复杂操作；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自主规划执行&lt;/strong&gt;：自动拆解任务、规划步骤、完成交付；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多任务并行&lt;/strong&gt;：同时发起和管理多个任务；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;本地文件操作&lt;/strong&gt;：读取授权的电脑文件夹，批量处理；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结果可验收&lt;/strong&gt;：生成的文档、表格、PPT 等直接可用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;1-2-Skill-专家-专家团：能力的三层结构&#34;&gt;&lt;a href=&#34;#1-2-Skill-专家-专家团：能力的三层结构&#34; class=&#34;headerlink&#34; title=&#34;1.2 Skill &amp;#x2F; 专家 &amp;#x2F; 专家团：能力的三层结构&#34;&gt;&lt;/a&gt;1.2 Skill &amp;#x2F; 专家 &amp;#x2F; 专家团：能力的三层结构&lt;/h3&gt;&lt;p&gt;这是理解 WorkBuddy 的关键——它把 AI 能力拆成了三层：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Skill[Skill · 能力]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        S1[封装可执行脚本与工作流]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        S2[让 AI 能做某件事：发邮件/订外卖/查股价/读写文件]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Expert[专家 · 能力 + 经验]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        E1[人设 + 方法论 + 工具链]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        E2[懂某个领域的 AI 角色顾问]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Team[专家团 · 多位专家 + 协作流程]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        T1[团长自动拆解任务]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        T2[并行执行 · 整合交付]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    S1 --- S2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E1 --- E2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    T1 --- T2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;维度&lt;/th&gt;
+&lt;th&gt;Skill&lt;/th&gt;
+&lt;th&gt;专家（Agent 型）&lt;/th&gt;
+&lt;th&gt;专家团（Team 型）&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;本质&lt;/td&gt;
+&lt;td&gt;工具能力&lt;/td&gt;
+&lt;td&gt;AI 顾问（领域角色）&lt;/td&gt;
+&lt;td&gt;协作团队&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;适合场景&lt;/td&gt;
+&lt;td&gt;需要某种工具能力&lt;/td&gt;
+&lt;td&gt;明确的单点问题&lt;/td&gt;
+&lt;td&gt;复杂任务、多角色配合&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;积分消耗&lt;/td&gt;
+&lt;td&gt;较低&lt;/td&gt;
+&lt;td&gt;单专家&lt;/td&gt;
+&lt;td&gt;通常为单专家的 3~5 倍&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;一句话：&lt;strong&gt;Skill 是能力，专家是能力+经验，专家团是多位专家+协作流程。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;1-3-界面三大区域&#34;&gt;&lt;a href=&#34;#1-3-界面三大区域&#34; class=&#34;headerlink&#34; title=&#34;1.3 界面三大区域&#34;&gt;&lt;/a&gt;1.3 界面三大区域&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;侧边栏&lt;/strong&gt;：任务列表（按文件夹分组），支持搜索和管理，底部是用户头像；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;对话区&lt;/strong&gt;：核心交互区，包含任务标题栏、消息列表和输入框；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;结果区&lt;/strong&gt;（右侧面板）：展示&lt;strong&gt;产物、全部文件、变更、预览&lt;/strong&gt;等视图。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;二、安装-WorkBuddy&#34;&gt;&lt;a href=&#34;#二、安装-WorkBuddy&#34; class=&#34;headerlink&#34; title=&#34;二、安装 WorkBuddy&#34;&gt;&lt;/a&gt;二、安装 WorkBuddy&lt;/h2&gt;&lt;h3 id=&#34;2-1-环境要求&#34;&gt;&lt;a href=&#34;#2-1-环境要求&#34; class=&#34;headerlink&#34; title=&#34;2.1 环境要求&#34;&gt;&lt;/a&gt;2.1 环境要求&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;平台&lt;/th&gt;
+&lt;th&gt;要求&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;Windows&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Windows 10 及以上&lt;/strong&gt;（不支持 Windows 7&amp;#x2F;8&amp;#x2F;8.1）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;macOS&lt;/td&gt;
+&lt;td&gt;macOS 12.0+（提供 Intel x64 与 Apple 芯片 arm64 两种安装包）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;移动端&lt;/td&gt;
+&lt;td&gt;iOS &amp;#x2F; Android &amp;#x2F; 鸿蒙桌面版 &amp;#x2F; 鸿蒙移动版&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;2-2-下载安装包&#34;&gt;&lt;a href=&#34;#2-2-下载安装包&#34; class=&#34;headerlink&#34; title=&#34;2.2 下载安装包&#34;&gt;&lt;/a&gt;2.2 下载安装包&lt;/h3&gt;&lt;p&gt;访问 &lt;a href=&#34;https://www.codebuddy.cn/work/&#34;&gt;WorkBuddy 官网&lt;/a&gt;，点击&lt;strong&gt;下载 WorkBuddy&lt;/strong&gt;，按设备选择安装包：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows x64（兼容 ARM64）→ &lt;code&gt;.exe&lt;/code&gt; 用户级安装包&lt;/li&gt;
+&lt;li&gt;Mac x64 &amp;#x2F; Mac ARM64 → &lt;code&gt;.dmg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;iOS &amp;#x2F; Android → 应用商店；鸿蒙 → 应用市场&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;官网下载地址是动态获取的（按平台返回最新版本），从官网主页下载即可，无需手动找链接。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;2-3-Windows-安装步骤&#34;&gt;&lt;a href=&#34;#2-3-Windows-安装步骤&#34; class=&#34;headerlink&#34; title=&#34;2.3 Windows 安装步骤&#34;&gt;&lt;/a&gt;2.3 Windows 安装步骤&lt;/h3&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[双击安装包] --&amp;gt; B[勾选同意协议]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[选择安装路径]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[确认开始菜单文件夹]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[勾选创建桌面快捷方式]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F[点击安装]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G[完成]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol&gt;
+&lt;li&gt;双击已下载的安装包，启动安装程序；&lt;/li&gt;
+&lt;li&gt;勾选”我同意此协议”，点击&lt;strong&gt;下一步&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;选择安装路径（默认路径直接下一步）；&lt;/li&gt;
+&lt;li&gt;确认开始菜单文件夹，下一步；&lt;/li&gt;
+&lt;li&gt;建议勾选**”创建桌面快捷方式”**，下一步；&lt;/li&gt;
+&lt;li&gt;确认配置无误，点击&lt;strong&gt;安装&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;安装完成后点击&lt;strong&gt;完成&lt;/strong&gt;退出向导。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;2-4-登录与基础设置&#34;&gt;&lt;a href=&#34;#2-4-登录与基础设置&#34; class=&#34;headerlink&#34; title=&#34;2.4 登录与基础设置&#34;&gt;&lt;/a&gt;2.4 登录与基础设置&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;启动 WorkBuddy，点击&lt;strong&gt;登录&lt;/strong&gt;，勾选《服务条款》与《隐私协议》，&lt;strong&gt;使用微信扫码&lt;/strong&gt;完成登录，登录后自动返回客户端；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;切换语言&lt;/strong&gt;：左下角头像 → 语言；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;检查更新&lt;/strong&gt;：左下角头像 → 检查更新（有新版本会自动下载升级）；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开机自启动&lt;/strong&gt;：设置中可开启（5.3.11 起支持）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-5-全平台矩阵：不只在电脑上用&#34;&gt;&lt;a href=&#34;#2-5-全平台矩阵：不只在电脑上用&#34; class=&#34;headerlink&#34; title=&#34;2.5 全平台矩阵：不只在电脑上用&#34;&gt;&lt;/a&gt;2.5 全平台矩阵：不只在电脑上用&lt;/h3&gt;&lt;p&gt;WorkBuddy 覆盖桌面 + 主流 IM + 小程序：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;渠道&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;桌面端&lt;/td&gt;
+&lt;td&gt;Windows &amp;#x2F; macOS 主应用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;微信 &amp;#x2F; 企业微信 &amp;#x2F; QQ &amp;#x2F; 飞书 &amp;#x2F; 钉钉&lt;/td&gt;
+&lt;td&gt;接入后可&lt;strong&gt;远程控制电脑执行任务&lt;/strong&gt;（见下文”助理”）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;微信小程序&lt;/td&gt;
+&lt;td&gt;扫码即用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;三、快速上手：创建第一个任务&#34;&gt;&lt;a href=&#34;#三、快速上手：创建第一个任务&#34; class=&#34;headerlink&#34; title=&#34;三、快速上手：创建第一个任务&#34;&gt;&lt;/a&gt;三、快速上手：创建第一个任务&lt;/h2&gt;&lt;h3 id=&#34;3-1-一句话描述任务&#34;&gt;&lt;a href=&#34;#3-1-一句话描述任务&#34; class=&#34;headerlink&#34; title=&#34;3.1 一句话描述任务&#34;&gt;&lt;/a&gt;3.1 一句话描述任务&lt;/h3&gt;&lt;p&gt;WorkBuddy 的核心优势就是理解自然语言，官方示例：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;“帮我把这份销售数据生成一个分析报告，包含图表”&lt;/li&gt;
+&lt;li&gt;“整理 Downloads 文件夹里的图片，按日期分类”&lt;/li&gt;
+&lt;li&gt;“根据这份会议纪要生成一个 PPT”&lt;/li&gt;
+&lt;li&gt;“分析这份简历，提取关键信息生成表格”&lt;/li&gt;
+&lt;li&gt;“调研一下 2024 年 AI 行业趋势，写一份报告”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-2-选择工作空间&#34;&gt;&lt;a href=&#34;#3-2-选择工作空间&#34; class=&#34;headerlink&#34; title=&#34;3.2 选择工作空间&#34;&gt;&lt;/a&gt;3.2 选择工作空间&lt;/h3&gt;&lt;p&gt;点击输入框左下角的&lt;strong&gt;选择工作空间&lt;/strong&gt;，指定当前任务要使用的目录；WorkBuddy 会基于该目录读取和处理文件。也可以直接开始任务，结果生成在默认目录。&lt;/p&gt;
+&lt;h3 id=&#34;3-3-添加上下文（让任务更准）&#34;&gt;&lt;a href=&#34;#3-3-添加上下文（让任务更准）&#34; class=&#34;headerlink&#34; title=&#34;3.3 添加上下文（让任务更准）&#34;&gt;&lt;/a&gt;3.3 添加上下文（让任务更准）&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;方式&lt;/th&gt;
+&lt;th&gt;操作&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;引用上下文&lt;/td&gt;
+&lt;td&gt;通过 &lt;code&gt;@&lt;/code&gt; 引用文件、文档、规则&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;粘贴截图&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Ctrl/Cmd + V&lt;/code&gt; 直接粘贴剪贴板图片&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;上传文件&lt;/td&gt;
+&lt;td&gt;点击上传按钮或拖拽文件到输入框&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;补充说明&lt;/td&gt;
+&lt;td&gt;明确目标、输入、输出格式、约束条件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;建议描述时带上四要素：&lt;strong&gt;目标是什么、输入是什么、输出格式（Word&amp;#x2F;Excel&amp;#x2F;PPT…）、约束条件（风格&amp;#x2F;字数&amp;#x2F;截止时间）&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;3-4-任务执行与结果查看&#34;&gt;&lt;a href=&#34;#3-4-任务执行与结果查看&#34; class=&#34;headerlink&#34; title=&#34;3.4 任务执行与结果查看&#34;&gt;&lt;/a&gt;3.4 任务执行与结果查看&lt;/h3&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sequenceDiagram&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant U as 用户&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant W as WorkBuddy&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant E as 专家团/子任务&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    U-&amp;gt;&amp;gt;W: 一句话描述任务 + 上下文&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    W-&amp;gt;&amp;gt;W: 自主拆解任务、规划步骤&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    W-&amp;gt;&amp;gt;E: 并行分派子任务&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E--&amp;gt;&amp;gt;W: 各专家执行结果&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    W-&amp;gt;&amp;gt;W: 整合交付&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    W--&amp;gt;&amp;gt;U: 右侧结果区：产物/文件/变更/预览&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    U-&amp;gt;&amp;gt;W: 继续补充消息（可随时干预）&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;任务创建成功后：新任务出现在&lt;strong&gt;左侧任务列表&lt;/strong&gt;；对话区持续展示&lt;strong&gt;执行过程&lt;/strong&gt;；右侧结果区按任务类型展示&lt;strong&gt;产物、全部文件、变更、预览&lt;/strong&gt;。你可以继续补充消息，也可以同时开多个任务并行推进。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;截图：WorkBuddy 桌面端主界面（左侧任务列表 + 对话区 + 结果区）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;/images/workbuddy/hero-video-poster.png&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;四、深度功能详解&#34;&gt;&lt;a href=&#34;#四、深度功能详解&#34; class=&#34;headerlink&#34; title=&#34;四、深度功能详解&#34;&gt;&lt;/a&gt;四、深度功能详解&lt;/h2&gt;&lt;h3 id=&#34;4-1-专家中心：召唤你的-AI-专家团&#34;&gt;&lt;a href=&#34;#4-1-专家中心：召唤你的-AI-专家团&#34; class=&#34;headerlink&#34; title=&#34;4.1 专家中心：召唤你的 AI 专家团&#34;&gt;&lt;/a&gt;4.1 专家中心：召唤你的 AI 专家团&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;专家 &amp;#x3D; 角色切换&lt;/strong&gt;：以”人设 + 方法论 + 工具链”让 WorkBuddy 用特定领域专家的身份执行任务；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;专家团 &amp;#x3D; 协作执行&lt;/strong&gt;：多位专家分工协作，由&lt;strong&gt;团长自动拆解、并行执行并整合交付&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;入口：左侧边栏点击&lt;strong&gt;专家&lt;/strong&gt; → 专家中心（按行业分类浏览）&amp;#x2F; 我的专家（创建自己的专家，分享专业知识）；&lt;/li&gt;
+&lt;li&gt;用法：点击&lt;strong&gt;召唤专家&amp;#x2F;专家团&lt;/strong&gt; → 进入对话 → 用自然语言描述任务。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;官方已提供 &lt;strong&gt;100+ 领域专家&lt;/strong&gt;组成你的虚拟团队，覆盖运营、设计、数据、开发、财务、法务等全角色场景。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;注意：专家本身不主动获取系统权限，只处理你主动提供的对话与上传文件；配备 Skill&amp;#x2F;MCP 后才会在授权下间接访问文件或外部服务。专家团并行调用多位专家，&lt;strong&gt;积分消耗通常为单专家的 3~5 倍&lt;/strong&gt;，召唤前留意积分余额。&lt;/p&gt;
+&lt;h3 id=&#34;4-2-技能（Skill）：能力无限扩展&#34;&gt;&lt;a href=&#34;#4-2-技能（Skill）：能力无限扩展&#34; class=&#34;headerlink&#34; title=&#34;4.2 技能（Skill）：能力无限扩展&#34;&gt;&lt;/a&gt;4.2 技能（Skill）：能力无限扩展&lt;/h3&gt;&lt;p&gt;技能为 WorkBuddy 增加”特定工具能力”——封装一组可执行的脚本与工作流，使 AI 在授权下完成具体动作（发邮件、订外卖、查股价、读写文件、调第三方 API 等）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;技能市场&lt;/strong&gt;：推荐技能，一键安装；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;已安装&lt;/strong&gt;：本地技能，可直接在对话中调用；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;添加技能&lt;/strong&gt;三种方式：&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;上传技能&lt;/strong&gt;：导入本地技能包（拖拽或选择文件，自动完成配置）；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;查找技能&lt;/strong&gt;：输入任务描述，自动查找相关技能；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;创建技能&lt;/strong&gt;：输入任务描述，自动创建相关技能；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;启用&amp;#x2F;关闭&lt;/strong&gt;：随时开关，无需卸载（建议只启用当前任务所需技能，减少误调用）；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;卸载&lt;/strong&gt;：支持批量操作；5.3.11 起”我安装的”页面有本地搜索框。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ 安全提示：非官方 Skill 可能存在提示词注入、越权访问、后门等隐患。&lt;strong&gt;优先使用官方推荐 Skill&lt;/strong&gt;；安装第三方前审慎校验来源、权限申请与脚本内容。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;4-3-模型配置：内置大模型-自定义-本地部署&#34;&gt;&lt;a href=&#34;#4-3-模型配置：内置大模型-自定义-本地部署&#34; class=&#34;headerlink&#34; title=&#34;4.3 模型配置：内置大模型 + 自定义 + 本地部署&#34;&gt;&lt;/a&gt;4.3 模型配置：内置大模型 + 自定义 + 本地部署&lt;/h3&gt;&lt;p&gt;WorkBuddy 产品内置主流大模型，并支持可视化配置自定义模型（无需手改配置文件）：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;三种使用模式：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;模式&lt;/th&gt;
+&lt;th&gt;定位&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;均衡模式&lt;/td&gt;
+&lt;td&gt;兼顾速度与质量，适合大多数日常工作&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;快速模式&lt;/td&gt;
+&lt;td&gt;优先响应速度，适合简单任务与快速问答&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;极致模式&lt;/td&gt;
+&lt;td&gt;优先深度与准确性，适合复杂分析和高要求任务&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;内置模型（部分）：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;模型&lt;/th&gt;
+&lt;th&gt;特点&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;Hy3&lt;/td&gt;
+&lt;td&gt;混元思考模型，增强推理，限时免费&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GLM-5.21&lt;/td&gt;
+&lt;td&gt;1M 上下文，擅长长程任务&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GLM-5.1&lt;/td&gt;
+&lt;td&gt;能力均衡，适合日常使用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GLM-5v-Turbo &amp;#x2F; MiniMax-M3&lt;/td&gt;
+&lt;td&gt;原生多模态&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Kimi-K3&lt;/td&gt;
+&lt;td&gt;长程自主任务、前端开发、科研推理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Kimi-K2.7-Code&lt;/td&gt;
+&lt;td&gt;编程场景优化&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Deepseek-V4-Flash &amp;#x2F; V4-Pro&lt;/td&gt;
+&lt;td&gt;DeepSeek 旗舰，1M 上下文，支持思考模式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;自定义模型接入&lt;/strong&gt;（设置 → 模型，图形界面操作，配置仅存本地 &lt;code&gt;workbuddy/models.json&lt;/code&gt;，不上传云端）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;提供商接入&lt;/strong&gt;：选择供应商后 URL、模型列表、能力标记自动填充，只需补 API Key；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;腾讯云 Token Plan&lt;/strong&gt;：兼容混元、MiniMax、Kimi、GLM 等主流模型的订阅套餐，选套餐填 Key 即用；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Coding Plan&lt;/strong&gt;：支持腾讯云 &amp;#x2F; 智谱 &amp;#x2F; Kimi Coding Plan；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ollama 本地部署&lt;/strong&gt;：本地跑开源模型（默认 11434 端口，OpenAI 兼容接口），适合&lt;strong&gt;数据隐私&amp;#x2F;内网合规、零成本、离线&lt;/strong&gt;场景；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自定义协议&lt;/strong&gt;：模型服务走网关&amp;#x2F;代理等非标准路径时，可开启”自定义协议”开关，跳过路径校验直接按填写的 URL 发请求。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-4-助理（远程任务）：手机遥控电脑干活&#34;&gt;&lt;a href=&#34;#4-4-助理（远程任务）：手机遥控电脑干活&#34; class=&#34;headerlink&#34; title=&#34;4.4 助理（远程任务）：手机遥控电脑干活&#34;&gt;&lt;/a&gt;4.4 助理（远程任务）：手机遥控电脑干活&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;助理是 WorkBuddy 的远程控制功能&lt;/strong&gt;：通过手机上的微信、企业微信、QQ、钉钉、飞书，远程控制电脑上的 WorkBuddy 执行任务，结果自动回复到手机。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    U[手机 · 微信/企微/QQ/钉钉/飞书] --&amp;gt;|发一条消息| C[云端助理]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|指令下发| W[电脑上的 WorkBuddy]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    W --&amp;gt;|执行任务/操作文件| R[结果]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    R --&amp;gt;|回复到手机| U&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;适用场景：出门在外处理文件、会议中生成纪要、通勤路上准备材料、随时派活回来收结果。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;配置方式&lt;/strong&gt;：打开 WorkBuddy → 左下角头像 → 设置 → &lt;strong&gt;助理设置&lt;/strong&gt; → 按需配置对应平台集成（微信客服号支持直接扫码绑定；企微&amp;#x2F;QQ&amp;#x2F;飞书&amp;#x2F;钉钉通常需先在平台创建应用或机器人）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;远程任务 vs 普通任务：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;对比项&lt;/th&gt;
+&lt;th&gt;普通任务&lt;/th&gt;
+&lt;th&gt;助理&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;工作目录&lt;/td&gt;
+&lt;td&gt;自由指定&lt;/td&gt;
+&lt;td&gt;固定使用助理专属文件夹&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;新建对话&lt;/td&gt;
+&lt;td&gt;支持多个并行任务&lt;/td&gt;
+&lt;td&gt;仅一个会话，所有远程指令集中处理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;上下文管理&lt;/td&gt;
+&lt;td&gt;可清空历史重新开始&lt;/td&gt;
+&lt;td&gt;保留完整对话历史，不可清空&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;建议：本地操作优先用主界面的普通任务；需要远程触发或统一查看记录时再用助理。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;远程控制安全边界&lt;/strong&gt;：绑定身份（可灵活换绑平台）→ 来源校验（每条远程指令多层校验）→ &lt;strong&gt;高风险任务确认&lt;/strong&gt;（文件删除、系统配置修改、批准命令执行等需确认后才执行）。使用助理时电脑需保持开机并运行 WorkBuddy。&lt;/p&gt;
+&lt;h3 id=&#34;4-5-其他值得关注的能力（来自-5-3-x-更新日志）&#34;&gt;&lt;a href=&#34;#4-5-其他值得关注的能力（来自-5-3-x-更新日志）&#34; class=&#34;headerlink&#34; title=&#34;4.5 其他值得关注的能力（来自 5.3.x 更新日志）&#34;&gt;&lt;/a&gt;4.5 其他值得关注的能力（来自 5.3.x 更新日志）&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;自动化任务&lt;/strong&gt;：定时&amp;#x2F;计划任务，高峰期调度优化，错过执行会提醒；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;连接器（Connector）&lt;/strong&gt;：MCP 连接器、IMA 知识库、腾讯文档深度集成（AI 引擎 + MCP 本地服务）、Python 类连接器运行时；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;记忆&lt;/strong&gt;：长期记忆可查看与编辑，新建&amp;#x2F;恢复对话更稳定；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;灵感&lt;/strong&gt;：案例市场 + “一键做同款”复刻网页、分享口令直达；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PPT 生成&lt;/strong&gt;：内置插件，生成前可预览步骤；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;企业能力&lt;/strong&gt;：企业智能体（身份配置&amp;#x2F;欢迎语&amp;#x2F;推荐问题）、Teams 项目、网盘扩容、模型白名单；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;沙箱与审批&lt;/strong&gt;：子 Agent 编辑文件走沙箱审批，高风险工具操作弹审批面板；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;效率细节&lt;/strong&gt;：Markdown 快捷键（Enter 发送、Cmd+Enter 换行）、每轮运行时间显示、批量删除&amp;#x2F;归档任务、快捷键云同步、模型夜间折扣、文件修改自动备份（安全中心）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;五、官方三大实战场景&#34;&gt;&lt;a href=&#34;#五、官方三大实战场景&#34; class=&#34;headerlink&#34; title=&#34;五、官方三大实战场景&#34;&gt;&lt;/a&gt;五、官方三大实战场景&lt;/h2&gt;&lt;h3 id=&#34;5-1-OPC-一人公司：一个人顶一支团队&#34;&gt;&lt;a href=&#34;#5-1-OPC-一人公司：一个人顶一支团队&#34; class=&#34;headerlink&#34; title=&#34;5.1 OPC 一人公司：一个人顶一支团队&#34;&gt;&lt;/a&gt;5.1 OPC 一人公司：一个人顶一支团队&lt;/h3&gt;&lt;p&gt;适合个体创业者、自由职业者、小微团队负责人。召唤 AI 专家团，覆盖运营、设计、财务、法务、开发等核心岗位，多专家并行协作，从策略到交付全程自主：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;软件开发团队&lt;/strong&gt;：产品经理定需求 → 架构师设计+拆任务 → 工程师批量实现 → QA 验证质量（小需求支持快速模式）；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内容创作团队&lt;/strong&gt;：AI 驱动的多模态内容生产，覆盖视频生成、图文创作、智能剪辑、跨语言素材改编。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/images/workbuddy/scenario-opc.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;5-2-外部信息调研与内容生成&#34;&gt;&lt;a href=&#34;#5-2-外部信息调研与内容生成&#34; class=&#34;headerlink&#34; title=&#34;5.2 外部信息调研与内容生成&#34;&gt;&lt;/a&gt;5.2 外部信息调研与内容生成&lt;/h3&gt;&lt;p&gt;适合需市场研究、竞品分析、快速准备汇报材料的人员。给 WorkBuddy 一个主题或指令，它自动从网络搜集和分析信息，直接生成结构清晰的调研报告或 PPT：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;行业&amp;#x2F;竞品调研&lt;/strong&gt;：自动进行行业&amp;#x2F;竞品市场分析并生成调研报告；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;内容创作&lt;/strong&gt;：根据主题&amp;#x2F;模板，自动搜集资料并生成完整 PPT。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/images/workbuddy/scenario-research.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;5-3-业务数据洞察与自动化响应&#34;&gt;&lt;a href=&#34;#5-3-业务数据洞察与自动化响应&#34; class=&#34;headerlink&#34; title=&#34;5.3 业务数据洞察与自动化响应&#34;&gt;&lt;/a&gt;5.3 业务数据洞察与自动化响应&lt;/h3&gt;&lt;p&gt;适合运营、客户成功、管理岗等需要对业务数据做出反应的角色。把数据表格&amp;#x2F;日志交给 WorkBuddy，自动完成深度分析、提炼问题、总结规律，并生成指导方案：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;用户反馈与舆情分析&lt;/strong&gt;：情感归类、问题提炼、周期性洞察报告 + 优化建议；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;销售与业绩洞察&lt;/strong&gt;：分析 CRM 销售管道与成交数据，定位成丢单原因、预测业绩，输出销售策略调整与重点客户跟进建议。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/images/workbuddy/scenario-data.png&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;六、常见问题与安全边界&#34;&gt;&lt;a href=&#34;#六、常见问题与安全边界&#34; class=&#34;headerlink&#34; title=&#34;六、常见问题与安全边界&#34;&gt;&lt;/a&gt;六、常见问题与安全边界&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;积分与费用&lt;/strong&gt;：专家团、复杂 Skill 消耗较高（专家团通常为单专家 3~5 倍）；自定义模型费用由第三方收取，注意用量。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;隐私与数据&lt;/strong&gt;：模型配置（含 API Key）仅保存在本地 &lt;code&gt;workbuddy/models.json&lt;/code&gt;；自定义模型场景下 WorkBuddy 仅作通信链路转发；使用专家功能时不收集通讯录、精确位置、设备唯一标识、生物特征、浏览历史。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;使用建议&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;涉及文件删除、批量写入、系统配置变更、资金类操作，先小范围验证再放大；&lt;/li&gt;
+&lt;li&gt;上传文件&amp;#x2F;对话内容前确认你有合法权利，保护他人隐私与商业秘密；&lt;/li&gt;
+&lt;li&gt;AI 生成内容仅供参考，医疗、法律、投资、合规等重大决策请咨询专业人士；&lt;/li&gt;
+&lt;li&gt;API Key 妥善保管，勿在共享环境填写或导出。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;版本&lt;/strong&gt;：当前最新 5.3.14（2026-08-17），左下角头像 → 检查更新即可升级。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;WorkBuddy 的定位很清晰：&lt;strong&gt;不是又一个聊天机器人，而是”一人指挥、全行业专家执行”的办公 Agent 工作台&lt;/strong&gt;。安装零门槛（官网下载、微信扫码登录），上手一句话（描述需求 → 选工作空间 → 交付），深度则靠三层能力结构（Skill 做能力、专家做角色、专家团做协作）+ 模型自由配置（内置&amp;#x2F;自定义&amp;#x2F;Ollama 本地）+ 远程助理（手机遥控电脑）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;上手三步：&lt;/strong&gt; ① 官网下载安装并微信扫码登录 → ② 侧边栏选个专家&amp;#x2F;专家团，或直接一句话建任务 → ③ 在结果区验收产物，不够好就继续补充指令。&lt;/p&gt;
+&lt;h3 id=&#34;相关资源&#34;&gt;&lt;a href=&#34;#相关资源&#34; class=&#34;headerlink&#34; title=&#34;相关资源&#34;&gt;&lt;/a&gt;相关资源&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;官网：&lt;a href=&#34;https://www.codebuddy.cn/work/&#34;&gt;https://www.codebuddy.cn/work/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;官方文档：&lt;a href=&#34;https://www.codebuddy.cn/docs/workbuddy/&#34;&gt;https://www.codebuddy.cn/docs/workbuddy/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;更新日志：&lt;a href=&#34;https://www.codebuddy.cn/docs/workbuddy/Changelog&#34;&gt;https://www.codebuddy.cn/docs/workbuddy/Changelog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;平台接入指南：微信 &amp;#x2F; 企业微信 &amp;#x2F; QQ &amp;#x2F; 飞书 &amp;#x2F; 钉钉（文档内”助理”章节均有完整接入教程）&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
