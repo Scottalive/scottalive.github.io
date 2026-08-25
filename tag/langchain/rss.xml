@@ -1,0 +1,295 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>沉鱼的博客 • Posts by &#34;langchain&#34; tag</title>
+        <link>https://scottalive.github.io</link>
+        <description>编程笔记 &amp; 资料分享</description>
+        <language>zh-CN</language>
+        <pubDate>Wed, 26 Aug 2026 01:30:00 +0800</pubDate>
+        <lastBuildDate>Wed, 26 Aug 2026 01:30:00 +0800</lastBuildDate>
+        <category>AI日报</category>
+        <category>AI</category>
+        <category>GitHub热门</category>
+        <category>人工智能</category>
+        <category>技术趋势</category>
+        <category>坏习惯</category>
+        <category>个人分享</category>
+        <category>原则</category>
+        <category>个人详情</category>
+        <category>Kubernetes</category>
+        <category>k8s</category>
+        <category>容器编排</category>
+        <category>DevOps</category>
+        <category>运维</category>
+        <category>kubeconfig</category>
+        <category>kubectl</category>
+        <category>Context</category>
+        <category>心理学知识</category>
+        <category>网络安全</category>
+        <category>SQL注入</category>
+        <category>XSS</category>
+        <category>CSRF</category>
+        <category>DDoS</category>
+        <category>渗透测试</category>
+        <category>OpenSRE</category>
+        <category>Grafana</category>
+        <category>SRE</category>
+        <category>可观测性</category>
+        <category>Helm</category>
+        <category>学习计划</category>
+        <category>阿德勒心理学</category>
+        <category>自卑与超越</category>
+        <category>GPT-5.5</category>
+        <category>OpenAI</category>
+        <category>Codex</category>
+        <category>ClaudeCode</category>
+        <category>Gemini</category>
+        <category>开发工具</category>
+        <category>开源</category>
+        <category>编程笔记</category>
+        <category>Claude</category>
+        <category>Agent</category>
+        <category>MCP</category>
+        <category>自动化</category>
+        <category>DeepSeek</category>
+        <category>Harness</category>
+        <category>插件</category>
+        <category>安装教程</category>
+        <category>编程助手</category>
+        <category>Hermes</category>
+        <category>v0.17</category>
+        <category>v0.20</category>
+        <category>语音交互</category>
+        <category>A2A</category>
+        <category>Webhook</category>
+        <category>NousResearch</category>
+        <category>进阶</category>
+        <category>配置</category>
+        <category>高阶</category>
+        <category>LLM</category>
+        <category>RAG</category>
+        <category>知识库</category>
+        <category>LangChain</category>
+        <category>LangGraph</category>
+        <category>Python</category>
+        <category>OpenClaw</category>
+        <category>网关</category>
+        <category>故障排查</category>
+        <category>AI运维</category>
+        <category>根因分析</category>
+        <category>WorkBuddy</category>
+        <category>腾讯</category>
+        <category>办公自动化</category>
+        <category>AI工具</category>
+        <category>微服务</category>
+        <category>接口开发</category>
+        <category>开发注意事项</category>
+        <category>SSE</category>
+        <category>HTTP</category>
+        <category>力扣算法题</category>
+        <category>算法</category>
+        <category>动态规划</category>
+        <category>JavaSE</category>
+        <category>Java开发面试题</category>
+        <category>SpringBoot</category>
+        <category>Spring</category>
+        <category>python</category>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/LangChain-1.3-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+            <title>LangChain 1.3 安装与使用指南 —— 从&#34;链&#34;到 Agent Harness 的全新范式</title>
+            <link>https://scottalive.github.io/computer-science/ai-tools/LangChain-1.3-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+            <category>AI</category>
+            <category>开发工具</category>
+            <category>Agent</category>
+            <category>LLM</category>
+            <category>LangChain</category>
+            <category>LangGraph</category>
+            <category>Python</category>
+            <pubDate>Wed, 26 Aug 2026 01:30:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;&lt;img src=&#34;/images/langchain/og-image.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2026 年 8 月 25 日&lt;/strong&gt;，LangChain 发布 &lt;strong&gt;1.3.17&lt;/strong&gt;。如今的 LangChain 早已不是当年那个”Prompt + LLM + Output Parser 串链子”的框架——1.x 时代的核心是一句话：&lt;strong&gt;Agent &amp;#x3D; Model + Harness&lt;/strong&gt;。官方提供 &lt;code&gt;create_agent&lt;/code&gt;：一个极简、高度可配置的 Agent 运行时，你只需要模型、工具和系统提示词，10 行代码就能跑起一个能调用工具的 Agent。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本文基于官方文档与 Quickstart，带你从零安装、10 行代码上手，再到工具、记忆、Deep Agents、LangGraph、LangSmith 的完整进阶路径。&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;一、先搞清楚生态全景&#34;&gt;&lt;a href=&#34;#一、先搞清楚生态全景&#34; class=&#34;headerlink&#34; title=&#34;一、先搞清楚生态全景&#34;&gt;&lt;/a&gt;一、先搞清楚生态全景&lt;/h2&gt;&lt;p&gt;LangChain 已经不是”一个库”，而是一整套 LLM 应用生态。装之前先认清楚各司其职：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TB&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph LC[LangChain 1.x 核心]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A1[langchain · create_agent 高层 Agent]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A2[langchain-core · 抽象基座]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A3[langchain.chat_models.init_chat_model · 统一模型接口]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph INT[集成包 · 按需安装]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B1[langchain-openai / anthropic / google-genai]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B2[langchain-ollama / aws / fireworks]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B3[langchain-openrouter / huggingface / baseten]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph LG[LangGraph · 低层编排]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C1[持久化执行 durable execution]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C2[人工介入 human-in-the-loop]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C3[状态图 StateGraph]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph DA[Deep Agents]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        D1[内置规划 / 虚拟文件系统 / 子代理]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph LS[LangSmith · 可观测与评估]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        E1[Trace 追踪]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        E2[LangSmith Engine · 自动发现问题]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        E3[LangSmith Gateway · 模型网关]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    LC --- INT&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    LC --&amp;gt; LG&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    LG --&amp;gt; DA&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    LC --&amp;gt; LS&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;选择指南：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;层&lt;/th&gt;
+&lt;th&gt;用途&lt;/th&gt;
+&lt;th&gt;什么时候用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;LangChain&lt;/strong&gt;（&lt;code&gt;create_agent&lt;/code&gt;）&lt;/td&gt;
+&lt;td&gt;高度可定制的高层 Agent 框架&lt;/td&gt;
+&lt;td&gt;大部分场景的起点，按需组合&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Deep Agents&lt;/strong&gt;（&lt;code&gt;deepagents&lt;/code&gt;）&lt;/td&gt;
+&lt;td&gt;开箱即用的完整 Agent&lt;/td&gt;
+&lt;td&gt;要”最大能力、最少配置”：自动上下文压缩、虚拟文件系统、子代理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;LangGraph&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;低层编排运行时&lt;/td&gt;
+&lt;td&gt;需要确定性 + Agentic 混合工作流、精确控制延迟&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;LangSmith&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;追踪、调试、评估、监控&lt;/td&gt;
+&lt;td&gt;任何框架都要配，生产必备&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;二、安装&#34;&gt;&lt;a href=&#34;#二、安装&#34; class=&#34;headerlink&#34; title=&#34;二、安装&#34;&gt;&lt;/a&gt;二、安装&lt;/h2&gt;&lt;h3 id=&#34;2-1-环境要求&#34;&gt;&lt;a href=&#34;#2-1-环境要求&#34; class=&#34;headerlink&#34; title=&#34;2.1 环境要求&#34;&gt;&lt;/a&gt;2.1 环境要求&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Python 3.x（pip &amp;#x2F; uv 均可）&lt;/li&gt;
+&lt;li&gt;一个模型提供方的 API Key（OpenAI &amp;#x2F; Anthropic &amp;#x2F; Google &amp;#x2F; 本地 Ollama 等）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-2-三种安装方式&#34;&gt;&lt;a href=&#34;#2-2-三种安装方式&#34; class=&#34;headerlink&#34; title=&#34;2.2 三种安装方式&#34;&gt;&lt;/a&gt;2.2 三种安装方式&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 方式一：uv（官方推荐，最新版 1.3.17 安装最快）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;uv init&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;uv add langchain&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;uv &lt;span class=&#34;built_in&#34;&gt;sync&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 方式二：pip&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip install -U langchain&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 方式三：venv 虚拟环境&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;python3 -m venv .venv&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;source&lt;/span&gt; .venv/bin/activate        &lt;span class=&#34;comment&#34;&gt;# Windows: .venv\Scripts\activate&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip install -U langchain&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;2-3-按需安装集成包&#34;&gt;&lt;a href=&#34;#2-3-按需安装集成包&#34; class=&#34;headerlink&#34; title=&#34;2.3 按需安装集成包&#34;&gt;&lt;/a&gt;2.3 按需安装集成包&lt;/h3&gt;&lt;p&gt;LangChain 1.x 把提供商集成拆成了独立包，用到哪个装哪个：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip install -U langchain &lt;span class=&#34;string&#34;&gt;&amp;quot;langchain[openai]&amp;quot;&lt;/span&gt;        &lt;span class=&#34;comment&#34;&gt;# OpenAI&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip install -U langchain &lt;span class=&#34;string&#34;&gt;&amp;quot;langchain[anthropic]&amp;quot;&lt;/span&gt;     &lt;span class=&#34;comment&#34;&gt;# Claude&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip install -U langchain &lt;span class=&#34;string&#34;&gt;&amp;quot;langchain[google-genai]&amp;quot;&lt;/span&gt;  &lt;span class=&#34;comment&#34;&gt;# Gemini&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip install -U langchain langchain-ollama           &lt;span class=&#34;comment&#34;&gt;# 本地 Ollama&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip install -U langchain langchain-aws              &lt;span class=&#34;comment&#34;&gt;# AWS Bedrock&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip install -U langchain langchain-fireworks        &lt;span class=&#34;comment&#34;&gt;# Fireworks&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip install -U langchain langchain-openrouter       &lt;span class=&#34;comment&#34;&gt;# OpenRouter&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pip install -U langchain &lt;span class=&#34;string&#34;&gt;&amp;quot;langchain[huggingface]&amp;quot;&lt;/span&gt;   &lt;span class=&#34;comment&#34;&gt;# HuggingFace&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;要用 Deep Agents 再装一个：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip install -U deepagents&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;2-4-验证安装&#34;&gt;&lt;a href=&#34;#2-4-验证安装&#34; class=&#34;headerlink&#34; title=&#34;2.4 验证安装&#34;&gt;&lt;/a&gt;2.4 验证安装&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python -c &lt;span class=&#34;string&#34;&gt;&amp;quot;import langchain; print(langchain.__version__)&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 1.3.17&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;三、快速上手：10-行代码创建第一个-Agent&#34;&gt;&lt;a href=&#34;#三、快速上手：10-行代码创建第一个-Agent&#34; class=&#34;headerlink&#34; title=&#34;三、快速上手：10 行代码创建第一个 Agent&#34;&gt;&lt;/a&gt;三、快速上手：10 行代码创建第一个 Agent&lt;/h2&gt;&lt;p&gt;设置 API Key（以 OpenAI 为例）：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; OPENAI_API_KEY=&lt;span class=&#34;string&#34;&gt;&amp;quot;your-api-key&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;创建一个带天气工具的 Agent：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;from&lt;/span&gt; langchain.agents &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; create_agent&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;get_weather&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;city: &lt;span class=&#34;built_in&#34;&gt;str&lt;/span&gt;&lt;/span&gt;) -&amp;gt; &lt;span class=&#34;built_in&#34;&gt;str&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Get weather for a given city.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;f&amp;quot;It&amp;#x27;s always sunny in &lt;span class=&#34;subst&#34;&gt;&amp;#123;city&amp;#125;&lt;/span&gt;!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;agent = create_agent(&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    model=&lt;span class=&#34;string&#34;&gt;&amp;quot;openai:gpt-5.5&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    tools=[get_weather],&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    system_prompt=&lt;span class=&#34;string&#34;&gt;&amp;quot;You are a helpful assistant&amp;quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;result = agent.invoke(&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;quot;messages&amp;quot;&lt;/span&gt;: [&amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;quot;role&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;content&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;What&amp;#x27;s the weather in San Francisco?&amp;quot;&lt;/span&gt;&amp;#125;]&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(result[&lt;span class=&#34;string&#34;&gt;&amp;quot;messages&amp;quot;&lt;/span&gt;][-&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;].content_blocks)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;关键点：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;create_agent(model, tools, system_prompt)&lt;/code&gt; 就是全部入口；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;模型字符串格式&lt;/strong&gt;：&lt;code&gt;provider:model&lt;/code&gt;，例如 &lt;code&gt;openai:gpt-5.5&lt;/code&gt;、&lt;code&gt;google_genai:gemini-2.5-flash-lite&lt;/code&gt;、&lt;code&gt;claude-sonnet-4-6&lt;/code&gt;、&lt;code&gt;ollama:devstral-2&lt;/code&gt;、&lt;code&gt;bedrock_converse:us.anthropic.claude-sonnet-4-6&lt;/code&gt;、&lt;code&gt;huggingface:microsoft/Phi-3-mini-4k-instruct&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;普通 Python 函数直接作为工具传入即可，函数签名和 docstring 会自动变成模型看到的工具定义。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;执行流程：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sequenceDiagram&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant U as 用户&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant A as create_agent&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant M as 模型&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant T as 工具（get_weather）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant K as 记忆（checkpointer）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    U-&amp;gt;&amp;gt;A: invoke 消息&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A-&amp;gt;&amp;gt;M: 模型循环（system + 历史 + 工具定义）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    M-&amp;gt;&amp;gt;A: 请求调用 get_weather(city)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A-&amp;gt;&amp;gt;T: 执行工具&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    T--&amp;gt;&amp;gt;A: 返回结果&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A-&amp;gt;&amp;gt;M: 回填工具结果&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    M--&amp;gt;&amp;gt;A: 最终回复&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A-&amp;gt;&amp;gt;K: 持久化会话状态&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A--&amp;gt;&amp;gt;U: 输出&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;四、进阶使用&#34;&gt;&lt;a href=&#34;#四、进阶使用&#34; class=&#34;headerlink&#34; title=&#34;四、进阶使用&#34;&gt;&lt;/a&gt;四、进阶使用&lt;/h2&gt;&lt;h3 id=&#34;4-1-统一模型接口：init-chat-model&#34;&gt;&lt;a href=&#34;#4-1-统一模型接口：init-chat-model&#34; class=&#34;headerlink&#34; title=&#34;4.1 统一模型接口：init_chat_model&#34;&gt;&lt;/a&gt;4.1 统一模型接口：init_chat_model&lt;/h3&gt;&lt;p&gt;换模型只需改一行字符串，参数保持统一：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;from&lt;/span&gt; langchain.chat_models &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; init_chat_model&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;model = init_chat_model(&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;openai:gpt-5.5&amp;quot;&lt;/span&gt;,          &lt;span class=&#34;comment&#34;&gt;# 或 &amp;quot;claude-sonnet-4-6&amp;quot; / &amp;quot;gemini-3.1-pro-preview&amp;quot;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    temperature=&lt;span class=&#34;number&#34;&gt;0.5&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    timeout=&lt;span class=&#34;number&#34;&gt;300&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    max_tokens=&lt;span class=&#34;number&#34;&gt;25000&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    streaming=&lt;span class=&#34;literal&#34;&gt;True&lt;/span&gt;,            &lt;span class=&#34;comment&#34;&gt;# 部分 provider 支持&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;特殊场景用 &lt;code&gt;model_provider&lt;/code&gt; 显式指定（如 &lt;code&gt;model_provider=&amp;quot;bedrock_converse&amp;quot;&lt;/code&gt;、&lt;code&gt;model_provider=&amp;quot;huggingface&amp;quot;&lt;/code&gt;）；Azure 还需 &lt;code&gt;azure_deployment=...&lt;/code&gt; 参数。&lt;/p&gt;
+&lt;h3 id=&#34;4-2-工具系统：-tool-与运行时注入&#34;&gt;&lt;a href=&#34;#4-2-工具系统：-tool-与运行时注入&#34; class=&#34;headerlink&#34; title=&#34;4.2 工具系统：@tool 与运行时注入&#34;&gt;&lt;/a&gt;4.2 工具系统：@tool 与运行时注入&lt;/h3&gt;&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;from&lt;/span&gt; langchain.tools &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; tool&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta&#34;&gt;@tool&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;fetch_text_from_url&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;url: &lt;span class=&#34;built_in&#34;&gt;str&lt;/span&gt;&lt;/span&gt;) -&amp;gt; &lt;span class=&#34;built_in&#34;&gt;str&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&amp;quot;Fetch the document from a URL.&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;工具的&lt;strong&gt;名称、描述、参数名都会进入模型的 prompt&lt;/strong&gt;，写清楚 docstring 就是最好的工具文档；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@tool&lt;/code&gt; 装饰器支持 &lt;strong&gt;&lt;code&gt;ToolRuntime&lt;/code&gt; 参数注入&lt;/strong&gt;——工具可以访问运行时上下文和 Agent 记忆；&lt;/li&gt;
+&lt;li&gt;结构化输出、guardrails、重试、路由都可以通过中间件（middleware）增量叠加到 harness 上。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-3-记忆与状态：checkpointer&#34;&gt;&lt;a href=&#34;#4-3-记忆与状态：checkpointer&#34; class=&#34;headerlink&#34; title=&#34;4.3 记忆与状态：checkpointer&#34;&gt;&lt;/a&gt;4.3 记忆与状态：checkpointer&lt;/h3&gt;&lt;p&gt;Agent 默认是无状态的；要跨轮对话记住上下文，用 checkpointer：&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;from&lt;/span&gt; langgraph.checkpoint.memory &lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; InMemorySaver&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;checkpointer = InMemorySaver()&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;agent = create_agent(&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    model=model,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    tools=[fetch_text_from_url],&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    system_prompt=SYSTEM_PROMPT,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    checkpointer=checkpointer,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;result = agent.invoke(&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;quot;messages&amp;quot;&lt;/span&gt;: [&amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;quot;role&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;user&amp;quot;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;quot;content&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;...&amp;quot;&lt;/span&gt;&amp;#125;]&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    config=&amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;quot;configurable&amp;quot;&lt;/span&gt;: &amp;#123;&lt;span class=&#34;string&#34;&gt;&amp;quot;thread_id&amp;quot;&lt;/span&gt;: &lt;span class=&#34;string&#34;&gt;&amp;quot;my-thread&amp;quot;&lt;/span&gt;&amp;#125;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;生产环境&lt;/strong&gt;不要用 &lt;code&gt;InMemorySaver&lt;/code&gt;，换成持久化 checkpointer（数据库存消息历史）。&lt;code&gt;thread_id&lt;/code&gt; 是会话标识，同一个 thread 的多次 invoke 共享上下文。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;4-4-LangChain-Agent-vs-Deep-Agent：怎么选？&#34;&gt;&lt;a href=&#34;#4-4-LangChain-Agent-vs-Deep-Agent：怎么选？&#34; class=&#34;headerlink&#34; title=&#34;4.4 LangChain Agent vs Deep Agent：怎么选？&#34;&gt;&lt;/a&gt;4.4 LangChain Agent vs Deep Agent：怎么选？&lt;/h3&gt;&lt;p&gt;两者都给你工具&amp;#x2F;记忆&amp;#x2F;提示词的精细控制，区别在于&lt;strong&gt;Deep Agent 内置了一堆常用能力&lt;/strong&gt;：任务规划（&lt;code&gt;write_todos&lt;/code&gt;）、虚拟文件系统（&lt;code&gt;grep&lt;/code&gt; &amp;#x2F; &lt;code&gt;read_file&lt;/code&gt; &amp;#x2F; 大结果自动落盘）、子代理。&lt;/p&gt;
+&lt;p&gt;官方 Quickstart 用《了不起的盖茨比》文本做了一个真实对比：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;任务&lt;/th&gt;
+&lt;th&gt;LangChain Agent&lt;/th&gt;
+&lt;th&gt;Deep Agent&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;统计含 “Gatsby” 的行数&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;null&lt;/code&gt;（无计算工具，拒绝瞎编 ✅）&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;258 行&lt;/strong&gt;（用 grep 精确统计）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;第一个含 “Daisy” 的行号&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;null&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;第 181 行&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;工具策略&lt;/td&gt;
+&lt;td&gt;只调了 fetch 工具，大文本塞进上下文&lt;/td&gt;
+&lt;td&gt;自动落盘 → grep → read_file → 精确验证&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;结论：&lt;strong&gt;Deep Agent 适合”最大能力、最少配置”&lt;/strong&gt;——规划、文件系统、子代理开箱即用；&lt;strong&gt;LangChain Agent 适合”精细控制”&lt;/strong&gt;——自己决定每一步的中间件和工具策略。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[我的需求] --&amp;gt; B&amp;#123;需要什么？&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|最大能力 · 最少配置| C[Deep Agent&amp;lt;br&amp;gt;create_deep_agent]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|精细控制 · 自定义中间件| D[LangChain Agent&amp;lt;br&amp;gt;create_agent]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|确定性+Agentic 混合工作流| E[LangGraph&amp;lt;br&amp;gt;StateGraph]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; F[LangSmith 追踪/评估]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; F&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;4-5-LangGraph：低层编排&#34;&gt;&lt;a href=&#34;#4-5-LangGraph：低层编排&#34; class=&#34;headerlink&#34; title=&#34;4.5 LangGraph：低层编排&#34;&gt;&lt;/a&gt;4.5 LangGraph：低层编排&lt;/h3&gt;&lt;p&gt;需要把确定性流程（如固定顺序的数据管道）与 Agentic 行为混合时，直接用 LangGraph：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;StateGraph&lt;/strong&gt;：显式定义状态与节点迁移；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;durable execution&lt;/strong&gt;：任务中断&amp;#x2F;重启后恢复；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;human-in-the-loop&lt;/strong&gt;：关键节点插入人工审批；&lt;/li&gt;
+&lt;li&gt;LangChain Agent 本身就是基于 LangGraph 构建的，所以天然继承这些能力（持久化、流式、人工介入），只是把复杂度藏起来了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-6-测试与生产：LangSmith&#34;&gt;&lt;a href=&#34;#4-6-测试与生产：LangSmith&#34; class=&#34;headerlink&#34; title=&#34;4.6 测试与生产：LangSmith&#34;&gt;&lt;/a&gt;4.6 测试与生产：LangSmith&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; LANGSMITH_TRACING=&lt;span class=&#34;string&#34;&gt;&amp;quot;true&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; LANGSMITH_API_KEY=&lt;span class=&#34;string&#34;&gt;&amp;quot;...&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Trace&lt;/strong&gt;：每个 LLM 调用、工具调用、状态迁移、延迟一目了然；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LangSmith Engine&lt;/strong&gt;：持续监控 trace，自动发现问题并给出修复建议；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LangSmith Gateway&lt;/strong&gt;：一个网关路由大多数主流 provider，可用 Gateway Credits 免 provider key 调模型；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;部署&lt;/strong&gt;：LangGraph 应用可直接 &lt;code&gt;langgraph deploy&lt;/code&gt; 到生产。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;五、常见问题&#34;&gt;&lt;a href=&#34;#五、常见问题&#34; class=&#34;headerlink&#34; title=&#34;五、常见问题&#34;&gt;&lt;/a&gt;五、常见问题&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;问题&lt;/th&gt;
+&lt;th&gt;解决&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ModuleNotFoundError: langchain_openai&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;没装集成包，&lt;code&gt;pip install &amp;quot;langchain[openai]&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;模型名不认识&lt;/td&gt;
+&lt;td&gt;检查 &lt;code&gt;provider:model&lt;/code&gt; 前缀格式；provider 特有 ID 查集成包参考文档&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ollama 连接失败&lt;/td&gt;
+&lt;td&gt;先 &lt;code&gt;ollama serve&lt;/code&gt;，模型名用 &lt;code&gt;ollama:&amp;lt;model&amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;401 错误&lt;/td&gt;
+&lt;td&gt;确认对应环境变量（&lt;code&gt;OPENAI_API_KEY&lt;/code&gt; &amp;#x2F; &lt;code&gt;ANTHROPIC_API_KEY&lt;/code&gt; &amp;#x2F; &lt;code&gt;GOOGLE_API_KEY&lt;/code&gt;…）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;大文本塞爆上下文&lt;/td&gt;
+&lt;td&gt;换 Deep Agent（自动落盘 + grep），或给 Agent 加文件系统工具&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;会话不记得上下文&lt;/td&gt;
+&lt;td&gt;加 checkpointer + &lt;code&gt;thread_id&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;六、总结&#34;&gt;&lt;a href=&#34;#六、总结&#34; class=&#34;headerlink&#34; title=&#34;六、总结&#34;&gt;&lt;/a&gt;六、总结&lt;/h2&gt;&lt;p&gt;LangChain 1.3 的安装和使用比以往任何版本都简单：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;装&lt;/strong&gt;：&lt;code&gt;pip install -U langchain&lt;/code&gt; + 按需集成包；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;跑&lt;/strong&gt;：&lt;code&gt;create_agent(model, tools, system_prompt)&lt;/code&gt; 十行代码出 Agent；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;进阶&lt;/strong&gt;：&lt;code&gt;init_chat_model&lt;/code&gt; 统一换模型、&lt;code&gt;@tool&lt;/code&gt; 扩展能力、checkpointer 加记忆；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;选型&lt;/strong&gt;：要省事用 Deep Agents，要精细用 LangChain Agent，要混合编排上 LangGraph；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;上线&lt;/strong&gt;：LangSmith 追踪 + Engine 监控 + Gateway 网关 + &lt;code&gt;langgraph deploy&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;给 AI 编码助手用户的彩蛋&lt;/strong&gt;：官方提供了 &lt;a href=&#34;https://docs.langchain.com/use-these-docs&#34;&gt;LangChain Docs MCP Server&lt;/a&gt;（让 Claude 等助手实时查文档）和 &lt;a href=&#34;https://github.com/langchain-ai/langchain-skills&#34;&gt;LangChain Skills&lt;/a&gt;（提升在 LangChain 生态上的任务表现），写代码时直接接上。&lt;/p&gt;
+&lt;h3 id=&#34;相关资源&#34;&gt;&lt;a href=&#34;#相关资源&#34; class=&#34;headerlink&#34; title=&#34;相关资源&#34;&gt;&lt;/a&gt;相关资源&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;官方文档：&lt;a href=&#34;https://docs.langchain.com/oss/python/langchain/overview&#34;&gt;https://docs.langchain.com/oss/python/langchain/overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Quickstart：&lt;a href=&#34;https://docs.langchain.com/oss/python/langchain/quickstart&#34;&gt;https://docs.langchain.com/oss/python/langchain/quickstart&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PyPI：&lt;a href=&#34;https://pypi.org/project/langchain/&#34;&gt;https://pypi.org/project/langchain/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;LangChain Academy（免费课程）：&lt;a href=&#34;https://academy.langchain.com/&#34;&gt;https://academy.langchain.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Chat LangChain（文档问答）：&lt;a href=&#34;https://chat.langchain.com/&#34;&gt;https://chat.langchain.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
