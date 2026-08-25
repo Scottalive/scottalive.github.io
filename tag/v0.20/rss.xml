@@ -1,0 +1,295 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>沉鱼的博客 • Posts by &#34;v0.20&#34; tag</title>
+        <link>https://scottalive.github.io</link>
+        <description>编程笔记 &amp; 资料分享</description>
+        <language>zh-CN</language>
+        <pubDate>Tue, 25 Aug 2026 23:40:00 +0800</pubDate>
+        <lastBuildDate>Tue, 25 Aug 2026 23:40:00 +0800</lastBuildDate>
+        <category>AI日报</category>
+        <category>AI</category>
+        <category>GitHub热门</category>
+        <category>人工智能</category>
+        <category>技术趋势</category>
+        <category>原则</category>
+        <category>个人详情</category>
+        <category>个人分享</category>
+        <category>坏习惯</category>
+        <category>Kubernetes</category>
+        <category>k8s</category>
+        <category>容器编排</category>
+        <category>DevOps</category>
+        <category>运维</category>
+        <category>kubeconfig</category>
+        <category>kubectl</category>
+        <category>Context</category>
+        <category>网络安全</category>
+        <category>SQL注入</category>
+        <category>XSS</category>
+        <category>CSRF</category>
+        <category>DDoS</category>
+        <category>渗透测试</category>
+        <category>心理学知识</category>
+        <category>Helm</category>
+        <category>学习计划</category>
+        <category>OpenSRE</category>
+        <category>Grafana</category>
+        <category>SRE</category>
+        <category>可观测性</category>
+        <category>阿德勒心理学</category>
+        <category>自卑与超越</category>
+        <category>GPT-5.5</category>
+        <category>OpenAI</category>
+        <category>Codex</category>
+        <category>ClaudeCode</category>
+        <category>Gemini</category>
+        <category>开发工具</category>
+        <category>开源</category>
+        <category>编程助手</category>
+        <category>编程笔记</category>
+        <category>Hermes</category>
+        <category>Agent</category>
+        <category>v0.17</category>
+        <category>自动化</category>
+        <category>NousResearch</category>
+        <category>v0.20</category>
+        <category>语音交互</category>
+        <category>A2A</category>
+        <category>Webhook</category>
+        <category>进阶</category>
+        <category>配置</category>
+        <category>高阶</category>
+        <category>LLM</category>
+        <category>RAG</category>
+        <category>知识库</category>
+        <category>故障排查</category>
+        <category>SSE</category>
+        <category>HTTP</category>
+        <category>AI运维</category>
+        <category>根因分析</category>
+        <category>力扣算法题</category>
+        <category>算法</category>
+        <category>动态规划</category>
+        <category>JavaSE</category>
+        <category>Java开发面试题</category>
+        <category>SpringBoot</category>
+        <category>Spring</category>
+        <category>接口开发</category>
+        <category>开发注意事项</category>
+        <category>微服务</category>
+        <category>python</category>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/Hermes-Agent-v0.20-%E6%96%B0%E7%89%B9%E6%80%A7%E4%B8%8E%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95/</guid>
+            <title>Hermes Agent v0.20 &#34;The Herald Release&#34; —— 新特性与进阶用法全解析</title>
+            <link>https://scottalive.github.io/computer-science/ai-tools/Hermes-Agent-v0.20-%E6%96%B0%E7%89%B9%E6%80%A7%E4%B8%8E%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95/</link>
+            <category>AI</category>
+            <category>开发工具</category>
+            <category>Hermes</category>
+            <category>Agent</category>
+            <category>自动化</category>
+            <category>v0.20</category>
+            <category>语音交互</category>
+            <category>A2A</category>
+            <category>Webhook</category>
+            <pubDate>Tue, 25 Aug 2026 23:40:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;&lt;img src=&#34;/images/hermes-agent/og-image.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2026 年 8 月 3 日&lt;/strong&gt;，Nous Research 发布了 Hermes Agent v0.20.0（代号 &lt;strong&gt;“The Herald Release”&lt;/strong&gt;），随后在 8 月 13 日～19 日连续迭代了 v0.20.1～v0.20.5 五个补丁版本。从 v0.19.0 算起，这个窗口累计 &lt;strong&gt;&lt;del&gt;3,650 个提交、&lt;/del&gt;1,400 个合并 PR、5,200+ 文件变更、~1,200 个 issue 关闭，650+ 位贡献者&lt;/strong&gt;——是 Hermes 有史以来最大的一次版本跨越。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果说 v0.17 是”把手伸出去”（The Reach），v0.20 就是”成为信使神”：&lt;strong&gt;会说话、会传话、会宣告、会引经据典&lt;/strong&gt;。本文聚焦 v0.20 系列的核心新特性与实战进阶用法，适合已经安装过 Hermes 的老用户升级，也适合新用户一步到位。&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;一键更新&#34;&gt;&lt;a href=&#34;#一键更新&#34; class=&#34;headerlink&#34; title=&#34;一键更新&#34;&gt;&lt;/a&gt;一键更新&lt;/h2&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;hermes update&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;想尝鲜最新补丁也可以走全新安装：&lt;code&gt;curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;完整更新日志：&lt;a href=&#34;https://github.com/NousResearch/hermes-agent/releases&#34;&gt;GitHub Releases&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;版本脉络速览&#34;&gt;&lt;a href=&#34;#版本脉络速览&#34; class=&#34;headerlink&#34; title=&#34;版本脉络速览&#34;&gt;&lt;/a&gt;版本脉络速览&lt;/h2&gt;&lt;p&gt;先看 6 月 v0.17 到 8 月 v0.20.5 的演进时间线：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;gantt&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    title Hermes Agent 2026 版本演进&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    dateFormat  YYYY-MM-DD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    axisFormat  %m-%d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    section 主版本&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    v0.17 Reach        :done, a1, 2026-06-19, 12d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    v0.18              :done, a2, 2026-07-01, 19d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    v0.19 Quicksilver  :done, a3, 2026-07-20, 14d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    v0.20 Herald       :done, a4, 2026-08-03, 16d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    section 补丁流&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    v0.20.1~0.20.5     :active, a5, 2026-08-13, 12d&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;一句话概括三个节点：&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;版本&lt;/th&gt;
+&lt;th&gt;代号&lt;/th&gt;
+&lt;th&gt;主题&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;v0.19.0（7&amp;#x2F;20）&lt;/td&gt;
+&lt;td&gt;Quicksilver&lt;/td&gt;
+&lt;td&gt;快如闪电：首 token 提速 80%、智能审批、密码管理器接入&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;v0.20.0（8&amp;#x2F;3）&lt;/td&gt;
+&lt;td&gt;Herald&lt;/td&gt;
+&lt;td&gt;信使神降临：语音对话、A2A 协议、出站 Webhook、可信研究&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;v0.20.1~0.20.5&lt;/td&gt;
+&lt;td&gt;补丁流&lt;/td&gt;
+&lt;td&gt;快速迭代：MCP 2.x、Bot Mode、零密钥 Web 层、cron 持久记忆&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;一、v0-20-0-“The-Herald-Release”-核心新特性&#34;&gt;&lt;a href=&#34;#一、v0-20-0-“The-Herald-Release”-核心新特性&#34; class=&#34;headerlink&#34; title=&#34;一、v0.20.0 “The Herald Release” 核心新特性&#34;&gt;&lt;/a&gt;一、v0.20.0 “The Herald Release” 核心新特性&lt;/h2&gt;&lt;h3 id=&#34;1-1-会说话的-Hermes：流式语音对话-打断-唤醒词&#34;&gt;&lt;a href=&#34;#1-1-会说话的-Hermes：流式语音对话-打断-唤醒词&#34; class=&#34;headerlink&#34; title=&#34;1.1 会说话的 Hermes：流式语音对话 + 打断 + 唤醒词&#34;&gt;&lt;/a&gt;1.1 会说话的 Hermes：流式语音对话 + 打断 + 唤醒词&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;核心痛点解决：&lt;/strong&gt; 以前的语音模式是”留语音信箱”——说完等半天，然后听一整段音频。现在变成真正的&lt;strong&gt;对话&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;流式 TTS&lt;/strong&gt;：回复边生成边逐句播报，不用等全文；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Barge-in 打断&lt;/strong&gt;：你随时可以抢话，Hermes 会停止播报、认真听你新的指令，并告诉模型”用户中途打断了”；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;忙碌感知静音检测&lt;/strong&gt;：你正忙的时候它不会抢着说话；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开放词汇唤醒词&lt;/strong&gt;：&lt;code&gt;&amp;quot;Hey Hermes&amp;quot;&lt;/code&gt; 或任意你自定义的词都能唤醒，检测&lt;strong&gt;完全在设备端进行&lt;/strong&gt;，等待期间音频不出本机；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多 Profile 语音路由&lt;/strong&gt;：不同唤醒词可以路由到不同 Profile，说 “stop” 即可在任何界面结束语音会话；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全平台覆盖&lt;/strong&gt;：CLI、桌面端、以及所有支持音频的网关平台（WhatsApp &amp;#x2F; 飞书 &amp;#x2F; DingTalk &amp;#x2F; LINE &amp;#x2F; QQ &amp;#x2F; Photon &amp;#x2F; 微信）。发一条语音消息过去，自动转写并回答，TTS 回复还会按平台自适应编码（需要 opus 的地方用 opus，字幕正确附加）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sequenceDiagram&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant U as 用户&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant H as Hermes（设备端）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant M as 大模型&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    U-&amp;gt;&amp;gt;H: 唤醒词 &amp;quot;Hey Hermes&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H-&amp;gt;&amp;gt;H: 端侧唤醒检测（音频不出本机）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    U-&amp;gt;&amp;gt;H: 说话提问&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H-&amp;gt;&amp;gt;M: 转写并发送&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    M--&amp;gt;&amp;gt;H: 流式生成回复&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    loop 逐句生成&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        H--&amp;gt;&amp;gt;U: 流式 TTS 播报&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    U-&amp;gt;&amp;gt;H: 中途抢话打断&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H-&amp;gt;&amp;gt;M: 停止生成，标记打断意图&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    M--&amp;gt;&amp;gt;H: 基于新意图继续&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H--&amp;gt;&amp;gt;U: 继续播报&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;STT 也全面可配&lt;/strong&gt;：独立的 hermes 工具类别、GUI 开关、仪表盘下拉菜单、统一语言解析（转写不再跑偏语言），并支持 OpenAI &lt;code&gt;gpt-transcribe&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;1-2-Hermes-说上了”同一种语言”：A2A-v1-0&#34;&gt;&lt;a href=&#34;#1-2-Hermes-说上了”同一种语言”：A2A-v1-0&#34; class=&#34;headerlink&#34; title=&#34;1.2 Hermes 说上了”同一种语言”：A2A v1.0&#34;&gt;&lt;/a&gt;1.2 Hermes 说上了”同一种语言”：A2A v1.0&lt;/h3&gt;&lt;p&gt;A2A（Agent-to-Agent）协议 v1.0 以&lt;strong&gt;内置插件&lt;/strong&gt;形式落地，Hermes 可以&lt;strong&gt;发现、对话、并被其他 A2A 兼容智能体驱动&lt;/strong&gt;——这直接关闭了仓库里最古老的 feature request（issue #514）。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[你] --&amp;gt;|自然语言| H[Hermes Agent]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt;|A2A v1.0 发现/协商/任务| B[其他 A2A 智能体]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt;|A2A v1.0| C[异构多智能体系统]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|进度与状态回报| H&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|结果回传| H&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt;|汇总呈现| A&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;对正在搭建&lt;strong&gt;异构多智能体系统&lt;/strong&gt;的团队来说，这等于拿到了一个标准线缆：不同技术栈的 agent 终于能互相插拔了。&lt;/p&gt;
+&lt;h3 id=&#34;1-3-出站-Webhook：Hermes-主动”宣告”事件&#34;&gt;&lt;a href=&#34;#1-3-出站-Webhook：Hermes-主动”宣告”事件&#34; class=&#34;headerlink&#34; title=&#34;1.3 出站 Webhook：Hermes 主动”宣告”事件&#34;&gt;&lt;/a&gt;1.3 出站 Webhook：Hermes 主动”宣告”事件&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;核心痛点解决：&lt;/strong&gt; 以前把 Hermes 接进自己的系统，只能轮询或被动监听平台消息。现在它能把事件&lt;strong&gt;推给你&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;注册任意 HTTP 端点，即可接收&lt;strong&gt;签名后的生命周期事件&lt;/strong&gt;：会话活动、回合完成、工具调用事件；&lt;/li&gt;
+&lt;li&gt;事件带 &lt;strong&gt;HMAC 签名&lt;/strong&gt;，接收方可以验证真实性；&lt;/li&gt;
+&lt;li&gt;典型场景：接入 CI、家庭自动化、自定义仪表盘——零轮询。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sequenceDiagram&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant H as Hermes Agent&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant W as 你的 HTTP 服务&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant S as CI / 看板 / 自动化&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H-&amp;gt;&amp;gt;W: POST 会话活动事件（HMAC 签名）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    W-&amp;gt;&amp;gt;W: 验签&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    W-&amp;gt;&amp;gt;S: 触发自动化&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H-&amp;gt;&amp;gt;W: POST 回合完成事件&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    W-&amp;gt;&amp;gt;S: 更新看板 / 推送通知&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;1-4-研究结果”可溯源”：Grounded-Citations-事实核查&#34;&gt;&lt;a href=&#34;#1-4-研究结果”可溯源”：Grounded-Citations-事实核查&#34; class=&#34;headerlink&#34; title=&#34;1.4 研究结果”可溯源”：Grounded Citations + 事实核查&#34;&gt;&lt;/a&gt;1.4 研究结果”可溯源”：Grounded Citations + 事实核查&lt;/h3&gt;&lt;p&gt;新的 grounded-citations 技能让 Hermes 的研究输出&lt;strong&gt;每条论断都有可验证出处&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;引用会&lt;strong&gt;对照真实页面文本匹配&lt;/strong&gt;（而不是幻觉式引用）；&lt;/li&gt;
+&lt;li&gt;每条引用都链到&lt;strong&gt;确切证据位置&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;新增&lt;strong&gt;事实核查模式&lt;/strong&gt;：把任何文档或论断丢给它，它会告诉你哪些查证属实、哪些不成立、哪些无法验证。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对拿 Hermes 做调研的人来说，这是从”听起来对”到”有据可查”的分水岭。&lt;/p&gt;
+&lt;h3 id=&#34;1-5-桌面端从聊天客户端变成”工作台”&#34;&gt;&lt;a href=&#34;#1-5-桌面端从聊天客户端变成”工作台”&#34; class=&#34;headerlink&#34; title=&#34;1.5 桌面端从聊天客户端变成”工作台”&#34;&gt;&lt;/a&gt;1.5 桌面端从聊天客户端变成”工作台”&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Artifacts&lt;/strong&gt;：生成的 HTML &amp;#x2F; 应用以&lt;strong&gt;版本化卡片&lt;/strong&gt;形式展示，右侧栏&lt;strong&gt;沙箱实时预览&lt;/strong&gt;，安全地跑在聊天旁边；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;插件 SDK 正式落地&lt;/strong&gt;：首个官方插件是 &lt;strong&gt;Kanban&lt;/strong&gt;；插件可用 &lt;code&gt;ctx.download&lt;/code&gt; 给用户发文件、支持浮动面板、多窗口；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全局快捷键快速入口&lt;/strong&gt;：在系统任意角落按下热键，弹出小窗，把灵感记入任意会话；&lt;/li&gt;
+&lt;li&gt;后续补丁继续打磨：毛玻璃半透明界面、&lt;code&gt;SESSIONS | BOTS&lt;/code&gt; 标签页侧边栏、Kanban 原生系统通知。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TB&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Desktop[桌面端工作台]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A[Artifacts 右栏实时预览] --&amp;gt; E[沙箱渲染]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B[插件 SDK] --&amp;gt; F[Kanban 等插件]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C[全局快捷键快速入口] --&amp;gt; G[任意应用内唤起]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        D[多窗口 / 毛玻璃 UI]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H[网关] --&amp;gt; Desktop&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;1-6-CLI-力量型命令一波流&#34;&gt;&lt;a href=&#34;#1-6-CLI-力量型命令一波流&#34; class=&#34;headerlink&#34; title=&#34;1.6 CLI 力量型命令一波流&#34;&gt;&lt;/a&gt;1.6 CLI 力量型命令一波流&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;th&gt;作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;!command&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;直接执行 shell 命令，&lt;strong&gt;不消耗模型回合&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/init&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;扫描项目，自动生成（或更新）&lt;code&gt;AGENTS.md&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/diff&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;任意界面查看 staged &amp;#x2F; all &amp;#x2F; 会话内变更&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/context&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;拆解到底什么占满了你的上下文窗口&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/focus&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;精简输出视图，隐藏行可恢复&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Ctrl+S&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;把写了一半的 prompt 存进可浏览的面板&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;hermes import-agent&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;一条命令把 Claude Code &amp;#x2F; Codex CLI 配置迁移过来&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;h3 id=&#34;1-7-中途纠偏：不用再”停止重来”&#34;&gt;&lt;a href=&#34;#1-7-中途纠偏：不用再”停止重来”&#34; class=&#34;headerlink&#34; title=&#34;1.7 中途纠偏：不用再”停止重来”&#34;&gt;&lt;/a&gt;1.7 中途纠偏：不用再”停止重来”&lt;/h3&gt;&lt;p&gt;Hermes 跑偏了？&lt;strong&gt;直接在它干活的时候输入纠正&lt;/strong&gt;，当前回合会被重定向：进行中的工作保留、原始 prompt 保留、agent 按新指引修正航线。配合双击 ESC 丢弃草稿、输入撤销栈，”操控感”从”重启”变成了”编辑”。&lt;/p&gt;
+&lt;h3 id=&#34;1-8-工具会自愈，长任务不再撞墙&#34;&gt;&lt;a href=&#34;#1-8-工具会自愈，长任务不再撞墙&#34; class=&#34;headerlink&#34; title=&#34;1.8 工具会自愈，长任务不再撞墙&#34;&gt;&lt;/a&gt;1.8 工具会自愈，长任务不再撞墙&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;终端输出被截断时，溢出内容自动&lt;strong&gt;落盘成文件&lt;/strong&gt;让模型回读；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;patch&lt;/code&gt; 能检测”已经应用过的编辑”，并诊断空白符不匹配；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;write_file&lt;/code&gt; 写完&lt;strong&gt;校验磁盘内容&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;搜索无结果时会&lt;strong&gt;探测近邻&lt;/strong&gt;并恢复；&lt;/li&gt;
+&lt;li&gt;常见失败类型附带可操作提示——模型不再瞎猜；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工具调用迭代上限从 90 提到 500&lt;/strong&gt;：长时间自主运行不再撞人工墙。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[模型调用工具] --&amp;gt; B&amp;#123;工具执行&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|成功| C[返回结果]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|终端输出被截断| D[溢出写入文件]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[模型回读文件继续]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|patch 已被应用过| F[检测重复 + 诊断空白符]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G[给出可操作提示]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|搜索零结果| H[近邻探测恢复]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; I[返回近似结果]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; J[继续主任务]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; J&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; J&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    I --&amp;gt; J&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;1-9-更”尊重人”的上下文压缩&#34;&gt;&lt;a href=&#34;#1-9-更”尊重人”的上下文压缩&#34; class=&#34;headerlink&#34; title=&#34;1.9 更”尊重人”的上下文压缩&#34;&gt;&lt;/a&gt;1.9 更”尊重人”的上下文压缩&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;大窗口模型&lt;strong&gt;主动修剪工具结果&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;每回合微型压缩&lt;/strong&gt;摊薄成本，取代一次性的长暂停；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;保证保留最近 N 条用户消息&lt;/strong&gt;，长对话不丢重点；&lt;/li&gt;
+&lt;li&gt;超时机制感知进度，不再惩罚慢的总结模型；&lt;/li&gt;
+&lt;li&gt;“幽灵技能”防御：被修剪的技能不会悄悄污染会话；&lt;/li&gt;
+&lt;li&gt;阈值可按模型配置，支持绝对 token 数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;二、回顾-v0-19-0-“Quicksilver”：上一个版本打下的底子&#34;&gt;&lt;a href=&#34;#二、回顾-v0-19-0-“Quicksilver”：上一个版本打下的底子&#34; class=&#34;headerlink&#34; title=&#34;二、回顾 v0.19.0 “Quicksilver”：上一个版本打下的底子&#34;&gt;&lt;/a&gt;二、回顾 v0.19.0 “Quicksilver”：上一个版本打下的底子&lt;/h2&gt;&lt;p&gt;v0.20 是站在 v0.19 肩膀上的，几个关键能力仍然值得单独说：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;首 token 提速 ~80%&lt;/strong&gt;：冷启动从 ~4.3s 压到 ~0.9s，CLI &amp;#x2F; 网关 &amp;#x2F; TUI &amp;#x2F; 桌面 &amp;#x2F; cron 全平台生效；推理模型的思考过程默认实时流式输出；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;桌面端 20+ 性能 PR&lt;/strong&gt;：markdown 分片快 14 倍、巨型 diff 虚拟化渲染、会话切换不再抖动；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;终端里管钱包&lt;/strong&gt;：&lt;code&gt;/subscription&lt;/code&gt; 和 &lt;code&gt;/topup&lt;/code&gt; 直接在 TUI 里查看套餐、预览升级费用并完成支付；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;智能审批成为默认&lt;/strong&gt;：被标记命令由 LLM 评审员独立判断，每条命令单独裁决；配合自定义 deny 规则（yolo 模式下也拦得住）和 &lt;code&gt;/deny &amp;lt;reason&amp;gt;&lt;/code&gt; 让模型理解你为何拒绝；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bitwarden &amp;amp; 1Password 接入&lt;/strong&gt;：全新的 &lt;code&gt;SecretSource&lt;/code&gt; 接口，API Key 不再需要明文 &lt;code&gt;.env&lt;/code&gt;，支持 &lt;code&gt;op://&lt;/code&gt; 引用、多保险库并存、冲突告警；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;子代理现场直播&lt;/strong&gt;：&lt;code&gt;delegate_task&lt;/code&gt; 返回&lt;strong&gt;实时转录文件&lt;/strong&gt;，&lt;code&gt;tail -f&lt;/code&gt; 就能看每个子代理的每一次工具调用；后台委托结果&lt;strong&gt;持久化&lt;/strong&gt;，进程重启也不丢；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;投递义务账本&lt;/strong&gt;：网关在生成回复与平台确认送达之间崩溃？回复已记录在 &lt;code&gt;state.db&lt;/code&gt;，下次启动自动补投——关闭了 Telegram&amp;#x2F;Discord&amp;#x2F;Slack 等渠道的静默丢失窗口；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一个网关多个 Profile&lt;/strong&gt;：单个 bot token 按频道&amp;#x2F;群&amp;#x2F;线程路由到不同 Profile，配置、技能、记忆、密钥完全隔离；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;推理强度变成旋钮&lt;/strong&gt;：新增 &lt;code&gt;max&lt;/code&gt; &amp;#x2F; &lt;code&gt;ultra&lt;/code&gt; 档位，支持按模型、按 MoA 槽位、按辅助任务分别设置；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;会话数据是你的了&lt;/strong&gt;：&lt;code&gt;hermes sessions export&lt;/code&gt; 支持 Markdown &amp;#x2F; Quarto &amp;#x2F; HTML &amp;#x2F; 纯 prompt &amp;#x2F; Hugging Face trace 格式，&lt;code&gt;--redact&lt;/code&gt; 脱敏，配合 prune 与批量归档管理会话库。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;三、v0-20-1-v0-20-5：五连击补丁里值得知道的干货&#34;&gt;&lt;a href=&#34;#三、v0-20-1-v0-20-5：五连击补丁里值得知道的干货&#34; class=&#34;headerlink&#34; title=&#34;三、v0.20.1 ~ v0.20.5：五连击补丁里值得知道的干货&#34;&gt;&lt;/a&gt;三、v0.20.1 ~ v0.20.5：五连击补丁里值得知道的干货&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MCP 2.x SDK 迁移&lt;/strong&gt; + 2026-07-28 无状态协议支持（v0.20.3）；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bot Mode（hermes-bots）内置插件&lt;/strong&gt;：核心队友协议，支持群聊房间线程、跨机器路由、成员回合（v0.20.3&amp;#x2F;0.20.5）；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;零密钥 Web 层&lt;/strong&gt;：全新安装即开即用，5 家厂商免费额度环形故障转移，web 搜索不用配任何 key（v0.20.5）；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cron 任务获得持久记忆 + 每任务推理强度&lt;/strong&gt;：定时任务不再”失忆”，还能按任务设定思考深度（v0.20.5）——这对跑 AI 日报&amp;#x2F;热点这类定时内容生成是刚需；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NVIDIA SkillEvaluator Tier 1 咨询扫描&lt;/strong&gt;：安装技能时自动做许可证 + 安全审查（v0.20.4）；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PDF &amp;#x2F; 文件附件 + 拖拽上传&lt;/strong&gt;（v0.20.5）；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CLI 体验抛光&lt;/strong&gt;：fuzzy &lt;code&gt;/model&lt;/code&gt; 选择器、&lt;code&gt;Ctrl+P&lt;/code&gt; 命令面板、更丰富的 &lt;code&gt;/status&lt;/code&gt;（v0.20.5）；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;hermes update 收据 + fleet &lt;code&gt;--plan&lt;/code&gt; 验证&lt;/strong&gt;、&lt;code&gt;hermes worktree list/prune&lt;/code&gt;（v0.20.5）；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;桌面端&lt;/strong&gt;：多网关 Connections 注册表、MCP 健康检查与深链、React Compiler 双渲染器性能优化（v0.20.2&amp;#x2F;0.20.5）；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;稳定性&lt;/strong&gt;：cron 调度器自愈（EMFILE 恢复、陈旧 claim 对账、卡死任务重挂）、会话交接防丢数据、Python 子进程运行时隔离（PYTHONHOME&amp;#x2F;PYTHONPATH）、&lt;code&gt;/rollback&lt;/code&gt; 保留手改（v0.20.3）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;四、进阶实战&#34;&gt;&lt;a href=&#34;#四、进阶实战&#34; class=&#34;headerlink&#34; title=&#34;四、进阶实战&#34;&gt;&lt;/a&gt;四、进阶实战&lt;/h2&gt;&lt;h3 id=&#34;4-1-把-Hermes-变成”免提助手”&#34;&gt;&lt;a href=&#34;#4-1-把-Hermes-变成”免提助手”&#34; class=&#34;headerlink&#34; title=&#34;4.1 把 Hermes 变成”免提助手”&#34;&gt;&lt;/a&gt;4.1 把 Hermes 变成”免提助手”&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;在语音设置里配置自定义唤醒词（比如你的名字），确认端侧检测已开启；&lt;/li&gt;
+&lt;li&gt;多 Profile 场景：给”工作”和”居家”两个 Profile 配不同唤醒词；&lt;/li&gt;
+&lt;li&gt;把飞书 &amp;#x2F; WhatsApp 等渠道接入网关，出门在外直接发语音消息即可；&lt;/li&gt;
+&lt;li&gt;说 “stop” 随时终止所有界面的语音会话。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;4-2-用-A2A-编排异构智能体&#34;&gt;&lt;a href=&#34;#4-2-用-A2A-编排异构智能体&#34; class=&#34;headerlink&#34; title=&#34;4.2 用 A2A 编排异构智能体&#34;&gt;&lt;/a&gt;4.2 用 A2A 编排异构智能体&lt;/h3&gt;&lt;p&gt;场景：你的团队同时用 Hermes 和另一套 A2A 兼容 agent。装好内置 A2A 插件后：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;让 Hermes 作为&lt;strong&gt;编排中枢&lt;/strong&gt;，把子任务派发给其他 agent；&lt;/li&gt;
+&lt;li&gt;用&lt;strong&gt;实时转录&lt;/strong&gt;观察每个参与者的工具调用；&lt;/li&gt;
+&lt;li&gt;所有结果由 Hermes 汇总呈现，你在一个界面里管整个舰队。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-3-Webhook-把-Hermes-接进你的流水线&#34;&gt;&lt;a href=&#34;#4-3-Webhook-把-Hermes-接进你的流水线&#34; class=&#34;headerlink&#34; title=&#34;4.3 Webhook 把 Hermes 接进你的流水线&#34;&gt;&lt;/a&gt;4.3 Webhook 把 Hermes 接进你的流水线&lt;/h3&gt;&lt;p&gt;注册一个 HTTP 端点接收&lt;strong&gt;会话活动 &amp;#x2F; 回合完成 &amp;#x2F; 工具事件&lt;/strong&gt;，服务端用 HMAC 验签后：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;CI&lt;/strong&gt;：Hermes 回合完成 → 触发构建或代码审查流程；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;家庭自动化&lt;/strong&gt;：语音让 Hermes 干活 → 事件推送 → Home Assistant 执行；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;仪表盘&lt;/strong&gt;：实时展示每个会话的 token 消耗和工具调用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-4-写”可交付”的研究报告&#34;&gt;&lt;a href=&#34;#4-4-写”可交付”的研究报告&#34; class=&#34;headerlink&#34; title=&#34;4.4 写”可交付”的研究报告&#34;&gt;&lt;/a&gt;4.4 写”可交付”的研究报告&lt;/h3&gt;&lt;p&gt;用 grounded-citations 技能做调研，然后开&lt;strong&gt;事实核查模式&lt;/strong&gt;过一遍关键论断：交付物里每条引用都可点击溯源，再也不会被质疑”这个数字哪来的”。&lt;/p&gt;
+&lt;h3 id=&#34;4-5-告别明文密钥&#34;&gt;&lt;a href=&#34;#4-5-告别明文密钥&#34; class=&#34;headerlink&#34; title=&#34;4.5 告别明文密钥&#34;&gt;&lt;/a&gt;4.5 告别明文密钥&lt;/h3&gt;&lt;p&gt;把 API Key 从 &lt;code&gt;.env&lt;/code&gt; 迁到 Bitwarden &amp;#x2F; 1Password：&lt;/p&gt;
+&lt;figure class=&#34;highlight text&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;# 原来&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;OPENAI_API_KEY=sk-xxx&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;# 现在（SecretSource 接口）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;OPENAI_API_KEY=op://vault/hermes/openai-api-key&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;多保险库可并存，按确定性优先级解析，冲突会告警，每个变量的来源都可追溯。&lt;/p&gt;
+&lt;h3 id=&#34;4-6-cron-持久记忆-按任务调推理强度&#34;&gt;&lt;a href=&#34;#4-6-cron-持久记忆-按任务调推理强度&#34; class=&#34;headerlink&#34; title=&#34;4.6 cron 持久记忆 + 按任务调推理强度&#34;&gt;&lt;/a&gt;4.6 cron 持久记忆 + 按任务调推理强度&lt;/h3&gt;&lt;p&gt;定时任务是 v0.20.5 的最大受益者：cron 作业现在&lt;strong&gt;跨运行保留记忆&lt;/strong&gt;（跑日报的 agent 记得上一篇写了什么，不会重复选题），并且每个任务可以单独设置推理 effort——&lt;strong&gt;常规任务用低档省 token，深度分析用高档&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;4-7-会话库当数据库用&#34;&gt;&lt;a href=&#34;#4-7-会话库当数据库用&#34; class=&#34;headerlink&#34; title=&#34;4.7 会话库当数据库用&#34;&gt;&lt;/a&gt;4.7 会话库当数据库用&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 导出多种格式，可选脱敏&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes sessions &lt;span class=&#34;built_in&#34;&gt;export&lt;/span&gt; --format markdown --redact --age 30d&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 按年龄/工作区/平台过滤，配合 prune 和批量归档保持整洁&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;hermes sessions prune --keep 90d&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;v0.20 系列让 Hermes 完成了从”打字机器人”到”多模态信使”的进化：&lt;strong&gt;语音是新的输入输出方式，A2A 是新的协作协议，Webhook 是新的集成接口，Grounded Citations 是新的信任基础&lt;/strong&gt;，而 v0.20.1~0.20.5 的快速补丁又把稳定性、Bot Mode、零密钥体验和 cron 记忆补齐。&lt;/p&gt;
+&lt;p&gt;如果你还在 v0.17 或更早，中间的 Quicksilver 提速和 Herald 语音&amp;#x2F;A2A 足够构成立刻升级的理由。&lt;code&gt;hermes update&lt;/code&gt;，然后开口说第一句话吧。&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

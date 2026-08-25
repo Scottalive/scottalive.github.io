@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230a0e14'/%3E%3Ctext x='18' y='68' font-size='52' fill='%2300ff9c' font-family='monospace'%3E%26gt;_%3C/text%3E%3C/svg%3E">
+  <title>Hermes Agent v0.20 &#34;The Herald Release&#34; —— 新特性与进阶用法全解析 | 沉鱼的博客</title>
+  
+  <meta name="description" content="2026 年 8 月 3 日，Nous Research 发布了 Hermes Agent v0.20.0（代号 “The Herald Release”），随后在 8 月 13 日～19 日连续迭代了 v0.20.1～v0.20.5 五个补丁版本。从 v0.19.0 算起，这个窗口累计 3,650 个提交、1,400">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="沉鱼的博客">
+  <meta property="og:title" content="Hermes Agent v0.20 &#34;The Herald Release&#34; —— 新特性与进阶用法全解析 | 沉鱼的博客">
+  <meta property="og:description" content="2026 年 8 月 3 日，Nous Research 发布了 Hermes Agent v0.20.0（代号 “The Herald Release”），随后在 8 月 13 日～19 日连续迭代了 v0.20.1～v0.20.5 五个补丁版本。从 v0.19.0 算起，这个窗口累计 3,650 个提交、1,400">
+  <meta property="og:url" content="https://scottalive.github.io/computer-science/ai-tools/Hermes-Agent-v0.20-新特性与进阶用法/">
+  <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hermes Agent v0.20 &#34;The Herald Release&#34; —— 新特性与进阶用法全解析 | 沉鱼的博客">
+  <meta name="twitter:description" content="2026 年 8 月 3 日，Nous Research 发布了 Hermes Agent v0.20.0（代号 “The Herald Release”），随后在 8 月 13 日～19 日连续迭代了 v0.20.1～v0.20.5 五个补丁版本。从 v0.19.0 算起，这个窗口累计 3,650 个提交、1,400">
+  <meta name="twitter:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="/atom.xml">
+  <link rel="stylesheet" href="/css/style.css?v=202607190200">
+  <script>
+  /* 深色为默认主题，仅当用户显式选择浅色时才切换；body 渲染前确定，避免闪烁 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var theme = saved === 'light' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    window.__theme = theme;
+  })();
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/"><span class="prompt-path">~/</span>blog<span class="cursor"></span></a></h1>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <a href="/about">关于</a>
+      </nav>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="search..." autocomplete="off">
+        <div id="search-results"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <div class="post-path">
+      <a href="/">~</a>/<a href="/archives">posts</a>/<span class="pd">computer-science/ai-tools/Hermes-Agent-v0.20-新特性与进阶用法.md</span>
+    </div>
+    <h1 class="post-title">Hermes Agent v0.20 &#34;The Herald Release&#34; —— 新特性与进阶用法全解析</h1>
+    <div class="post-meta">
+      <span>2026-08-25 23:40</span>
+      <span>3728 字 · 约 12 分钟</span>
+      
+        
+        <a class="bkt" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+        
+        <a class="bkt" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
+        
+      
+      
+        
+        <a class="bkt cyan" href="/tags/AI/">#AI</a>
+        
+        <a class="bkt cyan" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">#开发工具</a>
+        
+        <a class="bkt cyan" href="/tags/Hermes/">#Hermes</a>
+        
+        <a class="bkt cyan" href="/tags/Agent/">#Agent</a>
+        
+        <a class="bkt cyan" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/">#自动化</a>
+        
+        <a class="bkt cyan" href="/tags/v0-20/">#v0.20</a>
+        
+        <a class="bkt cyan" href="/tags/%E8%AF%AD%E9%9F%B3%E4%BA%A4%E4%BA%92/">#语音交互</a>
+        
+        <a class="bkt cyan" href="/tags/A2A/">#A2A</a>
+        
+        <a class="bkt cyan" href="/tags/Webhook/">#Webhook</a>
+        
+      
+    </div>
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#一键更新">一键更新</a>
+      
+      <a class="toc-level-2" href="#版本脉络速览">版本脉络速览</a>
+      
+      <a class="toc-level-2" href="#一v0200-the-herald-release-核心新特性">一、v0.20.0 “The Herald Release” 核心新特性</a>
+      
+      <a class="toc-level-3" href="#11-会说话的-hermes流式语音对话-打断-唤醒词">1.1 会说话的 Hermes：流式语音对话 + 打断 + 唤醒词</a>
+      
+      <a class="toc-level-3" href="#12-hermes-说上了同一种语言a2a-v10">1.2 Hermes 说上了”同一种语言”：A2A v1.0</a>
+      
+      <a class="toc-level-3" href="#13-出站-webhookhermes-主动宣告事件">1.3 出站 Webhook：Hermes 主动”宣告”事件</a>
+      
+      <a class="toc-level-3" href="#14-研究结果可溯源grounded-citations-事实核查">1.4 研究结果”可溯源”：Grounded Citations + 事实核查</a>
+      
+      <a class="toc-level-3" href="#15-桌面端从聊天客户端变成工作台">1.5 桌面端从聊天客户端变成”工作台”</a>
+      
+      <a class="toc-level-3" href="#16-cli-力量型命令一波流">1.6 CLI 力量型命令一波流</a>
+      
+      <a class="toc-level-3" href="#17-中途纠偏不用再停止重来">1.7 中途纠偏：不用再”停止重来”</a>
+      
+      <a class="toc-level-3" href="#18-工具会自愈长任务不再撞墙">1.8 工具会自愈，长任务不再撞墙</a>
+      
+      <a class="toc-level-3" href="#19-更尊重人的上下文压缩">1.9 更”尊重人”的上下文压缩</a>
+      
+      <a class="toc-level-2" href="#二回顾-v0190-quicksilver上一个版本打下的底子">二、回顾 v0.19.0 “Quicksilver”：上一个版本打下的底子</a>
+      
+      <a class="toc-level-2" href="#三v0201-v0205五连击补丁里值得知道的干货">三、v0.20.1 ~ v0.20.5：五连击补丁里值得知道的干货</a>
+      
+      <a class="toc-level-2" href="#四进阶实战">四、进阶实战</a>
+      
+      <a class="toc-level-3" href="#41-把-hermes-变成免提助手">4.1 把 Hermes 变成”免提助手”</a>
+      
+      <a class="toc-level-3" href="#42-用-a2a-编排异构智能体">4.2 用 A2A 编排异构智能体</a>
+      
+      <a class="toc-level-3" href="#43-webhook-把-hermes-接进你的流水线">4.3 Webhook 把 Hermes 接进你的流水线</a>
+      
+      <a class="toc-level-3" href="#44-写可交付的研究报告">4.4 写”可交付”的研究报告</a>
+      
+      <a class="toc-level-3" href="#45-告别明文密钥">4.5 告别明文密钥</a>
+      
+      <a class="toc-level-3" href="#46-cron-持久记忆-按任务调推理强度">4.6 cron 持久记忆 + 按任务调推理强度</a>
+      
+      <a class="toc-level-3" href="#47-会话库当数据库用">4.7 会话库当数据库用</a>
+      
+      <a class="toc-level-2" href="#总结">总结</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <p><img src="/images/hermes-agent/og-image.png"></p>
+<blockquote>
+<p><strong>2026 年 8 月 3 日</strong>，Nous Research 发布了 Hermes Agent v0.20.0（代号 <strong>“The Herald Release”</strong>），随后在 8 月 13 日～19 日连续迭代了 v0.20.1～v0.20.5 五个补丁版本。从 v0.19.0 算起，这个窗口累计 <strong><del>3,650 个提交、</del>1,400 个合并 PR、5,200+ 文件变更、~1,200 个 issue 关闭，650+ 位贡献者</strong>——是 Hermes 有史以来最大的一次版本跨越。</p>
+</blockquote>
+<p>如果说 v0.17 是”把手伸出去”（The Reach），v0.20 就是”成为信使神”：<strong>会说话、会传话、会宣告、会引经据典</strong>。本文聚焦 v0.20 系列的核心新特性与实战进阶用法，适合已经安装过 Hermes 的老用户升级，也适合新用户一步到位。</p>
+<span id="more"></span>
+
+<h2 id="一键更新"><a href="#一键更新" class="headerlink" title="一键更新"></a>一键更新</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hermes update</span><br></pre></td></tr></table></figure>
+
+<p>想尝鲜最新补丁也可以走全新安装：<code>curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash</code>。</p>
+<p>完整更新日志：<a target="_blank" rel="noopener" href="https://github.com/NousResearch/hermes-agent/releases">GitHub Releases</a></p>
+<hr>
+<h2 id="版本脉络速览"><a href="#版本脉络速览" class="headerlink" title="版本脉络速览"></a>版本脉络速览</h2><p>先看 6 月 v0.17 到 8 月 v0.20.5 的演进时间线：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gantt</span><br><span class="line">    title Hermes Agent 2026 版本演进</span><br><span class="line">    dateFormat  YYYY-MM-DD</span><br><span class="line">    axisFormat  %m-%d</span><br><span class="line">    section 主版本</span><br><span class="line">    v0.17 Reach        :done, a1, 2026-06-19, 12d</span><br><span class="line">    v0.18              :done, a2, 2026-07-01, 19d</span><br><span class="line">    v0.19 Quicksilver  :done, a3, 2026-07-20, 14d</span><br><span class="line">    v0.20 Herald       :done, a4, 2026-08-03, 16d</span><br><span class="line">    section 补丁流</span><br><span class="line">    v0.20.1~0.20.5     :active, a5, 2026-08-13, 12d</span><br></pre></td></tr></table></figure>
+
+<p><strong>一句话概括三个节点：</strong></p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>代号</th>
+<th>主题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>v0.19.0（7&#x2F;20）</td>
+<td>Quicksilver</td>
+<td>快如闪电：首 token 提速 80%、智能审批、密码管理器接入</td>
+</tr>
+<tr>
+<td>v0.20.0（8&#x2F;3）</td>
+<td>Herald</td>
+<td>信使神降临：语音对话、A2A 协议、出站 Webhook、可信研究</td>
+</tr>
+<tr>
+<td>v0.20.1~0.20.5</td>
+<td>补丁流</td>
+<td>快速迭代：MCP 2.x、Bot Mode、零密钥 Web 层、cron 持久记忆</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="一v0200-the-herald-release-核心新特性"><a href="#一、v0-20-0-“The-Herald-Release”-核心新特性" class="headerlink" title="一、v0.20.0 “The Herald Release” 核心新特性"></a>一、v0.20.0 “The Herald Release” 核心新特性</h2><h3 id="11-会说话的-hermes流式语音对话-打断-唤醒词"><a href="#1-1-会说话的-Hermes：流式语音对话-打断-唤醒词" class="headerlink" title="1.1 会说话的 Hermes：流式语音对话 + 打断 + 唤醒词"></a>1.1 会说话的 Hermes：流式语音对话 + 打断 + 唤醒词</h3><blockquote>
+<p><strong>核心痛点解决：</strong> 以前的语音模式是”留语音信箱”——说完等半天，然后听一整段音频。现在变成真正的<strong>对话</strong>。</p>
+</blockquote>
+<ul>
+<li><strong>流式 TTS</strong>：回复边生成边逐句播报，不用等全文；</li>
+<li><strong>Barge-in 打断</strong>：你随时可以抢话，Hermes 会停止播报、认真听你新的指令，并告诉模型”用户中途打断了”；</li>
+<li><strong>忙碌感知静音检测</strong>：你正忙的时候它不会抢着说话；</li>
+<li><strong>开放词汇唤醒词</strong>：<code>&quot;Hey Hermes&quot;</code> 或任意你自定义的词都能唤醒，检测<strong>完全在设备端进行</strong>，等待期间音频不出本机；</li>
+<li><strong>多 Profile 语音路由</strong>：不同唤醒词可以路由到不同 Profile，说 “stop” 即可在任何界面结束语音会话；</li>
+<li><strong>全平台覆盖</strong>：CLI、桌面端、以及所有支持音频的网关平台（WhatsApp &#x2F; 飞书 &#x2F; DingTalk &#x2F; LINE &#x2F; QQ &#x2F; Photon &#x2F; 微信）。发一条语音消息过去，自动转写并回答，TTS 回复还会按平台自适应编码（需要 opus 的地方用 opus，字幕正确附加）。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">    participant U as 用户</span><br><span class="line">    participant H as Hermes（设备端）</span><br><span class="line">    participant M as 大模型</span><br><span class="line">    U-&gt;&gt;H: 唤醒词 &quot;Hey Hermes&quot;</span><br><span class="line">    H-&gt;&gt;H: 端侧唤醒检测（音频不出本机）</span><br><span class="line">    U-&gt;&gt;H: 说话提问</span><br><span class="line">    H-&gt;&gt;M: 转写并发送</span><br><span class="line">    M--&gt;&gt;H: 流式生成回复</span><br><span class="line">    loop 逐句生成</span><br><span class="line">        H--&gt;&gt;U: 流式 TTS 播报</span><br><span class="line">    end</span><br><span class="line">    U-&gt;&gt;H: 中途抢话打断</span><br><span class="line">    H-&gt;&gt;M: 停止生成，标记打断意图</span><br><span class="line">    M--&gt;&gt;H: 基于新意图继续</span><br><span class="line">    H--&gt;&gt;U: 继续播报</span><br></pre></td></tr></table></figure>
+
+<p><strong>STT 也全面可配</strong>：独立的 hermes 工具类别、GUI 开关、仪表盘下拉菜单、统一语言解析（转写不再跑偏语言），并支持 OpenAI <code>gpt-transcribe</code>。</p>
+<h3 id="12-hermes-说上了同一种语言a2a-v10"><a href="#1-2-Hermes-说上了”同一种语言”：A2A-v1-0" class="headerlink" title="1.2 Hermes 说上了”同一种语言”：A2A v1.0"></a>1.2 Hermes 说上了”同一种语言”：A2A v1.0</h3><p>A2A（Agent-to-Agent）协议 v1.0 以<strong>内置插件</strong>形式落地，Hermes 可以<strong>发现、对话、并被其他 A2A 兼容智能体驱动</strong>——这直接关闭了仓库里最古老的 feature request（issue #514）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    A[你] --&gt;|自然语言| H[Hermes Agent]</span><br><span class="line">    H --&gt;|A2A v1.0 发现/协商/任务| B[其他 A2A 智能体]</span><br><span class="line">    H --&gt;|A2A v1.0| C[异构多智能体系统]</span><br><span class="line">    B --&gt;|进度与状态回报| H</span><br><span class="line">    C --&gt;|结果回传| H</span><br><span class="line">    H --&gt;|汇总呈现| A</span><br></pre></td></tr></table></figure>
+
+<p>对正在搭建<strong>异构多智能体系统</strong>的团队来说，这等于拿到了一个标准线缆：不同技术栈的 agent 终于能互相插拔了。</p>
+<h3 id="13-出站-webhookhermes-主动宣告事件"><a href="#1-3-出站-Webhook：Hermes-主动”宣告”事件" class="headerlink" title="1.3 出站 Webhook：Hermes 主动”宣告”事件"></a>1.3 出站 Webhook：Hermes 主动”宣告”事件</h3><blockquote>
+<p><strong>核心痛点解决：</strong> 以前把 Hermes 接进自己的系统，只能轮询或被动监听平台消息。现在它能把事件<strong>推给你</strong>。</p>
+</blockquote>
+<ul>
+<li>注册任意 HTTP 端点，即可接收<strong>签名后的生命周期事件</strong>：会话活动、回合完成、工具调用事件；</li>
+<li>事件带 <strong>HMAC 签名</strong>，接收方可以验证真实性；</li>
+<li>典型场景：接入 CI、家庭自动化、自定义仪表盘——零轮询。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">    participant H as Hermes Agent</span><br><span class="line">    participant W as 你的 HTTP 服务</span><br><span class="line">    participant S as CI / 看板 / 自动化</span><br><span class="line">    H-&gt;&gt;W: POST 会话活动事件（HMAC 签名）</span><br><span class="line">    W-&gt;&gt;W: 验签</span><br><span class="line">    W-&gt;&gt;S: 触发自动化</span><br><span class="line">    H-&gt;&gt;W: POST 回合完成事件</span><br><span class="line">    W-&gt;&gt;S: 更新看板 / 推送通知</span><br></pre></td></tr></table></figure>
+
+<h3 id="14-研究结果可溯源grounded-citations-事实核查"><a href="#1-4-研究结果”可溯源”：Grounded-Citations-事实核查" class="headerlink" title="1.4 研究结果”可溯源”：Grounded Citations + 事实核查"></a>1.4 研究结果”可溯源”：Grounded Citations + 事实核查</h3><p>新的 grounded-citations 技能让 Hermes 的研究输出<strong>每条论断都有可验证出处</strong>：</p>
+<ul>
+<li>引用会<strong>对照真实页面文本匹配</strong>（而不是幻觉式引用）；</li>
+<li>每条引用都链到<strong>确切证据位置</strong>；</li>
+<li>新增<strong>事实核查模式</strong>：把任何文档或论断丢给它，它会告诉你哪些查证属实、哪些不成立、哪些无法验证。</li>
+</ul>
+<p>对拿 Hermes 做调研的人来说，这是从”听起来对”到”有据可查”的分水岭。</p>
+<h3 id="15-桌面端从聊天客户端变成工作台"><a href="#1-5-桌面端从聊天客户端变成”工作台”" class="headerlink" title="1.5 桌面端从聊天客户端变成”工作台”"></a>1.5 桌面端从聊天客户端变成”工作台”</h3><ul>
+<li><strong>Artifacts</strong>：生成的 HTML &#x2F; 应用以<strong>版本化卡片</strong>形式展示，右侧栏<strong>沙箱实时预览</strong>，安全地跑在聊天旁边；</li>
+<li><strong>插件 SDK 正式落地</strong>：首个官方插件是 <strong>Kanban</strong>；插件可用 <code>ctx.download</code> 给用户发文件、支持浮动面板、多窗口；</li>
+<li><strong>全局快捷键快速入口</strong>：在系统任意角落按下热键，弹出小窗，把灵感记入任意会话；</li>
+<li>后续补丁继续打磨：毛玻璃半透明界面、<code>SESSIONS | BOTS</code> 标签页侧边栏、Kanban 原生系统通知。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TB</span><br><span class="line">    subgraph Desktop[桌面端工作台]</span><br><span class="line">        A[Artifacts 右栏实时预览] --&gt; E[沙箱渲染]</span><br><span class="line">        B[插件 SDK] --&gt; F[Kanban 等插件]</span><br><span class="line">        C[全局快捷键快速入口] --&gt; G[任意应用内唤起]</span><br><span class="line">        D[多窗口 / 毛玻璃 UI]</span><br><span class="line">    end</span><br><span class="line">    H[网关] --&gt; Desktop</span><br></pre></td></tr></table></figure>
+
+<h3 id="16-cli-力量型命令一波流"><a href="#1-6-CLI-力量型命令一波流" class="headerlink" title="1.6 CLI 力量型命令一波流"></a>1.6 CLI 力量型命令一波流</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>!command</code></td>
+<td>直接执行 shell 命令，<strong>不消耗模型回合</strong></td>
+</tr>
+<tr>
+<td><code>/init</code></td>
+<td>扫描项目，自动生成（或更新）<code>AGENTS.md</code></td>
+</tr>
+<tr>
+<td><code>/diff</code></td>
+<td>任意界面查看 staged &#x2F; all &#x2F; 会话内变更</td>
+</tr>
+<tr>
+<td><code>/context</code></td>
+<td>拆解到底什么占满了你的上下文窗口</td>
+</tr>
+<tr>
+<td><code>/focus</code></td>
+<td>精简输出视图，隐藏行可恢复</td>
+</tr>
+<tr>
+<td><code>Ctrl+S</code></td>
+<td>把写了一半的 prompt 存进可浏览的面板</td>
+</tr>
+<tr>
+<td><code>hermes import-agent</code></td>
+<td>一条命令把 Claude Code &#x2F; Codex CLI 配置迁移过来</td>
+</tr>
+</tbody></table>
+<h3 id="17-中途纠偏不用再停止重来"><a href="#1-7-中途纠偏：不用再”停止重来”" class="headerlink" title="1.7 中途纠偏：不用再”停止重来”"></a>1.7 中途纠偏：不用再”停止重来”</h3><p>Hermes 跑偏了？<strong>直接在它干活的时候输入纠正</strong>，当前回合会被重定向：进行中的工作保留、原始 prompt 保留、agent 按新指引修正航线。配合双击 ESC 丢弃草稿、输入撤销栈，”操控感”从”重启”变成了”编辑”。</p>
+<h3 id="18-工具会自愈长任务不再撞墙"><a href="#1-8-工具会自愈，长任务不再撞墙" class="headerlink" title="1.8 工具会自愈，长任务不再撞墙"></a>1.8 工具会自愈，长任务不再撞墙</h3><ul>
+<li>终端输出被截断时，溢出内容自动<strong>落盘成文件</strong>让模型回读；</li>
+<li><code>patch</code> 能检测”已经应用过的编辑”，并诊断空白符不匹配；</li>
+<li><code>write_file</code> 写完<strong>校验磁盘内容</strong>；</li>
+<li>搜索无结果时会<strong>探测近邻</strong>并恢复；</li>
+<li>常见失败类型附带可操作提示——模型不再瞎猜；</li>
+<li><strong>工具调用迭代上限从 90 提到 500</strong>：长时间自主运行不再撞人工墙。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A[模型调用工具] --&gt; B&#123;工具执行&#125;</span><br><span class="line">    B --&gt;|成功| C[返回结果]</span><br><span class="line">    B --&gt;|终端输出被截断| D[溢出写入文件]</span><br><span class="line">    D --&gt; E[模型回读文件继续]</span><br><span class="line">    B --&gt;|patch 已被应用过| F[检测重复 + 诊断空白符]</span><br><span class="line">    F --&gt; G[给出可操作提示]</span><br><span class="line">    B --&gt;|搜索零结果| H[近邻探测恢复]</span><br><span class="line">    H --&gt; I[返回近似结果]</span><br><span class="line">    C --&gt; J[继续主任务]</span><br><span class="line">    E --&gt; J</span><br><span class="line">    G --&gt; J</span><br><span class="line">    I --&gt; J</span><br></pre></td></tr></table></figure>
+
+<h3 id="19-更尊重人的上下文压缩"><a href="#1-9-更”尊重人”的上下文压缩" class="headerlink" title="1.9 更”尊重人”的上下文压缩"></a>1.9 更”尊重人”的上下文压缩</h3><ul>
+<li>大窗口模型<strong>主动修剪工具结果</strong>；</li>
+<li><strong>每回合微型压缩</strong>摊薄成本，取代一次性的长暂停；</li>
+<li><strong>保证保留最近 N 条用户消息</strong>，长对话不丢重点；</li>
+<li>超时机制感知进度，不再惩罚慢的总结模型；</li>
+<li>“幽灵技能”防御：被修剪的技能不会悄悄污染会话；</li>
+<li>阈值可按模型配置，支持绝对 token 数。</li>
+</ul>
+<hr>
+<h2 id="二回顾-v0190-quicksilver上一个版本打下的底子"><a href="#二、回顾-v0-19-0-“Quicksilver”：上一个版本打下的底子" class="headerlink" title="二、回顾 v0.19.0 “Quicksilver”：上一个版本打下的底子"></a>二、回顾 v0.19.0 “Quicksilver”：上一个版本打下的底子</h2><p>v0.20 是站在 v0.19 肩膀上的，几个关键能力仍然值得单独说：</p>
+<ul>
+<li><strong>首 token 提速 ~80%</strong>：冷启动从 ~4.3s 压到 ~0.9s，CLI &#x2F; 网关 &#x2F; TUI &#x2F; 桌面 &#x2F; cron 全平台生效；推理模型的思考过程默认实时流式输出；</li>
+<li><strong>桌面端 20+ 性能 PR</strong>：markdown 分片快 14 倍、巨型 diff 虚拟化渲染、会话切换不再抖动；</li>
+<li><strong>终端里管钱包</strong>：<code>/subscription</code> 和 <code>/topup</code> 直接在 TUI 里查看套餐、预览升级费用并完成支付；</li>
+<li><strong>智能审批成为默认</strong>：被标记命令由 LLM 评审员独立判断，每条命令单独裁决；配合自定义 deny 规则（yolo 模式下也拦得住）和 <code>/deny &lt;reason&gt;</code> 让模型理解你为何拒绝；</li>
+<li><strong>Bitwarden &amp; 1Password 接入</strong>：全新的 <code>SecretSource</code> 接口，API Key 不再需要明文 <code>.env</code>，支持 <code>op://</code> 引用、多保险库并存、冲突告警；</li>
+<li><strong>子代理现场直播</strong>：<code>delegate_task</code> 返回<strong>实时转录文件</strong>，<code>tail -f</code> 就能看每个子代理的每一次工具调用；后台委托结果<strong>持久化</strong>，进程重启也不丢；</li>
+<li><strong>投递义务账本</strong>：网关在生成回复与平台确认送达之间崩溃？回复已记录在 <code>state.db</code>，下次启动自动补投——关闭了 Telegram&#x2F;Discord&#x2F;Slack 等渠道的静默丢失窗口；</li>
+<li><strong>一个网关多个 Profile</strong>：单个 bot token 按频道&#x2F;群&#x2F;线程路由到不同 Profile，配置、技能、记忆、密钥完全隔离；</li>
+<li><strong>推理强度变成旋钮</strong>：新增 <code>max</code> &#x2F; <code>ultra</code> 档位，支持按模型、按 MoA 槽位、按辅助任务分别设置；</li>
+<li><strong>会话数据是你的了</strong>：<code>hermes sessions export</code> 支持 Markdown &#x2F; Quarto &#x2F; HTML &#x2F; 纯 prompt &#x2F; Hugging Face trace 格式，<code>--redact</code> 脱敏，配合 prune 与批量归档管理会话库。</li>
+</ul>
+<hr>
+<h2 id="三v0201-v0205五连击补丁里值得知道的干货"><a href="#三、v0-20-1-v0-20-5：五连击补丁里值得知道的干货" class="headerlink" title="三、v0.20.1 ~ v0.20.5：五连击补丁里值得知道的干货"></a>三、v0.20.1 ~ v0.20.5：五连击补丁里值得知道的干货</h2><ul>
+<li><strong>MCP 2.x SDK 迁移</strong> + 2026-07-28 无状态协议支持（v0.20.3）；</li>
+<li><strong>Bot Mode（hermes-bots）内置插件</strong>：核心队友协议，支持群聊房间线程、跨机器路由、成员回合（v0.20.3&#x2F;0.20.5）；</li>
+<li><strong>零密钥 Web 层</strong>：全新安装即开即用，5 家厂商免费额度环形故障转移，web 搜索不用配任何 key（v0.20.5）；</li>
+<li><strong>cron 任务获得持久记忆 + 每任务推理强度</strong>：定时任务不再”失忆”，还能按任务设定思考深度（v0.20.5）——这对跑 AI 日报&#x2F;热点这类定时内容生成是刚需；</li>
+<li><strong>NVIDIA SkillEvaluator Tier 1 咨询扫描</strong>：安装技能时自动做许可证 + 安全审查（v0.20.4）；</li>
+<li><strong>PDF &#x2F; 文件附件 + 拖拽上传</strong>（v0.20.5）；</li>
+<li><strong>CLI 体验抛光</strong>：fuzzy <code>/model</code> 选择器、<code>Ctrl+P</code> 命令面板、更丰富的 <code>/status</code>（v0.20.5）；</li>
+<li><strong>hermes update 收据 + fleet <code>--plan</code> 验证</strong>、<code>hermes worktree list/prune</code>（v0.20.5）；</li>
+<li><strong>桌面端</strong>：多网关 Connections 注册表、MCP 健康检查与深链、React Compiler 双渲染器性能优化（v0.20.2&#x2F;0.20.5）；</li>
+<li><strong>稳定性</strong>：cron 调度器自愈（EMFILE 恢复、陈旧 claim 对账、卡死任务重挂）、会话交接防丢数据、Python 子进程运行时隔离（PYTHONHOME&#x2F;PYTHONPATH）、<code>/rollback</code> 保留手改（v0.20.3）。</li>
+</ul>
+<hr>
+<h2 id="四进阶实战"><a href="#四、进阶实战" class="headerlink" title="四、进阶实战"></a>四、进阶实战</h2><h3 id="41-把-hermes-变成免提助手"><a href="#4-1-把-Hermes-变成”免提助手”" class="headerlink" title="4.1 把 Hermes 变成”免提助手”"></a>4.1 把 Hermes 变成”免提助手”</h3><ol>
+<li>在语音设置里配置自定义唤醒词（比如你的名字），确认端侧检测已开启；</li>
+<li>多 Profile 场景：给”工作”和”居家”两个 Profile 配不同唤醒词；</li>
+<li>把飞书 &#x2F; WhatsApp 等渠道接入网关，出门在外直接发语音消息即可；</li>
+<li>说 “stop” 随时终止所有界面的语音会话。</li>
+</ol>
+<h3 id="42-用-a2a-编排异构智能体"><a href="#4-2-用-A2A-编排异构智能体" class="headerlink" title="4.2 用 A2A 编排异构智能体"></a>4.2 用 A2A 编排异构智能体</h3><p>场景：你的团队同时用 Hermes 和另一套 A2A 兼容 agent。装好内置 A2A 插件后：</p>
+<ul>
+<li>让 Hermes 作为<strong>编排中枢</strong>，把子任务派发给其他 agent；</li>
+<li>用<strong>实时转录</strong>观察每个参与者的工具调用；</li>
+<li>所有结果由 Hermes 汇总呈现，你在一个界面里管整个舰队。</li>
+</ul>
+<h3 id="43-webhook-把-hermes-接进你的流水线"><a href="#4-3-Webhook-把-Hermes-接进你的流水线" class="headerlink" title="4.3 Webhook 把 Hermes 接进你的流水线"></a>4.3 Webhook 把 Hermes 接进你的流水线</h3><p>注册一个 HTTP 端点接收<strong>会话活动 &#x2F; 回合完成 &#x2F; 工具事件</strong>，服务端用 HMAC 验签后：</p>
+<ul>
+<li><strong>CI</strong>：Hermes 回合完成 → 触发构建或代码审查流程；</li>
+<li><strong>家庭自动化</strong>：语音让 Hermes 干活 → 事件推送 → Home Assistant 执行；</li>
+<li><strong>仪表盘</strong>：实时展示每个会话的 token 消耗和工具调用。</li>
+</ul>
+<h3 id="44-写可交付的研究报告"><a href="#4-4-写”可交付”的研究报告" class="headerlink" title="4.4 写”可交付”的研究报告"></a>4.4 写”可交付”的研究报告</h3><p>用 grounded-citations 技能做调研，然后开<strong>事实核查模式</strong>过一遍关键论断：交付物里每条引用都可点击溯源，再也不会被质疑”这个数字哪来的”。</p>
+<h3 id="45-告别明文密钥"><a href="#4-5-告别明文密钥" class="headerlink" title="4.5 告别明文密钥"></a>4.5 告别明文密钥</h3><p>把 API Key 从 <code>.env</code> 迁到 Bitwarden &#x2F; 1Password：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line"># 原来</span><br><span class="line">OPENAI_API_KEY=sk-xxx</span><br><span class="line"></span><br><span class="line"># 现在（SecretSource 接口）</span><br><span class="line">OPENAI_API_KEY=op://vault/hermes/openai-api-key</span><br></pre></td></tr></table></figure>
+
+<p>多保险库可并存，按确定性优先级解析，冲突会告警，每个变量的来源都可追溯。</p>
+<h3 id="46-cron-持久记忆-按任务调推理强度"><a href="#4-6-cron-持久记忆-按任务调推理强度" class="headerlink" title="4.6 cron 持久记忆 + 按任务调推理强度"></a>4.6 cron 持久记忆 + 按任务调推理强度</h3><p>定时任务是 v0.20.5 的最大受益者：cron 作业现在<strong>跨运行保留记忆</strong>（跑日报的 agent 记得上一篇写了什么，不会重复选题），并且每个任务可以单独设置推理 effort——<strong>常规任务用低档省 token，深度分析用高档</strong>。</p>
+<h3 id="47-会话库当数据库用"><a href="#4-7-会话库当数据库用" class="headerlink" title="4.7 会话库当数据库用"></a>4.7 会话库当数据库用</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 导出多种格式，可选脱敏</span></span><br><span class="line">hermes sessions <span class="built_in">export</span> --format markdown --redact --age 30d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按年龄/工作区/平台过滤，配合 prune 和批量归档保持整洁</span></span><br><span class="line">hermes sessions prune --keep 90d</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>v0.20 系列让 Hermes 完成了从”打字机器人”到”多模态信使”的进化：<strong>语音是新的输入输出方式，A2A 是新的协作协议，Webhook 是新的集成接口，Grounded Citations 是新的信任基础</strong>，而 v0.20.1~0.20.5 的快速补丁又把稳定性、Bot Mode、零密钥体验和 cron 记忆补齐。</p>
+<p>如果你还在 v0.17 或更早，中间的 Quicksilver 提速和 Herald 语音&#x2F;A2A 足够构成立刻升级的理由。<code>hermes update</code>，然后开口说第一句话吧。</p>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  
+  <a class="next" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-08-25/">AI 日报 2026-08-25</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;·&nbsp; uv:<span id="site-uv">-</span> &nbsp;pv:<span id="site-pv">-</span> &nbsp;·&nbsp; <a href="/atom.xml" title="RSS 订阅">[rss]</a> &nbsp;·&nbsp; powered by <a href="https://hexo.io" target="_blank" rel="noopener">hexo</a></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle：深色为默认，按钮在 dark/light 间切换 */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      var next = currentlyDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      window.__theme = next;
+      notifyGiscus(next);
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* Code + Mermaid — 视频播放器风格放大查看 */
+  (function() {
+    'use strict';
+    var currentViewer = null;
+
+    /* ---- 弹窗 ---- */
+    function showViewer(opts) {
+      if (currentViewer) { currentViewer.remove(); currentViewer = null; }
+      var isMermaid = !!opts.isMermaid;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'code-viewer-overlay';
+
+      var viewer = document.createElement('div');
+      viewer.className = 'code-viewer';
+
+      /* toolbar */
+      var tb = document.createElement('div');
+      tb.className = 'code-viewer-toolbar';
+      var actionsHtml = '<div class="code-viewer-actions">';
+      if (isMermaid && opts.bodyHtml) {
+        actionsHtml += '<button class="code-viewer-btn" data-dl>⬇ 下载图片</button>';
+      } else if (opts.copyText) {
+        actionsHtml += '<button class="code-viewer-btn" data-copy>📋 复制</button>';
+      }
+      actionsHtml += '<button class="code-viewer-close">✕</button></div>';
+      tb.innerHTML = '<span class="code-viewer-title">' +
+        '<span>' + (isMermaid ? '📊' : '&lt;/&gt;') + '</span> ' + opts.title + '</span>' + actionsHtml;
+      viewer.appendChild(tb);
+
+      /* body */
+      var body = document.createElement('div');
+      body.className = 'code-viewer-body' + (isMermaid ? ' mermaid-body' : '');
+      if (isMermaid) {
+        body.innerHTML = opts.bodyHtml;
+      } else {
+        body.innerHTML = '<pre><code>' + escHtml(opts.bodyHtml) + '</code></pre>';
+      }
+      viewer.appendChild(body);
+      overlay.appendChild(viewer);
+      document.body.appendChild(overlay);
+      document.body.style.overflow = 'hidden';
+      currentViewer = overlay;
+
+      /* copy logic */
+      var copyBtn = tb.querySelector('[data-copy]');
+      if (copyBtn && opts.copyText) {
+        copyBtn.addEventListener('click', function() {
+          navigator.clipboard.writeText(opts.copyText).then(function() {
+            copyBtn.textContent = '✅ 已复制';
+            copyBtn.classList.add('copied');
+            setTimeout(function() { copyBtn.textContent = '📋 复制'; copyBtn.classList.remove('copied'); }, 2000);
+          });
+        });
+      }
+
+      /* download image logic */
+      var dlBtn = tb.querySelector('[data-dl]');
+      if (dlBtn && isMermaid && opts.bodyHtml) {
+        dlBtn.addEventListener('click', function() {
+          var svgEl = body.querySelector('svg');
+          if (!svgEl) return;
+          var svgClone = svgEl.cloneNode(true);
+          svgClone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+          var serializer = new XMLSerializer();
+          var svgStr = serializer.serializeToString(svgClone);
+          var blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = (opts.title || '流程图') + '.svg';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          dlBtn.textContent = '✅ 已下载';
+          setTimeout(function() { dlBtn.textContent = '⬇ 下载图片'; }, 2000);
+        });
+      }
+
+      /* close handlers */
+      tb.querySelector('.code-viewer-close').addEventListener('click', closeViewer);
+      overlay.addEventListener('click', function(e) { if (e.target === overlay) closeViewer(); });
+      document.addEventListener('keydown', onEsc);
+    }
+
+    function closeViewer() {
+      if (!currentViewer) return;
+      currentViewer.remove(); currentViewer = null;
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onEsc);
+    }
+    function onEsc(e) { if (e.key === 'Escape') closeViewer(); }
+
+    function escHtml(s) {
+      return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    /* ---- 事件委托：点击 Mermaid 流程图任意位置放大 ---- */
+    document.addEventListener('click', function(e) {
+      var wrap = e.target.closest('.mermaid-container[data-orig]');
+      if (!wrap) return;
+      /* 排除viewer弹窗内的SVG（viewer不在容器内，双保险） */
+      if (e.target.closest('.code-viewer-overlay')) return;
+
+      var origCode = wrap.getAttribute('data-orig');
+      if (!origCode) return;
+      /* 使用 mermaid.render() 获取 SVG 字符串 */
+      if (typeof mermaid !== 'undefined' && mermaid.render) {
+        var uid = 'mermaid-viewer-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
+        mermaid.render(uid, origCode).then(function(result) {
+          showViewer({ title: '流程图', bodyHtml: result.svg, isMermaid: true });
+        }).catch(function(err) {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        });
+      } else if (typeof mermaid !== 'undefined' && mermaid.run) {
+        /* fallback to run() */
+        var tmp = document.createElement('div');
+        tmp.textContent = origCode;
+        mermaid.run({ nodes: [tmp] }).then(function() {
+          showViewer({ title: '流程图', bodyHtml: tmp.innerHTML || origCode, isMermaid: true });
+        }).catch(function() {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        });
+      } else {
+        showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+      }
+    });
+
+    /* ---- 初始化：给每个代码块加复制按钮（不加放大遮罩） ---- */
+    var preList = document.querySelectorAll('.post-content figure.highlight td.code pre, .post-content > pre');
+    preList.forEach(function(pre) {
+      if (pre.closest('.code-block-wrap')) return; /* 已包装 */
+      var wrap = document.createElement('div');
+      wrap.className = 'code-block-wrap';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      /* 复制按钮 */
+      var copyBtn = document.createElement('button');
+      copyBtn.className = 'copy-btn';
+      copyBtn.textContent = '复制';
+      copyBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var text = pre.innerText || pre.textContent || '';
+        navigator.clipboard.writeText(text).then(function() {
+          copyBtn.textContent = '已复制';
+          copyBtn.classList.add('copied');
+          setTimeout(function() { copyBtn.textContent = '复制'; copyBtn.classList.remove('copied'); }, 2000);
+        });
+      });
+      wrap.appendChild(copyBtn);
+    });
+
+    /* ---- Mermaid 容器：右上角小展开按钮 ---- */
+    function addMermaidOverlay() {
+      document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)').forEach(function(c) {
+        if (!c.querySelector('svg')) return;
+        c.classList.add('has-overlay');
+        var btn = document.createElement('button');
+        btn.className = 'mermaid-expand-btn';
+        btn.title = '点击放大查看';
+        btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="currentColor"/></svg>';
+        c.appendChild(btn);
+      });
+    }
+    var mo = setInterval(function() {
+      addMermaidOverlay();
+      var left = document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)');
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext:not([data-mermaid-rendered])');
+      if (!left.length && !figs.length) clearInterval(mo);
+    }, 300);
+    /* 最多跑 8 秒后自动停止 */
+    setTimeout(function() { if (mo) clearInterval(mo); }, 8000);
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var MERMAID_FONT = '"JetBrains Mono","SF Mono",Menlo,Consolas,"Sarasa Mono SC","Noto Sans Mono CJK SC",monospace';
+
+    /* 与博客主题配色统一的 Mermaid 配置（深色/浅色两套） */
+    function getMermaidConfig(isDark) {
+      var palette = isDark ? {
+        nodeBg: '#182233',
+        nodeBorder: '#3a5a7a',
+        nodeText: '#c7d3e2',
+        line: '#4d7a9a',
+        clusterBg: 'rgba(19,26,37,0.55)',
+        clusterBorder: '#2a3a4f',
+        labelBg: '#131a25',
+        noteBg: '#1a2436',
+        hoverGlow: 'rgba(0,255,156,0.35)',
+        hoverStroke: '#00ff9c'
+      } : {
+        nodeBg: '#ffffff',
+        nodeBorder: '#b8b29c',
+        nodeText: '#33383f',
+        line: '#8a8571',
+        clusterBg: 'rgba(236,234,223,0.6)',
+        clusterBorder: '#c4bfa8',
+        labelBg: '#faf8f1',
+        noteBg: '#f5f3e8',
+        hoverGlow: 'rgba(10,125,74,0.22)',
+        hoverStroke: '#0a7d4a'
+      };
+
+      var themeCSS = [
+        '.flowchart .node rect, .flowchart .node circle, .flowchart .node ellipse, .flowchart .node polygon { stroke-width: 1.4px; }',
+        '.flowchart .node rect { rx: 6px; ry: 6px; }',
+        '.edgePaths path, .flowchart .edgePath path { stroke-width: 1.6px; }',
+        '.edgeLabel { background-color: ' + palette.labelBg + '; border-radius: 4px; padding: 2px 6px; }',
+        '.edgeLabel rect { fill: ' + palette.labelBg + ' !important; rx: 4px; ry: 4px; }',
+        '.edgeLabel p { background-color: ' + palette.labelBg + ' !important; }',
+        '.cluster rect { rx: 8px; ry: 8px; stroke-dasharray: 5 4; }',
+        '.flowchart .node { transition: filter .18s; }',
+        '.flowchart .node:hover rect, .flowchart .node:hover circle, .flowchart .node:hover ellipse, .flowchart .node:hover polygon { stroke: ' + palette.hoverStroke + '; filter: drop-shadow(0 0 6px ' + palette.hoverGlow + '); }'
+      ].join('\n');
+
+      return {
+        startOnLoad: false,
+        theme: 'base',
+        securityLevel: 'loose',
+        fontFamily: MERMAID_FONT,
+        themeVariables: {
+          fontFamily: MERMAID_FONT,
+          fontSize: '14px',
+          primaryColor: palette.nodeBg,
+          primaryTextColor: palette.nodeText,
+          primaryBorderColor: palette.nodeBorder,
+          lineColor: palette.line,
+          textColor: palette.nodeText,
+          mainBkg: palette.nodeBg,
+          nodeBorder: palette.nodeBorder,
+          secondaryColor: isDark ? '#131a25' : '#eceadf',
+          tertiaryColor: isDark ? '#0d1219' : '#f2f0e8',
+          clusterBkg: palette.clusterBg,
+          clusterBorder: palette.clusterBorder,
+          edgeLabelBackground: palette.labelBg,
+          noteBkgColor: palette.noteBg,
+          noteTextColor: palette.nodeText,
+          noteBorderColor: palette.nodeBorder,
+          actorBorder: palette.nodeBorder,
+          actorBkg: palette.nodeBg,
+          actorTextColor: palette.nodeText,
+          signalColor: palette.nodeText,
+          signalTextColor: palette.nodeText,
+          labelTextColor: palette.nodeText
+        },
+        themeCSS: themeCSS,
+        flowchart: {
+          curve: 'basis',
+          htmlLabels: true,
+          padding: 10,
+          nodeSpacing: 45,
+          rankSpacing: 55,
+          useMaxWidth: true
+        }
+      };
+    }
+
+    var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    mermaid.initialize(getMermaidConfig(isDark));
+
+    /* 匹配 mermaid 图表的关键词（首行判断） */
+    var MERMAID_RE = /^(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram|gantt|pie|erDiagram|journey|gitgraph|mindmap|timeline|zenuml|sankey|xychart|block|packet)/i;
+
+    /**
+     * Hexo 默认高亮插件将 markdown 代码块渲染为：
+     *   <figure class="highlight plaintext">
+     *     <table><tr><td class="code"><pre><span class="line">...</span>...</pre></td></tr></table>
+     * 因此无法通过 code.language-mermaid 选择器定位。
+     * 改为：匹配所有 figure.highlight.plaintext，提取其文本内容并检查首行是否为 mermaid 关键字。
+     */
+    function findMermaidBlocks() {
+      var blocks = [];
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext');
+      for (var i = 0; i < figs.length; i++) {
+        var fig = figs[i];
+        if (fig.dataset.mermaidRendered) continue;
+
+        var lines = fig.querySelectorAll('.line');
+        if (!lines.length) continue;
+
+        var code = '';
+        for (var j = 0; j < lines.length; j++) {
+          code += lines[j].textContent + '\n';
+        }
+        code = code.trim();
+
+        /* 只处理首行为 mermaid 关键词的块 */
+        var firstLine = code.split('\n')[0].trim();
+        if (!MERMAID_RE.test(firstLine)) continue;
+
+        blocks.push({ fig: fig, code: code });
+      }
+      return blocks;
+    }
+
+    async function renderMermaid() {
+      var blocks = findMermaidBlocks();
+      for (var i = 0; i < blocks.length; i++) {
+        var fig = blocks[i].fig;
+        var origCode = blocks[i].code;
+        fig.dataset.mermaidRendered = '1';
+
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        fig.parentNode.replaceChild(container, fig);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+          mermaid.initialize(getMermaidConfig(isDark));
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <script>
+  /* Matrix 字符雨背景：全屏 canvas 垫底，跟随主题色，空闲/隐藏时暂停 */
+  (function() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var cv = document.createElement('canvas');
+    cv.id = 'matrix-bg';
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;';
+    cv.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var fontSize = 16, cols, drops;
+    var CHARS = '0123456789abcdef{}[]()<>/\\$#*+=;:constfnlet=>';
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(innerWidth / fontSize);
+      drops = [];
+      for (var i = 0; i < cols; i++) drops[i] = Math.random() * -60;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function themeColors() {
+      var s = getComputedStyle(document.documentElement);
+      var green = s.getPropertyValue('--green').trim() || '#00ff9c';
+      var bg = s.getPropertyValue('--bg').trim() || '#0a0e14';
+      return { green: green, bg: bg };
+    }
+    var colors = themeColors();
+    /* 主题切换时更新颜色 */
+    var toggle = document.getElementById('dark-toggle');
+    if (toggle) toggle.addEventListener('click', function() {
+      setTimeout(function() { colors = themeColors(); }, 50);
+    });
+
+    function hexToRgb(hex) {
+      var m = hex.replace('#', '');
+      if (m.length === 3) m = m[0]+m[0]+m[1]+m[1]+m[2]+m[2];
+      var n = parseInt(m, 16);
+      return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+    }
+
+    var running = true, last = 0;
+    function tick(ts) {
+      if (!running) return;
+      /* 限流 ~20fps，字符雨不需要高帧率 */
+      if (ts - last < 50) { requestAnimationFrame(tick); return; }
+      last = ts;
+
+      var rgb = hexToRgb(colors.bg);
+      ctx.fillStyle = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.09)';
+      ctx.fillRect(0, 0, innerWidth, innerHeight);
+      ctx.font = fontSize + 'px ' + fontFamily;
+
+      var g = hexToRgb(colors.green);
+      for (var i = 0; i < cols; i++) {
+        var ch = CHARS[Math.floor(Math.random() * CHARS.length)];
+        /* 头部亮、尾部暗：每列首字符高亮 */
+        var head = Math.random() > 0.96;
+        ctx.fillStyle = 'rgba(' + g[0] + ',' + g[1] + ',' + g[2] + ',' + (head ? 0.9 : 0.45) + ')';
+        ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+        drops[i]++;
+        if (drops[i] * fontSize > innerHeight && Math.random() > 0.975) drops[i] = 0;
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        running = false;
+      } else if (!running) {
+        running = true;
+        last = 0;
+        requestAnimationFrame(tick);
+      }
+    });
+  })();
+  </script>
+
+  <script>
+  /* 点击字符爆裂动效：终端字形 + 重力 + 淡出，颜色跟随主题主色 */
+  (function() {
+    var cv = document.createElement('canvas');
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:9999;';
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var GLYPHS = '01<>/#$*{}[];=+';
+    var parts = [];
+    var raf = null;
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function burst(x, y) {
+      var color = getComputedStyle(document.documentElement)
+        .getPropertyValue('--green').trim() || '#00ff9c';
+      for (var i = 0; i < 16; i++) {
+        var a = Math.random() * Math.PI * 2;
+        var sp = 2 + Math.random() * 5;
+        parts.push({
+          x: x, y: y,
+          vx: Math.cos(a) * sp,
+          vy: Math.sin(a) * sp - 2.5,
+          ch: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
+          life: 1,
+          size: 11 + Math.random() * 7,
+          color: color
+        });
+      }
+      if (!raf) raf = requestAnimationFrame(tick);
+    }
+
+    function tick() {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      for (var i = parts.length - 1; i >= 0; i--) {
+        var p = parts[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.22;           /* 重力 */
+        p.vx *= 0.985;
+        p.life -= 0.018;
+        if (p.life <= 0) { parts.splice(i, 1); continue; }
+        ctx.globalAlpha = Math.max(p.life, 0);
+        ctx.fillStyle = p.color;
+        ctx.font = p.size + 'px ' + fontFamily;
+        ctx.fillText(p.ch, p.x, p.y);
+      }
+      ctx.globalAlpha = 1;
+      raf = parts.length ? requestAnimationFrame(tick) : (ctx.clearRect(0, 0, innerWidth, innerHeight), null);
+    }
+
+    document.addEventListener('pointerdown', function(e) {
+      burst(e.clientX, e.clientY);
+    }, { passive: true });
+  })();
+  </script>
+
+  <!-- 访问量统计（counter-api · Vercel KV） -->
+  <script>
+  (function() {
+    /* TODO(一次性): 部署 counter-api 到 Vercel 后，把下面的地址改成实际域名 */
+    var COUNTER_API = 'https://blog-counter-api.vercel.app/api/counter';
+    if (!COUNTER_API) return;
+
+    /* 访客 ID：localStorage 持久化，用于 UV 去重 */
+    var vid = localStorage.getItem('visitor-id');
+    if (!vid) {
+      vid = 'v-' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      localStorage.setItem('visitor-id', vid);
+    }
+
+    fetch(COUNTER_API, { headers: { 'x-visitor-id': vid } })
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        if (d && d.uv != null) document.getElementById('site-uv').textContent = d.uv;
+        if (d && d.pv != null) document.getElementById('site-pv').textContent = d.pv;
+      })
+      .catch(function() { /* 统计不可用时静默，保持 '-' */ });
+  })();
+  </script>
+
+  <script>
+  /* 按 / 聚焦搜索框，Esc 取消焦点（终端式快捷键） */
+  (function() {
+    document.addEventListener('keydown', function(e) {
+      var typing = /^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName);
+      if (e.key === '/' && !typing) {
+        e.preventDefault();
+        document.getElementById('search-input').focus();
+      } else if (e.key === 'Escape' && typing) {
+        document.activeElement.blur();
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
