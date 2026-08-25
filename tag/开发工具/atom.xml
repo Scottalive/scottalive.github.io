@@ -3,65 +3,68 @@
     <id>https://scottalive.github.io</id>
     <title>沉鱼的博客 • Posts by &#34;开发工具&#34; tag</title>
     <link href="https://scottalive.github.io" />
-    <updated>2026-08-25T16:35:00.000Z</updated>
-    <category term="坏习惯" />
+    <updated>2026-08-25T17:05:00.000Z</updated>
+    <category term="原则" />
+    <category term="个人详情" />
     <category term="个人分享" />
+    <category term="坏习惯" />
     <category term="AI日报" />
     <category term="AI" />
     <category term="GitHub热门" />
     <category term="人工智能" />
     <category term="技术趋势" />
-    <category term="原则" />
-    <category term="个人详情" />
+    <category term="心理学知识" />
     <category term="GPT-5.5" />
     <category term="OpenAI" />
     <category term="Codex" />
     <category term="ClaudeCode" />
-    <category term="Gemini" />
     <category term="开发工具" />
-    <category term="开源" />
     <category term="编程笔记" />
-    <category term="编程助手" />
-    <category term="Hermes" />
+    <category term="Gemini" />
+    <category term="开源" />
+    <category term="Claude" />
     <category term="Agent" />
-    <category term="NousResearch" />
+    <category term="MCP" />
+    <category term="自动化" />
+    <category term="编程助手" />
     <category term="DeepSeek" />
     <category term="Harness" />
     <category term="插件" />
     <category term="安装教程" />
+    <category term="Hermes" />
+    <category term="v0.17" />
+    <category term="NousResearch" />
     <category term="v0.20" />
     <category term="语音交互" />
     <category term="A2A" />
     <category term="Webhook" />
-    <category term="自动化" />
     <category term="OpenSRE" />
     <category term="SRE" />
     <category term="运维" />
     <category term="故障排查" />
+    <category term="高阶" />
     <category term="进阶" />
     <category term="配置" />
     <category term="LLM" />
     <category term="RAG" />
     <category term="知识库" />
-    <category term="高阶" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
     <category term="AI运维" />
     <category term="根因分析" />
     <category term="DevOps" />
-    <category term="Kubernetes" />
-    <category term="k8s" />
-    <category term="kubeconfig" />
-    <category term="kubectl" />
-    <category term="Context" />
     <category term="SSE" />
     <category term="HTTP" />
     <category term="WorkBuddy" />
     <category term="腾讯" />
     <category term="办公自动化" />
     <category term="AI工具" />
-    <category term="v0.17" />
+    <category term="Kubernetes" />
+    <category term="k8s" />
     <category term="容器编排" />
-    <category term="Grafana" />
-    <category term="可观测性" />
+    <category term="kubeconfig" />
+    <category term="kubectl" />
+    <category term="Context" />
     <category term="Helm" />
     <category term="学习计划" />
     <category term="网络安全" />
@@ -70,9 +73,11 @@
     <category term="CSRF" />
     <category term="DDoS" />
     <category term="渗透测试" />
-    <category term="心理学知识" />
-    <category term="阿德勒心理学" />
-    <category term="自卑与超越" />
+    <category term="力扣算法题" />
+    <category term="Grafana" />
+    <category term="可观测性" />
+    <category term="算法" />
+    <category term="动态规划" />
     <category term="JavaSE" />
     <category term="Java开发面试题" />
     <category term="Spring" />
@@ -81,9 +86,246 @@
     <category term="开发注意事项" />
     <category term="微服务" />
     <category term="python" />
-    <category term="力扣算法题" />
-    <category term="算法" />
-    <category term="动态规划" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/Claude-Code-v2.1.245-%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7/</id>
+        <title>Claude Code v2.1.245 进阶使用与功能特性全解析</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/Claude-Code-v2.1.245-%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7/"/>
+        <content type="html">&lt;p&gt;&lt;img src=&#34;/images/claude-code/og-image.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2026 年 8 月 25 日&lt;/strong&gt;，Anthropic 发布 Claude Code &lt;strong&gt;v2.1.245&lt;/strong&gt;。Claude Code 的迭代速度已经是”&lt;strong&gt;几乎每日一版&lt;/strong&gt;“（8 月 17 日～25 日就发了 10 个版本），功能从”终端里的编码助手”长成了”&lt;strong&gt;跨终端、桌面、Web、手机的全栈 Agent 工作台&lt;/strong&gt;“。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;本文基于 v2.1.245 及近期更新日志，系统梳理当前版本的功能全景与进阶玩法：多智能体协作、远程控制、MCP&amp;#x2F;插件生态、沙箱安全、CI 自动化，以及一堆”别人不知道”的效率细节。如果你是老用户，重点看标 ⭐ 的新变化；新用户建议先读系列前作《Claude Code 安装与使用指南》。&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;一、版本现状与升级&#34;&gt;&lt;a href=&#34;#一、版本现状与升级&#34; class=&#34;headerlink&#34; title=&#34;一、版本现状与升级&#34;&gt;&lt;/a&gt;一、版本现状与升级&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;项目&lt;/th&gt;
+&lt;th&gt;现状&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;最新版本&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;v2.1.245&lt;/strong&gt;（2026-08-25）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;迭代节奏&lt;/td&gt;
+&lt;td&gt;约每日一版（8&amp;#x2F;17~8&amp;#x2F;25 共 10 版）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;平台&lt;/td&gt;
+&lt;td&gt;macOS &amp;#x2F; Windows &amp;#x2F; Linux（含 Alpine&amp;#x2F;musl）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;形态&lt;/td&gt;
+&lt;td&gt;CLI&amp;#x2F;TUI、桌面 App、Web&amp;#x2F;移动（cloud sessions）、VS Code &amp;#x2F; JetBrains 插件、Chrome 扩展&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;升级方式：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 已安装的终端用户&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;claude update&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# npm 全局安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;npm install -g @anthropic-ai/claude-code&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 原生安装器（macOS/Linux）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;curl -fsSL https://claude.ai/install.sh | bash&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;二、功能全景图&#34;&gt;&lt;a href=&#34;#二、功能全景图&#34; class=&#34;headerlink&#34; title=&#34;二、功能全景图&#34;&gt;&lt;/a&gt;二、功能全景图&lt;/h2&gt;&lt;p&gt;先看当前版本的能力地图，再逐个展开：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TB&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Core[核心 Agent 循环]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A1[Plan 规划模式] &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A2[Auto 自动模式 · 严重度分类器]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A3[Checkpoints 检查点]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A4[后台任务 + /goal 看护]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Multi[多智能体与跨设备]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B1[Subagents 子代理]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B2[Teammates 队友]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B3[跨会话消息 SendMessage ⭐Windows 支持]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B4[Remote Control 手机遥控]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B5[Cloud Sessions 云端会话]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Ext[扩展体系]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C1[MCP 服务器]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C2[Plugins + Marketplaces]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C3[Skills 技能]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C4[Hooks 钩子]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C5[Slash 命令 / 输出风格 / 键位]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Sec[安全与工程化]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        D1[沙箱 Sandboxing]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        D2[权限模式 Permission Modes]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        D3[CI · claude -p / GitHub Actions]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        D4[SDK · self-hosted runners · OTel]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Core --- Multi --- Ext --- Sec&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;三、核心工作流进阶&#34;&gt;&lt;a href=&#34;#三、核心工作流进阶&#34; class=&#34;headerlink&#34; title=&#34;三、核心工作流进阶&#34;&gt;&lt;/a&gt;三、核心工作流进阶&lt;/h2&gt;&lt;h3 id=&#34;3-1-Plan-模式与-Auto-模式&#34;&gt;&lt;a href=&#34;#3-1-Plan-模式与-Auto-模式&#34; class=&#34;headerlink&#34; title=&#34;3.1 Plan 模式与 Auto 模式&#34;&gt;&lt;/a&gt;3.1 Plan 模式与 Auto 模式&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Plan 模式&lt;/strong&gt;：先规划后执行，改代码前给你看方案，适合复杂重构；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Auto 模式（自动模式）&lt;/strong&gt;：让 Claude 自己判断哪些命令可以直接跑。近期更新把它做得更稳了：&lt;ul&gt;
+&lt;li&gt;分类器在 Bedrock &amp;#x2F; Vertex AI &amp;#x2F; Foundry &amp;#x2F; 关闭遥测时也使用与 Claude API 一致的默认策略，&lt;strong&gt;按严重度分级评分&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;Auto 模式下 &lt;strong&gt;Monitor 的允许规则会被暂时搁置&lt;/strong&gt;，与 Bash 命令一样走分类审查，防止绕过；&lt;/li&gt;
+&lt;li&gt;git status 检查不再被 &lt;code&gt;status.showUntrackedFiles=no&lt;/code&gt; 骗到。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-2-Checkpoints-后台任务-goal-长任务看护&#34;&gt;&lt;a href=&#34;#3-2-Checkpoints-后台任务-goal-长任务看护&#34; class=&#34;headerlink&#34; title=&#34;3.2 Checkpoints + 后台任务 + &amp;#x2F;goal 长任务看护&#34;&gt;&lt;/a&gt;3.2 Checkpoints + 后台任务 + &amp;#x2F;goal 长任务看护&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Checkpoints&lt;/strong&gt;：任务节点自动存档，随时回滚；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;后台任务&lt;/strong&gt;：长任务扔到后台，&lt;code&gt;/goal&lt;/code&gt; 让 Claude 记住目标并主动汇报；&lt;/li&gt;
+&lt;li&gt;⭐ &lt;strong&gt;&amp;#x2F;goal 的 check-in 频率更聪明了&lt;/strong&gt;：后台长任务时自动按 &lt;strong&gt;30 分钟 → 1 小时 → 每 2 小时&lt;/strong&gt;递减打扰；从 &lt;code&gt;/resume&lt;/code&gt; 选择器恢复会话时也会恢复进行中的 goal。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-3-上下文管理&#34;&gt;&lt;a href=&#34;#3-3-上下文管理&#34; class=&#34;headerlink&#34; title=&#34;3.3 上下文管理&#34;&gt;&lt;/a&gt;3.3 上下文管理&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/compact&lt;/code&gt;：压缩历史（技能参数不会被误重放）；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/recap&lt;/code&gt;：会话要点回顾（自动 recap 文本上限 400 字符，按词边界截断，不再刷屏）；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/insights&lt;/code&gt;：会话洞察；&lt;/li&gt;
+&lt;li&gt;长期交互会话的内存问题也修了：子代理工具结果离开显示窗口后即释放，&lt;strong&gt;不再无限增长&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-4-模型、推理强度与成本控制&#34;&gt;&lt;a href=&#34;#3-4-模型、推理强度与成本控制&#34; class=&#34;headerlink&#34; title=&#34;3.4 模型、推理强度与成本控制&#34;&gt;&lt;/a&gt;3.4 模型、推理强度与成本控制&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/model&lt;/code&gt;：切换模型；⭐ 新增 &lt;strong&gt;&lt;code&gt;ANTHROPIC_DEFAULT_MODEL&lt;/code&gt; 环境变量&lt;/strong&gt;——设置新会话默认模型，且 &lt;code&gt;/model&lt;/code&gt; 手动选择仍可覆盖并跨重启持久化（区别于旧的 &lt;code&gt;ANTHROPIC_MODEL&lt;/code&gt;）；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/effort&lt;/code&gt;：推理强度（思考深度）；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/cost&lt;/code&gt;、&lt;code&gt;/usage&lt;/code&gt;、&lt;code&gt;--max-budget-usd&lt;/code&gt;：成本控制；⭐ &lt;code&gt;/usage&lt;/code&gt; 现在对 Team&amp;#x2F;Enterprise 成员显示 usage-credits 花费行；费用估算已包含数据驻留工作区（data-residency）的 1.1× 美国境内推理溢价。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;四、多智能体与跨设备协作-⭐&#34;&gt;&lt;a href=&#34;#四、多智能体与跨设备协作-⭐&#34; class=&#34;headerlink&#34; title=&#34;四、多智能体与跨设备协作 ⭐&#34;&gt;&lt;/a&gt;四、多智能体与跨设备协作 ⭐&lt;/h2&gt;&lt;p&gt;这是近期更新最密集的方向，也是”进阶”感最强的部分：&lt;/p&gt;
+&lt;h3 id=&#34;4-1-子代理、队友与跨会话消息&#34;&gt;&lt;a href=&#34;#4-1-子代理、队友与跨会话消息&#34; class=&#34;headerlink&#34; title=&#34;4.1 子代理、队友与跨会话消息&#34;&gt;&lt;/a&gt;4.1 子代理、队友与跨会话消息&lt;/h3&gt;&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sequenceDiagram&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant U as 你（终端）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant M as 主会话&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant S as 子代理 Subagent&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant T as 队友 Teammate&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant O as 另一台机器的会话&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    U-&amp;gt;&amp;gt;M: 派发任务&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    M-&amp;gt;&amp;gt;S: delegate_task 委派&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    S--&amp;gt;&amp;gt;M: 结果回传&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    M-&amp;gt;&amp;gt;T: ListAgents 发现在线队友&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    T--&amp;gt;&amp;gt;M: SendMessage 跨会话通信&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    M-&amp;gt;&amp;gt;O: SendMessage 跨机器消息 ⭐Windows 也可&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    O--&amp;gt;&amp;gt;M: 回复/空闲通知&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    M--&amp;gt;&amp;gt;U: 汇总交付&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ListAgents &amp;#x2F; SendMessage&lt;/strong&gt;：现在会列出&lt;strong&gt;实时在线的队友&lt;/strong&gt;（之前只显示子代理和其他会话，队友看着像”不在线”），并且会话能知道自己的名字；&lt;/li&gt;
+&lt;li&gt;⭐ &lt;strong&gt;Windows 跨会话消息正式可用&lt;/strong&gt;：不同机器上的 Claude Code 会话可以互发消息（此前仅 macOS&amp;#x2F;Linux）；&lt;/li&gt;
+&lt;li&gt;⭐ &lt;strong&gt;&lt;code&gt;notify_when_idle&lt;/code&gt;&lt;/strong&gt;：跨会话消息的新参数——请求对方”下次空闲时通知我一次”，一次性、免轮询（macOS&amp;#x2F;Linux）；&lt;/li&gt;
+&lt;li&gt;消息投递更透明：被拒绝（&lt;code&gt;crossSessionInbound: &amp;quot;refuse&amp;quot;&lt;/code&gt;）或队列满被丢弃时，发送方会收到明确提示，不再”假装成功”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-2-Remote-Control：手机遥控终端会话&#34;&gt;&lt;a href=&#34;#4-2-Remote-Control：手机遥控终端会话&#34; class=&#34;headerlink&#34; title=&#34;4.2 Remote Control：手机遥控终端会话&#34;&gt;&lt;/a&gt;4.2 Remote Control：手机遥控终端会话&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;从手机&amp;#x2F;网页&amp;#x2F;桌面给终端里的会话发消息、看进度；&lt;/li&gt;
+&lt;li&gt;近期韧性大升级：网络边缘&amp;#x2F;VPN&amp;#x2F;代理的短暂 403 拒绝&lt;strong&gt;容忍最多 3 分钟&lt;/strong&gt;自动重连；登录过期自动续期；断线后进程崩溃的会话可复用；模型在手机上切换后终端实时同步；&lt;/li&gt;
+&lt;li&gt;会话下线状态秒级更新，&lt;code&gt;claude remote-control&lt;/code&gt; 的服务端会话也能被 ListAgents&amp;#x2F;SendMessage 找到。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-3-Cloud-Sessions-与-Claude-in-Chrome&#34;&gt;&lt;a href=&#34;#4-3-Cloud-Sessions-与-Claude-in-Chrome&#34; class=&#34;headerlink&#34; title=&#34;4.3 Cloud Sessions 与 Claude in Chrome&#34;&gt;&lt;/a&gt;4.3 Cloud Sessions 与 Claude in Chrome&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Cloud Sessions&lt;/strong&gt;：网页 &amp;#x2F; 桌面 &amp;#x2F; 移动端无缝续聊；&lt;/li&gt;
+&lt;li&gt;⭐ 云端插件同步：从 claude.ai 同步的插件显示为 &lt;code&gt;name@synced&lt;/code&gt;，支持 &lt;code&gt;claude plugin enable/disable &amp;lt;name&amp;gt;@synced&lt;/code&gt;，&lt;strong&gt;永远不会覆盖你本地安装的同名插件&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Claude in Chrome&lt;/strong&gt;：&lt;code&gt;/clear&lt;/code&gt; 会关闭该会话的 Chrome 标签组；恢复会话时清理空标签组。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;五、扩展体系详解&#34;&gt;&lt;a href=&#34;#五、扩展体系详解&#34; class=&#34;headerlink&#34; title=&#34;五、扩展体系详解&#34;&gt;&lt;/a&gt;五、扩展体系详解&lt;/h2&gt;&lt;h3 id=&#34;5-1-MCP：连接一切工具&#34;&gt;&lt;a href=&#34;#5-1-MCP：连接一切工具&#34; class=&#34;headerlink&#34; title=&#34;5.1 MCP：连接一切工具&#34;&gt;&lt;/a&gt;5.1 MCP：连接一切工具&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;支持 stdio 与 remote（远程）MCP 服务器；远程服务器瞬时 5xx 重连不再永久失败；&lt;/li&gt;
+&lt;li&gt;⭐ &lt;strong&gt;elicitation forms（引导表单）&lt;/strong&gt;：MCP 工具需要参数时弹表单，全屏模式下表单自适应终端高度，Accept&amp;#x2F;Decline 始终可见；&lt;/li&gt;
+&lt;li&gt;⭐ &lt;strong&gt;headersHelper&lt;/strong&gt;：url marketplace 或 catalog 条目可以挂一个”生成 HTTP 头”的命令（如短期 token），安装&amp;#x2F;更新该插件时执行；项目 &lt;code&gt;.mcp.json&lt;/code&gt; 中的 headersHelper 现在要求先接受该目录的信任对话框，且&lt;strong&gt;不继承凭据环境变量&lt;/strong&gt;，从 Claude 配置目录运行——更安全。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-2-Plugins-与-Marketplaces&#34;&gt;&lt;a href=&#34;#5-2-Plugins-与-Marketplaces&#34; class=&#34;headerlink&#34; title=&#34;5.2 Plugins 与 Marketplaces&#34;&gt;&lt;/a&gt;5.2 Plugins 与 Marketplaces&lt;/h3&gt;&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;claude plugin install &amp;lt;marketplace&amp;gt;/&amp;lt;plugin&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;claude plugin &lt;span class=&#34;built_in&#34;&gt;enable&lt;/span&gt; &amp;lt;name&amp;gt;@synced&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;claude plugin update&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;claude mcp list        &lt;span class=&#34;comment&#34;&gt;# 现在禁用中的服务器显示为 ⊘ Disabled，不再连过去做健康检查&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;5-3-Skills-与-Hooks&#34;&gt;&lt;a href=&#34;#5-3-Skills-与-Hooks&#34; class=&#34;headerlink&#34; title=&#34;5.3 Skills 与 Hooks&#34;&gt;&lt;/a&gt;5.3 Skills 与 Hooks&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Skills&lt;/strong&gt;：技能热加载（SDK&amp;#x2F;VS Code 会话中修改技能不再报错）；修复了 UTF-8 BOM 开头导致技能&amp;#x2F;代理&amp;#x2F;命令被静默忽略的问题；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hooks&lt;/strong&gt;：&lt;code&gt;PreToolUse&lt;/code&gt; 等钩子贯穿会话生命周期；⭐ OpenTelemetry 追踪修复——被 PreToolUse 钩子延迟执行的工具调用会&lt;strong&gt;回到原回合的 trace&lt;/strong&gt;，不再另起一条造成碎片化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-4-输出风格与键位：把-CLI-调成你的形状&#34;&gt;&lt;a href=&#34;#5-4-输出风格与键位：把-CLI-调成你的形状&#34; class=&#34;headerlink&#34; title=&#34;5.4 输出风格与键位：把 CLI 调成你的形状&#34;&gt;&lt;/a&gt;5.4 输出风格与键位：把 CLI 调成你的形状&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;⭐ &lt;strong&gt;内置 “Concise” 输出风格&lt;/strong&gt;：直接给结果，砍掉铺垫与叙述，活照干——&lt;code&gt;/config&lt;/code&gt; → Output style 里选；&lt;/li&gt;
+&lt;li&gt;⭐ &lt;strong&gt;&lt;code&gt;keybindingFlavor: &amp;quot;readline&amp;quot;&lt;/code&gt;&lt;/strong&gt;：让 &lt;code&gt;Ctrl+W&lt;/code&gt; 像 Bash 一样删到上一个空白；Alt+F &amp;#x2F; Ctrl+→ 跳到词尾、Alt+D 删词、Ctrl+Y 粘贴回来（默认 classic 不变）；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;vim 模式&lt;/strong&gt;：agent 视图下 Esc 正常进入 NORMAL 模式且不清空已输入内容；&lt;/li&gt;
+&lt;li&gt;自定义输出风格&amp;#x2F;项目&amp;#x2F;插件中途”漂回默认腔调”的问题已修复。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-5-其他命令细节&#34;&gt;&lt;a href=&#34;#5-5-其他命令细节&#34; class=&#34;headerlink&#34; title=&#34;5.5 其他命令细节&#34;&gt;&lt;/a&gt;5.5 其他命令细节&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;输入斜杠命令拼错时直接报错而不是”模糊匹配跑偏”；前缀和别名仍可用；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/config&lt;/code&gt;、&lt;code&gt;/model&lt;/code&gt; 面板在全屏模式下不再遮挡最新消息（对话保持钉在面板上方）；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/workflows&lt;/code&gt; 详情对话框超高时不再溢出丢表头。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;六、安全与沙箱&#34;&gt;&lt;a href=&#34;#六、安全与沙箱&#34; class=&#34;headerlink&#34; title=&#34;六、安全与沙箱&#34;&gt;&lt;/a&gt;六、安全与沙箱&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;沙箱&lt;/strong&gt;：Linux 下沙箱内 git 命令兼容 &lt;code&gt;extensions.worktreeConfig&lt;/code&gt;；⭐ macOS 上通配符读拒绝规则（如 &lt;code&gt;**/.env&lt;/code&gt;）&lt;strong&gt;在允许读区域内优先&lt;/strong&gt;，覆盖被匹配目录的全部内容，且不能通过重命名文件绕过；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;权限模式&lt;/strong&gt;：default &amp;#x2F; acceptEdits &amp;#x2F; plan &amp;#x2F; bypassPermissions &amp;#x2F; auto 五档；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;审批体验&lt;/strong&gt;：权限弹窗的 diff 中 emoji&amp;#x2F;制表符等宽字符不再被裁切；MCP 权限弹窗带”不再询问”选项；&lt;/li&gt;
+&lt;li&gt;掩码（密码式）输入框的内容不会被 Ctrl+Y 粘贴走或写入 prompt 历史——登录码这类敏感输入更安全。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;七、工程化：CI-与自动化&#34;&gt;&lt;a href=&#34;#七、工程化：CI-与自动化&#34; class=&#34;headerlink&#34; title=&#34;七、工程化：CI 与自动化&#34;&gt;&lt;/a&gt;七、工程化：CI 与自动化&lt;/h2&gt;&lt;p&gt;Claude Code 不只是交互工具，也是自动化引擎：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[CI 触发] --&amp;gt; B[claude -p 无头模式]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[GitHub Actions / 定时任务]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[代码生成/审查/Bug 修复]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[提交 PR / 通知]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F[self-hosted runners] --&amp;gt; G[私有环境执行]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H[SDK · TS/Python] --&amp;gt; I[应用内嵌 Agent]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;claude -p&lt;/code&gt;（print 模式）&lt;/strong&gt;：无头执行，适合 CI；SIGTERM 退出码 143，不再记录被打断的回合；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub Actions&lt;/strong&gt;：官方 action 一键接入；&lt;/li&gt;
+&lt;li&gt;⭐ &lt;strong&gt;&lt;code&gt;/claude-api upgrade&lt;/code&gt;&lt;/strong&gt;：把 Python 项目从 &lt;code&gt;anthropic&lt;/code&gt; 0.x 迁移到 &lt;strong&gt;1.x&lt;/strong&gt; 的一键命令（1.x 超时用 &lt;code&gt;anthropic.Timeout&lt;/code&gt; 而非 &lt;code&gt;httpx.Timeout&lt;/code&gt;）；&lt;/li&gt;
+&lt;li&gt;⭐ &lt;strong&gt;self-hosted runners&lt;/strong&gt;：&lt;code&gt;--defer-shutdown-max-min &amp;lt;minutes&amp;gt;&lt;/code&gt; 让 runner 收到 SIGTERM 后先服务完附着会话再退出；&lt;code&gt;--proxy-authorization-command/file&lt;/code&gt; 支持每次连接都要新签发 &lt;code&gt;Proxy-Authorization&lt;/code&gt; 头的出口代理；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;CLAUDE_CODE_RETRY_WATCHDOG&lt;/code&gt;&lt;/strong&gt;：持久重试模式，遇到组织消费上限&amp;#x2F;额度耗尽错误&lt;strong&gt;立即失败&lt;/strong&gt;而不是无限等待重置；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OpenTelemetry&lt;/strong&gt;：完整可观测，配合 hooks 追踪工具执行。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;八、高频命令速查表&#34;&gt;&lt;a href=&#34;#八、高频命令速查表&#34; class=&#34;headerlink&#34; title=&#34;八、高频命令速查表&#34;&gt;&lt;/a&gt;八、高频命令速查表&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;th&gt;用途&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/model&lt;/code&gt; &amp;#x2F; &lt;code&gt;/effort&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;切换模型 &amp;#x2F; 推理强度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/plan&lt;/code&gt; &lt;code&gt;/auto&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;规划模式 &amp;#x2F; 自动模式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/goal&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;设定目标并看护长任务（自动 check-in）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/checkpoints&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;检查点管理、回滚&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/compact&lt;/code&gt; &lt;code&gt;/recap&lt;/code&gt; &lt;code&gt;/insights&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;上下文压缩 &amp;#x2F; 回顾 &amp;#x2F; 洞察&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/config&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;打开设置（输出风格、键位等）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/agents&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;子代理管理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/mcp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;MCP 服务器管理（list&amp;#x2F;get&amp;#x2F;add）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/plugin&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;插件市场与插件管理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/cost&lt;/code&gt; &lt;code&gt;/usage&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;成本与用量&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/resume&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;恢复会话（支持跨目录、全项目模式）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/init&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;生成&amp;#x2F;更新 CLAUDE.md 项目指引&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/workflows&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;工作流管理&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/claude-api upgrade&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;anthropic SDK 0.x → 1.x 迁移&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/doctor&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;环境自检&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;!&lt;/code&gt; shell 模式&lt;/td&gt;
+&lt;td&gt;不耗模型回合直接跑命令&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;九、值得知道的效率细节（近期更新精选）&#34;&gt;&lt;a href=&#34;#九、值得知道的效率细节（近期更新精选）&#34; class=&#34;headerlink&#34; title=&#34;九、值得知道的效率细节（近期更新精选）&#34;&gt;&lt;/a&gt;九、值得知道的效率细节（近期更新精选）&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;⭐ &lt;strong&gt;fullscreen 渲染器&lt;/strong&gt;：Bedrock &amp;#x2F; Vertex &amp;#x2F; Foundry 等此前排除的平台也支持了，新安装默认全屏；渲染器启动失败会自动回退经典渲染器；&lt;/li&gt;
+&lt;li&gt;自动更新检查延迟到启动后 10 秒，不再抢启动 CPU；&lt;/li&gt;
+&lt;li&gt;终端标题只在变化时写入（tmux 不再 960ms 抖动一次）；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/resume&lt;/code&gt; 不会再因为路径里 &lt;code&gt;_&lt;/code&gt;&amp;#x2F;&lt;code&gt;-&lt;/code&gt;&amp;#x2F;&lt;code&gt;.&lt;/code&gt; 的差异跨目录串会话；已删除目录（如移除的 worktree）中的会话自动在当前目录恢复；&lt;/li&gt;
+&lt;li&gt;工具调用行的长路径&lt;strong&gt;中间截断&lt;/strong&gt;保持单行；&lt;/li&gt;
+&lt;li&gt;移动端上传的图片会带上保存路径，Claude 可直接拷进它创建的文件；&lt;/li&gt;
+&lt;li&gt;Web 端 Bash 等工具对非 API 域名的请求走会话网络代理，遵守你环境的域名白名单；&lt;/li&gt;
+&lt;li&gt;WebFetch 过期内容不再驻留内存一整个会话（改为 15 分钟）；&lt;/li&gt;
+&lt;li&gt;修复了 JetBrains 终端里 Edit&amp;#x2F;Write 卡 5 秒的问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;十、总结&#34;&gt;&lt;a href=&#34;#十、总结&#34; class=&#34;headerlink&#34; title=&#34;十、总结&#34;&gt;&lt;/a&gt;十、总结&lt;/h2&gt;&lt;p&gt;v2.1.245 的 Claude Code 已经远远超出”终端编程助手”的范畴：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;能力&lt;/strong&gt;：规划&amp;#x2F;自动双模式 + 检查点 + 后台任务 + goal 看护；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;协作&lt;/strong&gt;：子代理、队友、跨机器跨会话消息（Windows 补齐）、手机远程控制、云端会话——一套多智能体网络；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;扩展&lt;/strong&gt;：MCP 生态、插件市场、Skills、Hooks、可定制的输出风格与键位；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可信&lt;/strong&gt;：沙箱、五档权限、auto 分类器、费用上限、OpenTelemetry；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工程化&lt;/strong&gt;：&lt;code&gt;claude -p&lt;/code&gt; + GitHub Actions + SDK 1.x + self-hosted runners，直接嵌入你的 CI。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对个人开发者，最值得立刻试的三个新东西：&lt;strong&gt;&lt;code&gt;/goal&lt;/code&gt; 看护长任务、Concise 输出风格、readline 键位&lt;/strong&gt;。对团队，&lt;strong&gt;跨会话消息 + Remote Control + self-hosted runners&lt;/strong&gt; 值得立即评估。&lt;/p&gt;
+&lt;h3 id=&#34;相关资源&#34;&gt;&lt;a href=&#34;#相关资源&#34; class=&#34;headerlink&#34; title=&#34;相关资源&#34;&gt;&lt;/a&gt;相关资源&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;GitHub Releases：&lt;a href=&#34;https://github.com/anthropics/claude-code/releases&#34;&gt;https://github.com/anthropics/claude-code/releases&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;官方文档：&lt;a href=&#34;https://docs.anthropic.com/en/docs/claude-code/overview&#34;&gt;https://docs.anthropic.com/en/docs/claude-code/overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Claude Code 官网：&lt;a href=&#34;https://claude.com/claude-code&#34;&gt;https://claude.com/claude-code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="AI" />
+        <category term="ClaudeCode" />
+        <category term="开发工具" />
+        <category term="Claude" />
+        <category term="Agent" />
+        <category term="MCP" />
+        <category term="自动化" />
+        <updated>2026-08-25T17:05:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://scottalive.github.io/computer-science/ai-tools/DeepSeek-Harness-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</id>
         <title>DeepSeek Harness 安装与使用指南 —— 一切皆插件的开源 Agent 框架</title>
@@ -515,13 +757,13 @@
 </content>
         <category term="AI" />
         <category term="开发工具" />
-        <category term="Hermes" />
         <category term="Agent" />
+        <category term="自动化" />
+        <category term="Hermes" />
         <category term="v0.20" />
         <category term="语音交互" />
         <category term="A2A" />
         <category term="Webhook" />
-        <category term="自动化" />
         <updated>2026-08-25T15:40:00.000Z</updated>
     </entry>
     <entry>
@@ -722,9 +964,9 @@
 </content>
         <category term="AI" />
         <category term="开发工具" />
-        <category term="Hermes" />
         <category term="Agent" />
         <category term="自动化" />
+        <category term="Hermes" />
         <category term="v0.17" />
         <updated>2026-06-21T12:14:00.000Z</updated>
     </entry>
@@ -1110,9 +1352,9 @@
 </content>
         <category term="AI" />
         <category term="开发工具" />
-        <category term="Hermes" />
         <category term="Agent" />
         <category term="自动化" />
+        <category term="Hermes" />
         <category term="高阶" />
         <updated>2026-05-08T14:39:00.000Z</updated>
     </entry>
@@ -1643,8 +1885,8 @@
         <category term="AI" />
         <category term="开发工具" />
         <category term="开源" />
-        <category term="Hermes" />
         <category term="Agent" />
+        <category term="Hermes" />
         <category term="NousResearch" />
         <updated>2026-05-05T15:20:00.000Z</updated>
     </entry>
@@ -2675,8 +2917,8 @@
         <category term="AI" />
         <category term="Codex" />
         <category term="ClaudeCode" />
-        <category term="Gemini" />
         <category term="开发工具" />
+        <category term="Gemini" />
         <category term="开源" />
         <updated>2026-04-30T15:30:00.000Z</updated>
     </entry>
