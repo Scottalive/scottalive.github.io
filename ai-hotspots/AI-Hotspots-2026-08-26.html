@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230a0e14'/%3E%3Ctext x='18' y='68' font-size='52' fill='%2300ff9c' font-family='monospace'%3E%26gt;_%3C/text%3E%3C/svg%3E">
-  <title>Hermes Agent 安装与使用指南 —— Nous Research 自进化 AI 代理 | 沉鱼的博客</title>
+  <title>AI 热点综述 - 2026-08-26 | 沉鱼的博客</title>
   
-  <meta name="description" content="编程笔记 &amp; 资料分享">
-  <meta property="og:type" content="article">
+  <meta name="description" content="AI 行业热点综述 — 2026-08-26">
+  <meta property="og:type" content="website">
   <meta property="og:site_name" content="沉鱼的博客">
-  <meta property="og:title" content="Hermes Agent 安装与使用指南 —— Nous Research 自进化 AI 代理 | 沉鱼的博客">
-  <meta property="og:description" content="编程笔记 &amp; 资料分享">
-  <meta property="og:url" content="https://scottalive.github.io/computer-science/ai-tools/Hermes-Agent-安装与使用指南/">
+  <meta property="og:title" content="AI 热点综述 - 2026-08-26 | 沉鱼的博客">
+  <meta property="og:description" content="AI 行业热点综述 — 2026-08-26">
+  <meta property="og:url" content="https://scottalive.github.io/ai-hotspots/AI-Hotspots-2026-08-26.html">
   <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Hermes Agent 安装与使用指南 —— Nous Research 自进化 AI 代理 | 沉鱼的博客">
-  <meta name="twitter:description" content="编程笔记 &amp; 资料分享">
+  <meta name="twitter:title" content="AI 热点综述 - 2026-08-26 | 沉鱼的博客">
+  <meta name="twitter:description" content="AI 行业热点综述 — 2026-08-26">
   <meta name="twitter:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
   <link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="/atom.xml">
   <link rel="stylesheet" href="/css/style.css?v=202607190200">
@@ -54,660 +54,99 @@
 
   <main class="site-main">
     <div class="container">
-      <!-- 文章详情页 -->
-
-
-
+      <!-- AI 行业热点 - 文章详情页 -->
 <article class="post-full">
   <header class="post-header">
     <div class="post-path">
-      <a href="/">~</a>/<a href="/archives">posts</a>/<span class="pd">computer-science/ai-tools/Hermes-Agent-安装与使用指南.md</span>
+      <a href="/">~</a>/<a href="/ai-hotspots">ai-hotspots</a>/<span class="pd">2026-08-26.md</span>
     </div>
-    <h1 class="post-title">Hermes Agent 安装与使用指南 —— Nous Research 自进化 AI 代理</h1>
+    <h1 class="post-title">AI 热点综述 - 2026-08-26</h1>
     <div class="post-meta">
-      <span>2026-05-05 23:20</span>
-      <span>2156 字 · 约 7 分钟</span>
-      
-        
-        <a class="bkt" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-        
-        <a class="bkt" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
-        
-      
-      
-        
-        <a class="bkt cyan" href="/tags/AI/">#AI</a>
-        
-        <a class="bkt cyan" href="/tags/Agent/">#Agent</a>
-        
-        <a class="bkt cyan" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">#开发工具</a>
-        
-        <a class="bkt cyan" href="/tags/%E5%BC%80%E6%BA%90/">#开源</a>
-        
-        <a class="bkt cyan" href="/tags/Hermes/">#Hermes</a>
-        
-        <a class="bkt cyan" href="/tags/NousResearch/">#NousResearch</a>
-        
-      
+      <span>2026-08-26 23:05</span>
+      <span class="bkt cyan">AI热点</span>
     </div>
   </header>
 
-  
-  <details class="toc-wrap" open>
-    <summary class="toc-title">目录</summary>
-    <nav class="toc">
-      
-      <a class="toc-level-2" href="#什么是-hermes-agent">什么是 Hermes Agent？</a>
-      
-      <a class="toc-level-3" href="#核心特性一览">核心特性一览</a>
-      
-      <a class="toc-level-2" href="#安装指南">安装指南</a>
-      
-      <a class="toc-level-3" href="#快速安装推荐">快速安装（推荐）</a>
-      
-      <a class="toc-level-3" href="#windows-用户">Windows 用户</a>
-      
-      <a class="toc-level-3" href="#android-x2f-termux">Android &amp;#x2F; Termux</a>
-      
-      <a class="toc-level-2" href="#配置模型提供商">配置模型提供商</a>
-      
-      <a class="toc-level-3" href="#配置架构">配置架构</a>
-      
-      <a class="toc-level-2" href="#cli-使用">CLI 使用</a>
-      
-      <a class="toc-level-3" href="#启动方式">启动方式</a>
-      
-      <a class="toc-level-3" href="#状态栏">状态栏</a>
-      
-      <a class="toc-level-3" href="#常用斜杠命令">常用斜杠命令</a>
-      
-      <a class="toc-level-3" href="#快捷键">快捷键</a>
-      
-      <a class="toc-level-2" href="#消息网关连接多平台">消息网关：连接多平台</a>
-      
-      <a class="toc-level-3" href="#支持平台">支持平台</a>
-      
-      <a class="toc-level-2" href="#skills-技能系统">Skills 技能系统</a>
-      
-      <a class="toc-level-2" href="#记忆系统">记忆系统</a>
-      
-      <a class="toc-level-2" href="#终端后端">终端后端</a>
-      
-      <a class="toc-level-2" href="#定时任务cron">定时任务（Cron）</a>
-      
-      <a class="toc-level-2" href="#从-openclaw-迁移">从 OpenClaw 迁移</a>
-      
-      <a class="toc-level-2" href="#安全机制">安全机制</a>
-      
-      <a class="toc-level-2" href="#快速故障排查">快速故障排查</a>
-      
-      <a class="toc-level-2" href="#总结">总结</a>
-      
-      <a class="toc-level-3" href="#更多资源">更多资源</a>
-      
-    </nav>
-  </details>
-  
-
   <div class="post-content">
-    <h2 id="什么是-hermes-agent"><a href="#什么是-Hermes-Agent？" class="headerlink" title="什么是 Hermes Agent？"></a>什么是 Hermes Agent？</h2><p>Hermes Agent 是由 <strong>Nous Research</strong> 开发的一款<strong>自进化 AI 代理</strong>。它不只是一个对话机器人——它内置了完整的<strong>学习循环</strong>：从经验中创建技能、在使用中自我改进、主动持久化知识、搜索自己的过往对话，并在一次次会话中建立越来越深刻的用户画像。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A[用户输入] --&gt; B[Hermes Agent 循环]</span><br><span class="line">    B --&gt; C&#123;是否需要新技能?&#125;</span><br><span class="line">    C --&gt;|是| D[自主创建技能]</span><br><span class="line">    C --&gt;|否| E[执行任务]</span><br><span class="line">    D --&gt; E</span><br><span class="line">    E --&gt; F[经验总结]</span><br><span class="line">    F --&gt; G[知识持久化]</span><br><span class="line">    G --&gt; H[记忆 &amp; 用户画像]</span><br><span class="line">    H --&gt; B</span><br><span class="line">    </span><br><span class="line">    style B fill:#7C3AED,color:#fff</span><br><span class="line">    style D fill:#F59E0B,color:#000</span><br><span class="line">    style G fill:#10B981,color:#fff</span><br></pre></td></tr></table></figure>
-
-<h3 id="核心特性一览"><a href="#核心特性一览" class="headerlink" title="核心特性一览"></a>核心特性一览</h3><table>
-<thead>
-<tr>
-<th>特性</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>🧠 <strong>自我进化</strong></td>
-<td>自主创建技能，在使用中自改进，建立长期记忆</td>
-</tr>
-<tr>
-<td>🔧 <strong>模型中立</strong></td>
-<td>支持 30+ 模型提供商，随时切换，零锁定</td>
-</tr>
-<tr>
-<td>🌐 <strong>多平台连接</strong></td>
-<td>Telegram &#x2F; Discord &#x2F; Slack &#x2F; WhatsApp &#x2F; Signal &#x2F; 钉钉 &#x2F; 飞书 &#x2F; 微信 &#x2F; QQ 等</td>
-</tr>
-<tr>
-<td>🖥️ <strong>终端 TUI</strong></td>
-<td>完整终端界面，多行编辑，斜杠命令自动补全</td>
-</tr>
-<tr>
-<td>⏰ <strong>定时任务</strong></td>
-<td>内置 Cron 调度器，支持自然语言设定</td>
-</tr>
-<tr>
-<td>🚚 <strong>子代理并行</strong></td>
-<td>派生孤立子代理并行工作，管线化复杂任务</td>
-</tr>
-<tr>
-<td>🏠 <strong>6 种终端后端</strong></td>
-<td>本地 &#x2F; Docker &#x2F; SSH &#x2F; Daytona &#x2F; Singularity &#x2F; Modal，服务器优雅托管</td>
-</tr>
-<tr>
-<td>📦 <strong>Skills 生态</strong></td>
-<td>兼容 agentskills.io 开放标准，支持 MCP 协议</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="安装指南"><a href="#安装指南" class="headerlink" title="安装指南"></a>安装指南</h2><h3 id="快速安装推荐"><a href="#快速安装（推荐）" class="headerlink" title="快速安装（推荐）"></a>快速安装（推荐）</h3><p>Hermes Agent 支持 <strong>Linux、macOS、WSL2</strong>，一行命令搞定：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash</span><br></pre></td></tr></table></figure>
-
-<p>安装完成后，刷新 shell 配置并启动：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc   <span class="comment"># 或 source ~/.zshrc</span></span><br><span class="line">hermes              <span class="comment"># 开始聊天！</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="windows-用户"><a href="#Windows-用户" class="headerlink" title="Windows 用户"></a>Windows 用户</h3><p>Windows 原生不支持，请先安装 <strong>WSL2</strong>：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># PowerShell（管理员）</span></span><br><span class="line">wsl <span class="literal">--install</span> <span class="literal">-d</span> Ubuntu</span><br></pre></td></tr></table></figure>
-
-<p>然后在 WSL2 终端中执行安装命令。</p>
-<h3 id="android-x2f-termux"><a href="#Android-Termux" class="headerlink" title="Android &#x2F; Termux"></a>Android &#x2F; Termux</h3><p>手机安装的详细手动步骤见 <a target="_blank" rel="noopener" href="https://hermes-agent.nousresearch.com/docs/getting-started/termux">Termux 指南</a>。</p>
-<hr>
-<h2 id="配置模型提供商"><a href="#配置模型提供商" class="headerlink" title="配置模型提供商"></a>配置模型提供商</h2><p>安装后最重要的一步：<strong>选择 LLM 提供商</strong>。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hermes model    <span class="comment"># 交互式配置向导</span></span><br></pre></td></tr></table></figure>
-
-<p>支持 30+ 提供商，常见选择：</p>
-<table>
-<thead>
-<tr>
-<th>提供商</th>
-<th>接入方式</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>Nous Portal</strong></td>
-<td>OAuth 登录</td>
-<td>零配置订阅</td>
-</tr>
-<tr>
-<td><strong>OpenAI Codex</strong></td>
-<td>设备码认证</td>
-<td>ChatGPT OAuth</td>
-</tr>
-<tr>
-<td><strong>Anthropic Claude</strong></td>
-<td>OAuth 或 API Key</td>
-<td>Max 计划 + 额外用量</td>
-</tr>
-<tr>
-<td><strong>OpenRouter</strong></td>
-<td>API Key</td>
-<td>200+ 模型自由路由</td>
-</tr>
-<tr>
-<td><strong>DeepSeek</strong></td>
-<td>API Key</td>
-<td>直接接入</td>
-</tr>
-<tr>
-<td><strong>阿里云 DashScope</strong></td>
-<td>API Key</td>
-<td>Qwen 系列模型</td>
-</tr>
-<tr>
-<td><strong>Z.AI &#x2F; GLM</strong></td>
-<td>API Key</td>
-<td>智谱模型</td>
-</tr>
-<tr>
-<td><strong>Kimi &#x2F; Moonshot</strong></td>
-<td>API Key</td>
-<td>月之暗面模型</td>
-</tr>
-<tr>
-<td><strong>MiniMax</strong></td>
-<td>OAuth &#x2F; API Key</td>
-<td>MiniMax-M2.7</td>
-</tr>
-<tr>
-<td><strong>自定义端点</strong></td>
-<td>Base URL + Key</td>
-<td>VLLM &#x2F; Ollama &#x2F; SGLang 等</td>
-</tr>
-</tbody></table>
+    <h2 id="sam-altman我们做了颗芯片它很快openai-自研芯片正式亮相"><a href="#🧠-Sam-Altman：”我们做了颗芯片，它很快”——OpenAI-自研芯片正式亮相" class="headerlink" title="🧠 Sam Altman：”我们做了颗芯片，它很快”——OpenAI 自研芯片正式亮相"></a>🧠 Sam Altman：”我们做了颗芯片，它很快”——OpenAI 自研芯片正式亮相</h2><p>今天最大的新闻来自 <strong>Sam Altman</strong> 本人。一条只有 6 个词的推文引爆全场（<strong>32803 ❤️ &#x2F; 1347 🔄</strong>，今日互动量断层第一）：</p>
 <blockquote>
-<p>⚠️ <strong>最低要求：64K 上下文窗口</strong>。Hermes 需要至少 64K tokens 的工作记忆。</p>
+<p><strong>“we made a chip and it is fast”（我们做了一颗芯片，它很快）</strong></p>
 </blockquote>
-<h3 id="配置架构"><a href="#配置架构" class="headerlink" title="配置架构"></a>配置架构</h3><ul>
-<li><strong>密钥&#x2F;Token</strong> → <code>~/.hermes/.env</code></li>
-<li><strong>非敏感设置</strong> → <code>~/.hermes/config.yaml</code></li>
-</ul>
-<p>通过 CLI 设置自动分流：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hermes config <span class="built_in">set</span> model anthropic/claude-sonnet-4</span><br><span class="line">hermes config <span class="built_in">set</span> terminal.backend docker</span><br><span class="line">hermes config <span class="built_in">set</span> OPENROUTER_API_KEY sk-or-xxx</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="cli-使用"><a href="#CLI-使用" class="headerlink" title="CLI 使用"></a>CLI 使用</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    A[hermes 启动] --&gt; B&#123;选择界面&#125;</span><br><span class="line">    B --&gt; C[hermes 经典 CLI]</span><br><span class="line">    B --&gt; D[hermes --tui 现代 TUI]</span><br><span class="line">    C --&gt; E[交互对话]</span><br><span class="line">    D --&gt; E</span><br><span class="line">    E --&gt; F[斜杠命令 /]</span><br><span class="line">    F --&gt; G[/model 换模型]</span><br><span class="line">    F --&gt; H[/skills 浏览技能]</span><br><span class="line">    F --&gt; I[/compress 压缩上下文]</span><br><span class="line">    E --&gt; J[退出 / 保存]</span><br></pre></td></tr></table></figure>
-
-<h3 id="启动方式"><a href="#启动方式" class="headerlink" title="启动方式"></a>启动方式</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hermes                <span class="comment"># 经典 CLI</span></span><br><span class="line">hermes --tui          <span class="comment"># 现代 TUI（推荐）</span></span><br><span class="line">hermes -c             <span class="comment"># 恢复上次会话</span></span><br><span class="line">hermes -s &lt;skill&gt;     <span class="comment"># 预加载技能</span></span><br><span class="line">hermes chat -q <span class="string">&quot;你好&quot;</span> <span class="comment"># 单次查询</span></span><br><span class="line">hermes -w             <span class="comment"># 隔离工作目录</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="状态栏"><a href="#状态栏" class="headerlink" title="状态栏"></a>状态栏</h3><p>会话中底部会实时显示状态：</p>
-<figure class="highlight mathematica"><table><tr><td class="code"><pre><span class="line">⚕ <span class="variable">claude</span><span class="operator">-</span><span class="variable">sonnet</span><span class="operator">-</span><span class="number">4</span><span class="operator">-</span><span class="number">20250514</span> │ <span class="number">12.4</span><span class="built_in">K</span><span class="operator">/</span><span class="number">200</span><span class="built_in">K</span> │ <span class="punctuation">[</span>██████░░░░<span class="punctuation">]</span> <span class="number">6</span><span class="operator">%</span> │ <span class="variable">$0</span><span class="number">.06</span> │ <span class="number">15</span><span class="variable">m</span></span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>元素</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>模型名</td>
-<td>当前模型</td>
-</tr>
-<tr>
-<td>Token 计数</td>
-<td>已用 &#x2F; 最大上下文</td>
-</tr>
-<tr>
-<td>彩色进度条</td>
-<td>绿 &lt; 50% → 黄 50-80% → 橙 80-95% → 红 ≥ 95%</td>
-</tr>
-<tr>
-<td>费用</td>
-<td>估算会话成本</td>
-</tr>
-<tr>
-<td>时长</td>
-<td>已用时</td>
-</tr>
-</tbody></table>
-<h3 id="常用斜杠命令"><a href="#常用斜杠命令" class="headerlink" title="常用斜杠命令"></a>常用斜杠命令</h3><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>/help</code></td>
-<td>显示所有命令</td>
-</tr>
-<tr>
-<td><code>/model</code></td>
-<td>切换模型</td>
-</tr>
-<tr>
-<td><code>/tools</code></td>
-<td>列出可用工具</td>
-</tr>
-<tr>
-<td><code>/skills browse</code></td>
-<td>浏览 Skills Hub</td>
-</tr>
-<tr>
-<td><code>/personality pirate</code></td>
-<td>换人格（pirate &#x2F; kawaii &#x2F; 等）</td>
-</tr>
-<tr>
-<td><code>/retry</code></td>
-<td>重试上一轮</td>
-</tr>
-<tr>
-<td><code>/undo</code></td>
-<td>撤销最后一轮</td>
-</tr>
-<tr>
-<td><code>/compress</code></td>
-<td>压缩上下文</td>
-</tr>
-<tr>
-<td><code>/voice on</code></td>
-<td>启用语音模式</td>
-</tr>
-<tr>
-<td><code>/background &lt;prompt&gt;</code></td>
-<td>后台执行任务</td>
-</tr>
-<tr>
-<td><code>/title My Session</code></td>
-<td>命名当前会话</td>
-</tr>
-</tbody></table>
-<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><table>
-<thead>
-<tr>
-<th>按键</th>
-<th>操作</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>Enter</code></td>
-<td>发送消息</td>
-</tr>
-<tr>
-<td><code>Alt+Enter</code> &#x2F; <code>Ctrl+J</code></td>
-<td>换行（多行输入）</td>
-</tr>
-<tr>
-<td><code>Tab</code></td>
-<td>自动补全&#x2F;接受建议</td>
-</tr>
-<tr>
-<td><code>Ctrl+C</code></td>
-<td>中断当前操作</td>
-</tr>
-<tr>
-<td><code>Ctrl+B</code></td>
-<td>开始&#x2F;停止语音录制</td>
-</tr>
-<tr>
-<td><code>Ctrl+G</code></td>
-<td>在编辑器中编辑输入</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="消息网关连接多平台"><a href="#消息网关：连接多平台" class="headerlink" title="消息网关：连接多平台"></a>消息网关：连接多平台</h2><p>Hermes Agent 最强大的特性之一——<strong>一个后台进程同时连接所有平台</strong>。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hermes gateway setup    <span class="comment"># 交互式配置</span></span><br><span class="line">hermes gateway          <span class="comment"># 前台启动</span></span><br><span class="line">hermes gateway install  <span class="comment"># 安装为系统服务</span></span><br><span class="line">hermes gateway start    <span class="comment"># 启动服务</span></span><br><span class="line">hermes gateway stop     <span class="comment"># 停止服务</span></span><br><span class="line">hermes gateway status   <span class="comment"># 查看状态</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="支持平台"><a href="#支持平台" class="headerlink" title="支持平台"></a>支持平台</h3><table>
-<thead>
-<tr>
-<th>平台</th>
-<th align="center">语音</th>
-<th align="center">图片</th>
-<th align="center">文件</th>
-<th align="center">线程</th>
-<th align="center">流式输出</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Telegram</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">—</td>
-<td align="center">✅</td>
-</tr>
-<tr>
-<td>Discord</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-</tr>
-<tr>
-<td>Slack</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-</tr>
-<tr>
-<td>WhatsApp</td>
-<td align="center">—</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">—</td>
-<td align="center">✅</td>
-</tr>
-<tr>
-<td>Signal</td>
-<td align="center">—</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">—</td>
-<td align="center">✅</td>
-</tr>
-<tr>
-<td>钉钉</td>
-<td align="center">—</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-</tr>
-<tr>
-<td>飞书&#x2F;Lark</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-</tr>
-<tr>
-<td>微信</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">—</td>
-<td align="center">✅</td>
-</tr>
-<tr>
-<td>QQ</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">—</td>
-<td align="center">—</td>
-</tr>
-<tr>
-<td>企业微信</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">—</td>
-<td align="center">✅</td>
-</tr>
-<tr>
-<td>Microsoft Teams</td>
-<td align="center">—</td>
-<td align="center">✅</td>
-<td align="center">—</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-</tr>
-<tr>
-<td>邮件</td>
-<td align="center">—</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">✅</td>
-<td align="center">—</td>
-</tr>
-<tr>
-<td>Home Assistant</td>
-<td align="center">—</td>
-<td align="center">—</td>
-<td align="center">—</td>
-<td align="center">—</td>
-<td align="center">—</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="skills-技能系统"><a href="#Skills-技能系统" class="headerlink" title="Skills 技能系统"></a>Skills 技能系统</h2><p>Hermes 的技能是<strong>过程性记忆</strong>——可复用的工作流模板，从 <code>agentskills.io</code> 生态中安装，或由 Agent 自主创建。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hermes skills search kubernetes     <span class="comment"># 搜索技能</span></span><br><span class="line">hermes skills install openai/skills/k8s  <span class="comment"># 安装</span></span><br></pre></td></tr></table></figure>
-
-<p>创建新技能：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    A[完成复杂任务] --&gt; B[Agent 分析过程]</span><br><span class="line">    B --&gt; C&#123;是否可复用?&#125;</span><br><span class="line">    C --&gt;|是| D[自动创建技能]</span><br><span class="line">    C --&gt;|否| E[丢弃]</span><br><span class="line">    D --&gt; F[下次直接调用]</span><br><span class="line">    F --&gt; G[技能在使用中自我改进]</span><br></pre></td></tr></table></figure>
-
-<p>每个已安装的技能自动注册为斜杠命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/gif-search funny cats</span><br><span class="line">/github-pr-workflow create a PR</span><br><span class="line">/excalidraw</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="记忆系统"><a href="#记忆系统" class="headerlink" title="记忆系统"></a>记忆系统</h2><p>Hermes 的记忆系统是<strong>闭环学习</strong>的核心：</p>
-<table>
-<thead>
-<tr>
-<th>层级</th>
-<th>机制</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>💬 <strong>会话记忆</strong></td>
-<td>上下文窗口内</td>
-<td>当前对话的临时记忆</td>
-</tr>
-<tr>
-<td>📝 <strong>持久记忆</strong></td>
-<td>Agent 维护的 MEMORY.md</td>
-<td>重要事实、偏好、教训</td>
-</tr>
-<tr>
-<td>👤 <strong>用户画像</strong></td>
-<td>Honcho 辩证建模</td>
-<td>跨会话的深层用户理解</td>
-</tr>
-<tr>
-<td>🔍 <strong>回想要点</strong></td>
-<td>FTS5 + LLM 摘要</td>
-<td>搜索过往对话获取上下文</td>
-</tr>
-<tr>
-<td>🎯 <strong>定期促动</strong></td>
-<td>主动 nudge</td>
-<td>Agent 自主决定何时更新记忆</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="终端后端"><a href="#终端后端" class="headerlink" title="终端后端"></a>终端后端</h2><p>Hermes 支持 6 种终端执行后端：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hermes config <span class="built_in">set</span> terminal.backend <span class="built_in">local</span>     <span class="comment"># 本地直接执行</span></span><br><span class="line">hermes config <span class="built_in">set</span> terminal.backend docker    <span class="comment"># Docker 隔离</span></span><br><span class="line">hermes config <span class="built_in">set</span> terminal.backend ssh       <span class="comment"># 远程服务器</span></span><br><span class="line">hermes config <span class="built_in">set</span> terminal.backend daytona   <span class="comment"># 云工作空间</span></span><br><span class="line">hermes config <span class="built_in">set</span> terminal.backend modal     <span class="comment"># Serverless</span></span><br></pre></td></tr></table></figure>
-
-<p>其中 <strong>Daytona</strong> 和 <strong>Modal</strong> 提供无服务器持久化——Agent 的环境在闲置时休眠，唤醒时按需启动，近乎零成本。</p>
-<hr>
-<h2 id="定时任务cron"><a href="#定时任务（Cron）" class="headerlink" title="定时任务（Cron）"></a>定时任务（Cron）</h2><p>自然语言设定定时任务，自动投递到任意平台：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在对话中直接说：</span></span><br><span class="line"><span class="string">&quot;每天早上9点给我发一份 GitHub 仓库状态报告&quot;</span></span><br><span class="line"><span class="string">&quot;每30分钟检查一次服务器磁盘使用率&quot;</span></span><br><span class="line"><span class="string">&quot;每周日备份数据库到 S3&quot;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="从-openclaw-迁移"><a href="#从-OpenClaw-迁移" class="headerlink" title="从 OpenClaw 迁移"></a>从 OpenClaw 迁移</h2><p>如果你正从 OpenClaw 迁移到 Hermes，内置迁移工具：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hermes claw migrate                     <span class="comment"># 交互式迁移</span></span><br><span class="line">hermes claw migrate --dry-run           <span class="comment"># 预览迁移内容</span></span><br><span class="line">hermes claw migrate --preset user-data  <span class="comment"># 仅迁移用户数据</span></span><br><span class="line">hermes claw migrate --overwrite         <span class="comment"># 覆盖冲突文件</span></span><br></pre></td></tr></table></figure>
-
-<p>迁移内容自动导入：</p>
-<ul>
-<li><strong>SOUL.md</strong> — 人格设定</li>
-<li><strong>MEMORY.md &#x2F; USER.md</strong> — 记忆与用户信息</li>
-<li><strong>自定义 Skills</strong> → <code>~/.hermes/skills/openclaw-imports/</code></li>
-<li><strong>命令允许列表</strong> — 安全策略</li>
-<li><strong>消息平台配置</strong> — Telegram &#x2F; Discord 等</li>
-<li><strong>API Key</strong> — 允许列表中的密钥</li>
-<li><strong>工作目录配置</strong> — AGENTS.md</li>
+<p>配图是一张芯片照片。这是 OpenAI 自研 AI 芯片首次以官方口径公开亮相，与此前外界报道的”OpenAI 与博通合作、由台积电代工”的传闻相互印证。”it is fast” 的轻描淡写与 3.2 万的互动量形成鲜明对比——<strong>芯片自研意味着训练&#x2F;推理成本结构的根本性变化</strong>，也是 OpenAI 摆脱对单一 GPU 供应商依赖的关键一步。考虑到 OpenAI DevDay 2026 临近（详见下文），这颗芯片很可能会在 DevDay 上有更完整的发布。</p>
+<h2 id="claude-记忆大统一chat-与-cowork-共享同一份记忆"><a href="#🧠-Claude-记忆大统一：Chat-与-Cowork-共享同一份记忆" class="headerlink" title="🧠 Claude 记忆大统一：Chat 与 Cowork 共享同一份记忆"></a>🧠 Claude 记忆大统一：Chat 与 Cowork 共享同一份记忆</h2><p><strong>Anthropic</strong> 今天围绕”记忆”打出一套组合拳，三条推文均进入高互动区间，合计超过 <strong>8900 ❤️</strong>：</p>
+<p>官方账号（<strong>6846 ❤️ &#x2F; 399 🔄</strong>）：</p>
+<blockquote>
+<p><strong>“Claude 现在在 Chat 和 Claude Cowork 之间共享同一份记忆，内容由你决定。把任务交给 Cowork，它会从你聊天里已知的信息开始——你聊过的项目、你老板的偏好、上个季度的客户。”</strong></p>
+</blockquote>
+<p><strong>Boris Cherny</strong>（<strong>1429 ❤️ &#x2F; 46 🔄</strong>）补充产品细节：</p>
+<blockquote>
+<p><strong>“一个小改进：记忆现在更简单、也更强大。Enjoy！”</strong></p>
+</blockquote>
+<p><strong>Cat Wu</strong>（<strong>588 ❤️ &#x2F; 19 🔄</strong>）：</p>
+<blockquote>
+<p><strong>“感谢大家的反馈，我们统一了 Chat 和 Cowork 之间的记忆。现在你可以让 Claude 记住一件事一次，它就会跨所有界面拥有这个上下文！”</strong></p>
+</blockquote>
+<p>同时官方还澄清了两条隐私边界：<strong>记忆默认在 Free &#x2F; Pro &#x2F; Max 上开启，可在 Settings &gt; Memory 里查看、编辑或删除每一条</strong>（<strong>549 ❤️</strong>）；<strong>健康、宗教信仰等敏感话题不会进入记忆，除非你在设置里主动打开</strong>（<strong>394 ❤️</strong>）。</p>
+<p>这是 Claude 从”会话工具”走向”长期个人系统”的关键一步——<strong>记忆跨表面统一，是 agent 能在不同任务间保持连续性的地基</strong>。结合 Thariq（<strong>1118 ❤️ &#x2F; 24 🔄</strong>）预告的 <em>“Claude Code 将变得更可 hackable”</em>，Anthropic 今天的产品叙事非常清晰：记忆统一 + 可扩展，双管齐下。</p>
+<h2 id="chatgpt-for-work-x2f-teams面向团队与中小公司的订阅方案"><a href="#💼-ChatGPT-for-Work-Teams：面向团队与中小公司的订阅方案" class="headerlink" title="💼 ChatGPT for Work &#x2F; Teams：面向团队与中小公司的订阅方案"></a>💼 ChatGPT for Work &#x2F; Teams：面向团队与中小公司的订阅方案</h2><p><strong>Thibault Sottiaux</strong>（OpenAI）预告了新套餐（<strong>2926 ❤️ &#x2F; 110 🔄</strong>）：</p>
+<blockquote>
+<p><strong>“这个需求太多了。功能类似 Pro $100 套餐，但专为团队和中小公司设计。</strong></p>
+</blockquote>
+<blockquote>
+<p>✅ 包含全部 ChatGPT、ChatGPT Work 和 Codex 功能<br>✅ 连接 Google Workspace、Slack、GitHub、Microsoft 365 等<br>✅ 支持 SAML、SSO、MFA 的安全工作区<br>✅ 集中式计费和管理<br>✅ 用量分析与支出控制<br>✅ 无 5 小时限制”</p>
+</blockquote>
+<p>针对的是 Plus&#x2F;Pro 个人订阅与企业之间明显空缺的中间市场——<strong>团队级计费、企业级安全、无用量硬顶</strong>，直击小团队用个人订阅凑合或被迫上企业版的痛点。另外两条：<em>“好产品需要时间。至少 34 天。”</em>（<strong>2034 ❤️</strong>）和 <em>“我想看 polymarket（的盘口）”</em>（<strong>367 ❤️</strong>）——结合前几天的 DevDay 预告，<strong>OpenAI DevDay 2026 发布会（Peter Yang 也确认出席，117 ❤️）大概率就在 34 天这个数字附近</strong>。</p>
+<h2 id="peter-yang开源-x2ffuck-cancer用-ai-帮助癌症患者与照护者"><a href="#🏥-Peter-Yang：开源-fuck-cancer——用-AI-帮助癌症患者与照护者" class="headerlink" title="🏥 Peter Yang：开源 &#x2F;fuck-cancer——用 AI 帮助癌症患者与照护者"></a>🏥 Peter Yang：开源 &#x2F;fuck-cancer——用 AI 帮助癌症患者与照护者</h2><p><strong>Peter Yang</strong> 今天做了一个有温度的开源项目（<strong>1389 ❤️ &#x2F; 158 🔄</strong>）：<strong>&#x2F;fuck-cancer</strong>，一个帮助患者和照护者应对癌症诊疗过程的 AI skill。</p>
+<blockquote>
+<p><strong>“今天我开源了 &#x2F;fuck-cancer，一个帮助患者和照护者应对癌症诊断与治疗、为自己和家人发声的 AI skill。它创建并持续更新一份实用简报，包含五个部分：</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>1. 患者与照护团队信息，方便电话沟通时快速查阅</strong><br><strong>2. 接下来要做什么，严格限制为三个具体行动</strong><br><strong>3. 我们已知什么——区分已确认的事实与尚不明确的部分</strong><br><strong>4. 用大白话解释医学术语</strong><br><strong>5. 带最近更新与决策的照护日志</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>需要研究时，它会使用美国国家癌症研究所（NCI）和 ClinicalTrials.gov API 等可信来源。我用 ChatGPT&#x2F;Codex 和 Claude Code 来准备对话、做研究。简报可以本地存为 Markdown，也可以更新成可共享的 Google Doc，让全家在同一份信息上协作。”</strong></p>
+</blockquote>
+<p>这大概是今天最不像”热点”却最值得关注的一条：<strong>AI skill 正在进入真实世界的高价值场景</strong>——把混乱的医疗信息变成可执行的行动清单。患者&#x2F;照护者反馈中反复出现的”需要自己成为 advocate、文件太多太乱”，正是大模型擅长消化的信息负担。</p>
+<h2 id="google-labs-新实验putty多人实时协作的-vibe-coding-工具"><a href="#🛠️-Google-Labs-新实验：Putty——多人实时协作的-vibe-coding-工具" class="headerlink" title="🛠️ Google Labs 新实验：Putty——多人实时协作的 vibe coding 工具"></a>🛠️ Google Labs 新实验：Putty——多人实时协作的 vibe coding 工具</h2><p><strong>Google Labs</strong> 发布新实验 <strong>Putty</strong>（<strong>1234 ❤️ &#x2F; 102 🔄</strong>）：</p>
+<blockquote>
+<p><strong>“🚨 新实验！伟大的头脑…一起玩！Putty 是一款协作式 vibe coding 工具，让你和他人实时一起构建工具和网站。准备让想象力进入多人模式了吗？加入 waitlist 吧！（仅限美国、18+）”</strong></p>
+</blockquote>
+<p>继 ChatGPT 多人协作、Claude 团队功能之后，Google 也把 <strong>“实时多人共同写码”</strong> 摆上桌面。”Vibe coding + 实时协作”正在成为下一代工具的标准配置，不过”US only”意味着距离国内可用还有距离。</p>
+<h2 id="guillermo-rauchrun-sdk-vercel-connect-gaagent-的安全连接层"><a href="#⚡-Guillermo-Rauch：Run-SDK-Vercel-Connect-GA——agent-的安全连接层" class="headerlink" title="⚡ Guillermo Rauch：Run SDK + Vercel Connect GA——agent 的安全连接层"></a>⚡ Guillermo Rauch：Run SDK + Vercel Connect GA——agent 的安全连接层</h2><p><strong>Guillermo Rauch</strong>（Vercel CEO）两条产品消息（<strong>419 ❤️ &#x2F; 19 🔄</strong> 与 <strong>214 ❤️ &#x2F; 10 🔄</strong>）：</p>
+<blockquote>
+<p><strong>“我们发布了 Run SDK：为动态 Code Mode 执行提供安全的 eval。当 agent 写代码时，你并不总需要完整沙箱——可以在轻量级 QuickJS 安全上下文里直接运行，更快也更省成本。𝚗𝚙𝚖 𝚒 𝚛𝚞𝚗”</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>“构建 agent 最难的问题是安全连接服务和数据。很高兴 Vercel Connect 正式 GA：比如 𝚟𝚎𝚛𝚌𝚎𝚕 𝚌𝚘𝚗𝚗𝚎𝚌𝚝 𝚌𝚛𝚎𝚊𝚝𝚎 𝚗𝚘𝚝𝚒𝚘𝚗，然后就能拿到一个代表已认证用户查询数据的 MCP client。”</strong></p>
+</blockquote>
+<p>一条解决<strong>执行安全</strong>（轻量 eval 而非重型沙箱），一条解决<strong>连接安全</strong>（MCP 化的授权连接）——Vercel 正在把”agent 接入第三方服务”这件事做成标准件。</p>
+<h2 id="madhu-gurueval-系列完结篇eval-路线图问题"><a href="#🏗️-Madhu-Guru：Eval-系列完结篇——“Eval-路线图问题”" class="headerlink" title="🏗️ Madhu Guru：Eval 系列完结篇——“Eval 路线图问题”"></a>🏗️ Madhu Guru：Eval 系列完结篇——“Eval 路线图问题”</h2><p><strong>Madhu Guru</strong> 的 “How to build great evals” 系列来到第 9 部分（<strong>83 ❤️ &#x2F; 4 🔄</strong>）：<strong>The Eval Roadmap Problem</strong>。</p>
+<blockquote>
+<p><strong>“大多数 eval 失败，是因为团队把它们当成静态产物，而用户的期望和行为一直在演变。你的 eval 需要一个跟产品一起演进的路线图。以金融研究 agent 为例：早期用户——『总结这份 5 页财报』；3 周后——『回顾最近 5 份财报并解释增长故事』；2 个月后——『这里有 15 份文件，帮我构建投资论点』；最终——『监控我的股票组合，论点实质变化时提醒我』。每个阶段能力要求不同，eval 也应当随之改变：短上下文→长上下文；单轮 QA→多轮；段落引用→文档&#x2F;行级引用；简单 QA→复杂综合；被动对话→主动 agent。如果你的 eval 停在第一周，而用户已经到了第三周，产品指标和留存会替你说出真相。”</strong></p>
+</blockquote>
+<p><strong>实操五步：1&#x2F; 画出用量会沿哪些维度演进（轮数、文档大小、工具使用、自主性、旅程覆盖）；2&#x2F; 优先对产品最重要的用例与维度；3&#x2F; 访谈用户、挖生产日志找变化；4&#x2F; 为下一阶段用量建 P0 eval；5&#x2F; 跑 eval、找失败模式、hill-climb。目标是跑在用量模式前面。PM 101。</strong>——正好接上昨天 Part 8 的”区分力”主题：先有会区分的能力，再有不落后于用量的路线图。做 AI 产品的团队建议把整个系列存下来。</p>
+<h2 id="aaron-levie模型与企业工作流之间的巨大鸿沟正是应用型-ai-的机会"><a href="#🔐-Aaron-Levie：模型与企业工作流之间的巨大鸿沟，正是应用型-AI-的机会" class="headerlink" title="🔐 Aaron Levie：模型与企业工作流之间的巨大鸿沟，正是应用型 AI 的机会"></a>🔐 Aaron Levie：模型与企业工作流之间的巨大鸿沟，正是应用型 AI 的机会</h2><p><strong>Aaron Levie</strong>（Box 联合创始人）转发了一篇关于企业规模化应用 AI 战略的文章并点评（<strong>122 ❤️ &#x2F; 6 🔄</strong>）：</p>
+<blockquote>
+<p><strong>“关于规模化应用 AI 战略的好文。模型与企业的底层工作流之间显然存在巨大鸿沟，这给应用型 AI 公司留下了大量机会。『世界不只要裸模型和 agent，它要的是问题被解决、结果被达成。溢价会属于那些能把智能扩散到文明每个角落、把原始 token 转化为真实世界成果的公司。』这需要理解业务上下文、推动变革管理、有能路由到各种模型的 harness、连接该行业的核心业务系统、解决工作流中用户与 agent 连接方式的 UX 问题、理解 eval……这些价值远超模型智能本身。现在正是窗口期，去打造能把智能带入企业关键领域的定义性公司。”</strong></p>
+</blockquote>
+<p>与前几天”agent 时代的 system of record”观点一脉相承——<strong>模型层已经够卷，真正的溢价在”最后一公里”：工作流、连接、变革管理</strong>。</p>
+<h2 id="其他值得关注"><a href="#🚀-其他值得关注" class="headerlink" title="🚀 其他值得关注"></a>🚀 其他值得关注</h2><ul>
+<li><strong>Swyx</strong>：<em>“PSA：现在不要用 codex 的 ‘locked use’ 能力——它依赖不稳定的 macOS 功能，这周已经两次把我锁在 macOS keychain 外了。苹果开发者论坛也确认这是已知 bug。能全上云就好了，但云还不到位。”</em>（<strong>5 ❤️</strong>）——早期用户的小众踩坑，但值得 Codex 重度用户留意。</li>
+<li><strong>Garry Tan</strong>（Y Combinator CEO）：<em>“你需要 cross-harness memory maxxing（跨工具记忆拉满）。”</em>（<strong>510 ❤️ &#x2F; 28 🔄</strong>）——和 Anthropic 今天”统一记忆”形成隔空呼应；另一条 <em>“lmao”</em> 竟有 <strong>4686 ❤️ &#x2F; 187 🔄</strong>，YC 掌门人的人气可见一斑。</li>
+<li><strong>Aditya Agarwal</strong>：<em>“大众讨厌数据中心建设毫不意外——AI 目前主要服务知识工作者和最高收入群体。真正的转折点会是 AI 能治愈困扰所有人的疾病，我们已经看到隧道尽头的光了。另外，我们行业整天渲染恐惧，而不是描绘积极的未来。🤦‍♂️”</em>（<strong>18 ❤️</strong>）——对行业叙事的反思。</li>
+<li><strong>Dan Shipper</strong>（Every）：<em>“GET DOT”</em>（<strong>51 ❤️</strong>）——延续昨天的 .dot 话题。</li>
+<li><strong>Nikunj Kothari</strong>：<em>“用 @ChatGPT codex 和 @Railway 构建、@emilkowalski 的 skills 打磨设计”</em> 做成了 <strong>El Niño 实时监测站（elneenyo.com）</strong>（<strong>8 ❤️</strong>）——又一个”Codex + 托管平台 &#x3D; 快速上线”的样本。</li>
+<li><strong>Peter Steinberger</strong>：<em>“This week.”</em>（<strong>280 ❤️ &#x2F; 11 🔄</strong>）——配图意味深长，静待后续。</li>
 </ul>
 <hr>
-<h2 id="安全机制"><a href="#安全机制" class="headerlink" title="安全机制"></a>安全机制</h2><table>
-<thead>
-<tr>
-<th>功能</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>👥 <strong>用户白名单</strong></td>
-<td>默认拒绝未授权用户</td>
-</tr>
-<tr>
-<td>✅ <strong>命令审批</strong></td>
-<td>危险命令需手动确认 <code>/approve</code></td>
-</tr>
-<tr>
-<td>🏖️ <strong>沙箱执行</strong></td>
-<td>Docker &#x2F; SSH &#x2F; Serverless 隔离</td>
-</tr>
-<tr>
-<td>🔐 <strong>密钥分离</strong></td>
-<td><code>.env</code> 与 config 文件分离</td>
-</tr>
-<tr>
-<td>🔄 <strong>DM 配对</strong></td>
-<td>一对一私聊建立信任</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="快速故障排查"><a href="#快速故障排查" class="headerlink" title="快速故障排查"></a>快速故障排查</h2><table>
-<thead>
-<tr>
-<th>症状</th>
-<th>原因</th>
-<th>解决</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>打开但回复为空</td>
-<td>提供商认证失败</td>
-<td>运行 <code>hermes model</code> 重新配置</td>
-</tr>
-<tr>
-<td>自定义端点返回乱码</td>
-<td>Base URL &#x2F; 模型名错误</td>
-<td>先在外部客户端验证端点</td>
-</tr>
-<tr>
-<td>网关启动但无人能发消息</td>
-<td>Token &#x2F; 白名单配置不完整</td>
-<td>重新运行 <code>hermes gateway setup</code></td>
-</tr>
-<tr>
-<td>无法恢复旧会话</td>
-<td>切换了 profile 或未保存</td>
-<td>检查 <code>hermes sessions list</code></td>
-</tr>
-<tr>
-<td><code>hermes doctor</code> 报错</td>
-<td>配置缺失或过期</td>
-<td>修复后重新测试基础聊天</td>
-</tr>
-</tbody></table>
-<p><strong>恢复三部曲</strong>：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hermes doctor   <span class="comment"># 诊断</span></span><br><span class="line">hermes model    <span class="comment"># 重配提供商</span></span><br><span class="line">hermes setup    <span class="comment"># 完整设置向导</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Hermes Agent 不仅仅是一个 AI 聊天机器人——它是一个<strong>自我进化的 AI 伙伴</strong>，能够自主创建技能、积累长期记忆、通过 20+ 消息平台与你交互，并通过可配置的终端后端在任何环境下运行。</p>
-<p>相比其他 AI 代理，Hermes 最大的差异化在于：</p>
-<ol>
-<li><strong>闭环学习</strong> —— 不只是对话，而是从每次交互中成长</li>
-<li><strong>模型中立</strong> —— 随时切换提供商，不对接单一生态</li>
-<li><strong>无处不在</strong> —— 从 Telegram 到终端，从手机到服务器</li>
-</ol>
-<h3 id="更多资源"><a href="#更多资源" class="headerlink" title="更多资源"></a>更多资源</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://hermes-agent.nousresearch.com/docs/">Hermes Agent 官方文档</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/NousResearch/hermes-agent">GitHub 仓库</a></li>
-<li><a target="_blank" rel="noopener" href="https://discord.gg/NousResearch">官方 Discord</a></li>
-<li><a target="_blank" rel="noopener" href="https://nousresearch.com/">Nous Research</a></li>
-</ul>
+<p><em>数据来源：<a target="_blank" rel="noopener" href="https://github.com/zarazhangrui/follow-builders">Follow Builders</a> · 2026-08-26</em></p>
 
   </div>
 </article>
 
-
 <nav class="post-nav">
-  
-  <a class="prev" href="/computer-science/ai-tools/Hermes-Agent-%E9%85%8D%E7%BD%AE%E4%B8%8E%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/">Hermes Agent 配置与进阶使用 —— 从入门到精通</a>
-  
-  
-  <a class="next" href="/ai-daily/AI%E6%97%A5%E6%8A%A5-2026-05-05/">AI 日报 2026-05-05</a>
-  
+  <a class="prev" href="/ai-hotspots">返回 AI 行业热点</a>
 </nav>
-
-
-
-<div class="post-comments" id="comments">
-  <script>
-  (function() {
-    var s = document.createElement('script');
-    s.src = 'https://giscus.app/client.js';
-    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
-    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
-    s.setAttribute('data-category', 'General');
-    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
-    s.setAttribute('data-mapping', 'pathname');
-    s.setAttribute('data-strict', '0');
-    s.setAttribute('data-reactions-enabled', '1');
-    s.setAttribute('data-emit-metadata', '0');
-    s.setAttribute('data-input-position', 'bottom');
-    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
-    s.setAttribute('data-lang', 'zh-CN');
-    s.setAttribute('data-loading', 'lazy');
-    s.setAttribute('crossorigin', 'anonymous');
-    document.getElementById('comments').appendChild(s);
-  })();
-  </script>
-</div>
-
 
     </div>
   </main>
