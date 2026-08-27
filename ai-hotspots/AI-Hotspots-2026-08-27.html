@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230a0e14'/%3E%3Ctext x='18' y='68' font-size='52' fill='%2300ff9c' font-family='monospace'%3E%26gt;_%3C/text%3E%3C/svg%3E">
-  <title>OpenSRE 安装与使用指南 | 沉鱼的博客</title>
+  <title>AI 热点综述 - 2026-08-27 | 沉鱼的博客</title>
   
-  <meta name="description" content="编程笔记 &amp; 资料分享">
-  <meta property="og:type" content="article">
+  <meta name="description" content="AI 行业热点综述 — 2026-08-27">
+  <meta property="og:type" content="website">
   <meta property="og:site_name" content="沉鱼的博客">
-  <meta property="og:title" content="OpenSRE 安装与使用指南 | 沉鱼的博客">
-  <meta property="og:description" content="编程笔记 &amp; 资料分享">
-  <meta property="og:url" content="https://scottalive.github.io/computer-science/ai-tools/OpenSRE-安装与使用指南/">
+  <meta property="og:title" content="AI 热点综述 - 2026-08-27 | 沉鱼的博客">
+  <meta property="og:description" content="AI 行业热点综述 — 2026-08-27">
+  <meta property="og:url" content="https://scottalive.github.io/ai-hotspots/AI-Hotspots-2026-08-27.html">
   <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="OpenSRE 安装与使用指南 | 沉鱼的博客">
-  <meta name="twitter:description" content="编程笔记 &amp; 资料分享">
+  <meta name="twitter:title" content="AI 热点综述 - 2026-08-27 | 沉鱼的博客">
+  <meta name="twitter:description" content="AI 行业热点综述 — 2026-08-27">
   <meta name="twitter:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
   <link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="/atom.xml">
   <link rel="stylesheet" href="/css/style.css?v=202607190200">
@@ -54,290 +54,91 @@
 
   <main class="site-main">
     <div class="container">
-      <!-- 文章详情页 -->
-
-
-
+      <!-- AI 行业热点 - 文章详情页 -->
 <article class="post-full">
   <header class="post-header">
     <div class="post-path">
-      <a href="/">~</a>/<a href="/archives">posts</a>/<span class="pd">computer-science/ai-tools/OpenSRE-安装与使用指南.md</span>
+      <a href="/">~</a>/<a href="/ai-hotspots">ai-hotspots</a>/<span class="pd">2026-08-27.md</span>
     </div>
-    <h1 class="post-title">OpenSRE 安装与使用指南</h1>
+    <h1 class="post-title">AI 热点综述 - 2026-08-27</h1>
     <div class="post-meta">
-      <span>2026-05-11 00:50</span>
-      <span>1176 字 · 约 4 分钟</span>
-      
-        
-        <a class="bkt" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
-        
-        <a class="bkt" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
-        
-      
-      
-        
-        <a class="bkt cyan" href="/tags/AI/">#AI</a>
-        
-        <a class="bkt cyan" href="/tags/OpenSRE/">#OpenSRE</a>
-        
-        <a class="bkt cyan" href="/tags/SRE/">#SRE</a>
-        
-        <a class="bkt cyan" href="/tags/%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/">#故障排查</a>
-        
-        <a class="bkt cyan" href="/tags/%E8%BF%90%E7%BB%B4/">#运维</a>
-        
-      
+      <span>2026-08-27 23:07</span>
+      <span class="bkt cyan">AI热点</span>
     </div>
   </header>
 
-  
-  <details class="toc-wrap" open>
-    <summary class="toc-title">目录</summary>
-    <nav class="toc">
-      
-      <a class="toc-level-2" href="#概述">概述</a>
-      
-      <a class="toc-level-2" href="#核心特性">核心特性</a>
-      
-      <a class="toc-level-2" href="#安装">安装</a>
-      
-      <a class="toc-level-3" href="#macos-x2f-linux">macOS &amp;#x2F; Linux</a>
-      
-      <a class="toc-level-3" href="#windowspowershell">Windows（PowerShell）</a>
-      
-      <a class="toc-level-3" href="#开发者模式源码安装">开发者模式（源码安装）</a>
-      
-      <a class="toc-level-2" href="#快速上手">快速上手</a>
-      
-      <a class="toc-level-3" href="#1-初始化配置">1. 初始化配置</a>
-      
-      <a class="toc-level-3" href="#2-交互式-shell">2. 交互式 Shell</a>
-      
-      <a class="toc-level-3" href="#3-单次调查">3. 单次调查</a>
-      
-      <a class="toc-level-3" href="#4-常用命令">4. 常用命令</a>
-      
-      <a class="toc-level-2" href="#部署方案">部署方案</a>
-      
-      <a class="toc-level-3" href="#方案一langgraph-platform官方推荐">方案一：LangGraph Platform（官方推荐）</a>
-      
-      <a class="toc-level-3" href="#方案二railway自托管">方案二：Railway（自托管）</a>
-      
-      <a class="toc-level-2" href="#集成能力">集成能力</a>
-      
-      <a class="toc-level-2" href="#与-openclaw-集成">与 OpenClaw 集成</a>
-      
-      <a class="toc-level-3" href="#1-添加-mcp-server">1. 添加 MCP Server</a>
-      
-      <a class="toc-level-3" href="#2-运行测试调查">2. 运行测试调查</a>
-      
-      <a class="toc-level-3" href="#3-可选opensre-调用-openclaw">3. 可选：OpenSRE 调用 OpenClaw</a>
-      
-      <a class="toc-level-2" href="#总结">总结</a>
-      
-      <a class="toc-level-3" href="#适合场景">适合场景</a>
-      
-      <a class="toc-level-3" href="#参考链接">参考链接</a>
-      
-    </nav>
-  </details>
-  
-
   <div class="post-content">
-    <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><strong>OpenSRE</strong> 是一个开源的 AI SRE（站点可靠性工程）Agent 框架，能够帮助你构建属于自己的 AI 运维助手。它能够连接 60+ 常用工具，自动进行生产故障调查、根因分析，并生成结构化的调查报告。</p>
-<p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/Tracer-Cloud/OpenSRE">GitHub - Tracer-Cloud&#x2F;OpenSRE</a></p>
+    <h2 id="claude-自带浏览器来了cowork-侧边栏内直接操作网站claude-in-chrome-正式-ga"><a href="#🌐-Claude-自带浏览器来了：Cowork-侧边栏内直接”操作网站”，Claude-in-Chrome-正式-GA" class="headerlink" title="🌐 Claude 自带浏览器来了：Cowork 侧边栏内直接”操作网站”，Claude in Chrome 正式 GA"></a>🌐 Claude 自带浏览器来了：Cowork 侧边栏内直接”操作网站”，Claude in Chrome 正式 GA</h2><p>今天 <strong>Anthropic</strong> 的两条消息几乎包揽了全网互动量，一条是产品发布，一条是能力补全：</p>
+<p><strong>Claude now has its own built-in browser in Cowork</strong>（<strong>7149 ❤️ &#x2F; 412 🔄</strong>，今日断层第一）：</p>
 <blockquote>
-<p>当前状态：Public Alpha，核心工作流可用，API 和集成仍在积极演进中。</p>
+<p><strong>“任务涉及网站时，Cowork 侧边栏会打开一个浏览器，Claude 自己导航、填表、把活干完。”</strong></p>
 </blockquote>
-<h2 id="核心特性"><a href="#核心特性" class="headerlink" title="核心特性"></a>核心特性</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    A[故障告警] --&gt; B[OpenSRE]</span><br><span class="line">    B --&gt; C[拉取日志/指标/链路]</span><br><span class="line">    B --&gt; D[跨系统推理分析]</span><br><span class="line">    B --&gt; E[生成根因分析报告]</span><br><span class="line">    B --&gt; F[建议修复方案]</span><br><span class="line">    B --&gt; G[推送总结到 Slack/PagerDuty]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>🔍 结构化事故调查</strong> — 跨信号源的关联根因分析</li>
-<li><strong>📋 Runbook 感知推理</strong> — 自动读取并应用你的 Runbook</li>
-<li><strong>🔮 预测性故障检测</strong> — 在告警触发前捕捉异常</li>
-<li><strong>🔗 证据驱动根因</strong> — 每个结论都链接着背后的数据</li>
-<li><strong>🤖 全 LLM 灵活支持</strong> — 支持 Anthropic、OpenAI、Ollama、Gemini、OpenRouter、NVIDIA NIM 等</li>
-</ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="macos-x2f-linux"><a href="#macOS-Linux" class="headerlink" title="macOS &#x2F; Linux"></a>macOS &#x2F; Linux</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 方式一：一键安装脚本（推荐）</span></span><br><span class="line">curl -fsSL https://install.opensre.com | bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 main 分支最新构建</span></span><br><span class="line">curl -fsSL https://install.opensre.com | bash -s -- --main</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二：Homebrew</span></span><br><span class="line">brew tap tracer-cloud/tap</span><br><span class="line">brew install tracer-cloud/tap/opensre</span><br></pre></td></tr></table></figure>
-
-<h3 id="windowspowershell"><a href="#Windows（PowerShell）" class="headerlink" title="Windows（PowerShell）"></a>Windows（PowerShell）</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 一键安装</span></span><br><span class="line"><span class="built_in">irm</span> https://install.opensre.com | <span class="built_in">iex</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="开发者模式源码安装"><a href="#开发者模式（源码安装）" class="headerlink" title="开发者模式（源码安装）"></a>开发者模式（源码安装）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 前提：Python 3.12+、Git、uv</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/YOUR_USERNAME/opensre.git</span><br><span class="line"><span class="built_in">cd</span> opensre</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 uv（macOS/Linux）</span></span><br><span class="line">curl -LsSf https://astral.sh/uv/install.sh | sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 uv（Windows PowerShell）</span></span><br><span class="line">irm https://astral.sh/uv/install.ps1 | iex</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装依赖</span></span><br><span class="line">make install</span><br><span class="line"><span class="comment"># 或无 Make：uv sync --frozen --extra dev</span></span><br><span class="line"><span class="comment">#            uv run python -m app.analytics.install</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证安装</span></span><br><span class="line">make lint &amp;&amp; make format-check &amp;&amp; make typecheck &amp;&amp; make test-cov</span><br></pre></td></tr></table></figure>
-
-<h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><h3 id="1-初始化配置"><a href="#1-初始化配置" class="headerlink" title="1. 初始化配置"></a>1. 初始化配置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opensre onboard</span><br></pre></td></tr></table></figure>
-
-<p>启动交互式向导，配置以下内容：</p>
-<ul>
-<li><strong>LLM 提供商</strong> — 选择你使用的 AI 模型（Anthropic、OpenAI、Ollama 等）</li>
-<li><strong>API Key</strong> — 输入对应提供商密钥</li>
-<li><strong>集成服务</strong> — 连接 Grafana、Datadog、Slack、AWS、Sentry 等工具</li>
-</ul>
-<h3 id="2-交互式-shell"><a href="#2-交互式-Shell" class="headerlink" title="2. 交互式 Shell"></a>2. 交互式 Shell</h3><p>不带任何参数启动 OpenSRE，进入交互式探索模式（需 TTY）：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opensre</span><br></pre></td></tr></table></figure>
-
-<p>支持斜杠命令：</p>
-<table>
-<thead>
-<tr>
-<th>命令</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>/help</code></td>
-<td>查看帮助</td>
-</tr>
-<tr>
-<td><code>/status</code></td>
-<td>查看当前状态</td>
-</tr>
-<tr>
-<td><code>/clear</code></td>
-<td>清屏</td>
-</tr>
-<tr>
-<td><code>/reset</code></td>
-<td>重置会话</td>
-</tr>
-<tr>
-<td><code>/trust</code></td>
-<td>信任模式</td>
-</tr>
-<tr>
-<td><code>/effort low|medium|high|xhigh|max</code></td>
-<td>设置推理深度（OpenAI&#x2F;Codex 提供商）</td>
-</tr>
-<tr>
-<td><code>/exit</code></td>
-<td>退出</td>
-</tr>
-</tbody></table>
+<p>配套消息补充（<strong>455 ❤️ &#x2F; 22 🔄</strong>）：<em>“无需安装任何东西。Claude 的浏览器内置在桌面应用里，跟你的个人浏览器和登录信息完全隔离。”</em></p>
+<p>同时 <strong>Claude in Chrome 正式对所有付费套餐 GA</strong>（<strong>247 ❤️ &#x2F; 9 🔄</strong>）：<em>“如果你更喜欢在已登录的浏览器里工作，Claude in Chrome 现在可以从设置里直接开启，使用的仍是 Claude 的浏览器而非你的个人浏览器。”</em></p>
+<p><strong>“Claude 会开浏览器自己干活”</strong> 标志着 agent 从”对话&#x2F;工具调用”向<strong>真正能操作 Web 环境的自主代理</strong>迈出关键一步——内置隔离浏览器同时解决了权限边界问题：<strong>你的登录、你的 session 和 Claude 分开</strong>。浏览器自动化（browser-use &#x2F; agent 型 browsing）正在成为 agent 的标准能力集，这也和近期各家把”能自己上网办事”作为卖点的大趋势一致。</p>
+<h2 id="sam-altman55-派对太好玩了下一个模型发布会搞个更大的"><a href="#💰-Sam-Altman：5-5-派对太好玩了，下一个模型发布会搞个更大的" class="headerlink" title="💰 Sam Altman：5.5 派对太好玩了，下一个模型发布会搞个更大的"></a>💰 Sam Altman：5.5 派对太好玩了，下一个模型发布会搞个更大的</h2><p><strong>Sam Altman</strong> 今天用两条轻松推文延续了 OpenAI 的”人设经营”（合计超过 <strong>1.2 万 ❤️</strong>）：</p>
 <blockquote>
-<p>提示：<code>Ctrl+C</code> 可取消正在进行的调查，不会丢失会话状态。</p>
+<p><strong>“我寻思我们应该为下一个模型发布再办一场派对，5.5 派对超好玩。让下一次更棒，你们有什么建议？”</strong>（<strong>9236 ❤️ &#x2F; 244 🔄</strong>，今日互动量第二）</p>
 </blockquote>
-<h3 id="3-单次调查"><a href="#3-单次调查" class="headerlink" title="3. 单次调查"></a>3. 单次调查</h3><p>直接传入告警文件执行一次性调查：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opensre investigate -i tests/e2e/kubernetes/fixtures/datadog_k8s_alert.json</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-常用命令"><a href="#4-常用命令" class="headerlink" title="4. 常用命令"></a>4. 常用命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 更新 OpenSRE</span></span><br><span class="line">opensre update</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载（清除所有本地数据）</span></span><br><span class="line">opensre uninstall</span><br><span class="line">opensre uninstall --<span class="built_in">yes</span>  <span class="comment"># 跳过确认</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="部署方案"><a href="#部署方案" class="headerlink" title="部署方案"></a>部署方案</h2><h3 id="方案一langgraph-platform官方推荐"><a href="#方案一：LangGraph-Platform（官方推荐）" class="headerlink" title="方案一：LangGraph Platform（官方推荐）"></a>方案一：LangGraph Platform（官方推荐）</h3><p>适用于生产环境部署：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    A[GitHub 仓库] --&gt; B[LangGraph Platform]</span><br><span class="line">    B --&gt; C[LLM Provider]</span><br><span class="line">    B --&gt; D[Postgres + Redis]</span><br><span class="line">    B --&gt; E[集成服务]</span><br><span class="line">    C --&gt; F[Anthropic/OpenAI/Gemini...]</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>在 LangGraph Platform 中创建新部署，连接该仓库</li>
-<li>保留根目录的 <code>langgraph.json</code> 配置文件</li>
-<li>配置环境变量：<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">LLM_PROVIDER=anthropic</span><br><span class="line">ANTHROPIC_API_KEY=your-api-key-here</span><br></pre></td></tr></table></figure></li>
-<li>添加集成所需的环境变量并部署</li>
-</ol>
-<h3 id="方案二railway自托管"><a href="#方案二：Railway（自托管）" class="headerlink" title="方案二：Railway（自托管）"></a>方案二：Railway（自托管）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 前提：已创建 Railway 项目并配置 Postgres 和 Redis</span></span><br><span class="line">opensre deploy railway --project &lt;project&gt; --service &lt;service&gt; --<span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
-
-<p>需要设置以下环境变量：</p>
+<blockquote>
+<p><strong>“这是一篇关于某件坏事的好报道”</strong>（<strong>3248 ❤️ &#x2F; 131 🔄</strong>）</p>
+</blockquote>
+<p>“5.5 party” + “下一个模型发布”并置，基本是在明示 <strong>GPT-5.5 之后还有大招</strong>。结合 Thibault Sottiaux（OpenAI）此前”好产品需要时间，至少 34 天”的说法，<strong>OpenAI 下一次模型&#x2F;DevDay 节点正在逼近</strong>。Sam Altman 一边做芯片、一边办派对、一边攒期待——OpenAI 的叙事节奏一如既往地抓眼球。</p>
+<h2 id="aaron-leviebox-q2-营收-3211-亿企业-ai-的最后一公里是内容与上下文"><a href="#🏢-Aaron-Levie：Box-Q2-营收-3-211-亿，企业-AI-的”最后一公里”是内容与上下文" class="headerlink" title="🏢 Aaron Levie：Box Q2 营收 $3.211 亿，企业 AI 的”最后一公里”是内容与上下文"></a>🏢 Aaron Levie：Box Q2 营收 $3.211 亿，企业 AI 的”最后一公里”是内容与上下文</h2><p><strong>Aaron Levie</strong>（Box）今早发布了 Q2 财报并附了一篇长文点评（<strong>188 ❤️ &#x2F; 18 🔄</strong>），几乎是昨天他观点的延续与落地：</p>
+<blockquote>
+<p><strong>“Box Q2 营收 $3.211 亿，同比 +9%（固定汇率 +11%），创下 14 个季度以来最高的固定汇率增速，并把全年营收目标上调到 $12.9 亿。增长主要由企业期望在 AI 时代用好企业内容的诉求驱动。”</strong></p>
+</blockquote>
+<p>核心论述值得划重点：</p>
 <ul>
-<li><code>DATABASE_URI</code> — Railway Postgres 实例地址</li>
-<li><code>REDIS_URI</code> — Railway Redis 实例地址</li>
+<li><strong>超智能只有在能访问企业知识时才真正有用</strong>——合同、研究材料、财务文档、营销素材、产品路线图，绝大多数企业数据是<strong>非结构化</strong>的。</li>
+<li><strong>Agent 需要即插即用地访问这些内容</strong>：用它问数据、挖掘情报、自动化几乎任何涉及企业内容的工作流。</li>
+<li><strong>AI 能力在 OpenAI &#x2F; Anthropic &#x2F; Meta &#x2F; Google &#x2F; NVIDIA 等厂商间快速演进</strong>，企业需要的是”能把所有模型的能力带给流程”的<strong>应用型 AI 平台</strong>，并能在任意时刻<strong>自由切换模型&#x2F;agent</strong>。</li>
+<li>结合近期 <strong>OpenAI–Hugging Face 事件</strong>：企业将越来越需要<strong>能安全保护数据、防止人和 agent 越权访问</strong>的平台——护栏、审计日志、实时安全告警必不可少。</li>
 </ul>
-<h2 id="集成能力"><a href="#集成能力" class="headerlink" title="集成能力"></a>集成能力</h2><p>OpenSRE 连接 <strong>60+</strong> 工具和服务，涵盖以下类别：</p>
-<table>
-<thead>
-<tr>
-<th>类别</th>
-<th>支持的工具</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><strong>AI&#x2F;LLM</strong></td>
-<td>Anthropic · OpenAI · Ollama · Gemini · OpenRouter · NVIDIA NIM · Bedrock</td>
-</tr>
-<tr>
-<td><strong>可观测性</strong></td>
-<td>Grafana · Datadog · Prometheus · CloudWatch · Honeycomb · Coralogix · Sentry</td>
-</tr>
-<tr>
-<td><strong>云基础设施</strong></td>
-<td>AWS (EC2&#x2F;ECS&#x2F;Lambda) · Kubernetes · Azure · ArgoCD</td>
-</tr>
-<tr>
-<td><strong>数据处理</strong></td>
-<td>Kafka · Flink · Airflow · ClickHouse</td>
-</tr>
-<tr>
-<td><strong>告警&#x2F;事件</strong></td>
-<td>PagerDuty · Alertmanager · Opsgenie</td>
-</tr>
-<tr>
-<td><strong>协作</strong></td>
-<td>Slack · Discord · Google Docs</td>
-</tr>
-<tr>
-<td><strong>协议</strong></td>
-<td>MCP · ACP · OpenClaw</td>
-</tr>
-</tbody></table>
-<h2 id="与-openclaw-集成"><a href="#与-OpenClaw-集成" class="headerlink" title="与 OpenClaw 集成"></a>与 OpenClaw 集成</h2><p>OpenSRE 原生支持通过 MCP 协议与 OpenClaw 协同工作：</p>
-<h3 id="1-添加-mcp-server"><a href="#1-添加-MCP-Server" class="headerlink" title="1. 添加 MCP Server"></a>1. 添加 MCP Server</h3><p>在 OpenClaw 的 <strong>Settings → MCP Servers</strong> 中添加：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;mcpServers&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;opensre&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;opensre-mcp&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>如果 <code>opensre-mcp</code> 不在 PATH 中：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;uv&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;args&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;run&quot;</span><span class="punctuation">,</span> <span class="string">&quot;opensre-mcp&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-运行测试调查"><a href="#2-运行测试调查" class="headerlink" title="2. 运行测试调查"></a>2. 运行测试调查</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opensre investigate -i tests/fixtures/openclaw_test_alert.json</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-可选opensre-调用-openclaw"><a href="#3-可选：OpenSRE-调用-OpenClaw" class="headerlink" title="3. 可选：OpenSRE 调用 OpenClaw"></a>3. 可选：OpenSRE 调用 OpenClaw</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> OPENCLAW_MCP_MODE=stdio</span><br><span class="line"><span class="built_in">export</span> OPENCLAW_MCP_COMMAND=openclaw</span><br><span class="line"><span class="built_in">export</span> OPENCLAW_MCP_ARGS=<span class="string">&quot;mcp serve&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>验证集成：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opensre integrations verify openclaw</span><br></pre></td></tr></table></figure>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>OpenSRE 为 AI 驱动的运维提供了一个强大的开源框架。无论是作为个人开发者的调查助手，还是作为团队的生产环境故障排查平台，它都能显著缩短 MTTR（平均故障修复时间）。</p>
-<h3 id="适合场景"><a href="#适合场景" class="headerlink" title="适合场景"></a>适合场景</h3><ul>
-<li><strong>个人开发者</strong> — 本地安装，快速定位开发环境问题</li>
-<li><strong>运维团队</strong> — 部署到生产环境，自动响应告警</li>
-<li><strong>SRE 团队</strong> — 结合现有可观测性栈，提升根因分析效率</li>
+<p>这几乎就是”应用型 AI（applied AI layer）元年”的白皮书。<strong>模型层已经很卷，真正的溢价在”把非结构化内容 + 正确上下文安全地喂给 agent”</strong>——正是 Box 想占的那个身位。</p>
+<h2 id="matt-turcknvidia-成为开源-ai-中心nemotron-收购-hugging-face"><a href="#🏗️-Matt-Turck：NVIDIA-成为开源-AI-中心——Nemotron-收购-Hugging-Face" class="headerlink" title="🏗️ Matt Turck：NVIDIA 成为开源 AI 中心——Nemotron + 收购 Hugging Face"></a>🏗️ Matt Turck：NVIDIA 成为开源 AI 中心——Nemotron + 收购 Hugging Face</h2><p><strong>Matt Turck</strong> 转发并点评标志着行业格局的一次大整合（<strong>119 ❤️ &#x2F; 5 🔄</strong>）：</p>
+<blockquote>
+<p><strong>“真正的三赢：</strong><br><strong>* NVIDIA 正式成为开源 AI 的中心（Nemotron 加上现在收购 HF）</strong><br><strong>* Hugging Face 大赢 + 找到了完美的家（终于不用再纠结商业模式了！）</strong><br><strong>* 开源 AI 大赢！”</strong></p>
+</blockquote>
+<p><strong>NVIDIA 收购 Hugging Face</strong>，加上此前 Nemotron 系列开源权重，NVIDIA 从”卖显卡的”正式坐上”开源 AI 生态中心”的位置。Hugging Face 作为全球最大的模型&#x2F;数据集托管平台，被芯片巨头收入囊中意味着<strong>开源生态与硬件算力更深度的绑定</strong>。对开发者生态而言，这大概能缓解 HF 长期以来的商业模式焦虑——但”开源中心归一家商业公司”也注定会引发接下来几周的广泛讨论。结合此前 <strong>OpenAI–HF 事件</strong>（详见昨天），HF 短时间内从争议核心变成了 NVIDIA 的”压舱石”，剧情反转相当快。</p>
+<h2 id="aditya-agarwaldeepcogito-完成-4300-万-a-轮后训练post-training决定-ai-前沿"><a href="#🔬-Aditya-Agarwal：DeepCogito-完成-4300-万-A-轮——后训练（post-training）决定-AI-前沿" class="headerlink" title="🔬 Aditya Agarwal：DeepCogito 完成 $4300 万 A 轮——后训练（post-training）决定 AI 前沿"></a>🔬 Aditya Agarwal：DeepCogito 完成 $4300 万 A 轮——后训练（post-training）决定 AI 前沿</h2><p><strong>Aditya Agarwal</strong>（前 Dropbox CTO）发帖宣布投资 <strong>DeepCogito</strong> 并解释了投资逻辑（<strong>59 ❤️ &#x2F; 10 🔄</strong>）：</p>
+<blockquote>
+<p><strong>“AI 前沿将由后训练（post-training）决定。DeepCogito 是一个后训练研究实验室，今天宣布完成 $4300 万 A 轮融资。</strong><br><strong>研究聚焦大规模强化学习与递归自我改进，核心方法是迭代蒸馏与放大（IDA）。已在 3B 到 600B+ 参数的模型上公开验证过该方法。</strong><br><strong>我们与 @benchmark、@TQVentures、@Atreidesmgmt、@nexusvp、@zscaler 一起支持这支在前沿工作的团队。”</strong></p>
+</blockquote>
+<p>当预训练 scaling 已接近收益递减、各家都在抢”后训练&#x2F;RL&#x2F;自我改进”这个叙事时，<strong>post-training 成为新的前沿主战场</strong>——DeepCogito 的 IDA 方法（iterated distillation &amp; amplification）正是”让模型通过迭代蒸馏与放大递归提升”的思路。这笔融资给了”AI 下一步拼的是训练后的强化与自我改进”这个判断一个具体注脚。</p>
+<h2 id="thariqclaude-新增-sendfeedback-工具让-agent-替你提交反馈"><a href="#⚡-Thariq：Claude-新增-SendFeedback-工具——让-agent-替你提交反馈" class="headerlink" title="⚡ Thariq：Claude 新增 SendFeedback 工具——让 agent 替你提交反馈"></a>⚡ Thariq：Claude 新增 SendFeedback 工具——让 agent 替你提交反馈</h2><p><strong>Thariq</strong>（Anthropic）分享了他上线的一个小改进（<strong>944 ❤️ &#x2F; 24 🔄</strong>）：</p>
+<blockquote>
+<p><strong>“这是我的改动，很高兴上线了。现在 Claude 有了 SendFeedback 工具，你不需要再自己去点 &#x2F;feedback 写报告——直接告诉 Claude 起草并提交反馈即可。这些反馈能帮我们改进、理解问题，非常感谢。”</strong></p>
+</blockquote>
+<p>一个看似不起眼但很”agent-first”的设计：<strong>连”提交产品反馈”这种元操作都变成 agent 能力</strong>。同时 <strong>Josh Woodward</strong>（OpenAI）也在搞多人 AI 体验（<strong>157 ❤️ &#x2F; 15 🔄</strong>），多智能体 + 元操作正在成为产品体验层的新常态。</p>
+<h2 id="guillermo-rauchvercel-全球算力-vercel-security-check-cli"><a href="#🛠️-Guillermo-Rauch：Vercel-全球算力-vercel-security-check-CLI" class="headerlink" title="🛠️ Guillermo Rauch：Vercel 全球算力 + vercel security check CLI"></a>🛠️ Guillermo Rauch：Vercel 全球算力 + <code>vercel security check</code> CLI</h2><p><strong>Guillermo Rauch</strong>（Vercel CEO）两条产品消息（合计 <strong>442 ❤️ &#x2F; 16 🔄</strong>）：</p>
+<blockquote>
+<p><strong>“超酷。全球算力，就在你们（agent）指尖：跨多区域、故障转移、默认 10,000 并发 sandbox 以及 5000 vCPU&#x2F;min 的扩容速度，更多区域即将到来。”</strong>（<strong>181 ❤️ &#x2F; 4 🔄</strong>）</p>
+</blockquote>
+<blockquote>
+<p><strong>“我们在发布一个很酷的安全仪表盘，同时还有 𝚟𝚎𝚛𝚌𝚎𝚕 𝚜𝚎𝚌𝚞𝚛𝚒𝚝𝚢 𝚌𝚑𝚎𝚌𝚔 CLI。跟 𝚒𝚜-𝚊𝚐𝚎𝚗𝚝𝚒𝚌 很像，你可以让 agent 在人工介入（human-in-the-loop）下提升你的安全态势，或者跑在 cron 里。谁曾想 CLI 能拯救世界呢 😁”</strong>（<strong>261 ❤️ &#x2F; 12 🔄</strong>）</p>
+</blockquote>
+<p><strong>“面向 agent 的全球算力 + 安全即代码”</strong>——Vercel 正在把”agent 运行基础设施”和”agent 安全运维”双双做成标准能力。尤其 post-OpenAI&#x2F;HF 事件后，<strong>agent 时代的部署与安全层</strong>价值被进一步放大。</p>
+<h2 id="codex-生态持续升温原生应用-可视化大进步"><a href="#🧩-Codex-生态持续升温：原生应用-可视化大进步" class="headerlink" title="🧩 Codex 生态持续升温：原生应用 + 可视化大进步"></a>🧩 Codex 生态持续升温：原生应用 + 可视化大进步</h2><ul>
+<li><strong>Dan Shipper</strong>：<em>“THEY DID IT FOLKS”</em>（<strong>1367 ❤️ &#x2F; 35 🔄</strong>）+ <em>“Codex native apps are here!”</em>（<strong>258 ❤️ &#x2F; 7 🔄</strong>）——<strong>Codex 原生应用正式落地</strong>，OpenAI 继续把 agent 从”跑命令”推向”能交付完整应用”。</li>
+<li><strong>Peter Steinberger</strong>：<em>“codex 的可视化功能变得真不错了”</em>（<strong>492 ❤️ &#x2F; 16 🔄</strong>）——Codex 在可视化&#x2F;UI 生成上的进步被重度用户点赞；另一条 <em>“maybe it is a bubble?”</em>（<strong>463 ❤️ &#x2F; 12 🔄</strong>）用自嘲回应了持续发酵的”AI 泡沫”讨论。</li>
 </ul>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://www.opensre.com/docs">OpenSRE 官方文档</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/Tracer-Cloud/OpenSRE">GitHub 仓库</a></li>
-<li><a target="_blank" rel="noopener" href="https://opensre.com/docs/faq">OpenSRE FAQ</a></li>
-<li><a target="_blank" rel="noopener" href="https://discord.gg/7NTpevXf7w">Discord 社区</a></li>
+<h2 id="其他值得关注"><a href="#🚀-其他值得关注" class="headerlink" title="🚀 其他值得关注"></a>🚀 其他值得关注</h2><ul>
+<li><strong>Nan Yu</strong>：<em>“this is upsetting——糟糕的沟通让 @gruber 对水印问题耿耿于怀，两个播客都听不下去了”</em>（<strong>3 ❤️</strong>）——小众但真实的水印话题杂音。</li>
+<li><strong>Zara Zhang</strong>：<em>“大公司的公关团队多半在挡真实的市场与品牌工作，讽刺的是本应放大品牌的功能反而成了它的对立面”</em>（<strong>22 ❤️</strong>）；另一条 <em>“说到 AI 写作，很多人持双重标准——『我用没事，你用不行』”</em>（<strong>71 ❤️</strong>）——一次对 AI 内容接受度双重标准的精准吐槽。</li>
+<li><strong>Peter Yang</strong>：<em>“Who should I tag for @X bugs now that @nikitabier has retired?”</em>（<strong>46 ❤️</strong>）——X 平台细节话题。</li>
+<li><strong>Thibault Sottiaux</strong>（OpenAI）：<em>“变老的好处是，感觉按下重置键已经 20 年了。好奇明天能不能找到它、擦擦灰。”</em>（<strong>6582 ❤️ &#x2F; 193 🔄</strong>）+ <em>“在 OpenAI 待几周，就像一个普通公司干了几年。”</em>（<strong>9336 ❤️ &#x2F; 200 🔄</strong>）——OpenAI 内部节奏感的凡尔赛式吐槽，热度意外地高。</li>
+<li><strong>Dan Shipper</strong>：<em>“多面手和哲学家的黄金时代到来了（幸好，这是对抗认识论绝望的解药）。不可思议的时代。”</em>（<strong>259 ❤️ &#x2F; 14 🔄</strong>）——AI 时代对”通才”价值的重新评估。</li>
 </ul>
+<hr>
+<p><em>数据来源：<a target="_blank" rel="noopener" href="https://github.com/zarazhangrui/follow-builders">Follow Builders</a> · 2026-08-27</em></p>
 
   </div>
 </article>
 
-
 <nav class="post-nav">
-  
-  <a class="prev" href="/computer-science/ai-tools/OpenSRE-%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98-%E6%8E%92%E6%9F%A5%E4%B8%8E%E6%8A%A5%E5%91%8A%E6%8C%87%E5%8D%97/">OpenSRE 进阶实战：排查方法论与报告解读指南</a>
-  
-  
-  <a class="next" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-05-10/">AI 日报 2026-05-10</a>
-  
+  <a class="prev" href="/ai-hotspots">返回 AI 行业热点</a>
 </nav>
-
-
-
-<div class="post-comments" id="comments">
-  <script>
-  (function() {
-    var s = document.createElement('script');
-    s.src = 'https://giscus.app/client.js';
-    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
-    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
-    s.setAttribute('data-category', 'General');
-    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
-    s.setAttribute('data-mapping', 'pathname');
-    s.setAttribute('data-strict', '0');
-    s.setAttribute('data-reactions-enabled', '1');
-    s.setAttribute('data-emit-metadata', '0');
-    s.setAttribute('data-input-position', 'bottom');
-    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
-    s.setAttribute('data-lang', 'zh-CN');
-    s.setAttribute('data-loading', 'lazy');
-    s.setAttribute('crossorigin', 'anonymous');
-    document.getElementById('comments').appendChild(s);
-  })();
-  </script>
-</div>
-
 
     </div>
   </main>
