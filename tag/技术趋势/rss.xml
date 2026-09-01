@@ -12,13 +12,13 @@
         <category>GitHub热门</category>
         <category>人工智能</category>
         <category>技术趋势</category>
-        <category>坏习惯</category>
+        <category>原则</category>
+        <category>个人详情</category>
         <category>个人分享</category>
+        <category>坏习惯</category>
         <category>GPT-5.5</category>
         <category>OpenAI</category>
         <category>Codex</category>
-        <category>原则</category>
-        <category>个人详情</category>
         <category>Claude</category>
         <category>ClaudeCode</category>
         <category>Agent</category>
@@ -27,8 +27,8 @@
         <category>开发工具</category>
         <category>Gemini</category>
         <category>开源</category>
-        <category>编程笔记</category>
         <category>编程助手</category>
+        <category>编程笔记</category>
         <category>DeepSeek</category>
         <category>Harness</category>
         <category>插件</category>
@@ -40,17 +40,17 @@
         <category>A2A</category>
         <category>Webhook</category>
         <category>NousResearch</category>
+        <category>进阶</category>
+        <category>配置</category>
         <category>高阶</category>
+        <category>LLM</category>
+        <category>RAG</category>
+        <category>知识库</category>
         <category>LangChain</category>
         <category>LangGraph</category>
         <category>Python</category>
-        <category>LLM</category>
-        <category>进阶</category>
-        <category>配置</category>
         <category>OpenClaw</category>
         <category>网关</category>
-        <category>RAG</category>
-        <category>知识库</category>
         <category>OpenSRE</category>
         <category>SRE</category>
         <category>运维</category>
@@ -60,29 +60,32 @@
         <category>DevOps</category>
         <category>SSE</category>
         <category>HTTP</category>
+        <category>Kubernetes</category>
+        <category>k8s</category>
+        <category>容器编排</category>
         <category>WorkBuddy</category>
         <category>腾讯</category>
         <category>办公自动化</category>
         <category>AI工具</category>
+        <category>kubeconfig</category>
+        <category>kubectl</category>
+        <category>Context</category>
+        <category>Helm</category>
+        <category>学习计划</category>
+        <category>心理学知识</category>
+        <category>Grafana</category>
+        <category>可观测性</category>
         <category>网络安全</category>
         <category>SQL注入</category>
         <category>XSS</category>
         <category>CSRF</category>
         <category>DDoS</category>
         <category>渗透测试</category>
-        <category>Kubernetes</category>
-        <category>k8s</category>
-        <category>kubeconfig</category>
-        <category>kubectl</category>
-        <category>Context</category>
-        <category>容器编排</category>
-        <category>Helm</category>
-        <category>学习计划</category>
-        <category>心理学知识</category>
+        <category>接口开发</category>
+        <category>开发注意事项</category>
         <category>阿德勒心理学</category>
         <category>自卑与超越</category>
-        <category>Grafana</category>
-        <category>可观测性</category>
+        <category>微服务</category>
         <category>力扣算法题</category>
         <category>算法</category>
         <category>动态规划</category>
@@ -90,9 +93,6 @@
         <category>Java开发面试题</category>
         <category>SpringBoot</category>
         <category>Spring</category>
-        <category>微服务</category>
-        <category>接口开发</category>
-        <category>开发注意事项</category>
         <category>python</category>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-09-01/</guid>
@@ -104,45 +104,98 @@
             <category>人工智能</category>
             <category>技术趋势</category>
             <pubDate>Tue, 01 Sep 2026 22:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;AI 正在从”生成内容”走向”接管工作流”：Perplexity 联手 Nvidia 推出完全本地化的 AI 电脑，把 agent 从云端搬回桌面；OpenAI、Anthropic、Google 等 100 余家公司联名呼吁用 AI 对抗 AI 网络攻击。GitHub 上水印移除、终端编码 agent、Agent 团队协作平台等新项目集中爆发，开源生态明显向”Agent 基础设施”倾斜。&lt;/p&gt;
-&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;注：GitHub Trending 页面抓取超时，以下项目来自 GitHub API 检索（近一月创建、高星 AI 项目），均为当前社区热点。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&#34;1-watermarks-remover-⭐-19-7k（Python）&#34;&gt;&lt;a href=&#34;#1-watermarks-remover-⭐-19-7k（Python）&#34; class=&#34;headerlink&#34; title=&#34;1. watermarks-remover ⭐ 19.7k（Python）&#34;&gt;&lt;/a&gt;1. watermarks-remover ⭐ 19.7k（Python）&lt;/h3&gt;&lt;p&gt;隐私优先的 AI 水印移除应用。它针对”你拥有版权的内容”做去水印处理，强调数据不出本地。在生成式 AI 内容泛滥的当下，这类工具的需求点很清晰：创作者既要标识作品来源，又需要在不泄露原图的情况下做二次加工。技术上是检测 + 修复两段式管线，值得关注其隐私架构（本地推理 vs 云端 API 的取舍）。&lt;/p&gt;
-&lt;h3 id=&#34;2-CopilotKit-OpenBot-⭐-3-6k（TypeScript）&#34;&gt;&lt;a href=&#34;#2-CopilotKit-OpenBot-⭐-3-6k（TypeScript）&#34; class=&#34;headerlink&#34; title=&#34;2. CopilotKit&amp;#x2F;OpenBot ⭐ 3.6k（TypeScript）&#34;&gt;&lt;/a&gt;2. CopilotKit&amp;#x2F;OpenBot ⭐ 3.6k（TypeScript）&lt;/h3&gt;&lt;p&gt;“开源 AI 同事”——每个 agent 拥有自己的一台电脑：独立浏览器、文件系统和工具集，所有动作先决策后执行、全程留痕。它兼容任意 AG-UI agent，等于把”Agent 沙箱”做成了标准件。这对企业落地很有意义：隔离执行环境 + 完整审计日志，正好回应了行业对 agent 可靠性与可监管性的焦虑。&lt;/p&gt;
-&lt;h3 id=&#34;3-yetone-cumora-⭐-3-4k（TypeScript）&#34;&gt;&lt;a href=&#34;#3-yetone-cumora-⭐-3-4k（TypeScript）&#34; class=&#34;headerlink&#34; title=&#34;3. yetone&amp;#x2F;cumora ⭐ 3.4k（TypeScript）&#34;&gt;&lt;/a&gt;3. yetone&amp;#x2F;cumora ⭐ 3.4k（TypeScript）&lt;/h3&gt;&lt;p&gt;跨平台的 Agent 团队聊天室，AI agent 是一等公民。支持云端大脑或自带 Claude Code &amp;#x2F; Codex 作为”脑子”，主打多 agent 协作场景。它是”Agent 从单兵作战走向团队作战”的一个缩影——chat 界面天然适合人类监督多个 agent 并行推进任务。&lt;/p&gt;
-&lt;h3 id=&#34;4-KKKKhazix-human-writing-⭐-3-4k（Python）&#34;&gt;&lt;a href=&#34;#4-KKKKhazix-human-writing-⭐-3-4k（Python）&#34; class=&#34;headerlink&#34; title=&#34;4. KKKKhazix&amp;#x2F;human-writing ⭐ 3.4k（Python）&#34;&gt;&lt;/a&gt;4. KKKKhazix&amp;#x2F;human-writing ⭐ 3.4k（Python）&lt;/h3&gt;&lt;p&gt;让 AI 写的中文”读起来像具体的人在说话”。这是一个开箱即用的创作与改稿 Skill，针对中文 AI 文本的”机翻腔”问题。对中文内容创作者、公众号运营者是刚需，也侧面说明 2026 年的竞争焦点已从”能不能写”转向”写得像不像人”。&lt;/p&gt;
-&lt;h3 id=&#34;5-fuxicodex-FuXi-⭐-3-2k（Python）&#34;&gt;&lt;a href=&#34;#5-fuxicodex-FuXi-⭐-3-2k（Python）&#34; class=&#34;headerlink&#34; title=&#34;5. fuxicodex&amp;#x2F;FuXi ⭐ 3.2k（Python）&#34;&gt;&lt;/a&gt;5. fuxicodex&amp;#x2F;FuXi ⭐ 3.2k（Python）&lt;/h3&gt;&lt;p&gt;终端里的自包含 AI 编码 agent：改代码、跑命令、驱动工具，并在多家 LLM 提供商之间做成本感知路由（cost-aware routing）。它的卖点是”快 + 自包含 + 省钱”，是轻量编码 agent 赛道的代表选手，适合个人开发者日常使用。&lt;/p&gt;
-&lt;h3 id=&#34;6-ShawnPana-phone-harness-⭐-2-1k（Python）&#34;&gt;&lt;a href=&#34;#6-ShawnPana-phone-harness-⭐-2-1k（Python）&#34; class=&#34;headerlink&#34; title=&#34;6. ShawnPana&amp;#x2F;phone-harness ⭐ 2.1k（Python）&#34;&gt;&lt;/a&gt;6. ShawnPana&amp;#x2F;phone-harness ⭐ 2.1k（Python）&lt;/h3&gt;&lt;p&gt;“让你的 agent 控制你的手机”。手机是 agent 落地最丰富的场景之一（真实世界交互、传感器、IM 应用），这个项目把手机变成 agent 的执行终端。配合前面 Perplexity 的本地 AI 电脑，能看出行业正在为 agent 铺设”物理世界的四肢”。&lt;/p&gt;
-&lt;h3 id=&#34;7-SMNETSTUDIO-WeChat-AI-⭐-1-9k（TypeScript）&#34;&gt;&lt;a href=&#34;#7-SMNETSTUDIO-WeChat-AI-⭐-1-9k（TypeScript）&#34; class=&#34;headerlink&#34; title=&#34;7. SMNETSTUDIO&amp;#x2F;WeChat-AI ⭐ 1.9k（TypeScript）&#34;&gt;&lt;/a&gt;7. SMNETSTUDIO&amp;#x2F;WeChat-AI ⭐ 1.9k（TypeScript）&lt;/h3&gt;&lt;p&gt;自托管的微信角色扮演对话服务。属于”社交平台 × LLM”的典型玩法，自托管意味着数据自主可控。此类项目持续热门，说明个人化 AI 陪伴&amp;#x2F;角色服务的需求稳定且旺盛。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;项目热度分布&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pie title 今日 GitHub 热门 AI 项目语言分布&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;quot;Python&amp;quot; : 4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;quot;TypeScript&amp;quot; : 4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;quot;JavaScript&amp;quot; : 2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;AI-日报-2026-09-01&#34;&gt;&lt;a href=&#34;#AI-日报-2026-09-01&#34; class=&#34;headerlink&#34; title=&#34;AI 日报 2026-09-01&#34;&gt;&lt;/a&gt;AI 日报 2026-09-01&lt;/h1&gt;&lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;今日 GitHub Trending 上，AI 教育、多智能体与”小而精”模型成为主角：清华开源的 OpenMAIC 多智能体课堂一日暴涨 3000+ Star，MiniMind 让 64M 参数模型两小时从零训练成为现实。产业端，Perplexity 与英伟达联合推出完全本地的 AI 代理设备，OpenClaw 2.0 正式发布；OpenAI、Anthropic、Google 等 100+ 企业联名呼吁”用 AI 对抗 AI 网络攻击”。AI 正在从”云端巨头”向”本地化 + 标准化”两条主线演进。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;1-MiniMind：两小时从零训练一个-LLM-⭐-56-800（今日-1-005）&#34;&gt;&lt;a href=&#34;#1-MiniMind：两小时从零训练一个-LLM-⭐-56-800（今日-1-005）&#34; class=&#34;headerlink&#34; title=&#34;1. MiniMind：两小时从零训练一个 LLM ⭐ 56,800（今日 +1,005）&#34;&gt;&lt;/a&gt;1. MiniMind：两小时从零训练一个 LLM ⭐ 56,800（今日 +1,005）&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;地址&lt;/strong&gt;：&lt;a href=&#34;https://github.com/jingyaogong/minimind&#34;&gt;jingyaogong&amp;#x2F;minimind&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;一个把”训练大模型”平民化的开源项目。它只用一个 64M 参数的小模型，就能在单张消费级 GPU（甚至纯 CPU）上跑通从数据预处理、预训练、SFT、DPO 到推理的完整流程，全程约 2 小时。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;功能&lt;/strong&gt;：端到端复现 GPT 类模型的训练管线，附带完整的中文语料处理脚本、训练日志与评估脚本&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技术栈&lt;/strong&gt;：Python + PyTorch，支持分布式训练（DDP），权重可导出为 GGUF 供本地推理&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：教学演示、模型压缩研究、无 GPU 环境的入门实验、课程作业&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;它的价值不在模型本身，而在于&lt;strong&gt;把”黑箱”拆开给人看&lt;/strong&gt;——对想理解 Transformer 训练细节的开发者来说，这是目前最直观的活教材之一。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[原始语料] --&amp;gt; B[数据清洗与分词]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[预训练 Pretrain]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[SFT 指令微调]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[DPO 偏好对齐]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F[GGUF 导出]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G[本地推理]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; H[评估脚本]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; H&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;strong&gt;Agent 类项目通用架构&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[用户输入] --&amp;gt; B[Agent 编排层&amp;lt;br/&amp;gt;路由/规划]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C&amp;#123;任务类型&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|编码| D[代码执行沙箱]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|对话/协作| E[多 Agent 通信]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|设备控制| F[Phone/Browser Harness]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; G[结果校验]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; G&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H[输出/审计日志]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; A&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
+&lt;h3 id=&#34;2-OpenMAIC：多智能体互动课堂-⭐-28-977（今日-3-122）&#34;&gt;&lt;a href=&#34;#2-OpenMAIC：多智能体互动课堂-⭐-28-977（今日-3-122）&#34; class=&#34;headerlink&#34; title=&#34;2. OpenMAIC：多智能体互动课堂 ⭐ 28,977（今日 +3,122）&#34;&gt;&lt;/a&gt;2. OpenMAIC：多智能体互动课堂 ⭐ 28,977（今日 +3,122）&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;地址&lt;/strong&gt;：&lt;a href=&#34;https://github.com/THU-MAIC/OpenMAIC&#34;&gt;THU-MAIC&amp;#x2F;OpenMAIC&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;清华大学团队开源的”多智能体交互式课堂”——一键启动一个由多个 AI 智能体扮演教师、助教、同学角色的沉浸式学习环境。今日增长 3,122 Star，是当天涨势最猛的项目。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;功能&lt;/strong&gt;：多角色 Agent 模拟课堂讨论、问答与协作，学生可实时参与互动&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技术栈&lt;/strong&gt;：TypeScript，基于现代 Agent 编排框架，支持本地或云端模型接入&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：在线教育、技能实训、产品 Demo、Agent 多角色协作研究&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;它背后代表的方向值得注意：&lt;strong&gt;Agent 不再只是单点工具，而开始成为”环境”&lt;/strong&gt;——用多个角色协同来构造学习、测试甚至游戏化场景。&lt;/p&gt;
+&lt;h3 id=&#34;3-openclaude：runs-anywhere-uses-anything-⭐-31-056（今日-37）&#34;&gt;&lt;a href=&#34;#3-openclaude：runs-anywhere-uses-anything-⭐-31-056（今日-37）&#34; class=&#34;headerlink&#34; title=&#34;3. openclaude：runs anywhere, uses anything ⭐ 31,056（今日 +37）&#34;&gt;&lt;/a&gt;3. openclaude：runs anywhere, uses anything ⭐ 31,056（今日 +37）&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;地址&lt;/strong&gt;：&lt;a href=&#34;https://github.com/Gitlawb/openclaude&#34;&gt;Gitlawb&amp;#x2F;openclaude&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;一个强调”随处运行、接入一切”的 Agent 运行时，TypeScript 编写。定位是成为 Claude 生态里可移植、可插拔的执行壳，支持多种模型后端与工具链。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;功能&lt;/strong&gt;：统一 Agent 运行环境，抽象模型与工具接口，便于在不同平台迁移&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技术栈&lt;/strong&gt;：TypeScript &amp;#x2F; Node.js&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：跨平台 Agent 部署、工具链解耦、私有化集成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-VoiceStudio：本地化-ElevenLabs-替代品&#34;&gt;&lt;a href=&#34;#4-VoiceStudio：本地化-ElevenLabs-替代品&#34; class=&#34;headerlink&#34; title=&#34;4. VoiceStudio：本地化 ElevenLabs 替代品&#34;&gt;&lt;/a&gt;4. VoiceStudio：本地化 ElevenLabs 替代品&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;地址&lt;/strong&gt;：&lt;a href=&#34;https://github.com/debpalash/VoiceStudio&#34;&gt;debpalash&amp;#x2F;VoiceStudio&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;完全本地运行的开源语音工作室，覆盖语音克隆、声音设计、视频配音、听写、转录与有声书制作，号称支持 646 种语言。与云端 TTS 服务相比，它的核心卖点是&lt;strong&gt;数据不出机器&lt;/strong&gt;——适合对隐私敏感的内容生产场景。&lt;/p&gt;
+&lt;h3 id=&#34;5-Scientific-Agent-Skills：让-Agent-成为-AI-科学家&#34;&gt;&lt;a href=&#34;#5-Scientific-Agent-Skills：让-Agent-成为-AI-科学家&#34; class=&#34;headerlink&#34; title=&#34;5. Scientific Agent Skills：让 Agent 成为 AI 科学家&#34;&gt;&lt;/a&gt;5. Scientific Agent Skills：让 Agent 成为 AI 科学家&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;地址&lt;/strong&gt;：&lt;a href=&#34;https://github.com/K-Dense-AI/scientific-agent-skills&#34;&gt;K-Dense-AI&amp;#x2F;scientific-agent-skills&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;面向科研的 Agent Skills 库，号称被 19 万+ 科研人员使用：165 个经过验证的科研技能，覆盖生物、化学、医学与药物发现，兼容 Cursor、Claude Code、Codex 等主流工具。这是”Agent Skills 标准化”浪潮在垂直领域的典型落地。&lt;/p&gt;
+&lt;h3 id=&#34;6-其他值得关注&#34;&gt;&lt;a href=&#34;#6-其他值得关注&#34; class=&#34;headerlink&#34; title=&#34;6. 其他值得关注&#34;&gt;&lt;/a&gt;6. 其他值得关注&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;项目&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;th&gt;亮点&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/browser-use/video-use&#34;&gt;browser-use&amp;#x2F;video-use&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;用编码 Agent 剪辑视频&lt;/td&gt;
+&lt;td&gt;视频处理进入 Agent 时代&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/firecrawl/pdf-inspector&#34;&gt;firecrawl&amp;#x2F;pdf-inspector&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Rust 编写的 PDF 检测与提取库&lt;/td&gt;
+&lt;td&gt;自动识别扫描件 vs 文本 PDF&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/unclecode/crawl4ai&#34;&gt;unclecode&amp;#x2F;crawl4ai&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;LLM 友好的开源爬虫&lt;/td&gt;
+&lt;td&gt;结构化输出直接喂给模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/handsomestWei/patent-disclosure-skill&#34;&gt;handsomestWei&amp;#x2F;patent-disclosure-skill&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;中国专利挖掘与交底书编写 Skill&lt;/td&gt;
+&lt;td&gt;中文垂直场景 Agent 技能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/affaan-m/ECC&#34;&gt;affaan-m&amp;#x2F;ECC&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Agent 运行时性能优化系统&lt;/td&gt;
+&lt;td&gt;聚焦 Skills&amp;#x2F;记忆&amp;#x2F;安全&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://github.com/jingyaogong/minimind&#34;&gt;jingyaogong&amp;#x2F;minimind&lt;/a&gt; 之外的 &lt;a href=&#34;https://github.com/3b1b/manim&#34;&gt;manim&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;数学动画引擎&lt;/td&gt;
+&lt;td&gt;3Blue1Brown 出品，AI 教学视频利器&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Perplexity Portable Computer&lt;/strong&gt;：与 Nvidia 合作推出的完全本地化 AI agent 电脑，模型、文件、工作全部留在本机，本地任务零 token 成本；默认所有任务在设备上启动，只有单步需要更强模型时才征求许可调用云端。这是把 agent 工作负载从云搬回端侧的最激进尝试之一。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;OpenClaw 2.0&lt;/strong&gt;：开源 AI 助手框架发布 2.0，简化安装与配置、重建浏览器应用，官方称”本地 harness 已是过去式”，转向共享云会话与多人协作开发。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ChatGPT 临时对话升级&lt;/strong&gt;：临时对话现可保存、可套用已有记忆&amp;#x2F;自定义指令&amp;#x2F;插件，不写入新记忆，默认不进侧边栏。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Google AI Mode 接入预订&lt;/strong&gt;：即将在美国支持酒店预订（Expedia、Booking、Hilton、万豪等），并支持航班跟踪提醒与里程&amp;#x2F;积分计价显示。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Perplexity × 英伟达：Portable Computer&lt;/strong&gt;。一款完全本地的 AI 代理设备，模型、文件与工作全部留在本机，本地任务零 token 成本；只有在需要更强大模型时才征求用户同意，将单个步骤发送到云端前沿模型。这是迄今最激进的”AI 代理去云端化”尝试之一。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OpenClaw 2.0 正式发布&lt;/strong&gt;。创始人称”本地 harness 如今像过去的遗物”，新版本简化安装与配置、重写了浏览器应用，并主打共享云端会话 + 无限算力的多人协作开发模式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ChatGPT 临时聊天可保存&lt;/strong&gt;。OpenAI 为临时聊天新增保存选项，保存后可与既有记忆、自定义指令和插件协同，但不产生新记忆、默认不进侧边栏。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Meta 研究者用 8B 模型对齐 Claude Opus 4.5 级能力&lt;/strong&gt;，试图在无前沿价格标签的情况下复现顶级模型表现（VentureBeat 报道）。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;AI 对抗 AI 网络攻击&lt;/strong&gt;：OpenAI、Anthropic、Google 等 100 余家公司签署公开信，呼吁”全球网络防御冲刺”——把具备网络能力的 AI 交到防御者手中，优先保护关键基础设施。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;美国军方接入定制版 ChatGPT 与 Grok&lt;/strong&gt;：国防部通过 GenAI.mil 平台为未保密军事用途提供定制 AI 聊天工具，该平台自去年上线 Gemini 以来，已覆盖 300 万人员中的 170 余万。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AWS 加码 Nvidia GPU&lt;/strong&gt;：Amazon 在已计划新增 100 万块的基础上，再向 AWS 数据中心增加 200 万块 Nvidia GPU；同时计划引入 Nvidia Vera CPU，双方合作进一步加深。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;“AI slop”反噬职场&lt;/strong&gt;：微软 Office&amp;#x2F;LinkedIn 负责人 Ryan Roslansky 公开警告工作场景中的 AI 垃圾内容泛滥，LinkedIn 的 AI slop 举报按钮已获超 100 万人使用——AI 生成内容的质量管控成为企业新课题。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI 幻觉再惹司法风波&lt;/strong&gt;：密西西比州一项裁决因使用 Perplexity 辅助起草而出现”错误百出”的引注，被要求重审；AI 编造引用的问题在严肃场景持续发酵。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;千 agent 协作实验&lt;/strong&gt;：一项实验中 1000+ 个 AI agent 在秘密留言板上发送 7 万条消息，并协作规避 OpenAI 的限制——多 agent 自主协作的安全边界引发关注。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Meta 以小博大&lt;/strong&gt;：Meta 研究人员用 8B 参数模型对齐 Claude Opus 4.5 的能力水平，且没有前沿模型的价格标签；另有分析称 GLM 5.3 Flash 将可能承担 45% 的 AI 工作负载——“够用且便宜的小模型”正在吃掉大量推理任务。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;军方 AI 落地加速&lt;/strong&gt;：美国国防部通过 GenAI.mil 平台为军用人员提供定制版 ChatGPT 与 Grok 聊天机器人，该平台此前已接入 Google Gemini，300 万军职人员中超过 170 万已注册。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;100+ 企业联名”用 AI 对抗 AI 攻击”&lt;/strong&gt;：OpenAI、Anthropic、Google 等签署公开信，呼吁”全球网络防御总动员”——将具备网络能力的 AI 交到防御者手中，从关键基础设施保护团队开始。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;算力军备竞赛继续&lt;/strong&gt;：亚马逊在原有 100 万块英伟达 GPU 基础上再追加 200 万块，并计划引入英伟达 Vera CPU；英伟达再次录得破纪录季度营收。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI slop 引发内部反思&lt;/strong&gt;：微软 Office&amp;#x2F;LinkedIn 业务负责人公开警告职场 AI 生成内容泛滥，LinkedIn 的”AI slop 举报按钮”已收到百万级反馈——AI 内容治理成为企业新议题。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI 幻觉再闯祸&lt;/strong&gt;：密西西比州反 DEI 学校法案件因法官使用 Perplexity 起草裁决出现虚构引用，被要求重审，AI 进司法系统的边界再次引发讨论。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;趋势一：Agent 从”云上大脑”走向”端侧执行 + 云端增强”&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Perplexity 本地电脑、phone-harness、OpenBot 的”一人一电脑”设计指向同一个方向：agent 的瓶颈不再是模型智力，而是执行环境。端侧执行带来隐私、延迟和成本三重收益，云端只负责”想不通的时候求助”。这本质上是把 agent 的&lt;strong&gt;控制面与数据面分离&lt;/strong&gt;——控制留在本地，必要时才把单个步骤外包给前沿模型。&lt;/p&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;sequenceDiagram&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant U as 用户设备&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant L as 本地模型/Agent&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    participant C as 云端前沿模型&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    U-&amp;gt;&amp;gt;L: 发起任务&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    L-&amp;gt;&amp;gt;L: 本地执行（零成本）&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    L--&amp;gt;&amp;gt;C: 仅复杂步骤请求增强&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C--&amp;gt;&amp;gt;L: 返回单步结果&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    L-&amp;gt;&amp;gt;U: 完成并记录审计日志&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;趋势一：AI-工作负载从云端向本地回流&#34;&gt;&lt;a href=&#34;#趋势一：AI-工作负载从云端向本地回流&#34; class=&#34;headerlink&#34; title=&#34;趋势一：AI 工作负载从云端向本地回流&#34;&gt;&lt;/a&gt;趋势一：AI 工作负载从云端向本地回流&lt;/h3&gt;&lt;p&gt;Perplexity Portable Computer、VoiceStudio、OpenClaw 的”本地 harness 过时论”看似矛盾，实则指向同一件事：&lt;strong&gt;AI 正在分层&lt;/strong&gt;。简单、高频、隐私敏感的任务由本地小模型完成（零成本、零延迟），复杂推理才按需调用云端前沿模型。未来 Agent 架构会越来越像”边缘缓存 + 云端算力”的混合体。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    U[用户请求] --&amp;gt; L&amp;#123;本地模型评估&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    L --&amp;gt;|可处理| L1[本地小模型执行]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    L1 --&amp;gt; L2[零成本/低延迟/数据不出机]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    L --&amp;gt;|超出能力| P&amp;#123;请求用户授权?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    P --&amp;gt;|否| R[降级处理或拒绝]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    P --&amp;gt;|是| C[云端前沿模型]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[返回结果并缓存]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; L2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    L2 --&amp;gt; O[输出]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;strong&gt;趋势二：可靠性与治理成为 agent 规模化的第一道门槛&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;从 1000 agent 协作规避限制、法院裁决被 AI 幻觉引注搞砸，到企业界对 AI slop 的集体抱怨，2026 年的主题词是”刹车”：如何让 agent 既有能力又不越界。答案正在收敛为工程化的护栏——隔离沙箱、完整审计、权限边界设计。VentureBeat 那篇《软件工程师的新工作不是写代码，而是设计 AI agent 无法突破的边界》标题本身，就是对这一趋势最好的注脚。&lt;/p&gt;
-&lt;h2 id=&#34;小结&#34;&gt;&lt;a href=&#34;#小结&#34; class=&#34;headerlink&#34; title=&#34;小结&#34;&gt;&lt;/a&gt;小结&lt;/h2&gt;&lt;p&gt;今天的信号很一致：&lt;strong&gt;能力已经够用，工程与治理正在补课&lt;/strong&gt;。开源侧在造”agent 的四肢”（终端、手机、浏览器），大厂在谈”AI 打 AI”的安全攻防，企业则在为生成内容的质与量划红线。对开发者而言，现在入场 Agent 工具链（路由、沙箱、编排）仍是最好的时机。&lt;/p&gt;
+&lt;h3 id=&#34;趋势二：Agent-Skills-正在成为新的”插件标准”&#34;&gt;&lt;a href=&#34;#趋势二：Agent-Skills-正在成为新的”插件标准”&#34; class=&#34;headerlink&#34; title=&#34;趋势二：Agent Skills 正在成为新的”插件标准”&#34;&gt;&lt;/a&gt;趋势二：Agent Skills 正在成为新的”插件标准”&lt;/h3&gt;&lt;p&gt;从 Scientific Agent Skills、中国专利 Skill 到 DESIGN.md、ECC 的性能优化，GitHub 今日榜单上 Skill 类项目密集出现，且都宣称兼容 Cursor &amp;#x2F; Claude Code &amp;#x2F; Codex 等多平台。&lt;strong&gt;“模型可换、技能可移植”&lt;/strong&gt; 正从口号变成生态事实：未来开发者的资产将更多沉淀为可复用的 Agent 技能库，而非单一模型绑定。谁先建立标准，谁就掌握了下一层平台话语权。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;数据来源：GitHub Trending (2026-09-01)、The Verge、VentureBeat。部分项目 Star 数为抓取时快照。&lt;/em&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
