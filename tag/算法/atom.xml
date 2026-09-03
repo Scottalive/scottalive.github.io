@@ -12,45 +12,56 @@
     <category term="原则" />
     <category term="个人详情" />
     <category term="个人分享" />
-    <category term="OpenSRE" />
-    <category term="Grafana" />
-    <category term="SRE" />
-    <category term="可观测性" />
     <category term="坏习惯" />
     <category term="Kubernetes" />
     <category term="k8s" />
     <category term="容器编排" />
     <category term="DevOps" />
     <category term="运维" />
-    <category term="GPT-5.5" />
-    <category term="OpenAI" />
-    <category term="Codex" />
     <category term="kubeconfig" />
     <category term="kubectl" />
     <category term="Context" />
+    <category term="OpenSRE" />
+    <category term="Grafana" />
+    <category term="SRE" />
+    <category term="可观测性" />
+    <category term="心理学知识" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
+    <category term="网络安全" />
+    <category term="SQL注入" />
+    <category term="XSS" />
+    <category term="CSRF" />
+    <category term="DDoS" />
+    <category term="渗透测试" />
+    <category term="力扣算法题" />
+    <category term="算法" />
+    <category term="编程笔记" />
+    <category term="动态规划" />
+    <category term="JavaSE" />
+    <category term="Java开发面试题" />
     <category term="Helm" />
     <category term="学习计划" />
+    <category term="SpringBoot" />
+    <category term="Spring" />
+    <category term="GPT-5.5" />
+    <category term="OpenAI" />
+    <category term="Codex" />
     <category term="ClaudeCode" />
     <category term="Gemini" />
     <category term="开发工具" />
     <category term="开源" />
+    <category term="Claude" />
+    <category term="Agent" />
+    <category term="MCP" />
+    <category term="自动化" />
+    <category term="编程助手" />
     <category term="DeepSeek" />
     <category term="Harness" />
-    <category term="Agent" />
     <category term="插件" />
     <category term="安装教程" />
     <category term="Hermes" />
     <category term="v0.17" />
-    <category term="自动化" />
-    <category term="Claude" />
-    <category term="MCP" />
-    <category term="编程助手" />
-    <category term="编程笔记" />
-    <category term="高阶" />
-    <category term="LangChain" />
-    <category term="LangGraph" />
-    <category term="Python" />
-    <category term="LLM" />
     <category term="v0.20" />
     <category term="语音交互" />
     <category term="A2A" />
@@ -58,37 +69,26 @@
     <category term="NousResearch" />
     <category term="进阶" />
     <category term="配置" />
+    <category term="高阶" />
+    <category term="LLM" />
     <category term="RAG" />
     <category term="知识库" />
-    <category term="AI运维" />
+    <category term="LangChain" />
+    <category term="LangGraph" />
+    <category term="Python" />
     <category term="故障排查" />
-    <category term="根因分析" />
     <category term="OpenClaw" />
     <category term="网关" />
+    <category term="AI运维" />
+    <category term="根因分析" />
+    <category term="SSE" />
+    <category term="HTTP" />
+    <category term="接口开发" />
+    <category term="开发注意事项" />
     <category term="WorkBuddy" />
     <category term="腾讯" />
     <category term="办公自动化" />
     <category term="AI工具" />
-    <category term="网络安全" />
-    <category term="SQL注入" />
-    <category term="XSS" />
-    <category term="CSRF" />
-    <category term="DDoS" />
-    <category term="渗透测试" />
-    <category term="SSE" />
-    <category term="HTTP" />
-    <category term="心理学知识" />
-    <category term="阿德勒心理学" />
-    <category term="自卑与超越" />
-    <category term="JavaSE" />
-    <category term="力扣算法题" />
-    <category term="算法" />
-    <category term="动态规划" />
-    <category term="接口开发" />
-    <category term="开发注意事项" />
-    <category term="Java开发面试题" />
-    <category term="SpringBoot" />
-    <category term="Spring" />
     <category term="微服务" />
     <category term="python" />
     <entry>
@@ -341,8 +341,8 @@
 &lt;/ul&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 学习路径&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        FIB[斐波那契&amp;lt;br/&amp;gt;入门] --&amp;gt; HOUSE[打家劫舍&amp;lt;br/&amp;gt;简单一维]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        HOUSE --&amp;gt; KNAPSACK[0-1 背包&amp;lt;br/&amp;gt;二维经典]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        KNAPSACK --&amp;gt; LCS[&amp;quot;LCS/LIS&amp;lt;br/&amp;gt;序列DP&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        LCS --&amp;gt; EDIT[编辑距离&amp;lt;br/&amp;gt;二维进阶]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        EDIT --&amp;gt; TREE[树形DP&amp;lt;br/&amp;gt;高阶]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style FIB fill:#e8f4fd,stroke:#4a90d9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style HOUSE fill:#e8f4fd,stroke:#4a90d9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style KNAPSACK fill:#d4edda,stroke:#27ae60&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style LCS fill:#d4edda,stroke:#27ae60&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style EDIT fill:#fce4ec,stroke:#e74c3c&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style TREE fill:#fce4ec,stroke:#e74c3c&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 </content>
-        <category term="编程笔记" />
         <category term="算法" />
+        <category term="编程笔记" />
         <category term="动态规划" />
         <updated>2026-05-02T13:40:00.000Z</updated>
     </entry>
@@ -463,8 +463,8 @@
 &lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 二分查找中，数组必须是有序的&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 方法一：采用递归的方式&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;binary_search&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;arr:&lt;span class=&#34;built_in&#34;&gt;list&lt;/span&gt;, target, start, end&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;# 如果start索引下的元素就是目标元素，直接返回&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; arr[start] == target:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; start&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;# 如果end索引下的元素就是目标元素，直接返回&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; arr[end] == target:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;# 取中间的元素 为什么是(end + start) / 2？因为当start&amp;gt;0 时，中间的索引必须是 (end - start) / 2 + start = (end + start) / 2，必须要加上start,否则递归会溢出，无限递归下去。&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    mid = &lt;span class=&#34;built_in&#34;&gt;int&lt;/span&gt;((end + start) / &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;# 如果中间的元素是目标元素则直接返回&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; arr[mid] == target:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; mid&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;# 如果中间元素大于目标元素，则递归调用，将end设置成中间索引减1，即 mid - 1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; arr[mid] &amp;gt; target:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; binary_search(arr, target, start, mid - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;# 如果中间元素小于目标元素，则递归调用，将start设置成中间索引加1，即 mid+ 1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; arr[mid] &amp;lt; target:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; binary_search(arr, target, mid + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;, end)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;None&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 方法二: 采用循环的方式&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;binary_search_2&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;arr:&lt;span class=&#34;built_in&#34;&gt;list&lt;/span&gt;, target&lt;/span&gt;):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    low = &lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    high = &lt;span class=&#34;built_in&#34;&gt;len&lt;/span&gt;(arr) - &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;while&lt;/span&gt; low &amp;lt;= high:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; arr[low] == target:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; low&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; arr[high] == target:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; high&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        mid = &lt;span class=&#34;built_in&#34;&gt;int&lt;/span&gt;((low + high) / &lt;span class=&#34;number&#34;&gt;2&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        guess = arr[mid]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; guess == target:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; mid&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; guess &amp;gt; target:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            low = low + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; guess &amp;lt; target:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            high = high + &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;None&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 </content>
-        <category term="编程笔记" />
         <category term="算法" />
+        <category term="编程笔记" />
         <updated>2023-09-20T20:47:00.000Z</updated>
     </entry>
     <entry>
@@ -489,8 +489,8 @@
 &lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt; * 快速排序法&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt; * &lt;span class=&#34;doctag&#34;&gt;@param&lt;/span&gt; arr 原数组&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt; * &lt;span class=&#34;doctag&#34;&gt;@return&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; [] quickSort(&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; []arr)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 如果数组长度小于等于1，直接返回 基准条件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (arr.length &amp;lt;= &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; arr;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 取第一个元素作为基准元素&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;privot&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; arr[&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 获取比基准元素小和比基准元素大的数组&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ArrayList&amp;lt;Integer&amp;gt; less = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;ArrayList&lt;/span&gt;&amp;lt;&amp;gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    ArrayList&amp;lt;Integer&amp;gt; greater = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;ArrayList&lt;/span&gt;&amp;lt;&amp;gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;for&lt;/span&gt; (&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;; i &amp;lt; arr.length ; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (arr[i] &amp;gt;= privot) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            greater.add(arr[i]);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            less.add(arr[i]);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 递归上述行为，直至获取到两个数组排序好的数组&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt;[] lessArr = quickSort(less.stream().mapToInt(Integer::valueOf).toArray());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt;[] greaterArr = quickSort(greater.stream().mapToInt(Integer::valueOf).toArray());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; []array = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;int&lt;/span&gt;[arr.length];&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;comment&#34;&gt;// 将其复制到新数组中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    System.arraycopy(lessArr,&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;,array,&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;,lessArr.length);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    System.arraycopy(greaterArr,&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;,array,lessArr.length+&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;,greaterArr.length);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    array[lessArr.length] = privot ;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; array ;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 
 </content>
-        <category term="编程笔记" />
         <category term="算法" />
+        <category term="编程笔记" />
         <updated>2023-08-30T03:07:00.000Z</updated>
     </entry>
 </feed>
