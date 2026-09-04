@@ -21,6 +21,12 @@
         <category>容器编排</category>
         <category>DevOps</category>
         <category>运维</category>
+        <category>网络安全</category>
+        <category>SQL注入</category>
+        <category>XSS</category>
+        <category>CSRF</category>
+        <category>DDoS</category>
+        <category>渗透测试</category>
         <category>kubeconfig</category>
         <category>kubectl</category>
         <category>Context</category>
@@ -33,67 +39,61 @@
         <category>心理学知识</category>
         <category>阿德勒心理学</category>
         <category>自卑与超越</category>
-        <category>网络安全</category>
-        <category>SQL注入</category>
-        <category>XSS</category>
-        <category>CSRF</category>
-        <category>DDoS</category>
-        <category>渗透测试</category>
         <category>GPT-5.5</category>
         <category>OpenAI</category>
         <category>Codex</category>
         <category>ClaudeCode</category>
-        <category>开发工具</category>
-        <category>编程笔记</category>
         <category>Gemini</category>
+        <category>开发工具</category>
         <category>开源</category>
-        <category>编程助手</category>
-        <category>Claude</category>
-        <category>Agent</category>
-        <category>MCP</category>
-        <category>自动化</category>
         <category>DeepSeek</category>
         <category>Harness</category>
+        <category>Agent</category>
         <category>插件</category>
         <category>安装教程</category>
         <category>Hermes</category>
         <category>v0.17</category>
+        <category>自动化</category>
+        <category>编程笔记</category>
+        <category>Claude</category>
+        <category>MCP</category>
+        <category>编程助手</category>
+        <category>高阶</category>
         <category>v0.20</category>
         <category>语音交互</category>
         <category>A2A</category>
         <category>Webhook</category>
         <category>NousResearch</category>
-        <category>进阶</category>
-        <category>配置</category>
-        <category>高阶</category>
         <category>LangChain</category>
         <category>LangGraph</category>
         <category>Python</category>
         <category>LLM</category>
-        <category>OpenClaw</category>
-        <category>网关</category>
+        <category>进阶</category>
+        <category>配置</category>
+        <category>AI运维</category>
+        <category>故障排查</category>
+        <category>根因分析</category>
         <category>RAG</category>
         <category>知识库</category>
-        <category>故障排查</category>
-        <category>JavaSE</category>
-        <category>Java开发面试题</category>
-        <category>AI运维</category>
-        <category>根因分析</category>
         <category>SSE</category>
         <category>HTTP</category>
+        <category>接口开发</category>
+        <category>开发注意事项</category>
         <category>WorkBuddy</category>
         <category>腾讯</category>
         <category>办公自动化</category>
         <category>AI工具</category>
-        <category>SpringBoot</category>
-        <category>Spring</category>
+        <category>OpenClaw</category>
+        <category>网关</category>
+        <category>JavaSE</category>
+        <category>微服务</category>
         <category>力扣算法题</category>
         <category>算法</category>
         <category>动态规划</category>
-        <category>接口开发</category>
-        <category>开发注意事项</category>
-        <category>微服务</category>
+        <category>Java开发面试题</category>
         <category>python</category>
+        <category>SpringBoot</category>
+        <category>Spring</category>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/LangChain-1.3-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
             <title>LangChain 1.3 安装与使用指南 —— 从&#34;链&#34;到 Agent Harness 的全新范式</title>
@@ -298,8 +298,8 @@
             <category>AI</category>
             <category>开发工具</category>
             <category>Agent</category>
-            <category>MCP</category>
             <category>自动化</category>
+            <category>MCP</category>
             <category>OpenClaw</category>
             <category>网关</category>
             <pubDate>Wed, 26 Aug 2026 01:20:00 +0800</pubDate>
@@ -441,10 +441,10 @@
             <category>AI</category>
             <category>ClaudeCode</category>
             <category>开发工具</category>
-            <category>Claude</category>
             <category>Agent</category>
-            <category>MCP</category>
             <category>自动化</category>
+            <category>Claude</category>
+            <category>MCP</category>
             <pubDate>Wed, 26 Aug 2026 01:05:00 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;img src=&#34;/images/claude-code/og-image.png&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -680,9 +680,9 @@
             <link>https://scottalive.github.io/computer-science/ai-tools/DeepSeek-Harness-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
             <category>AI</category>
             <category>开发工具</category>
-            <category>Agent</category>
             <category>DeepSeek</category>
             <category>Harness</category>
+            <category>Agent</category>
             <category>插件</category>
             <category>安装教程</category>
             <pubDate>Wed, 26 Aug 2026 00:35:00 +0800</pubDate>
@@ -909,8 +909,8 @@
             <category>AI</category>
             <category>开发工具</category>
             <category>Agent</category>
-            <category>自动化</category>
             <category>Hermes</category>
+            <category>自动化</category>
             <category>v0.20</category>
             <category>语音交互</category>
             <category>A2A</category>
@@ -1121,9 +1121,9 @@
             <category>AI</category>
             <category>开发工具</category>
             <category>Agent</category>
-            <category>自动化</category>
             <category>Hermes</category>
             <category>v0.17</category>
+            <category>自动化</category>
             <pubDate>Sun, 21 Jun 2026 20:14:00 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;img src=&#34;/images/hermes-agent/og-image.png&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1490,8 +1490,8 @@
             <category>AI</category>
             <category>开发工具</category>
             <category>Agent</category>
-            <category>自动化</category>
             <category>Hermes</category>
+            <category>自动化</category>
             <category>高阶</category>
             <pubDate>Fri, 08 May 2026 22:39:00 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
@@ -3111,8 +3111,8 @@
             <category>AI</category>
             <category>Codex</category>
             <category>ClaudeCode</category>
-            <category>开发工具</category>
             <category>Gemini</category>
+            <category>开发工具</category>
             <category>开源</category>
             <pubDate>Thu, 30 Apr 2026 23:30:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;什么是-CC-Switch？&#34;&gt;&lt;a href=&#34;#什么是-CC-Switch？&#34; class=&#34;headerlink&#34; title=&#34;什么是 CC Switch？&#34;&gt;&lt;/a&gt;什么是 CC Switch？&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/farion1231/cc-switch&#34;&gt;CC Switch&lt;/a&gt; 是一款&lt;strong&gt;跨平台桌面应用&lt;/strong&gt;，一站式管理 Claude Code、Codex、Gemini CLI、OpenCode 和 OpenClaw 等多款 AI 编程助手。基于 Tauri 2 构建，支持 Windows &amp;#x2F; macOS &amp;#x2F; Linux，当前最新版本为 &lt;strong&gt;v3.14.1&lt;/strong&gt;。&lt;/p&gt;
