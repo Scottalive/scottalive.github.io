@@ -3,7 +3,7 @@
     <id>https://scottalive.github.io</id>
     <title>沉鱼的博客 • Posts by &#34;人工智能&#34; tag</title>
     <link href="https://scottalive.github.io" />
-    <updated>2026-09-11T14:00:00.000Z</updated>
+    <updated>2026-09-12T14:00:00.000Z</updated>
     <category term="AI日报" />
     <category term="AI" />
     <category term="GitHub热门" />
@@ -16,58 +16,54 @@
     <category term="GPT-5.5" />
     <category term="OpenAI" />
     <category term="Codex" />
-    <category term="ClaudeCode" />
-    <category term="Gemini" />
-    <category term="开发工具" />
-    <category term="开源" />
-    <category term="编程笔记" />
-    <category term="Claude" />
-    <category term="Agent" />
-    <category term="MCP" />
-    <category term="自动化" />
-    <category term="编程助手" />
     <category term="DeepSeek" />
     <category term="Harness" />
+    <category term="Agent" />
     <category term="插件" />
     <category term="安装教程" />
+    <category term="开发工具" />
+    <category term="ClaudeCode" />
+    <category term="Gemini" />
+    <category term="开源" />
     <category term="Hermes" />
+    <category term="v0.17" />
+    <category term="自动化" />
+    <category term="Claude" />
+    <category term="MCP" />
+    <category term="编程助手" />
+    <category term="编程笔记" />
+    <category term="高阶" />
+    <category term="LangChain" />
+    <category term="LangGraph" />
+    <category term="Python" />
+    <category term="LLM" />
     <category term="v0.20" />
     <category term="语音交互" />
     <category term="A2A" />
     <category term="Webhook" />
     <category term="NousResearch" />
-    <category term="高阶" />
-    <category term="v0.17" />
-    <category term="LLM" />
-    <category term="RAG" />
-    <category term="知识库" />
     <category term="进阶" />
     <category term="配置" />
-    <category term="LangChain" />
-    <category term="LangGraph" />
-    <category term="Python" />
-    <category term="OpenClaw" />
-    <category term="网关" />
+    <category term="RAG" />
+    <category term="知识库" />
     <category term="OpenSRE" />
     <category term="SRE" />
-    <category term="运维" />
-    <category term="故障排查" />
     <category term="AI运维" />
+    <category term="故障排查" />
     <category term="根因分析" />
     <category term="DevOps" />
     <category term="工作流" />
-    <category term="WorkBuddy" />
-    <category term="腾讯" />
-    <category term="办公自动化" />
-    <category term="AI工具" />
-    <category term="SSE" />
-    <category term="HTTP" />
     <category term="网络安全" />
     <category term="SQL注入" />
     <category term="XSS" />
     <category term="CSRF" />
     <category term="DDoS" />
     <category term="渗透测试" />
+    <category term="OpenClaw" />
+    <category term="网关" />
+    <category term="运维" />
+    <category term="SSE" />
+    <category term="HTTP" />
     <category term="Kubernetes" />
     <category term="k8s" />
     <category term="容器编排" />
@@ -76,22 +72,151 @@
     <category term="Context" />
     <category term="Helm" />
     <category term="学习计划" />
-    <category term="Grafana" />
-    <category term="可观测性" />
     <category term="心理学知识" />
     <category term="阿德勒心理学" />
     <category term="自卑与超越" />
-    <category term="python" />
     <category term="力扣算法题" />
+    <category term="Grafana" />
+    <category term="可观测性" />
+    <category term="WorkBuddy" />
+    <category term="腾讯" />
+    <category term="办公自动化" />
+    <category term="AI工具" />
     <category term="算法" />
     <category term="动态规划" />
     <category term="JavaSE" />
     <category term="Java开发面试题" />
-    <category term="SpringBoot" />
-    <category term="Spring" />
     <category term="接口开发" />
     <category term="开发注意事项" />
+    <category term="SpringBoot" />
+    <category term="Spring" />
     <category term="微服务" />
+    <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-09-12/</id>
+        <title>AI 日报 2026-09-12</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-09-12/"/>
+        <content type="html">&lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;今天 GitHub Trending 呈现出非常一致的信号：&lt;strong&gt;Agent 正在从「单点工具」变成「基础设施」&lt;/strong&gt;。榜单上同时出现了 AI 销售 OS（DeskcommCRM）、自主渗透测试系统（PentAGI）、跨千市场的 AI 交易代理（CloddsBot）、自动产出论文的数学建模 Agent（MathModelAgent），甚至还有一个用 Rust 写的 Git worktree 管理工具 worktrunk——它的定位非常直白：「为并行 AI Agent 工作流而生」。&lt;/p&gt;
+&lt;p&gt;当一个专为多 Agent 并行而生的版本控制周边工具能冲到 7000+ Star，说明「同时跑多个 Agent」已经从演示视频变成了日常开发实践。&lt;/p&gt;
+&lt;p&gt;新闻侧同样热闹：OpenAI 因 GPT-6 Astra 需求过载而&lt;strong&gt;暂停 $200 ChatGPT Pro 新订阅&lt;/strong&gt;；NVIDIA 以 &lt;strong&gt;129.3 亿美元收购 Hugging Face&lt;/strong&gt;；Anthropic 一名研究员的辞职信在圈内刷屏，公司同期披露了四起网络安全事件。算力、生态、安全三条线同步收紧。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;1-gods-eye-view-——-把「卫星情报」搬进浏览器&#34;&gt;&lt;a href=&#34;#1-gods-eye-view-——-把「卫星情报」搬进浏览器&#34; class=&#34;headerlink&#34; title=&#34;1. gods-eye-view —— 把「卫星情报」搬进浏览器&#34;&gt;&lt;/a&gt;1. gods-eye-view —— 把「卫星情报」搬进浏览器&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：bilawalsidhu&amp;#x2F;gods-eye-view&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：JavaScript&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;：28,464（今日 +2,265，今日榜首）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这是一个开源的空间情报（Spatial Intelligence）平台，在浏览器里的&lt;strong&gt;写实 3D 地球&lt;/strong&gt;上叠加真实的开放数据源，号称「你浏览器里的间谍卫星模拟器，只不过数据是真的」。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;技术看点&lt;/strong&gt;：项目用 WebGL&amp;#x2F;Three.js 级别的渲染管线承载全球地形与卫星影像，前端做的是「数据密度极高的可视化」——这类负载对瓦片调度、LOD（细节层次）和 GPU 显存管理要求很高。值得注意的是贡献者列表里出现了 &lt;code&gt;claude&lt;/code&gt;，即该项目有相当比例的代码由 AI Agent 协作产出。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：地理情报可视化、灾害监测看板、开源情报（OSINT）研究。对做数据可视化的同学来说，它的瓦片流式加载与图层管理思路很值得抄。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-DeskcommCRM-——-面向「聊天成交」的开源-AI-销售-OS&#34;&gt;&lt;a href=&#34;#2-DeskcommCRM-——-面向「聊天成交」的开源-AI-销售-OS&#34; class=&#34;headerlink&#34; title=&#34;2. DeskcommCRM —— 面向「聊天成交」的开源 AI 销售 OS&#34;&gt;&lt;/a&gt;2. DeskcommCRM —— 面向「聊天成交」的开源 AI 销售 OS&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：melgarafael&amp;#x2F;DeskcommCRM&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：TypeScript&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;：1,607（今日 +505）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;定位是 Kommo、Octadesk、Intercom 的开源替代品：&lt;strong&gt;自托管 CRM + 原生 AI Agent + WhatsApp 集成（WAHA）&lt;/strong&gt;，明确标注 MCP-ready、多租户、符合 LGPD（巴西数据保护法）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;为什么值得关注&lt;/strong&gt;：它不是「给 CRM 加个聊天框」，而是把 AI Agent 放在销售流程的核心位置——接管对话、推进商机、更新 CRM 状态。MCP-ready 意味着它可以挂载外部工具与数据源，多租户 + 自托管则直击中小企业对数据主权的顾虑。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;技术栈推测&lt;/strong&gt;：TypeScript 全栈 + WAHA（WhatsApp HTTP API）+ Agent 编排层。适合想自建客服&amp;#x2F;销售自动化的团队做二次开发。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-MathModelAgent-——-自动写出一份「可直接提交」的数学建模论文&#34;&gt;&lt;a href=&#34;#3-MathModelAgent-——-自动写出一份「可直接提交」的数学建模论文&#34; class=&#34;headerlink&#34; title=&#34;3. MathModelAgent —— 自动写出一份「可直接提交」的数学建模论文&#34;&gt;&lt;/a&gt;3. MathModelAgent —— 自动写出一份「可直接提交」的数学建模论文&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：jihe520&amp;#x2F;MathModelAgent&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Python&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;：5,038（今日 +264）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;专为数学建模竞赛设计的 Agent &amp;amp; Skills 集合：自动完成建模、求解、绘图，最终生成一份完整的、可以直接提交的论文。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;工作流拆解&lt;/strong&gt;：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[赛题输入&amp;lt;br/&amp;gt;Problem Statement] --&amp;gt; B[题意解析与问题拆解]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C&amp;#123;模型假设与选型&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[数据预处理&amp;lt;br/&amp;gt;清洗 / 特征工程]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[求解器调用&amp;lt;br/&amp;gt;数值 / 优化 / 统计]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F&amp;#123;结果是否收敛且合理?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F -- 否 --&amp;gt; C&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F -- 是 --&amp;gt; G[图表生成&amp;lt;br/&amp;gt;可视化结果]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H[论文撰写&amp;lt;br/&amp;gt;摘要 / 建模 / 求解 / 灵敏度分析]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; I[格式校验与 LaTeX 导出]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    I --&amp;gt; J[可直接提交的完整论文]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;洞见&lt;/strong&gt;：这个项目本质上是把「长链路 + 可校验中间产物 + 自我回退」的 Agent 范式落到了一个&lt;strong&gt;验收标准极其明确&lt;/strong&gt;的场景。数学建模有明确的对错反馈（模型是否收敛、结果是否合理），这恰好是 Agent 自我纠错最容易生效的地方。比起写代码，它更像是「把研究流程工程化」。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4-CloddsBot-——-跨-1000-市场的自主-AI-交易代理&#34;&gt;&lt;a href=&#34;#4-CloddsBot-——-跨-1000-市场的自主-AI-交易代理&#34; class=&#34;headerlink&#34; title=&#34;4. CloddsBot —— 跨 1000+ 市场的自主 AI 交易代理&#34;&gt;&lt;/a&gt;4. CloddsBot —— 跨 1000+ 市场的自主 AI 交易代理&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：alsk1992&amp;#x2F;CloddsBot&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：TypeScript&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;：2,336（今日 +377）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一个开源的自主交易 Agent，横跨 Polymarket、Kalshi、Binance、Hyperliquid、Solana DEX 以及 5 条 EVM 链，主打「扫描 edge、即时执行、睡觉时也帮你管风险」，并内置了机器对机器支付的 &lt;strong&gt;Agent commerce protocol&lt;/strong&gt;。项目明确标注 Built on Claude。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;技术要点&lt;/strong&gt;：核心难点不在下单，而在三处——① 多市场统一抽象（预测市场、CEX、DEX 的语义完全不同）；② 风险引擎（仓位、回撤、跨市场对冲）；③ 机器支付协议（Agent 之间自主结算）。这是目前少见的把「Agent 经济」落到实处的开源实现。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;风险提示&lt;/strong&gt;：自动化交易 Agent 涉及真实资金，务必先做 paper trading，重点检查风控逻辑与密钥管理。开源 ≠ 可放心开跑。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;5-YuE2-——-音乐生成的「符号规划-Agent-化编辑」&#34;&gt;&lt;a href=&#34;#5-YuE2-——-音乐生成的「符号规划-Agent-化编辑」&#34; class=&#34;headerlink&#34; title=&#34;5. YuE2 —— 音乐生成的「符号规划 + Agent 化编辑」&#34;&gt;&lt;/a&gt;5. YuE2 —— 音乐生成的「符号规划 + Agent 化编辑」&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：multimodal-art-projection&amp;#x2F;YuE&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Python&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;：7,076（今日 +193）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;YuE2 主打 frontier 级音乐生成，亮点是&lt;strong&gt;符号规划（symbolic planning）&lt;/strong&gt;、零样本翻唱（zero-shot covers）与 &lt;strong&gt;Agent 化音乐编辑&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;意义&lt;/strong&gt;：音乐生成长期卡在「结构松散」上——模型能生成 30 秒好听的片段，但整首歌缺乏曲式结构。引入符号规划相当于先让模型产出「乐谱级」的骨架，再渲染成音频，这是从「音频模型」走向「音乐模型」的关键一步。Agent 化编辑则意味着可以像改文档一样局部修改乐曲。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;6-Claude-Red-——-面向-Claude-Skills-的攻击性安全技能库&#34;&gt;&lt;a href=&#34;#6-Claude-Red-——-面向-Claude-Skills-的攻击性安全技能库&#34; class=&#34;headerlink&#34; title=&#34;6. Claude-Red —— 面向 Claude Skills 的攻击性安全技能库&#34;&gt;&lt;/a&gt;6. Claude-Red —— 面向 Claude Skills 的攻击性安全技能库&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：SnailSploit&amp;#x2F;Claude-Red&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Python&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;：3,398（今日 +99）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一个为 Claude skills 系统打造的攻击性安全技能合集：每个技能都是一个结构化的 &lt;code&gt;SKILL.md&lt;/code&gt; 文件，把专家级方法论「注入」给模型——从 SQLi 到 shellcode，从 EDR 绕过到漏洞利用开发。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;值得思考的地方&lt;/strong&gt;：这是「Prompt 工程 → 技能工程」的典型样本。技能不是一句提示词，而是&lt;strong&gt;可复用、可组合、带方法论的知识单元&lt;/strong&gt;。同一套机制既能用于攻防研究，也说明 Skill 正在成为 Agent 时代的知识分发格式。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;7-worktrunk-——-为「并行-AI-Agent」而生的-Git-Worktree-CLI&#34;&gt;&lt;a href=&#34;#7-worktrunk-——-为「并行-AI-Agent」而生的-Git-Worktree-CLI&#34; class=&#34;headerlink&#34; title=&#34;7. worktrunk —— 为「并行 AI Agent」而生的 Git Worktree CLI&#34;&gt;&lt;/a&gt;7. worktrunk —— 为「并行 AI Agent」而生的 Git Worktree CLI&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：max-sixty&amp;#x2F;worktrunk&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Rust&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;：7,049（今日 +44）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一句话定位：「Worktrunk is a CLI for Git worktree management, designed for parallel AI agent workflows.」&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;为什么它重要&lt;/strong&gt;：当你同时开三五个 Coding Agent 改同一个仓库时，冲突会立刻爆炸。标准的解法就是给每个 Agent 一个独立的 git worktree——互不干扰、各自分支、最后统一合并。worktrunk 把这个流程做成 CLI，用 Rust 保证速度，把「隔离—并行—回收」变成一条命令。&lt;/p&gt;
+&lt;p&gt;这标志着工具链已经开始为「Agent 是主要贡献者」这一前提重新设计。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;8-PentAGI-——-全自主渗透测试-Agent-系统&#34;&gt;&lt;a href=&#34;#8-PentAGI-——-全自主渗透测试-Agent-系统&#34; class=&#34;headerlink&#34; title=&#34;8. PentAGI —— 全自主渗透测试 Agent 系统&#34;&gt;&lt;/a&gt;8. PentAGI —— 全自主渗透测试 Agent 系统&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：vxcontrol&amp;#x2F;pentagi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;：1,310+ 量级&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;全自主 AI Agent 系统，能执行复杂的渗透测试任务：信息收集、漏洞扫描、利用链编排。与 Claude-Red（提供技能知识）形成互补——一个给「脑子」，一个给「手脚」。&lt;/p&gt;
+&lt;p&gt;安全侧的一个重要信号：&lt;strong&gt;AI 攻防的能力正在被开源化&lt;/strong&gt;，防守方的自动化也需跟上。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;其他值得一提&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;asgeirtj&amp;#x2F;system_prompts_leaks&lt;/strong&gt;（65,075 ⭐）：持续收录 Anthropic、OpenAI、Google、xAI 各家系统提示词的逆向提取结果，是研究「模型行为如何被提示词塑造」的一手素材。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Shubhamsaboo&amp;#x2F;awesome-llm-apps&lt;/strong&gt;：100+ AI Agent、Agent Skills 与 RAG 应用的开源清单。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;p1neappleXpress&amp;#x2F;OpenFlux&lt;/strong&gt;（Go，今日 +355）：TCP 隧道 + 可插拔传输的网络栈研究工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;yuliskov&amp;#x2F;SmartTube&lt;/strong&gt;、&lt;strong&gt;armory3d&amp;#x2F;armorpaint&lt;/strong&gt;：非 AI 但长期霸榜的老面孔。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Google Dreambeans 全美上线&lt;/strong&gt;：从 Search、Gmail、Photos、Calendar、Gemini 中汇聚个人信息，给出 AI 购物推荐、旅行建议、日程提醒——典型的「个人上下文聚合型助手」。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Twitch 测试 AI「Stream Coach」&lt;/strong&gt;：主播下播后给出改进建议。与 Twitch 的生成式 AI 训练开关不同，该功能为 &lt;strong&gt;opt-in&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Katzenberg 联手 Sora 前负责人做 AI 视频&lt;/strong&gt;：Quibi 联合创始人 Jeffrey Katzenberg 与前 OpenAI Sora 负责人 Bill Peebles 组队，计划训练自有视频模型并主攻影视创作者。预计又是一轮「模型 + 好莱坞」的碰撞。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;OpenAI 暂停 $200 ChatGPT Pro 新订阅&lt;/strong&gt;：官方称 GPT-6 Astra 需求导致系统压力过大，新订阅「对系统压力最大」，故采取最小化限制措施，同时加速扩容。这是模型能力跃迁直接冲击供给侧的教科书案例。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NVIDIA 以 129.3 亿美元收购 Hugging Face&lt;/strong&gt;：开源模型分发中枢被算力巨头收编，AI 生态的「上游整合」再进一步。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Adobe Q3 营收创纪录 67.6 亿美元&lt;/strong&gt;，同比 +13%，全系产品月活突破 10 亿——AI 功能正在兑现为实际收入。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;加州签署 AI 安全法案包&lt;/strong&gt;：禁止平台向 16 岁以下用户提供算法推荐、无限滚动与自动播放（需家长同意）；并要求聊天机器人厂商必须告知未成年用户「你在和 AI 说话」。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Suno 在法庭文件中承认&lt;/strong&gt;使用 YT-DLP 从 YouTube 抓取音频用于训练。音乐生成领域的版权边界进一步收窄。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Anthropic 披露四起网络安全事件&lt;/strong&gt;，同期一名研究员的辞职信广泛传播。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;企业侧落地&lt;/strong&gt;：Samsung 与 Mistral 合作将 AI 模型引入半导体制造；JD.com 推进物理 AI 物流（300 万台机器人规模）；Arm 推出面向物理 AI 与机器人学的 Total Design 框架；Palantir Foundry 联合 NVIDIA 做供应链配额调度；MT Bank 为 15,000 名员工部署企业级 AI。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;洞见一：Agent-的竞争焦点，已经从「模型能力」下移到「工程脚手架」&#34;&gt;&lt;a href=&#34;#洞见一：Agent-的竞争焦点，已经从「模型能力」下移到「工程脚手架」&#34; class=&#34;headerlink&#34; title=&#34;洞见一：Agent 的竞争焦点，已经从「模型能力」下移到「工程脚手架」&#34;&gt;&lt;/a&gt;洞见一：Agent 的竞争焦点，已经从「模型能力」下移到「工程脚手架」&lt;/h3&gt;&lt;p&gt;今天的榜单里，真正拉开差距的不是谁的模型更聪明，而是&lt;strong&gt;谁把 Agent 的周边工程做扎实了&lt;/strong&gt;：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TB&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph L4[&amp;quot;编排与协作层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A1[&amp;quot;worktrunk&amp;lt;br/&amp;gt;并行 worktree 隔离&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A2[&amp;quot;MCP 工具协议&amp;lt;br/&amp;gt;DeskcommCRM 等&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph L3[&amp;quot;知识与技能层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B1[&amp;quot;Claude-Red&amp;lt;br/&amp;gt;SKILL.md 方法论单元&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B2[&amp;quot;MathModelAgent skills&amp;lt;br/&amp;gt;领域工作流封装&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph L2[&amp;quot;执行与反馈层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C1[&amp;quot;求解器 / 浏览器 / DEX 接口&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C2[&amp;quot;结果校验与自我回退&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph L1[&amp;quot;模型层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        D1[&amp;quot;Claude / GPT-6 Astra / Gemini&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    L1 --&amp;gt; L2 --&amp;gt; L3 --&amp;gt; L4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A1 -.-&amp;gt;|并行隔离| L2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;三层趋势很明显：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;技能化&lt;/strong&gt;：&lt;code&gt;SKILL.md&lt;/code&gt; 正在成为可分发、可组合的「能力包」格式（Claude-Red、MathModelAgent、awesome-llm-apps 都是这个方向）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;并行化&lt;/strong&gt;：多 Agent 同时改同一仓库成为常态，隔离机制（worktree）从可选变为必需。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可校验&lt;/strong&gt;：凡是容易定义验收标准的领域（数学建模、代码、渗透测试），Agent 就最容易跑通闭环。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;给工程团队的建议&lt;/strong&gt;：与其纠结选哪个模型，不如先问——你的任务有明确、自动化的验收信号吗？有，就值得上 Agent。&lt;/p&gt;
+&lt;h3 id=&#34;洞见二：AI-正在从「屏幕内」走向「物理世界与供应链」&#34;&gt;&lt;a href=&#34;#洞见二：AI-正在从「屏幕内」走向「物理世界与供应链」&#34; class=&#34;headerlink&#34; title=&#34;洞见二：AI 正在从「屏幕内」走向「物理世界与供应链」&#34;&gt;&lt;/a&gt;洞见二：AI 正在从「屏幕内」走向「物理世界与供应链」&lt;/h3&gt;&lt;p&gt;从 JD.com 的 300 万台物流机器人、Samsung 用 AI 优化半导体制造、到 Google WeatherNext 3 用于能源调度、Coca-Cola 用 AI 做零售商订货——&lt;strong&gt;AI 的价值锚点正在从「生成内容」转向「调度现实资源」&lt;/strong&gt;。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[&amp;quot;感知层&amp;lt;br/&amp;gt;天气 / 库存 / 产能 / 路况&amp;quot;] --&amp;gt; B[&amp;quot;预测层&amp;lt;br/&amp;gt;需求 / 故障 / 拥堵&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[&amp;quot;决策层&amp;lt;br/&amp;gt;Agent 编排 + 约束求解&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[&amp;quot;执行层&amp;lt;br/&amp;gt;机器人 / 排产 / 配送 / 订货&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[&amp;quot;真实世界反馈&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt;|闭环回流| A&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;这条链路对技术人的启示是：&lt;strong&gt;懂行业约束 + 会做 Agent 编排&lt;/strong&gt;的复合能力，比单纯调模型更稀缺。物理 AI 的瓶颈往往不在模型，而在传感器数据质量与执行机构的可靠性。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;数据来源：GitHub Trending（每日榜）、The Verge AI 频道、AI News。Hacker News 本次抓取超时已跳过。&lt;/em&gt;&lt;/p&gt;
+</content>
+        <category term="AI日报" />
+        <category term="AI" />
+        <category term="GitHub热门" />
+        <category term="人工智能" />
+        <category term="技术趋势" />
+        <updated>2026-09-12T14:00:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-09-11/</id>
         <title>AI 日报 2026-09-11</title>

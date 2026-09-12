@@ -3,7 +3,7 @@
     <id>https://scottalive.github.io</id>
     <title>沉鱼的博客 • Posts by &#34;计算机科学&#34; category</title>
     <link href="https://scottalive.github.io" />
-    <updated>2026-09-11T18:30:00.000Z</updated>
+    <updated>2026-09-12T14:00:00.000Z</updated>
     <category term="AI日报" />
     <category term="AI" />
     <category term="GitHub热门" />
@@ -16,58 +16,54 @@
     <category term="GPT-5.5" />
     <category term="OpenAI" />
     <category term="Codex" />
-    <category term="ClaudeCode" />
-    <category term="Gemini" />
-    <category term="开发工具" />
-    <category term="开源" />
-    <category term="编程笔记" />
-    <category term="Claude" />
-    <category term="Agent" />
-    <category term="MCP" />
-    <category term="自动化" />
-    <category term="编程助手" />
     <category term="DeepSeek" />
     <category term="Harness" />
+    <category term="Agent" />
     <category term="插件" />
     <category term="安装教程" />
+    <category term="开发工具" />
+    <category term="ClaudeCode" />
+    <category term="Gemini" />
+    <category term="开源" />
     <category term="Hermes" />
+    <category term="v0.17" />
+    <category term="自动化" />
+    <category term="Claude" />
+    <category term="MCP" />
+    <category term="编程助手" />
+    <category term="编程笔记" />
+    <category term="高阶" />
+    <category term="LangChain" />
+    <category term="LangGraph" />
+    <category term="Python" />
+    <category term="LLM" />
     <category term="v0.20" />
     <category term="语音交互" />
     <category term="A2A" />
     <category term="Webhook" />
     <category term="NousResearch" />
-    <category term="高阶" />
-    <category term="v0.17" />
-    <category term="LLM" />
-    <category term="RAG" />
-    <category term="知识库" />
     <category term="进阶" />
     <category term="配置" />
-    <category term="LangChain" />
-    <category term="LangGraph" />
-    <category term="Python" />
-    <category term="OpenClaw" />
-    <category term="网关" />
+    <category term="RAG" />
+    <category term="知识库" />
     <category term="OpenSRE" />
     <category term="SRE" />
-    <category term="运维" />
-    <category term="故障排查" />
     <category term="AI运维" />
+    <category term="故障排查" />
     <category term="根因分析" />
     <category term="DevOps" />
     <category term="工作流" />
-    <category term="WorkBuddy" />
-    <category term="腾讯" />
-    <category term="办公自动化" />
-    <category term="AI工具" />
-    <category term="SSE" />
-    <category term="HTTP" />
     <category term="网络安全" />
     <category term="SQL注入" />
     <category term="XSS" />
     <category term="CSRF" />
     <category term="DDoS" />
     <category term="渗透测试" />
+    <category term="OpenClaw" />
+    <category term="网关" />
+    <category term="运维" />
+    <category term="SSE" />
+    <category term="HTTP" />
     <category term="Kubernetes" />
     <category term="k8s" />
     <category term="容器编排" />
@@ -76,22 +72,151 @@
     <category term="Context" />
     <category term="Helm" />
     <category term="学习计划" />
-    <category term="Grafana" />
-    <category term="可观测性" />
     <category term="心理学知识" />
     <category term="阿德勒心理学" />
     <category term="自卑与超越" />
-    <category term="python" />
     <category term="力扣算法题" />
+    <category term="Grafana" />
+    <category term="可观测性" />
+    <category term="WorkBuddy" />
+    <category term="腾讯" />
+    <category term="办公自动化" />
+    <category term="AI工具" />
     <category term="算法" />
     <category term="动态规划" />
     <category term="JavaSE" />
     <category term="Java开发面试题" />
-    <category term="SpringBoot" />
-    <category term="Spring" />
     <category term="接口开发" />
     <category term="开发注意事项" />
+    <category term="SpringBoot" />
+    <category term="Spring" />
     <category term="微服务" />
+    <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-09-12/</id>
+        <title>AI 日报 2026-09-12</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-09-12/"/>
+        <content type="html">&lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;今天 GitHub Trending 呈现出非常一致的信号：&lt;strong&gt;Agent 正在从「单点工具」变成「基础设施」&lt;/strong&gt;。榜单上同时出现了 AI 销售 OS（DeskcommCRM）、自主渗透测试系统（PentAGI）、跨千市场的 AI 交易代理（CloddsBot）、自动产出论文的数学建模 Agent（MathModelAgent），甚至还有一个用 Rust 写的 Git worktree 管理工具 worktrunk——它的定位非常直白：「为并行 AI Agent 工作流而生」。&lt;/p&gt;
+&lt;p&gt;当一个专为多 Agent 并行而生的版本控制周边工具能冲到 7000+ Star，说明「同时跑多个 Agent」已经从演示视频变成了日常开发实践。&lt;/p&gt;
+&lt;p&gt;新闻侧同样热闹：OpenAI 因 GPT-6 Astra 需求过载而&lt;strong&gt;暂停 $200 ChatGPT Pro 新订阅&lt;/strong&gt;；NVIDIA 以 &lt;strong&gt;129.3 亿美元收购 Hugging Face&lt;/strong&gt;；Anthropic 一名研究员的辞职信在圈内刷屏，公司同期披露了四起网络安全事件。算力、生态、安全三条线同步收紧。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;1-gods-eye-view-——-把「卫星情报」搬进浏览器&#34;&gt;&lt;a href=&#34;#1-gods-eye-view-——-把「卫星情报」搬进浏览器&#34; class=&#34;headerlink&#34; title=&#34;1. gods-eye-view —— 把「卫星情报」搬进浏览器&#34;&gt;&lt;/a&gt;1. gods-eye-view —— 把「卫星情报」搬进浏览器&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：bilawalsidhu&amp;#x2F;gods-eye-view&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：JavaScript&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;：28,464（今日 +2,265，今日榜首）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这是一个开源的空间情报（Spatial Intelligence）平台，在浏览器里的&lt;strong&gt;写实 3D 地球&lt;/strong&gt;上叠加真实的开放数据源，号称「你浏览器里的间谍卫星模拟器，只不过数据是真的」。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;技术看点&lt;/strong&gt;：项目用 WebGL&amp;#x2F;Three.js 级别的渲染管线承载全球地形与卫星影像，前端做的是「数据密度极高的可视化」——这类负载对瓦片调度、LOD（细节层次）和 GPU 显存管理要求很高。值得注意的是贡献者列表里出现了 &lt;code&gt;claude&lt;/code&gt;，即该项目有相当比例的代码由 AI Agent 协作产出。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：地理情报可视化、灾害监测看板、开源情报（OSINT）研究。对做数据可视化的同学来说，它的瓦片流式加载与图层管理思路很值得抄。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-DeskcommCRM-——-面向「聊天成交」的开源-AI-销售-OS&#34;&gt;&lt;a href=&#34;#2-DeskcommCRM-——-面向「聊天成交」的开源-AI-销售-OS&#34; class=&#34;headerlink&#34; title=&#34;2. DeskcommCRM —— 面向「聊天成交」的开源 AI 销售 OS&#34;&gt;&lt;/a&gt;2. DeskcommCRM —— 面向「聊天成交」的开源 AI 销售 OS&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：melgarafael&amp;#x2F;DeskcommCRM&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：TypeScript&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;：1,607（今日 +505）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;定位是 Kommo、Octadesk、Intercom 的开源替代品：&lt;strong&gt;自托管 CRM + 原生 AI Agent + WhatsApp 集成（WAHA）&lt;/strong&gt;，明确标注 MCP-ready、多租户、符合 LGPD（巴西数据保护法）。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;为什么值得关注&lt;/strong&gt;：它不是「给 CRM 加个聊天框」，而是把 AI Agent 放在销售流程的核心位置——接管对话、推进商机、更新 CRM 状态。MCP-ready 意味着它可以挂载外部工具与数据源，多租户 + 自托管则直击中小企业对数据主权的顾虑。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;技术栈推测&lt;/strong&gt;：TypeScript 全栈 + WAHA（WhatsApp HTTP API）+ Agent 编排层。适合想自建客服&amp;#x2F;销售自动化的团队做二次开发。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;3-MathModelAgent-——-自动写出一份「可直接提交」的数学建模论文&#34;&gt;&lt;a href=&#34;#3-MathModelAgent-——-自动写出一份「可直接提交」的数学建模论文&#34; class=&#34;headerlink&#34; title=&#34;3. MathModelAgent —— 自动写出一份「可直接提交」的数学建模论文&#34;&gt;&lt;/a&gt;3. MathModelAgent —— 自动写出一份「可直接提交」的数学建模论文&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：jihe520&amp;#x2F;MathModelAgent&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Python&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;：5,038（今日 +264）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;专为数学建模竞赛设计的 Agent &amp;amp; Skills 集合：自动完成建模、求解、绘图，最终生成一份完整的、可以直接提交的论文。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;工作流拆解&lt;/strong&gt;：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[赛题输入&amp;lt;br/&amp;gt;Problem Statement] --&amp;gt; B[题意解析与问题拆解]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C&amp;#123;模型假设与选型&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[数据预处理&amp;lt;br/&amp;gt;清洗 / 特征工程]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[求解器调用&amp;lt;br/&amp;gt;数值 / 优化 / 统计]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F&amp;#123;结果是否收敛且合理?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F -- 否 --&amp;gt; C&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F -- 是 --&amp;gt; G[图表生成&amp;lt;br/&amp;gt;可视化结果]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H[论文撰写&amp;lt;br/&amp;gt;摘要 / 建模 / 求解 / 灵敏度分析]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; I[格式校验与 LaTeX 导出]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    I --&amp;gt; J[可直接提交的完整论文]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;洞见&lt;/strong&gt;：这个项目本质上是把「长链路 + 可校验中间产物 + 自我回退」的 Agent 范式落到了一个&lt;strong&gt;验收标准极其明确&lt;/strong&gt;的场景。数学建模有明确的对错反馈（模型是否收敛、结果是否合理），这恰好是 Agent 自我纠错最容易生效的地方。比起写代码，它更像是「把研究流程工程化」。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;4-CloddsBot-——-跨-1000-市场的自主-AI-交易代理&#34;&gt;&lt;a href=&#34;#4-CloddsBot-——-跨-1000-市场的自主-AI-交易代理&#34; class=&#34;headerlink&#34; title=&#34;4. CloddsBot —— 跨 1000+ 市场的自主 AI 交易代理&#34;&gt;&lt;/a&gt;4. CloddsBot —— 跨 1000+ 市场的自主 AI 交易代理&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：alsk1992&amp;#x2F;CloddsBot&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：TypeScript&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;：2,336（今日 +377）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一个开源的自主交易 Agent，横跨 Polymarket、Kalshi、Binance、Hyperliquid、Solana DEX 以及 5 条 EVM 链，主打「扫描 edge、即时执行、睡觉时也帮你管风险」，并内置了机器对机器支付的 &lt;strong&gt;Agent commerce protocol&lt;/strong&gt;。项目明确标注 Built on Claude。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;技术要点&lt;/strong&gt;：核心难点不在下单，而在三处——① 多市场统一抽象（预测市场、CEX、DEX 的语义完全不同）；② 风险引擎（仓位、回撤、跨市场对冲）；③ 机器支付协议（Agent 之间自主结算）。这是目前少见的把「Agent 经济」落到实处的开源实现。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;风险提示&lt;/strong&gt;：自动化交易 Agent 涉及真实资金，务必先做 paper trading，重点检查风控逻辑与密钥管理。开源 ≠ 可放心开跑。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;5-YuE2-——-音乐生成的「符号规划-Agent-化编辑」&#34;&gt;&lt;a href=&#34;#5-YuE2-——-音乐生成的「符号规划-Agent-化编辑」&#34; class=&#34;headerlink&#34; title=&#34;5. YuE2 —— 音乐生成的「符号规划 + Agent 化编辑」&#34;&gt;&lt;/a&gt;5. YuE2 —— 音乐生成的「符号规划 + Agent 化编辑」&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：multimodal-art-projection&amp;#x2F;YuE&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Python&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;：7,076（今日 +193）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;YuE2 主打 frontier 级音乐生成，亮点是&lt;strong&gt;符号规划（symbolic planning）&lt;/strong&gt;、零样本翻唱（zero-shot covers）与 &lt;strong&gt;Agent 化音乐编辑&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;意义&lt;/strong&gt;：音乐生成长期卡在「结构松散」上——模型能生成 30 秒好听的片段，但整首歌缺乏曲式结构。引入符号规划相当于先让模型产出「乐谱级」的骨架，再渲染成音频，这是从「音频模型」走向「音乐模型」的关键一步。Agent 化编辑则意味着可以像改文档一样局部修改乐曲。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;6-Claude-Red-——-面向-Claude-Skills-的攻击性安全技能库&#34;&gt;&lt;a href=&#34;#6-Claude-Red-——-面向-Claude-Skills-的攻击性安全技能库&#34; class=&#34;headerlink&#34; title=&#34;6. Claude-Red —— 面向 Claude Skills 的攻击性安全技能库&#34;&gt;&lt;/a&gt;6. Claude-Red —— 面向 Claude Skills 的攻击性安全技能库&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：SnailSploit&amp;#x2F;Claude-Red&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Python&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;：3,398（今日 +99）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一个为 Claude skills 系统打造的攻击性安全技能合集：每个技能都是一个结构化的 &lt;code&gt;SKILL.md&lt;/code&gt; 文件，把专家级方法论「注入」给模型——从 SQLi 到 shellcode，从 EDR 绕过到漏洞利用开发。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;值得思考的地方&lt;/strong&gt;：这是「Prompt 工程 → 技能工程」的典型样本。技能不是一句提示词，而是&lt;strong&gt;可复用、可组合、带方法论的知识单元&lt;/strong&gt;。同一套机制既能用于攻防研究，也说明 Skill 正在成为 Agent 时代的知识分发格式。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;7-worktrunk-——-为「并行-AI-Agent」而生的-Git-Worktree-CLI&#34;&gt;&lt;a href=&#34;#7-worktrunk-——-为「并行-AI-Agent」而生的-Git-Worktree-CLI&#34; class=&#34;headerlink&#34; title=&#34;7. worktrunk —— 为「并行 AI Agent」而生的 Git Worktree CLI&#34;&gt;&lt;/a&gt;7. worktrunk —— 为「并行 AI Agent」而生的 Git Worktree CLI&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：max-sixty&amp;#x2F;worktrunk&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Rust&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;：7,049（今日 +44）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一句话定位：「Worktrunk is a CLI for Git worktree management, designed for parallel AI agent workflows.」&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;为什么它重要&lt;/strong&gt;：当你同时开三五个 Coding Agent 改同一个仓库时，冲突会立刻爆炸。标准的解法就是给每个 Agent 一个独立的 git worktree——互不干扰、各自分支、最后统一合并。worktrunk 把这个流程做成 CLI，用 Rust 保证速度，把「隔离—并行—回收」变成一条命令。&lt;/p&gt;
+&lt;p&gt;这标志着工具链已经开始为「Agent 是主要贡献者」这一前提重新设计。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;8-PentAGI-——-全自主渗透测试-Agent-系统&#34;&gt;&lt;a href=&#34;#8-PentAGI-——-全自主渗透测试-Agent-系统&#34; class=&#34;headerlink&#34; title=&#34;8. PentAGI —— 全自主渗透测试 Agent 系统&#34;&gt;&lt;/a&gt;8. PentAGI —— 全自主渗透测试 Agent 系统&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：vxcontrol&amp;#x2F;pentagi&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Star&lt;/strong&gt;：1,310+ 量级&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;全自主 AI Agent 系统，能执行复杂的渗透测试任务：信息收集、漏洞扫描、利用链编排。与 Claude-Red（提供技能知识）形成互补——一个给「脑子」，一个给「手脚」。&lt;/p&gt;
+&lt;p&gt;安全侧的一个重要信号：&lt;strong&gt;AI 攻防的能力正在被开源化&lt;/strong&gt;，防守方的自动化也需跟上。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;其他值得一提&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;asgeirtj&amp;#x2F;system_prompts_leaks&lt;/strong&gt;（65,075 ⭐）：持续收录 Anthropic、OpenAI、Google、xAI 各家系统提示词的逆向提取结果，是研究「模型行为如何被提示词塑造」的一手素材。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Shubhamsaboo&amp;#x2F;awesome-llm-apps&lt;/strong&gt;：100+ AI Agent、Agent Skills 与 RAG 应用的开源清单。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;p1neappleXpress&amp;#x2F;OpenFlux&lt;/strong&gt;（Go，今日 +355）：TCP 隧道 + 可插拔传输的网络栈研究工具。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;yuliskov&amp;#x2F;SmartTube&lt;/strong&gt;、&lt;strong&gt;armory3d&amp;#x2F;armorpaint&lt;/strong&gt;：非 AI 但长期霸榜的老面孔。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Google Dreambeans 全美上线&lt;/strong&gt;：从 Search、Gmail、Photos、Calendar、Gemini 中汇聚个人信息，给出 AI 购物推荐、旅行建议、日程提醒——典型的「个人上下文聚合型助手」。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Twitch 测试 AI「Stream Coach」&lt;/strong&gt;：主播下播后给出改进建议。与 Twitch 的生成式 AI 训练开关不同，该功能为 &lt;strong&gt;opt-in&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Katzenberg 联手 Sora 前负责人做 AI 视频&lt;/strong&gt;：Quibi 联合创始人 Jeffrey Katzenberg 与前 OpenAI Sora 负责人 Bill Peebles 组队，计划训练自有视频模型并主攻影视创作者。预计又是一轮「模型 + 好莱坞」的碰撞。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;OpenAI 暂停 $200 ChatGPT Pro 新订阅&lt;/strong&gt;：官方称 GPT-6 Astra 需求导致系统压力过大，新订阅「对系统压力最大」，故采取最小化限制措施，同时加速扩容。这是模型能力跃迁直接冲击供给侧的教科书案例。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NVIDIA 以 129.3 亿美元收购 Hugging Face&lt;/strong&gt;：开源模型分发中枢被算力巨头收编，AI 生态的「上游整合」再进一步。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Adobe Q3 营收创纪录 67.6 亿美元&lt;/strong&gt;，同比 +13%，全系产品月活突破 10 亿——AI 功能正在兑现为实际收入。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;加州签署 AI 安全法案包&lt;/strong&gt;：禁止平台向 16 岁以下用户提供算法推荐、无限滚动与自动播放（需家长同意）；并要求聊天机器人厂商必须告知未成年用户「你在和 AI 说话」。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Suno 在法庭文件中承认&lt;/strong&gt;使用 YT-DLP 从 YouTube 抓取音频用于训练。音乐生成领域的版权边界进一步收窄。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Anthropic 披露四起网络安全事件&lt;/strong&gt;，同期一名研究员的辞职信广泛传播。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;企业侧落地&lt;/strong&gt;：Samsung 与 Mistral 合作将 AI 模型引入半导体制造；JD.com 推进物理 AI 物流（300 万台机器人规模）；Arm 推出面向物理 AI 与机器人学的 Total Design 框架；Palantir Foundry 联合 NVIDIA 做供应链配额调度；MT Bank 为 15,000 名员工部署企业级 AI。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;洞见一：Agent-的竞争焦点，已经从「模型能力」下移到「工程脚手架」&#34;&gt;&lt;a href=&#34;#洞见一：Agent-的竞争焦点，已经从「模型能力」下移到「工程脚手架」&#34; class=&#34;headerlink&#34; title=&#34;洞见一：Agent 的竞争焦点，已经从「模型能力」下移到「工程脚手架」&#34;&gt;&lt;/a&gt;洞见一：Agent 的竞争焦点，已经从「模型能力」下移到「工程脚手架」&lt;/h3&gt;&lt;p&gt;今天的榜单里，真正拉开差距的不是谁的模型更聪明，而是&lt;strong&gt;谁把 Agent 的周边工程做扎实了&lt;/strong&gt;：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TB&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph L4[&amp;quot;编排与协作层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A1[&amp;quot;worktrunk&amp;lt;br/&amp;gt;并行 worktree 隔离&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A2[&amp;quot;MCP 工具协议&amp;lt;br/&amp;gt;DeskcommCRM 等&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph L3[&amp;quot;知识与技能层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B1[&amp;quot;Claude-Red&amp;lt;br/&amp;gt;SKILL.md 方法论单元&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B2[&amp;quot;MathModelAgent skills&amp;lt;br/&amp;gt;领域工作流封装&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph L2[&amp;quot;执行与反馈层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C1[&amp;quot;求解器 / 浏览器 / DEX 接口&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C2[&amp;quot;结果校验与自我回退&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph L1[&amp;quot;模型层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        D1[&amp;quot;Claude / GPT-6 Astra / Gemini&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    L1 --&amp;gt; L2 --&amp;gt; L3 --&amp;gt; L4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A1 -.-&amp;gt;|并行隔离| L2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;三层趋势很明显：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;技能化&lt;/strong&gt;：&lt;code&gt;SKILL.md&lt;/code&gt; 正在成为可分发、可组合的「能力包」格式（Claude-Red、MathModelAgent、awesome-llm-apps 都是这个方向）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;并行化&lt;/strong&gt;：多 Agent 同时改同一仓库成为常态，隔离机制（worktree）从可选变为必需。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可校验&lt;/strong&gt;：凡是容易定义验收标准的领域（数学建模、代码、渗透测试），Agent 就最容易跑通闭环。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;给工程团队的建议&lt;/strong&gt;：与其纠结选哪个模型，不如先问——你的任务有明确、自动化的验收信号吗？有，就值得上 Agent。&lt;/p&gt;
+&lt;h3 id=&#34;洞见二：AI-正在从「屏幕内」走向「物理世界与供应链」&#34;&gt;&lt;a href=&#34;#洞见二：AI-正在从「屏幕内」走向「物理世界与供应链」&#34; class=&#34;headerlink&#34; title=&#34;洞见二：AI 正在从「屏幕内」走向「物理世界与供应链」&#34;&gt;&lt;/a&gt;洞见二：AI 正在从「屏幕内」走向「物理世界与供应链」&lt;/h3&gt;&lt;p&gt;从 JD.com 的 300 万台物流机器人、Samsung 用 AI 优化半导体制造、到 Google WeatherNext 3 用于能源调度、Coca-Cola 用 AI 做零售商订货——&lt;strong&gt;AI 的价值锚点正在从「生成内容」转向「调度现实资源」&lt;/strong&gt;。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[&amp;quot;感知层&amp;lt;br/&amp;gt;天气 / 库存 / 产能 / 路况&amp;quot;] --&amp;gt; B[&amp;quot;预测层&amp;lt;br/&amp;gt;需求 / 故障 / 拥堵&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[&amp;quot;决策层&amp;lt;br/&amp;gt;Agent 编排 + 约束求解&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[&amp;quot;执行层&amp;lt;br/&amp;gt;机器人 / 排产 / 配送 / 订货&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[&amp;quot;真实世界反馈&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt;|闭环回流| A&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;这条链路对技术人的启示是：&lt;strong&gt;懂行业约束 + 会做 Agent 编排&lt;/strong&gt;的复合能力，比单纯调模型更稀缺。物理 AI 的瓶颈往往不在模型，而在传感器数据质量与执行机构的可靠性。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;数据来源：GitHub Trending（每日榜）、The Verge AI 频道、AI News。Hacker News 本次抓取超时已跳过。&lt;/em&gt;&lt;/p&gt;
+</content>
+        <category term="AI日报" />
+        <category term="AI" />
+        <category term="GitHub热门" />
+        <category term="人工智能" />
+        <category term="技术趋势" />
+        <updated>2026-09-12T14:00:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://scottalive.github.io/computer-science/ai-tools/LangGraph-1.2-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</id>
         <title>LangGraph 1.2 安装与使用指南 —— 从状态图到生产级有状态 Agent</title>
@@ -558,10 +683,10 @@
 </content>
         <category term="AI" />
         <category term="Agent" />
-        <category term="LLM" />
         <category term="LangChain" />
         <category term="LangGraph" />
         <category term="Python" />
+        <category term="LLM" />
         <category term="工作流" />
         <updated>2026-09-11T18:30:00.000Z</updated>
     </entry>
@@ -1800,12 +1925,12 @@
 &lt;/ul&gt;
 </content>
         <category term="AI" />
-        <category term="开发工具" />
         <category term="Agent" />
-        <category term="LLM" />
+        <category term="开发工具" />
         <category term="LangChain" />
         <category term="LangGraph" />
         <category term="Python" />
+        <category term="LLM" />
         <updated>2026-08-25T17:30:00.000Z</updated>
     </entry>
     <entry>
@@ -1943,10 +2068,10 @@
 &lt;/ul&gt;
 </content>
         <category term="AI" />
-        <category term="开发工具" />
         <category term="Agent" />
-        <category term="MCP" />
+        <category term="开发工具" />
         <category term="自动化" />
+        <category term="MCP" />
         <category term="OpenClaw" />
         <category term="网关" />
         <updated>2026-08-25T17:20:00.000Z</updated>
@@ -2183,12 +2308,12 @@
 &lt;/ul&gt;
 </content>
         <category term="AI" />
-        <category term="ClaudeCode" />
-        <category term="开发工具" />
-        <category term="Claude" />
         <category term="Agent" />
-        <category term="MCP" />
+        <category term="开发工具" />
+        <category term="ClaudeCode" />
         <category term="自动化" />
+        <category term="Claude" />
+        <category term="MCP" />
         <updated>2026-08-25T17:05:00.000Z</updated>
     </entry>
     <entry>
@@ -2765,12 +2890,12 @@
 &lt;/ul&gt;
 </content>
         <category term="AI" />
-        <category term="开发工具" />
-        <category term="Agent" />
         <category term="DeepSeek" />
         <category term="Harness" />
+        <category term="Agent" />
         <category term="插件" />
         <category term="安装教程" />
+        <category term="开发工具" />
         <updated>2026-08-25T16:35:00.000Z</updated>
     </entry>
     <entry>
@@ -2975,10 +3100,10 @@
 &lt;p&gt;如果你还在 v0.17 或更早，中间的 Quicksilver 提速和 Herald 语音&amp;#x2F;A2A 足够构成立刻升级的理由。&lt;code&gt;hermes update&lt;/code&gt;，然后开口说第一句话吧。&lt;/p&gt;
 </content>
         <category term="AI" />
-        <category term="开发工具" />
         <category term="Agent" />
-        <category term="自动化" />
+        <category term="开发工具" />
         <category term="Hermes" />
+        <category term="自动化" />
         <category term="v0.20" />
         <category term="语音交互" />
         <category term="A2A" />
@@ -5057,11 +5182,11 @@
 &lt;/blockquote&gt;
 </content>
         <category term="AI" />
-        <category term="开发工具" />
         <category term="Agent" />
-        <category term="自动化" />
+        <category term="开发工具" />
         <category term="Hermes" />
         <category term="v0.17" />
+        <category term="自动化" />
         <updated>2026-06-21T12:14:00.000Z</updated>
     </entry>
     <entry>
@@ -8554,8 +8679,8 @@
 &lt;/blockquote&gt;
 &lt;p&gt;掌握以上命令，你就能应对日常 90% 以上的 K8s 运维场景。建议收藏本文，需要时快速查阅 🐦&lt;/p&gt;
 </content>
-        <category term="运维" />
         <category term="DevOps" />
+        <category term="运维" />
         <category term="Kubernetes" />
         <category term="k8s" />
         <category term="容器编排" />
@@ -9618,8 +9743,8 @@
 </content>
         <category term="OpenSRE" />
         <category term="SRE" />
-        <category term="故障排查" />
         <category term="AI运维" />
+        <category term="故障排查" />
         <category term="根因分析" />
         <category term="DevOps" />
         <updated>2026-05-10T17:10:00.000Z</updated>
@@ -9787,8 +9912,8 @@
         <category term="AI" />
         <category term="OpenSRE" />
         <category term="SRE" />
-        <category term="运维" />
         <category term="故障排查" />
+        <category term="运维" />
         <updated>2026-05-10T16:50:00.000Z</updated>
     </entry>
     <entry>
@@ -10239,10 +10364,10 @@
 &lt;/ul&gt;
 </content>
         <category term="AI" />
-        <category term="开发工具" />
         <category term="Agent" />
-        <category term="自动化" />
+        <category term="开发工具" />
         <category term="Hermes" />
+        <category term="自动化" />
         <category term="高阶" />
         <updated>2026-05-08T14:39:00.000Z</updated>
     </entry>
@@ -12204,9 +12329,9 @@
 &lt;/ul&gt;
 </content>
         <category term="AI" />
+        <category term="Agent" />
         <category term="开发工具" />
         <category term="开源" />
-        <category term="Agent" />
         <category term="Hermes" />
         <category term="NousResearch" />
         <updated>2026-05-05T15:20:00.000Z</updated>
@@ -13683,9 +13808,9 @@
 </content>
         <category term="AI" />
         <category term="Codex" />
+        <category term="开发工具" />
         <category term="ClaudeCode" />
         <category term="Gemini" />
-        <category term="开发工具" />
         <category term="开源" />
         <updated>2026-04-30T15:30:00.000Z</updated>
     </entry>
@@ -13868,8 +13993,8 @@
 &lt;/blockquote&gt;
 </content>
         <category term="AI" />
-        <category term="ClaudeCode" />
         <category term="开发工具" />
+        <category term="ClaudeCode" />
         <category term="编程笔记" />
         <updated>2026-04-29T12:39:42.000Z</updated>
     </entry>
@@ -25576,15 +25701,6 @@
         <updated>2023-03-30T16:00:01.000Z</updated>
     </entry>
     <entry>
-        <id>https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</id>
-        <title>Java8新特性</title>
-        <link rel="alternate" href="https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/"/>
-        <content type="html">&lt;h2 id=&#34;Java8新特性&#34;&gt;&lt;a href=&#34;#Java8新特性&#34; class=&#34;headerlink&#34; title=&#34;Java8新特性&#34;&gt;&lt;/a&gt;Java8新特性&lt;/h2&gt;</content>
-        <category term="编程笔记" />
-        <category term="JavaSE" />
-        <updated>2023-03-30T03:43:30.000Z</updated>
-    </entry>
-    <entry>
         <id>https://scottalive.github.io/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/</id>
         <title>Java发展历程</title>
         <link rel="alternate" href="https://scottalive.github.io/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/"/>
@@ -25795,162 +25911,13 @@
         <updated>2023-03-30T03:43:30.000Z</updated>
     </entry>
     <entry>
-        <id>https://scottalive.github.io/computer-science/python/basic/01.%E5%88%9D%E8%AF%86Python/</id>
-        <title>初识Python</title>
-        <link rel="alternate" href="https://scottalive.github.io/computer-science/python/basic/01.%E5%88%9D%E8%AF%86Python/"/>
-        <content type="html">&lt;h3 id=&#34;Python简介&#34;&gt;&lt;a href=&#34;#Python简介&#34; class=&#34;headerlink&#34; title=&#34;Python简介&#34;&gt;&lt;/a&gt;Python简介&lt;/h3&gt;&lt;h4 id=&#34;Python的历史&#34;&gt;&lt;a href=&#34;#Python的历史&#34; class=&#34;headerlink&#34; title=&#34;Python的历史&#34;&gt;&lt;/a&gt;Python的历史&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;1989年圣诞节：&lt;code&gt;Guido von Rossum&lt;/code&gt;开始写&lt;code&gt;Python&lt;/code&gt;语言的编译器。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;1991年2月：第一个&lt;code&gt;Python&lt;/code&gt;编译器（同时也是解释器）诞生，它是用C语言实现的（后面），可以调用C语言的库函数。在最早的版本中，&lt;code&gt;Python&lt;/code&gt;已经提供了对“类”，“函数”，“异常处理”等构造块的支持，还有对列表、字典等核心数据类型，同时支持以模块为基础来构造应用程序。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;1994年1月：&lt;code&gt;Python 1.0&lt;/code&gt;正式发布。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;2000年10月16日：&lt;code&gt;Python 2.0&lt;/code&gt;发布，增加了完整的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6_(%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8)&#34;&gt;垃圾回收&lt;/a&gt;，提供了对&lt;a href=&#34;https://zh.wikipedia.org/wiki/Unicode&#34;&gt;Unicode&lt;/a&gt;的支持。与此同时，&lt;code&gt;Python&lt;/code&gt;的整个开发过程更加透明，社区对开发进度的影响逐渐扩大，生态圈开始慢慢形成。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;2008年12月3日：&lt;code&gt;Python 3.0&lt;/code&gt;发布，它并不完全兼容之前的Python代码，不过因为目前还有不少公司在项目和运维中使用Python 2.x版本，所以&lt;code&gt;Python 3.x&lt;/code&gt;的很多新特性后来也被移植到&lt;code&gt;Python 2.6/2.7&lt;/code&gt;版本中。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;目前我使用的&lt;code&gt;Python 3.7.x&lt;/code&gt;的版本是在2018年发布的，&lt;code&gt;Python&lt;/code&gt;的版本号分为三段，形如A.B.C。其中A表示大版本号，一般当整体重写，或出现不向后兼容的改变时，增加A；B表示功能更新，出现新功能时增加B；C表示小的改动（例如：修复了某个&lt;code&gt;Bug&lt;/code&gt;），只要有修改就增加C。如果对&lt;code&gt;Python&lt;/code&gt;的历史感兴趣，可以阅读名为&lt;a href=&#34;http://www.cnblogs.com/vamei/archive/2013/02/06/2892628.html&#34;&gt;《Python简史》&lt;/a&gt;的网络文章。&lt;/p&gt;
-&lt;h4 id=&#34;Python的优缺点&#34;&gt;&lt;a href=&#34;#Python的优缺点&#34; class=&#34;headerlink&#34; title=&#34;Python的优缺点&#34;&gt;&lt;/a&gt;Python的优缺点&lt;/h4&gt;&lt;p&gt;&lt;code&gt;Python&lt;/code&gt;的优点很多，简单的可以总结为以下几点。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;简单明了，学习曲线低，比很多编程语言都容易上手。&lt;/li&gt;
-&lt;li&gt;开放源代码，拥有强大的社区和生态圈，尤其是在数据分析和机器学习领域。&lt;/li&gt;
-&lt;li&gt;解释型语言，天生具有平台可移植性，代码可以工作于不同的操作系统。&lt;/li&gt;
-&lt;li&gt;对两种主流的编程范式（面向对象编程和函数式编程）都提供了支持。&lt;/li&gt;
-&lt;li&gt;代码规范程度高，可读性强，适合有代码洁癖和强迫症的人群。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;code&gt;Python&lt;/code&gt;的缺点主要集中在以下几点。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;执行效率稍低，对执行效率要求高的部分可以由其他语言（如：C、C++）编写。&lt;/li&gt;
-&lt;li&gt;代码无法加密，但是现在很多公司都不销售卖软件而是销售服务，这个问题会被弱化。&lt;/li&gt;
-&lt;li&gt;在开发时可以选择的框架太多（如Web框架就有100多个），有选择的地方就有错误。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h4 id=&#34;Python的应用领域&#34;&gt;&lt;a href=&#34;#Python的应用领域&#34; class=&#34;headerlink&#34; title=&#34;Python的应用领域&#34;&gt;&lt;/a&gt;Python的应用领域&lt;/h4&gt;&lt;p&gt;目前&lt;code&gt;Python&lt;/code&gt;在&lt;code&gt;Web&lt;/code&gt;应用后端开发、云基础设施建设、&lt;code&gt;DevOps&lt;/code&gt;、网络数据采集（爬虫）、自动化测试、数据分析、机器学习等领域都有着广泛的应用。&lt;/p&gt;
-&lt;h3 id=&#34;安装Python解释器&#34;&gt;&lt;a href=&#34;#安装Python解释器&#34; class=&#34;headerlink&#34; title=&#34;安装Python解释器&#34;&gt;&lt;/a&gt;安装Python解释器&lt;/h3&gt;&lt;p&gt;想要开始&lt;code&gt;Python&lt;/code&gt;编程之旅，首先得在自己使用的计算机上安装&lt;code&gt;Python&lt;/code&gt;解释器环境，下面将以安装官方的&lt;code&gt;Python&lt;/code&gt;解释器为例，讲解如何在不同的操作系统上安装&lt;code&gt;Python&lt;/code&gt;环境。官方的&lt;code&gt;Python&lt;/code&gt;解释器是用C语言实现的，也是使用最为广泛的Python解释器，通常称之为&lt;code&gt;CPython&lt;/code&gt;。除此之外，&lt;code&gt;Python&lt;/code&gt;解释器还有&lt;code&gt;Java&lt;/code&gt;语言实现的&lt;code&gt;Jython&lt;/code&gt;、C#语言实现的&lt;code&gt;IronPython&lt;/code&gt;以及&lt;code&gt;PyPy&lt;/code&gt;、&lt;code&gt;Brython&lt;/code&gt;、&lt;code&gt;Pyston&lt;/code&gt;等版本，有兴趣的读者可以自行了解。&lt;/p&gt;
-&lt;h4 id=&#34;Windows环境&#34;&gt;&lt;a href=&#34;#Windows环境&#34; class=&#34;headerlink&#34; title=&#34;Windows环境&#34;&gt;&lt;/a&gt;Windows环境&lt;/h4&gt;&lt;p&gt;可以在&lt;a href=&#34;https://www.python.org/&#34;&gt;Python官方网站&lt;/a&gt;下载到&lt;code&gt;Python&lt;/code&gt;的&lt;code&gt;Windows&lt;/code&gt;安装程序（exe文件），需要注意的是如果在Windows 7环境下安装&lt;code&gt;Python 3.x&lt;/code&gt;，需要先安装&lt;code&gt;Service Pack 1&lt;/code&gt;补丁包（可以通过一些工具软件自动安装系统补丁的功能来安装），安装过程建议勾选“&lt;code&gt;Add Python 3.x to PATH&lt;/code&gt;”（将Python 3.x添加到PATH环境变量）并选择自定义安装，在设置“&lt;code&gt;Optional Features&lt;/code&gt;”界面最好将“&lt;code&gt;pip&lt;/code&gt;”、“&lt;code&gt;tcl/tk&lt;/code&gt;”、“&lt;code&gt;Python test suite&lt;/code&gt;”等项全部勾选上。强烈建议选择自定义的安装路径并保证路径中没有中文。安装完成会看到“&lt;code&gt;Setup was successful&lt;/code&gt;”的提示。如果稍后运行Python程序时，出现因为缺失一些动态链接库文件而导致Python解释器无法工作的问题，可以按照下面的方法加以解决。&lt;/p&gt;
-&lt;p&gt;如果系统显示api-ms-win-crt*.dll文件缺失，可以参照&lt;a href=&#34;https://zhuanlan.zhihu.com/p/32087135&#34;&gt;《api-ms-win-crt*.dll缺失原因分析和解决方法》&lt;/a&gt;一文讲解的方法进行处理或者直接在&lt;a href=&#34;https://www.microsoft.com/zh-cn/download/details.aspx?id=48145&#34;&gt;微软官网&lt;/a&gt;下载&lt;code&gt;Visual C++ Redistributable for Visual Studio 2015&lt;/code&gt;文件进行修复；如果是因为更新Windows的DirectX之后导致某些动态链接库文件缺失问题，可以下载一个&lt;a href=&#34;https://dl.pconline.com.cn/download/360074-1.html&#34;&gt;DirectX修复工具&lt;/a&gt;进行修复。&lt;/p&gt;
-&lt;h4 id=&#34;Linux环境&#34;&gt;&lt;a href=&#34;#Linux环境&#34; class=&#34;headerlink&#34; title=&#34;Linux环境&#34;&gt;&lt;/a&gt;Linux环境&lt;/h4&gt;&lt;p&gt;&lt;code&gt;Linux&lt;/code&gt;环境自带了&lt;code&gt;Python 2.x&lt;/code&gt;版本，但是如果要更新到3.x的版本，可以在&lt;a href=&#34;https://www.python.org/&#34;&gt;Python的官方网站&lt;/a&gt;下载&lt;code&gt;Python&lt;/code&gt;的源代码并通过源代码构建安装的方式进行安装，具体的步骤如下所示（以&lt;code&gt;CentOS&lt;/code&gt;为例）。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;安装依赖库（因为没有这些依赖库可能在源代码构件安装时因为缺失底层依赖库而失败）。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;yum -y install wget gcc zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;下载&lt;code&gt;Python&lt;/code&gt;源代码并解压缩到指定目录。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;wget https://www.python.org/ftp/python/3.7.6/Python-3.7.6.tar.xz&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;xz -d Python-3.7.6.tar.xz&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tar -xvf Python-3.7.6.tar&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;切换至Python源代码目录并执行下面的命令进行配置和安装。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cd Python-3.7.6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;./configure --prefix=/usr/local/python37 --enable-optimizations&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;make &amp;amp;&amp;amp; make install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;修改用户主目录下名为.bash_profile的文件，配置PATH环境变量并使其生效。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cd ~&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;vim .bash_profile&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;... 此处省略上面的代码 ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export PATH=$PATH:/usr/local/python37/bin&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;... 此处省略下面的代码 ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;激活环境变量。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;source .bash_profile&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h4 id=&#34;macOS环境&#34;&gt;&lt;a href=&#34;#macOS环境&#34; class=&#34;headerlink&#34; title=&#34;macOS环境&#34;&gt;&lt;/a&gt;macOS环境&lt;/h4&gt;&lt;p&gt;&lt;code&gt;macOS&lt;/code&gt;也自带了&lt;code&gt;Python 2.x&lt;/code&gt;版本，可以通过&lt;a href=&#34;https://www.python.org/&#34;&gt;Python的官方网站&lt;/a&gt;提供的安装文件（pkg文件）安装&lt;code&gt;Python 3.x&lt;/code&gt;的版本。默认安装完成后，可以通过在终端执行&lt;code&gt;python&lt;/code&gt;命令来启动2.x版本的&lt;code&gt;Python&lt;/code&gt;解释器，启动3.x版本的&lt;code&gt;Python&lt;/code&gt;解释器需要执行&lt;code&gt;python3&lt;/code&gt;命令。&lt;/p&gt;
-&lt;h3 id=&#34;运行Python程序&#34;&gt;&lt;a href=&#34;#运行Python程序&#34; class=&#34;headerlink&#34; title=&#34;运行Python程序&#34;&gt;&lt;/a&gt;运行Python程序&lt;/h3&gt;&lt;h4 id=&#34;确认Python的版本&#34;&gt;&lt;a href=&#34;#确认Python的版本&#34; class=&#34;headerlink&#34; title=&#34;确认Python的版本&#34;&gt;&lt;/a&gt;确认Python的版本&lt;/h4&gt;&lt;p&gt;可以Windows的命令行提示符中键入下面的命令。&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python --version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;在Linux或macOS系统的终端中键入下面的命令。&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python3 --version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;当然也可以先输入&lt;code&gt;python&lt;/code&gt;或&lt;code&gt;python3&lt;/code&gt;进入交互式环境，再执行以下的代码检查Python的版本。&lt;/p&gt;
-&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; sys&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(sys.version_info)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(sys.version)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h4 id=&#34;编写Python源代码&#34;&gt;&lt;a href=&#34;#编写Python源代码&#34; class=&#34;headerlink&#34; title=&#34;编写Python源代码&#34;&gt;&lt;/a&gt;编写Python源代码&lt;/h4&gt;&lt;p&gt;可以用文本编辑工具（推荐使用&lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;Sublime&lt;/a&gt;、&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;等高级文本编辑工具）编写Python源代码并用py作为后缀名保存该文件，代码内容如下所示。&lt;/p&gt;
-&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;hello, world!&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h4 id=&#34;运行程序&#34;&gt;&lt;a href=&#34;#运行程序&#34; class=&#34;headerlink&#34; title=&#34;运行程序&#34;&gt;&lt;/a&gt;运行程序&lt;/h4&gt;&lt;p&gt;切换到源代码所在的目录并执行下面的命令，看看屏幕上是否输出了”hello, world!”。&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python hello.py&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;或&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python3 hello.py&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h4 id=&#34;代码中的注释&#34;&gt;&lt;a href=&#34;#代码中的注释&#34; class=&#34;headerlink&#34; title=&#34;代码中的注释&#34;&gt;&lt;/a&gt;代码中的注释&lt;/h4&gt;&lt;p&gt;注释是编程语言的一个重要组成部分，用于在源代码中解释代码的作用从而增强程序的可读性和可维护性，当然也可以将源代码中不需要参与运行的代码段通过注释来去掉，这一点在调试程序的时候经常用到。注释在随源代码进入预处理器或编译时会被移除，不会在目标代码中保留也不会影响程序的执行结果。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;单行注释 - 以#和空格开头的部分&lt;/li&gt;
-&lt;li&gt;多行注释 - 三个引号开头，三个引号结尾&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;第一个Python程序 - hello, world!&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;向伟大的Dennis M. Ritchie先生致敬&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;Version: 0.1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;Author: 骆昊&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;hello, world!&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# print(&amp;quot;你好, 世界！&amp;quot;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h3 id=&#34;Python开发工具&#34;&gt;&lt;a href=&#34;#Python开发工具&#34; class=&#34;headerlink&#34; title=&#34;Python开发工具&#34;&gt;&lt;/a&gt;Python开发工具&lt;/h3&gt;&lt;h4 id=&#34;IDLE-自带的集成开发工具&#34;&gt;&lt;a href=&#34;#IDLE-自带的集成开发工具&#34; class=&#34;headerlink&#34; title=&#34;IDLE - 自带的集成开发工具&#34;&gt;&lt;/a&gt;IDLE - 自带的集成开发工具&lt;/h4&gt;&lt;p&gt;&lt;code&gt;IDLE&lt;/code&gt;是安装&lt;code&gt;Python&lt;/code&gt;环境时自带的集成开发工具，如下图所示。但是由于&lt;code&gt;IDLE&lt;/code&gt;的用户体验并不是那么好所以很少在实际开发中被采用。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/./res/python-idle.png&#34;&gt;&lt;/p&gt;
-&lt;h4 id=&#34;IPython-更好的交互式编程工具&#34;&gt;&lt;a href=&#34;#IPython-更好的交互式编程工具&#34; class=&#34;headerlink&#34; title=&#34;IPython - 更好的交互式编程工具&#34;&gt;&lt;/a&gt;IPython - 更好的交互式编程工具&lt;/h4&gt;&lt;p&gt;&lt;code&gt;IPython&lt;/code&gt;是一种基于&lt;code&gt;Python&lt;/code&gt;的交互式解释器。相较于原生的Python交互式环境，&lt;code&gt;IPython&lt;/code&gt;提供了更为强大的编辑和交互功能。可以通过Python的包管理工具pip安装&lt;code&gt;IPython&lt;/code&gt;，具体的操作如下所示。&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip install ipython&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;或&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip3 install ipython&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;安装成功后，可以通过下面的ipython命令启动&lt;code&gt;IPython&lt;/code&gt;，如下图所示。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/./res/python-ipython.png&#34;&gt;&lt;/p&gt;
-&lt;h4 id=&#34;Sublime-Text-高级文本编辑器&#34;&gt;&lt;a href=&#34;#Sublime-Text-高级文本编辑器&#34; class=&#34;headerlink&#34; title=&#34;Sublime Text - 高级文本编辑器&#34;&gt;&lt;/a&gt;Sublime Text - 高级文本编辑器&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;/./res/python-sublime.png&#34;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;首先可以通过&lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;官方网站&lt;/a&gt;下载安装程序安装&lt;code&gt;Sublime Text 3&lt;/code&gt;或&lt;code&gt;Sublime Text 2&lt;/code&gt;。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;安装包管理工具。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;通过快捷键&lt;code&gt;Ctrl+&lt;/code&gt;或者在View菜单中选择&lt;code&gt;Show Console&lt;/code&gt;打开控制台，输入下面的代码。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Sublime 3&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt;  urllib.request,os;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pf=&lt;span class=&#34;string&#34;&gt;&amp;#x27;Package Control.sublime-package&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ipp=sublime.installed_packages_path();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;open&lt;/span&gt;(os.path.join(ipp,pf),&lt;span class=&#34;string&#34;&gt;&amp;#x27;wb&amp;#x27;&lt;/span&gt;).write(urllib.request.urlopen(&lt;span class=&#34;string&#34;&gt;&amp;#x27;http://sublime.wbond.net/&amp;#x27;&lt;/span&gt;+pf.replace(&lt;span class=&#34;string&#34;&gt;&amp;#x27; &amp;#x27;&lt;/span&gt;,&lt;span class=&#34;string&#34;&gt;&amp;#x27;%20&amp;#x27;&lt;/span&gt;)).read())&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;Sublime 2&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt;  urllib2,os;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pf=&lt;span class=&#34;string&#34;&gt;&amp;#x27;Package Control.sublime-package&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ipp=sublime.installed_packages_path();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;os.makedirs(ipp)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; notos.path.exists(ipp):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;pass&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;literal&#34;&gt;None&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler()));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;open&lt;/span&gt;(os.path.join(ipp,pf),&lt;span class=&#34;string&#34;&gt;&amp;#x27;wb&amp;#x27;&lt;/span&gt;).write(urllib2.urlopen(&lt;span class=&#34;string&#34;&gt;&amp;#x27;http://sublime.wbond.net/&amp;#x27;&lt;/span&gt;+pf.replace(&lt;span class=&#34;string&#34;&gt;&amp;#x27; &amp;#x27;&lt;/span&gt;,&lt;span class=&#34;string&#34;&gt;&amp;#x27;%20&amp;#x27;&lt;/span&gt;)).read());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;Please restart Sublime Text to finish installation&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;在浏览器中输入  &lt;a href=&#34;https://sublime.wbond.net/Package%20Control.sublime-package&#34;&gt;https://sublime.wbond.net/Package%20Control.sublime-package&lt;/a&gt; 下载包管理工具的安装包，并找到安装Sublime目录下名为&amp;quot;Installed Packages&amp;quot;的目录，把刚才下载的文件放到这个文件加下，然后重启Sublime Text就搞定了。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;安装插件。通过&lt;code&gt;Preference&lt;/code&gt;菜单的&lt;code&gt;Package Control&lt;/code&gt;或快捷键&lt;code&gt;Ctrl+Shift+P&lt;/code&gt;打开命令面板，在面板中输入&lt;code&gt;Install Package&lt;/code&gt;就可以找到安装插件的工具，然后再查找需要的插件。我们推荐大家安装以下几个插件：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;SublimeCodeIntel&lt;/code&gt; - 代码自动补全工具插件。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Emmet&lt;/code&gt; - 前端开发代码模板插件。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Git&lt;/code&gt; - 版本控制工具插件。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Python PEP8 Autoformat&lt;/code&gt; - &lt;code&gt;PEP8&lt;/code&gt;规范自动格式化插件。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ConvertToUTF8&lt;/code&gt; - 将本地编码转换为&lt;code&gt;UTF-8&lt;/code&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：事实上&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;可能是更好的选择，它不用花钱并提供了更为完整和强大的功能，有兴趣的读者可以自行研究。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&#34;PyCharm-Python开发神器&#34;&gt;&lt;a href=&#34;#PyCharm-Python开发神器&#34; class=&#34;headerlink&#34; title=&#34;PyCharm - Python开发神器&#34;&gt;&lt;/a&gt;PyCharm - Python开发神器&lt;/h4&gt;&lt;p&gt;PyCharm的安装、配置和使用在&lt;a href=&#34;../%E7%95%AA%E5%A4%96%E7%AF%87/%E7%8E%A9%E8%BD%ACPyCharm.md&#34;&gt;《玩转PyCharm》&lt;/a&gt;进行了介绍，有兴趣的读者可以选择阅读。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/./res/python-pycharm.png&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;练习&#34;&gt;&lt;a href=&#34;#练习&#34; class=&#34;headerlink&#34; title=&#34;练习&#34;&gt;&lt;/a&gt;练习&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;在&lt;code&gt;Python&lt;/code&gt;交互式环境中输入下面的代码并查看结果，请尝试将看到的内容翻译成中文。&lt;/p&gt;
- &lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; this&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：输入上面的代码，在&lt;code&gt;Python&lt;/code&gt;的交互式环境中可以看到Tim Peter撰写的&lt;a href=&#34;../Python%E4%B9%8B%E7%A6%85.md&#34;&gt;“Python之禅”&lt;/a&gt;，里面讲述的道理不仅仅适用于Python，也适用于其他编程语言。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;学习使用turtle在屏幕上绘制图形。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：turtle是Python内置的一个非常有趣的模块，特别适合对计算机程序设计进行初体验的小伙伴，它最早是Logo语言的一部分，Logo语言是Wally Feurzig和Seymour Papert在1966发明的编程语言。&lt;/p&gt;
-&lt;/blockquote&gt;
- &lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; turtle&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.pensize(&lt;span class=&#34;number&#34;&gt;4&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.pencolor(&lt;span class=&#34;string&#34;&gt;&amp;#x27;red&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.forward(&lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.right(&lt;span class=&#34;number&#34;&gt;90&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.forward(&lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.right(&lt;span class=&#34;number&#34;&gt;90&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.forward(&lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.right(&lt;span class=&#34;number&#34;&gt;90&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.forward(&lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.mainloop()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;提示&lt;/strong&gt;：本章提供的代码中还有画国旗和画小猪佩奇的代码，有兴趣的读者请自行研究。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-</content>
+        <id>https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</id>
+        <title>Java8新特性</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+        <content type="html">&lt;h2 id=&#34;Java8新特性&#34;&gt;&lt;a href=&#34;#Java8新特性&#34; class=&#34;headerlink&#34; title=&#34;Java8新特性&#34;&gt;&lt;/a&gt;Java8新特性&lt;/h2&gt;</content>
         <category term="编程笔记" />
-        <category term="python" />
-        <updated>2023-03-29T15:51:49.000Z</updated>
+        <category term="JavaSE" />
+        <updated>2023-03-30T03:43:30.000Z</updated>
     </entry>
     <entry>
         <id>https://scottalive.github.io/computer-science/java/javase/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</id>
@@ -26397,6 +26364,164 @@
 </content>
         <category term="编程笔记" />
         <category term="JavaSE" />
+        <updated>2023-03-29T15:51:49.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://scottalive.github.io/computer-science/python/basic/01.%E5%88%9D%E8%AF%86Python/</id>
+        <title>初识Python</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/python/basic/01.%E5%88%9D%E8%AF%86Python/"/>
+        <content type="html">&lt;h3 id=&#34;Python简介&#34;&gt;&lt;a href=&#34;#Python简介&#34; class=&#34;headerlink&#34; title=&#34;Python简介&#34;&gt;&lt;/a&gt;Python简介&lt;/h3&gt;&lt;h4 id=&#34;Python的历史&#34;&gt;&lt;a href=&#34;#Python的历史&#34; class=&#34;headerlink&#34; title=&#34;Python的历史&#34;&gt;&lt;/a&gt;Python的历史&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;1989年圣诞节：&lt;code&gt;Guido von Rossum&lt;/code&gt;开始写&lt;code&gt;Python&lt;/code&gt;语言的编译器。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;1991年2月：第一个&lt;code&gt;Python&lt;/code&gt;编译器（同时也是解释器）诞生，它是用C语言实现的（后面），可以调用C语言的库函数。在最早的版本中，&lt;code&gt;Python&lt;/code&gt;已经提供了对“类”，“函数”，“异常处理”等构造块的支持，还有对列表、字典等核心数据类型，同时支持以模块为基础来构造应用程序。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;1994年1月：&lt;code&gt;Python 1.0&lt;/code&gt;正式发布。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;2000年10月16日：&lt;code&gt;Python 2.0&lt;/code&gt;发布，增加了完整的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6_(%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8)&#34;&gt;垃圾回收&lt;/a&gt;，提供了对&lt;a href=&#34;https://zh.wikipedia.org/wiki/Unicode&#34;&gt;Unicode&lt;/a&gt;的支持。与此同时，&lt;code&gt;Python&lt;/code&gt;的整个开发过程更加透明，社区对开发进度的影响逐渐扩大，生态圈开始慢慢形成。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;2008年12月3日：&lt;code&gt;Python 3.0&lt;/code&gt;发布，它并不完全兼容之前的Python代码，不过因为目前还有不少公司在项目和运维中使用Python 2.x版本，所以&lt;code&gt;Python 3.x&lt;/code&gt;的很多新特性后来也被移植到&lt;code&gt;Python 2.6/2.7&lt;/code&gt;版本中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;目前我使用的&lt;code&gt;Python 3.7.x&lt;/code&gt;的版本是在2018年发布的，&lt;code&gt;Python&lt;/code&gt;的版本号分为三段，形如A.B.C。其中A表示大版本号，一般当整体重写，或出现不向后兼容的改变时，增加A；B表示功能更新，出现新功能时增加B；C表示小的改动（例如：修复了某个&lt;code&gt;Bug&lt;/code&gt;），只要有修改就增加C。如果对&lt;code&gt;Python&lt;/code&gt;的历史感兴趣，可以阅读名为&lt;a href=&#34;http://www.cnblogs.com/vamei/archive/2013/02/06/2892628.html&#34;&gt;《Python简史》&lt;/a&gt;的网络文章。&lt;/p&gt;
+&lt;h4 id=&#34;Python的优缺点&#34;&gt;&lt;a href=&#34;#Python的优缺点&#34; class=&#34;headerlink&#34; title=&#34;Python的优缺点&#34;&gt;&lt;/a&gt;Python的优缺点&lt;/h4&gt;&lt;p&gt;&lt;code&gt;Python&lt;/code&gt;的优点很多，简单的可以总结为以下几点。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;简单明了，学习曲线低，比很多编程语言都容易上手。&lt;/li&gt;
+&lt;li&gt;开放源代码，拥有强大的社区和生态圈，尤其是在数据分析和机器学习领域。&lt;/li&gt;
+&lt;li&gt;解释型语言，天生具有平台可移植性，代码可以工作于不同的操作系统。&lt;/li&gt;
+&lt;li&gt;对两种主流的编程范式（面向对象编程和函数式编程）都提供了支持。&lt;/li&gt;
+&lt;li&gt;代码规范程度高，可读性强，适合有代码洁癖和强迫症的人群。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;Python&lt;/code&gt;的缺点主要集中在以下几点。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;执行效率稍低，对执行效率要求高的部分可以由其他语言（如：C、C++）编写。&lt;/li&gt;
+&lt;li&gt;代码无法加密，但是现在很多公司都不销售卖软件而是销售服务，这个问题会被弱化。&lt;/li&gt;
+&lt;li&gt;在开发时可以选择的框架太多（如Web框架就有100多个），有选择的地方就有错误。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;Python的应用领域&#34;&gt;&lt;a href=&#34;#Python的应用领域&#34; class=&#34;headerlink&#34; title=&#34;Python的应用领域&#34;&gt;&lt;/a&gt;Python的应用领域&lt;/h4&gt;&lt;p&gt;目前&lt;code&gt;Python&lt;/code&gt;在&lt;code&gt;Web&lt;/code&gt;应用后端开发、云基础设施建设、&lt;code&gt;DevOps&lt;/code&gt;、网络数据采集（爬虫）、自动化测试、数据分析、机器学习等领域都有着广泛的应用。&lt;/p&gt;
+&lt;h3 id=&#34;安装Python解释器&#34;&gt;&lt;a href=&#34;#安装Python解释器&#34; class=&#34;headerlink&#34; title=&#34;安装Python解释器&#34;&gt;&lt;/a&gt;安装Python解释器&lt;/h3&gt;&lt;p&gt;想要开始&lt;code&gt;Python&lt;/code&gt;编程之旅，首先得在自己使用的计算机上安装&lt;code&gt;Python&lt;/code&gt;解释器环境，下面将以安装官方的&lt;code&gt;Python&lt;/code&gt;解释器为例，讲解如何在不同的操作系统上安装&lt;code&gt;Python&lt;/code&gt;环境。官方的&lt;code&gt;Python&lt;/code&gt;解释器是用C语言实现的，也是使用最为广泛的Python解释器，通常称之为&lt;code&gt;CPython&lt;/code&gt;。除此之外，&lt;code&gt;Python&lt;/code&gt;解释器还有&lt;code&gt;Java&lt;/code&gt;语言实现的&lt;code&gt;Jython&lt;/code&gt;、C#语言实现的&lt;code&gt;IronPython&lt;/code&gt;以及&lt;code&gt;PyPy&lt;/code&gt;、&lt;code&gt;Brython&lt;/code&gt;、&lt;code&gt;Pyston&lt;/code&gt;等版本，有兴趣的读者可以自行了解。&lt;/p&gt;
+&lt;h4 id=&#34;Windows环境&#34;&gt;&lt;a href=&#34;#Windows环境&#34; class=&#34;headerlink&#34; title=&#34;Windows环境&#34;&gt;&lt;/a&gt;Windows环境&lt;/h4&gt;&lt;p&gt;可以在&lt;a href=&#34;https://www.python.org/&#34;&gt;Python官方网站&lt;/a&gt;下载到&lt;code&gt;Python&lt;/code&gt;的&lt;code&gt;Windows&lt;/code&gt;安装程序（exe文件），需要注意的是如果在Windows 7环境下安装&lt;code&gt;Python 3.x&lt;/code&gt;，需要先安装&lt;code&gt;Service Pack 1&lt;/code&gt;补丁包（可以通过一些工具软件自动安装系统补丁的功能来安装），安装过程建议勾选“&lt;code&gt;Add Python 3.x to PATH&lt;/code&gt;”（将Python 3.x添加到PATH环境变量）并选择自定义安装，在设置“&lt;code&gt;Optional Features&lt;/code&gt;”界面最好将“&lt;code&gt;pip&lt;/code&gt;”、“&lt;code&gt;tcl/tk&lt;/code&gt;”、“&lt;code&gt;Python test suite&lt;/code&gt;”等项全部勾选上。强烈建议选择自定义的安装路径并保证路径中没有中文。安装完成会看到“&lt;code&gt;Setup was successful&lt;/code&gt;”的提示。如果稍后运行Python程序时，出现因为缺失一些动态链接库文件而导致Python解释器无法工作的问题，可以按照下面的方法加以解决。&lt;/p&gt;
+&lt;p&gt;如果系统显示api-ms-win-crt*.dll文件缺失，可以参照&lt;a href=&#34;https://zhuanlan.zhihu.com/p/32087135&#34;&gt;《api-ms-win-crt*.dll缺失原因分析和解决方法》&lt;/a&gt;一文讲解的方法进行处理或者直接在&lt;a href=&#34;https://www.microsoft.com/zh-cn/download/details.aspx?id=48145&#34;&gt;微软官网&lt;/a&gt;下载&lt;code&gt;Visual C++ Redistributable for Visual Studio 2015&lt;/code&gt;文件进行修复；如果是因为更新Windows的DirectX之后导致某些动态链接库文件缺失问题，可以下载一个&lt;a href=&#34;https://dl.pconline.com.cn/download/360074-1.html&#34;&gt;DirectX修复工具&lt;/a&gt;进行修复。&lt;/p&gt;
+&lt;h4 id=&#34;Linux环境&#34;&gt;&lt;a href=&#34;#Linux环境&#34; class=&#34;headerlink&#34; title=&#34;Linux环境&#34;&gt;&lt;/a&gt;Linux环境&lt;/h4&gt;&lt;p&gt;&lt;code&gt;Linux&lt;/code&gt;环境自带了&lt;code&gt;Python 2.x&lt;/code&gt;版本，但是如果要更新到3.x的版本，可以在&lt;a href=&#34;https://www.python.org/&#34;&gt;Python的官方网站&lt;/a&gt;下载&lt;code&gt;Python&lt;/code&gt;的源代码并通过源代码构建安装的方式进行安装，具体的步骤如下所示（以&lt;code&gt;CentOS&lt;/code&gt;为例）。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装依赖库（因为没有这些依赖库可能在源代码构件安装时因为缺失底层依赖库而失败）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;yum -y install wget gcc zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel libffi-devel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;下载&lt;code&gt;Python&lt;/code&gt;源代码并解压缩到指定目录。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;wget https://www.python.org/ftp/python/3.7.6/Python-3.7.6.tar.xz&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;xz -d Python-3.7.6.tar.xz&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;tar -xvf Python-3.7.6.tar&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;切换至Python源代码目录并执行下面的命令进行配置和安装。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cd Python-3.7.6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;./configure --prefix=/usr/local/python37 --enable-optimizations&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;make &amp;amp;&amp;amp; make install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;修改用户主目录下名为.bash_profile的文件，配置PATH环境变量并使其生效。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;cd ~&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;vim .bash_profile&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;... 此处省略上面的代码 ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;export PATH=$PATH:/usr/local/python37/bin&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;meta prompt_&#34;&gt;# &lt;/span&gt;&lt;span class=&#34;language-bash&#34;&gt;... 此处省略下面的代码 ...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;激活环境变量。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;source .bash_profile&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&#34;macOS环境&#34;&gt;&lt;a href=&#34;#macOS环境&#34; class=&#34;headerlink&#34; title=&#34;macOS环境&#34;&gt;&lt;/a&gt;macOS环境&lt;/h4&gt;&lt;p&gt;&lt;code&gt;macOS&lt;/code&gt;也自带了&lt;code&gt;Python 2.x&lt;/code&gt;版本，可以通过&lt;a href=&#34;https://www.python.org/&#34;&gt;Python的官方网站&lt;/a&gt;提供的安装文件（pkg文件）安装&lt;code&gt;Python 3.x&lt;/code&gt;的版本。默认安装完成后，可以通过在终端执行&lt;code&gt;python&lt;/code&gt;命令来启动2.x版本的&lt;code&gt;Python&lt;/code&gt;解释器，启动3.x版本的&lt;code&gt;Python&lt;/code&gt;解释器需要执行&lt;code&gt;python3&lt;/code&gt;命令。&lt;/p&gt;
+&lt;h3 id=&#34;运行Python程序&#34;&gt;&lt;a href=&#34;#运行Python程序&#34; class=&#34;headerlink&#34; title=&#34;运行Python程序&#34;&gt;&lt;/a&gt;运行Python程序&lt;/h3&gt;&lt;h4 id=&#34;确认Python的版本&#34;&gt;&lt;a href=&#34;#确认Python的版本&#34; class=&#34;headerlink&#34; title=&#34;确认Python的版本&#34;&gt;&lt;/a&gt;确认Python的版本&lt;/h4&gt;&lt;p&gt;可以Windows的命令行提示符中键入下面的命令。&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python --version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在Linux或macOS系统的终端中键入下面的命令。&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python3 --version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;当然也可以先输入&lt;code&gt;python&lt;/code&gt;或&lt;code&gt;python3&lt;/code&gt;进入交互式环境，再执行以下的代码检查Python的版本。&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; sys&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(sys.version_info)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(sys.version)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&#34;编写Python源代码&#34;&gt;&lt;a href=&#34;#编写Python源代码&#34; class=&#34;headerlink&#34; title=&#34;编写Python源代码&#34;&gt;&lt;/a&gt;编写Python源代码&lt;/h4&gt;&lt;p&gt;可以用文本编辑工具（推荐使用&lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;Sublime&lt;/a&gt;、&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;等高级文本编辑工具）编写Python源代码并用py作为后缀名保存该文件，代码内容如下所示。&lt;/p&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;hello, world!&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&#34;运行程序&#34;&gt;&lt;a href=&#34;#运行程序&#34; class=&#34;headerlink&#34; title=&#34;运行程序&#34;&gt;&lt;/a&gt;运行程序&lt;/h4&gt;&lt;p&gt;切换到源代码所在的目录并执行下面的命令，看看屏幕上是否输出了”hello, world!”。&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python hello.py&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;python3 hello.py&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h4 id=&#34;代码中的注释&#34;&gt;&lt;a href=&#34;#代码中的注释&#34; class=&#34;headerlink&#34; title=&#34;代码中的注释&#34;&gt;&lt;/a&gt;代码中的注释&lt;/h4&gt;&lt;p&gt;注释是编程语言的一个重要组成部分，用于在源代码中解释代码的作用从而增强程序的可读性和可维护性，当然也可以将源代码中不需要参与运行的代码段通过注释来去掉，这一点在调试程序的时候经常用到。注释在随源代码进入预处理器或编译时会被移除，不会在目标代码中保留也不会影响程序的执行结果。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;单行注释 - 以#和空格开头的部分&lt;/li&gt;
+&lt;li&gt;多行注释 - 三个引号开头，三个引号结尾&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;第一个Python程序 - hello, world!&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;向伟大的Dennis M. Ritchie先生致敬&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;Version: 0.1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;Author: 骆昊&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;string&#34;&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;hello, world!&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# print(&amp;quot;你好, 世界！&amp;quot;)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;Python开发工具&#34;&gt;&lt;a href=&#34;#Python开发工具&#34; class=&#34;headerlink&#34; title=&#34;Python开发工具&#34;&gt;&lt;/a&gt;Python开发工具&lt;/h3&gt;&lt;h4 id=&#34;IDLE-自带的集成开发工具&#34;&gt;&lt;a href=&#34;#IDLE-自带的集成开发工具&#34; class=&#34;headerlink&#34; title=&#34;IDLE - 自带的集成开发工具&#34;&gt;&lt;/a&gt;IDLE - 自带的集成开发工具&lt;/h4&gt;&lt;p&gt;&lt;code&gt;IDLE&lt;/code&gt;是安装&lt;code&gt;Python&lt;/code&gt;环境时自带的集成开发工具，如下图所示。但是由于&lt;code&gt;IDLE&lt;/code&gt;的用户体验并不是那么好所以很少在实际开发中被采用。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/./res/python-idle.png&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;IPython-更好的交互式编程工具&#34;&gt;&lt;a href=&#34;#IPython-更好的交互式编程工具&#34; class=&#34;headerlink&#34; title=&#34;IPython - 更好的交互式编程工具&#34;&gt;&lt;/a&gt;IPython - 更好的交互式编程工具&lt;/h4&gt;&lt;p&gt;&lt;code&gt;IPython&lt;/code&gt;是一种基于&lt;code&gt;Python&lt;/code&gt;的交互式解释器。相较于原生的Python交互式环境，&lt;code&gt;IPython&lt;/code&gt;提供了更为强大的编辑和交互功能。可以通过Python的包管理工具pip安装&lt;code&gt;IPython&lt;/code&gt;，具体的操作如下所示。&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip install ipython&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;或&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;pip3 install ipython&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;安装成功后，可以通过下面的ipython命令启动&lt;code&gt;IPython&lt;/code&gt;，如下图所示。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/./res/python-ipython.png&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;Sublime-Text-高级文本编辑器&#34;&gt;&lt;a href=&#34;#Sublime-Text-高级文本编辑器&#34; class=&#34;headerlink&#34; title=&#34;Sublime Text - 高级文本编辑器&#34;&gt;&lt;/a&gt;Sublime Text - 高级文本编辑器&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;/./res/python-sublime.png&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;首先可以通过&lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;官方网站&lt;/a&gt;下载安装程序安装&lt;code&gt;Sublime Text 3&lt;/code&gt;或&lt;code&gt;Sublime Text 2&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装包管理工具。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;通过快捷键&lt;code&gt;Ctrl+&lt;/code&gt;或者在View菜单中选择&lt;code&gt;Show Console&lt;/code&gt;打开控制台，输入下面的代码。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Sublime 3&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt;  urllib.request,os;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pf=&lt;span class=&#34;string&#34;&gt;&amp;#x27;Package Control.sublime-package&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ipp=sublime.installed_packages_path();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;open&lt;/span&gt;(os.path.join(ipp,pf),&lt;span class=&#34;string&#34;&gt;&amp;#x27;wb&amp;#x27;&lt;/span&gt;).write(urllib.request.urlopen(&lt;span class=&#34;string&#34;&gt;&amp;#x27;http://sublime.wbond.net/&amp;#x27;&lt;/span&gt;+pf.replace(&lt;span class=&#34;string&#34;&gt;&amp;#x27; &amp;#x27;&lt;/span&gt;,&lt;span class=&#34;string&#34;&gt;&amp;#x27;%20&amp;#x27;&lt;/span&gt;)).read())&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;Sublime 2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt;  urllib2,os;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;pf=&lt;span class=&#34;string&#34;&gt;&amp;#x27;Package Control.sublime-package&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ipp=sublime.installed_packages_path();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;os.makedirs(ipp)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; notos.path.exists(ipp):&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;pass&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;	&lt;span class=&#34;literal&#34;&gt;None&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler()));&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;open&lt;/span&gt;(os.path.join(ipp,pf),&lt;span class=&#34;string&#34;&gt;&amp;#x27;wb&amp;#x27;&lt;/span&gt;).write(urllib2.urlopen(&lt;span class=&#34;string&#34;&gt;&amp;#x27;http://sublime.wbond.net/&amp;#x27;&lt;/span&gt;+pf.replace(&lt;span class=&#34;string&#34;&gt;&amp;#x27; &amp;#x27;&lt;/span&gt;,&lt;span class=&#34;string&#34;&gt;&amp;#x27;%20&amp;#x27;&lt;/span&gt;)).read());&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;print&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;Please restart Sublime Text to finish installation&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;在浏览器中输入  &lt;a href=&#34;https://sublime.wbond.net/Package%20Control.sublime-package&#34;&gt;https://sublime.wbond.net/Package%20Control.sublime-package&lt;/a&gt; 下载包管理工具的安装包，并找到安装Sublime目录下名为&amp;quot;Installed Packages&amp;quot;的目录，把刚才下载的文件放到这个文件加下，然后重启Sublime Text就搞定了。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;安装插件。通过&lt;code&gt;Preference&lt;/code&gt;菜单的&lt;code&gt;Package Control&lt;/code&gt;或快捷键&lt;code&gt;Ctrl+Shift+P&lt;/code&gt;打开命令面板，在面板中输入&lt;code&gt;Install Package&lt;/code&gt;就可以找到安装插件的工具，然后再查找需要的插件。我们推荐大家安装以下几个插件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;SublimeCodeIntel&lt;/code&gt; - 代码自动补全工具插件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Emmet&lt;/code&gt; - 前端开发代码模板插件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Git&lt;/code&gt; - 版本控制工具插件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Python PEP8 Autoformat&lt;/code&gt; - &lt;code&gt;PEP8&lt;/code&gt;规范自动格式化插件。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ConvertToUTF8&lt;/code&gt; - 将本地编码转换为&lt;code&gt;UTF-8&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：事实上&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;可能是更好的选择，它不用花钱并提供了更为完整和强大的功能，有兴趣的读者可以自行研究。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;PyCharm-Python开发神器&#34;&gt;&lt;a href=&#34;#PyCharm-Python开发神器&#34; class=&#34;headerlink&#34; title=&#34;PyCharm - Python开发神器&#34;&gt;&lt;/a&gt;PyCharm - Python开发神器&lt;/h4&gt;&lt;p&gt;PyCharm的安装、配置和使用在&lt;a href=&#34;../%E7%95%AA%E5%A4%96%E7%AF%87/%E7%8E%A9%E8%BD%ACPyCharm.md&#34;&gt;《玩转PyCharm》&lt;/a&gt;进行了介绍，有兴趣的读者可以选择阅读。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/./res/python-pycharm.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;练习&#34;&gt;&lt;a href=&#34;#练习&#34; class=&#34;headerlink&#34; title=&#34;练习&#34;&gt;&lt;/a&gt;练习&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;在&lt;code&gt;Python&lt;/code&gt;交互式环境中输入下面的代码并查看结果，请尝试将看到的内容翻译成中文。&lt;/p&gt;
+ &lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; this&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：输入上面的代码，在&lt;code&gt;Python&lt;/code&gt;的交互式环境中可以看到Tim Peter撰写的&lt;a href=&#34;../Python%E4%B9%8B%E7%A6%85.md&#34;&gt;“Python之禅”&lt;/a&gt;，里面讲述的道理不仅仅适用于Python，也适用于其他编程语言。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;学习使用turtle在屏幕上绘制图形。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;说明&lt;/strong&gt;：turtle是Python内置的一个非常有趣的模块，特别适合对计算机程序设计进行初体验的小伙伴，它最早是Logo语言的一部分，Logo语言是Wally Feurzig和Seymour Papert在1966发明的编程语言。&lt;/p&gt;
+&lt;/blockquote&gt;
+ &lt;figure class=&#34;highlight python&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;import&lt;/span&gt; turtle&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.pensize(&lt;span class=&#34;number&#34;&gt;4&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.pencolor(&lt;span class=&#34;string&#34;&gt;&amp;#x27;red&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.forward(&lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.right(&lt;span class=&#34;number&#34;&gt;90&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.forward(&lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.right(&lt;span class=&#34;number&#34;&gt;90&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.forward(&lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.right(&lt;span class=&#34;number&#34;&gt;90&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.forward(&lt;span class=&#34;number&#34;&gt;100&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;turtle.mainloop()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;提示&lt;/strong&gt;：本章提供的代码中还有画国旗和画小猪佩奇的代码，有兴趣的读者请自行研究。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+        <category term="编程笔记" />
+        <category term="python" />
         <updated>2023-03-29T15:51:49.000Z</updated>
     </entry>
 </feed>
