@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230a0e14'/%3E%3Ctext x='18' y='68' font-size='52' fill='%2300ff9c' font-family='monospace'%3E%26gt;_%3C/text%3E%3C/svg%3E">
-  <title>全部标签 | 沉鱼的博客</title>
+  <title>AI 热点综述 - 2026-09-12 | 沉鱼的博客</title>
   
-  <meta name="description" content="编程笔记 &amp; 资料分享">
+  <meta name="description" content="AI 行业热点综述 — 2026-09-12">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="沉鱼的博客">
-  <meta property="og:title" content="全部标签 | 沉鱼的博客">
-  <meta property="og:description" content="编程笔记 &amp; 资料分享">
-  <meta property="og:url" content="https://scottalive.github.io/tags/index.html">
+  <meta property="og:title" content="AI 热点综述 - 2026-09-12 | 沉鱼的博客">
+  <meta property="og:description" content="AI 行业热点综述 — 2026-09-12">
+  <meta property="og:url" content="https://scottalive.github.io/ai-hotspots/AI-Hotspots-2026-09-12.html">
   <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="全部标签 | 沉鱼的博客">
-  <meta name="twitter:description" content="编程笔记 &amp; 资料分享">
+  <meta name="twitter:title" content="AI 热点综述 - 2026-09-12 | 沉鱼的博客">
+  <meta name="twitter:description" content="AI 行业热点综述 — 2026-09-12">
   <meta name="twitter:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
   <link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="/atom.xml">
   <link rel="stylesheet" href="/css/style.css?v=202607190200">
@@ -54,204 +54,74 @@
 
   <main class="site-main">
     <div class="container">
-      <!-- 标签：ls 网格风格 -->
-
-
-<section class="page-hero">
-  <div class="term">
-    <div class="term-bar">
-      <span class="term-dots"></span>
-      <span class="term-title">~/blog/tags — zsh</span>
+      <!-- AI 行业热点 - 文章详情页 -->
+<article class="post-full">
+  <header class="post-header">
+    <div class="post-path">
+      <a href="/">~</a>/<a href="/ai-hotspots">ai-hotspots</a>/<span class="pd">2026-09-12.md</span>
     </div>
-    <div class="term-body">
-      <div class="tl"><span class="ps">~ $</span> ls tags/</div>
-      <div class="page-hero-stats">
-        <span><strong>88</strong> tags</span> ·
-        <span><strong>186</strong> posts</span>
-      </div>
+    <h1 class="post-title">AI 热点综述 - 2026-09-12</h1>
+    <div class="post-meta">
+      <span>2026-09-12 23:01</span>
+      <span class="bkt cyan">AI热点</span>
     </div>
+  </header>
+
+  <div class="post-content">
+    <h1 id="AI-热点综述-·-2026-09-12"><a href="#AI-热点综述-·-2026-09-12" class="headerlink" title="AI 热点综述 · 2026-09-12"></a>AI 热点综述 · 2026-09-12</h1><p>今天的信号很集中：一边是 OpenAI 把打磨重心从”演示”转到”稳定性”，一边是 Agent 的基础设施层开始补齐——支付、文件、网关、长时运行。同时，多位一线从业者把话题拉回到同一个朴素问题上：<strong>怎么知道它真的在干活？</strong></p>
+<h2 id="一openai-的产品周不是-devday胜似-devday"><a href="#一、OpenAI-的”产品周”：不是-DevDay，胜似-DevDay" class="headerlink" title="一、OpenAI 的”产品周”：不是 DevDay，胜似 DevDay"></a>一、OpenAI 的”产品周”：不是 DevDay，胜似 DevDay</h2><p>Thibault Sottiaux 在 X 上列了一串本周交付：<strong>Images 2.5、GPT-Live-1、Agents API、Data Agent、ChatGPT for Financial Services</strong>，并强调”这还不是 DevDay，下周还有得忙”。（4.2k 赞）</p>
+<p>更值得注意的其实是他随后那条不那么光鲜的更新。针对社区反馈的质量问题，OpenAI 承认并修复了三类问题：</p>
+<ul>
+<li>为旧模型写的 skills 触发过于频繁，或让模型不再检查自己的工作；</li>
+<li>一个可选的上下文管理实验会导致提前停止、或回复到更早的消息——已关闭，估计影响 <strong>4–5k 用户</strong>；</li>
+<li>移除了一批配置不良的引擎，它们对长尾流量造成了可测量的质量下降。</li>
+</ul>
+<p>配套动作是”重置”（reset）额度。<strong>一个模型厂开始公开承认”长尾流量质量下降”并定位到具体实验</strong>，这本身比新功能更有信息量——能力竞争之外，可靠性正在变成可量化的运营指标。</p>
+<p>另一个人事信号：OpenAI 招入 Git AI 团队（Aidan 与 Sasha），其开源工具帮助开发者理解编码 Agent 如何改动代码库。这意味着 <strong>Codex 的”可观测性”会成为企业落地的卖点</strong>。</p>
+<h2 id="二agent-基础设施支付文件网关长时运行"><a href="#二、Agent-基础设施：支付、文件、网关、长时运行" class="headerlink" title="二、Agent 基础设施：支付、文件、网关、长时运行"></a>二、Agent 基础设施：支付、文件、网关、长时运行</h2><p>今天几乎每一条基础设施新闻都指向同一个判断：Agent 要真正干活，就得有人类早就有的那些原语。</p>
+<ul>
+<li><strong>支付</strong>：Coinbase CEO Brian Armstrong 在 No Priors 上抛出”我们不能让 AI 没有银行账户”。他给的数据很硬：卡交易的固定成本约 30¢ + 比例费，而<strong>观测到的 Agent 电商交易中约 76% 低于 30¢</strong>——用卡结算在结构上就不成立，稳定币与代币化才是 Agent 经济的地基。</li>
+<li><strong>文件</strong>：Aaron Levie 宣布可以把 Box 挂载到 Agent 沙箱，让 Agent 更容易读写”自己电脑”上的文件。”Agent 在企业里跑关键流程，就需要人一直拥有的那些原语。”</li>
+<li><strong>网关</strong>：Guillermo Rauch 透露 Tailscale 的模型路由由 Vercel AI Gateway 作为底层基础设施支撑，并给出一个精辟比喻——<strong>“AI Gateway 就是新的 CDN”</strong>：直连源站是脆的，自己造是又痛又贵。</li>
+<li><strong>长时运行</strong>：Ryo Lu 宣布 Cursor 上线”面向你大想法”的长生命周期 Agent。Amjad Masad 也在推 Replit 的 <strong>Routines with budgets</strong>（带预算的例程）。</li>
+</ul>
+<p>把这些串起来看：<strong>Agent 正在从”一次性调用”变成”有预算、有文件系统、有支付能力、有路由层的常驻进程”。</strong> 基础设施的形状已经清楚了。</p>
+<h2 id="三evals-成为一等公民这一次是工具链层面的"><a href="#三、Evals-成为一等公民（这一次是工具链层面的）" class="headerlink" title="三、Evals 成为一等公民（这一次是工具链层面的）"></a>三、Evals 成为一等公民（这一次是工具链层面的）</h2><p>今天有三条关于”如何衡量”的发言，指向同一个方向：</p>
+<ul>
+<li><strong>Thariq（Anthropic）</strong> 发布 plugin evals，在插件目录里跑 <code>claude plugin eval init</code> 就能验证 skills 在新模型上是否还有效；同时他提醒：<strong>“现在只看 pass&#x2F;fail 分数已经几乎无法解读 evals”</strong>，很多失败来自过于严格的隐藏测试，有些情况下模型的答案比预期结果更合理。（两条合计约 2.7k 赞）</li>
+<li><strong>Dan Shipper（Every）</strong> 介绍他们过去三年坚持的”vibe checks”，现在正把它量化——团队搭了内部平台，让每个人基于真实日常工作做<strong>个人基准测试</strong>。”更高的 benchmark 分数并不能说明它在你真实工作上的表现。”</li>
+<li><strong>Madhu Guru</strong> 把”在 evals 上投入不足”列为<strong>企业 AI 失败的头号原因之一</strong>。</li>
+</ul>
+<p>从”写 skill 触发条件”到”验证 skill 是否还有效”，工具链开始闭环。这是一个成熟化的信号：<strong>Agent 生态的瓶颈正在从能力转向验证。</strong></p>
+<h2 id="四企业-ai-为什么失败一份直白的复盘"><a href="#四、企业-AI-为什么失败：一份直白的复盘" class="headerlink" title="四、企业 AI 为什么失败：一份直白的复盘"></a>四、企业 AI 为什么失败：一份直白的复盘</h2><p>Madhu Guru 的长帖值得原文照抄三个失败模式：</p>
+<ol>
+<li><strong>用旧剧本做 AI</strong>——CEO 指派亲信组建中央 AI 团队，从各部门抽调熟人。问题是技能断层：过去 15 年产品开发多是渐进式改进，而 <strong>AI 需要实验与发明</strong>。</li>
+<li><strong>在 evals 上投入不足</strong>——大多数企业不理解它的重要性，也不知道”好”长什么样。</li>
+<li><strong>从外部为公司造 AI</strong>——中央团队自封平台团队，造工具要求全公司采用；这些产品与真实工作流、上下文和一线判断脱节，得到的只有勉强的采用，而非真正的生产力提升。</li>
+</ol>
+<p>他的解法同样直接：招真正做过 AI 产品的负责人；把 evals 变成一等公民；<strong>把最好的 AI 构建者嵌入业务职能里，和财务一起造、和销售一起造、和支持一起造。</strong></p>
+<p>对照 Peter Yang 的观点——“我对’软件工厂’持怀疑态度……过夜跑一个循环去造新东西，只要一个错误假设，整个 token 就浪费了”——两人其实在说同一件事：<strong>人类定义需求与检查结果这一环，目前还删不掉。</strong></p>
+<h2 id="五市场与组织两个小观察"><a href="#五、市场与组织：两个小观察" class="headerlink" title="五、市场与组织：两个小观察"></a>五、市场与组织：两个小观察</h2><ul>
+<li><strong>Amjad Masad</strong>：”Replit 收购了一家完全建立在 Replit 上的公司。我预期这只是第一个。” 平台开始收获平台效应，这对”AI 原生创业公司”的退出路径是个有趣的注脚。</li>
+<li><strong>Nikunj Kothari</strong> 谈 VC 归因：”成功有无数父亲，失败是孤儿。” 大型退出极其稀少，而这正是下一支基金的募资依据，因此未来两年会看到很多”重写历史”的操作。他给了个实在的建议：<strong>握紧你的创始人，他们才是真正的 reference check。</strong></li>
+<li><strong>Zara Zhang</strong> 对”一人公司”泼了盆冷水：”一个人借助 AI 确实能做很多，但从零造新东西可能是极度孤独的体验……当你没有和别人一起把身体绑在桅杆上时，极容易失去动力。”</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>今天的三条主线互相咬合：</p>
+<ol>
+<li><strong>能力已经不是瓶颈，可靠性才是</strong>——OpenAI 公开修 bug、发 reset，比发新模型更说明问题。</li>
+<li><strong>Agent 的地基正在铺完</strong>——支付（稳定币微交易）、文件（Box in sandbox）、路由（AI Gateway）、长时运行（Cursor、Replit Routines with budgets）。</li>
+<li><strong>验证工具链开始追上来</strong>——plugin evals、个人基准、企业 evals 一等公民化。</li>
+</ol>
+<p>如果要用一句话概括 2026 年 9 月的这份切片：<strong>行业正在从”能做什么”转向”怎么证明它做成了、以及怎么让它稳定地做下去”。</strong></p>
+<hr>
+<p><em>数据来源：<a target="_blank" rel="noopener" href="https://github.com/zarazhangrui/follow-builders">Follow Builders</a> · 2026-09-12</em></p>
+
   </div>
-</section>
+</article>
 
-<div class="taggrid">
-  
-  <a class="tg-item" href="/tags/AI/">AI <span class="tg-count">×84</span></a>
-  
-  <a class="tg-item" href="/tags/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记 <span class="tg-count">×81</span></a>
-  
-  <a class="tg-item" href="/tags/AI%E6%97%A5%E6%8A%A5/">AI日报 <span class="tg-count">×66</span></a>
-  
-  <a class="tg-item" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能 <span class="tg-count">×66</span></a>
-  
-  <a class="tg-item" href="/tags/%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF/">技术趋势 <span class="tg-count">×66</span></a>
-  
-  <a class="tg-item" href="/tags/GitHub%E7%83%AD%E9%97%A8/">GitHub热门 <span class="tg-count">×65</span></a>
-  
-  <a class="tg-item" href="/tags/python/">python <span class="tg-count">×61</span></a>
-  
-  <a class="tg-item" href="/tags/JavaSE/">JavaSE <span class="tg-count">×15</span></a>
-  
-  <a class="tg-item" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具 <span class="tg-count">×13</span></a>
-  
-  <a class="tg-item" href="/tags/Agent/">Agent <span class="tg-count">×11</span></a>
-  
-  <a class="tg-item" href="/tags/Java%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/">Java开发面试题 <span class="tg-count">×9</span></a>
-  
-  <a class="tg-item" href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/">自动化 <span class="tg-count">×5</span></a>
-  
-  <a class="tg-item" href="/tags/Hermes/">Hermes <span class="tg-count">×5</span></a>
-  
-  <a class="tg-item" href="/tags/%E5%8A%9B%E6%89%A3%E7%AE%97%E6%B3%95%E9%A2%98/">力扣算法题 <span class="tg-count">×5</span></a>
-  
-  <a class="tg-item" href="/tags/%E7%AE%97%E6%B3%95/">算法 <span class="tg-count">×5</span></a>
-  
-  <a class="tg-item" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务 <span class="tg-count">×4</span></a>
-  
-  <a class="tg-item" href="/tags/Kubernetes/">Kubernetes <span class="tg-count">×3</span></a>
-  
-  <a class="tg-item" href="/tags/DevOps/">DevOps <span class="tg-count">×3</span></a>
-  
-  <a class="tg-item" href="/tags/OpenSRE/">OpenSRE <span class="tg-count">×3</span></a>
-  
-  <a class="tg-item" href="/tags/SRE/">SRE <span class="tg-count">×3</span></a>
-  
-  <a class="tg-item" href="/tags/Codex/">Codex <span class="tg-count">×3</span></a>
-  
-  <a class="tg-item" href="/tags/ClaudeCode/">ClaudeCode <span class="tg-count">×3</span></a>
-  
-  <a class="tg-item" href="/tags/%E5%BC%80%E6%BA%90/">开源 <span class="tg-count">×3</span></a>
-  
-  <a class="tg-item" href="/tags/LLM/">LLM <span class="tg-count">×3</span></a>
-  
-  <a class="tg-item" href="/tags/%E6%8E%A5%E5%8F%A3%E5%BC%80%E5%8F%91/">接口开发 <span class="tg-count">×3</span></a>
-  
-  <a class="tg-item" href="/tags/%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/">开发注意事项 <span class="tg-count">×3</span></a>
-  
-  <a class="tg-item" href="/tags/%E4%B8%AA%E4%BA%BA%E5%88%86%E4%BA%AB/">个人分享 <span class="tg-count">×2</span></a>
-  
-  <a class="tg-item" href="/tags/k8s/">k8s <span class="tg-count">×2</span></a>
-  
-  <a class="tg-item" href="/tags/%E8%BF%90%E7%BB%B4/">运维 <span class="tg-count">×2</span></a>
-  
-  <a class="tg-item" href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6%E7%9F%A5%E8%AF%86/">心理学知识 <span class="tg-count">×2</span></a>
-  
-  <a class="tg-item" href="/tags/OpenAI/">OpenAI <span class="tg-count">×2</span></a>
-  
-  <a class="tg-item" href="/tags/MCP/">MCP <span class="tg-count">×2</span></a>
-  
-  <a class="tg-item" href="/tags/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">安装教程 <span class="tg-count">×2</span></a>
-  
-  <a class="tg-item" href="/tags/NousResearch/">NousResearch <span class="tg-count">×2</span></a>
-  
-  <a class="tg-item" href="/tags/LangChain/">LangChain <span class="tg-count">×2</span></a>
-  
-  <a class="tg-item" href="/tags/LangGraph/">LangGraph <span class="tg-count">×2</span></a>
-  
-  <a class="tg-item" href="/tags/Python/">Python <span class="tg-count">×2</span></a>
-  
-  <a class="tg-item" href="/tags/%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5/">故障排查 <span class="tg-count">×2</span></a>
-  
-  <a class="tg-item" href="/tags/%E5%9D%8F%E4%B9%A0%E6%83%AF/">坏习惯 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E5%8E%9F%E5%88%99/">原则 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E4%B8%AA%E4%BA%BA%E8%AF%A6%E6%83%85/">个人详情 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/kubeconfig/">kubeconfig <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/kubectl/">kubectl <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/Context/">Context <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/Helm/">Helm <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/">学习计划 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/Grafana/">Grafana <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7/">可观测性 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92/">容器编排 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/SQL%E6%B3%A8%E5%85%A5/">SQL注入 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/XSS/">XSS <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/CSRF/">CSRF <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/DDoS/">DDoS <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">渗透测试 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E9%98%BF%E5%BE%B7%E5%8B%92%E5%BF%83%E7%90%86%E5%AD%A6/">阿德勒心理学 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E8%87%AA%E5%8D%91%E4%B8%8E%E8%B6%85%E8%B6%8A/">自卑与超越 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/GPT-5-5/">GPT-5.5 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/Claude/">Claude <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/Gemini/">Gemini <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B/">编程助手 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/DeepSeek/">DeepSeek <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/Harness/">Harness <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E6%8F%92%E4%BB%B6/">插件 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/v0-17/">v0.17 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/v0-20/">v0.20 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E8%AF%AD%E9%9F%B3%E4%BA%A4%E4%BA%92/">语音交互 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/A2A/">A2A <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/Webhook/">Webhook <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E8%BF%9B%E9%98%B6/">进阶 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E9%85%8D%E7%BD%AE/">配置 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E9%AB%98%E9%98%B6/">高阶 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/RAG/">RAG <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E7%9F%A5%E8%AF%86%E5%BA%93/">知识库 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/">工作流 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/OpenClaw/">OpenClaw <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E7%BD%91%E5%85%B3/">网关 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/AI%E8%BF%90%E7%BB%B4/">AI运维 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E6%A0%B9%E5%9B%A0%E5%88%86%E6%9E%90/">根因分析 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/WorkBuddy/">WorkBuddy <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E8%85%BE%E8%AE%AF/">腾讯 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E5%8A%9E%E5%85%AC%E8%87%AA%E5%8A%A8%E5%8C%96/">办公自动化 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/AI%E5%B7%A5%E5%85%B7/">AI工具 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/SSE/">SSE <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/HTTP/">HTTP <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划 <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/SpringBoot/">SpringBoot <span class="tg-count">×1</span></a>
-  
-  <a class="tg-item" href="/tags/Spring/">Spring <span class="tg-count">×1</span></a>
-  
-</div>
+<nav class="post-nav">
+  <a class="prev" href="/ai-hotspots">返回 AI 行业热点</a>
+</nav>
 
     </div>
   </main>
