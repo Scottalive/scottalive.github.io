@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230a0e14'/%3E%3Ctext x='18' y='68' font-size='52' fill='%2300ff9c' font-family='monospace'%3E%26gt;_%3C/text%3E%3C/svg%3E">
+  <title>AI 日报 2026-07-08 | 沉鱼的博客</title>
+  
+  <meta name="description" content="编程笔记 &amp; 资料分享">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="沉鱼的博客">
+  <meta property="og:title" content="AI 日报 2026-07-08 | 沉鱼的博客">
+  <meta property="og:description" content="编程笔记 &amp; 资料分享">
+  <meta property="og:url" content="https://scottalive.github.io/computer-science/ai-tools/AI日报-2026-07-08/">
+  <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AI 日报 2026-07-08 | 沉鱼的博客">
+  <meta name="twitter:description" content="编程笔记 &amp; 资料分享">
+  <meta name="twitter:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="/atom.xml">
+  <link rel="stylesheet" href="/css/style.css?v=202607190200">
+  <script>
+  /* 深色为默认主题，仅当用户显式选择浅色时才切换；body 渲染前确定，避免闪烁 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var theme = saved === 'light' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    window.__theme = theme;
+  })();
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/"><span class="prompt-path">~/</span>blog<span class="cursor"></span></a></h1>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <a href="/about">关于</a>
+      </nav>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="search..." autocomplete="off">
+        <div id="search-results"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <div class="post-path">
+      <a href="/">~</a>/<a href="/archives">posts</a>/<span class="pd">computer-science/ai-tools/AI日报-2026-07-08.md</span>
+    </div>
+    <h1 class="post-title">AI 日报 2026-07-08</h1>
+    <div class="post-meta">
+      <span>2026-07-08 22:00</span>
+      <span>2555 字 · 约 8 分钟</span>
+      
+        
+        <a class="bkt" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+        
+        <a class="bkt" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
+        
+      
+      
+        
+        <a class="bkt cyan" href="/tags/AI%E6%97%A5%E6%8A%A5/">#AI日报</a>
+        
+        <a class="bkt cyan" href="/tags/AI/">#AI</a>
+        
+        <a class="bkt cyan" href="/tags/GitHub%E7%83%AD%E9%97%A8/">#GitHub热门</a>
+        
+        <a class="bkt cyan" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">#人工智能</a>
+        
+        <a class="bkt cyan" href="/tags/%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF/">#技术趋势</a>
+        
+      
+    </div>
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#今日热点">今日热点</a>
+      
+      <a class="toc-level-2" href="#github-热门-ai-项目">GitHub 热门 AI 项目</a>
+      
+      <a class="toc-level-3" href="#1-madslorentzenx2fai-job-search-5071x2f日">1. MadsLorentzen&amp;#x2F;ai-job-search ⭐ +5,071&amp;#x2F;日</a>
+      
+      <a class="toc-level-3" href="#2-addyosmanix2fagent-skills-1322x2f日">2. addyosmani&amp;#x2F;agent-skills ⭐ +1,322&amp;#x2F;日</a>
+      
+      <a class="toc-level-3" href="#3-tencentcloudx2ftencentdb-agent-memory-610x2f日">3. TencentCloud&amp;#x2F;TencentDB-Agent-Memory ⭐ +610&amp;#x2F;日</a>
+      
+      <a class="toc-level-3" href="#4-iofficeaix2fofficecli-1712x2f日">4. iOfficeAI&amp;#x2F;OfficeCLI ⭐ +1,712&amp;#x2F;日</a>
+      
+      <a class="toc-level-3" href="#5-asgeirtjx2fsystem_prompts_leaks-1226x2f日">5. asgeirtj&amp;#x2F;system_prompts_leaks ⭐ +1,226&amp;#x2F;日</a>
+      
+      <a class="toc-level-3" href="#6-alibabax2fzvec-685x2f日">6. alibaba&amp;#x2F;zvec ⭐ +685&amp;#x2F;日</a>
+      
+      <a class="toc-level-3" href="#7-bradautomatesx2fclaude-video-948x2f日">7. bradautomates&amp;#x2F;claude-video ⭐ +948&amp;#x2F;日</a>
+      
+      <a class="toc-level-3" href="#8-tencentcloudx2fcubesandbox-555x2f日">8. TencentCloud&amp;#x2F;CubeSandbox ⭐ +555&amp;#x2F;日</a>
+      
+      <a class="toc-level-2" href="#新工具x2f产品速览">新工具&amp;#x2F;产品速览</a>
+      
+      <a class="toc-level-3" href="#openai-gpt-56-系列获批公开发布">🔥 OpenAI GPT-5.6 系列获批公开发布</a>
+      
+      <a class="toc-level-3" href="#notion-推出-agents-独立应用">📱 Notion 推出 Agents 独立应用</a>
+      
+      <a class="toc-level-3" href="#zai-发布-zcode-挑战-ai-编程赛道">🤖 Z.ai 发布 ZCode 挑战 AI 编程赛道</a>
+      
+      <a class="toc-level-3" href="#anthropic-claude-cowork-扩展至移动端">🏗️ Anthropic Claude Cowork 扩展至移动端</a>
+      
+      <a class="toc-level-2" href="#行业动态">行业动态</a>
+      
+      <a class="toc-level-3" href="#监管动态">🏛️ 监管动态</a>
+      
+      <a class="toc-level-3" href="#基础设施竞赛">🏭 基础设施竞赛</a>
+      
+      <a class="toc-level-3" href="#研究突破">🔬 研究突破</a>
+      
+      <a class="toc-level-3" href="#法律战场">⚖️ 法律战场</a>
+      
+      <a class="toc-level-2" href="#技术洞见">技术洞见</a>
+      
+      <a class="toc-level-3" href="#趋势一agent-基础设施全面爆发">趋势一：Agent 基础设施全面爆发</a>
+      
+      <a class="toc-level-3" href="#趋势二模型竞争进入套件化时代">趋势二：模型竞争进入”套件化”时代</a>
+      
+      <a class="toc-level-2" href="#小结">小结</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="今日热点"><a href="#今日热点" class="headerlink" title="今日热点"></a>今日热点</h2><p>今日 AI 领域风云激荡：<strong>OpenAI 获特朗普政府绿灯，GPT-5.6 系列（Sol&#x2F;Terra&#x2F;Luna）正式获批公开发布</strong>；Anthropic 双线出击——Claude Cowork 扩展至移动端和网页端，同时以 20 年长约锁定肯塔基州 AI 数据中心；GitHub 上 <strong>AI 求职框架、Agent 技能库、Agent 长期记忆</strong>等项目持续引爆开发者社区。模型竞争、Agent 工具链、AI 基础设施三大主线齐头并进。</p>
+<hr>
+<h2 id="github-热门-ai-项目"><a href="#GitHub-热门-AI-项目" class="headerlink" title="GitHub 热门 AI 项目"></a>GitHub 热门 AI 项目</h2><h3 id="1-madslorentzenx2fai-job-search-5071x2f日"><a href="#1-MadsLorentzen-ai-job-search-⭐-5-071-日" class="headerlink" title="1. MadsLorentzen&#x2F;ai-job-search ⭐ +5,071&#x2F;日"></a>1. MadsLorentzen&#x2F;ai-job-search ⭐ +5,071&#x2F;日</h3><blockquote>
+<p>AI 驱动的求职应用框架，基于 Claude Code 构建</p>
+</blockquote>
+<p>这是一个令人眼前一亮的实用工具——它将 AI Agent 的能力延伸到了求职全流程。你只需 fork 项目、填写个人资料，Claude 就能自动完成：评估岗位匹配度、定制简历、撰写求职信、准备面试。本质上是一个**”AI 求职代理人”**。</p>
+<ul>
+<li><strong>语言</strong>: TypeScript</li>
+<li><strong>总 Star</strong>: 13,833</li>
+<li><strong>今日增长</strong>: 5,071（🔥 当日增长冠军）</li>
+<li><strong>核心思路</strong>: Agent-as-a-Service 模式，将繁琐的求职流程分解为可自动化的子任务</li>
+</ul>
+<p><strong>技术架构流程：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A[用户 Fork 仓库] --&gt; B[配置个人资料 Profile]</span><br><span class="line">    B --&gt; C[Claude Code 读取岗位描述]</span><br><span class="line">    C --&gt; D&#123;任务分发&#125;</span><br><span class="line">    D --&gt; E[CV 定制器]</span><br><span class="line">    D --&gt; F[求职信生成器]</span><br><span class="line">    D --&gt; G[面试准备器]</span><br><span class="line">    E --&gt; H[输出定制简历]</span><br><span class="line">    F --&gt; I[输出匹配求职信]</span><br><span class="line">    G --&gt; J[输出面试 Q&amp;A]</span><br><span class="line">    H &amp; I &amp; J --&gt; K[人工审核 + 一键投递]</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-addyosmanix2fagent-skills-1322x2f日"><a href="#2-addyosmani-agent-skills-⭐-1-322-日" class="headerlink" title="2. addyosmani&#x2F;agent-skills ⭐ +1,322&#x2F;日"></a>2. addyosmani&#x2F;agent-skills ⭐ +1,322&#x2F;日</h3><blockquote>
+<p>AI 编程智能体的生产级工程技能库</p>
+</blockquote>
+<p>由 Chrome 团队 Addy Osmani 发起，旨在为 AI 编程 Agent（如 Claude Code、Cursor）提供生产级工程技能配置。包含代码审查规范、测试策略、架构模式等，可谓<strong>AI Agent 的”职业培训手册”</strong>。</p>
+<ul>
+<li><strong>语言</strong>: JavaScript</li>
+<li><strong>总 Star</strong>: 73,062</li>
+<li><strong>今日增长</strong>: 1,322</li>
+<li><strong>亮点</strong>: 73K Star 的超级项目，社区参与度极高</li>
+</ul>
+<h3 id="3-tencentcloudx2ftencentdb-agent-memory-610x2f日"><a href="#3-TencentCloud-TencentDB-Agent-Memory-⭐-610-日" class="headerlink" title="3. TencentCloud&#x2F;TencentDB-Agent-Memory ⭐ +610&#x2F;日"></a>3. TencentCloud&#x2F;TencentDB-Agent-Memory ⭐ +610&#x2F;日</h3><blockquote>
+<p>为 AI Agent 提供完全本地化的长期记忆能力</p>
+</blockquote>
+<p>腾讯云开源的 Agent 记忆框架，采用<strong>四层渐进式流水线架构</strong>，无需依赖任何外部 API 即可实现 Agent 的长期记忆。对于构建真正 “有记忆” 的 AI 助手来说，这是关键基础设施。</p>
+<ul>
+<li><strong>语言</strong>: TypeScript</li>
+<li><strong>总 Star</strong>: 7,390</li>
+<li><strong>今日增长</strong>: 610</li>
+<li><strong>技术特色</strong>: 4-tier progressive pipeline，零外部 API 依赖</li>
+</ul>
+<p><strong>记忆流水线架构：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    subgraph Agent Memory Pipeline</span><br><span class="line">        A[短期记忆层\nShort-term] --&gt; B[工作记忆层\nWorking]</span><br><span class="line">        B --&gt; C[长期记忆层\nLong-term]</span><br><span class="line">        C --&gt; D[持久化存储层\nPersistent]</span><br><span class="line">    end</span><br><span class="line">    E[Agent 交互] --&gt; A</span><br><span class="line">    D --&gt; F[本地向量索引]</span><br><span class="line">    D --&gt; G[关系型数据库]</span><br><span class="line">    F --&gt; H[语义检索]</span><br><span class="line">    G --&gt; I[结构化查询]</span><br><span class="line">    H &amp; I --&gt; E</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-iofficeaix2fofficecli-1712x2f日"><a href="#4-iOfficeAI-OfficeCLI-⭐-1-712-日" class="headerlink" title="4. iOfficeAI&#x2F;OfficeCLI ⭐ +1,712&#x2F;日"></a>4. iOfficeAI&#x2F;OfficeCLI ⭐ +1,712&#x2F;日</h3><blockquote>
+<p>专为 AI Agent 打造的 Office 套件命令行工具</p>
+</blockquote>
+<p>OfficeCLI 是首个也是目前最好的、专为 AI Agent 设计的 Office 套件。支持读写编辑 Word、Excel、PowerPoint 文件，<strong>无需安装 Office</strong>，单二进制文件，开源免费。这是 AI 自动办公领域的基础设施级工具。</p>
+<ul>
+<li><strong>语言</strong>: C#</li>
+<li><strong>总 Star</strong>: 11,119</li>
+<li><strong>今日增长</strong>: 1,712</li>
+<li><strong>核心价值</strong>: 跨平台单文件，零安装依赖，Agent 可无缝调用</li>
+</ul>
+<h3 id="5-asgeirtjx2fsystem_prompts_leaks-1226x2f日"><a href="#5-asgeirtj-system-prompts-leaks-⭐-1-226-日" class="headerlink" title="5. asgeirtj&#x2F;system_prompts_leaks ⭐ +1,226&#x2F;日"></a>5. asgeirtj&#x2F;system_prompts_leaks ⭐ +1,226&#x2F;日</h3><blockquote>
+<p>各大 AI 公司模型的系统提示词泄露汇总</p>
+</blockquote>
+<p>这个项目提取了 Anthropic（Claude Fable 5、Opus 4.8）、OpenAI（ChatGPT 5.5 Thinking、GPT 5.5 Instant）、Google（Gemini 3.5 Flash）、xAI（Grok）等几乎所有主流模型的系统提示词，持续更新。</p>
+<ul>
+<li><strong>语言</strong>: JavaScript</li>
+<li><strong>总 Star</strong>: 53,704</li>
+<li><strong>今日增长</strong>: 1,226</li>
+<li><strong>关注价值</strong>: 了解各家公司的提示工程策略和安全设计思路</li>
+</ul>
+<h3 id="6-alibabax2fzvec-685x2f日"><a href="#6-alibaba-zvec-⭐-685-日" class="headerlink" title="6. alibaba&#x2F;zvec ⭐ +685&#x2F;日"></a>6. alibaba&#x2F;zvec ⭐ +685&#x2F;日</h3><blockquote>
+<p>轻量级、超高速的进程内向量数据库</p>
+</blockquote>
+<p>阿里巴巴开源的 zvec，主打<strong>轻量和极致性能</strong>，C++ 实现，运行时嵌入进程。在 RAG 架构普及的今天，一个足够快的嵌入式向量数据库对 Agent 应用至关重要。</p>
+<ul>
+<li><strong>语言</strong>: C++</li>
+<li><strong>总 Star</strong>: 14,242</li>
+<li><strong>今日增长</strong>: 685</li>
+</ul>
+<h3 id="7-bradautomatesx2fclaude-video-948x2f日"><a href="#7-bradautomates-claude-video-⭐-948-日" class="headerlink" title="7. bradautomates&#x2F;claude-video ⭐ +948&#x2F;日"></a>7. bradautomates&#x2F;claude-video ⭐ +948&#x2F;日</h3><blockquote>
+<p>让 Claude 能够观看和分析视频</p>
+</blockquote>
+<p>通过 <code>/watch</code> 命令下载视频、提取帧、转录音频，然后将所有数据交给 Claude 分析。本质上是个<strong>多模态 Agent 工具</strong>，扩展了 LLM 的视频理解能力。</p>
+<ul>
+<li><strong>语言</strong>: Python</li>
+<li><strong>总 Star</strong>: 5,767</li>
+<li><strong>今日增长</strong>: 948</li>
+</ul>
+<h3 id="8-tencentcloudx2fcubesandbox-555x2f日"><a href="#8-TencentCloud-CubeSandbox-⭐-555-日" class="headerlink" title="8. TencentCloud&#x2F;CubeSandbox ⭐ +555&#x2F;日"></a>8. TencentCloud&#x2F;CubeSandbox ⭐ +555&#x2F;日</h3><blockquote>
+<p>为 AI Agent 打造的即时、并发、安全的轻量沙箱</p>
+</blockquote>
+<p>腾讯云开源作品，Rust 实现，主打给 Agent 提供<strong>隔离执行环境</strong>。Agent 安全是最被低估的工程挑战之一，CubeSandbox 直接切入这个痛点。</p>
+<ul>
+<li><strong>语言</strong>: Rust</li>
+<li><strong>总 Star</strong>: 8,755</li>
+<li><strong>今日增长</strong>: 555</li>
+</ul>
+<hr>
+<h2 id="新工具x2f产品速览"><a href="#新工具-产品速览" class="headerlink" title="新工具&#x2F;产品速览"></a>新工具&#x2F;产品速览</h2><h3 id="openai-gpt-56-系列获批公开发布"><a href="#🔥-OpenAI-GPT-5-6-系列获批公开发布" class="headerlink" title="🔥 OpenAI GPT-5.6 系列获批公开发布"></a>🔥 OpenAI GPT-5.6 系列获批公开发布</h3><p>特朗普政府正式批准 OpenAI 的 <strong>GPT-5.6 模型套件</strong> 公开发布。该系列包含三个层级：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>定位</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Sol</strong></td>
+<td>旗舰模型</td>
+<td>推理密集型任务</td>
+</tr>
+<tr>
+<td><strong>Terra</strong></td>
+<td>中端模型</td>
+<td>高吞吐量工作</td>
+</tr>
+<tr>
+<td><strong>Luna</strong></td>
+<td>快速实惠</td>
+<td>日常轻量使用</td>
+</tr>
+</tbody></table>
+<p>这是继 6 月 26 日发布预览版之后的正式放行，标志着 OpenAI 在监管博弈中取得关键进展。</p>
+<h3 id="notion-推出-agents-独立应用"><a href="#📱-Notion-推出-Agents-独立应用" class="headerlink" title="📱 Notion 推出 Agents 独立应用"></a>📱 Notion 推出 Agents 独立应用</h3><p>Notion 在 iOS 平台发布了 <strong>Notion Agents</strong> 应用，与主笔记应用完全独立。核心功能是让用户与自定义 AI Agent 聊天，支持接入 ChatGPT、Gemini、Claude 等多个模型后端，还可以通过文字、照片、语音笔记与 Agent 交互。</p>
+<h3 id="zai-发布-zcode-挑战-ai-编程赛道"><a href="#🤖-Z-ai-发布-ZCode-挑战-AI-编程赛道" class="headerlink" title="🤖 Z.ai 发布 ZCode 挑战 AI 编程赛道"></a>🤖 Z.ai 发布 ZCode 挑战 AI 编程赛道</h3><p>Z.ai 推出 <strong>ZCode</strong>，目标是挑战 Cursor、Claude Code 和 GitHub Copilot。支持 macOS、Windows、Linux，提供 BYOK（自带密钥）配置，以及 1.5x 的用量配额。</p>
+<h3 id="anthropic-claude-cowork-扩展至移动端"><a href="#🏗️-Anthropic-Claude-Cowork-扩展至移动端" class="headerlink" title="🏗️ Anthropic Claude Cowork 扩展至移动端"></a>🏗️ Anthropic Claude Cowork 扩展至移动端</h3><p>Anthropic 将 <strong>Claude Cowork</strong> 从桌面端扩展至移动端和网页端，Max 订阅用户优先体验。最大亮点是<strong>任务可以在后台继续执行</strong>，即使你关闭应用——这标志着从”对话式 AI”到”自主 Agent”的体验升级。</p>
+<hr>
+<h2 id="行业动态"><a href="#行业动态" class="headerlink" title="行业动态"></a>行业动态</h2><h3 id="监管动态"><a href="#🏛️-监管动态" class="headerlink" title="🏛️ 监管动态"></a>🏛️ 监管动态</h3><ul>
+<li><strong>伊利诺伊州 AI 安全法案（SB 315）</strong> 正式签署成法，要求 AI 公司进行独立第三方审计。继加州、纽约之后，美国 AI 监管三州鼎立格局形成。</li>
+<li><strong>OpenAI 首席未来学家 Joshua Achiam</strong> 宣布离职，在 OpenAI 九年，近期刚在 Musk v. Altman 诉讼中作证。他表示”在前沿实验室之外也能推动使命”。</li>
+</ul>
+<h3 id="基础设施竞赛"><a href="#🏭-基础设施竞赛" class="headerlink" title="🏭 基础设施竞赛"></a>🏭 基础设施竞赛</h3><ul>
+<li><strong>Anthropic 签署 20 年租约</strong>，锁定肯塔基州 401MW AI 数据中心，2027 下半年投产。TeraWulf 预计从此协议获得 190 亿美元收入。这从侧面反映了前沿模型的算力消耗有多大。</li>
+<li><strong>三星内存芯片业务</strong>受益于 AI 数据中心需求，Q2 利润暴增 19 倍，员工平均奖金高达 34 万美元。</li>
+</ul>
+<h3 id="研究突破"><a href="#🔬-研究突破" class="headerlink" title="🔬 研究突破"></a>🔬 研究突破</h3><ul>
+<li><strong>Anthropic 的 “J-lens” 研究</strong> 揭示了 Claude 内部的”全局工作空间”——一个名为 J-space 的、约 16 个维度的内部活性区域，模型在这个空间中持有可报告的概念，并能进行有意识推理。这个发现与”全局工作空间理论”（Global Workspace Theory）高度吻合，为理解 LLM 的”意识”提供了可量化的窗口。</li>
+</ul>
+<h3 id="法律战场"><a href="#⚖️-法律战场" class="headerlink" title="⚖️ 法律战场"></a>⚖️ 法律战场</h3><ul>
+<li><strong>Midjourney 反击迪士尼&#x2F;环球&#x2F;华纳</strong> 诉讼，要求对方披露内部 AI 使用情况，试图建立”你们也在做同样的事”的抗辩策略。</li>
+<li><strong>Reddit 加强 AI 垃圾内容治理</strong>，AI 驱动的垃圾检测工具每日拦截 2300 万次垃圾浏览量，撤销近 200 万个非真实投票。</li>
+</ul>
+<hr>
+<h2 id="技术洞见"><a href="#技术洞见" class="headerlink" title="技术洞见"></a>技术洞见</h2><h3 id="趋势一agent-基础设施全面爆发"><a href="#趋势一：Agent-基础设施全面爆发" class="headerlink" title="趋势一：Agent 基础设施全面爆发"></a>趋势一：Agent 基础设施全面爆发</h3><p>从今天 GitHub Trending 可以清晰看到：<strong>Agent 不再是一个概念，而是催生了完整的基础设施栈</strong>。</p>
+<figure class="highlight sqf"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Agent</span> 基础设施栈全景</span><br><span class="line">┌─────────────────────────────────┐</span><br><span class="line">│  应用层                          │</span><br><span class="line">│  ai-job-search（求职<span class="built_in">Agent</span>）      │</span><br><span class="line">│  OfficeCLI（办公<span class="built_in">Agent</span>工具）      │</span><br><span class="line">│  claude-video（视觉理解<span class="built_in">Agent</span>）   │</span><br><span class="line">├─────────────────────────────────┤</span><br><span class="line">│  能力层                          │</span><br><span class="line">│  <span class="built_in">agent</span>-skills（工程技能配置）    │</span><br><span class="line">│  TencentDB-<span class="built_in">Agent</span>-Memory（记忆）  │</span><br><span class="line">├─────────────────────────────────┤</span><br><span class="line">│  执行层                          │</span><br><span class="line">│  CubeSandbox（安全沙箱）         │</span><br><span class="line">│  DesktopCommanderMCP（终端控制） │</span><br><span class="line">├─────────────────────────────────┤</span><br><span class="line">│  数据层                          │</span><br><span class="line">│  zvec（向量数据库）              │</span><br><span class="line">│  Prisma（数据ORM）               │</span><br><span class="line">└─────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<p>每一层都有开源项目在解决 Agent 化过程中的真实工程问题。这说明 Agent 正在从”Demo 阶段”进入”工程落地阶段”。</p>
+<h3 id="趋势二模型竞争进入套件化时代"><a href="#趋势二：模型竞争进入”套件化”时代" class="headerlink" title="趋势二：模型竞争进入”套件化”时代"></a>趋势二：模型竞争进入”套件化”时代</h3><p>OpenAI 的 GPT-5.6 系列（Sol&#x2F;Terra&#x2F;Luna）和 Anthropic 的 Claude 家族都采用了<strong>分层模型策略</strong>：一个旗舰模型处理复杂推理，中端模型平衡成本与质量，轻量模型覆盖高频场景。Tencent 的 Hy3 也在走类似路线——Apache 协议开源，尺寸减半却在大多数基准上超越了 GLM-5.2。</p>
+<p>这背后的商业逻辑很清晰：<strong>单一模型无法覆盖所有场景的成本结构</strong>。套件化让用户根据任务复杂度自动路由到最经济的模型，这将显著降低 AI 应用的整体运营成本。</p>
+<p><strong>模型选择决策流程：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A[用户输入] --&gt; B&#123;任务复杂度评估&#125;</span><br><span class="line">    B --&gt;|高复杂度/推理密集型| C[旗舰模型\nGPT-5.6 Sol / Claude Opus]</span><br><span class="line">    B --&gt;|中等复杂度/高吞吐| D[中端模型\nGPT-5.6 Terra / Claude Sonnet]</span><br><span class="line">    B --&gt;|简单/低延迟需求| E[轻量模型\nGPT-5.6 Luna / Claude Haiku]</span><br><span class="line">    C --&gt; F[生成结果]</span><br><span class="line">    D --&gt; F</span><br><span class="line">    E --&gt; F</span><br><span class="line">    F --&gt; G&#123;结果质量校验&#125;</span><br><span class="line">    G --&gt;|不达标| H[自动升级模型重试]</span><br><span class="line">    G --&gt;|达标| I[返回用户]</span><br><span class="line">    H --&gt; C</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>今日 AI 世界热点频出：监管加速（伊利诺伊 AI 安全法）、基础设施锁定（Anthropic 20 年数据中心租约）、开源工具链井喷（GitHub 8 个 AI 项目涌入热门）。最值得关注的信号是 <strong>Agent 生态的基础设施正在快速成熟</strong>——从记忆层到沙箱层到应用层，几乎每个关键环节都有高质量的开源解决方案。如果你想在 AI Agent 方向做些事情，现在正是入局的黄金窗口。</p>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  <a class="prev" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-09/">AI 日报 2026-07-09</a>
+  
+  
+  <a class="next" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-07-07/">AI 日报 2026-07-07</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;·&nbsp; uv:<span id="site-uv">-</span> &nbsp;pv:<span id="site-pv">-</span> &nbsp;·&nbsp; <a href="/atom.xml" title="RSS 订阅">[rss]</a> &nbsp;·&nbsp; powered by <a href="https://hexo.io" target="_blank" rel="noopener">hexo</a></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle：深色为默认，按钮在 dark/light 间切换 */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      var next = currentlyDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      window.__theme = next;
+      notifyGiscus(next);
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* Code + Mermaid — 视频播放器风格放大查看 */
+  (function() {
+    'use strict';
+    var currentViewer = null;
+
+    /* ---- 弹窗 ---- */
+    function showViewer(opts) {
+      if (currentViewer) { currentViewer.remove(); currentViewer = null; }
+      var isMermaid = !!opts.isMermaid;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'code-viewer-overlay';
+
+      var viewer = document.createElement('div');
+      viewer.className = 'code-viewer';
+
+      /* toolbar */
+      var tb = document.createElement('div');
+      tb.className = 'code-viewer-toolbar';
+      var actionsHtml = '<div class="code-viewer-actions">';
+      if (isMermaid && opts.bodyHtml) {
+        actionsHtml += '<button class="code-viewer-btn" data-dl>⬇ 下载图片</button>';
+      } else if (opts.copyText) {
+        actionsHtml += '<button class="code-viewer-btn" data-copy>📋 复制</button>';
+      }
+      actionsHtml += '<button class="code-viewer-close">✕</button></div>';
+      tb.innerHTML = '<span class="code-viewer-title">' +
+        '<span>' + (isMermaid ? '📊' : '&lt;/&gt;') + '</span> ' + opts.title + '</span>' + actionsHtml;
+      viewer.appendChild(tb);
+
+      /* body */
+      var body = document.createElement('div');
+      body.className = 'code-viewer-body' + (isMermaid ? ' mermaid-body' : '');
+      if (isMermaid) {
+        body.innerHTML = opts.bodyHtml;
+      } else {
+        body.innerHTML = '<pre><code>' + escHtml(opts.bodyHtml) + '</code></pre>';
+      }
+      viewer.appendChild(body);
+      overlay.appendChild(viewer);
+      document.body.appendChild(overlay);
+      document.body.style.overflow = 'hidden';
+      currentViewer = overlay;
+
+      /* copy logic */
+      var copyBtn = tb.querySelector('[data-copy]');
+      if (copyBtn && opts.copyText) {
+        copyBtn.addEventListener('click', function() {
+          navigator.clipboard.writeText(opts.copyText).then(function() {
+            copyBtn.textContent = '✅ 已复制';
+            copyBtn.classList.add('copied');
+            setTimeout(function() { copyBtn.textContent = '📋 复制'; copyBtn.classList.remove('copied'); }, 2000);
+          });
+        });
+      }
+
+      /* download image logic */
+      var dlBtn = tb.querySelector('[data-dl]');
+      if (dlBtn && isMermaid && opts.bodyHtml) {
+        dlBtn.addEventListener('click', function() {
+          var svgEl = body.querySelector('svg');
+          if (!svgEl) return;
+          var svgClone = svgEl.cloneNode(true);
+          svgClone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+          var serializer = new XMLSerializer();
+          var svgStr = serializer.serializeToString(svgClone);
+          var blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = (opts.title || '流程图') + '.svg';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          dlBtn.textContent = '✅ 已下载';
+          setTimeout(function() { dlBtn.textContent = '⬇ 下载图片'; }, 2000);
+        });
+      }
+
+      /* close handlers */
+      tb.querySelector('.code-viewer-close').addEventListener('click', closeViewer);
+      overlay.addEventListener('click', function(e) { if (e.target === overlay) closeViewer(); });
+      document.addEventListener('keydown', onEsc);
+    }
+
+    function closeViewer() {
+      if (!currentViewer) return;
+      currentViewer.remove(); currentViewer = null;
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onEsc);
+    }
+    function onEsc(e) { if (e.key === 'Escape') closeViewer(); }
+
+    function escHtml(s) {
+      return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    /* ---- 事件委托：点击 Mermaid 流程图任意位置放大 ---- */
+    document.addEventListener('click', function(e) {
+      var wrap = e.target.closest('.mermaid-container[data-orig]');
+      if (!wrap) return;
+      /* 排除viewer弹窗内的SVG（viewer不在容器内，双保险） */
+      if (e.target.closest('.code-viewer-overlay')) return;
+
+      var origCode = wrap.getAttribute('data-orig');
+      if (!origCode) return;
+      /* 使用 mermaid.render() 获取 SVG 字符串 */
+      if (typeof mermaid !== 'undefined' && mermaid.render) {
+        var uid = 'mermaid-viewer-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
+        mermaid.render(uid, origCode).then(function(result) {
+          showViewer({ title: '流程图', bodyHtml: result.svg, isMermaid: true });
+        }).catch(function(err) {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        });
+      } else if (typeof mermaid !== 'undefined' && mermaid.run) {
+        /* fallback to run() */
+        var tmp = document.createElement('div');
+        tmp.textContent = origCode;
+        mermaid.run({ nodes: [tmp] }).then(function() {
+          showViewer({ title: '流程图', bodyHtml: tmp.innerHTML || origCode, isMermaid: true });
+        }).catch(function() {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        });
+      } else {
+        showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+      }
+    });
+
+    /* ---- 初始化：给每个代码块加复制按钮（不加放大遮罩） ---- */
+    var preList = document.querySelectorAll('.post-content figure.highlight td.code pre, .post-content > pre');
+    preList.forEach(function(pre) {
+      if (pre.closest('.code-block-wrap')) return; /* 已包装 */
+      var wrap = document.createElement('div');
+      wrap.className = 'code-block-wrap';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      /* 复制按钮 */
+      var copyBtn = document.createElement('button');
+      copyBtn.className = 'copy-btn';
+      copyBtn.textContent = '复制';
+      copyBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var text = pre.innerText || pre.textContent || '';
+        navigator.clipboard.writeText(text).then(function() {
+          copyBtn.textContent = '已复制';
+          copyBtn.classList.add('copied');
+          setTimeout(function() { copyBtn.textContent = '复制'; copyBtn.classList.remove('copied'); }, 2000);
+        });
+      });
+      wrap.appendChild(copyBtn);
+    });
+
+    /* ---- Mermaid 容器：右上角小展开按钮 ---- */
+    function addMermaidOverlay() {
+      document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)').forEach(function(c) {
+        if (!c.querySelector('svg')) return;
+        c.classList.add('has-overlay');
+        var btn = document.createElement('button');
+        btn.className = 'mermaid-expand-btn';
+        btn.title = '点击放大查看';
+        btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="currentColor"/></svg>';
+        c.appendChild(btn);
+      });
+    }
+    var mo = setInterval(function() {
+      addMermaidOverlay();
+      var left = document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)');
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext:not([data-mermaid-rendered])');
+      if (!left.length && !figs.length) clearInterval(mo);
+    }, 300);
+    /* 最多跑 8 秒后自动停止 */
+    setTimeout(function() { if (mo) clearInterval(mo); }, 8000);
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var MERMAID_FONT = '"JetBrains Mono","SF Mono",Menlo,Consolas,"Sarasa Mono SC","Noto Sans Mono CJK SC",monospace';
+
+    /* 与博客主题配色统一的 Mermaid 配置（深色/浅色两套） */
+    function getMermaidConfig(isDark) {
+      var palette = isDark ? {
+        nodeBg: '#182233',
+        nodeBorder: '#3a5a7a',
+        nodeText: '#c7d3e2',
+        line: '#4d7a9a',
+        clusterBg: 'rgba(19,26,37,0.55)',
+        clusterBorder: '#2a3a4f',
+        labelBg: '#131a25',
+        noteBg: '#1a2436',
+        hoverGlow: 'rgba(0,255,156,0.35)',
+        hoverStroke: '#00ff9c'
+      } : {
+        nodeBg: '#ffffff',
+        nodeBorder: '#b8b29c',
+        nodeText: '#33383f',
+        line: '#8a8571',
+        clusterBg: 'rgba(236,234,223,0.6)',
+        clusterBorder: '#c4bfa8',
+        labelBg: '#faf8f1',
+        noteBg: '#f5f3e8',
+        hoverGlow: 'rgba(10,125,74,0.22)',
+        hoverStroke: '#0a7d4a'
+      };
+
+      var themeCSS = [
+        '.flowchart .node rect, .flowchart .node circle, .flowchart .node ellipse, .flowchart .node polygon { stroke-width: 1.4px; }',
+        '.flowchart .node rect { rx: 6px; ry: 6px; }',
+        '.edgePaths path, .flowchart .edgePath path { stroke-width: 1.6px; }',
+        '.edgeLabel { background-color: ' + palette.labelBg + '; border-radius: 4px; padding: 2px 6px; }',
+        '.edgeLabel rect { fill: ' + palette.labelBg + ' !important; rx: 4px; ry: 4px; }',
+        '.edgeLabel p { background-color: ' + palette.labelBg + ' !important; }',
+        '.cluster rect { rx: 8px; ry: 8px; stroke-dasharray: 5 4; }',
+        '.flowchart .node { transition: filter .18s; }',
+        '.flowchart .node:hover rect, .flowchart .node:hover circle, .flowchart .node:hover ellipse, .flowchart .node:hover polygon { stroke: ' + palette.hoverStroke + '; filter: drop-shadow(0 0 6px ' + palette.hoverGlow + '); }'
+      ].join('\n');
+
+      return {
+        startOnLoad: false,
+        theme: 'base',
+        securityLevel: 'loose',
+        fontFamily: MERMAID_FONT,
+        themeVariables: {
+          fontFamily: MERMAID_FONT,
+          fontSize: '14px',
+          primaryColor: palette.nodeBg,
+          primaryTextColor: palette.nodeText,
+          primaryBorderColor: palette.nodeBorder,
+          lineColor: palette.line,
+          textColor: palette.nodeText,
+          mainBkg: palette.nodeBg,
+          nodeBorder: palette.nodeBorder,
+          secondaryColor: isDark ? '#131a25' : '#eceadf',
+          tertiaryColor: isDark ? '#0d1219' : '#f2f0e8',
+          clusterBkg: palette.clusterBg,
+          clusterBorder: palette.clusterBorder,
+          edgeLabelBackground: palette.labelBg,
+          noteBkgColor: palette.noteBg,
+          noteTextColor: palette.nodeText,
+          noteBorderColor: palette.nodeBorder,
+          actorBorder: palette.nodeBorder,
+          actorBkg: palette.nodeBg,
+          actorTextColor: palette.nodeText,
+          signalColor: palette.nodeText,
+          signalTextColor: palette.nodeText,
+          labelTextColor: palette.nodeText
+        },
+        themeCSS: themeCSS,
+        flowchart: {
+          curve: 'basis',
+          htmlLabels: true,
+          padding: 10,
+          nodeSpacing: 45,
+          rankSpacing: 55,
+          useMaxWidth: true
+        }
+      };
+    }
+
+    var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    mermaid.initialize(getMermaidConfig(isDark));
+
+    /* 匹配 mermaid 图表的关键词（首行判断） */
+    var MERMAID_RE = /^(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram|gantt|pie|erDiagram|journey|gitgraph|mindmap|timeline|zenuml|sankey|xychart|block|packet)/i;
+
+    /**
+     * Hexo 默认高亮插件将 markdown 代码块渲染为：
+     *   <figure class="highlight plaintext">
+     *     <table><tr><td class="code"><pre><span class="line">...</span>...</pre></td></tr></table>
+     * 因此无法通过 code.language-mermaid 选择器定位。
+     * 改为：匹配所有 figure.highlight.plaintext，提取其文本内容并检查首行是否为 mermaid 关键字。
+     */
+    function findMermaidBlocks() {
+      var blocks = [];
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext');
+      for (var i = 0; i < figs.length; i++) {
+        var fig = figs[i];
+        if (fig.dataset.mermaidRendered) continue;
+
+        var lines = fig.querySelectorAll('.line');
+        if (!lines.length) continue;
+
+        var code = '';
+        for (var j = 0; j < lines.length; j++) {
+          code += lines[j].textContent + '\n';
+        }
+        code = code.trim();
+
+        /* 只处理首行为 mermaid 关键词的块 */
+        var firstLine = code.split('\n')[0].trim();
+        if (!MERMAID_RE.test(firstLine)) continue;
+
+        blocks.push({ fig: fig, code: code });
+      }
+      return blocks;
+    }
+
+    async function renderMermaid() {
+      var blocks = findMermaidBlocks();
+      for (var i = 0; i < blocks.length; i++) {
+        var fig = blocks[i].fig;
+        var origCode = blocks[i].code;
+        fig.dataset.mermaidRendered = '1';
+
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        fig.parentNode.replaceChild(container, fig);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+          mermaid.initialize(getMermaidConfig(isDark));
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <script>
+  /* Matrix 字符雨背景：全屏 canvas 垫底，跟随主题色，空闲/隐藏时暂停 */
+  (function() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var cv = document.createElement('canvas');
+    cv.id = 'matrix-bg';
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;';
+    cv.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var fontSize = 16, cols, drops;
+    var CHARS = '0123456789abcdef{}[]()<>/\\$#*+=;:constfnlet=>';
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(innerWidth / fontSize);
+      drops = [];
+      for (var i = 0; i < cols; i++) drops[i] = Math.random() * -60;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function themeColors() {
+      var s = getComputedStyle(document.documentElement);
+      var green = s.getPropertyValue('--green').trim() || '#00ff9c';
+      var bg = s.getPropertyValue('--bg').trim() || '#0a0e14';
+      return { green: green, bg: bg };
+    }
+    var colors = themeColors();
+    /* 主题切换时更新颜色 */
+    var toggle = document.getElementById('dark-toggle');
+    if (toggle) toggle.addEventListener('click', function() {
+      setTimeout(function() { colors = themeColors(); }, 50);
+    });
+
+    function hexToRgb(hex) {
+      var m = hex.replace('#', '');
+      if (m.length === 3) m = m[0]+m[0]+m[1]+m[1]+m[2]+m[2];
+      var n = parseInt(m, 16);
+      return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+    }
+
+    var running = true, last = 0;
+    function tick(ts) {
+      if (!running) return;
+      /* 限流 ~20fps，字符雨不需要高帧率 */
+      if (ts - last < 50) { requestAnimationFrame(tick); return; }
+      last = ts;
+
+      var rgb = hexToRgb(colors.bg);
+      ctx.fillStyle = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.09)';
+      ctx.fillRect(0, 0, innerWidth, innerHeight);
+      ctx.font = fontSize + 'px ' + fontFamily;
+
+      var g = hexToRgb(colors.green);
+      for (var i = 0; i < cols; i++) {
+        var ch = CHARS[Math.floor(Math.random() * CHARS.length)];
+        /* 头部亮、尾部暗：每列首字符高亮 */
+        var head = Math.random() > 0.96;
+        ctx.fillStyle = 'rgba(' + g[0] + ',' + g[1] + ',' + g[2] + ',' + (head ? 0.9 : 0.45) + ')';
+        ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+        drops[i]++;
+        if (drops[i] * fontSize > innerHeight && Math.random() > 0.975) drops[i] = 0;
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        running = false;
+      } else if (!running) {
+        running = true;
+        last = 0;
+        requestAnimationFrame(tick);
+      }
+    });
+  })();
+  </script>
+
+  <script>
+  /* 点击字符爆裂动效：终端字形 + 重力 + 淡出，颜色跟随主题主色 */
+  (function() {
+    var cv = document.createElement('canvas');
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:9999;';
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var GLYPHS = '01<>/#$*{}[];=+';
+    var parts = [];
+    var raf = null;
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function burst(x, y) {
+      var color = getComputedStyle(document.documentElement)
+        .getPropertyValue('--green').trim() || '#00ff9c';
+      for (var i = 0; i < 16; i++) {
+        var a = Math.random() * Math.PI * 2;
+        var sp = 2 + Math.random() * 5;
+        parts.push({
+          x: x, y: y,
+          vx: Math.cos(a) * sp,
+          vy: Math.sin(a) * sp - 2.5,
+          ch: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
+          life: 1,
+          size: 11 + Math.random() * 7,
+          color: color
+        });
+      }
+      if (!raf) raf = requestAnimationFrame(tick);
+    }
+
+    function tick() {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      for (var i = parts.length - 1; i >= 0; i--) {
+        var p = parts[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.22;           /* 重力 */
+        p.vx *= 0.985;
+        p.life -= 0.018;
+        if (p.life <= 0) { parts.splice(i, 1); continue; }
+        ctx.globalAlpha = Math.max(p.life, 0);
+        ctx.fillStyle = p.color;
+        ctx.font = p.size + 'px ' + fontFamily;
+        ctx.fillText(p.ch, p.x, p.y);
+      }
+      ctx.globalAlpha = 1;
+      raf = parts.length ? requestAnimationFrame(tick) : (ctx.clearRect(0, 0, innerWidth, innerHeight), null);
+    }
+
+    document.addEventListener('pointerdown', function(e) {
+      burst(e.clientX, e.clientY);
+    }, { passive: true });
+  })();
+  </script>
+
+  <!-- 访问量统计（counter-api · Vercel KV） -->
+  <script>
+  (function() {
+    /* TODO(一次性): 部署 counter-api 到 Vercel 后，把下面的地址改成实际域名 */
+    var COUNTER_API = 'https://blog-counter-api.vercel.app/api/counter';
+    if (!COUNTER_API) return;
+
+    /* 访客 ID：localStorage 持久化，用于 UV 去重 */
+    var vid = localStorage.getItem('visitor-id');
+    if (!vid) {
+      vid = 'v-' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      localStorage.setItem('visitor-id', vid);
+    }
+
+    fetch(COUNTER_API, { headers: { 'x-visitor-id': vid } })
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        if (d && d.uv != null) document.getElementById('site-uv').textContent = d.uv;
+        if (d && d.pv != null) document.getElementById('site-pv').textContent = d.pv;
+      })
+      .catch(function() { /* 统计不可用时静默，保持 '-' */ });
+  })();
+  </script>
+
+  <script>
+  /* 按 / 聚焦搜索框，Esc 取消焦点（终端式快捷键） */
+  (function() {
+    document.addEventListener('keydown', function(e) {
+      var typing = /^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName);
+      if (e.key === '/' && !typing) {
+        e.preventDefault();
+        document.getElementById('search-input').focus();
+      } else if (e.key === 'Escape' && typing) {
+        document.activeElement.blur();
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "沉鱼的博客 • All posts by \"springboot\" tag",
+    "description": "编程笔记 & 资料分享",
+    "home_page_url": "https://scottalive.github.io",
+    "items": [
+        {
+            "id": "https://scottalive.github.io/computer-science/java/interview/SpringBoot%E9%9D%A2%E8%AF%95%E9%A2%98/",
+            "url": "https://scottalive.github.io/computer-science/java/interview/SpringBoot%E9%9D%A2%E8%AF%95%E9%A2%98/",
+            "title": "SpringBoot面试题",
+            "date_published": "2023-10-23T00:36:23.000Z",
+            "content_html": "<h2 id=\"SpringBoot面试题\"><a href=\"#SpringBoot面试题\" class=\"headerlink\" title=\"SpringBoot面试题\"></a>SpringBoot面试题</h2><h3 id=\"1-SpringBoot的特性\"><a href=\"#1-SpringBoot的特性\" class=\"headerlink\" title=\"1.SpringBoot的特性\"></a>1.SpringBoot的特性</h3><ol>\n<li>Spring的独立应用；</li>\n<li>SpringBoot内置Tomcat、Jetty容器，不需要构建war文件；</li>\n<li>SpringBoot提供了各种starter即场景启动器，简化了构建配置；</li>\n<li>当条件满足的时候自动地装配Spring或第三方类库；</li>\n<li>提供运维特性，如指标信息、健康检查以及外部化配置；</li>\n<li>绝无代码生成，并且不需要XML配置；</li>\n</ol>\n<h3 id=\"2-SpringBoot的原理\"><a href=\"#2-SpringBoot的原理\" class=\"headerlink\" title=\"2.SpringBoot的原理\"></a>2.SpringBoot的原理</h3><p>​\tSpring Boot 是一个用于简化 Spring 应用开发的框架，它基于 Spring 框架，提供了一种快速、方便的方式来创建基于生产级别的、可独立运行的 Spring 应用。以下是 Spring Boot 的一些核心原理：</p>\n<ol>\n<li><strong>自动配置（Auto-Configuration）</strong>：Spring Boot 使用自动配置来简化应用的配置过程。它会根据类路径下的依赖自动配置应用的行为，减少了开发者的配置工作。</li>\n<li><strong>起步依赖（Starter Dependencies）</strong>：Spring Boot 提供了一系列预先配置好的依赖项，称为“起步依赖”。开发者可以通过引入特定的起步依赖，快速地添加对数据库、消息队列、安全性等功能的支持，而不需要手动配置。</li>\n<li><strong>嵌入式容器（Embedded Containers）</strong>：Spring Boot 包含了嵌入式的 Servlet 容器（如Tomcat、Jetty等），应用可以直接打包为一个可执行的 JAR 文件，不需要外部容器的支持。</li>\n<li><strong>Actuator</strong>：Spring Boot Actuator 提供了对应用内部运行状况的监控和管理功能。通过暴露 RESTful 接口，开发者可以方便地查看应用的健康状况、性能指标等信息。</li>\n<li><strong>外部化配置（Externalized Configuration）</strong>：Spring Boot 支持使用属性文件、YAML 文件、环境变量等多种方式来配置应用，这样可以使得应用的配置更加灵活。</li>\n<li><strong>Spring Boot CLI</strong>：Spring Boot 提供了一个命令行工具（CLI），可以用 Groovy 语言编写简单的 Spring Boot 应用，进一步简化了开发流程。</li>\n<li><strong>简化的 Maven 和 Gradle 插件</strong>：Spring Boot 提供了专门的 Maven 和 Gradle 插件，可以方便地构建和运行 Spring Boot 应用。</li>\n</ol>\n<p>总的来说，Spring Boot 的核心原理在于提供了一套约定大于配置的开发模式，通过默认的配置和约定，开发者可以更专注于业务逻辑的开发，而不需要过多地关心底层框架的配置和集成。</p>\n<h3 id=\"3-SpringBoot的一些注解\"><a href=\"#3-SpringBoot的一些注解\" class=\"headerlink\" title=\"3.SpringBoot的一些注解\"></a>3.SpringBoot的一些注解</h3><p>​\t</p>\n<h3 id=\"4-SpringBoot的场景启动器是什么？\"><a href=\"#4-SpringBoot的场景启动器是什么？\" class=\"headerlink\" title=\"4.SpringBoot的场景启动器是什么？\"></a>4.SpringBoot的场景启动器是什么？</h3>",
+            "tags": [
+                "Java开发面试题",
+                "SpringBoot"
+            ]
+        }
+    ]
+}
