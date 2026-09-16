@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230a0e14'/%3E%3Ctext x='18' y='68' font-size='52' fill='%2300ff9c' font-family='monospace'%3E%26gt;_%3C/text%3E%3C/svg%3E">
-  <title>AI 行业热点 | 沉鱼的博客</title>
+  <title>AI 热点综述 - 2026-09-16 | 沉鱼的博客</title>
   
-  <meta name="description" content="编程笔记 &amp; 资料分享">
+  <meta name="description" content="AI 行业热点综述 — 2026-09-16">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="沉鱼的博客">
-  <meta property="og:title" content="AI 行业热点 | 沉鱼的博客">
-  <meta property="og:description" content="编程笔记 &amp; 资料分享">
-  <meta property="og:url" content="https://scottalive.github.io/ai-hotspots/index.html">
+  <meta property="og:title" content="AI 热点综述 - 2026-09-16 | 沉鱼的博客">
+  <meta property="og:description" content="AI 行业热点综述 — 2026-09-16">
+  <meta property="og:url" content="https://scottalive.github.io/ai-hotspots/AI-Hotspots-2026-09-16.html">
   <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="AI 行业热点 | 沉鱼的博客">
-  <meta name="twitter:description" content="编程笔记 &amp; 资料分享">
+  <meta name="twitter:title" content="AI 热点综述 - 2026-09-16 | 沉鱼的博客">
+  <meta name="twitter:description" content="AI 行业热点综述 — 2026-09-16">
   <meta name="twitter:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
   <link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="/atom.xml">
   <link rel="stylesheet" href="/css/style.css?v=202607190200">
@@ -54,121 +54,68 @@
 
   <main class="site-main">
     <div class="container">
-      <!-- AI 行业热点 - 列表页 -->
-
-
-<section class="page-hero">
-  <div class="term">
-    <div class="term-bar">
-      <span class="term-dots"></span>
-      <span class="term-title">~/blog/ai-hotspots — zsh</span>
+      <!-- AI 行业热点 - 文章详情页 -->
+<article class="post-full">
+  <header class="post-header">
+    <div class="post-path">
+      <a href="/">~</a>/<a href="/ai-hotspots">ai-hotspots</a>/<span class="pd">2026-09-16.md</span>
     </div>
-    <div class="term-body">
-      <div class="tl"><span class="ps">~ $</span> ./watch-builders --feed x,podcasts,blogs</div>
-      <div class="page-hero-desc">
-        追踪 AI 领域顶尖建造者的最新动态。内容源自
-        <a href="https://github.com/zarazhangrui/follow-builders" target="_blank" rel="noopener">Follow Builders</a>，每日更新。
-      </div>
-      <div class="page-hero-stats"><span><strong>113</strong> reports</span> · <span>每日更新</span></div>
+    <h1 class="post-title">AI 热点综述 - 2026-09-16</h1>
+    <div class="post-meta">
+      <span>2026-09-16 22:00</span>
+      <span class="bkt cyan">AI热点</span>
     </div>
+  </header>
+
+  <div class="post-content">
+    <h1 id="AI-热点综述-·-2026-09-16"><a href="#AI-热点综述-·-2026-09-16" class="headerlink" title="AI 热点综述 · 2026-09-16"></a>AI 热点综述 · 2026-09-16</h1><p>今天时间线上是两件事同时发生：一边是 <strong>OpenAI 的发布前夜</strong>——Sam Altman 一句只有船的表情包拿到 12219 赞；另一边是<strong>一次迟到的技术修正</strong>——Thariq 公开说”MCP 比 CLI 更适合大多数集成”，2429 赞。夹在中间的是 Dan Shipper 的一周实测：一个不吐字、只吐概率的模型，快 25 倍、便宜 600 倍。</p>
+<h2 id="一mcp-反超-cli一次迟到的修正"><a href="#一、MCP-反超-CLI：一次迟到的修正" class="headerlink" title="一、MCP 反超 CLI：一次迟到的修正"></a>一、MCP 反超 CLI：一次迟到的修正</h2><p>Thariq 今天的原帖是当日最值得存档的技术观点（<strong>2429 赞、109 转发</strong>）：</p>
+<blockquote>
+<p>“我没料到会是这样，但我认为对大多数集成来说，MCP 比 CLI 更好。模型在工具调用上已经强了很多，我们可以 defer tools，而且 MCP 现在是无状态的。如果你需要组合&#x2F;过滤数据，给你的 MCP 工具加上 <code>query</code> 这类参数。”</p>
+</blockquote>
+<p>这条之所以重要，是因为它是对过去一年”CLI 优先”共识的一次公开反转。MCP 早期的三个包袱——<strong>工具膨胀挤占上下文、SSE 有状态连接、模型不太会调</strong>——恰好是过去半年被逐个拆掉的东西：tool deferral 解决了上下文，无状态化解决了部署，模型能力解决了调用。</p>
+<p>但更值得记的是他的<strong>落点不是协议之争，而是接口设计</strong>：”需要组合&#x2F;过滤数据，就加 query 参数。”翻译一下：MCP 与 CLI 的胜负不在协议本身，而在你有没有把工具设计成模型能高效使用的东西。这也和昨天 Rauch 的”verifiers + skills 才是新框架”是同一家族的判断——<strong>约束和接口的质量，比能力的绝对值更重要。</strong></p>
+<h2 id="二claude-进-salesforce分发发生在别人的产品里"><a href="#二、Claude-进-Salesforce：分发发生在别人的产品里" class="headerlink" title="二、Claude 进 Salesforce：分发发生在别人的产品里"></a>二、Claude 进 Salesforce：分发发生在别人的产品里</h2><p>Anthropic 官号宣布 <strong>Salesforce in Claude 进入 beta</strong>，带 <strong>37 个预置销售技能</strong>：约电话、审单子、做 pipeline 仪表盘、发预测，全程不离开对话（<strong>8891 赞、634 转发</strong>）。同日博客还有一条：<strong>Claude for Small Business</strong> 上线新的工作流、集成与培训项目。</p>
+<p>对照 Josh Woodward 的 Gemini 侧动作：<strong>Gemini Notebook 面向学生开放</strong>——用约 100 种语言和你的课堂材料做实时口语问答，录讲座和笔记时音频自动存进指定 notebook；140+ 国家的学生还能白嫖 Google AI Plan（329 赞）。</p>
+<p>两家在做同一件事：<strong>把模型塞进用户已经在用的工作流，而不是让用户来模型里工作。</strong> 区别只在切入口——Google 从校园和个人场景切，Anthropic 从销售和企业流程切。对做产品的人来说，这个方向已经没有争议了，有争议的只剩”你打算寄生在谁的界面里”。</p>
+<h2 id="三模型可以不说话只输出概率"><a href="#三、模型可以不说话，只输出概率" class="headerlink" title="三、模型可以不说话，只输出概率"></a>三、模型可以不说话，只输出概率</h2><p>Dan Shipper 的实测（<strong>1491 赞、74 转发</strong>）信息密度很高：</p>
+<blockquote>
+<p>“我们几乎从不测试新的基础模型，但这个我们测了大约一周，很狂野。它不产出文字，产出概率。所以它可以在需要 Fable 级模型的场景里高效当 judge——但在我们的测试里<strong>快 25 倍、便宜 600 倍</strong>。”</p>
+</blockquote>
+<p>把 Amjad Masad 的提问放在一起读，方向就更清楚了（326 赞）：<strong>“如果你的输出域事先已知，为什么不干脆训一个模型输出 enum 上的 logprobs？”</strong></p>
+<p>两条合起来指向同一个判断：<strong>一大类被当成”LLM 应用”在做的东西，其实不需要生成文本，只需要在已知候选集上打分。</strong> 而一旦问题被这样重新表述，性价比的优势是数量级的——不是优化 20%，是便宜 600 倍。</p>
+<h2 id="四levie企业扩散的那道鸿沟"><a href="#四、Levie：企业扩散的那道鸿沟" class="headerlink" title="四、Levie：企业扩散的那道鸿沟"></a>四、Levie：企业扩散的那道鸿沟</h2><p>Box 的 Aaron Levie 上了 Training Data，标题很有意思：<strong>《On Reinventing Yourself in the AI Age and Enterprise Diffusion》</strong>。播客开场是一段给大学生的建议——跟着 20 个账号、加入 Twitter，”<strong>你比同龄人领先一年还是落后一年，几乎就取决于你的 feed</strong>“。</p>
+<p>他同日 X 长帖（203 赞、27 转发）则是延续昨天的判断：</p>
+<blockquote>
+<p>“模型能力与企业想自动化的最终工作流之间存在一道巨大的鸿沟。这道鸿沟就是应用 AI 层的机会。你需要把智能连接到工作流上——往往要重新设计流程、聚合正确的上下文和数据、留出合适的人在环体验、做变更管理、做领域专属的 eval、管理数据和流程的安全与治理，还有很多。”</p>
+</blockquote>
+<p>他的结论很反直觉但很扎实：<strong>即使模型以惊人的速度变强，这一层仍然必须存在，甚至可能变得更重要</strong>——因为能力越强，能被啃下的任务越复杂，不做这层的代价就越大。</p>
+<p>和昨天他的”Agent 用量将是人类的 100 倍、我们只走了 1%”接起来看，Levie 连续两天讲的是同一件事：<strong>能力不是瓶颈，交付才是。</strong></p>
+<h2 id="五其余观察"><a href="#五、其余观察" class="headerlink" title="五、其余观察"></a>五、其余观察</h2><ul>
+<li><strong>OpenAI 的”发布前夜”气氛</strong>：Sam Altman 只有一句 <strong>“big 🚢 this week and then for devday 🚢🚢🚢🚢🚢🚢”</strong>（<strong>12219 赞、545 转发</strong>，当日互动最高）。同日 Thibault Sottiaux 的”2026 是效率之年，周二是随机 swag 掉在你门把手上的一天”（4885 赞）。一个预告，一个自嘲，密度感很强。</li>
+<li><strong>Vercel Labs 正式亮相</strong>：Guillermo Rauch 介绍这个”公开研究 + 实验”部门，并说了一句很 Vercel 的话——“<strong>247 million downloads in</strong>，我们也想公开说说我们在支持什么、在研究什么、哪些实验没成”（1080 赞）。另一条判断值得抄：<strong>“未来是多模型的。试图把选择藏起来会同时困惑和伤害客户”</strong>（380 赞）。技术向还有一条：Safari 27 支持 JSPI，libfx 用浏览器内置的 fetch 栈做 API 调用，”随着更多代码走向 native，WebAssembly 会在 web 的未来里扮演巨大角色”（284 赞）。</li>
+<li><strong>Muse 的两面</strong>：Garry Tan 直给一句 <strong>“I think Muse is going to win tbh”</strong>（1543 赞）；Peter Yang 则报告他让 Muse 去跟 Xfinity 谈有线电视账单，”<strong>很遗憾，失败了</strong>“（36 赞）。热度与现实的落差，一条对一条。</li>
+<li><strong>编排带来的增益开始可量化</strong>：Garry Tan 用 @capydotai 配 GStack&#x2F;GBrain 处理存量 issue&#x2F;PR，”用同样的前沿模型，<strong>本来要一天，实际不到一半时间</strong>“（247 赞）。</li>
+<li><strong>Profound 的 D 轮</strong>：Aditya Agarwal 复盘——<strong>1.8 亿美元 D 轮、18 亿估值、Fortune 100 里三分之一在用</strong>。”我们不是找到了这家公司，我们是看着它成形。”（97&#x2F;80 赞）</li>
+<li><strong>Nikunj Kothari 给创始人的冷水</strong>：<strong>“资本是加速的武器。用得好你无人能敌；但如果你如此依赖它，一次下行就可能带来不那么美好的结果。”</strong> 他的建议是：先想清楚那条”不需要外部资本也能活下去”的默认路径（68 赞）。</li>
+<li><strong>人事与命名</strong>：Peter Steinberger 欢迎 Graham 加入（241 赞）。Amjad Masad 那条关于命名诅咒的总结值得一乐：”<strong>‘AI 安全’公司让 AI 不安全；’有效利他主义者’既无效又在纵容犯罪；’Irregular’ 一如既往地无能。</strong>“（659 赞）</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ol>
+<li><strong>协议之争降温，接口设计升温。</strong> MCP vs CLI 的答案不取决于信仰，而取决于模型工具调用能力 + 你有没有给工具设计好参数。约束的质量正在变成产品力本身。</li>
+<li><strong>分发发生在别人的产品里。</strong> Salesforce、学生 notebook、门把手上的 swag——三家最大的玩家都在同一周做同一件事：把自己塞进既有工作流。</li>
+<li><strong>输出不一定是文字。</strong> “概率即输出”把一大类任务从生成问题变成了打分问题，代价直接下降两个数量级。</li>
+<li><strong>能力不是瓶颈，交付才是。</strong> Levie 连续两天的长帖都在说这一件事，而应用 AI 层的位置，恰恰因为模型变强而更牢固。</li>
+</ol>
+<p>一句话概括：<strong>今天没人在争论模型谁更强，大家在争论的是——怎么把它塞进别人已经在用的东西里，以及怎么用十分之一的成本把它做对。</strong></p>
+<hr>
+<p><em>数据来源：<a target="_blank" rel="noopener" href="https://github.com/zarazhangrui/follow-builders">Follow Builders</a> · 2026-09-16</em></p>
+
   </div>
-</section>
+</article>
 
-
-<div class="post-list">
-  
-  <a class="pl-item" href="/ai-hotspots/AI-Hotspots-2026-09-16.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 热点综述 - 2026-09-16</span>
-      <span class="pl-date">2026-09-16</span>
-    </div>
-    <p class="pl-excerpt">AI 行业热点综述 — 2026-09-16</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/hotspots-2026-09-16.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 行业热点 - 2026-09-16</span>
-      <span class="pl-date">2026-09-16</span>
-    </div>
-    <p class="pl-excerpt">AI 建造者最新动态 — 2026-09-16</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/AI-Hotspots-2026-09-15.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 热点综述 - 2026-09-15</span>
-      <span class="pl-date">2026-09-15</span>
-    </div>
-    <p class="pl-excerpt">AI 行业热点综述 — 2026-09-15</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/hotspots-2026-09-15.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 行业热点 - 2026-09-15</span>
-      <span class="pl-date">2026-09-15</span>
-    </div>
-    <p class="pl-excerpt">AI 建造者最新动态 — 2026-09-15</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/AI-Hotspots-2026-09-14.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 热点综述 - 2026-09-14</span>
-      <span class="pl-date">2026-09-14</span>
-    </div>
-    <p class="pl-excerpt">AI 行业热点综述 — 2026-09-14</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/hotspots-2026-09-14.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 行业热点 - 2026-09-14</span>
-      <span class="pl-date">2026-09-14</span>
-    </div>
-    <p class="pl-excerpt">AI 建造者最新动态 — 2026-09-14</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/AI-Hotspots-2026-09-12.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 热点综述 - 2026-09-12</span>
-      <span class="pl-date">2026-09-12</span>
-    </div>
-    <p class="pl-excerpt">AI 行业热点综述 — 2026-09-12</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/hotspots-2026-09-12.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 行业热点 - 2026-09-12</span>
-      <span class="pl-date">2026-09-12</span>
-    </div>
-    <p class="pl-excerpt">AI 建造者最新动态 — 2026-09-12</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/AI-Hotspots-2026-09-11.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 热点综述 - 2026-09-11</span>
-      <span class="pl-date">2026-09-11</span>
-    </div>
-    <p class="pl-excerpt">AI 行业热点综述 — 2026-09-11</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/hotspots-2026-09-11.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 行业热点 - 2026-09-11</span>
-      <span class="pl-date">2026-09-11</span>
-    </div>
-    <p class="pl-excerpt">AI 建造者最新动态 — 2026-09-11</p>
-  </a>
-  
-</div>
-
-
-
-<nav class="pagination">
-  
-  <span class="page-number">[1/12]</span>
-  
-  <a class="next" href="/ai-hotspots/page/2/">下一页</a>
-  
+<nav class="post-nav">
+  <a class="prev" href="/ai-hotspots">返回 AI 行业热点</a>
 </nav>
-
 
     </div>
   </main>
