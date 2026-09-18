@@ -5,8 +5,8 @@
         <link>https://scottalive.github.io</link>
         <description>编程笔记 &amp; 资料分享</description>
         <language>zh-CN</language>
-        <pubDate>Thu, 17 Sep 2026 22:00:00 +0800</pubDate>
-        <lastBuildDate>Thu, 17 Sep 2026 22:00:00 +0800</lastBuildDate>
+        <pubDate>Fri, 18 Sep 2026 22:00:00 +0800</pubDate>
+        <lastBuildDate>Fri, 18 Sep 2026 22:00:00 +0800</lastBuildDate>
         <category>AI日报</category>
         <category>AI</category>
         <category>GitHub热门</category>
@@ -16,6 +16,20 @@
         <category>个人详情</category>
         <category>个人分享</category>
         <category>坏习惯</category>
+        <category>Kubernetes</category>
+        <category>k8s</category>
+        <category>容器编排</category>
+        <category>DevOps</category>
+        <category>运维</category>
+        <category>kubeconfig</category>
+        <category>kubectl</category>
+        <category>Context</category>
+        <category>Helm</category>
+        <category>学习计划</category>
+        <category>OpenSRE</category>
+        <category>Grafana</category>
+        <category>SRE</category>
+        <category>可观测性</category>
         <category>GPT-5.5</category>
         <category>OpenAI</category>
         <category>Codex</category>
@@ -28,17 +42,17 @@
         <category>MCP</category>
         <category>自动化</category>
         <category>编程笔记</category>
-        <category>编程助手</category>
+        <category>Hermes</category>
+        <category>v0.17</category>
         <category>DeepSeek</category>
         <category>Harness</category>
         <category>插件</category>
         <category>安装教程</category>
-        <category>Hermes</category>
-        <category>v0.17</category>
         <category>v0.20</category>
         <category>语音交互</category>
         <category>A2A</category>
         <category>Webhook</category>
+        <category>编程助手</category>
         <category>NousResearch</category>
         <category>进阶</category>
         <category>配置</category>
@@ -46,19 +60,17 @@
         <category>LLM</category>
         <category>RAG</category>
         <category>知识库</category>
-        <category>LangGraph</category>
         <category>LangChain</category>
+        <category>LangGraph</category>
         <category>Python</category>
-        <category>工作流</category>
+        <category>故障排查</category>
         <category>OpenClaw</category>
         <category>网关</category>
-        <category>OpenSRE</category>
-        <category>SRE</category>
-        <category>运维</category>
-        <category>故障排查</category>
+        <category>工作流</category>
         <category>AI运维</category>
         <category>根因分析</category>
-        <category>DevOps</category>
+        <category>SSE</category>
+        <category>HTTP</category>
         <category>WorkBuddy</category>
         <category>腾讯</category>
         <category>办公自动化</category>
@@ -69,25 +81,13 @@
         <category>CSRF</category>
         <category>DDoS</category>
         <category>渗透测试</category>
-        <category>Kubernetes</category>
-        <category>k8s</category>
-        <category>容器编排</category>
-        <category>SSE</category>
-        <category>HTTP</category>
-        <category>Grafana</category>
-        <category>可观测性</category>
-        <category>Helm</category>
-        <category>学习计划</category>
         <category>心理学知识</category>
-        <category>kubeconfig</category>
-        <category>kubectl</category>
-        <category>Context</category>
-        <category>JavaSE</category>
         <category>阿德勒心理学</category>
         <category>自卑与超越</category>
         <category>力扣算法题</category>
         <category>算法</category>
         <category>动态规划</category>
+        <category>JavaSE</category>
         <category>Java开发面试题</category>
         <category>SpringBoot</category>
         <category>Spring</category>
@@ -95,6 +95,166 @@
         <category>开发注意事项</category>
         <category>微服务</category>
         <category>python</category>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-09-18/</guid>
+            <title>AI 日报 2026-09-18</title>
+            <link>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-09-18/</link>
+            <category>AI日报</category>
+            <category>AI</category>
+            <category>GitHub热门</category>
+            <category>人工智能</category>
+            <category>技术趋势</category>
+            <pubDate>Fri, 18 Sep 2026 22:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;今天的 GitHub Trending 被一个词统治：&lt;strong&gt;Agent Skill&lt;/strong&gt;。cloudflare 的 &lt;code&gt;security-audit-skill&lt;/code&gt; 单日暴涨 3,019 star 直接登顶，腾讯 &lt;code&gt;BrowserSkill&lt;/code&gt; 紧随其后（+1,319），加上 &lt;code&gt;agent-skills&lt;/code&gt;、&lt;code&gt;OpenSpec&lt;/code&gt;、&lt;code&gt;ECC&lt;/code&gt;——榜单前列几乎全是在给 AI 编码代理”装配能力”的项目。与此同时，行业侧的气氛明显紧张：纽约时报诉讼的未删节文件暴露出微软高管称 AI 抓取是”史无前例的盗窃”，GLM 编码代理 ZCode 被曝静默上传用户 Git 历史，OpenAI 又披露了 6 起”令人担忧”的 AI 事件。&lt;strong&gt;一边是代理能力的爆发式装配，一边是数据边界与安全治理的紧急收紧——这就是 2026 年 9 月中旬 AI 工程的主旋律。&lt;/strong&gt;&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;1-cloudflare-security-audit-skill-——-把安全审计做成代理技能&#34;&gt;&lt;a href=&#34;#1-cloudflare-security-audit-skill-——-把安全审计做成代理技能&#34; class=&#34;headerlink&#34; title=&#34;1. cloudflare&amp;#x2F;security-audit-skill —— 把安全审计做成代理技能&#34;&gt;&lt;/a&gt;1. cloudflare&amp;#x2F;security-audit-skill —— 把安全审计做成代理技能&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：&lt;code&gt;cloudflare/security-audit-skill&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：JavaScript ｜ &lt;strong&gt;总 Star&lt;/strong&gt;：12,227 ｜ &lt;strong&gt;今日新增&lt;/strong&gt;：+3,019（今日榜首）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;是什么&lt;/strong&gt;：一个面向编码代理（coding agent）的&lt;strong&gt;多阶段安全审计技能包&lt;/strong&gt;。它把一次完整安全审计拆成多个可独立执行的阶段，每个阶段产出&lt;strong&gt;机器可读、且可被独立验证&lt;/strong&gt;的审计发现（findings），而不是一段”看起来很有道理”的自然语言报告。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;为什么值得关注&lt;/strong&gt;：这是 Cloudflare 这种基础设施公司在”代理技能”这个新分发形态上的正式下注。过去安全审计要么靠人工，要么靠 SAST&amp;#x2F;DAST 工具的规则引擎；这个项目的思路是把”审计方法论”本身封装成代理可以按阶段调用、并把结论结构化落地的 skill。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关键设计点&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;多阶段流水线&lt;/strong&gt;：把审计拆成侦察 → 模式匹配 → 漏洞验证 → 证据固化等阶段，而不是让模型一次性”猜”结论。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可独立验证&lt;/strong&gt;：每条 finding 都带可复现的证据链，避免 LLM 幻觉直接变成”安全结论”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;机器可读输出&lt;/strong&gt;：便于接入 CI、工单系统或后续代理继续消费。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：CI 流水线里的自动安全门禁、开源项目维护者的定期体检、以及安全团队把”初级审计”外包给代理、人力只做验证与定级。&lt;/p&gt;
+&lt;h3 id=&#34;2-Tencent-BrowserSkill-——-让代理用你”真实的浏览器”&#34;&gt;&lt;a href=&#34;#2-Tencent-BrowserSkill-——-让代理用你”真实的浏览器”&#34; class=&#34;headerlink&#34; title=&#34;2. Tencent&amp;#x2F;BrowserSkill —— 让代理用你”真实的浏览器”&#34;&gt;&lt;/a&gt;2. Tencent&amp;#x2F;BrowserSkill —— 让代理用你”真实的浏览器”&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：&lt;code&gt;Tencent/BrowserSkill&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：TypeScript ｜ &lt;strong&gt;总 Star&lt;/strong&gt;：4,943 ｜ &lt;strong&gt;今日新增&lt;/strong&gt;：+1,319&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;是什么&lt;/strong&gt;：一句话概括它的卖点——&lt;strong&gt;让 AI 代理使用你真实登录态的浏览器，而不打断你手头的工作&lt;/strong&gt;。形态是 CLI + 浏览器扩展，任何”有能力执行 shell”的 AI 代理都能接入。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;技术洞察&lt;/strong&gt;：浏览器自动化一直有个尴尬的双重难题。用无头浏览器（Playwright&amp;#x2F;Puppeteer）干净但&lt;strong&gt;拿不到登录态&lt;/strong&gt;，一遇到验证码、双因素、风控就直接卡死；直接操控用户的日常浏览器则&lt;strong&gt;会抢焦点、打断工作&lt;/strong&gt;，体验灾难。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;BrowserSkill&lt;/code&gt; 走的是中间路线：扩展负责接入用户已登录的真实浏览器上下文，CLI 负责给代理暴露稳定的操作原语。这等于绕开了”重新登录 + 反爬对抗”这两个最容易崩的环节，同时把自动化收敛到后台标签页。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;风险提示&lt;/strong&gt;：能力越大边界越敏感。让代理操作”已登录的真实浏览器”，等于把账号权限交给了代理——这正是今天新闻里 ZCode 事件引发争议的同一条边界。用之前建议明确区分：哪些站点允许代理操作、哪些必须人工确认。&lt;/p&gt;
+&lt;h3 id=&#34;3-addyosmani-agent-skills-——-生产级工程技能库&#34;&gt;&lt;a href=&#34;#3-addyosmani-agent-skills-——-生产级工程技能库&#34; class=&#34;headerlink&#34; title=&#34;3. addyosmani&amp;#x2F;agent-skills —— 生产级工程技能库&#34;&gt;&lt;/a&gt;3. addyosmani&amp;#x2F;agent-skills —— 生产级工程技能库&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：&lt;code&gt;addyosmani/agent-skills&lt;/code&gt; ｜ &lt;strong&gt;语言&lt;/strong&gt;：JavaScript ｜ &lt;strong&gt;总 Star&lt;/strong&gt;：96,177 ｜ &lt;strong&gt;今日新增&lt;/strong&gt;：+677&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;接近 10 万 star 的项目。它把”生产级工程实践”（代码规范、测试策略、重构手法、评审要点）沉淀成代理可直接加载的技能。它和 &lt;code&gt;security-audit-skill&lt;/code&gt; 是同一趋势的两种样本：&lt;strong&gt;大厂开源单点深度技能，个人&amp;#x2F;社区沉淀通用工程技能&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;4-Fission-AI-OpenSpec-——-规格驱动开发（SDD）&#34;&gt;&lt;a href=&#34;#4-Fission-AI-OpenSpec-——-规格驱动开发（SDD）&#34; class=&#34;headerlink&#34; title=&#34;4. Fission-AI&amp;#x2F;OpenSpec —— 规格驱动开发（SDD）&#34;&gt;&lt;/a&gt;4. Fission-AI&amp;#x2F;OpenSpec —— 规格驱动开发（SDD）&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：&lt;code&gt;Fission-AI/OpenSpec&lt;/code&gt; ｜ &lt;strong&gt;语言&lt;/strong&gt;：TypeScript ｜ &lt;strong&gt;总 Star&lt;/strong&gt;：69,124 ｜ &lt;strong&gt;今日新增&lt;/strong&gt;：+298&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;面向 AI 编码助手的&lt;strong&gt;规格驱动开发&lt;/strong&gt;工具。核心主张：在让代理写代码之前，先把”要做什么”写成人和代理都能读的结构化规格，然后由代理按规格实现。&lt;/p&gt;
+&lt;p&gt;这解决的是代理编码最疼的问题——&lt;strong&gt;需求漂移&lt;/strong&gt;。没有规格时，代理每次对话都可能重新理解一次意图，改着改着就跑偏；有了规格文件做锚点，实现就有了可回溯的验收依据。这几乎是”AI 时代的 TDD”。&lt;/p&gt;
+&lt;h3 id=&#34;5-TencentCloud-Octop-——-自托管多用户多代理助手&#34;&gt;&lt;a href=&#34;#5-TencentCloud-Octop-——-自托管多用户多代理助手&#34; class=&#34;headerlink&#34; title=&#34;5. TencentCloud&amp;#x2F;Octop —— 自托管多用户多代理助手&#34;&gt;&lt;/a&gt;5. TencentCloud&amp;#x2F;Octop —— 自托管多用户多代理助手&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：&lt;code&gt;TencentCloud/Octop&lt;/code&gt; ｜ &lt;strong&gt;语言&lt;/strong&gt;：Python ｜ &lt;strong&gt;总 Star&lt;/strong&gt;：3,809 ｜ &lt;strong&gt;今日新增&lt;/strong&gt;：+571&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;腾讯云开源的&lt;strong&gt;自托管 AI 助手&lt;/strong&gt;，关键词是”多用户、多代理”：不只是一对一聊天，而是支持组织内多人共享、多个代理各司其职。数据不出自己的机器，这对有合规要求的企业是刚需。&lt;/p&gt;
+&lt;h3 id=&#34;6-supermemoryai-supermemory-——-AI-时代的记忆-API&#34;&gt;&lt;a href=&#34;#6-supermemoryai-supermemory-——-AI-时代的记忆-API&#34; class=&#34;headerlink&#34; title=&#34;6. supermemoryai&amp;#x2F;supermemory —— AI 时代的记忆 API&#34;&gt;&lt;/a&gt;6. supermemoryai&amp;#x2F;supermemory —— AI 时代的记忆 API&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：&lt;code&gt;supermemoryai/supermemory&lt;/code&gt; ｜ &lt;strong&gt;语言&lt;/strong&gt;：TypeScript ｜ &lt;strong&gt;总 Star&lt;/strong&gt;：30,068 ｜ &lt;strong&gt;今日新增&lt;/strong&gt;：+140&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;定位是&lt;strong&gt;记忆与上下文引擎&lt;/strong&gt;，强调极快、可扩展、且能&lt;strong&gt;完全本地运行&lt;/strong&gt;。代理的记忆问题（长期记忆、跨会话上下文、检索质量）目前还没有事实标准，这个项目是竞争最激烈的赛道上的一个有力选手。&lt;/p&gt;
+&lt;h3 id=&#34;7-alibaba-open-code-review-——-混合架构代码审查&#34;&gt;&lt;a href=&#34;#7-alibaba-open-code-review-——-混合架构代码审查&#34; class=&#34;headerlink&#34; title=&#34;7. alibaba&amp;#x2F;open-code-review —— 混合架构代码审查&#34;&gt;&lt;/a&gt;7. alibaba&amp;#x2F;open-code-review —— 混合架构代码审查&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：&lt;code&gt;alibaba/open-code-review&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;阿里开源，卖点是”在阿里规模上久经考验”。架构是&lt;strong&gt;确定性流水线 + LLM Agent 混合&lt;/strong&gt;：用确定性流水线处理可规则化的检查，用 LLM Agent 处理需要语义理解的部分，最终产出&lt;strong&gt;精确到行&lt;/strong&gt;的评论，内置多语言规则集（NPE、线程安全、XSS、SQL 注入），并兼容 OpenAI &amp;#x2F; Anthropic 接口。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;架构示意&lt;/strong&gt;：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TB&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Input[&amp;quot;输入层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        PR[Pull Request / Diff]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Deterministic[&amp;quot;确定性流水线&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Lint[多语言规则引擎&amp;lt;br/&amp;gt;NPE / 线程安全 / XSS / SQLi]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Parse[AST 解析与符号索引]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Agentic[&amp;quot;LLM Agent 层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Plan[变更意图理解]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Review[语义级缺陷推理]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Verify[结论自校验]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Output[&amp;quot;输出层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Comment[行级评论]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Report[审查报告]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    PR --&amp;gt; Parse&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Parse --&amp;gt; Lint&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Parse --&amp;gt; Plan&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Plan --&amp;gt; Review&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Review --&amp;gt; Verify&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Verify --&amp;gt; Comment&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Lint --&amp;gt; Comment&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Comment --&amp;gt; Report&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Lint -.规则命中.-&amp;gt; Verify&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;这个架构的真正价值&lt;/strong&gt;：它承认了 LLM 不适合做&lt;strong&gt;确定性检查&lt;/strong&gt;。用规则引擎保证”该报的一定报”，用 LLM 补上”规则写不出来的语义问题”，再用自校验压住幻觉。这比”全交给模型”务实得多。&lt;/p&gt;
+&lt;h3 id=&#34;其他上榜项目速览&#34;&gt;&lt;a href=&#34;#其他上榜项目速览&#34; class=&#34;headerlink&#34; title=&#34;其他上榜项目速览&#34;&gt;&lt;/a&gt;其他上榜项目速览&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;项目&lt;/th&gt;
+&lt;th&gt;语言&lt;/th&gt;
+&lt;th&gt;总 Star&lt;/th&gt;
+&lt;th&gt;今日&lt;/th&gt;
+&lt;th&gt;一句话&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;anthropics/claude-code&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;终端里的代理式编码工具&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;anthropics/knowledge-work-plugins&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;知识工作者插件集（Claude Cowork）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;affaan-m/ECC&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;代理 harness 性能优化系统&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ahmedkhaleel2004/gitdiagram&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;TypeScript&lt;/td&gt;
+&lt;td&gt;16,280&lt;/td&gt;
+&lt;td&gt;+145&lt;/td&gt;
+&lt;td&gt;为任意仓库生成交互式架构图&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;tradesdontlie/tradingview-mcp&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;JavaScript&lt;/td&gt;
+&lt;td&gt;6,361&lt;/td&gt;
+&lt;td&gt;+64&lt;/td&gt;
+&lt;td&gt;把 Claude Code 接到 TradingView 桌面端&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;asciimoo/hister&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Go&lt;/td&gt;
+&lt;td&gt;4,738&lt;/td&gt;
+&lt;td&gt;+842&lt;/td&gt;
+&lt;td&gt;自建搜索引擎（非 AI，但基建属性强）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;榜单前 20 里 AI &amp;#x2F; Agent 相关占比超过六成，而且&lt;strong&gt;集中在”代理能力供给”这一层&lt;/strong&gt;——技能、规格、记忆、审查、浏览器、安全。这是很明确的信号。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Meta Muse 上 Mac&lt;/strong&gt;：Meta 的 AI 代理 Muse 在登陆 iOS、Android、Web 之后，本周推出 Mac 应用。可做整理文件、填表、从 Messages &amp;#x2F; Calendar &amp;#x2F; Notes 中抽取信息等操作。消费级代理正在从”聊天”走向”代你操作本机”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Google Home 接入 MCP&lt;/strong&gt;：Google Home 宣布支持 MCP（Model Context Protocol）集成，意味着智能家居设备可以直接成为代理可调用的工具。MCP 正在从开发工具生态溢出到物理设备层。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Google CC 转向家庭组织代理&lt;/strong&gt;：Google 把 “CC” 重做成家庭场景的组织代理——整理邮件、跟踪全家日程、填许可单、生成购物清单，最多支持 6 人共享同一个代理并各自选择共享内容。**”多用户共享一个代理 + 细粒度共享控制”**正在成为产品标配（和 Octop 的思路一致）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Zed 的 Delta 公开测试&lt;/strong&gt;：Zed 编辑器推出 Delta，主张”用 Delta 替代 Pull Request”。这是对 GitHub 工作流的直接挑战，也顺带说明代理产出的代码量已经让传统 PR 流程开始吃力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bonsai 2 27B&lt;/strong&gt;：宣称以 9 倍更小的体积实现近乎无损的压缩。模型压缩 + 本地部署这条线还在持续推进，与 &lt;code&gt;supermemory&lt;/code&gt; 的”完全本地运行”呼应。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;1. 版权战场的”实锤时刻”&lt;/strong&gt;：纽约时报诉微软&amp;#x2F;OpenAI 案的未删节文件显示，微软应用科学总监 Brent Hecht 曾表示”全世界数百万人很快就会认为大模型’吸走’他们全部作品的行为是&lt;strong&gt;史无前例的盗窃&lt;/strong&gt;……几乎没有人希望自己创作的内容被这样使用，他们也得不到任何补偿”。这段话由原告方引用，微软在另一份文件中则称 Hecht 是”被雇来唱反调的人”。Hacker News 上 461 分、373 条评论——舆论场的情绪非常明确。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 代理的数据边界翻车案例&lt;/strong&gt;：安全研究指出 GLM 家族的编码代理 &lt;strong&gt;ZCode 在静默上传用户的 Git 历史&lt;/strong&gt;（HN 177 分）。这个案例之所以重要，不是因为它有多复杂，而是因为它精准命中了代理时代最核心的信任问题：&lt;strong&gt;代理在你机器上执行命令时，数据流向是否可见、是否可控&lt;/strong&gt;。需要把这条和今天榜首的 &lt;code&gt;security-audit-skill&lt;/code&gt; 放在一起看。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. Anthropic 提出衡量 AI 进展的三条规则&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;AI 在多大程度上在”建造自己的下一版”，而非被人建造；&lt;/li&gt;
+&lt;li&gt;我们对代理在其系统上执行动作的&lt;strong&gt;监督与干预能力&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;驱动更强模型开发的资源消耗。&lt;br&gt;Anthropic 同时公布了公司内部指标的”快照”。把”可监督性”直接列为进展指标，是一个值得注意的立场表态。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;4. OpenAI 又披露 6 起”令人担忧”的 AI 事件&lt;/strong&gt;：这是在其新的安全事件上报规则下追加披露的一批。配合 The Verge 的报道，本周的头条几乎被”AI 会不会把我们干掉”占满。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5. 监管拉锯&lt;/strong&gt;：据报道，扎克伯格、黄仁勋、马斯克三位 CEO 在 AI 监管上对特朗普有影响力，并”成功拖延”了由 Google DeepMind 的 Demis Hassabis 提出的行业资助 AI 监管机构方案。英国国王查尔斯则公开表示 AI 需要”在一切都太迟之前获得足够的控制手段”。下周白宫为习近平举行的国宴上，Tim Cook 与 Sam Altman 也将出席——技术、商业与地缘政治已经完全缠绕在一起。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6. OpenAI 的下一个千禧年难题&lt;/strong&gt;：有消息称 OpenAI 瞄准的下一个千禧年大奖问题是&lt;strong&gt;霍奇猜想（Hodge Conjecture）&lt;/strong&gt;。但由于此前 Navier-Stokes 的宣传风波以及近期模型失控事件，公司可能在宣布节奏上更为谨慎，正在考虑如何与数学界协作发布。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7. 学术侧&lt;/strong&gt;：arXiv 上出现《An Empirical Study of Harness Design for Coding Agents》（2609.20804），对编码代理的&lt;strong&gt;harness（脚手架）设计&lt;/strong&gt;做了实证研究——这说明”harness 工程”已经开始形成可研究、可比较的方法论，而不只是各家工程经验。&lt;/p&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;洞见一：价值重心正从”模型能力”转移到”Harness-工程”&#34;&gt;&lt;a href=&#34;#洞见一：价值重心正从”模型能力”转移到”Harness-工程”&#34; class=&#34;headerlink&#34; title=&#34;洞见一：价值重心正从”模型能力”转移到”Harness 工程”&#34;&gt;&lt;/a&gt;洞见一：价值重心正从”模型能力”转移到”Harness 工程”&lt;/h3&gt;&lt;p&gt;今天的榜单几乎是这个判断的一次集体投票。&lt;strong&gt;模型是引擎，harness 是整台车&lt;/strong&gt;——同一个模型，配不同的技能库、规格流程、记忆系统、审查流水线，产出质量可以有数量级的差距。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Layer0[&amp;quot;L0 模型层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        M[LLM 权重与推理]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Layer1[&amp;quot;L1 上下文装配层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Mem[记忆 / 上下文引擎&amp;lt;br/&amp;gt;supermemory]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Spec[规格锚点&amp;lt;br/&amp;gt;OpenSpec]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Skill[技能加载&amp;lt;br/&amp;gt;agent-skills / security-audit-skill]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Layer2[&amp;quot;L2 工具与执行层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Browser[真实浏览器&amp;lt;br/&amp;gt;BrowserSkill]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Tools[MCP 工具接口&amp;lt;br/&amp;gt;Google Home / TradingView]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Review[混合审查&amp;lt;br/&amp;gt;open-code-review]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph Layer3[&amp;quot;L3 治理层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Verify[证据化验证]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Guard[权限与数据边界]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        Metrics[进展度量&amp;lt;br/&amp;gt;Anthropic 三规则]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    M --&amp;gt; Layer1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Layer1 --&amp;gt; Layer2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Layer2 --&amp;gt; Layer3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Layer3 -.反馈与约束.-&amp;gt; Layer1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;三条可落地的推论&lt;/strong&gt;：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;别急着换模型，先补 harness&lt;/strong&gt;。今天这些项目（技能、规格、记忆、审查）大多是模型无关的，投入它们比追新模型更稳。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;“可验证”是新的质量门槛&lt;/strong&gt;。&lt;code&gt;security-audit-skill&lt;/code&gt; 强调”独立验证的机器可读结论”，&lt;code&gt;open-code-review&lt;/code&gt; 用规则引擎兜底+LLM 自校验。&lt;strong&gt;能给出证据链的代理，才敢让它进生产流程&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;规格正在成为新的源码&lt;/strong&gt;。OpenSpec 的火热说明：当实现成本被模型压到很低时，&lt;strong&gt;“写清楚要什么”反而成了瓶颈和护城河&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;洞见二：代理安全从”最佳实践”变成”硬约束”&#34;&gt;&lt;a href=&#34;#洞见二：代理安全从”最佳实践”变成”硬约束”&#34; class=&#34;headerlink&#34; title=&#34;洞见二：代理安全从”最佳实践”变成”硬约束”&#34;&gt;&lt;/a&gt;洞见二：代理安全从”最佳实践”变成”硬约束”&lt;/h3&gt;&lt;p&gt;今天三条最响的新闻其实是同一件事的三副面孔：ZCode 静默上传 Git 历史（信任崩塌）、NYT 文件里的”史无前例的盗窃”（数据来源合法性）、OpenAI 追加披露 6 起事件（能力失控）。也就是说，&lt;strong&gt;代理能力的每一次扩张，都在同时扩张它的攻击面和责任面&lt;/strong&gt;。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Start[代理获得新能力] --&amp;gt; Q1&amp;#123;数据从哪来?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Q1 --&amp;gt;|用户本机 / 私有仓库| A1[必须显式可见&amp;lt;br/&amp;gt;且可关闭]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Q1 --&amp;gt;|公开网络抓取| A2[必须可追溯&amp;lt;br/&amp;gt;且评估合规风险]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Q1 --&amp;gt;|第三方平台已登录态| A3[必须区分&amp;lt;br/&amp;gt;可自主 vs 需人工确认]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A1 --&amp;gt; Q2&amp;#123;动作可被监督吗?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A2 --&amp;gt; Q2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A3 --&amp;gt; Q2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Q2 --&amp;gt;|不能| B1[降级为建议模式&amp;lt;br/&amp;gt;只输出不执行]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Q2 --&amp;gt;|能| Q3&amp;#123;结论可被独立验证吗?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Q3 --&amp;gt;|不能| B2[补证据链或加确定性规则兜底]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Q3 --&amp;gt;|能| C[允许进入生产流水线]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B1 --&amp;gt; D[记录并纳入度量]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B2 --&amp;gt; D&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;给工程团队的具体建议&lt;/strong&gt;：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;代理的能力清单必须配一张数据流向清单&lt;/strong&gt;。你能操作哪些仓库、哪些账号、哪些站点，数据出不出本机，要能一句话说清。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;登录态是最高敏感级别&lt;/strong&gt;。像 &lt;code&gt;BrowserSkill&lt;/code&gt; 这类”使用真实已登录浏览器”的工具价值极高，但必须先划清”哪些站点允许自主操作”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;把安全审计当技能来装配&lt;/strong&gt;，而不是当一次性项目。&lt;code&gt;security-audit-skill&lt;/code&gt; 这类项目让”定期体检”变成低边际成本的事。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;度量要包含”可干预性”&lt;/strong&gt;，照 Anthropic 的思路：能随时叫停、能解释每一步，比单纯的跑分更重要。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;一句话总结&lt;/strong&gt;：2026 年 9 月 18 日，AI 工程的重心清晰地落在 &lt;strong&gt;harness（技能 + 规格 + 记忆 + 审查）&lt;/strong&gt; 与 &lt;strong&gt;治理（数据边界 + 可验证性 + 可干预性）&lt;/strong&gt; 这两件事上。榜单在教我们怎么给代理装配能力，新闻在提醒我们边界在哪。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;数据来源：GitHub Trending（2026-09-18 日榜）、Hacker News 首页、The Verge AI 频道、VentureBeat AI 频道。&lt;/p&gt;
+&lt;/blockquote&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-09-17/</guid>
             <title>AI 日报 2026-09-17</title>
@@ -821,8 +981,8 @@
             <category>AI</category>
             <category>Agent</category>
             <category>LLM</category>
-            <category>LangGraph</category>
             <category>LangChain</category>
+            <category>LangGraph</category>
             <category>Python</category>
             <category>工作流</category>
             <pubDate>Sat, 12 Sep 2026 02:30:00 +0800</pubDate>
@@ -2341,8 +2501,8 @@
             <category>开发工具</category>
             <category>Agent</category>
             <category>LLM</category>
-            <category>LangGraph</category>
             <category>LangChain</category>
+            <category>LangGraph</category>
             <category>Python</category>
             <pubDate>Wed, 26 Aug 2026 01:30:00 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;img src=&#34;/images/langchain/og-image.png&#34;&gt;&lt;/p&gt;
@@ -8488,9 +8648,9 @@
             <guid isPermalink="true">https://scottalive.github.io/computer-science/devops/k8s-context-switch/</guid>
             <title>单机内 K8S 集群环境切换指南</title>
             <link>https://scottalive.github.io/computer-science/devops/k8s-context-switch/</link>
-            <category>DevOps</category>
             <category>Kubernetes</category>
             <category>k8s</category>
+            <category>DevOps</category>
             <category>kubeconfig</category>
             <category>kubectl</category>
             <category>Context</category>
@@ -9091,11 +9251,11 @@
             <guid isPermalink="true">https://scottalive.github.io/computer-science/devops/k8s-command-guide/</guid>
             <title>K8s 使用指南 — 各类场景命令全解</title>
             <link>https://scottalive.github.io/computer-science/devops/k8s-command-guide/</link>
-            <category>运维</category>
-            <category>DevOps</category>
             <category>Kubernetes</category>
             <category>k8s</category>
             <category>容器编排</category>
+            <category>DevOps</category>
+            <category>运维</category>
             <pubDate>Sat, 16 May 2026 10:03:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;Kubernetes-使用指南-—-各类场景命令全解&#34;&gt;&lt;a href=&#34;#Kubernetes-使用指南-—-各类场景命令全解&#34; class=&#34;headerlink&#34; title=&#34;Kubernetes 使用指南 — 各类场景命令全解&#34;&gt;&lt;/a&gt;Kubernetes 使用指南 — 各类场景命令全解&lt;/h1&gt;&lt;p&gt;Kubernetes（简称 K8s）是当前业界标准的容器编排平台。无论你是刚入门的学习者，还是日常运维的一线工程师，掌握 &lt;strong&gt;kubectl&lt;/strong&gt; 的核心命令都至关重要。&lt;/p&gt;
 &lt;p&gt;本文将按照 &lt;strong&gt;实际场景&lt;/strong&gt; 组织命令，告别枯燥的 API 罗列，让你遇到问题时能快速找到对应「武器」。&lt;/p&gt;
@@ -9595,8 +9755,8 @@
             <link>https://scottalive.github.io/computer-science/devops/opensre-grafana-integration/</link>
             <category>AI</category>
             <category>OpenSRE</category>
-            <category>SRE</category>
             <category>Grafana</category>
+            <category>SRE</category>
             <category>可观测性</category>
             <pubDate>Wed, 13 May 2026 11:44:00 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
@@ -10056,12 +10216,12 @@
             <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/OpenSRE-%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98-%E6%8E%92%E6%9F%A5%E4%B8%8E%E6%8A%A5%E5%91%8A%E6%8C%87%E5%8D%97/</guid>
             <title>OpenSRE 进阶实战：排查方法论与报告解读指南</title>
             <link>https://scottalive.github.io/computer-science/ai-tools/OpenSRE-%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98-%E6%8E%92%E6%9F%A5%E4%B8%8E%E6%8A%A5%E5%91%8A%E6%8C%87%E5%8D%97/</link>
+            <category>DevOps</category>
             <category>OpenSRE</category>
             <category>SRE</category>
             <category>故障排查</category>
             <category>AI运维</category>
             <category>根因分析</category>
-            <category>DevOps</category>
             <pubDate>Mon, 11 May 2026 01:10:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;引言&#34;&gt;&lt;a href=&#34;#引言&#34; class=&#34;headerlink&#34; title=&#34;引言&#34;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;在&lt;a href=&#34;/2026/05/11/OpenSRE-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/&#34;&gt;上一篇文章&lt;/a&gt;中，我们介绍了 OpenSRE 的安装与基础用法。本文将深入探讨三个实战核心话题：&lt;strong&gt;如何高效使用 OpenSRE 进行生产故障排查&lt;/strong&gt;、&lt;strong&gt;使用过程中的关键注意事项&lt;/strong&gt;，以及&lt;strong&gt;如何理解和运用它生成的调查报告&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;项目地址：&lt;a href=&#34;https://github.com/Tracer-Cloud/OpenSRE&#34;&gt;GitHub - Tracer-Cloud&amp;#x2F;OpenSRE&lt;/a&gt;&lt;/p&gt;
@@ -10351,9 +10511,9 @@
             <title>OpenSRE 安装与使用指南</title>
             <link>https://scottalive.github.io/computer-science/ai-tools/OpenSRE-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
             <category>AI</category>
+            <category>运维</category>
             <category>OpenSRE</category>
             <category>SRE</category>
-            <category>运维</category>
             <category>故障排查</category>
             <pubDate>Mon, 11 May 2026 00:50:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;概述&#34;&gt;&lt;a href=&#34;#概述&#34; class=&#34;headerlink&#34; title=&#34;概述&#34;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;OpenSRE&lt;/strong&gt; 是一个开源的 AI SRE（站点可靠性工程）Agent 框架，能够帮助你构建属于自己的 AI 运维助手。它能够连接 60+ 常用工具，自动进行生产故障调查、根因分析，并生成结构化的调查报告。&lt;/p&gt;
