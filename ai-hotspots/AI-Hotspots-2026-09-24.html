@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230a0e14'/%3E%3Ctext x='18' y='68' font-size='52' fill='%2300ff9c' font-family='monospace'%3E%26gt;_%3C/text%3E%3C/svg%3E">
-  <title>沉鱼的博客</title>
+  <title>AI 热点综述 - 2026-09-24 | 沉鱼的博客</title>
   
-  <meta name="description" content="编程笔记 &amp; 资料分享">
+  <meta name="description" content="AI 行业热点综述 — 2026-09-24">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="沉鱼的博客">
-  <meta property="og:title" content="沉鱼的博客">
-  <meta property="og:description" content="编程笔记 &amp; 资料分享">
-  <meta property="og:url" content="https://scottalive.github.io/ai-hotspots/page/3/index.html">
+  <meta property="og:title" content="AI 热点综述 - 2026-09-24 | 沉鱼的博客">
+  <meta property="og:description" content="AI 行业热点综述 — 2026-09-24">
+  <meta property="og:url" content="https://scottalive.github.io/ai-hotspots/AI-Hotspots-2026-09-24.html">
   <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="沉鱼的博客">
-  <meta name="twitter:description" content="编程笔记 &amp; 资料分享">
+  <meta name="twitter:title" content="AI 热点综述 - 2026-09-24 | 沉鱼的博客">
+  <meta name="twitter:description" content="AI 行业热点综述 — 2026-09-24">
   <meta name="twitter:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
   <link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="/atom.xml">
   <link rel="stylesheet" href="/css/style.css?v=202607190200">
@@ -54,123 +54,137 @@
 
   <main class="site-main">
     <div class="container">
-      <!-- AI 行业热点 - 列表页 -->
-
-
-<section class="page-hero">
-  <div class="term">
-    <div class="term-bar">
-      <span class="term-dots"></span>
-      <span class="term-title">~/blog/ai-hotspots — zsh</span>
+      <!-- AI 行业热点 - 文章详情页 -->
+<article class="post-full">
+  <header class="post-header">
+    <div class="post-path">
+      <a href="/">~</a>/<a href="/ai-hotspots">ai-hotspots</a>/<span class="pd">2026-09-24.md</span>
     </div>
-    <div class="term-body">
-      <div class="tl"><span class="ps">~ $</span> ./watch-builders --feed x,podcasts,blogs</div>
-      <div class="page-hero-desc">
-        追踪 AI 领域顶尖建造者的最新动态。内容源自
-        <a href="https://github.com/zarazhangrui/follow-builders" target="_blank" rel="noopener">Follow Builders</a>，每日更新。
-      </div>
-      <div class="page-hero-stats"><span><strong>129</strong> reports</span> · <span>每日更新</span></div>
+    <h1 class="post-title">AI 热点综述 - 2026-09-24</h1>
+    <div class="post-meta">
+      <span>2026-09-24 22:00</span>
+      <span class="bkt cyan">AI热点</span>
     </div>
+  </header>
+
+  <div class="post-content">
+    <h1 id="AI-热点综述-·-2026-09-24"><a href="#AI-热点综述-·-2026-09-24" class="headerlink" title="AI 热点综述 · 2026-09-24"></a>AI 热点综述 · 2026-09-24</h1><p>昨天全行业在讨论”价格”，今天讨论的是<strong>分层</strong>。</p>
+<p>一天之内，三件事从三个方向指向同一个判断：Claude Marketplace 把工具、agent、服务商摆上货架（<strong>4249 赞、245 转发</strong>，今天互动量最高的一条）；Guillermo Rauch 发布 Vercel Drives，把 agent 的存储从”那台跑着的机器”里拆出来（<strong>1453 赞、79 转发</strong>）；而 Anthropic 工程博客今天推的标题就叫《Scaling Managed Agents: Decoupling the brain from the hands》——<strong>把大脑和手解耦</strong>。</p>
+<p>同一套架构直觉，同一天从两家公司嘴里说出来。这种撞车通常不是巧合，是水位到了。</p>
+<h2 id="一claude-marketplaceagent-的货架开张了"><a href="#一、Claude-Marketplace：agent-的货架开张了" class="headerlink" title="一、Claude Marketplace：agent 的货架开张了"></a>一、Claude Marketplace：agent 的货架开张了</h2><p>Anthropic 官方今天正式上线 Claude Marketplace（<strong>4249 赞、245 转发</strong>）：</p>
+<blockquote>
+<p>你现在可以在 Claude Marketplace 上发现工具、agent 和专业合作伙伴。用它来：</p>
+<ul>
+<li>添加 Slack、Notion 这类连接器和插件</li>
+<li>购买 Cursor、CrowdStrike 这类公司提供的 agent 与产品</li>
+<li>通过 Accenture、Deloitte 这类服务伙伴来扩展规模</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>逛一逛市场吧。如果你在为 Claude 做东西，也可以把你的工具、agent 或服务登记在这里。</p>
+</blockquote>
+<p><strong>要注意这份清单里出现了三个完全不同的物种：</strong> 连接器（Slack、Notion）、可购买的 agent 产品（Cursor、CrowdStrike）、以及人力服务伙伴（Accenture、Deloitte）。把它们放在同一个入口下，说明 Marketplace 想当的不是”插件商店”，而是<strong>企业的 AI 采购单</strong>——从软件到 agent 到帮你落地的人，一次配齐。</p>
+<p>这条路 OpenAI 在 DevDay 上会怎么走，Thibault Sottiaux 今天提前放了话（<strong>3159 赞、133 转发</strong>）：</p>
+<blockquote>
+<p>等不及下周二 DevDay 了。有些非常好玩的东西，但也有<strong>很多会改变你工作方式的东西</strong>。这是我们最有野心的一次冲刺，Astra 让很多新事情在这么短的时间里变得可能。</p>
+</blockquote>
+<p><strong>“会改变你工作方式”和”好玩”是两种不同的发布。</strong> 前者是能力，后者是形态。当两家都开始搭货架，”这个模型多强”就不再是用户最关心的问题，<strong>“我要的东西这里有没有”才是。</strong></p>
+<h2 id="二大脑手存储同一个解耦判断从两家同时冒出来"><a href="#二、大脑、手、存储：同一个解耦判断从两家同时冒出来" class="headerlink" title="二、大脑、手、存储：同一个解耦判断从两家同时冒出来"></a>二、大脑、手、存储：同一个解耦判断从两家同时冒出来</h2><p>Rauch 今天这条是全天最完整的架构论述（<strong>1453 赞、79 转发</strong>）：</p>
+<blockquote>
+<p>Muse、Instinct、OpenClaw、Claude Code……所有成功的 agent 都有三个关键组件：</p>
+<p>🧠 <strong>大脑</strong> → 模型、harness（逻辑）<br>👐 <strong>手</strong> → 工具、电脑、浏览器<br>🗃️ <strong>文件</strong> → 记忆、技能、仓库</p>
+<p>最”省事”的做法是把这三样全塞进一台有状态的电脑里（比如一台 Mac Mini）。你在 mac 上跑 <code>claude</code> 或 <code>fx</code>，让它整天开着配着咖啡因跑，它有硬盘、有 CLI、有装好的应用。</p>
+<p>但如果你想<strong>低成本地在云上跑 agent</strong>，你就得真的把这些部分拆开：</p>
+<p>🧠 harness 可以跑在 Fluid compute 上。为了让它在重启、发布、崩溃之间保持可靠，你要用 Workflow 把事件日志变持久。<br>👐 手可以是 Browserbase&#x2F;Kernel 那种专用浏览器机队、Sandbox 那种整台电脑，也可以是 just-bash 这种更高效的轻量工具。<br>🗃️ 🆕 缺的一直是<strong>把存储也解耦</strong>的办法。想象你每晚要跑一个记忆整理任务（”做梦”）——你可以直接读写文件，而不用把 agent 整台电脑开机。</p>
+<p>今天我们推出 Sandbox 的完美搭档：<strong>Drives</strong>。我们给了 agent 一台电脑，现在我们给你一块可以随时挂载的”外接磁盘”。</p>
+<p>顺带说：把 agent 拆成这些独立部分，不只是大幅优化成本，还<strong>极大提升了安全性和可审计性</strong>。我甚至认为，不这么做根本跑不了安全的 agent。</p>
+</blockquote>
+<p><strong>最后那句话才是重点。</strong> 过去我们把”agent 安全”当成一个模型对齐问题；Rauch 把它重新定义成一个<strong>架构问题</strong>：一个拥有持久文件系统、装着 CLI 和凭证、整天开着的进程，本质上就是一台你攻破了就全丢的机器。拆开之后，每一部分都可以单独授权、单独审计、单独重启。</p>
+<p>而 Anthropic 同一时间给出的工程答案，标题就已经是同一句话：<strong>《Scaling Managed Agents: Decoupling the brain from the hands》</strong>。配套今天一起推的还有《How we contain Claude across products》——讲的是怎么在多个产品里把 Claude 关进笼子。</p>
+<p><strong>两家的路线差异也很清楚：</strong> Vercel 从”云基础设施如何服务 agent”往上推，Anthropic 从”产品里如何约束 agent”往下压，在中间撞到了同一层设计。<strong>当两个不同的出发点得出同一个结构，这个结构大概率是对的。</strong></p>
+<h2 id="三语音-插件harness-之争已经公开化"><a href="#三、语音-插件：harness-之争已经公开化" class="headerlink" title="三、语音 + 插件：harness 之争已经公开化"></a>三、语音 + 插件：harness 之争已经公开化</h2><p>Sottiaux 今天最生动的一条不是产品公告，是使用习惯（<strong>4009 赞、107 转发</strong>）：</p>
+<blockquote>
+<p>语音！我已经习惯直接打电话给 ChatGPT 聊所有工作，查邮件、写点代码、管日历，而且它能在<strong>完整的插件生态</strong>里工作，包括第三方开发的插件。</p>
+</blockquote>
+<p><strong>“第三方插件 + 语音”组合起来才是这条的分量。</strong> 语音单看是交互形式，插件单看是能力接口；两者叠加意味着你不再需要打开某个 app 去”用 AI”，而是<strong>在打电话的过程中把活干完</strong>。这是入口的争夺，不是能力的争夺。</p>
+<p>Peter Yang 在同一天把当前的割裂说得更直白（<strong>25 赞</strong>）：</p>
+<blockquote>
+<p>模型已经这么好了，Claude Code 这套 harness 真的需要<strong>好用的实时语音，加上浏览器和电脑操作</strong>（后者在改善！）。</p>
+<p><strong>现在是一家实验室有最好的模型，另一家有最好的 harness。</strong></p>
+</blockquote>
+<p><strong>这句话是今天最值得抄下来的一句判断。</strong> 它解释了很多看似矛盾的现象：为什么模型能力在评测榜上已经挤成一条平线（昨天三家并列 97%），用户却依然在纠结选哪个工具——因为决定体验的早就不是模型本身，而是模型外面那圈东西：语音管线、浏览器控制、权限模型、插件生态。</p>
+<p>Peter Yang 对 Opus 5.5 的评价也是从”用起来”出发的（<strong>309 赞、10 转发</strong>）：</p>
+<blockquote>
+<p>Opus 5.5：聪明、快、聊起来有意思、写得好、对速率限制友好、能力上限不断让人意外。</p>
+</blockquote>
+<p><strong>“聊起来有意思”和”对速率限制友好”被和”聪明”并列，这本身就是信号。</strong> 当智能变成及格线，剩下的差异化全在体感上。</p>
+<h2 id="四性能是一种持续工程不是一次发布"><a href="#四、性能是一种持续工程，不是一次发布" class="headerlink" title="四、性能是一种持续工程，不是一次发布"></a>四、性能是一种持续工程，不是一次发布</h2><p>Boris Cherny 今天发的 Claude Code 与桌面端加速的博客拿到了全天第二高互动（<strong>3292 赞、103 转发</strong>）：</p>
+<blockquote>
+<p>如果你注意到 Claude Code 和桌面应用最近几周变快了，这就是我们怎么做到的。博客里有大量对<strong>正在优化自己应用的工程师</strong>有价值的经验和技巧。</p>
+</blockquote>
+<p><strong>“最近几周”这个词说明这是一种节奏，而不是一个版本。</strong> 在模型能力压平的阶段，一个产品每周把启动时间削掉几十毫秒，累积起来的用户感知可能比一次模型升级更明显。</p>
+<p>Guillermo Rauch 从侧面给了同一件事的一个具体案例（<strong>112 赞、2 转发</strong>）：</p>
+<blockquote>
+<p>ShellPerfBench。我对新 shell 会话的启动时间极度神经质。<strong>Opus 5.5 找到了很多其他模型漏掉的优化点。</strong> 匿名说一句，每次你打开终端，你可能都在默默受苦。让你的 agent 去优化 <code>.zshrc</code> 之类的东西。</p>
+</blockquote>
+<p><strong>“其他模型漏掉的优化点”这句话是很有信息量的。</strong> 性能优化是那种没有标准答案、需要反复猜测和验证的工作——它恰好是 agent 比人便宜的地方：人类工程师不会为了 20 毫秒去读三十遍配置，agent 会。</p>
+<p>两条放在一起看：<strong>性能开始变成一个可以交给 agent 持续刷新的指标，而不是一次性的项目。</strong></p>
+<h2 id="五形式化验证的第二天boris-补上了怎么做的"><a href="#五、形式化验证的第二天：Boris-补上了”怎么做的”" class="headerlink" title="五、形式化验证的第二天：Boris 补上了”怎么做的”"></a>五、形式化验证的第二天：Boris 补上了”怎么做的”</h2><p>昨天 Boris Cherny 那条”用 Lean 形式化验证 SDK、16 个 PR”是全天最高互动。今天他补上了机制（<strong>68 赞、2 转发</strong>），这条只有 68 赞，但信息密度更高：</p>
+<blockquote>
+<p>给关心形式化方法的人补点细节 —— 实际发生的是 Claude 在做类似这样的事：</p>
+<ol>
+<li>给程序建一个模型，瞄准其中棘手的状态机或容易出竞态的代码部分</li>
+<li>在模型里找反例。这些就是疑似 bug</li>
+<li>复现这些 bug</li>
+<li>在代码里修掉这些 bug</li>
+</ol>
+<p>不是整个代码库都被形式化验证了（<strong>还</strong>没有！），而是代码里最毛糙的部分被建模、被检查反例、被修掉了。</p>
+</blockquote>
+<p><strong>“最毛糙的部分”这个限定才是可落地的部分。</strong> 全面形式化验证的成本高到不现实，但”挑出状态机和竞态点单独建模”是工程上可以今天就做的。这个做法绕开了形式化方法五十年来的落地困境：不是证明一切，而是<strong>在人类最容易写错的地方插入一次机器检查</strong>。</p>
+<p>同一天他还晒了在计算机历史博物馆见到 Donald Knuth 的照片（<strong>1417 赞、25 转发</strong>）。<strong>一个人上午见形式化方法的祖先，下午展示形式化方法的新用法</strong>——这条时间线今天被同一个人走了两遍。</p>
+<h2 id="六agent-商业让-agent-想要软件也用-agent-让人想要软件"><a href="#六、agent-商业：让-agent-想要软件，也用-agent-让人想要软件" class="headerlink" title="六、agent 商业：让 agent 想要软件，也用 agent 让人想要软件"></a>六、agent 商业：让 agent 想要软件，也用 agent 让人想要软件</h2><p>Garry Tan 今天把正在发生的事情压缩成两句（<strong>434 赞、37 转发</strong>）：</p>
+<blockquote>
+<p>创业公司获客方式上两个同时发生的重要趋势：</p>
+<p><strong>让软件 agent 想要</strong>（make software agents want）<br><strong>用 agent 让人想要软件</strong>（use agents to make people want software）</p>
+</blockquote>
+<p><strong>第一句是全新的：</strong> 你的客户里开始包括别人的 agent，它们会读取你的文档、调用你的 API、评估是否把你接进自己的流程。为 agent 优化可发现性，正在变成和 SEO 平行的一门新学科。</p>
+<p><strong>第二句是旧的 SEO 被 agent 重做了一遍：</strong> 不是人去搜产品，而是 agent 替人去研究、比较、推荐。<strong>当采购决策的一端是 agent 时，”写得让人看懂”和”写得让 agent 读懂”就分家了。</strong></p>
+<p>Madhu Guru 今天反驳 Ben Thompson 的那条，给了这件事的需求侧论证（<strong>146 赞、15 转发</strong>）：</p>
+<blockquote>
+<p>我礼貌地不同意。他漏掉了关键一点：<strong>消费者和”做事”之间不是只有一种关系。</strong></p>
+<p>我在 Google 和现在 Meta 做了多年消费者和中小企业产品，这是吃过亏学到的。逛衣服对某些人来说就是娱乐；但找屋顶工人对大多数人来说很痛苦。</p>
+<p>就算在购物里，有时你想逛一小时，有时你只想让对的东西尽快送到。他的论点听起来很像 2000 年代初那句话：”我为什么要网上买衣服？我得试穿啊。”</p>
+<p>今天就试试找人修屋顶：搜索、读十条评价、电话来回、和保险协调、约检查、比报价、防隐藏费用、核对过往作品、雇人、排期。</p>
+<p>对某些这类任务，”更好”意味着几乎零努力；对其他任务，意味着看更多选项、享受过程、做出知情决定。</p>
+<p><strong>对这种消除摩擦的 agent，消费者的潜在需求是巨大的。</strong></p>
+</blockquote>
+<p><strong>“不是只有一种关系”是这段的核心。</strong> 关于 agent 能不能替代人的争论，大多错在把”所有任务”当成一个整体。真正可操作的分法是：<strong>哪些任务用户想要过程，哪些任务用户只想要结果。</strong> 前者是 agent 不该碰的地方，后者是 agent 的天堂。</p>
+<p>一个正在进行的实测来自 Dan Shipper（<strong>31 赞、4 转发</strong>）：</p>
+<blockquote>
+<p>明天下午 6 点我们就会知道，一个 AI agent 能不能办一场好派对。@every 的 agent 包办了 every 九月聚会的全部策划——从餐饮酒水单到宾客名单。来我们在布鲁克林的 brownstone 一起给它打分。</p>
+</blockquote>
+<p><strong>“办派对”是个很好的测试用例，因为它同时包含两类任务：</strong> 选酒单属于”想要过程”（有品味要求、无标准答案），排期和联系人属于”只要结果”。这一场到底会暴露哪一半更难，明天就有答案。</p>
+<h2 id="七一些同样值得记下的碎片"><a href="#七、一些同样值得记下的碎片" class="headerlink" title="七、一些同样值得记下的碎片"></a>七、一些同样值得记下的碎片</h2><ul>
+<li><strong>Ryo Lu（1087 赞、165 转发）</strong> 今天写了全天最长的反省，也是被转发最多的观点之一。核心几句值得单独抄下来：<em>“效率、生产力、速度，我们把这些词当成了活着的意义……但这没有意义的：速度不是意义，规模不是智慧，如果自动化只是让所有人跑得更快，那它就不是自由。”</em> 以及那句最锋利的判断：<strong>“危险不是 AI 让我们变懒，危险是 AI 让我们无休止地忙碌——在我们还没找到意图之前就给了我们无限的产出。”</strong> 他甚至给出了结论方向：<em>也许真正的前沿不是更快的速度，而是辨别力（discernment）——知道什么不该做，知道什么时候该停。</em> 在一个所有人都在比谁跑得快的行业里，这条能拿到 165 次转发，说明它说中了很多人的状态。</li>
+<li><strong>Thariq（1265 赞、25 转发 + 2289 赞、56 转发）</strong>：Anthropic 开始尝试一种新的内容形式——<strong>公开分享具体提示词和工作方式，让别人能复刻</strong>。”Claude one-shot this”这条的提示词是一万字符，含观点、技能、示例和 API key。他专门发帖问读者”这有用吗”。<strong>把内部工作方法本身当产品来发布，这本身就是一种分发策略。</strong></li>
+<li><strong>Amjad Masad（284 赞、22 转发）</strong>：<em>“你需要年轻人去打破模具、质疑根深蒂固的信念、尝试不可能的事。理想的大学应该培养的正是这个。”</em> 在一周都在谈 agent 替代的语境里，这条讲的是人应该被培养成什么样。</li>
+<li><strong>Aaron Levie（81 赞、6 转发 &#x2F; 186 赞、6 转发）</strong>：他引用了一段关于创意产业与 AI 的长论述——<em>“当门槛和成本降下来，被拍出来的电影会更多而不是更少。工作室能承担更多风险，桌上会有更多座位……每一次叙事遇到真正的技术变迁，从同步声音到彩色到计算机动画，它都重新定义了媒介的边界并在过程中变得更大。”</em> 并补了一句他自己的判断：<strong>“即使技术或媒介变了，对创意技能和品味的需求不会消失，只是更多人能有效地用上这些技能。”</strong> 同一天他还发了”Muse 和 Box 在一起了”——创意工具进企业工作流，走的是他一直在走的那条路。</li>
+<li><strong>Aditya Agarwal（136 赞、4 转发）</strong>：<em>“一个人职业生涯里换过很多地方，说明了很多。公司人员流动低，也说明了很多。一起工作 3 年以上的团队，吞吐量和韧性显著高于刚组建的团队。”</em> 他点出了一个投资人和员工都常犯的错：<strong>只问团队规模，不问团队存续时间。</strong> 当 agent 让个人产出可扩展时，”团队共同经历了多长时间”反而变成了更难被复制的东西。</li>
+<li><strong>Peter Steinberger（96 赞 &#x2F; 89 赞、5 转发）</strong>：<em>“Astra 在碾压一切。”</em> 以及 <em>“有浏览器了，谁还需要 VNC。”</em> 后者是今天多条内容共享的一个潜台词——<strong>浏览器正在成为 agent 操作世界的通用接口。</strong></li>
+<li><strong>Garry Tan（292 赞、5 转发 &#x2F; 428 赞、20 转发）</strong>：<em>“Muse 非常厉害。”</em> 以及 <em>“这个还没被定价进去。”</em> 第二条没说是哪件事，但在一个刚上完货架、刚拆完架构、刚降完价的一周，这类判断值得记下时间戳。</li>
+<li><strong>Josh Woodward（366 赞、11 转发）</strong>：<em>“你喜欢的更多应用正在来到 Gemini 上！下一个你想要哪个？”</em> 入口争夺战里最标准的一句问话——<strong>生态扩张变成了公开征集。</strong></li>
+</ul>
+<hr>
+<p><strong>一句话总结今天：</strong> 当模型智能挤成一条平线，行业的动作全部转向结构——把 agent 拆成大脑、手和存储，把工具和 agent 摆上货架，把语音和浏览器接到 harness 上，把性能做成可以持续刷新的指标。<strong>过去两年问的是”模型能做什么”，今天问的是”这些东西该怎么组装，以及组装好之后我们到底要拿它做什么”——Ryo Lu 的那条反省之所以被转发最多，是因为它是今天唯一在问后半句的人。</strong></p>
+<hr>
+<p><em>由 <a target="_blank" rel="noopener" href="https://github.com/zarazhangrui/follow-builders">Follow Builders</a> 与 AI 热点综述流程生成 · 2026-09-24</em></p>
+
   </div>
-</section>
+</article>
 
-
-<div class="post-list">
-  
-  <a class="pl-item" href="/ai-hotspots/AI-Hotspots-2026-09-14.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 热点综述 - 2026-09-14</span>
-      <span class="pl-date">2026-09-14</span>
-    </div>
-    <p class="pl-excerpt">AI 行业热点综述 — 2026-09-14</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/hotspots-2026-09-14.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 行业热点 - 2026-09-14</span>
-      <span class="pl-date">2026-09-14</span>
-    </div>
-    <p class="pl-excerpt">AI 建造者最新动态 — 2026-09-14</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/AI-Hotspots-2026-09-12.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 热点综述 - 2026-09-12</span>
-      <span class="pl-date">2026-09-12</span>
-    </div>
-    <p class="pl-excerpt">AI 行业热点综述 — 2026-09-12</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/hotspots-2026-09-12.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 行业热点 - 2026-09-12</span>
-      <span class="pl-date">2026-09-12</span>
-    </div>
-    <p class="pl-excerpt">AI 建造者最新动态 — 2026-09-12</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/AI-Hotspots-2026-09-11.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 热点综述 - 2026-09-11</span>
-      <span class="pl-date">2026-09-11</span>
-    </div>
-    <p class="pl-excerpt">AI 行业热点综述 — 2026-09-11</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/hotspots-2026-09-11.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 行业热点 - 2026-09-11</span>
-      <span class="pl-date">2026-09-11</span>
-    </div>
-    <p class="pl-excerpt">AI 建造者最新动态 — 2026-09-11</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/AI-Hotspots-2026-09-10.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 热点综述 - 2026-09-10</span>
-      <span class="pl-date">2026-09-10</span>
-    </div>
-    <p class="pl-excerpt">AI 行业热点综述 — 2026-09-10</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/hotspots-2026-09-10.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 行业热点 - 2026-09-10</span>
-      <span class="pl-date">2026-09-10</span>
-    </div>
-    <p class="pl-excerpt">AI 建造者最新动态 — 2026-09-10</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/AI-Hotspots-2026-09-08.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 热点综述 - 2026-09-08</span>
-      <span class="pl-date">2026-09-08</span>
-    </div>
-    <p class="pl-excerpt">AI 行业热点综述 — 2026-09-08</p>
-  </a>
-  
-  <a class="pl-item" href="/ai-hotspots/hotspots-2026-09-08.html">
-    <div class="pl-top">
-      <span class="pl-title"><span class="bkt cyan">热点</span> AI 行业热点 - 2026-09-08</span>
-      <span class="pl-date">2026-09-08</span>
-    </div>
-    <p class="pl-excerpt">AI 建造者最新动态 — 2026-09-08</p>
-  </a>
-  
-</div>
-
-
-
-<nav class="pagination">
-  
-  <a class="prev" href="/ai-hotspots/page/2/">上一页</a>
-  
-  <span class="page-number">[3/13]</span>
-  
-  <a class="next" href="/ai-hotspots/page/4/">下一页</a>
-  
+<nav class="post-nav">
+  <a class="prev" href="/ai-hotspots">返回 AI 行业热点</a>
 </nav>
-
 
     </div>
   </main>
