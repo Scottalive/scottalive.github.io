@@ -5,29 +5,25 @@
         <link>https://scottalive.github.io</link>
         <description>编程笔记 &amp; 资料分享</description>
         <language>zh-CN</language>
-        <pubDate>Wed, 23 Sep 2026 22:00:00 +0800</pubDate>
-        <lastBuildDate>Wed, 23 Sep 2026 22:00:00 +0800</lastBuildDate>
-        <category>原则</category>
-        <category>个人详情</category>
-        <category>个人分享</category>
+        <pubDate>Thu, 24 Sep 2026 22:00:00 +0800</pubDate>
+        <lastBuildDate>Thu, 24 Sep 2026 22:00:00 +0800</lastBuildDate>
         <category>坏习惯</category>
-        <category>心理学知识</category>
-        <category>阿德勒心理学</category>
-        <category>自卑与超越</category>
+        <category>个人分享</category>
         <category>AI日报</category>
         <category>AI</category>
         <category>GitHub热门</category>
         <category>人工智能</category>
         <category>技术趋势</category>
+        <category>原则</category>
+        <category>个人详情</category>
         <category>Kubernetes</category>
         <category>k8s</category>
         <category>容器编排</category>
         <category>DevOps</category>
         <category>运维</category>
-        <category>OpenSRE</category>
-        <category>Grafana</category>
-        <category>SRE</category>
-        <category>可观测性</category>
+        <category>kubeconfig</category>
+        <category>kubectl</category>
+        <category>Context</category>
         <category>Helm</category>
         <category>学习计划</category>
         <category>网络安全</category>
@@ -36,65 +32,216 @@
         <category>CSRF</category>
         <category>DDoS</category>
         <category>渗透测试</category>
-        <category>kubeconfig</category>
-        <category>kubectl</category>
-        <category>Context</category>
+        <category>OpenSRE</category>
+        <category>Grafana</category>
+        <category>SRE</category>
+        <category>可观测性</category>
         <category>GPT-5.5</category>
         <category>OpenAI</category>
         <category>Codex</category>
-        <category>ClaudeCode</category>
-        <category>Gemini</category>
-        <category>开发工具</category>
-        <category>开源</category>
         <category>Claude</category>
+        <category>ClaudeCode</category>
         <category>Agent</category>
         <category>MCP</category>
         <category>自动化</category>
-        <category>编程助手</category>
+        <category>开发工具</category>
         <category>编程笔记</category>
+        <category>Gemini</category>
+        <category>开源</category>
         <category>Hermes</category>
-        <category>v0.20</category>
-        <category>语音交互</category>
-        <category>A2A</category>
-        <category>Webhook</category>
         <category>v0.17</category>
+        <category>编程助手</category>
         <category>DeepSeek</category>
         <category>Harness</category>
         <category>插件</category>
         <category>安装教程</category>
         <category>NousResearch</category>
+        <category>v0.20</category>
+        <category>语音交互</category>
+        <category>A2A</category>
+        <category>Webhook</category>
         <category>进阶</category>
         <category>配置</category>
         <category>高阶</category>
+        <category>LangChain</category>
+        <category>LangGraph</category>
+        <category>Python</category>
         <category>LLM</category>
         <category>RAG</category>
         <category>知识库</category>
-        <category>LangGraph</category>
-        <category>LangChain</category>
-        <category>Python</category>
+        <category>OpenClaw</category>
+        <category>网关</category>
         <category>工作流</category>
+        <category>AI运维</category>
         <category>故障排查</category>
+        <category>根因分析</category>
+        <category>SSE</category>
+        <category>HTTP</category>
+        <category>心理学知识</category>
+        <category>阿德勒心理学</category>
+        <category>自卑与超越</category>
         <category>WorkBuddy</category>
         <category>腾讯</category>
         <category>办公自动化</category>
         <category>AI工具</category>
-        <category>SSE</category>
-        <category>HTTP</category>
-        <category>AI运维</category>
-        <category>根因分析</category>
         <category>JavaSE</category>
-        <category>OpenClaw</category>
-        <category>网关</category>
         <category>力扣算法题</category>
         <category>算法</category>
         <category>动态规划</category>
         <category>Java开发面试题</category>
-        <category>Spring</category>
         <category>SpringBoot</category>
+        <category>Spring</category>
         <category>接口开发</category>
         <category>开发注意事项</category>
         <category>微服务</category>
         <category>python</category>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-09-24/</guid>
+            <title>AI 日报 2026-09-24</title>
+            <link>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-09-24/</link>
+            <category>AI日报</category>
+            <category>AI</category>
+            <category>GitHub热门</category>
+            <category>人工智能</category>
+            <category>技术趋势</category>
+            <pubDate>Thu, 24 Sep 2026 22:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;今天的 AI 圈有两个明显信号。一是&lt;strong&gt;基础设施层继续向”智能体运行时”收敛&lt;/strong&gt;：GitHub 热榜被 agent harness、长期记忆、浏览器自动化这类”让 Agent 真正跑起来”的项目占据，纯模型权重的话题热度反而退居其次。二是&lt;strong&gt;消费端的 AI 硬件与监管开始正面碰撞&lt;/strong&gt;：Meta Connect 发布的无摄像头音频眼镜与新一代摄像眼镜，因缺乏隐私控制引发新一轮”perv glasses”舆论反弹；与此同时，美国参议院就 Flock 的全国 AI 监控网络举行听证。技术跑得越快，社会摩擦点越清晰。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;数据来源：GitHub 仓库检索 API（按 AI&amp;#x2F;Agent 相关主题、近期活跃度与 Star 排序），Star 数为查询时快照。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;1-affaan-m-ECC-—-The-agent-harness-performance-optimization-system&#34;&gt;&lt;a href=&#34;#1-affaan-m-ECC-—-The-agent-harness-performance-optimization-system&#34; class=&#34;headerlink&#34; title=&#34;1. affaan-m&amp;#x2F;ECC — The agent harness performance optimization system&#34;&gt;&lt;/a&gt;1. affaan-m&amp;#x2F;ECC — The agent harness performance optimization system&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：JavaScript｜&lt;strong&gt;Star&lt;/strong&gt;：约 266.5k｜&lt;strong&gt;创建&lt;/strong&gt;：2026-01&lt;/li&gt;
+&lt;li&gt;ECC 把自己定位为”Agent 骨架的性能优化层”，主张把 Skills（技能）、Instincts（本能&amp;#x2F;启发式）、Memory（记忆）、Security（安全边界）四个维度分别抽出来做工程化调优，而不是塞进一个巨型 system prompt。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技术栈&lt;/strong&gt;：以 JavaScript 为主，通过 MCP（Model Context Protocol）与 Claude Code、Codex、OpenCode、Cursor 等各类宿主 Agent 对接。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：当你同时使用多个编码 Agent（Claude Code + Codex 混用）时，ECC 提供一套统一的技能与记忆层，避免每换一个宿主就重写一遍上下文策略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;值得关注的点&lt;/strong&gt;：它把”研究优先（research-first）”写进了开发流程——Agent 在动手改代码前先做检索与证据收集，这和后来 Google Docs 把 Gemini Notebook 接进文档是同一个思路的不同载体。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-NousResearch-hermes-agent-—-The-agent-that-grows-with-you&#34;&gt;&lt;a href=&#34;#2-NousResearch-hermes-agent-—-The-agent-that-grows-with-you&#34; class=&#34;headerlink&#34; title=&#34;2. NousResearch&amp;#x2F;hermes-agent — The agent that grows with you&#34;&gt;&lt;/a&gt;2. NousResearch&amp;#x2F;hermes-agent — The agent that grows with you&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Python｜&lt;strong&gt;Star&lt;/strong&gt;：约 248.6k｜&lt;strong&gt;创建&lt;/strong&gt;：2025-07&lt;/li&gt;
+&lt;li&gt;Hermes Agent 的卖点是”可成长性”：Agent 的能力不是一次性配置死的，而是随使用积累技能与偏好。它叠在 Nous Research 的 Hermes 模型家族之上，提供本地优先的运行方式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技术栈&lt;/strong&gt;：Python + 自有模型权重，强调可在个人机器上长期运行。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：个人知识助理、长期陪伴型 Agent、需要跨会话保留上下文的工作流。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;看点&lt;/strong&gt;：248k Star 量级说明”Agent 的持久记忆”已经是硬需求，而非玩具功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-deepseek-ai-deepseek-harness-—-Everything-is-a-Plugin&#34;&gt;&lt;a href=&#34;#3-deepseek-ai-deepseek-harness-—-Everything-is-a-Plugin&#34; class=&#34;headerlink&#34; title=&#34;3. deepseek-ai&amp;#x2F;deepseek-harness — Everything is a Plugin&#34;&gt;&lt;/a&gt;3. deepseek-ai&amp;#x2F;deepseek-harness — Everything is a Plugin&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：TypeScript｜&lt;strong&gt;Star&lt;/strong&gt;：约 234.9k｜&lt;strong&gt;创建&lt;/strong&gt;：2026-08&lt;/li&gt;
+&lt;li&gt;官方的一句话宣言”Everything is a Plugin”很能说明设计哲学：核心保持极薄，工具、记忆、模型适配全部走插件协议。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技术栈&lt;/strong&gt;：TypeScript，插件化运行时。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：企业内需要自建 Agent 运行时、又不想被单一厂商工具链绑定的团队。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;看点&lt;/strong&gt;：一个 8 月才创建的项目一个多月冲到 23 万 Star，说明开源社区对”可替换、可审计的 Agent 内核”有强需求。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-firecrawl-firecrawl-—-The-web-data-API-to-search-scrape-and-interact-at-scale&#34;&gt;&lt;a href=&#34;#4-firecrawl-firecrawl-—-The-web-data-API-to-search-scrape-and-interact-at-scale&#34; class=&#34;headerlink&#34; title=&#34;4. firecrawl&amp;#x2F;firecrawl — The web data API to search, scrape, and interact at scale&#34;&gt;&lt;/a&gt;4. firecrawl&amp;#x2F;firecrawl — The web data API to search, scrape, and interact at scale&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：TypeScript｜&lt;strong&gt;Star&lt;/strong&gt;：约 184.1k&lt;/li&gt;
+&lt;li&gt;给 Agent 提供”干净的上网能力”：搜索、抓取、交互一站式 API，把网页变成结构化输入。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：RAG 数据管道、竞品监控、Agent 的联网工具层。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;看点&lt;/strong&gt;：当所有 Agent 都要联网时，”网页 → 结构化数据”这一层会成为必争之地。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-Graphify-Labs-graphify-—-把代码库变成可查询知识图谱&#34;&gt;&lt;a href=&#34;#5-Graphify-Labs-graphify-—-把代码库变成可查询知识图谱&#34; class=&#34;headerlink&#34; title=&#34;5. Graphify-Labs&amp;#x2F;graphify — 把代码库变成可查询知识图谱&#34;&gt;&lt;/a&gt;5. Graphify-Labs&amp;#x2F;graphify — 把代码库变成可查询知识图谱&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Python｜&lt;strong&gt;Star&lt;/strong&gt;：约 121.1k｜&lt;strong&gt;创建&lt;/strong&gt;：2026-04&lt;/li&gt;
+&lt;li&gt;把任意代码库连同文档、SQL Schema、配置文件、PDF 一起抽成可查询的知识图谱，并以 &lt;code&gt;/graphify&lt;/code&gt; 技能形式接入 Claude Code、Cursor。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：大型存量代码库的 onboarding、跨文件影响面分析、给 Agent 提供结构化代码上下文。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;看点&lt;/strong&gt;：这是”上下文工程”从塞文本走向塞图谱的代表作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;6-browser-use-browser-use-—-Agents-that-use-the-browser&#34;&gt;&lt;a href=&#34;#6-browser-use-browser-use-—-Agents-that-use-the-browser&#34; class=&#34;headerlink&#34; title=&#34;6. browser-use&amp;#x2F;browser-use — Agents that use the browser&#34;&gt;&lt;/a&gt;6. browser-use&amp;#x2F;browser-use — Agents that use the browser&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Python｜&lt;strong&gt;Star&lt;/strong&gt;：约 116.2k&lt;/li&gt;
+&lt;li&gt;让 Agent 直接操作浏览器完成网页任务，是当前”Computer Use &amp;#x2F; Browser Use”路线里最活跃的开源实现之一。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;7-google-gemini-gemini-cli-—-把-Gemini-放进终端&#34;&gt;&lt;a href=&#34;#7-google-gemini-gemini-cli-—-把-Gemini-放进终端&#34; class=&#34;headerlink&#34; title=&#34;7. google-gemini&amp;#x2F;gemini-cli — 把 Gemini 放进终端&#34;&gt;&lt;/a&gt;7. google-gemini&amp;#x2F;gemini-cli — 把 Gemini 放进终端&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：TypeScript｜&lt;strong&gt;Star&lt;/strong&gt;：约 107.1k&lt;/li&gt;
+&lt;li&gt;开源命令行 Agent，强调本地工作流与工具调用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;8-thedotmack-claude-mem-—-Persistent-Context-Across-Sessions&#34;&gt;&lt;a href=&#34;#8-thedotmack-claude-mem-—-Persistent-Context-Across-Sessions&#34; class=&#34;headerlink&#34; title=&#34;8. thedotmack&amp;#x2F;claude-mem — Persistent Context Across Sessions&#34;&gt;&lt;/a&gt;8. thedotmack&amp;#x2F;claude-mem — Persistent Context Across Sessions&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：TypeScript｜&lt;strong&gt;Star&lt;/strong&gt;：约 94.6k&lt;/li&gt;
+&lt;li&gt;捕获 Agent 会话过程中的一切，用 AI 压缩后在新会话中重新注入，专治”每次重开都要重新解释背景”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;其余值得一看&#34;&gt;&lt;a href=&#34;#其余值得一看&#34; class=&#34;headerlink&#34; title=&#34;其余值得一看&#34;&gt;&lt;/a&gt;其余值得一看&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;项目&lt;/th&gt;
+&lt;th&gt;Star&lt;/th&gt;
+&lt;th&gt;语言&lt;/th&gt;
+&lt;th&gt;一句话&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;langchain-ai&amp;#x2F;langchain&lt;/td&gt;
+&lt;td&gt;147.0k&lt;/td&gt;
+&lt;td&gt;Python&lt;/td&gt;
+&lt;td&gt;Agent 工程平台，生态基座&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;infiniflow&amp;#x2F;ragflow&lt;/td&gt;
+&lt;td&gt;91.3k&lt;/td&gt;
+&lt;td&gt;Go&lt;/td&gt;
+&lt;td&gt;RAG 引擎 + Agent 融合&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bytedance&amp;#x2F;deer-flow&lt;/td&gt;
+&lt;td&gt;82.9k&lt;/td&gt;
+&lt;td&gt;Python&lt;/td&gt;
+&lt;td&gt;长周期 SuperAgent 骨架，带沙箱与记忆&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;stablyai&amp;#x2F;orca&lt;/td&gt;
+&lt;td&gt;77.2k&lt;/td&gt;
+&lt;td&gt;TypeScript&lt;/td&gt;
+&lt;td&gt;并行 Agent 舰队的开发环境（ADE）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ComposioHQ&amp;#x2F;awesome-claude-skills&lt;/td&gt;
+&lt;td&gt;75.6k&lt;/td&gt;
+&lt;td&gt;Python&lt;/td&gt;
+&lt;td&gt;Claude Skills 资源合集&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;microsoft&amp;#x2F;ai-agents-for-beginners&lt;/td&gt;
+&lt;td&gt;75.6k&lt;/td&gt;
+&lt;td&gt;Jupyter&lt;/td&gt;
+&lt;td&gt;官方 18 课入门教程&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ruvnet&amp;#x2F;ruflo&lt;/td&gt;
+&lt;td&gt;73.2k&lt;/td&gt;
+&lt;td&gt;TypeScript&lt;/td&gt;
+&lt;td&gt;多 Agent 蜂群编排&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;从这张榜单能读出的结构&lt;/strong&gt;：前十里没有一个是”新模型”，全是”让模型好用起来”的运行时、记忆、检索与工具层。Agent 赛道的竞争重心，已经从”谁的模型更强”转移到”谁的运行时更可靠”。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[Agent 运行时赛道] --&amp;gt; B[骨架 / Harness 层]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; C[记忆 / 上下文层]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; D[工具 / 感知层]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; E[编排 / 并行层]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; B1[ECC&amp;lt;br/&amp;gt;技能+本能+安全]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; B2[deepseek-harness&amp;lt;br/&amp;gt;全插件化]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; C1[claude-mem&amp;lt;br/&amp;gt;会话压缩注入]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; C2[graphify&amp;lt;br/&amp;gt;代码库知识图谱]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; D1[firecrawl&amp;lt;br/&amp;gt;网页结构化]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; D2[browser-use&amp;lt;br/&amp;gt;浏览器操作]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; E1[orca&amp;lt;br/&amp;gt;并行 Agent 环境]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; E2[ruflo&amp;lt;br/&amp;gt;蜂群协调]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B1 &amp;amp; B2 --&amp;gt; F[宿主：Claude Code / Codex / Cursor / 自建]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C1 &amp;amp; C2 --&amp;gt; F&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D1 &amp;amp; D2 --&amp;gt; F&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E1 &amp;amp; E2 --&amp;gt; F&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;ChatGPT Voice 登陆移动端，长出”手”和”眼”&lt;/strong&gt;&lt;br&gt;OpenAI 在桌面端上线升级版语音模式后，把 ChatGPT Voice 的 agentic 能力带到了手机。现在可以用语音让 ChatGPT 跨已连接的应用执行任务——查邮件、总结 Google Drive 里的文件，在手机或 CarPlay 上直接完成。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Google Docs 接入 Gemini Notebook&lt;/strong&gt;&lt;br&gt;在 Docs 底部的 Gemini 栏输入 &lt;code&gt;@&lt;/code&gt;，就能调出 Gemini Notebook 列表；选中后 Gemini 会基于这些来源生成文档。把”研究资料 → 写作”的链路做进了编辑器。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;YouTube 扩产个性化 AI Feed，并把水印打到声音上&lt;/strong&gt;&lt;br&gt;用户可以创建并保存多个基于 prompt 的个性化视频流（美国区先行）。同时，likeness detection 从面部扩展到&lt;strong&gt;声音&lt;/strong&gt;，创作者可以监控平台上有没有人用合成音色冒充自己。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;特斯拉上线 Grok Bot&lt;/strong&gt;&lt;br&gt;该 AI Agent 可”管理收件箱、整理日历、就现有文件&amp;#x2F;聊天&amp;#x2F;任务对话”，仅面向月费 300 美元的 SuperGrok Heavy 订阅者。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Meta Connect：眼镜的双轨策略与隐私债&lt;/strong&gt;&lt;br&gt;Meta 在 Connect 上同时推出了&lt;strong&gt;无摄像头的纯音频 Ray-Ban&lt;/strong&gt;和支持更强摄像能力的新眼镜——但两者都缺少应对”perv glasses”舆论的隐私控制。Zuckerberg 在 30 分钟访谈中辩称公司在隐私上有记录可查，并称”未来 Meta 做的更多事情会更像 WhatsApp”。硬件已经就位，社会共识还没有。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DHH：37signals 将告别手写代码&lt;/strong&gt;&lt;br&gt;Ruby on Rails 作者、37signals CTO David Heinemeier Hansson 宣布公司将”用 AI Agent 来 vibe-coding 一切”，逐步离开 Ruby。他承认今年春天用这套方式做 Basecamp 5 时结果”喜忧参半”，也曾在去年说过”我能真切感到能力从指尖流走”。这是一个信号：连最手工艺派的老牌公司，也在重写自己的工程方法论。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;监管侧：Flock 全国 AI 监控网络听证会&lt;/strong&gt;&lt;br&gt;参议院司法委员会就 Flock 的执法摄像头网络举行听证。委员会邀请了 Flock 及 Axon、Motorola Solutions、Verkada 等同行 CEO，据称这些公司&lt;strong&gt;集体拒绝出席&lt;/strong&gt;，但会场依然坐满。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;数据中心正在失去民心&lt;/strong&gt;&lt;br&gt;Pew 最新报告显示，美国人对数据中心的负面看法在每一项调查类别上都在上升，仅 4% 受访者认为数据中心”整体影响偏正面”。更值得注意的是：表示”完全没听说过数据中心”的人，7 个月内从 25% 掉到 12%——不知情的人正在快速变成反对者。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;产业侧（AI News 汇总）&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;美国 TRANSCOM 部署”随机化 AI”来保障军事物流安全；&lt;/li&gt;
+&lt;li&gt;Toyota 推进工厂机器人的 Physical AI；&lt;/li&gt;
+&lt;li&gt;多 Agent 系统开始用于供应链执行，Gartner 给出仓储自动化的四个 AI 层级；&lt;/li&gt;
+&lt;li&gt;Microsoft AI CEO 就模型权利问题公开批评 Anthropic；&lt;/li&gt;
+&lt;li&gt;Pony.ai 面向物流车队推出自动驾驶电动卡车。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;洞见一：Agent-的护城河正在从”模型”转移到”记忆”&#34;&gt;&lt;a href=&#34;#洞见一：Agent-的护城河正在从”模型”转移到”记忆”&#34; class=&#34;headerlink&#34; title=&#34;洞见一：Agent 的护城河正在从”模型”转移到”记忆”&#34;&gt;&lt;/a&gt;洞见一：Agent 的护城河正在从”模型”转移到”记忆”&lt;/h3&gt;&lt;p&gt;榜单上 claude-mem（94.6k）、hermes-agent（248.6k）、graphify（121.1k）三个项目指向同一件事：&lt;strong&gt;跨会话、跨工具的持久上下文，是当前 Agent 体验最大的断点&lt;/strong&gt;。模型能力靠 API 就能买到，但”记得你昨天做过什么、知道你仓库的调用关系”这件事，必须在运行时自己解决。&lt;/p&gt;
+&lt;p&gt;这也解释了为什么”会话压缩后重注入”（claude-mem）和”代码库知识图谱”（graphify）会同时火：它们分别是把&lt;strong&gt;时间维度&lt;/strong&gt;和&lt;strong&gt;结构维度&lt;/strong&gt;的上下文工程化。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 传统[传统 Agent 上下文]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A1[会话开始] --&amp;gt; A2[塞入有限历史]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A2 --&amp;gt; A3[超长即丢弃]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A3 --&amp;gt; A4[会话结束即遗忘]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 新范式[记忆化 Agent 上下文]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B1[会话进行] --&amp;gt; B2[捕获全量轨迹]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B2 --&amp;gt; B3[AI 压缩为记忆条目]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B3 --&amp;gt; B4[写入持久存储]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B4 --&amp;gt; B5[新会话按需检索注入]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B5 --&amp;gt; B1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A4 -.断点.-&amp;gt; B1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;洞见二：插件化内核-研究优先，正在成为-Agent-的默认架构&#34;&gt;&lt;a href=&#34;#洞见二：插件化内核-研究优先，正在成为-Agent-的默认架构&#34; class=&#34;headerlink&#34; title=&#34;洞见二：插件化内核 + 研究优先，正在成为 Agent 的默认架构&#34;&gt;&lt;/a&gt;洞见二：插件化内核 + 研究优先，正在成为 Agent 的默认架构&lt;/h3&gt;&lt;p&gt;deepseek-harness 的”Everything is a Plugin”、ECC 的”技能&amp;#x2F;本能&amp;#x2F;记忆&amp;#x2F;安全四层解耦”，加上 Google Docs 把 Notebook 作为可引用来源、Agent 在动手前先检索证据——这些看似分散的动作，其实是同一个设计共识：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;内核要薄、能力要可替换、行动前先取证。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;对企业而言，这意味着选型逻辑要变：不要再问”哪个 Agent 框架功能最全”，而要问”它的记忆层能不能迁走、工具协议是不是开放的、审计日志留不留”。功能会过时，可替换性才保值。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;本日报由自动化流程生成，GitHub 数据来自仓库检索 API 快照，新闻信息来自 The Verge 与 AI News 公开报道。&lt;/em&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-09-23/</guid>
             <title>AI 日报 2026-09-23</title>
