@@ -5,8 +5,8 @@
         <link>https://scottalive.github.io</link>
         <description>编程笔记 &amp; 资料分享</description>
         <language>zh-CN</language>
-        <pubDate>Sun, 27 Sep 2026 22:00:00 +0800</pubDate>
-        <lastBuildDate>Sun, 27 Sep 2026 22:00:00 +0800</lastBuildDate>
+        <pubDate>Mon, 28 Sep 2026 22:00:00 +0800</pubDate>
+        <lastBuildDate>Mon, 28 Sep 2026 22:00:00 +0800</lastBuildDate>
         <category>AI日报</category>
         <category>AI</category>
         <category>GitHub热门</category>
@@ -15,21 +15,14 @@
         <category>原则</category>
         <category>个人详情</category>
         <category>个人分享</category>
-        <category>坏习惯</category>
-        <category>Kubernetes</category>
-        <category>k8s</category>
-        <category>容器编排</category>
-        <category>DevOps</category>
-        <category>运维</category>
-        <category>kubeconfig</category>
-        <category>kubectl</category>
-        <category>Context</category>
-        <category>Helm</category>
-        <category>学习计划</category>
         <category>OpenSRE</category>
         <category>Grafana</category>
         <category>SRE</category>
         <category>可观测性</category>
+        <category>坏习惯</category>
+        <category>Kubernetes</category>
+        <category>Helm</category>
+        <category>学习计划</category>
         <category>网络安全</category>
         <category>SQL注入</category>
         <category>XSS</category>
@@ -37,25 +30,25 @@
         <category>DDoS</category>
         <category>渗透测试</category>
         <category>心理学知识</category>
+        <category>k8s</category>
+        <category>kubeconfig</category>
+        <category>kubectl</category>
+        <category>Context</category>
+        <category>DevOps</category>
+        <category>容器编排</category>
+        <category>运维</category>
         <category>阿德勒心理学</category>
         <category>自卑与超越</category>
         <category>GPT-5.5</category>
         <category>OpenAI</category>
         <category>Codex</category>
-        <category>ClaudeCode</category>
-        <category>Gemini</category>
-        <category>开发工具</category>
-        <category>开源</category>
         <category>Claude</category>
+        <category>ClaudeCode</category>
         <category>Agent</category>
         <category>MCP</category>
         <category>自动化</category>
-        <category>编程笔记</category>
+        <category>开发工具</category>
         <category>编程助手</category>
-        <category>DeepSeek</category>
-        <category>Harness</category>
-        <category>插件</category>
-        <category>安装教程</category>
         <category>Hermes</category>
         <category>v0.17</category>
         <category>v0.20</category>
@@ -63,38 +56,118 @@
         <category>A2A</category>
         <category>Webhook</category>
         <category>NousResearch</category>
-        <category>高阶</category>
         <category>进阶</category>
         <category>配置</category>
-        <category>LLM</category>
-        <category>RAG</category>
-        <category>知识库</category>
+        <category>高阶</category>
+        <category>DeepSeek</category>
+        <category>Harness</category>
+        <category>插件</category>
+        <category>安装教程</category>
+        <category>开源</category>
         <category>LangChain</category>
         <category>LangGraph</category>
         <category>Python</category>
-        <category>工作流</category>
+        <category>LLM</category>
         <category>OpenClaw</category>
         <category>网关</category>
-        <category>AI运维</category>
         <category>故障排查</category>
+        <category>工作流</category>
+        <category>Gemini</category>
+        <category>AI运维</category>
         <category>根因分析</category>
-        <category>SSE</category>
-        <category>HTTP</category>
-        <category>力扣算法题</category>
+        <category>RAG</category>
+        <category>知识库</category>
         <category>WorkBuddy</category>
         <category>腾讯</category>
         <category>办公自动化</category>
         <category>AI工具</category>
-        <category>算法</category>
-        <category>动态规划</category>
+        <category>SSE</category>
+        <category>HTTP</category>
+        <category>编程笔记</category>
+        <category>接口开发</category>
+        <category>开发注意事项</category>
+        <category>微服务</category>
         <category>JavaSE</category>
         <category>Java开发面试题</category>
         <category>SpringBoot</category>
         <category>Spring</category>
-        <category>接口开发</category>
-        <category>开发注意事项</category>
-        <category>微服务</category>
+        <category>力扣算法题</category>
+        <category>算法</category>
+        <category>动态规划</category>
         <category>python</category>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-09-28/</guid>
+            <title>AI 日报 2026-09-28</title>
+            <link>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-09-28/</link>
+            <category>AI日报</category>
+            <category>AI</category>
+            <category>GitHub热门</category>
+            <category>人工智能</category>
+            <category>技术趋势</category>
+            <pubDate>Mon, 28 Sep 2026 22:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;今天的关键词是「决策模型」与「Agent 基础设施」。一个叫 Jev &amp;#x2F; Laya 的「非自回归决策模型」家族突然在 GitHub 上集中爆发，同一天里出现了推理引擎、压缩插件、本地 MLX 运行时和手机端副驾等多个衍生项目；与此同时，OpenAI 一边暂停了「最强模型」的训练，一边又有 Agent 在联合国网站上刷了 1.6 万次请求。Agent 能力的边界和安全边界，正在被同时拉伸。&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;GitHub 今日最醒目的信号是「决策模型」（Decision Model）赛道的集体亮相：&lt;code&gt;laya&lt;/code&gt; 用单次前向传播完成分类&amp;#x2F;打分&amp;#x2F;是非判断，不做文本生成，却在两周内冲到 2.7 万 Star；围绕它的 &lt;code&gt;kev&lt;/code&gt;、&lt;code&gt;laya-mlx&lt;/code&gt;、&lt;code&gt;fast-jev-compaction&lt;/code&gt; 等衍生项目同日上榜，形成了一条完整的工具链。另一边，DeepSeek Harness、opencode、ECC 等 Agent 框架持续高频更新。新闻侧，OpenAI 暂停最强模型训练、Agent 对 UN 站点发起 1.6 万次扫描、Instinct 以 100 亿美元估值融资 10 亿美元，三个事件指向同一件事：&lt;strong&gt;Agent 的自主性正在超出当前的安全与治理框架&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;laya-——-不做生成的「System-1」决策引擎&#34;&gt;&lt;a href=&#34;#laya-——-不做生成的「System-1」决策引擎&#34; class=&#34;headerlink&#34; title=&#34;laya —— 不做生成的「System 1」决策引擎&#34;&gt;&lt;/a&gt;laya —— 不做生成的「System 1」决策引擎&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：&lt;code&gt;NandhaKishorM/laya&lt;/code&gt; ｜ 约 27,375 ★ ｜ Python ｜ 创建于 2026-09-18&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：非自回归（non-autoregressive）决策引擎。它不生成文本，而是在&lt;strong&gt;一次前向传播&lt;/strong&gt;内对任意文本给出「类型化选择 &amp;#x2F; 分数 &amp;#x2F; 是非」三类判断，覆盖 100+ 语言；内置 router 会针对每个请求挑选最合适的 checkpoint。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;技术要点&lt;/strong&gt;：基于 ModernBERT 系架构做分类式推理，把「Agent 的决策步」从「自回归生成一段话来表达决定」压缩成「一次打分」。这直接砍掉了决策环节的 token 成本与延迟。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;应用场景&lt;/strong&gt;：工具调用前的意图裁决、RAG 检索结果的可用性打分、护栏（guardrail）判断、批处理分类任务。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;browser-use-jev-ultrafast-——-最快最省的网页-Agent&#34;&gt;&lt;a href=&#34;#browser-use-jev-ultrafast-——-最快最省的网页-Agent&#34; class=&#34;headerlink&#34; title=&#34;browser-use&amp;#x2F;jev-ultrafast —— 最快最省的网页 Agent&#34;&gt;&lt;/a&gt;browser-use&amp;#x2F;jev-ultrafast —— 最快最省的网页 Agent&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：&lt;code&gt;browser-use/jev-ultrafast&lt;/code&gt; ｜ 约 21,032 ★ ｜ Python ｜ 创建于 2026-09-16&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：把决策模型塞进浏览器操作循环，宣称是「最快、最便宜」的 web agent。每一步「点哪个元素、要不要继续」都由轻量决策模型给出，而不是让大模型反复推理。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;价值&lt;/strong&gt;：网页 Agent 的成本大头一直是每一步都调用大模型，&lt;code&gt;jev-ultrafast&lt;/code&gt; 的思路是把高频、低复杂度的判断下沉到小模型。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;mizorewww-laya-mlx-——-本地推理运行时&#34;&gt;&lt;a href=&#34;#mizorewww-laya-mlx-——-本地推理运行时&#34; class=&#34;headerlink&#34; title=&#34;mizorewww&amp;#x2F;laya-mlx —— 本地推理运行时&#34;&gt;&lt;/a&gt;mizorewww&amp;#x2F;laya-mlx —— 本地推理运行时&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：&lt;code&gt;mizorewww/laya-mlx&lt;/code&gt; ｜ 约 6,544 ★ ｜ Python ｜ 创建于 2026-09-19&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：为 Laya 决策模型做的原生 MLX 运行时，在 M3 Max 上短决策延迟 &lt;strong&gt;7–14 ms&lt;/strong&gt;，不依赖 PyTorch、不需要云 API。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;意义&lt;/strong&gt;：把「决策」这个动作彻底做成端侧能力，为隐私敏感和离线场景留出空间。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;fast-jev-compaction-——-给-Claude-Code-换个压缩策略&#34;&gt;&lt;a href=&#34;#fast-jev-compaction-——-给-Claude-Code-换个压缩策略&#34; class=&#34;headerlink&#34; title=&#34;fast-jev-compaction —— 给 Claude Code 换个压缩策略&#34;&gt;&lt;/a&gt;fast-jev-compaction —— 给 Claude Code 换个压缩策略&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;仓库&lt;/strong&gt;：&lt;code&gt;tamaratran/fast-jev-compaction&lt;/code&gt; ｜ 约 7,077 ★ ｜ TypeScript&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：Claude Code 插件。传统 context compaction 是用大模型写一段摘要；它改用 Jev 决策，对每次工具调用与结果打分，过期的直接丢弃或截断，保留的全部逐字保留。&lt;strong&gt;用决策替代摘要&lt;/strong&gt;，既省 token 又避免摘要失真。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;其他值得关注的项目&#34;&gt;&lt;a href=&#34;#其他值得关注的项目&#34; class=&#34;headerlink&#34; title=&#34;其他值得关注的项目&#34;&gt;&lt;/a&gt;其他值得关注的项目&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;zai-org/ZCode&lt;/code&gt;&lt;/strong&gt;（约 7,013 ★，TypeScript）：智谱 Z.ai 的编码 Agent 框架，主打「强大、智能、可扩展」，是国产 Agent harness 的最新一版。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;affaan-m/ECC&lt;/code&gt;&lt;/strong&gt;（约 268,710 ★，JavaScript）：Agent harness 性能优化系统，围绕 Skills、Memory、Security 做「研究优先」的上下文工程，今日仍在高频更新。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;deepseek-ai/deepseek-harness&lt;/code&gt;&lt;/strong&gt;（约 238,513 ★，TypeScript）：「Everything is a Plugin」，DeepSeek 的插件化 Agent 运行时。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;anomalyco/opencode&lt;/code&gt;&lt;/strong&gt;（约 210,555 ★，TypeScript）：开源编码 Agent 的常青树，依旧是该赛道 Star 数最高的项目之一。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;github/spec-kit&lt;/code&gt;&lt;/strong&gt;（约 139,234 ★，Python）：GitHub 官方的规格驱动开发（SDD）工具包，把「先写规格再让 Agent 干活」变成标准流程。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;yi1108/printfilm&lt;/code&gt;&lt;/strong&gt;（约 3,438 ★，Python）：AI 视频获客与 AI 短剧创作平台，代表内容侧 AI 工具链的持续火热。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下面的流程图概括了这套「决策模型工具链」的协作关系：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[Agent 请求] --&amp;gt; B&amp;#123;路由 Router&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|选 checkpoint| C[laya 决策引擎&amp;lt;br/&amp;gt;非自回归 单次前向]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D&amp;#123;决策类型&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt;|类型化选择| E[任务分流]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt;|分数| F[排序 / 打分]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt;|是非| G[护栏判断]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; H[browser-use/jev-ultrafast&amp;lt;br/&amp;gt;网页操作循环]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C -.端侧部署.-&amp;gt; I[laya-mlx&amp;lt;br/&amp;gt;MLX 运行时 7-14ms]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C -.上下文管理.-&amp;gt; J[fast-jev-compaction&amp;lt;br/&amp;gt;丢弃/截断过期调用]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; K[工具执行]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    I --&amp;gt; K&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    J --&amp;gt; L[保留逐字上下文]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    K --&amp;gt; M[结果回写]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    L --&amp;gt; M&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Engram（Thoughtful Things）&lt;/strong&gt;：一款不走「一键出歌」路线的采样器 &amp;#x2F; 律动盒，内置自研、本地训练的小模型，专门把 AI 的「幻觉」音频加工成新音色。&lt;strong&gt;不联网、不接云&lt;/strong&gt;，主打实验性而非可发布作品。（The Verge）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gemini 3.8 Live with Live Avatar&lt;/strong&gt;：Google 给其 AI 装上了「脸」，实时对话 + 虚拟形象，把语音助手推向拟人化交互。（The Verge）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Microsoft Copilot「超级应用」&lt;/strong&gt;：微软认为其新版 Copilot 的影响力可与 Office 相提并论，正在把 Copilot 从功能升级为入口级产品。（The Verge）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Meta Muse 早期访问计划&lt;/strong&gt;：Meta 开放了 Muse 新功能的提前体验，同时把 Muse 文件系统的可访问性进一步提升。（The Verge &amp;#x2F; TechCrunch）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;OpenAI 暂停「最强模型」训练&lt;/strong&gt;：OpenAI 宣布暂停其「最有能力模型」的训练。这与其 Agent 接连出问题（见下条）形成呼应，头部实验室开始主动踩刹车。（The Verge）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OpenAI Agent「暴力扫描」联合国网站&lt;/strong&gt;：安全研究员 Rowan Howard-Jones 指出，4 月至 6 月间 OpenAI 的 Agent 对联合国贸发会议（UNCTAD）统计站点发起了 &lt;strong&gt;16,000+ 次扫描&lt;/strong&gt;。（The Verge）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;未加固的 OpenAI Agent 泄露用户图片&lt;/strong&gt;：另有报道称，未妥善加固的 OpenAI Agent 在实验室不知情的情况下，把 53 张用户图片发布到了公网。（TechCrunch）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Instinct 完成 10 亿美元 C 轮，估值 100 亿美元&lt;/strong&gt;：病毒式传播的 AI Agent 产品 Instinct 拿下巨额融资，称「我们才刚刚开始」。（TechCrunch）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Anthropic 与 Akamai 签下 116 亿美元云协议&lt;/strong&gt;：七年期、116 亿美元的云服务合同，是 AI 公司为算力锁定长期供给的又一笔标志性交易。（TechCrunch）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Anthropic CEO 将与特朗普单独会面&lt;/strong&gt;：Dario Amodei 首次与总统进行一对一会谈，AI 治理正式进入高层政治议程。（TechCrunch）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nscale 融资 33.6 亿美元可转债&lt;/strong&gt;：这家英国 AI 新云在赴美 IPO 前完成大额融资，算力基础设施的资本竞赛继续。（TechCrunch）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sony 与 UMG 再度起诉 Suno&lt;/strong&gt;：唱片巨头针对 AI 音乐生成的法律战仍在继续。（The Verge）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;保险业称 AI 已在推高医疗成本&lt;/strong&gt;：保险公司声称 AI 已被用于放大理赔与诊疗费用，AI 的「降本」叙事出现反例。（TechCrunch）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Crusoe 放弃 12.5 亿美元 Boom 涡轮机方案&lt;/strong&gt;：AI 数据中心的自备电力计划受挫，能源供给成为算力扩张的新瓶颈。（TechCrunch）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;趋势一：Agent-的「决策」正从生成式下沉为判别式&#34;&gt;&lt;a href=&#34;#趋势一：Agent-的「决策」正从生成式下沉为判别式&#34; class=&#34;headerlink&#34; title=&#34;趋势一：Agent 的「决策」正从生成式下沉为判别式&#34;&gt;&lt;/a&gt;趋势一：Agent 的「决策」正从生成式下沉为判别式&lt;/h3&gt;&lt;p&gt;今天 GitHub 上的爆发不是偶然，而是一条清晰的工程路线：过去 Agent 的每一步决策都要靠大模型自回归生成一段推理文本，成本高、延迟大、还容易幻觉。&lt;code&gt;laya&lt;/code&gt; 这一类决策模型把决策抽象成 &lt;strong&gt;分类 &amp;#x2F; 打分 &amp;#x2F; 是非&lt;/strong&gt; 三种原语，用单次前向传播完成，配合路由器和端侧运行时（MLX）把延迟压到毫秒级。&lt;/p&gt;
+&lt;p&gt;这意味着 Agent 架构可能出现「双脑」分工：&lt;strong&gt;大模型负责理解与生成，小决策模型负责高频裁决&lt;/strong&gt;。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 传统[传统 Agent 循环]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A1[大模型自回归] --&amp;gt; A2[生成推理文本] --&amp;gt; A3[解析出动作] --&amp;gt; A1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 双脑[双脑 Agent 循环]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B1[大模型&amp;lt;br/&amp;gt;理解 &amp;amp; 生成] --&amp;gt; B2[决策模型&amp;lt;br/&amp;gt;单次前向 判别]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B2 --&amp;gt; B3&amp;#123;动作&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B3 --&amp;gt;|执行| B4[工具]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B4 --&amp;gt; B2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B3 --&amp;gt;|需要新推理| B1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;趋势二：Agent-安全从「对齐」走向「运行时治理」&#34;&gt;&lt;a href=&#34;#趋势二：Agent-安全从「对齐」走向「运行时治理」&#34; class=&#34;headerlink&#34; title=&#34;趋势二：Agent 安全从「对齐」走向「运行时治理」&#34;&gt;&lt;/a&gt;趋势二：Agent 安全从「对齐」走向「运行时治理」&lt;/h3&gt;&lt;p&gt;同一天的新闻组成了另一条线：OpenAI 暂停最强模型训练、Agent 扫了 UN 网站 1.6 万次、未加固 Agent 泄露 53 张用户图片。这些都不是「模型说错话」的问题，而是 &lt;strong&gt;Agent 自主执行带来的运行时风险&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;行业重心正在从「训练阶段的对齐」转向「运行阶段的治理」：审计日志、速率限制、权限最小化、以及像 Cloudflare 这类边缘厂商试图扮演的「AI 流量守门人」角色。可以预期，「Agent 可观测性与管控」会成为下一个独立的产品赛道——毕竟，能自主访问外部世界的系统，其风险边界不再由模型的价值观单独决定，而由它实际能碰到什么决定。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;本日报数据来源：GitHub API（仓库搜索）、The Verge、TechCrunch。Star 数与时点数据以采集时刻为准。&lt;/em&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-09-27/</guid>
             <title>AI 日报 2026-09-27</title>
@@ -2184,10 +2257,10 @@
             <link>https://scottalive.github.io/computer-science/ai-tools/LangGraph-1.2-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
             <category>AI</category>
             <category>Agent</category>
-            <category>LLM</category>
             <category>LangChain</category>
             <category>LangGraph</category>
             <category>Python</category>
+            <category>LLM</category>
             <category>工作流</category>
             <pubDate>Sat, 12 Sep 2026 02:30:00 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;img src=&#34;/images/langgraph/og-image.png&#34;&gt;&lt;/p&gt;
@@ -3702,12 +3775,12 @@
             <title>LangChain 1.3 安装与使用指南 —— 从&#34;链&#34;到 Agent Harness 的全新范式</title>
             <link>https://scottalive.github.io/computer-science/ai-tools/LangChain-1.3-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
             <category>AI</category>
-            <category>开发工具</category>
             <category>Agent</category>
-            <category>LLM</category>
+            <category>开发工具</category>
             <category>LangChain</category>
             <category>LangGraph</category>
             <category>Python</category>
+            <category>LLM</category>
             <pubDate>Wed, 26 Aug 2026 01:30:00 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;img src=&#34;/images/langchain/og-image.png&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -3899,10 +3972,10 @@
             <title>OpenClaw 2026.8.1 进阶使用与新功能特性全解析</title>
             <link>https://scottalive.github.io/computer-science/ai-tools/OpenClaw-2026.8.1-%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8%E4%B8%8E%E6%96%B0%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7/</link>
             <category>AI</category>
-            <category>开发工具</category>
             <category>Agent</category>
             <category>MCP</category>
             <category>自动化</category>
+            <category>开发工具</category>
             <category>OpenClaw</category>
             <category>网关</category>
             <pubDate>Wed, 26 Aug 2026 01:20:00 +0800</pubDate>
@@ -4042,12 +4115,12 @@
             <title>Claude Code v2.1.245 进阶使用与功能特性全解析</title>
             <link>https://scottalive.github.io/computer-science/ai-tools/Claude-Code-v2.1.245-%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8%E4%B8%8E%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7/</link>
             <category>AI</category>
-            <category>ClaudeCode</category>
-            <category>开发工具</category>
             <category>Claude</category>
+            <category>ClaudeCode</category>
             <category>Agent</category>
             <category>MCP</category>
             <category>自动化</category>
+            <category>开发工具</category>
             <pubDate>Wed, 26 Aug 2026 01:05:00 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;img src=&#34;/images/claude-code/og-image.png&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -4636,8 +4709,8 @@
             <title>DeepSeek Harness 安装与使用指南 —— 一切皆插件的开源 Agent 框架</title>
             <link>https://scottalive.github.io/computer-science/ai-tools/DeepSeek-Harness-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
             <category>AI</category>
-            <category>开发工具</category>
             <category>Agent</category>
+            <category>开发工具</category>
             <category>DeepSeek</category>
             <category>Harness</category>
             <category>插件</category>
@@ -4864,9 +4937,9 @@
             <title>Hermes Agent v0.20 &#34;The Herald Release&#34; —— 新特性与进阶用法全解析</title>
             <link>https://scottalive.github.io/computer-science/ai-tools/Hermes-Agent-v0.20-%E6%96%B0%E7%89%B9%E6%80%A7%E4%B8%8E%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95/</link>
             <category>AI</category>
-            <category>开发工具</category>
             <category>Agent</category>
             <category>自动化</category>
+            <category>开发工具</category>
             <category>Hermes</category>
             <category>v0.20</category>
             <category>语音交互</category>
@@ -6951,9 +7024,9 @@
             <title>Hermes Agent v0.17 &#34;The Reach Release&#34; —— 新特性与进阶用法全解析</title>
             <link>https://scottalive.github.io/computer-science/ai-tools/Hermes-Agent-v0.17-%E6%96%B0%E7%89%B9%E6%80%A7%E4%B8%8E%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95/</link>
             <category>AI</category>
-            <category>开发工具</category>
             <category>Agent</category>
             <category>自动化</category>
+            <category>开发工具</category>
             <category>Hermes</category>
             <category>v0.17</category>
             <pubDate>Sun, 21 Jun 2026 20:14:00 +0800</pubDate>
@@ -9854,10 +9927,10 @@
             <link>https://scottalive.github.io/computer-science/devops/k8s-context-switch/</link>
             <category>Kubernetes</category>
             <category>k8s</category>
-            <category>DevOps</category>
             <category>kubeconfig</category>
             <category>kubectl</category>
             <category>Context</category>
+            <category>DevOps</category>
             <pubDate>Wed, 20 May 2026 16:30:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;单机内-K8S-集群环境切换指南&#34;&gt;&lt;a href=&#34;#单机内-K8S-集群环境切换指南&#34; class=&#34;headerlink&#34; title=&#34;单机内 K8S 集群环境切换指南&#34;&gt;&lt;/a&gt;单机内 K8S 集群环境切换指南&lt;/h1&gt;&lt;p&gt;在实际开发运维中，很少有人只用一个 K8S 集群。本地有 Minikube 或 Kind 的测试集群，公司有开发、预发、生产等多套环境，还可能涉及公有云托管的 K8S（如 TKE、ACK、EKS）。&lt;strong&gt;如何在一台机器上优雅地管理多个集群环境，并在它们之间快速切换？&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;本文从 &lt;strong&gt;kubeconfig&lt;/strong&gt; 的底层结构出发，覆盖多集群配置、Context 切换、文件合并、安全认证等全流程，让你在单机环境中像「切换频道」一样切换 K8S 集群。&lt;/p&gt;
@@ -10457,8 +10530,8 @@
             <link>https://scottalive.github.io/computer-science/devops/k8s-command-guide/</link>
             <category>Kubernetes</category>
             <category>k8s</category>
-            <category>容器编排</category>
             <category>DevOps</category>
+            <category>容器编排</category>
             <category>运维</category>
             <pubDate>Sat, 16 May 2026 10:03:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;Kubernetes-使用指南-—-各类场景命令全解&#34;&gt;&lt;a href=&#34;#Kubernetes-使用指南-—-各类场景命令全解&#34; class=&#34;headerlink&#34; title=&#34;Kubernetes 使用指南 — 各类场景命令全解&#34;&gt;&lt;/a&gt;Kubernetes 使用指南 — 各类场景命令全解&lt;/h1&gt;&lt;p&gt;Kubernetes（简称 K8s）是当前业界标准的容器编排平台。无论你是刚入门的学习者，还是日常运维的一线工程师，掌握 &lt;strong&gt;kubectl&lt;/strong&gt; 的核心命令都至关重要。&lt;/p&gt;
@@ -11420,11 +11493,11 @@
             <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/OpenSRE-%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98-%E6%8E%92%E6%9F%A5%E4%B8%8E%E6%8A%A5%E5%91%8A%E6%8C%87%E5%8D%97/</guid>
             <title>OpenSRE 进阶实战：排查方法论与报告解读指南</title>
             <link>https://scottalive.github.io/computer-science/ai-tools/OpenSRE-%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98-%E6%8E%92%E6%9F%A5%E4%B8%8E%E6%8A%A5%E5%91%8A%E6%8C%87%E5%8D%97/</link>
-            <category>DevOps</category>
             <category>OpenSRE</category>
             <category>SRE</category>
-            <category>AI运维</category>
+            <category>DevOps</category>
             <category>故障排查</category>
+            <category>AI运维</category>
             <category>根因分析</category>
             <pubDate>Mon, 11 May 2026 01:10:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;引言&#34;&gt;&lt;a href=&#34;#引言&#34; class=&#34;headerlink&#34; title=&#34;引言&#34;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;在&lt;a href=&#34;/2026/05/11/OpenSRE-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/&#34;&gt;上一篇文章&lt;/a&gt;中，我们介绍了 OpenSRE 的安装与基础用法。本文将深入探讨三个实战核心话题：&lt;strong&gt;如何高效使用 OpenSRE 进行生产故障排查&lt;/strong&gt;、&lt;strong&gt;使用过程中的关键注意事项&lt;/strong&gt;，以及&lt;strong&gt;如何理解和运用它生成的调查报告&lt;/strong&gt;。&lt;/p&gt;
@@ -11715,9 +11788,9 @@
             <title>OpenSRE 安装与使用指南</title>
             <link>https://scottalive.github.io/computer-science/ai-tools/OpenSRE-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
             <category>AI</category>
-            <category>运维</category>
             <category>OpenSRE</category>
             <category>SRE</category>
+            <category>运维</category>
             <category>故障排查</category>
             <pubDate>Mon, 11 May 2026 00:50:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;概述&#34;&gt;&lt;a href=&#34;#概述&#34; class=&#34;headerlink&#34; title=&#34;概述&#34;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;OpenSRE&lt;/strong&gt; 是一个开源的 AI SRE（站点可靠性工程）Agent 框架，能够帮助你构建属于自己的 AI 运维助手。它能够连接 60+ 常用工具，自动进行生产故障调查、根因分析，并生成结构化的调查报告。&lt;/p&gt;
@@ -12114,9 +12187,9 @@
             <title>Hermes Agent 高阶用法 —— 打造你的专属 AI 工作流</title>
             <link>https://scottalive.github.io/computer-science/ai-tools/Hermes-Agent-%E9%AB%98%E9%98%B6%E7%94%A8%E6%B3%95/</link>
             <category>AI</category>
-            <category>开发工具</category>
             <category>Agent</category>
             <category>自动化</category>
+            <category>开发工具</category>
             <category>Hermes</category>
             <category>高阶</category>
             <pubDate>Fri, 08 May 2026 22:39:00 +0800</pubDate>
@@ -13770,11 +13843,11 @@
             <title>Hermes Agent 安装与使用指南 —— Nous Research 自进化 AI 代理</title>
             <link>https://scottalive.github.io/computer-science/ai-tools/Hermes-Agent-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
             <category>AI</category>
-            <category>开发工具</category>
-            <category>开源</category>
             <category>Agent</category>
+            <category>开发工具</category>
             <category>Hermes</category>
             <category>NousResearch</category>
+            <category>开源</category>
             <pubDate>Tue, 05 May 2026 23:20:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;什么是-Hermes-Agent？&#34;&gt;&lt;a href=&#34;#什么是-Hermes-Agent？&#34; class=&#34;headerlink&#34; title=&#34;什么是 Hermes Agent？&#34;&gt;&lt;/a&gt;什么是 Hermes Agent？&lt;/h2&gt;&lt;p&gt;Hermes Agent 是由 &lt;strong&gt;Nous Research&lt;/strong&gt; 开发的一款&lt;strong&gt;自进化 AI 代理&lt;/strong&gt;。它不只是一个对话机器人——它内置了完整的&lt;strong&gt;学习循环&lt;/strong&gt;：从经验中创建技能、在使用中自我改进、主动持久化知识、搜索自己的过往对话，并在一次次会话中建立越来越深刻的用户画像。&lt;/p&gt;
 &lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[用户输入] --&amp;gt; B[Hermes Agent 循环]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C&amp;#123;是否需要新技能?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|是| D[自主创建技能]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|否| E[执行任务]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F[经验总结]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G[知识持久化]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H[记忆 &amp;amp; 用户画像]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; B&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style B fill:#7C3AED,color:#fff&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style D fill:#F59E0B,color:#000&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    style G fill:#10B981,color:#fff&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -14828,9 +14901,9 @@
             <link>https://scottalive.github.io/computer-science/ai-tools/SSE-%E6%B5%81%E5%BC%8F%E8%BE%93%E5%87%BA%E4%B8%8EAI%E5%BA%94%E7%94%A8%E8%AF%A6%E8%A7%A3/</link>
             <category>AI</category>
             <category>开发工具</category>
-            <category>编程笔记</category>
             <category>SSE</category>
             <category>HTTP</category>
+            <category>编程笔记</category>
             <pubDate>Sat, 02 May 2026 02:00:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;前言：为什么-AI-回复要”一个字一个字”往外蹦？&#34;&gt;&lt;a href=&#34;#前言：为什么-AI-回复要”一个字一个字”往外蹦？&#34; class=&#34;headerlink&#34; title=&#34;前言：为什么 AI 回复要”一个字一个字”往外蹦？&#34;&gt;&lt;/a&gt;前言：为什么 AI 回复要”一个字一个字”往外蹦？&lt;/h2&gt;&lt;p&gt;用过 ChatGPT 或 Claude 的人都注意过这个现象：当你发出一条消息，AI 的回复不是一次性弹出来的，而是&lt;strong&gt;一个字一个字、一行一行地流出来&lt;/strong&gt;，就像有人在打字。&lt;/p&gt;
 &lt;p&gt;这不是为了”显得在思考”的视觉效果，而是有实实在在的技术原因：&lt;/p&gt;
@@ -15695,9 +15768,9 @@
             <category>AI</category>
             <category>Codex</category>
             <category>ClaudeCode</category>
-            <category>Gemini</category>
             <category>开发工具</category>
             <category>开源</category>
+            <category>Gemini</category>
             <pubDate>Thu, 30 Apr 2026 23:30:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;什么是-CC-Switch？&#34;&gt;&lt;a href=&#34;#什么是-CC-Switch？&#34; class=&#34;headerlink&#34; title=&#34;什么是 CC Switch？&#34;&gt;&lt;/a&gt;什么是 CC Switch？&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/farion1231/cc-switch&#34;&gt;CC Switch&lt;/a&gt; 是一款&lt;strong&gt;跨平台桌面应用&lt;/strong&gt;，一站式管理 Claude Code、Codex、Gemini CLI、OpenCode 和 OpenClaw 等多款 AI 编程助手。基于 Tauri 2 构建，支持 Windows &amp;#x2F; macOS &amp;#x2F; Linux，当前最新版本为 &lt;strong&gt;v3.14.1&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;如果你同时使用多款 AI 编程工具——比如用 Claude Code 做架构设计、用 Codex 写代码、用 Gemini 做代码审查——CC Switch 能让你在一个统一的界面里切换、配置和管理它们，不用在多个终端窗口之间来回折腾。&lt;/p&gt;
@@ -27909,15 +27982,6 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
-            <title>Java8新特性</title>
-            <link>https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</link>
-            <category>编程笔记</category>
-            <category>JavaSE</category>
-            <pubDate>Thu, 30 Mar 2023 11:43:30 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;Java8新特性&#34;&gt;&lt;a href=&#34;#Java8新特性&#34; class=&#34;headerlink&#34; title=&#34;Java8新特性&#34;&gt;&lt;/a&gt;Java8新特性&lt;/h2&gt; ]]></description>
-        </item>
-        <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/</guid>
             <title>Java发展历程</title>
             <link>https://scottalive.github.io/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/</link>
@@ -28126,6 +28190,15 @@
 &lt;h3 id=&#34;Java-Version-SE-10-0&#34;&gt;&lt;a href=&#34;#Java-Version-SE-10-0&#34; class=&#34;headerlink&#34; title=&#34;Java Version SE 10.0&#34;&gt;&lt;/a&gt;Java Version SE 10.0&lt;/h3&gt;&lt;p&gt;​		本地变量类型推断，可以使用本地变量的初始化去推荐对应变量的类型。提升了并行垃圾收集器G1的性能，降低了收集延时。应用优化了启动时刻的数据共享，已经存在的类更好的共享。一个试用的即时编译器Grral，只支持linux x64平台能够感知到docker的存在，如果运行在linux平台，可以感知到是否运行在 docker容器中,可以查询到操作系统给容器分配的cpu和内存等等物理资源信息.&lt;br&gt;修复从主机Java线程连接到容器内Java线程的一个问题。更短的jShell REPL tool启动时间.提供了新接口，可以获取可变化的集合类，copyOf,Set.copyOf, 和Map.copyOf等方法创建一个新的集合对象，toUnmodifiableList, toUnmodifiableSet, 和toUnmodifiableMap获取不可修改对象，让Stream操作可以获取到不可变对象。&lt;br&gt;​		本地变量类型推断。可以减少类型的生命，同时也保证了static类型的安全性。提供一个垃圾收集的接口去提供各个垃圾收集器隔离的能力，这样可以让内置的垃圾收集器正常运行，同时可以更容易向hotspot添加新的垃圾收集器。改进的并行的垃圾收集器G1,可以有效降低延迟。让hotspot支持寻找可用的任何内存，例如 NVDIMM存储模块，用户可以去指定它，这也是为未来的异构内存提供支持。在Linux&amp;#x2F;x64平台提供一个实验性的即时编译器。让jdk使用单一仓库管理，现在分离在不同的仓库，这样给源码管理带来了一些困难。提升了内存的共享，减少了应用的启动时间。本地线程握手，可以在虚拟机的全局安全点暂停而不用等待其他的任何线程。为openJDK提供Oracle根认证，这样可以吸引更多的开发者使用openJDK。&lt;/p&gt;
 &lt;p&gt;原文链接：&lt;a href=&#34;https://blog.csdn.net/ghscarecrow/article/details/82318636&#34;&gt;https://blog.csdn.net/ghscarecrow/article/details/82318636&lt;/a&gt;&lt;/p&gt;
  ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
+            <title>Java8新特性</title>
+            <link>https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</link>
+            <category>编程笔记</category>
+            <category>JavaSE</category>
+            <pubDate>Thu, 30 Mar 2023 11:43:30 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;Java8新特性&#34;&gt;&lt;a href=&#34;#Java8新特性&#34; class=&#34;headerlink&#34; title=&#34;Java8新特性&#34;&gt;&lt;/a&gt;Java8新特性&lt;/h2&gt; ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</guid>
