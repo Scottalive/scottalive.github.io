@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230a0e14'/%3E%3Ctext x='18' y='68' font-size='52' fill='%2300ff9c' font-family='monospace'%3E%26gt;_%3C/text%3E%3C/svg%3E">
-  <title>沉鱼的博客</title>
+  <title>AI 热点综述 - 2026-09-29 | 沉鱼的博客</title>
   
-  <meta name="description" content="编程笔记 &amp; 资料分享">
+  <meta name="description" content="AI 行业热点综述 — 2026-09-29">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="沉鱼的博客">
-  <meta property="og:title" content="沉鱼的博客">
-  <meta property="og:description" content="编程笔记 &amp; 资料分享">
-  <meta property="og:url" content="https://scottalive.github.io/tags/Java开发面试题/index.html">
+  <meta property="og:title" content="AI 热点综述 - 2026-09-29 | 沉鱼的博客">
+  <meta property="og:description" content="AI 行业热点综述 — 2026-09-29">
+  <meta property="og:url" content="https://scottalive.github.io/ai-hotspots/AI-Hotspots-2026-09-29.html">
   <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="沉鱼的博客">
-  <meta name="twitter:description" content="编程笔记 &amp; 资料分享">
+  <meta name="twitter:title" content="AI 热点综述 - 2026-09-29 | 沉鱼的博客">
+  <meta name="twitter:description" content="AI 行业热点综述 — 2026-09-29">
   <meta name="twitter:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
   <link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="/atom.xml">
   <link rel="stylesheet" href="/css/style.css?v=202607190200">
@@ -54,196 +54,139 @@
 
   <main class="site-main">
     <div class="container">
-      <!-- 标签详情 -->
-<section class="page-hero">
-  <div class="term">
-    <div class="term-bar">
-      <span class="term-dots"></span>
-      <span class="term-title">~/blog/tags/Java开发面试题 — zsh</span>
+      <!-- AI 行业热点 - 文章详情页 -->
+<article class="post-full">
+  <header class="post-header">
+    <div class="post-path">
+      <a href="/">~</a>/<a href="/ai-hotspots">ai-hotspots</a>/<span class="pd">2026-09-29.md</span>
     </div>
-    <div class="term-body">
-      <div class="tl"><span class="ps">~ $</span> grep -r "<span class="pd">Java开发面试题</span>" posts/ -l</div>
-      <div class="page-hero-stats"><span><strong>9</strong> matches</span></div>
+    <h1 class="post-title">AI 热点综述 - 2026-09-29</h1>
+    <div class="post-meta">
+      <span>2026-09-29 19:30</span>
+      <span class="bkt cyan">AI热点</span>
     </div>
+  </header>
+
+  <div class="post-content">
+    <h1 id="AI-热点综述-·-2026-09-29"><a href="#AI-热点综述-·-2026-09-29" class="headerlink" title="AI 热点综述 · 2026-09-29"></a>AI 热点综述 · 2026-09-29</h1><p>今天是发布日的前夜。Anthropic 把一个”效率版”模型推到台前，OpenAI 提前一天为明天的大动作打预防针。两家用的其实是同一句话术——<strong>同样的钱，做更多的事</strong>。而从业者那边，Thariq 直接宣布了一件事：现在没人能把 prompt 掏出来给你看了。</p>
+<h2 id="一sonnet-55一次把账算在-token-上的发布"><a href="#一、Sonnet-5-5：一次把账算在-token-上的发布" class="headerlink" title="一、Sonnet 5.5：一次把账算在 token 上的发布"></a>一、Sonnet 5.5：一次把账算在 token 上的发布</h2><p>Boris Cherny 今天只用两行就交付了全天最重的信号（<strong>4835 赞、173 转发</strong>）：</p>
+<blockquote>
+<p>Sonnet 5.5 fixing a bug with Claude Code.</p>
+<p>30% faster and 30% less usage.</p>
+</blockquote>
+<p>Cat Wu 把同一件事说成了产品语言（<strong>423 赞、8 转发</strong>）：</p>
+<blockquote>
+<p>Sonnet 5.5 is here! In Claude Code, users get <strong>~30% more tasks done compared to Sonnet 5</strong>. It’s smarter, so it needs <strong>fewer tokens for the same work</strong>.</p>
+<p>Here it rakes a yard of leaves using tool calls. <strong>24s faster than Sonnet 5, with 6K fewer tokens.</strong> It leaves her extra time to read :)</p>
+</blockquote>
+<p><strong>注意这两条公告的措辞：没有一条在讲”能力上限”。</strong> 全是”更快、更省 token、同样任务”。Alex Albert 的补充也是同一个调子（<strong>729 赞、11 转发</strong>）：<em>“It writes clearly, it’s very fast, and it’s a major capabilities jump over Sonnet 5. Really great model to iterate with.”</em> —— <strong>“iterate with”</strong>，不是一个用来打榜的模型，是一个用来反复跑的模型。</p>
+<p>真正的数据在 Aaron Levie 那里（<strong>146 赞、13 转发</strong>）。Box 用 Box Agent 在自家复杂工作评测上跑了早期访问：</p>
+<blockquote>
+<p>Across the board we saw a <strong>4 pt overall improvement on our hardest tests</strong>, but it was roughly <strong>2.4× faster to a finished deliverable on 12% fewer tokens</strong>. We also saw major wins in key verticals, like a <strong>+18 percentage point improvement in Financial Services, +7 pt in Legal, +8 pt in Life Sciences, and +7 pt in the Public Sector</strong>.</p>
+</blockquote>
+<p>他给的具体案例比总分更好看：</p>
+<ul>
+<li><strong>金融服务（+48 分）</strong>：一桩交易工具收购的尽调，交易账簿的算术本身就不成立。Sonnet 5.5 <strong>抓出了算错的利息总额和定价错误的期权</strong>，并做了标记，完成速度快约 61%。</li>
+<li><strong>法律（+14 分）</strong>：一份商业租约审查。Sonnet 5.5 <strong>拒绝杜撰一个并不存在的”市场标准”续约条款和通知期基准</strong>，转而指出这份租约真正缺了什么。</li>
+<li><strong>生命科学（+22 分）</strong>：从原始测量数据写田野试验报告。两组样本标准差全对；<strong>Sonnet 5 几乎全错</strong>。快约 41%。</li>
+<li><strong>公共部门（+11 分）</strong>：数学干预项目报告。从底层数据里取对了学生进度监测数字，快约 71%。</li>
+</ul>
+<p><strong>这四个案例里最该被抄在本子上的是法律那条。</strong> 一个模型最好的表现不是”答得更满”，而是<strong>在该说”这份合同缺了东西”的时候不编一个标准答案出来</strong>。+14 分里有相当一部分，来自它把”我不知道这算不算标准”说出口了。这跟速度、跟 token 没关系——<strong>是尺度问题。</strong></p>
+<p>Dan Shipper 给出了他的 vibe check（<strong>203 赞、12 转发</strong>）：</p>
+<blockquote>
+<p>SONNET 5.5 IS OUT! It has <strong>dramatically improved writing even versus Opus 5.5</strong> in my testing for @every. Astra is still my favorite for writing, but <strong>this model beats it at revision tasks</strong>.</p>
+<p>It’s faster and cheaper than Opus 5.5, so it’s @kieranklaassen’s preferred model for quick iterative coding and design work.</p>
+<p>But both @kplikethebird and @hammer_mt <strong>feel like they don’t have room in their stack for mid-tier models anymore</strong>.</p>
+</blockquote>
+<p>最后半句是今天最锋利的一句行业判断，下面单独说。</p>
+<h2 id="二devday-前夜一个新东西"><a href="#二、DevDay-前夜：一个新东西" class="headerlink" title="二、DevDay 前夜：一个新东西"></a>二、DevDay 前夜：一个新东西</h2><p>Sam Altman 今天只发了三句（<strong>8097 赞、411 转发</strong>——全天热度最高）：</p>
+<blockquote>
+<p>Pretty excited for DevDay tomorrow.</p>
+<p><strong>We have found a new thing.</strong></p>
+</blockquote>
+<p>Dan Shipper 从参与者的角度给了注脚（<strong>52 赞、2 转发</strong>）：</p>
+<blockquote>
+<p>i’ve been to every dev day since 2023</p>
+<p>this is by far <strong>the most launches @OpenAI has ever had</strong></p>
+<p><strong>rsi?</strong></p>
+</blockquote>
+<p><strong>“rsi?”（recursive self-improvement）出现在一个连年参加 DevDay 的从业者口中，不是随口。</strong> 它针对的不是某个具体功能，而是<strong>发布的密度本身</strong>——当”有史以来发布最多”成为一个可被察觉的常态，人们开始怀疑的就不再是产品路线，而是产出产品的那个回路。</p>
+<p>Peter Yang 的注脚更朴素：<em>“My very first @OpenAI dev day is tomorrow. If you’re going I hope to see you there!”</em></p>
+<h2 id="三订阅经济学把-200-的口径主动对折"><a href="#三、订阅经济学：把-200-的口径主动对折" class="headerlink" title="三、订阅经济学：把 $200 的口径主动对折"></a>三、订阅经济学：把 $200 的口径主动对折</h2><p>Thibault Sottiaux 提前一天把定价改动摊开讲（<strong>697 赞、73 转发</strong>）：</p>
+<blockquote>
+<p>Tomorrow we are re-opening the Pro $200 subscriptions to new subscribers, but together with it we are also changing how we calculate the usage for it. <strong>In effect, if you do the math, it will net out at half the dollar in API spend compared to the old Pro $200 plan.</strong></p>
+</blockquote>
+<p>他给了四条理由，原文可以简成：</p>
+<ul>
+<li><strong>(a) 不重新引入 5h 限制</strong>——让你想用的时候把周用量用满；</li>
+<li><strong>(b) 承诺长期”同样的钱做更多的事”</strong>——靠模型效率提升，把改进以 API 降价的形式回传；</li>
+<li><strong>(c) 不给自己”虚高 API 标价、再靠折扣显得很划算”的激励</strong>；</li>
+<li><strong>(d) 明天会给订阅加更多不消耗用量的东西</strong>（未透露）。</li>
+</ul>
+<p>配套的事实是同一条里的这句：<em>“This week we introduced <strong>GPT-6 Sol and GPT-6 Luna at 50% of their previous price</strong>.”</em></p>
+<p><strong>这是一次罕见的”主动降价声明”。</strong> 逻辑链非常清楚：如果模型效率的提升速度快于用户使用量的增长，那么订阅制的计价必须向下重定，否则用户会自己算清楚然后流向 API。OpenAI 选择提前一天公告、把口径对折，而不是等大家算完再解释。</p>
+<p>Peter Yang 那条评论正好是这场的观众席（<strong>53 赞、2 转发</strong>）：</p>
+<blockquote>
+<p>Folks on X are so fickle about “omg openai is getting mogged by Claude 5.5” or just a few months ago “anthropic is so cooked by codex.”</p>
+<p><strong>I’m just glad there are 2 (and soon more) competitors pushing the frontier so we can all benefit.</strong></p>
+</blockquote>
+<h2 id="四中端模型没有位置了"><a href="#四、中端模型没有位置了" class="headerlink" title="四、中端模型没有位置了"></a>四、中端模型没有位置了</h2><p>回到 Dan Shipper 那半句：<em>“both feel like they don’t have room in their stack for mid-tier models anymore.”</em></p>
+<p><strong>这句话之所以重要，是因为它是一线使用者的采购结论，不是一个预测。</strong> Sonnet 5.5 的定位恰好是”更快更便宜的 Opus 级”——它上打 Opus、下压 Sonnet 5 与所有中间层。当”便宜”和”够强”同时出现在一档模型上，<strong>中间档就失去了差异化的理由：比它便宜的没它强，比它强的没它在单价上有意义。</strong></p>
+<p>这不是价格战的问题，是<strong>档位坍缩</strong>：能活下来的要么是最便宜够用的那档，要么是能力天花板那档，中间那格会被反复清空。</p>
+<h2 id="五prompt-已经无法被展示了"><a href="#五、prompt-已经无法被展示了" class="headerlink" title="五、prompt 已经无法被展示了"></a>五、prompt 已经无法被展示了</h2><p>Thariq 今天贡献了全天最高赞的一条（<strong>4265 赞、143 转发</strong>）：</p>
+<blockquote>
+<p><strong>it’s basically impossible for someone to just “show you their prompt” now</strong>, because everything is about <strong>references, skills and examples</strong>.</p>
+<p>I often ask my agent to look at <strong>3 other repos I’ve made first, search the web for references, use other AI APIs</strong>, etc.</p>
+</blockquote>
+<p>Zara Zhang 的招募帖恰好是这条的反面写照（<strong>180 赞、1 转发</strong>）：</p>
+<blockquote>
+<p>Hello, I’m looking to chat with some of my followers!</p>
+<p>If you’re</p>
+<ul>
+<li>building web-based&#x2F;frontend experiences with AI but have a hard time making it look beautiful&#x2F;<strong>not AI slop</strong></li>
+<li>seeing all these cool demos on X built with latest models but <strong>have no idea how to replicate them</strong></li>
+<li>are creating these cool demos yourself and would like to share your creation process&#x2F;tips</li>
+</ul>
+</blockquote>
+<p><strong>留意她列的三类人里，没有一类是”prompt 写得好”。</strong> 现在被问到”你这个怎么做的”，答案不是一段提示词，而是：我让它先看了我自己另外三个仓库、上网找参考、调了别的 AI API……</p>
+<p><strong>护城河从”你写了什么提示词”搬到了”你手里有什么”。</strong> prompt 曾经是公开的、可复制的一行字；上下文是私有的、搬不走的一堆东西。Thariq 说的”不可能展示”，本质是<strong>可复制性的消失</strong>。</p>
+<p>Thariq 今天的另一条也在同一个方向上（<strong>1691 赞、40 转发</strong>）：</p>
+<blockquote>
+<p>A lot of times when I talk about higher level abstractions like projects, claude tag and dynamic workflows, I hear concerns about token cost. With Sonnet + Opus 5.5 I think this sort intelligence is should be very available. <strong>Try Sonnet 5.5 in particular when making workflows.</strong></p>
+</blockquote>
+<p>以及那条只有一句、却拿了 <strong>2698 赞</strong> 的：<em>“I just told Claude ‘can you help me think through this problem step by step’”</em>——在所有人讨论工作流抽象的时候，他公开承认自己还在用最朴素的那句话。<strong>这句 2698 赞买的不是技巧，是许可。</strong></p>
+<h2 id="六把迁移本身做成产品"><a href="#六、把迁移本身做成产品" class="headerlink" title="六、把迁移本身做成产品"></a>六、把迁移本身做成产品</h2><p>Rauchg 今天交了一份很硬的工程作业（<strong>429 赞、13 转发</strong>）：</p>
+<blockquote>
+<p>We migrated with as little intervention as possible, setting out to prove just how much faster @vercel is. <strong>~70% faster builds and ~75% faster paints.</strong></p>
+<p><strong>We derived two AI skills from the migration that we’ll be sharing back.</strong> It was a mature workload with a lot of “$formerProvider-isms”, and yet <strong>the net of the work was done in under a week.</strong></p>
+</blockquote>
+<p><strong>值得记的是他把迁移过程本身变成了产物：两个 AI skill 被回馈出去。</strong> 这不是”我们很快”的口号，而是<strong>把”怎么做迁移”这件事沉淀成了可复用的技能包</strong>——正是上一节说的那种”私有上下文”的反向操作：这一次，他们把上下文公开了。</p>
+<p>另一条更轻但更有信号量（<strong>213 赞、6 转发</strong>）：</p>
+<blockquote>
+<p>You can now search @vercel domains without auth. <strong>Especially great if you’re an agent.</strong></p>
+</blockquote>
+<p><strong>一个基础设施产品在公告里直接把 agent 列为预期用户。</strong> 无鉴权不是放松安全策略的随口决定，是把”调用方可能是机器”写进了接口设计的前提。</p>
+<h2 id="七同样值得记下的碎片"><a href="#七、同样值得记下的碎片" class="headerlink" title="七、同样值得记下的碎片"></a>七、同样值得记下的碎片</h2><ul>
+<li><strong>OpenAI 设计（Swyx，198 赞）</strong>：<em>“oai designers have to be trolling us”</em> —— DevDay 前的预热又加了一条。</li>
+<li><strong>Peter Yang 的星际争霸关卡（80 赞、5 转发）</strong>：用 Sonnet 5.5 做出了一个能玩的关卡——你打人族守基地抗虫族，要建机枪兵、攻城坦克和战列巡航舰；SC2 模型来自 Sketchfab，音乐用 Suno。<strong>“模型能做游戏”不新，”一个人一个下午做出一个能玩的关卡”才是。</strong></li>
+<li><strong>Dan Shipper 的计数</strong>：<em>“i’ve been to every dev day since 2023, this is by far the most launches @OpenAI has ever had.”</em></li>
+<li><strong>Nikunj Kothari 关于分发的长文（111 赞、4 转发）</strong>：<em>“Where are all the ‘distribution is a moat and hence raise a lot of money’ investors today.. when the *checks notes* incumbents are flexing their distribution muscle.”</em> 他的结论是：<strong>别把资本当宿命</strong>——找到自己的不公平优势，做出高留存、最好有网络效应的产品，用资本当复利的武器而不是命运，最后学会做一门自我持续的业务，因为”这个水龙头会关掉”。</li>
+<li><strong>Rauchg 的对比图（33 赞、1 转发）</strong>：<em>“Choose ▲ if you want to win. You know what to choose if you want third place!”</em></li>
+<li><strong>Ryo Lu（185 赞、4 转发）</strong>：youbike 的城市骑行——码头、导航、实时语音转弯提示。<em>“i love youbike 💛”</em></li>
+<li><strong>Garry Tan（401 赞、48 转发）</strong>：<em>“Karma isn’t a thing that happens, it’s a choice you can make now.”</em></li>
+<li><strong>Claude 官号</strong>则在拿同一句 prompt 做前后对比：弹跳球物理模拟、纯代码逐帧绘制的像素森林生物。</li>
+</ul>
+<hr>
+<p><strong>一句话总结今天：</strong> 今天最重的几条信号都在拆同一件事——<strong>模型层正在把”能力”变成廉价且充足的默认值，于是竞争点被挤到了两处：定价的诚实度，和上下文的私有度。</strong> Anthropic 用 Sonnet 5.5 把”同样的活、更少的 token”量化成 30%（Levie 那边对应 2.4× 更快、12% 更少 token，代价是中间档模型被清空）；OpenAI 用一纸公告把 $200 订阅的口径主动对折，并预告明天有”一个新东西”；而在使用者这一侧，Thariq 宣布 prompt 已经无法被展示——你能被追问的只剩下”你手里有什么”。当 Levie 说模型最有价值的一次表现是<strong>拒绝编造一个并不存在的市场基准</strong>时，标准其实一直没变：<strong>快和便宜会持续过期，尺度不会。</strong></p>
+<hr>
+<p><em>由 <a target="_blank" rel="noopener" href="https://github.com/zarazhangrui/follow-builders">Follow Builders</a> 与 AI 热点综述流程生成 · 2026-09-29</em></p>
+
   </div>
-</section>
+</article>
 
-<div class="post-list">
-  
-  <a class="pl-item" href="/computer-science/java/interview/10%E6%9C%8831%E6%97%A5%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/">
-    <div class="pl-top">
-      <span class="pl-title">10月31日面试失败复盘</span>
-      <span class="pl-date">2023-10-31</span>
-    </div>
-    <div class="pl-meta">
-      <span>0 字 · 约 1 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">Java</span>
-        
-        <span class="bkt">面试题</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/java/interview/10%E6%9C%8830%E6%97%A5%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/">
-    <div class="pl-top">
-      <span class="pl-title">10月30日面试失败复盘</span>
-      <span class="pl-date">2023-10-30</span>
-    </div>
-    <div class="pl-meta">
-      <span>67 字 · 约 1 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">Java</span>
-        
-        <span class="bkt">面试题</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/java/interview/10%E6%9C%8827%E6%97%A5%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/">
-    <div class="pl-top">
-      <span class="pl-title">10月27日面试失败复盘</span>
-      <span class="pl-date">2023-10-27</span>
-    </div>
-    <div class="pl-meta">
-      <span>0 字 · 约 1 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">Java</span>
-        
-        <span class="bkt">面试题</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/java/interview/SpringBoot%E9%9D%A2%E8%AF%95%E9%A2%98/">
-    <div class="pl-top">
-      <span class="pl-title">SpringBoot面试题</span>
-      <span class="pl-date">2023-10-23</span>
-    </div>
-    <div class="pl-meta">
-      <span>630 字 · 约 2 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">Java</span>
-        
-        <span class="bkt">面试题</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/java/interview/Spring%E9%9D%A2%E8%AF%95%E9%A2%98/">
-    <div class="pl-top">
-      <span class="pl-title">Spring面试题</span>
-      <span class="pl-date">2023-10-12</span>
-    </div>
-    <div class="pl-meta">
-      <span>3634 字 · 约 11 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">Java</span>
-        
-        <span class="bkt">面试题</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/java/interview/%E9%9D%A2%E8%AF%95%E9%A2%98%E5%B8%B8%E9%97%AE%E5%9B%9E%E7%AD%94/">
-    <div class="pl-top">
-      <span class="pl-title">面试题常问回答</span>
-      <span class="pl-date">2023-10-10</span>
-    </div>
-    <div class="pl-meta">
-      <span>794 字 · 约 3 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">Java</span>
-        
-        <span class="bkt">面试题</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/java/interview/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/">
-    <div class="pl-top">
-      <span class="pl-title">自我介绍</span>
-      <span class="pl-date">2023-10-09</span>
-    </div>
-    <div class="pl-meta">
-      <span>9 字 · 约 1 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">Java</span>
-        
-        <span class="bkt">面试题</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/java/interview/10%E6%9C%889%E6%97%A5%E9%9D%A2%E8%AF%95%E5%A4%B1%E8%B4%A5%E5%A4%8D%E7%9B%98/">
-    <div class="pl-top">
-      <span class="pl-title">10月9日面试失败复盘</span>
-      <span class="pl-date">2023-10-09</span>
-    </div>
-    <div class="pl-meta">
-      <span>2308 字 · 约 7 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">Java</span>
-        
-        <span class="bkt">面试题</span>
-        
-      
-    </div>
-  </a>
-  
-  <a class="pl-item" href="/computer-science/java/interview/Java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/">
-    <div class="pl-top">
-      <span class="pl-title">Java基础面试题</span>
-      <span class="pl-date">2023-05-04</span>
-    </div>
-    <div class="pl-meta">
-      <span>4655 字 · 约 13 分钟</span>
-      
-        
-        <span class="bkt">计算机科学</span>
-        
-        <span class="bkt">Java</span>
-        
-        <span class="bkt">面试题</span>
-        
-      
-    </div>
-  </a>
-  
-</div>
-
-
+<nav class="post-nav">
+  <a class="prev" href="/ai-hotspots">返回 AI 行业热点</a>
+</nav>
 
     </div>
   </main>
