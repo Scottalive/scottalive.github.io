@@ -5,24 +5,30 @@
         <link>https://scottalive.github.io</link>
         <description>编程笔记 &amp; 资料分享</description>
         <language>zh-CN</language>
-        <pubDate>Mon, 05 Oct 2026 22:00:00 +0800</pubDate>
-        <lastBuildDate>Mon, 05 Oct 2026 22:00:00 +0800</lastBuildDate>
+        <pubDate>Tue, 06 Oct 2026 22:00:00 +0800</pubDate>
+        <lastBuildDate>Tue, 06 Oct 2026 22:00:00 +0800</lastBuildDate>
         <category>原则</category>
         <category>个人详情</category>
         <category>个人分享</category>
         <category>坏习惯</category>
         <category>Kubernetes</category>
-        <category>Helm</category>
-        <category>学习计划</category>
+        <category>k8s</category>
+        <category>kubeconfig</category>
+        <category>kubectl</category>
+        <category>Context</category>
+        <category>DevOps</category>
         <category>AI日报</category>
         <category>AI</category>
         <category>GitHub热门</category>
         <category>人工智能</category>
         <category>技术趋势</category>
-        <category>k8s</category>
+        <category>Helm</category>
+        <category>学习计划</category>
         <category>容器编排</category>
-        <category>DevOps</category>
         <category>运维</category>
+        <category>心理学知识</category>
+        <category>阿德勒心理学</category>
+        <category>自卑与超越</category>
         <category>网络安全</category>
         <category>SQL注入</category>
         <category>XSS</category>
@@ -33,68 +39,126 @@
         <category>Grafana</category>
         <category>SRE</category>
         <category>可观测性</category>
-        <category>kubeconfig</category>
-        <category>kubectl</category>
-        <category>Context</category>
-        <category>心理学知识</category>
         <category>GPT-5.5</category>
         <category>OpenAI</category>
         <category>Codex</category>
         <category>ClaudeCode</category>
-        <category>Gemini</category>
         <category>开发工具</category>
+        <category>编程笔记</category>
+        <category>Gemini</category>
         <category>开源</category>
+        <category>编程助手</category>
         <category>Claude</category>
         <category>Agent</category>
         <category>MCP</category>
         <category>自动化</category>
-        <category>编程助手</category>
-        <category>编程笔记</category>
-        <category>DeepSeek</category>
-        <category>Harness</category>
-        <category>插件</category>
-        <category>安装教程</category>
         <category>Hermes</category>
         <category>v0.17</category>
-        <category>NousResearch</category>
         <category>v0.20</category>
         <category>语音交互</category>
         <category>A2A</category>
         <category>Webhook</category>
+        <category>NousResearch</category>
+        <category>DeepSeek</category>
+        <category>Harness</category>
+        <category>插件</category>
+        <category>安装教程</category>
         <category>进阶</category>
         <category>配置</category>
-        <category>LLM</category>
-        <category>RAG</category>
-        <category>知识库</category>
-        <category>OpenClaw</category>
-        <category>网关</category>
         <category>高阶</category>
-        <category>故障排查</category>
         <category>LangChain</category>
         <category>LangGraph</category>
         <category>Python</category>
+        <category>LLM</category>
+        <category>RAG</category>
+        <category>知识库</category>
+        <category>AI运维</category>
+        <category>故障排查</category>
+        <category>根因分析</category>
+        <category>OpenClaw</category>
+        <category>网关</category>
+        <category>SSE</category>
+        <category>HTTP</category>
         <category>WorkBuddy</category>
         <category>腾讯</category>
         <category>办公自动化</category>
         <category>AI工具</category>
-        <category>阿德勒心理学</category>
-        <category>自卑与超越</category>
-        <category>AI运维</category>
-        <category>根因分析</category>
-        <category>JavaSE</category>
         <category>工作流</category>
-        <category>SSE</category>
-        <category>HTTP</category>
-        <category>Java开发面试题</category>
-        <category>SpringBoot</category>
-        <category>Spring</category>
+        <category>微服务</category>
         <category>接口开发</category>
         <category>开发注意事项</category>
+        <category>JavaSE</category>
+        <category>Java开发面试题</category>
+        <category>Spring</category>
+        <category>SpringBoot</category>
         <category>力扣算法题</category>
         <category>算法</category>
-        <category>动态规划</category>
-        <category>微服务</category>
         <category>python</category>
+        <category>动态规划</category>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-10-06/</guid>
+            <title>AI 日报 2026-10-06</title>
+            <link>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-10-06/</link>
+            <category>AI日报</category>
+            <category>AI</category>
+            <category>GitHub热门</category>
+            <category>人工智能</category>
+            <category>技术趋势</category>
+            <pubDate>Tue, 06 Oct 2026 22:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;📰-今日热点&#34;&gt;&lt;a href=&#34;#📰-今日热点&#34; class=&#34;headerlink&#34; title=&#34;📰 今日热点&#34;&gt;&lt;/a&gt;📰 今日热点&lt;/h2&gt;&lt;p&gt;今日的两条主线是”能力兑现”与”回报兑现”。欧洲的 Mistral 放出 &lt;strong&gt;1 万亿参数、原生多模态的 Mistral Large 4 预览版&lt;/strong&gt;，并预告十月底开源权重；另一边，Deutsche Telekom 在投资者日把 AI 直接写进财务目标——&lt;strong&gt;2030 年靠 AI 与自动化削减约 25 亿欧元间接成本&lt;/strong&gt;。能力上限继续被推高，投入开始被要求给出可量化回报，这是当下 AI 产业最真实的两条平行线。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ 说明：本期 GitHub Trending（github.com）网络不可达，已重试并尝试镜像&amp;#x2F;直连 curl 均失败。因此「开源项目」部分改为&lt;strong&gt;基于知识库的生态观察&lt;/strong&gt;，不含当日 Star 增长数据，以免误导。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;⭐-开源项目观察（知识库视角）&#34;&gt;&lt;a href=&#34;#⭐-开源项目观察（知识库视角）&#34; class=&#34;headerlink&#34; title=&#34;⭐ 开源项目观察（知识库视角）&#34;&gt;&lt;/a&gt;⭐ 开源项目观察（知识库视角）&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;以下为长期值得跟踪的开源项目，按”推理 &amp;#x2F; 编排 &amp;#x2F; 交互”三层归类，不含伪造的当日增长数据。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;1-vLLM-—-高吞吐推理的事实标准&#34;&gt;&lt;a href=&#34;#1-vLLM-—-高吞吐推理的事实标准&#34; class=&#34;headerlink&#34; title=&#34;1. vLLM — 高吞吐推理的事实标准&#34;&gt;&lt;/a&gt;1. vLLM — 高吞吐推理的事实标准&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言:&lt;/strong&gt; Python &amp;#x2F; CUDA&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;地址:&lt;/strong&gt; &lt;a href=&#34;https://github.com/vllm-project/vllm&#34;&gt;vllm-project&amp;#x2F;vllm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;vLLM 的核心贡献是 &lt;strong&gt;PagedAttention&lt;/strong&gt;：把 KV Cache 像操作系统的虚拟内存一样分页管理，从而把显存碎片率降到极低，吞吐相比朴素实现可提升数倍。今天几乎所有”私有化部署 + 高并发”的推理服务，都能看到它的影子。理解 vLLM，等于理解现代 LLM Serving 的工程底座。&lt;/p&gt;
+&lt;h3 id=&#34;2-llama-cpp-—-让模型跑在每一台机器上&#34;&gt;&lt;a href=&#34;#2-llama-cpp-—-让模型跑在每一台机器上&#34; class=&#34;headerlink&#34; title=&#34;2. llama.cpp — 让模型跑在每一台机器上&#34;&gt;&lt;/a&gt;2. llama.cpp — 让模型跑在每一台机器上&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言:&lt;/strong&gt; C &amp;#x2F; C++&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;地址:&lt;/strong&gt; &lt;a href=&#34;https://github.com/ggml-org/llama.cpp&#34;&gt;ggml-org&amp;#x2F;llama.cpp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;llama.cpp 用纯 C&amp;#x2F;C++ 实现推理，并把量化做到极致（从 Q8 到 Q2_K），使模型能在消费级 CPU、Mac、甚至手机上运行。它代表的是**”推理去中心化”**这条路线：不是所有场景都需要千卡集群，端侧与本地推理正在成为隐私与成本敏感场景的默认选项。&lt;/p&gt;
+&lt;h3 id=&#34;3-Ollama-Open-WebUI-—-本地大模型的最短路径&#34;&gt;&lt;a href=&#34;#3-Ollama-Open-WebUI-—-本地大模型的最短路径&#34; class=&#34;headerlink&#34; title=&#34;3. Ollama + Open WebUI — 本地大模型的最短路径&#34;&gt;&lt;/a&gt;3. Ollama + Open WebUI — 本地大模型的最短路径&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;地址:&lt;/strong&gt; &lt;a href=&#34;https://github.com/ollama/ollama&#34;&gt;ollama&amp;#x2F;ollama&lt;/a&gt; · &lt;a href=&#34;https://github.com/open-webui/open-webui&#34;&gt;open-webui&amp;#x2F;open-webui&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ollama 把”拉模型、跑模型”简化成两条命令，Open WebUI 则在其上补了一个漂亮的聊天&amp;#x2F;知识库界面。两者的组合是个人与小型团队&lt;strong&gt;自建 ChatGPT 替代品&lt;/strong&gt;的最低成本方案——不依赖云、不泄露数据。&lt;/p&gt;
+&lt;h3 id=&#34;4-LangGraph-AutoGen-CrewAI-—-Agent-编排的三条岔路&#34;&gt;&lt;a href=&#34;#4-LangGraph-AutoGen-CrewAI-—-Agent-编排的三条岔路&#34; class=&#34;headerlink&#34; title=&#34;4. LangGraph &amp;#x2F; AutoGen &amp;#x2F; CrewAI — Agent 编排的三条岔路&#34;&gt;&lt;/a&gt;4. LangGraph &amp;#x2F; AutoGen &amp;#x2F; CrewAI — Agent 编排的三条岔路&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;地址:&lt;/strong&gt; &lt;a href=&#34;https://github.com/langchain-ai/langgraph&#34;&gt;langchain-ai&amp;#x2F;langgraph&lt;/a&gt; · &lt;a href=&#34;https://github.com/microsoft/autogen&#34;&gt;microsoft&amp;#x2F;autogen&lt;/a&gt; · &lt;a href=&#34;https://github.com/crewAIInc/crewAI&#34;&gt;crewAIInc&amp;#x2F;crewAI&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这三个框架代表了多 Agent 编排的三种哲学：&lt;strong&gt;LangGraph&lt;/strong&gt; 用图（graph）显式建模状态机，强调可控与可回溯；&lt;strong&gt;AutoGen&lt;/strong&gt; 以对话为中心，让 Agent 通过”交谈”协作；&lt;strong&gt;CrewAI&lt;/strong&gt; 则走向&lt;strong&gt;角色化&lt;/strong&gt;——你定义的不是节点，而是一支”团队”。选哪条路，本质上是在回答”你希望把复杂度交给代码，还是交给模型的对话”。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 交互层&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A[Open WebUI / 客户端]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 编排层&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B1[LangGraph&amp;lt;br/&amp;gt;显式状态图]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B2[AutoGen&amp;lt;br/&amp;gt;对话协作]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B3[CrewAI&amp;lt;br/&amp;gt;角色化团队]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 推理层&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C1[vLLM&amp;lt;br/&amp;gt;高并发服务端]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C2[llama.cpp / Ollama&amp;lt;br/&amp;gt;端侧与本地]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; B1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; B2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; B3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B1 --&amp;gt; C1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B2 --&amp;gt; C1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B3 --&amp;gt; C2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;🛠-新工具-产品速览&#34;&gt;&lt;a href=&#34;#🛠-新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;🛠 新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;🛠 新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Google Docs 将可直接编辑 Markdown&lt;/strong&gt;：Google 宣布允许在 Docs 中直接编辑 Markdown 文件，并可在 Drive 中预览。此前导入 Markdown 常导致格式改动、注释丢失，而 Markdown 恰恰是 LLM 保留表格、标题、列表等结构化内容的主流载体——这是”文档工具向 LLM 工作流靠拢”的一个明确信号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mistral Large 4 预览版上线 Mistral Studio&lt;/strong&gt;：1 万亿参数、约 490 亿激活参数的原生多模态模型，代号 “le Chonk”，在自有欧洲数据中心的 3800 张 NVIDIA Grace Blackwell 上从零训练，训练数据覆盖 160 多种语言。权重计划十月底开放。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;📊-行业动态&#34;&gt;&lt;a href=&#34;#📊-行业动态&#34; class=&#34;headerlink&#34; title=&#34;📊 行业动态&#34;&gt;&lt;/a&gt;📊 行业动态&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;企业 AI 从”试点”走进”财报”。&lt;/strong&gt; Deutsche Telekom 在 10 月 5 日的 AI 投资者日上给出明确数字：到 2030 年间接成本较 2023 年下降约 25 亿欧元，2027 年前美国以外地区实现约 11 亿欧元毛节约。落地细节同样扎实——聊天机器人 “Frag Magenta” 上半年处理约 260 万通客服来电；在美国（T-Mobile US），&lt;strong&gt;AI Agent 已承接 40% 的客户接触，客服通话量下降 55%&lt;/strong&gt;；新装宽带场景的 AI 应用让投诉减少 30%；网络侧 “RAN Guardian Agent” 把突发事件响应时间从数小时压缩到约一分钟。此外，超过 10 万名员工完成了 “AI for All” 培训。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安全与主权成为主旋律。&lt;/strong&gt; Mistral 明确表示 Large 4 在网络安全场景做了”红队化”开放：与网络安全机构、审核过的伙伴及国家主管部门共享降低审核、扩展网络能力的同一模型，理由是&lt;strong&gt;供应商级别的拒答会阻碍合法的漏洞研究与应急响应&lt;/strong&gt;；公司称其在 Artificial Analysis Cyber Index 名列前五，并在”复现并修补真实开源漏洞”的测试中取得 82%。同时，AI News 报道 &lt;strong&gt;17 个国家已将 AI 列为政府科研优先事项&lt;/strong&gt;，微软则建议政府 AI 采用须以数据控制为前提；CyberDSA 2026 在马来西亚开幕，主题直指”安全地采用 AI”。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;治理仍在追赶能力。&lt;/strong&gt; VentureBeat 指出，当 Agent 开始自主行动，&lt;strong&gt;治理必须下沉到数据层&lt;/strong&gt;——靠模型层的”对齐”已不足以约束自主系统，权限、审计与数据边界才是真正的护栏。这与 Mistral 把”降低审核的同一模型交给被审核方”形成了耐人寻味的张力：能力开放与风险控制，正在同一套权重上博弈。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;💡-技术洞见&#34;&gt;&lt;a href=&#34;#💡-技术洞见&#34; class=&#34;headerlink&#34; title=&#34;💡 技术洞见&#34;&gt;&lt;/a&gt;💡 技术洞见&lt;/h2&gt;&lt;h3 id=&#34;洞见一：训练环境，正在成为模型产品的一部分&#34;&gt;&lt;a href=&#34;#洞见一：训练环境，正在成为模型产品的一部分&#34; class=&#34;headerlink&#34; title=&#34;洞见一：训练环境，正在成为模型产品的一部分&#34;&gt;&lt;/a&gt;洞见一：训练环境，正在成为模型产品的一部分&lt;/h3&gt;&lt;p&gt;Mistral 对 Large 4 的介绍里，最值得注意的不是 1T 参数，而是那句”使用与客户在 Mistral Forge 中相同的训练、定制与强化学习环境”。它的 RL 库把聊天、科学解题、安全对齐、事实性与&lt;strong&gt;长时程工具调用&lt;/strong&gt;统一在同一个接口下，训练环境包含代码沙箱、联网搜索与外部 API，并用奖励模型、单元测试、LLM 评审与静态检查做验证。&lt;/p&gt;
+&lt;p&gt;这意味着一个结构性的转变：&lt;strong&gt;模型的竞争力，越来越取决于”它被放进什么环境里练习”&lt;/strong&gt;。环境不再是训练的内部细节，而是可以直接交付给客户的产品。参数规模的上限在逼近，训练环境的设计空间才刚刚打开。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 训练环境[&amp;quot;训练环境（可交付客户）&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        E1[代码沙箱]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        E2[联网搜索]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        E3[外部 API]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E1 --&amp;gt; M[强化学习循环]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E2 --&amp;gt; M&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E3 --&amp;gt; M&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    M --&amp;gt; V&amp;#123;验证信号&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    V --&amp;gt;|奖励模型| R[策略更新]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    V --&amp;gt;|单元测试| R&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    V --&amp;gt;|LLM 评审| R&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    V --&amp;gt;|静态检查| R&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    R --&amp;gt; M&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    M --&amp;gt; P[可部署模型]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    P -.同一环境.-&amp;gt; F[客户侧定制&amp;lt;br/&amp;gt;Mistral Forge]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;洞见二：AI-的拐点，是”能被放进-KPI”&#34;&gt;&lt;a href=&#34;#洞见二：AI-的拐点，是”能被放进-KPI”&#34; class=&#34;headerlink&#34; title=&#34;洞见二：AI 的拐点，是”能被放进 KPI”&#34;&gt;&lt;/a&gt;洞见二：AI 的拐点，是”能被放进 KPI”&lt;/h3&gt;&lt;p&gt;Deutsche Telekom 的案例之所以值得记住，不在于它用了多少 AI，而在于&lt;strong&gt;它把 AI 换算成了客服通话量、投诉率、响应时间和欧元&lt;/strong&gt;。当 T-Mobile US 的 AI Agent 承接 40% 客户接触、通话量下降 55% 时，AI 已经不再是”创新实验室里的项目”，而是财务报表里的一行。&lt;/p&gt;
+&lt;p&gt;这标志着企业 AI 的评价标准正在发生变化：从”我们部署了多少模型”转向”我们省了多少钱、快了多少秒”。可量化的 ROI 一旦成立，采购与规模化就会从”勇敢的试验”变成”理性的必然”。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[AI 能力就绪] --&amp;gt; B&amp;#123;可量化业务指标?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|否| C[停留在概念验证]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|是| D[进入 KPI 与预算]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[规模化铺开]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F[数据与反馈回流]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G[模型与环境再优化]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; A&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C -.一年后重来.-&amp;gt; B&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;🔮-小结&#34;&gt;&lt;a href=&#34;#🔮-小结&#34; class=&#34;headerlink&#34; title=&#34;🔮 小结&#34;&gt;&lt;/a&gt;🔮 小结&lt;/h2&gt;&lt;p&gt;今日的新闻与生态观察共同指向一个判断：&lt;strong&gt;AI 的竞争，正在从”谁的模型更强”转向”谁的工程层更厚、谁的环境更真、谁的回报更可量化”&lt;/strong&gt;。Mistral 用训练环境把能力变成产品，Deutsche Telekom 用客服指标把 AI 变成财报科目，开源社区则用 vLLM、llama.cpp、LangGraph 一层层把基础设施夯实。能力越强，护栏与度量就越重要——这条主线，短期内不会变。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;本日报因 GitHub 数据源今日不可达，改为新闻事实 + 知识库分析生成；开源部分不含当日 Star 数据。数据截至 2026-10-06。&lt;/em&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-10-05/</guid>
             <title>AI 日报 2026-10-05</title>
@@ -3134,10 +3198,10 @@
             <link>https://scottalive.github.io/computer-science/ai-tools/LangGraph-1.2-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
             <category>AI</category>
             <category>Agent</category>
-            <category>LLM</category>
             <category>LangChain</category>
             <category>LangGraph</category>
             <category>Python</category>
+            <category>LLM</category>
             <category>工作流</category>
             <pubDate>Sat, 12 Sep 2026 02:30:00 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;img src=&#34;/images/langgraph/og-image.png&#34;&gt;&lt;/p&gt;
@@ -4654,10 +4718,10 @@
             <category>AI</category>
             <category>开发工具</category>
             <category>Agent</category>
-            <category>LLM</category>
             <category>LangChain</category>
             <category>LangGraph</category>
             <category>Python</category>
+            <category>LLM</category>
             <pubDate>Wed, 26 Aug 2026 01:30:00 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;img src=&#34;/images/langchain/og-image.png&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -10804,10 +10868,10 @@
             <link>https://scottalive.github.io/computer-science/devops/k8s-context-switch/</link>
             <category>Kubernetes</category>
             <category>k8s</category>
-            <category>DevOps</category>
             <category>kubeconfig</category>
             <category>kubectl</category>
             <category>Context</category>
+            <category>DevOps</category>
             <pubDate>Wed, 20 May 2026 16:30:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;单机内-K8S-集群环境切换指南&#34;&gt;&lt;a href=&#34;#单机内-K8S-集群环境切换指南&#34; class=&#34;headerlink&#34; title=&#34;单机内 K8S 集群环境切换指南&#34;&gt;&lt;/a&gt;单机内 K8S 集群环境切换指南&lt;/h1&gt;&lt;p&gt;在实际开发运维中，很少有人只用一个 K8S 集群。本地有 Minikube 或 Kind 的测试集群，公司有开发、预发、生产等多套环境，还可能涉及公有云托管的 K8S（如 TKE、ACK、EKS）。&lt;strong&gt;如何在一台机器上优雅地管理多个集群环境，并在它们之间快速切换？&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;本文从 &lt;strong&gt;kubeconfig&lt;/strong&gt; 的底层结构出发，覆盖多集群配置、Context 切换、文件合并、安全认证等全流程，让你在单机环境中像「切换频道」一样切换 K8S 集群。&lt;/p&gt;
@@ -11407,8 +11471,8 @@
             <link>https://scottalive.github.io/computer-science/devops/k8s-command-guide/</link>
             <category>Kubernetes</category>
             <category>k8s</category>
-            <category>容器编排</category>
             <category>DevOps</category>
+            <category>容器编排</category>
             <category>运维</category>
             <pubDate>Sat, 16 May 2026 10:03:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;Kubernetes-使用指南-—-各类场景命令全解&#34;&gt;&lt;a href=&#34;#Kubernetes-使用指南-—-各类场景命令全解&#34; class=&#34;headerlink&#34; title=&#34;Kubernetes 使用指南 — 各类场景命令全解&#34;&gt;&lt;/a&gt;Kubernetes 使用指南 — 各类场景命令全解&lt;/h1&gt;&lt;p&gt;Kubernetes（简称 K8s）是当前业界标准的容器编排平台。无论你是刚入门的学习者，还是日常运维的一线工程师，掌握 &lt;strong&gt;kubectl&lt;/strong&gt; 的核心命令都至关重要。&lt;/p&gt;
@@ -12373,8 +12437,8 @@
             <category>DevOps</category>
             <category>OpenSRE</category>
             <category>SRE</category>
-            <category>故障排查</category>
             <category>AI运维</category>
+            <category>故障排查</category>
             <category>根因分析</category>
             <pubDate>Mon, 11 May 2026 01:10:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;引言&#34;&gt;&lt;a href=&#34;#引言&#34; class=&#34;headerlink&#34; title=&#34;引言&#34;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;在&lt;a href=&#34;/2026/05/11/OpenSRE-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/&#34;&gt;上一篇文章&lt;/a&gt;中，我们介绍了 OpenSRE 的安装与基础用法。本文将深入探讨三个实战核心话题：&lt;strong&gt;如何高效使用 OpenSRE 进行生产故障排查&lt;/strong&gt;、&lt;strong&gt;使用过程中的关键注意事项&lt;/strong&gt;，以及&lt;strong&gt;如何理解和运用它生成的调查报告&lt;/strong&gt;。&lt;/p&gt;
@@ -16566,8 +16630,8 @@
             <category>AI</category>
             <category>Codex</category>
             <category>ClaudeCode</category>
-            <category>Gemini</category>
             <category>开发工具</category>
+            <category>Gemini</category>
             <category>开源</category>
             <pubDate>Thu, 30 Apr 2026 23:30:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;什么是-CC-Switch？&#34;&gt;&lt;a href=&#34;#什么是-CC-Switch？&#34; class=&#34;headerlink&#34; title=&#34;什么是 CC Switch？&#34;&gt;&lt;/a&gt;什么是 CC Switch？&lt;/h2&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/farion1231/cc-switch&#34;&gt;CC Switch&lt;/a&gt; 是一款&lt;strong&gt;跨平台桌面应用&lt;/strong&gt;，一站式管理 Claude Code、Codex、Gemini CLI、OpenCode 和 OpenClaw 等多款 AI 编程助手。基于 Tauri 2 构建，支持 Windows &amp;#x2F; macOS &amp;#x2F; Linux，当前最新版本为 &lt;strong&gt;v3.14.1&lt;/strong&gt;。&lt;/p&gt;
@@ -27027,6 +27091,16 @@
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/interview/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</guid>
+            <title>自我介绍</title>
+            <link>https://scottalive.github.io/computer-science/java/interview/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</link>
+            <category>JavaSE</category>
+            <category>Java开发面试题</category>
+            <pubDate>Mon, 09 Oct 2023 22:05:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h3 id=&#34;自我介绍&#34;&gt;&lt;a href=&#34;#自我介绍&#34; class=&#34;headerlink&#34; title=&#34;自我介绍&#34;&gt;&lt;/a&gt;自我介绍&lt;/h3&gt;&lt;p&gt;面试官您好，&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/java/interview/10%E6%9C%889%E6%97%A5%E9%9D%A2%E8%AF%95%E5%A4%B1%E8%B4%A5%E5%A4%8D%E7%9B%98/</guid>
             <title>10月9日面试失败复盘</title>
             <link>https://scottalive.github.io/computer-science/java/interview/10%E6%9C%889%E6%97%A5%E9%9D%A2%E8%AF%95%E5%A4%B1%E8%B4%A5%E5%A4%8D%E7%9B%98/</link>
@@ -27162,16 +27236,6 @@
 &lt;li&gt;框架原理&lt;/li&gt;
 &lt;li&gt;项目？&lt;/li&gt;
 &lt;/ol&gt;
- ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/interview/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</guid>
-            <title>自我介绍</title>
-            <link>https://scottalive.github.io/computer-science/java/interview/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</link>
-            <category>JavaSE</category>
-            <category>Java开发面试题</category>
-            <pubDate>Mon, 09 Oct 2023 22:05:00 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;自我介绍&#34;&gt;&lt;a href=&#34;#自我介绍&#34; class=&#34;headerlink&#34; title=&#34;自我介绍&#34;&gt;&lt;/a&gt;自我介绍&lt;/h3&gt;&lt;p&gt;面试官您好，&lt;/p&gt;
  ]]></description>
         </item>
         <item>
