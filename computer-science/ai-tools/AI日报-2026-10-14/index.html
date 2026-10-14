@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230a0e14'/%3E%3Ctext x='18' y='68' font-size='52' fill='%2300ff9c' font-family='monospace'%3E%26gt;_%3C/text%3E%3C/svg%3E">
+  <title>AI 日报 2026-10-14 | 沉鱼的博客</title>
+  
+  <meta name="description" content="📰 今日热点今天的主题词是**「可验证性」**。当 Agent 从”演示能跑通”进入”生产要签字”的阶段，一个问题被反复推到台前：你怎么证明它真的做了它说做过的事？ 榜单给了三种不同层次的回答——morluto/rea（229,570 ★，今日 +41,187）用 Agent 去做反向工程，从应用行为一路拆到原生二进">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="沉鱼的博客">
+  <meta property="og:title" content="AI 日报 2026-10-14 | 沉鱼的博客">
+  <meta property="og:description" content="📰 今日热点今天的主题词是**「可验证性」**。当 Agent 从”演示能跑通”进入”生产要签字”的阶段，一个问题被反复推到台前：你怎么证明它真的做了它说做过的事？ 榜单给了三种不同层次的回答——morluto/rea（229,570 ★，今日 +41,187）用 Agent 去做反向工程，从应用行为一路拆到原生二进">
+  <meta property="og:url" content="https://scottalive.github.io/computer-science/ai-tools/AI日报-2026-10-14/">
+  <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AI 日报 2026-10-14 | 沉鱼的博客">
+  <meta name="twitter:description" content="📰 今日热点今天的主题词是**「可验证性」**。当 Agent 从”演示能跑通”进入”生产要签字”的阶段，一个问题被反复推到台前：你怎么证明它真的做了它说做过的事？ 榜单给了三种不同层次的回答——morluto/rea（229,570 ★，今日 +41,187）用 Agent 去做反向工程，从应用行为一路拆到原生二进">
+  <meta name="twitter:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="/atom.xml">
+  <link rel="stylesheet" href="/css/style.css?v=202607190200">
+  <script>
+  /* 深色为默认主题，仅当用户显式选择浅色时才切换；body 渲染前确定，避免闪烁 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var theme = saved === 'light' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    window.__theme = theme;
+  })();
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/"><span class="prompt-path">~/</span>blog<span class="cursor"></span></a></h1>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <a href="/about">关于</a>
+      </nav>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="search..." autocomplete="off">
+        <div id="search-results"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <div class="post-path">
+      <a href="/">~</a>/<a href="/archives">posts</a>/<span class="pd">computer-science/ai-tools/AI日报-2026-10-14.md</span>
+    </div>
+    <h1 class="post-title">AI 日报 2026-10-14</h1>
+    <div class="post-meta">
+      <span>2026-10-14 22:00</span>
+      <span>4409 字 · 约 13 分钟</span>
+      
+        
+        <a class="bkt" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+        
+        <a class="bkt" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
+        
+      
+      
+        
+        <a class="bkt cyan" href="/tags/AI%E6%97%A5%E6%8A%A5/">#AI日报</a>
+        
+        <a class="bkt cyan" href="/tags/AI/">#AI</a>
+        
+        <a class="bkt cyan" href="/tags/GitHub%E7%83%AD%E9%97%A8/">#GitHub热门</a>
+        
+        <a class="bkt cyan" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">#人工智能</a>
+        
+        <a class="bkt cyan" href="/tags/%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF/">#技术趋势</a>
+        
+      
+    </div>
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#今日热点">📰 今日热点</a>
+      
+      <a class="toc-level-2" href="#github-热门-ai-项目">⭐ GitHub 热门 AI 项目</a>
+      
+      <a class="toc-level-3" href="#1-morlutox2frea-用-agent-反向工程一切">1. morluto&amp;#x2F;rea — 用 Agent 反向工程一切</a>
+      
+      <a class="toc-level-3" href="#2-debpalashx2fvoicestudio-本地语音克隆连续第二天放量">2. debpalash&amp;#x2F;VoiceStudio — 本地语音克隆，连续第二天放量</a>
+      
+      <a class="toc-level-3" href="#3-ifixai-aix2fifixai-给-agent-发一张审计报告">3. ifixai-ai&amp;#x2F;iFixAi — 给 Agent 发一张”审计报告”</a>
+      
+      <a class="toc-level-3" href="#4-k-dense-aix2fscientific-agent-skills-把科研打包成-177-个技能">4. K-Dense-AI&amp;#x2F;scientific-agent-skills — 把”科研”打包成 177 个技能</a>
+      
+      <a class="toc-level-3" href="#5-mksglux2fcontext-mode-上下文进入预算管理时代">5. mksglu&amp;#x2F;context-mode — 上下文进入”预算管理”时代</a>
+      
+      <a class="toc-level-3" href="#6-hkudsx2fcli-anything-让所有软件对-agent原生">6. HKUDS&amp;#x2F;CLI-Anything — 让所有软件对 Agent”原生”</a>
+      
+      <a class="toc-level-3" href="#7-vxcontrolx2fpentagi-与-nationalsecurityagencyx2fghidra">7. vxcontrol&amp;#x2F;pentagi 与 NationalSecurityAgency&amp;#x2F;ghidra</a>
+      
+      <a class="toc-level-3" href="#榜单速览">📋 榜单速览</a>
+      
+      <a class="toc-level-2" href="#新工具x2f产品速览">🛠 新工具&amp;#x2F;产品速览</a>
+      
+      <a class="toc-level-2" href="#行业动态">🌐 行业动态</a>
+      
+      <a class="toc-level-2" href="#技术洞见">🔮 技术洞见</a>
+      
+      <a class="toc-level-3" href="#洞见一agent-经济缺的不是手是审计">洞见一：Agent 经济缺的不是”手”，是”审计”</a>
+      
+      <a class="toc-level-3" href="#洞见二训练基础设施正在为长程-agent重做一遍">洞见二：训练基础设施正在为”长程 Agent”重做一遍</a>
+      
+      <a class="toc-level-2" href="#一句话总结">📌 一句话总结</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="今日热点"><a href="#📰-今日热点" class="headerlink" title="📰 今日热点"></a>📰 今日热点</h2><p>今天的主题词是**「可验证性」**。当 Agent 从”演示能跑通”进入”生产要签字”的阶段，一个问题被反复推到台前：<strong>你怎么证明它真的做了它说做过的事？</strong> 榜单给了三种不同层次的回答——<code>morluto/rea</code>（229,570 ★，今日 <strong>+41,187</strong>）用 Agent 去做反向工程，从应用行为一路拆到原生二进制；<code>ifixai-ai/iFixAi</code>（26,715 ★，今日 <strong>+2,143</strong>）干脆把自己定位成”独立的 Agent 审计方”，宣称 <strong>120 秒内</strong>回答”这个 Agent 是否在按它应该做的做事”；<code>vxcontrol/pentagi</code> 则把自动化渗透测试交给全自主 Agent 集群。</p>
+<p>而在模型侧，阿里巴巴的 <code>QwenGyre</code> 交出了另一份答卷：用<strong>弹性调度 + 轨迹树重建</strong>，把单个 rollout 长达上百万 token、耗时数小时的”极端长程 Agent”训练提速 <strong>1.21–1.85 倍</strong>，并在 NL2RepoBench 上把准确率从 52.5% 拉到 58.5%。英国政府同一天宣布，两个 AI 网络安全试点在 548 个代码仓库中找出并处理了 <strong>1,352 个漏洞</strong>。</p>
+<p>一句话：<strong>Agent 的能力已经不是瓶颈，”它做的事有没有被看见、被核对、被复现”才是。</strong></p>
+<blockquote>
+<p>数据说明：本期 <code>github.com/trending</code> 正常访问，项目带当日 Star 数据；新闻来源为 AI News（Hacker News 请求超时、The Verge 未取到，已跳过）。部分榜单条目未显示增量，属抽样展示。</p>
+</blockquote>
+<span id="more"></span>
+
+<hr>
+<h2 id="github-热门-ai-项目"><a href="#⭐-GitHub-热门-AI-项目" class="headerlink" title="⭐ GitHub 热门 AI 项目"></a>⭐ GitHub 热门 AI 项目</h2><h3 id="1-morlutox2frea-用-agent-反向工程一切"><a href="#1-morluto-rea-—-用-Agent-反向工程一切" class="headerlink" title="1. morluto&#x2F;rea — 用 Agent 反向工程一切"></a>1. morluto&#x2F;rea — 用 Agent 反向工程一切</h3><ul>
+<li><strong>语言:</strong> TypeScript</li>
+<li><strong>Star:</strong> 229,570（今日 <strong>+41,187</strong>）</li>
+<li><strong>地址:</strong> <a target="_blank" rel="noopener" href="https://github.com/morluto/rea">morluto&#x2F;rea</a></li>
+</ul>
+<p><code>rea</code> 的自我描述短到几乎是挑衅：<strong>“Reverse engineer anything with agents, from app behavior down to native binaries.”</strong> 从应用层行为一路下探到原生二进制——这句话覆盖的是逆向工程最枯燥也最值钱的一段路：读崩溃栈、猜数据结构、追调用链、还原协议。</p>
+<p>它连续多日断层第一，日增四万颗 Star。这个数字本身比任何描述都更能说明问题：<strong>自动化逆向已经从”炫技”变成了最刚需的 Agent 应用场景之一。</strong> 原因不难理解——逆向工作的输入是海量、非结构化、需要反复试错的符号信息，而这恰好是 Agent 相对人类专家唯一具备数量级优势的地方：它可以在一分钟里试一百条路径，人类做不到。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A[目标&lt;br/&gt;应用 / 固件 / 二进制] --&gt; B&#123;侦察&#125;</span><br><span class="line">    B --&gt; C[静态分析&lt;br/&gt;符号 · 字符串 · 段表]</span><br><span class="line">    B --&gt; D[动态观察&lt;br/&gt;崩溃栈 · 系统调用 · 网络行为]</span><br><span class="line">    C --&gt; E[Agent 推理层&lt;br/&gt;假设 → 验证 → 修正]</span><br><span class="line">    D --&gt; E</span><br><span class="line">    E --&gt; F&#123;置信度足够?&#125;</span><br><span class="line">    F -- 否 --&gt; G[生成新探测&lt;br/&gt;构造输入 / 挂钩子]</span><br><span class="line">    G --&gt; B</span><br><span class="line">    F -- 是 --&gt; H[产出:数据结构 · 调用链&lt;br/&gt;协议 · 可读伪代码]</span><br><span class="line">    H --&gt; I[人类专家复核&lt;br/&gt;确认关键结论]</span><br></pre></td></tr></table></figure>
+
+<p><strong>为什么重要：</strong> <code>rea</code> 和下面要讲的 <code>iFixAi</code> 是同一枚硬币的两面——一个是<strong>主动去找别人系统的弱点</strong>，一个是<strong>被动守住自己系统的行为边界</strong>。它们共同定义了一个新工种：<strong>Agent 的输出必须被 Agent 自己验证</strong>。当 AI 能写代码时，”谁来审这段代码”就从一个组织问题变成了一个工具问题。</p>
+<hr>
+<h3 id="2-debpalashx2fvoicestudio-本地语音克隆连续第二天放量"><a href="#2-debpalash-VoiceStudio-—-本地语音克隆，连续第二天放量" class="headerlink" title="2. debpalash&#x2F;VoiceStudio — 本地语音克隆，连续第二天放量"></a>2. debpalash&#x2F;VoiceStudio — 本地语音克隆，连续第二天放量</h3><ul>
+<li><strong>语言:</strong> Python</li>
+<li><strong>Star:</strong> 65,115（今日 <strong>+3,547</strong>）</li>
+<li><strong>地址:</strong> <a target="_blank" rel="noopener" href="https://github.com/debpalash/VoiceStudio">debpalash&#x2F;VoiceStudio</a></li>
+</ul>
+<p>昨天它在榜上是这个位置，今天以 <strong>+3,547</strong> 的更大量级强势回归——这在 Trending 上通常意味着<strong>真实的安装潮</strong>，而不只是围观。定位不变：完全本地、开源的 ElevenLabs 替代品，涵盖声音克隆、音色设计、视频配音、听写、转写与有声书制作，宣称覆盖 <strong>646 种语言</strong>。</p>
+<p>它值得重复讲，是因为它验证了昨天那条判断：<strong>涉及生物特征的能力，正在从云端订阅回流到本地机箱。</strong> 一段 30 秒样音足以克隆出”你”——这件事放在别人的服务器上，在合规、隐私和成本三个维度上都越来越难讲通；一旦推理能在消费级显卡上跑起来，”本地版”就从玩具变成了默认选项。</p>
+<p><strong>为什么重要：</strong> 昨天是”有人做出来了”，今天是”很多人在装”。<strong>开源项目的第二天，往往比第一天更有信息量。</strong></p>
+<hr>
+<h3 id="3-ifixai-aix2fifixai-给-agent-发一张审计报告"><a href="#3-ifixai-ai-iFixAi-—-给-Agent-发一张”审计报告”" class="headerlink" title="3. ifixai-ai&#x2F;iFixAi — 给 Agent 发一张”审计报告”"></a>3. ifixai-ai&#x2F;iFixAi — 给 Agent 发一张”审计报告”</h3><ul>
+<li><strong>语言:</strong> Python</li>
+<li><strong>Star:</strong> 26,715（今日 <strong>+2,143</strong>）</li>
+<li><strong>地址:</strong> <a target="_blank" rel="noopener" href="https://github.com/ifixai-ai/iFixAi">ifixai-ai&#x2F;iFixAi</a></li>
+</ul>
+<p><code>iFixAi</code> 的定位精准得像是提前写好的一句广告词：<strong>独立审计 AI Agent</strong>。无论是人来跑还是 Agent 自己跑，它回答的都是”AI Agent 经济”里最要命的那个问题——<strong>这个 Agent 是否在做它应该做的事？</strong> 而它给出的时限是 <strong>不到 120 秒</strong>。</p>
+<p>它踩中的是一个正在成型的结构性缺口。过去一年，我们给 Agent 装了越来越多的手：能读写文件、能发请求、能提交表单、能部署服务。但与之配套的<strong>信任基础设施</strong>几乎是从零开始的。当一个 Agent 一行命令就能改线上配置时，”它的行为日志在哪里””它的权限边界谁在核””它的越权谁先发现”——这三个问题如果无人回答，Agent 就永远只能待在沙箱里。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    A[被审 Agent] --&gt; B[行为轨迹&lt;br/&gt;工具调用 · 输出 · 状态变更]</span><br><span class="line">    B --&gt; C&#123;iFixAi 审计层&#125;</span><br><span class="line">    C --&gt; D[意图对齐检查&lt;br/&gt;说的 vs 做的]</span><br><span class="line">    C --&gt; E[权限边界检查&lt;br/&gt;越权调用?]</span><br><span class="line">    C --&gt; F[结果一致性检查&lt;br/&gt;产出可复现?]</span><br><span class="line">    D --&gt; G[审计结论&lt;br/&gt;&lt; 120 秒]</span><br><span class="line">    E --&gt; G</span><br><span class="line">    F --&gt; G</span><br><span class="line">    G --&gt; H&#123;通过?&#125;</span><br><span class="line">    H -- 是 --&gt; I[放行 / 进入生产]</span><br><span class="line">    H -- 否 --&gt; J[拦截 · 生成修复建议]</span><br></pre></td></tr></table></figure>
+
+<p><strong>为什么重要：</strong> 审计这件事由一个<strong>独立第三方</strong>来做，而不是由 Agent 自己声称”我很好”，是它能成立的前提。这和财务审计、安全审计是同一条逻辑：<strong>可信不是靠自证，是靠被验证。</strong></p>
+<hr>
+<h3 id="4-k-dense-aix2fscientific-agent-skills-把科研打包成-177-个技能"><a href="#4-K-Dense-AI-scientific-agent-skills-—-把”科研”打包成-177-个技能" class="headerlink" title="4. K-Dense-AI&#x2F;scientific-agent-skills — 把”科研”打包成 177 个技能"></a>4. K-Dense-AI&#x2F;scientific-agent-skills — 把”科研”打包成 177 个技能</h3><ul>
+<li><strong>语言:</strong> Markdown &#x2F; Agent Skills</li>
+<li><strong>地址:</strong> <a target="_blank" rel="noopener" href="https://github.com/K-Dense-AI/scientific-agent-skills">K-Dense-AI&#x2F;scientific-agent-skills</a></li>
+</ul>
+<p>它号称”科学领域的 #1 Agent Skills 库”，被全球 250,000+ 科研人员使用，提供 <strong>177 个经过验证的现成技能</strong>，外加覆盖生物、化学、医学与药物发现的 <strong>100+ 个科研数据库</strong>接入，并兼容 Cursor、Claude Code、Codex、Pi、Antigravity 以及开放 Agent Skills 标准。</p>
+<p><strong>为什么重要：</strong> 它和上周 Vercel 的 <code>npx skills</code> 是同一条线上的两个点——一个是<strong>分发格式</strong>，一个是<strong>垂直内容</strong>。当”技能”变成一个可安装的包，最先被填满的不会是通用能力，而是<strong>那些人类专家最稀缺、文档最厚重的领域</strong>。科研正好是其中之一：一个”如何做蛋白质序列比对”的技能，背后是某个实验室二十年的经验。</p>
+<hr>
+<h3 id="5-mksglux2fcontext-mode-上下文进入预算管理时代"><a href="#5-mksglu-context-mode-—-上下文进入”预算管理”时代" class="headerlink" title="5. mksglu&#x2F;context-mode — 上下文进入”预算管理”时代"></a>5. mksglu&#x2F;context-mode — 上下文进入”预算管理”时代</h3><ul>
+<li><strong>语言:</strong> TypeScript</li>
+<li><strong>Star:</strong> 28,780（今日 <strong>+946</strong>）</li>
+<li><strong>地址:</strong> <a target="_blank" rel="noopener" href="https://github.com/mksglu/context-mode">mksglu&#x2F;context-mode</a></li>
+</ul>
+<p>连续第三天在榜。三个卖点依旧清晰：把工具原始输出沙箱化（仓库自称压缩 <strong>98%</strong>）、把会话记忆落盘持久化、用 MCP + hooks 横跨 <strong>17 个平台</strong>强制路由。</p>
+<p>连续霸榜说明需求是真的：只要 Agent 还要读日志、读代码、读网页，<strong>“什么不该进上下文”就会一直是比”什么该进”更值钱的问题。</strong></p>
+<hr>
+<h3 id="6-hkudsx2fcli-anything-让所有软件对-agent原生"><a href="#6-HKUDS-CLI-Anything-—-让所有软件对-Agent”原生”" class="headerlink" title="6. HKUDS&#x2F;CLI-Anything — 让所有软件对 Agent”原生”"></a>6. HKUDS&#x2F;CLI-Anything — 让所有软件对 Agent”原生”</h3><ul>
+<li><strong>语言:</strong> 多语言</li>
+<li><strong>地址:</strong> <a target="_blank" rel="noopener" href="https://github.com/HKUDS/CLI-Anything">HKUDS&#x2F;CLI-Anything</a></li>
+</ul>
+<p>香港大学数据科学实验室的项目，标语直接写明了野心：<strong>“Making ALL Software Agent-Native”</strong>，配套一个 CLI-Hub（<code>clianything.cc</code>）。它想解决的痛点所有人都遇过：Agent 想用一个软件，却卡在”这个软件只有 GUI、没有 API、文档还停留在 2019 年”。</p>
+<p><strong>为什么重要：</strong> 这是 Agent 落地最脏也最实在的一段活。<strong>模型能力再强，也架不住目标软件没有入口。</strong> 把软件”翻译”成 Agent 能调用的形态，是一条看起来不性感、但决定了 Agent 到底能覆盖多少真实工作流的必经之路。</p>
+<hr>
+<h3 id="7-vxcontrolx2fpentagi-与-nationalsecurityagencyx2fghidra"><a href="#7-vxcontrol-pentagi-与-NationalSecurityAgency-ghidra" class="headerlink" title="7. vxcontrol&#x2F;pentagi 与 NationalSecurityAgency&#x2F;ghidra"></a>7. vxcontrol&#x2F;pentagi 与 NationalSecurityAgency&#x2F;ghidra</h3><ul>
+<li><strong><a target="_blank" rel="noopener" href="https://github.com/vxcontrol/pentagi">vxcontrol&#x2F;pentagi</a></strong>：<strong>全自主 AI Agent 系统</strong>，目标是把复杂的渗透测试任务交给 Agent 集群端到端完成。它和 <code>rea</code>、<code>iFixAi</code> 共同构成今天榜单上一条清晰的线：<strong>攻、防、审三个位置，同时被 Agent 占领。</strong></li>
+<li><strong><a target="_blank" rel="noopener" href="https://github.com/NationalSecurityAgency/ghidra">NationalSecurityAgency&#x2F;ghidra</a></strong>：NSA 开源的软件逆向工程框架，今日随”逆向”话题一同回到榜上。它是 <code>rea</code> 这类 Agent 天然的”底层工具箱”——<strong>Agent 负责判断，Ghidra 负责呈现。</strong></li>
+</ul>
+<h3 id="榜单速览"><a href="#📋-榜单速览" class="headerlink" title="📋 榜单速览"></a>📋 榜单速览</h3><ul>
+<li><strong><a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm">nvm-sh&#x2F;nvm</a></strong>：Node 版本管理器，POSIX bash 脚本，依旧是”多 Node 版本共存”的默认答案。</li>
+<li><strong><a target="_blank" rel="noopener" href="https://github.com/xtool-org/xtool">xtool-org&#x2F;xtool</a></strong>（Swift，10,167 ★，今日 <strong>+1,510</strong>）：跨平台 Xcode 替代品，在 Linux&#x2F;Windows&#x2F;macOS 上用 SwiftPM 构建部署 iOS 应用。</li>
+<li><strong><a target="_blank" rel="noopener" href="https://github.com/rust-lang/rust">rust-lang&#x2F;rust</a></strong>：常驻榜单，不必多说。</li>
+<li><strong><a target="_blank" rel="noopener" href="https://github.com/ntdevlabs/tiny11builder">ntdevlabs&#x2F;tiny11builder</a></strong>：用 WinUI 构建精简版 Windows 11 镜像。</li>
+</ul>
+<hr>
+<h2 id="新工具x2f产品速览"><a href="#🛠-新工具-产品速览" class="headerlink" title="🛠 新工具&#x2F;产品速览"></a>🛠 新工具&#x2F;产品速览</h2><p><strong>阿里 QwenGyre：给”极端长程 Agent”造一台弹性发动机。</strong> 阿里巴巴 Qwen 团队联合中国科学技术大学、清华大学发布论文（<code>arXiv:2609.33848</code>），提出 <strong>QwenGyre</strong>——一个面向多小时软件工程任务的弹性强化学习框架。它要解决两个真实瓶颈：其一，单个 rollout 耗时数小时、消耗 <strong>70 万到约 100 万 token</strong>，执行方差极大，共同部署（colocated）时训练步骤会集体空转；其二，Agent 反复重试失败命令、压缩历史日志、委派子任务，会生成大量<strong>冗余轨迹</strong>，拖垮训练效率。</p>
+<p>QwenGyre 的两把刀很对症：<strong>弹性调度器</strong>在 rollout 生成与模型训练之间动态转移 GPU，被回收的节点能直接并入进行中的数据并行批次而不必重置；<strong>轨迹处理器</strong>把分支历史重组成共享前缀的<strong>轨迹树</strong>，去重冗余路径、为部分进展打分，甚至在任务因超时终止时也保留奖励信号。实测端到端加速 <strong>1.21×–1.85×</strong>（对比异步方案 1.38×–1.78×），训练分数与基线持平。在约 70 万 token&#x2F;rollout 的重负载下，Qwen 3.8 2.4T 在 NL2RepoBench 上 <strong>48 个训练步内从 52.5% 提升到 58.5%</strong>。</p>
+<p><strong>Mistral Large 4 预览版。</strong> AI News 报道，Mistral 在正式开源权重之前放出 Large 4 预览版。欧洲阵营”先预览、再开源”的节奏已经稳定成型。</p>
+<hr>
+<h2 id="行业动态"><a href="#🌐-行业动态" class="headerlink" title="🌐 行业动态"></a>🌐 行业动态</h2><p><strong>英国政府用 AI 找到 1,352 个漏洞，然后把范围扩大。</strong> 两个试点在 <strong>18 个政府部门、548 个代码仓库</strong>上运行，最终识别并处理了 <strong>1,352 个漏洞</strong>。AI 大臣 Kanishka Narayan 在帝国理工的演讲里给了句狠话：<strong>“我希望英国成为世界上最难被 AI 攻击的国家之一。”</strong></p>
+<p>细节比口号更有价值。政府网络协调中心（GC3）会同 NCSC 与 AI 安全研究所，组织<strong>每周黑客马拉松</strong>扫描公开可访问的政府代码仓库；参赛团队路线各异——一队做了<strong>六阶段 AI Agent 工作流</strong>来筛选与验证弱点，另一队把 AI 模型与 Gitleaks、Trivy、Semgrep 等安全扫描工具组合使用。AI 负责分析源码、探测攻击路径，<strong>安全专家负责复核、评估影响、剔除误报</strong>。一个月的演练在 9 个组织中产出 407 项发现，包含认证绕过、数据暴露与远程代码执行；官方称所有关键弱点均已修复，且<strong>未发现被利用的迹象</strong>。成本方面颇具参考价值：AI token 花费约 <strong>£13,000</strong>。</p>
+<p>其中一个漏洞尤其值得记下来——某个支撑政府数字服务的<strong>遗留 GitHub Actions 工作流</strong>，攻击者只要发一条特制的 PR 评论，就能触发工作流并执行代码，从而可能泄露自动化凭证。<strong>“AI 找漏洞”的效率再高，最先被攻破的往往还是人类几年前随手写的那段自动化。</strong></p>
+<p><strong>AISI 列出前沿模型评测的优先事项。</strong> 英国 AI 安全研究所在”弥合前沿 AI 评测缺口”上给出了工作优先级。监管方与评测方开始同步推进——<strong>“先发布、后评估”的窗口正在关闭。</strong></p>
+<p><strong>Kyvvu：每个 Agent 都必须先”问”再”动”。</strong> AI News 刊出观点文章，主张 Agent 在执行前必须具备明确的<strong>征询（ASK）机制</strong>。放在今天 <code>iFixAi</code> 与英国政府漏洞审计的语境里，这条主张的分量明显变重了：<strong>权限不是靠事后审计兜住的，是靠动作发生前的那一次询问挡住的。</strong></p>
+<p><strong>其他快讯：</strong> Thread AI 与美国陆军在火控系统上合作；SAS 的 Marinela Profi 谈自治 Agent 的治理；CFR 列出白宫 AI 工作组的优先事项；阿布扎比启动面向政府雇员的 AI 培训；欧洲委员会与 Microsoft 达成 AI 合作协议。英国还在推进《网络安全与韧性法案》，拟要求受监管机构 <strong>24 小时内初报、72 小时内详报</strong>事件，NCSC 将与监管方同步接收信息。</p>
+<hr>
+<h2 id="技术洞见"><a href="#🔮-技术洞见" class="headerlink" title="🔮 技术洞见"></a>🔮 技术洞见</h2><h3 id="洞见一agent-经济缺的不是手是审计"><a href="#洞见一：Agent-经济缺的不是”手”，是”审计”" class="headerlink" title="洞见一：Agent 经济缺的不是”手”，是”审计”"></a>洞见一：Agent 经济缺的不是”手”，是”审计”</h3><p>把今天的项目排一排，会看到一条非常整齐的线：<code>rea</code> 主动攻别人的系统，<code>pentagi</code> 自动化渗透测试，<code>iFixAi</code> 独立审计自己的 Agent，英国政府用 AI 批量扫政府代码。<strong>攻、防、审三个位置，今天同时被 Agent 占领——而且它们共享同一套底层方法：让 AI 生成假设，让工具去验证，让结果可复现。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    subgraph 攻击面</span><br><span class="line">        A1[morluto/rea&lt;br/&gt;逆向工程]</span><br><span class="line">        A2[vxcontrol/pentagi&lt;br/&gt;自动化渗透]</span><br><span class="line">    end</span><br><span class="line">    subgraph 防守面</span><br><span class="line">        B1[英国政府 GC3 试点&lt;br/&gt;548 仓库 → 1352 漏洞]</span><br><span class="line">        B2[Gitleaks · Trivy · Semgrep&lt;br/&gt;+ AI 分析]</span><br><span class="line">    end</span><br><span class="line">    subgraph 审计面</span><br><span class="line">        C1[ifixai/iFixAi&lt;br/&gt;&lt; 120 秒行为审计]</span><br><span class="line">        C2[Kyvvu 式 ASK 机制&lt;br/&gt;动作前征询]</span><br><span class="line">    end</span><br><span class="line">    A1 --&gt; D&#123;同一套方法&#125;</span><br><span class="line">    A2 --&gt; D</span><br><span class="line">    B1 --&gt; D</span><br><span class="line">    B2 --&gt; D</span><br><span class="line">    C1 --&gt; D</span><br><span class="line">    C2 --&gt; D</span><br><span class="line">    D --&gt; E[生成假设 → 工具验证 → 结论可复现]</span><br><span class="line">    E --&gt; F[人类的角色收窄为&lt;br/&gt;复核与裁决]</span><br></pre></td></tr></table></figure>
+
+<p>英国政府那份案例研究里最诚实的一句话，是<strong>人类专家仍然负责验证 AI 生成的发现、决定哪些需要处理、并通过既有流程推进修复</strong>。这不是套话，这是当前 AI 安全落地的真实边界：<strong>AI 把候选从”无穷多”压到”几百个”，人类把”几百个”压到”该修的几十个”。</strong> 价值全在第一个压缩上，责任全在第二个压缩上。</p>
+<p>对工程团队的启示很直接：<strong>在你把 Agent 接进生产之前，先想清楚”它的行为谁在核”。</strong> 如果你答不出这个问题，那么你今天省下的审计成本，会在某次越权事件里以利息的形式还回来。</p>
+<h3 id="洞见二训练基础设施正在为长程-agent重做一遍"><a href="#洞见二：训练基础设施正在为”长程-Agent”重做一遍" class="headerlink" title="洞见二：训练基础设施正在为”长程 Agent”重做一遍"></a>洞见二：训练基础设施正在为”长程 Agent”重做一遍</h3><p>第二个趋势藏在阿里那篇论文里。过去的 RL 训练假设是”一步一个动作、几步一个回合”；而 Agent 的现实是<strong>一个任务跑几小时、烧一百万 token、中途大量分支与重试</strong>。当 rollout 的方差大到训练节点要集体等它时，<strong>调度本身就成了算法的一部分。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    A[长程 Agent 任务&lt;br/&gt;数小时 · 70 万+ token] --&gt; B[弹性调度器&lt;br/&gt;GPU 在 rollout 与训练间动态转移]</span><br><span class="line">    A --&gt; C[轨迹处理器&lt;br/&gt;分支历史 → 共享前缀轨迹树]</span><br><span class="line">    C --&gt; D[去重冗余路径&lt;br/&gt;为部分进展打分]</span><br><span class="line">    D --&gt; E[超时终止仍保留奖励]</span><br><span class="line">    B --&gt; F[端到端 1.21×–1.85× 加速]</span><br><span class="line">    E --&gt; F</span><br><span class="line">    F --&gt; G[训练分数不降&lt;br/&gt;NL2RepoBench 52.5 → 58.5]</span><br></pre></td></tr></table></figure>
+
+<p>这里有个值得记住的判断：<strong>当”环境交互次数”成为瓶颈，模型架构的重要性会相对下降，而调度、去重、奖励塑形这些”系统工程”的重要性会相对上升。</strong> QwenGyre 没有一个新算子，它赢在把 GPU 空转时间和轨迹冗余这两笔”浪费”抠了出来。</p>
+<p>换句话说：<strong>下一阶段的竞争，有一半不在模型里，而在把散落的算力与轨迹组织起来的那层管道里。</strong></p>
+<hr>
+<h2 id="一句话总结"><a href="#📌-一句话总结" class="headerlink" title="📌 一句话总结"></a>📌 一句话总结</h2><p>今天真正的问题不是”Agent 能不能干这活”——<code>rea</code> 的四万颗星已经替我们回答了。真正的问题是**”它干的活，谁来签字”**：英国政府的答案是”AI 找、人复核、24 小时上报”，<code>iFixAi</code> 的答案是”给每个 Agent 一份 120 秒的审计结论”，阿里的答案是”先把训练过程本身变得可调度、可复现”。<strong>能力越强，可验证性就越贵；而在 Agent 经济里，能证明自己做了什么的那个，才配拿到权限。</strong></p>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  
+  <a class="next" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-10-13/">AI 日报 2026-10-13</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;·&nbsp; uv:<span id="site-uv">-</span> &nbsp;pv:<span id="site-pv">-</span> &nbsp;·&nbsp; <a href="/atom.xml" title="RSS 订阅">[rss]</a> &nbsp;·&nbsp; powered by <a href="https://hexo.io" target="_blank" rel="noopener">hexo</a></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle：深色为默认，按钮在 dark/light 间切换 */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      var next = currentlyDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      window.__theme = next;
+      notifyGiscus(next);
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* Code + Mermaid — 视频播放器风格放大查看 */
+  (function() {
+    'use strict';
+    var currentViewer = null;
+
+    /* ---- 弹窗 ---- */
+    function showViewer(opts) {
+      if (currentViewer) { currentViewer.remove(); currentViewer = null; }
+      var isMermaid = !!opts.isMermaid;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'code-viewer-overlay';
+
+      var viewer = document.createElement('div');
+      viewer.className = 'code-viewer';
+
+      /* toolbar */
+      var tb = document.createElement('div');
+      tb.className = 'code-viewer-toolbar';
+      var actionsHtml = '<div class="code-viewer-actions">';
+      if (isMermaid && opts.bodyHtml) {
+        actionsHtml += '<button class="code-viewer-btn" data-dl>⬇ 下载图片</button>';
+      } else if (opts.copyText) {
+        actionsHtml += '<button class="code-viewer-btn" data-copy>📋 复制</button>';
+      }
+      actionsHtml += '<button class="code-viewer-close">✕</button></div>';
+      tb.innerHTML = '<span class="code-viewer-title">' +
+        '<span>' + (isMermaid ? '📊' : '&lt;/&gt;') + '</span> ' + opts.title + '</span>' + actionsHtml;
+      viewer.appendChild(tb);
+
+      /* body */
+      var body = document.createElement('div');
+      body.className = 'code-viewer-body' + (isMermaid ? ' mermaid-body' : '');
+      if (isMermaid) {
+        body.innerHTML = opts.bodyHtml;
+      } else {
+        body.innerHTML = '<pre><code>' + escHtml(opts.bodyHtml) + '</code></pre>';
+      }
+      viewer.appendChild(body);
+      overlay.appendChild(viewer);
+      document.body.appendChild(overlay);
+      document.body.style.overflow = 'hidden';
+      currentViewer = overlay;
+
+      /* copy logic */
+      var copyBtn = tb.querySelector('[data-copy]');
+      if (copyBtn && opts.copyText) {
+        copyBtn.addEventListener('click', function() {
+          navigator.clipboard.writeText(opts.copyText).then(function() {
+            copyBtn.textContent = '✅ 已复制';
+            copyBtn.classList.add('copied');
+            setTimeout(function() { copyBtn.textContent = '📋 复制'; copyBtn.classList.remove('copied'); }, 2000);
+          });
+        });
+      }
+
+      /* download image logic */
+      var dlBtn = tb.querySelector('[data-dl]');
+      if (dlBtn && isMermaid && opts.bodyHtml) {
+        dlBtn.addEventListener('click', function() {
+          var svgEl = body.querySelector('svg');
+          if (!svgEl) return;
+          var svgClone = svgEl.cloneNode(true);
+          svgClone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+          var serializer = new XMLSerializer();
+          var svgStr = serializer.serializeToString(svgClone);
+          var blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = (opts.title || '流程图') + '.svg';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          dlBtn.textContent = '✅ 已下载';
+          setTimeout(function() { dlBtn.textContent = '⬇ 下载图片'; }, 2000);
+        });
+      }
+
+      /* close handlers */
+      tb.querySelector('.code-viewer-close').addEventListener('click', closeViewer);
+      overlay.addEventListener('click', function(e) { if (e.target === overlay) closeViewer(); });
+      document.addEventListener('keydown', onEsc);
+    }
+
+    function closeViewer() {
+      if (!currentViewer) return;
+      currentViewer.remove(); currentViewer = null;
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onEsc);
+    }
+    function onEsc(e) { if (e.key === 'Escape') closeViewer(); }
+
+    function escHtml(s) {
+      return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    /* ---- 事件委托：点击 Mermaid 流程图任意位置放大 ---- */
+    document.addEventListener('click', function(e) {
+      var wrap = e.target.closest('.mermaid-container[data-orig]');
+      if (!wrap) return;
+      /* 排除viewer弹窗内的SVG（viewer不在容器内，双保险） */
+      if (e.target.closest('.code-viewer-overlay')) return;
+
+      var origCode = wrap.getAttribute('data-orig');
+      if (!origCode) return;
+      /* 使用 mermaid.render() 获取 SVG 字符串 */
+      if (typeof mermaid !== 'undefined' && mermaid.render) {
+        var uid = 'mermaid-viewer-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
+        mermaid.render(uid, origCode).then(function(result) {
+          showViewer({ title: '流程图', bodyHtml: result.svg, isMermaid: true });
+        }).catch(function(err) {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        });
+      } else if (typeof mermaid !== 'undefined' && mermaid.run) {
+        /* fallback to run() */
+        var tmp = document.createElement('div');
+        tmp.textContent = origCode;
+        mermaid.run({ nodes: [tmp] }).then(function() {
+          showViewer({ title: '流程图', bodyHtml: tmp.innerHTML || origCode, isMermaid: true });
+        }).catch(function() {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        });
+      } else {
+        showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+      }
+    });
+
+    /* ---- 初始化：给每个代码块加复制按钮（不加放大遮罩） ---- */
+    var preList = document.querySelectorAll('.post-content figure.highlight td.code pre, .post-content > pre');
+    preList.forEach(function(pre) {
+      if (pre.closest('.code-block-wrap')) return; /* 已包装 */
+      var wrap = document.createElement('div');
+      wrap.className = 'code-block-wrap';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      /* 复制按钮 */
+      var copyBtn = document.createElement('button');
+      copyBtn.className = 'copy-btn';
+      copyBtn.textContent = '复制';
+      copyBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var text = pre.innerText || pre.textContent || '';
+        navigator.clipboard.writeText(text).then(function() {
+          copyBtn.textContent = '已复制';
+          copyBtn.classList.add('copied');
+          setTimeout(function() { copyBtn.textContent = '复制'; copyBtn.classList.remove('copied'); }, 2000);
+        });
+      });
+      wrap.appendChild(copyBtn);
+    });
+
+    /* ---- Mermaid 容器：右上角小展开按钮 ---- */
+    function addMermaidOverlay() {
+      document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)').forEach(function(c) {
+        if (!c.querySelector('svg')) return;
+        c.classList.add('has-overlay');
+        var btn = document.createElement('button');
+        btn.className = 'mermaid-expand-btn';
+        btn.title = '点击放大查看';
+        btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="currentColor"/></svg>';
+        c.appendChild(btn);
+      });
+    }
+    var mo = setInterval(function() {
+      addMermaidOverlay();
+      var left = document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)');
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext:not([data-mermaid-rendered])');
+      if (!left.length && !figs.length) clearInterval(mo);
+    }, 300);
+    /* 最多跑 8 秒后自动停止 */
+    setTimeout(function() { if (mo) clearInterval(mo); }, 8000);
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var MERMAID_FONT = '"JetBrains Mono","SF Mono",Menlo,Consolas,"Sarasa Mono SC","Noto Sans Mono CJK SC",monospace';
+
+    /* 与博客主题配色统一的 Mermaid 配置（深色/浅色两套） */
+    function getMermaidConfig(isDark) {
+      var palette = isDark ? {
+        nodeBg: '#182233',
+        nodeBorder: '#3a5a7a',
+        nodeText: '#c7d3e2',
+        line: '#4d7a9a',
+        clusterBg: 'rgba(19,26,37,0.55)',
+        clusterBorder: '#2a3a4f',
+        labelBg: '#131a25',
+        noteBg: '#1a2436',
+        hoverGlow: 'rgba(0,255,156,0.35)',
+        hoverStroke: '#00ff9c'
+      } : {
+        nodeBg: '#ffffff',
+        nodeBorder: '#b8b29c',
+        nodeText: '#33383f',
+        line: '#8a8571',
+        clusterBg: 'rgba(236,234,223,0.6)',
+        clusterBorder: '#c4bfa8',
+        labelBg: '#faf8f1',
+        noteBg: '#f5f3e8',
+        hoverGlow: 'rgba(10,125,74,0.22)',
+        hoverStroke: '#0a7d4a'
+      };
+
+      var themeCSS = [
+        '.flowchart .node rect, .flowchart .node circle, .flowchart .node ellipse, .flowchart .node polygon { stroke-width: 1.4px; }',
+        '.flowchart .node rect { rx: 6px; ry: 6px; }',
+        '.edgePaths path, .flowchart .edgePath path { stroke-width: 1.6px; }',
+        '.edgeLabel { background-color: ' + palette.labelBg + '; border-radius: 4px; padding: 2px 6px; }',
+        '.edgeLabel rect { fill: ' + palette.labelBg + ' !important; rx: 4px; ry: 4px; }',
+        '.edgeLabel p { background-color: ' + palette.labelBg + ' !important; }',
+        '.cluster rect { rx: 8px; ry: 8px; stroke-dasharray: 5 4; }',
+        '.flowchart .node { transition: filter .18s; }',
+        '.flowchart .node:hover rect, .flowchart .node:hover circle, .flowchart .node:hover ellipse, .flowchart .node:hover polygon { stroke: ' + palette.hoverStroke + '; filter: drop-shadow(0 0 6px ' + palette.hoverGlow + '); }'
+      ].join('\n');
+
+      return {
+        startOnLoad: false,
+        theme: 'base',
+        securityLevel: 'loose',
+        fontFamily: MERMAID_FONT,
+        themeVariables: {
+          fontFamily: MERMAID_FONT,
+          fontSize: '14px',
+          primaryColor: palette.nodeBg,
+          primaryTextColor: palette.nodeText,
+          primaryBorderColor: palette.nodeBorder,
+          lineColor: palette.line,
+          textColor: palette.nodeText,
+          mainBkg: palette.nodeBg,
+          nodeBorder: palette.nodeBorder,
+          secondaryColor: isDark ? '#131a25' : '#eceadf',
+          tertiaryColor: isDark ? '#0d1219' : '#f2f0e8',
+          clusterBkg: palette.clusterBg,
+          clusterBorder: palette.clusterBorder,
+          edgeLabelBackground: palette.labelBg,
+          noteBkgColor: palette.noteBg,
+          noteTextColor: palette.nodeText,
+          noteBorderColor: palette.nodeBorder,
+          actorBorder: palette.nodeBorder,
+          actorBkg: palette.nodeBg,
+          actorTextColor: palette.nodeText,
+          signalColor: palette.nodeText,
+          signalTextColor: palette.nodeText,
+          labelTextColor: palette.nodeText
+        },
+        themeCSS: themeCSS,
+        flowchart: {
+          curve: 'basis',
+          htmlLabels: true,
+          padding: 10,
+          nodeSpacing: 45,
+          rankSpacing: 55,
+          useMaxWidth: true
+        }
+      };
+    }
+
+    var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    mermaid.initialize(getMermaidConfig(isDark));
+
+    /* 匹配 mermaid 图表的关键词（首行判断） */
+    var MERMAID_RE = /^(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram|gantt|pie|erDiagram|journey|gitgraph|mindmap|timeline|zenuml|sankey|xychart|block|packet)/i;
+
+    /**
+     * Hexo 默认高亮插件将 markdown 代码块渲染为：
+     *   <figure class="highlight plaintext">
+     *     <table><tr><td class="code"><pre><span class="line">...</span>...</pre></td></tr></table>
+     * 因此无法通过 code.language-mermaid 选择器定位。
+     * 改为：匹配所有 figure.highlight.plaintext，提取其文本内容并检查首行是否为 mermaid 关键字。
+     */
+    function findMermaidBlocks() {
+      var blocks = [];
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext');
+      for (var i = 0; i < figs.length; i++) {
+        var fig = figs[i];
+        if (fig.dataset.mermaidRendered) continue;
+
+        var lines = fig.querySelectorAll('.line');
+        if (!lines.length) continue;
+
+        var code = '';
+        for (var j = 0; j < lines.length; j++) {
+          code += lines[j].textContent + '\n';
+        }
+        code = code.trim();
+
+        /* 只处理首行为 mermaid 关键词的块 */
+        var firstLine = code.split('\n')[0].trim();
+        if (!MERMAID_RE.test(firstLine)) continue;
+
+        blocks.push({ fig: fig, code: code });
+      }
+      return blocks;
+    }
+
+    async function renderMermaid() {
+      var blocks = findMermaidBlocks();
+      for (var i = 0; i < blocks.length; i++) {
+        var fig = blocks[i].fig;
+        var origCode = blocks[i].code;
+        fig.dataset.mermaidRendered = '1';
+
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        fig.parentNode.replaceChild(container, fig);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+          mermaid.initialize(getMermaidConfig(isDark));
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <script>
+  /* Matrix 字符雨背景：全屏 canvas 垫底，跟随主题色，空闲/隐藏时暂停 */
+  (function() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var cv = document.createElement('canvas');
+    cv.id = 'matrix-bg';
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;';
+    cv.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var fontSize = 16, cols, drops;
+    var CHARS = '0123456789abcdef{}[]()<>/\\$#*+=;:constfnlet=>';
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(innerWidth / fontSize);
+      drops = [];
+      for (var i = 0; i < cols; i++) drops[i] = Math.random() * -60;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function themeColors() {
+      var s = getComputedStyle(document.documentElement);
+      var green = s.getPropertyValue('--green').trim() || '#00ff9c';
+      var bg = s.getPropertyValue('--bg').trim() || '#0a0e14';
+      return { green: green, bg: bg };
+    }
+    var colors = themeColors();
+    /* 主题切换时更新颜色 */
+    var toggle = document.getElementById('dark-toggle');
+    if (toggle) toggle.addEventListener('click', function() {
+      setTimeout(function() { colors = themeColors(); }, 50);
+    });
+
+    function hexToRgb(hex) {
+      var m = hex.replace('#', '');
+      if (m.length === 3) m = m[0]+m[0]+m[1]+m[1]+m[2]+m[2];
+      var n = parseInt(m, 16);
+      return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+    }
+
+    var running = true, last = 0;
+    function tick(ts) {
+      if (!running) return;
+      /* 限流 ~20fps，字符雨不需要高帧率 */
+      if (ts - last < 50) { requestAnimationFrame(tick); return; }
+      last = ts;
+
+      var rgb = hexToRgb(colors.bg);
+      ctx.fillStyle = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.09)';
+      ctx.fillRect(0, 0, innerWidth, innerHeight);
+      ctx.font = fontSize + 'px ' + fontFamily;
+
+      var g = hexToRgb(colors.green);
+      for (var i = 0; i < cols; i++) {
+        var ch = CHARS[Math.floor(Math.random() * CHARS.length)];
+        /* 头部亮、尾部暗：每列首字符高亮 */
+        var head = Math.random() > 0.96;
+        ctx.fillStyle = 'rgba(' + g[0] + ',' + g[1] + ',' + g[2] + ',' + (head ? 0.9 : 0.45) + ')';
+        ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+        drops[i]++;
+        if (drops[i] * fontSize > innerHeight && Math.random() > 0.975) drops[i] = 0;
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        running = false;
+      } else if (!running) {
+        running = true;
+        last = 0;
+        requestAnimationFrame(tick);
+      }
+    });
+  })();
+  </script>
+
+  <script>
+  /* 点击字符爆裂动效：终端字形 + 重力 + 淡出，颜色跟随主题主色 */
+  (function() {
+    var cv = document.createElement('canvas');
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:9999;';
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var GLYPHS = '01<>/#$*{}[];=+';
+    var parts = [];
+    var raf = null;
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function burst(x, y) {
+      var color = getComputedStyle(document.documentElement)
+        .getPropertyValue('--green').trim() || '#00ff9c';
+      for (var i = 0; i < 16; i++) {
+        var a = Math.random() * Math.PI * 2;
+        var sp = 2 + Math.random() * 5;
+        parts.push({
+          x: x, y: y,
+          vx: Math.cos(a) * sp,
+          vy: Math.sin(a) * sp - 2.5,
+          ch: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
+          life: 1,
+          size: 11 + Math.random() * 7,
+          color: color
+        });
+      }
+      if (!raf) raf = requestAnimationFrame(tick);
+    }
+
+    function tick() {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      for (var i = parts.length - 1; i >= 0; i--) {
+        var p = parts[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.22;           /* 重力 */
+        p.vx *= 0.985;
+        p.life -= 0.018;
+        if (p.life <= 0) { parts.splice(i, 1); continue; }
+        ctx.globalAlpha = Math.max(p.life, 0);
+        ctx.fillStyle = p.color;
+        ctx.font = p.size + 'px ' + fontFamily;
+        ctx.fillText(p.ch, p.x, p.y);
+      }
+      ctx.globalAlpha = 1;
+      raf = parts.length ? requestAnimationFrame(tick) : (ctx.clearRect(0, 0, innerWidth, innerHeight), null);
+    }
+
+    document.addEventListener('pointerdown', function(e) {
+      burst(e.clientX, e.clientY);
+    }, { passive: true });
+  })();
+  </script>
+
+  <!-- 访问量统计（counter-api · Vercel KV） -->
+  <script>
+  (function() {
+    /* TODO(一次性): 部署 counter-api 到 Vercel 后，把下面的地址改成实际域名 */
+    var COUNTER_API = 'https://blog-counter-api.vercel.app/api/counter';
+    if (!COUNTER_API) return;
+
+    /* 访客 ID：localStorage 持久化，用于 UV 去重 */
+    var vid = localStorage.getItem('visitor-id');
+    if (!vid) {
+      vid = 'v-' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      localStorage.setItem('visitor-id', vid);
+    }
+
+    fetch(COUNTER_API, { headers: { 'x-visitor-id': vid } })
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        if (d && d.uv != null) document.getElementById('site-uv').textContent = d.uv;
+        if (d && d.pv != null) document.getElementById('site-pv').textContent = d.pv;
+      })
+      .catch(function() { /* 统计不可用时静默，保持 '-' */ });
+  })();
+  </script>
+
+  <script>
+  /* 按 / 聚焦搜索框，Esc 取消焦点（终端式快捷键） */
+  (function() {
+    document.addEventListener('keydown', function(e) {
+      var typing = /^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName);
+      if (e.key === '/' && !typing) {
+        e.preventDefault();
+        document.getElementById('search-input').focus();
+      } else if (e.key === 'Escape' && typing) {
+        document.activeElement.blur();
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
