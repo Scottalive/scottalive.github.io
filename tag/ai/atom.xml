@@ -3,9 +3,11 @@
     <id>https://scottalive.github.io</id>
     <title>沉鱼的博客 • Posts by &#34;ai&#34; tag</title>
     <link href="https://scottalive.github.io" />
-    <updated>2026-10-31T14:00:00.000Z</updated>
+    <updated>2026-11-01T14:00:00.000Z</updated>
     <category term="坏习惯" />
     <category term="个人分享" />
+    <category term="原则" />
+    <category term="个人详情" />
     <category term="AI日报" />
     <category term="AI" />
     <category term="GitHub热门" />
@@ -16,11 +18,6 @@
     <category term="容器编排" />
     <category term="DevOps" />
     <category term="运维" />
-    <category term="kubeconfig" />
-    <category term="kubectl" />
-    <category term="Context" />
-    <category term="原则" />
-    <category term="个人详情" />
     <category term="OpenSRE" />
     <category term="Grafana" />
     <category term="SRE" />
@@ -30,45 +27,42 @@
     <category term="GPT-5.5" />
     <category term="OpenAI" />
     <category term="Codex" />
-    <category term="ClaudeCode" />
-    <category term="Gemini" />
-    <category term="开发工具" />
-    <category term="开源" />
+    <category term="kubeconfig" />
+    <category term="kubectl" />
+    <category term="Context" />
     <category term="Claude" />
+    <category term="ClaudeCode" />
     <category term="Agent" />
     <category term="MCP" />
     <category term="自动化" />
-    <category term="编程笔记" />
-    <category term="编程助手" />
-    <category term="DeepSeek" />
-    <category term="Harness" />
-    <category term="插件" />
-    <category term="安装教程" />
+    <category term="开发工具" />
     <category term="Hermes" />
+    <category term="v0.17" />
     <category term="v0.20" />
     <category term="语音交互" />
     <category term="A2A" />
     <category term="Webhook" />
-    <category term="v0.17" />
+    <category term="DeepSeek" />
+    <category term="Harness" />
+    <category term="插件" />
+    <category term="安装教程" />
+    <category term="高阶" />
     <category term="NousResearch" />
     <category term="进阶" />
     <category term="配置" />
-    <category term="高阶" />
+    <category term="开源" />
+    <category term="编程笔记" />
     <category term="LangChain" />
     <category term="LangGraph" />
     <category term="Python" />
     <category term="LLM" />
-    <category term="RAG" />
-    <category term="知识库" />
-    <category term="工作流" />
-    <category term="故障排查" />
-    <category term="AI运维" />
-    <category term="根因分析" />
-    <category term="SSE" />
-    <category term="HTTP" />
     <category term="OpenClaw" />
     <category term="网关" />
-    <category term="心理学知识" />
+    <category term="工作流" />
+    <category term="AI运维" />
+    <category term="故障排查" />
+    <category term="根因分析" />
+    <category term="Gemini" />
     <category term="WorkBuddy" />
     <category term="腾讯" />
     <category term="办公自动化" />
@@ -79,19 +73,118 @@
     <category term="CSRF" />
     <category term="DDoS" />
     <category term="渗透测试" />
-    <category term="力扣算法题" />
+    <category term="心理学知识" />
     <category term="阿德勒心理学" />
     <category term="自卑与超越" />
+    <category term="RAG" />
+    <category term="知识库" />
+    <category term="编程助手" />
+    <category term="微服务" />
+    <category term="SSE" />
+    <category term="HTTP" />
+    <category term="力扣算法题" />
     <category term="算法" />
     <category term="动态规划" />
     <category term="JavaSE" />
     <category term="Java开发面试题" />
-    <category term="Spring" />
     <category term="SpringBoot" />
+    <category term="Spring" />
+    <category term="python" />
     <category term="接口开发" />
     <category term="开发注意事项" />
-    <category term="微服务" />
-    <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-01/</id>
+        <title>AI 日报 2026-11-01</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-01/"/>
+        <content type="html">&lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;今天的榜首换人了，而且换得很有信息量：&lt;strong&gt;pingdotgg&amp;#x2F;t3code&lt;/strong&gt; 单日 +3,100 star，从昨天的第三名直接登顶。它卖的不是模型，也不是 agent 能力，而是”控制 agent 的那块面板”——手机、网页、桌面三端遥控你机器上的 Claude Code、Codex、Cursor。与此同时，昨天那批”多 agent 组织”叙事明显退潮：Claude-Code-Game-Studios 增速从 +1,347 掉到 +970，Orkas 直接掉出榜单。另一条线更值得盯：FreeToken 把 290B 级 MoE 模型塞进游戏主机，Kronos 把 K 线当成一种语言来预训练。&lt;strong&gt;热度正从”造更多 agent”转向”控制它们、并且养得起它们”。&lt;/strong&gt;&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;1-pingdotgg-t3code-——-agent-的控制面，成了今天最硬的生意（-3-100）&#34;&gt;&lt;a href=&#34;#1-pingdotgg-t3code-——-agent-的控制面，成了今天最硬的生意（-3-100）&#34; class=&#34;headerlink&#34; title=&#34;1. pingdotgg&amp;#x2F;t3code —— agent 的控制面，成了今天最硬的生意（+3,100）&#34;&gt;&lt;/a&gt;1. pingdotgg&amp;#x2F;t3code —— agent 的控制面，成了今天最硬的生意（+3,100）&lt;/h3&gt;&lt;p&gt;36,787 stars，今日 +3,100，TypeScript。官方自称 “agent harness control surface”：用一个控制面统一接管你机器上已经装好的 agent CLI——Claude Code、Codex、Cursor、Grok Build、OpenCode、Google Antigravity、fx——并提供 iOS、Android、Web 和 Electron 桌面四套客户端。&lt;/p&gt;
+&lt;p&gt;昨天它还在第三名、增速 1,148，今天直接翻近三倍。这个跳跃值得拆开看，因为它标记了一个明确的转折：&lt;strong&gt;竞争焦点从”谁的模型强”移到了”谁握着遥控器”&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;先看它的产品判断。前三年的编码 agent 都在解决”agent 能不能把活干完”，而 agent 一旦能连续干两小时，新的痛点立刻变成：我人在外面，怎么知道它卡住了？在手机上怎么批准那一次危险操作？换台电脑怎么接着看？T3 Code 全部押在这三件事上，甚至明说”我们不卖任何东西”，装好你的订阅就能用。它不生产 agent，只生产&lt;strong&gt;注视与干预的能力&lt;/strong&gt;。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph C[&amp;quot;客户端层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C1[&amp;quot;iOS / Android&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C2[&amp;quot;Web app&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C3[&amp;quot;Electron 桌面&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C1 --&amp;gt; S[&amp;quot;t3 本地服务&amp;lt;br/&amp;gt;会话 / 终端 / 文件 / 审批&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C2 --&amp;gt; S&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C3 --&amp;gt; S&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    S --&amp;gt; P1[&amp;quot;Claude Code CLI&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    S --&amp;gt; P2[&amp;quot;Codex CLI&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    S --&amp;gt; P3[&amp;quot;Cursor / OpenCode&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    S --&amp;gt; P4[&amp;quot;Grok Build / Antigravity&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    P1 --&amp;gt; W[&amp;quot;同一份工作区&amp;lt;br/&amp;gt;仓库 + 依赖 + 凭据&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    P2 --&amp;gt; W&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    P3 --&amp;gt; W&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    P4 --&amp;gt; W&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    W --&amp;gt;|&amp;quot;执行结果 / 中断请求&amp;quot;| S&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;这个结构的关键在于 &lt;strong&gt;S 是单点&lt;/strong&gt;。所有 agent 的 stdout、权限请求、文件改动都要经过它，于是它天然拥有了三样东西：会话历史、审批权、以及”哪个 agent 在哪个任务上更靠谱”的数据。前两样是体验，第三样是未来可以变现的资产——模型路由。今天 VentureBeat 那篇 GitHub Copilot Fusion 的报道已经证明了这一点：把任务分给不同模型、按任务计价，能把单任务成本砍一半。控制面是唯一能拿到”任务 → 效果”配对数据的位置。&lt;/p&gt;
+&lt;p&gt;但风险同样集中在 S。第一，&lt;strong&gt;它寄生在别人的 CLI 上&lt;/strong&gt;。Claude Code、Codex 的登录态、输出格式、限流策略任何一项改动，都会让控制面变成一块黑屏；而”用自己的订阅遥控”这件事，厂商随时可以在 ToS 里收紧。第二，&lt;strong&gt;它是新的信任边界&lt;/strong&gt;。手机端能批准高危操作，等于把 shell 权限延伸到了口袋里——昨天的 Cursor 扩展投毒事件已经演示过一次，供应链攻击最喜欢挑这种”人人装、人人信”的中转层。&lt;/p&gt;
+&lt;p&gt;一句话总结：T3 Code 值这个涨幅，因为它卖的是&lt;strong&gt;长任务时代的必要配件&lt;/strong&gt;。但它的护城河是生态位而非技术，能不能守住，取决于它多快从”遥控器”长成”带策略的路由器”。&lt;/p&gt;
+&lt;h3 id=&#34;2-FlashML-org-FreeToken-——-290B-MoE-跑在你的游戏主机上（-232）&#34;&gt;&lt;a href=&#34;#2-FlashML-org-FreeToken-——-290B-MoE-跑在你的游戏主机上（-232）&#34; class=&#34;headerlink&#34; title=&#34;2. FlashML-org&amp;#x2F;FreeToken —— 290B MoE 跑在你的游戏主机上（+232）&#34;&gt;&lt;/a&gt;2. FlashML-org&amp;#x2F;FreeToken —— 290B MoE 跑在你的游戏主机上（+232）&lt;/h3&gt;&lt;p&gt;15,143 stars，今日 +232，Python。定位很直接：边缘原生的 MoE 推理引擎，让 290B+ 的前沿开源 MoE 模型在个人硬件上跑到”可交互”的速度。核心技术点写得相当具体：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;带宽自适应 CPU–GPU 协同执行&lt;/strong&gt;（论文里称作 $q^\star$ 策略），按实测带宽决定每层专家放在哪；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全层双缓冲 prefill 流式&lt;/strong&gt;，把权重加载和执行重叠起来；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全局 LRU 专家缓存&lt;/strong&gt;，配合 &lt;strong&gt;FTW 快速权重格式&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;语义锚点 checkpoint&lt;/strong&gt;：对循环状态与 KV cache 做语义级快照，agent 的工具调用、思考块被编辑后不必重算整段上下文；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;弹性显存管理&lt;/strong&gt;，运行时在专家缓存与 KV 之间重新分配 VRAM，不用重启引擎；&lt;/li&gt;
+&lt;li&gt;支持 DeepSeek-V4-Flash、Qwen3.6-35B-A3B、GLM-5.2，量化格式覆盖 MXFP4 &amp;#x2F; NVFP4 &amp;#x2F; FP8 &amp;#x2F; BF16，并暴露 Anthropic &amp;#x2F; OpenAI 兼容 API。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;今天只涨 232，热度不高，但它是这批项目里&lt;strong&gt;工程含量最重&lt;/strong&gt;的一个。原因在于 MoE 的物理现实：一个 290B 的模型每次前向只激活其中一小部分专家，所以真正的瓶颈不是 FLOPS，而是&lt;strong&gt;你能不能把需要的专家及时搬到计算单元旁边&lt;/strong&gt;。消费级显卡的显存装不下全部专家，PCIe 带宽又只有数据中心 NVLink 的零头，于是”每一层都要做一次搬砖决策”。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    T[&amp;quot;token 进入某一层&amp;quot;] --&amp;gt; R&amp;#123;&amp;quot;路由选中的专家&amp;lt;br/&amp;gt;在 GPU 显存里吗？&amp;quot;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    R --&amp;gt;|命中| G[&amp;quot;GPU 直接计算&amp;lt;br/&amp;gt;高吞吐&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    R --&amp;gt;|未命中| Q&amp;#123;&amp;quot;预算允许预取吗？&amp;lt;br/&amp;gt;q* 策略按带宽估算&amp;quot;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Q --&amp;gt;|允许| P[&amp;quot;异步预取下一层热门专家&amp;lt;br/&amp;gt;双缓冲与当前计算重叠&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    Q --&amp;gt;|不允许| CPU[&amp;quot;CPU / 主机内存执行&amp;lt;br/&amp;gt;慢但不断流&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    P --&amp;gt; G&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    CPU --&amp;gt; L[&amp;quot;更新全局 LRU 缓存&amp;lt;br/&amp;gt;回写权重&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; L&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    L --&amp;gt; N[&amp;quot;下一层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;这张图里最值钱的是那条 &lt;strong&gt;q*&lt;/strong&gt; 分支。纯 GPU 推理要求全部权重驻留，纯 CPU 推理慢到不可用，离线预取又会把宝贵带宽浪费在”猜错的专家”上。FreeToken 的做法是把带宽当成一等公民来做调度——这跟数据库的 buffer pool 管理是同一类问题，只是换了个介质。再叠加”语义锚点”这个设计：agent 场景下上下文经常被编辑（工具返回、思考块折叠），传统 KV cache 只能整段重算，而语义级快照能把重算范围压到一次工具调用之内。&lt;strong&gt;这一条才是它敢说自己”给 agent 用”的底气。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;要泼的冷水是：宣传口径的”290B 交互速度”必然对应特定硬件与特定量化（多半是 MXFP4 + RTX 50 系 + 大内存），换到笔记本就是另一个故事。而且专家缓存命中率高度依赖任务分布——写代码和闲聊走的是完全不同的专家路径，LRU 在切换任务时会集体失效。想认真评估，别跑 benchmark，跑你自己的真实会话。&lt;/p&gt;
+&lt;h3 id=&#34;3-shiyu-coder-Kronos-——-把-K-线当成一种语言来预训练（-611）&#34;&gt;&lt;a href=&#34;#3-shiyu-coder-Kronos-——-把-K-线当成一种语言来预训练（-611）&#34; class=&#34;headerlink&#34; title=&#34;3. shiyu-coder&amp;#x2F;Kronos —— 把 K 线当成一种语言来预训练（+611）&#34;&gt;&lt;/a&gt;3. shiyu-coder&amp;#x2F;Kronos —— 把 K 线当成一种语言来预训练（+611）&lt;/h3&gt;&lt;p&gt;45,011 stars，今日 +611，Python。Kronos 是一个专门为金融市场”语言”预训练的 decoder-only 基础模型族。它的两段式框架很清晰：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;专用 tokenizer&lt;/strong&gt;：把连续、多维的 K 线数据（OHLCV）量化成&lt;strong&gt;分层离散 token&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;自回归 Transformer&lt;/strong&gt;：在这些 token 上预训练，从而作为一个统一模型服务多种量化任务。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;模型动物园覆盖四个尺寸——mini 4.1M（上下文 2048）、small 24.7M（512）、base 102.3M（512）、large，全部开在 Hugging Face 上，还配了一个 BTC&amp;#x2F;USDT 未来 24 小时预测的可视化 demo。&lt;/p&gt;
+&lt;p&gt;这个项目最值得学的不是预测准不准，而是&lt;strong&gt;它选了”造 tokenizer”而不是”调 prompt”&lt;/strong&gt;。通用时间序列基础模型（TSFM）在金融数据上普遍表现平庸，原因很朴素：金融序列噪声极高、非平稳、且不同频率（分钟线&amp;#x2F;日线）的统计性质完全不同。直接喂连续值，模型学到的是”平均走势”，而真正有信息量的是&lt;strong&gt;形态&lt;/strong&gt;——长上影、缩量回踩、跳空缺口。把 OHLCV 分层量化成离散 token，本质上是把”形态”变成词汇表里的词，让 Transformer 用它最擅长的方式（离散符号的共现统计）去学。&lt;/p&gt;
+&lt;p&gt;顺带说一句它的尺寸选择很有诚意：4.1M 参数的 mini 版能在笔记本上跑，102M 的 base 版一张消费卡就够。&lt;strong&gt;这是”垂直基础模型”的正确姿势——先证明小模型在窄领域能打，而不是一上来就对标 GPT。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;冷水照旧要泼：预测误差小，不等于能赚钱。真实交易里还有手续费、滑点、冲击成本、以及最致命的 regime shift——模型在 2020 年 3 月那种行情里学到的东西，会在下一个流动性事件里全部作废。把它当成”信号生成器的一个特征来源”是合理的，当成”自动交易大脑”是危险的。&lt;/p&gt;
+&lt;h3 id=&#34;4-beenuar-AiSOC-——-安全运营要的不是更聪明的-agent，是可复核的-agent（-436）&#34;&gt;&lt;a href=&#34;#4-beenuar-AiSOC-——-安全运营要的不是更聪明的-agent，是可复核的-agent（-436）&#34; class=&#34;headerlink&#34; title=&#34;4. beenuar&amp;#x2F;AiSOC —— 安全运营要的不是更聪明的 agent，是可复核的 agent（+436）&#34;&gt;&lt;/a&gt;4. beenuar&amp;#x2F;AiSOC —— 安全运营要的不是更聪明的 agent，是可复核的 agent（+436）&lt;/h3&gt;&lt;p&gt;5,920 stars，今日 +436，Python，MIT。开源自托管的 AI 安全运营中心：接入安全遥测 → 归一化 → 跑规则库（7015 条规则中 2530 条可执行）→ 关联成事件 → 由 AI agent 调查，每一步的 prompt 与工具调用都被记录 → 提出处置建议，由人批准后才下发。附带 MCP server，能接 Claude、Cursor、Continue，无需任何 API key 即可自托管运行，当前 v21.0.0。&lt;/p&gt;
+&lt;p&gt;选它进前四，是因为它回答了一个很实际的问题：&lt;strong&gt;安全场景凭什么敢让 agent 动手？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;答案是三条工程约束，而不是更高的准确率：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;规则先于模型&lt;/strong&gt;。2530 条可执行规则负责”确定性地过滤”，把告警洪水压到 agent 能处理的量级。模型只负责归因与调查，不负责发现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;决策账本可重放&lt;/strong&gt;。每个 agent 步骤都有记录，能回放——出问题时你可以指出”它在第 4 步读了这个日志、第 7 步下了这个结论”。这在安全审计里不是加分项，是准入条件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;人批准才落地&lt;/strong&gt;。响应动作是 proposal，不是 action。这一条把最坏情况的破坏力封在了”误报”级别。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这也正好接上昨天 Cursor 扩展投毒事件留下的教训：安全产品的可信度从来不来自”我判断得准”，而来自**”我错的时候你能查出来我错在哪”**。AiSOC 把 decision ledger 做成核心卖点，说明这个行业的采购逻辑已经成熟了——买的是可审计性。&lt;/p&gt;
+&lt;h3 id=&#34;榜单其余速览&#34;&gt;&lt;a href=&#34;#榜单其余速览&#34; class=&#34;headerlink&#34; title=&#34;榜单其余速览&#34;&gt;&lt;/a&gt;榜单其余速览&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;thedotmack&amp;#x2F;claude-mem&lt;/strong&gt;（108,604 stars，+1,527，TypeScript）：跨会话持久记忆，捕获、压缩、注入三步走，兼容 Claude Code、OpenClaw、Codex、Gemini、Hermes、Copilot、OpenCode。昨天 +1,723，今天仍是全榜第二高增速。连续两天高位增长说明”记忆层”已经不是尝鲜，而是必需品——它正在变成 agent 之间的上下文交换格式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;lightpanda-io&amp;#x2F;browser&lt;/strong&gt;（39,705 stars，+827，Zig）：从零写的无头浏览器，不是 Chromium fork。官方基准：100 页峰值内存 123MB vs 2GB（约 16 倍差距），执行时间 5s vs 46s（约 9 倍）。给 agent 用的浏览器不需要渲染给人看的那一半，砍掉的正是成本最大的那一半。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cjpais&amp;#x2F;Handy&lt;/strong&gt;（36,136 stars，+383，Rust）与 &lt;strong&gt;anomalyco&amp;#x2F;hex&lt;/strong&gt;（2,683 stars，+1,329，Rust）：今天语音输入这条线同时上了两个项目。Handy 是全离线、可扩展的语音转文字应用；hex 是 macOS 优先的本地听写——按住快捷键说话，松手粘贴到任意应用，端侧识别，Linux beta 在跟进。两个都是 Rust、都强调 on-device，这不是巧合：&lt;strong&gt;语音是当下最适合端侧推理的模态&lt;/strong&gt;（延迟敏感、隐私敏感、模型小）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;milind-soni&amp;#x2F;OpenMausBot&lt;/strong&gt;（10,188 stars，+919，TypeScript）：开源版 Grok Bot 替代品，核心是给每个 bot 一台虚拟机。昨天 9,264 &amp;#x2F; +1,304，今天增速略降但仍在榜。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Donchitos&amp;#x2F;Claude-Code-Game-Studios&lt;/strong&gt;（31,749 stars，+970，Shell）：49 个角色 + 72 个 skill 的游戏工作室模拟。昨天 +1,347 排第一，今天掉到 +970 —— 组织层叙事的第一波热度正在退。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Renhuai123&amp;#x2F;ziwei-doushu&lt;/strong&gt;（12,826 stars，+953，TypeScript）：紫微斗数排盘引擎，含完整算法、四化系统、格局知识库与古籍原文数据。连续两天上榜，是”领域知识库 + 确定性算法 + LLM 解释层”这套组合最好的样本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CopilotKit&amp;#x2F;OpenBot&lt;/strong&gt;（9,276 stars，+178，TypeScript）：给每个 AI 同事配独立浏览器、文件与工具，动作先决策后记录，走 AG-UI 协议接任意 agent 栈。定位是”模板而非产品”，适合想自建的人抄结构。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;patchy631&amp;#x2F;ai-engineering-hub&lt;/strong&gt;（39,886 stars，+573，Jupyter）、&lt;strong&gt;kornia&amp;#x2F;kornia&lt;/strong&gt;（11,613 stars，+88，Python）、&lt;strong&gt;public-apis&amp;#x2F;public-apis&lt;/strong&gt;（494,089 stars，+298）：教程库、几何视觉库、免费 API 清单，属于长期盘踞榜单的基础设施型仓库，与当日热点无关。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;hyprwm&amp;#x2F;Hyprland&lt;/strong&gt;（39,171 stars，+37，C++）：Wayland 合成器，非 AI 项目，因桌面美化话题顺带上榜。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GitHub Copilot Fusion：混模型编排，逼近 Opus 5.5 的编码水平、单任务成本减半&lt;/strong&gt;。GitHub CPO Mario Rodriguez 同时确认支持跨设备续接工作，包括手机端——agent 在你合上笔记本后继续跑，换个设备接着看。这条和我今天排第一的 T3 Code 是同一个需求的两种答案：一个做开放控制面，一个把控制面焊进 IDE。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Liquid AI 发布 LFM3&lt;/strong&gt;：把浏览器 agent、语音指令、图像识别放进企业可控的本地设备，单张 GPU 即可定制，可部署在端侧、私有服务器或云。小模型 + 强模态专门化，是企业侧最现实的落地形态。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Salesforce 扩展 Agent Fabric&lt;/strong&gt;：加入 AI 评估器，agent 失败时触发关机（kill switch），并把成本控制做进编排层。这是”agent 治理”从口号变成产品开关的标志。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Apple 下周推送 iOS 27.3 beta&lt;/strong&gt;，把首批 Apple Intelligence 功能带进中国市场；&lt;strong&gt;Gemini Live 或在 Android 上获得离线模式&lt;/strong&gt;（beta 代码中出现”无需联网使用 Gemini Live”文案，实现方式未明）。端侧与合规，仍是两大厂商在中国市场的真正赛点。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Google 用 AI Studio 做了个机器人花盆 Sprout&lt;/strong&gt;：自主寻找最佳光照、缺水时推送提醒，官方说明”只是好玩，不卖”。这类 demo 的价值在于展示”vibe coding 一个硬件项目”的完整链路有多短。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;“Evil Qwen”与神经元探索&lt;/strong&gt;：VentureBeat 报道了围绕 LLM 内部神经元的一轮探索热潮。核心观点值得记下来——&lt;strong&gt;一个叫嚣要毁灭人类的模型，比一个悄悄利用错误目标、或在”看起来很有帮助”的同时越权行动的模型，更容易被发现&lt;/strong&gt;。对齐工作的难点从来不是识别怪物，而是识别”过于配合”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开源权重模型更便宜也更强了，但别自己扛推理成本&lt;/strong&gt;：VentureBeat 10-31 的分析把开源与闭源的关系类比成 Linux&amp;#x2F;Windows、Android&amp;#x2F;iOS——不是赢者通吃，而是各服务不同市场。对企业的实际建议是：用开源权重拿能力与议价权，用托管推理拿弹性，别把两者混成”自建机房”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nvidia 与 Oracle 扩产 Vera Rubin&lt;/strong&gt;，卖点转向”提高利用率”——因为企业客户普遍报告 GPU 闲置。这一句比任何 benchmark 都诚实：算力过剩与算力浪费同时存在。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AI 正在改写计算机科学几十年的研究方式&lt;/strong&gt;（The Verge）：从论文选题、实验设计到复现，agent 参与度快速上升。与之相伴的争议也很具体——当 AI 能批量生成”看起来成立的实验”，同行评审这套机制要如何自处。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据中心开始进入地方政治&lt;/strong&gt;：缅因州参议院选战里，科技富豪的巨额投入与乡村选民对电价、资源占用、”幽灵岗位”的反弹正面相撞。AI 基础设施的选址问题，正在从工程问题变成选票问题。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;洞见一：agent-时代的分发入口，是控制面而不是模型&#34;&gt;&lt;a href=&#34;#洞见一：agent-时代的分发入口，是控制面而不是模型&#34; class=&#34;headerlink&#34; title=&#34;洞见一：agent 时代的分发入口，是控制面而不是模型&#34;&gt;&lt;/a&gt;洞见一：agent 时代的分发入口，是控制面而不是模型&lt;/h3&gt;&lt;p&gt;把今天榜单前三名连起来看，会看到一条很清晰的迁移路径：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TB&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph L1[&amp;quot;2024-2025：能力竞争&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A1[&amp;quot;谁的模型强&amp;lt;br/&amp;gt;benchmark 军备竞赛&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph L2[&amp;quot;2026 上半年：编排竞争&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B1[&amp;quot;谁能拆解任务&amp;lt;br/&amp;gt;多 agent 角色 / skill 分发&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph L3[&amp;quot;2026 Q4：控制面竞争&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C1[&amp;quot;t3code&amp;lt;br/&amp;gt;跨端遥控 + 审批&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C2[&amp;quot;Copilot Fusion&amp;lt;br/&amp;gt;跨设备续接&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C3[&amp;quot;claude-mem&amp;lt;br/&amp;gt;跨会话状态&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A1 --&amp;gt;|&amp;quot;能力过剩，差异缩小&amp;quot;| B1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B1 --&amp;gt;|&amp;quot;角色堆叠触及收益递减&amp;quot;| C1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B1 --&amp;gt; C2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B1 --&amp;gt; C3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;昨天榜单前十有一半在做”agent 的组织形式”，今天这批项目集体降速，而控制面项目翻倍增长。这不是巧合，是&lt;strong&gt;收益递减的必然结果&lt;/strong&gt;：多加一个角色，边际收益很快被协调成本和 token 消耗吃掉；而”让我在手机上看到它在干什么、并且能叫停”这件事，是每个用户每天都会用到的确定性收益。&lt;/p&gt;
+&lt;p&gt;更本质地说，模型层已经商品化了。同一个任务，前沿模型之间的差距在缩小，价格却在快速下探（Copilot Fusion 半价、Mistral Large 4 单任务成本降 63%）。当”能力”不再是差异，”注意力”就成了差异——谁占据了你每天打开的那个界面，谁就掌握了路由权、订阅权、以及最重要的&lt;strong&gt;任务效果数据的归属权&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;风险也在这里：控制面天然是信任的汇聚点。它同时握着你的凭据、你的仓库、你的审批权。T3 Code 用”开源、可 fork”来对冲——真出问题你可以自己改；但大多数用户不会 fork，只会安装。&lt;strong&gt;这一层迟早需要类似浏览器扩展市场那样的审核与签名机制&lt;/strong&gt;，否则昨天的投毒事件只会换个包装重演。&lt;/p&gt;
+&lt;h3 id=&#34;洞见二：垂直基础模型的配方，已经收敛成四步&#34;&gt;&lt;a href=&#34;#洞见二：垂直基础模型的配方，已经收敛成四步&#34; class=&#34;headerlink&#34; title=&#34;洞见二：垂直基础模型的配方，已经收敛成四步&#34;&gt;&lt;/a&gt;洞见二：垂直基础模型的配方，已经收敛成四步&lt;/h3&gt;&lt;p&gt;Kronos（金融）、AiSOC（安全）、FreeToken（把大模型压进个人硬件）看起来毫不相干，但它们的工程骨架是同一个：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D[&amp;quot;领域原始数据&amp;lt;br/&amp;gt;K线 / 告警日志 / 权重&amp;quot;] --&amp;gt; E[&amp;quot;专用编码&amp;lt;br/&amp;gt;分层离散 token / 规则归一化 / 量化格式&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; M[&amp;quot;小尺寸自回归主干&amp;lt;br/&amp;gt;4M–100M 参数 / MoE 稀疏激活&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    M --&amp;gt; V[&amp;quot;领域内可验证的评测&amp;lt;br/&amp;gt;形态命中 / 调查结论 / 交互延迟&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    V --&amp;gt;|不达标| E&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    V --&amp;gt;|达标| P[&amp;quot;边缘部署&amp;lt;br/&amp;gt;本地 / 单卡 / 自托管&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    P --&amp;gt; F[&amp;quot;反馈回流&amp;lt;br/&amp;gt;真实任务分布&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; E&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;四步是：&lt;strong&gt;专用编码 → 小主干 → 领域评测 → 边缘部署&lt;/strong&gt;，闭环靠真实任务分布回流。&lt;/p&gt;
+&lt;p&gt;这套配方之所以在 2026 年底收敛，是因为通用大模型在垂直场景的三个死穴一直没有解：&lt;strong&gt;噪声&lt;/strong&gt;（金融的高频抖动、安全的误报洪水）、&lt;strong&gt;时效&lt;/strong&gt;（等不起一次云端往返）、&lt;strong&gt;可审计&lt;/strong&gt;（要能指出第几步错了）。前两个用专用编码 + 小模型解决，第三个用决策账本解决。&lt;/p&gt;
+&lt;p&gt;有意思的是，这三个项目都在同一个方向上做了让步：&lt;strong&gt;放弃”通用”，换取”可部署”&lt;/strong&gt;。Kronos 最小的模型 4.1M 参数，FreeToken 的卖点是消费级显卡，AiSOC 强调”无 API key 也能跑”。这不是技术退步，而是市场分层——当前沿模型的边际能力提升越来越贵，把钱花在”在我这台机器上、针对我这类数据、能被我审计”的模型上，回报率反而更高。&lt;/p&gt;
+&lt;p&gt;对个人开发者的启示很直接：别再想着训一个更大的模型。找一个噪声大、规则多、又必须本地跑的领域，把它的&lt;strong&gt;编码方式&lt;/strong&gt;做对，用 100M 以内的参数跑通闭环，你就有了一个别人拿 GPT 也替代不了的东西。Kronos 能在一天里涨 611 star，靠的就是这个逻辑被市场认出来了。&lt;/p&gt;
+</content>
+        <category term="AI日报" />
+        <category term="AI" />
+        <category term="GitHub热门" />
+        <category term="人工智能" />
+        <category term="技术趋势" />
+        <updated>2026-11-01T14:00:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-10-31/</id>
         <title>AI 日报 2026-10-31</title>
@@ -6456,8 +6549,8 @@
 &lt;/ul&gt;
 </content>
         <category term="AI" />
-        <category term="开发工具" />
         <category term="Agent" />
+        <category term="开发工具" />
         <category term="LangChain" />
         <category term="LangGraph" />
         <category term="Python" />
@@ -6599,10 +6692,10 @@
 &lt;/ul&gt;
 </content>
         <category term="AI" />
-        <category term="开发工具" />
         <category term="Agent" />
         <category term="MCP" />
         <category term="自动化" />
+        <category term="开发工具" />
         <category term="OpenClaw" />
         <category term="网关" />
         <updated>2026-08-25T17:20:00.000Z</updated>
@@ -6839,12 +6932,12 @@
 &lt;/ul&gt;
 </content>
         <category term="AI" />
-        <category term="ClaudeCode" />
-        <category term="开发工具" />
         <category term="Claude" />
+        <category term="ClaudeCode" />
         <category term="Agent" />
         <category term="MCP" />
         <category term="自动化" />
+        <category term="开发工具" />
         <updated>2026-08-25T17:05:00.000Z</updated>
     </entry>
     <entry>
@@ -7421,8 +7514,8 @@
 &lt;/ul&gt;
 </content>
         <category term="AI" />
-        <category term="开发工具" />
         <category term="Agent" />
+        <category term="开发工具" />
         <category term="DeepSeek" />
         <category term="Harness" />
         <category term="插件" />
@@ -7631,9 +7724,9 @@
 &lt;p&gt;如果你还在 v0.17 或更早，中间的 Quicksilver 提速和 Herald 语音&amp;#x2F;A2A 足够构成立刻升级的理由。&lt;code&gt;hermes update&lt;/code&gt;，然后开口说第一句话吧。&lt;/p&gt;
 </content>
         <category term="AI" />
-        <category term="开发工具" />
         <category term="Agent" />
         <category term="自动化" />
+        <category term="开发工具" />
         <category term="Hermes" />
         <category term="v0.20" />
         <category term="语音交互" />
@@ -9713,9 +9806,9 @@
 &lt;/blockquote&gt;
 </content>
         <category term="AI" />
-        <category term="开发工具" />
         <category term="Agent" />
         <category term="自动化" />
+        <category term="开发工具" />
         <category term="Hermes" />
         <category term="v0.17" />
         <updated>2026-06-21T12:14:00.000Z</updated>
@@ -14252,9 +14345,9 @@
 &lt;/ul&gt;
 </content>
         <category term="AI" />
-        <category term="开发工具" />
         <category term="Agent" />
         <category term="自动化" />
+        <category term="开发工具" />
         <category term="Hermes" />
         <category term="高阶" />
         <updated>2026-05-08T14:39:00.000Z</updated>
@@ -15362,11 +15455,11 @@
 &lt;/ul&gt;
 </content>
         <category term="AI" />
-        <category term="开发工具" />
-        <category term="开源" />
         <category term="Agent" />
+        <category term="开发工具" />
         <category term="Hermes" />
         <category term="NousResearch" />
+        <category term="开源" />
         <updated>2026-05-05T15:20:00.000Z</updated>
     </entry>
     <entry>
@@ -16666,9 +16759,9 @@
         <category term="AI" />
         <category term="Codex" />
         <category term="ClaudeCode" />
-        <category term="Gemini" />
         <category term="开发工具" />
         <category term="开源" />
+        <category term="Gemini" />
         <updated>2026-04-30T15:30:00.000Z</updated>
     </entry>
     <entry>

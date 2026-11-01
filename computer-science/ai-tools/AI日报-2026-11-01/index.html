@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%230a0e14'/%3E%3Ctext x='18' y='68' font-size='52' fill='%2300ff9c' font-family='monospace'%3E%26gt;_%3C/text%3E%3C/svg%3E">
+  <title>AI 日报 2026-11-01 | 沉鱼的博客</title>
+  
+  <meta name="description" content="今日热点今天的榜首换人了，而且换得很有信息量：pingdotgg&amp;#x2F;t3code 单日 +3,100 star，从昨天的第三名直接登顶。它卖的不是模型，也不是 agent 能力，而是”控制 agent 的那块面板”——手机、网页、桌面三端遥控你机器上的 Claude Code、Codex、Cursor。与此同时">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="沉鱼的博客">
+  <meta property="og:title" content="AI 日报 2026-11-01 | 沉鱼的博客">
+  <meta property="og:description" content="今日热点今天的榜首换人了，而且换得很有信息量：pingdotgg&amp;#x2F;t3code 单日 +3,100 star，从昨天的第三名直接登顶。它卖的不是模型，也不是 agent 能力，而是”控制 agent 的那块面板”——手机、网页、桌面三端遥控你机器上的 Claude Code、Codex、Cursor。与此同时">
+  <meta property="og:url" content="https://scottalive.github.io/computer-science/ai-tools/AI日报-2026-11-01/">
+  <meta property="og:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AI 日报 2026-11-01 | 沉鱼的博客">
+  <meta name="twitter:description" content="今日热点今天的榜首换人了，而且换得很有信息量：pingdotgg&amp;#x2F;t3code 单日 +3,100 star，从昨天的第三名直接登顶。它卖的不是模型，也不是 agent 能力，而是”控制 agent 的那块面板”——手机、网页、桌面三端遥控你机器上的 Claude Code、Codex、Cursor。与此同时">
+  <meta name="twitter:image" content="https://scottalive.github.io/images/hermes-agent/og-image.png">
+  <link rel="alternate" type="application/atom+xml" title="沉鱼的博客" href="/atom.xml">
+  <link rel="stylesheet" href="/css/style.css?v=202607190200">
+  <script>
+  /* 深色为默认主题，仅当用户显式选择浅色时才切换；body 渲染前确定，避免闪烁 */
+  (function() {
+    var saved = localStorage.getItem('theme');
+    var theme = saved === 'light' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    window.__theme = theme;
+  })();
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <button id="back-to-top" title="回到顶部">↑</button>
+  <button id="dark-toggle" title="切换主题">◐</button>
+
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title"><a href="/"><span class="prompt-path">~/</span>blog<span class="cursor"></span></a></h1>
+      <nav class="site-nav">
+        <a href="/">首页</a>
+        <a href="/archives">归档</a>
+        <a href="/categories">分类</a>
+        <a href="/tags">标签</a>
+        <a href="/ai-hotspots">AI热点</a>
+        <a href="/ai-daily">AI日报</a>
+        <a href="/about">关于</a>
+      </nav>
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="search..." autocomplete="off">
+        <div id="search-results"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <div class="container">
+      <!-- 文章详情页 -->
+
+
+
+<article class="post-full">
+  <header class="post-header">
+    <div class="post-path">
+      <a href="/">~</a>/<a href="/archives">posts</a>/<span class="pd">computer-science/ai-tools/AI日报-2026-11-01.md</span>
+    </div>
+    <h1 class="post-title">AI 日报 2026-11-01</h1>
+    <div class="post-meta">
+      <span>2026-11-01 22:00</span>
+      <span>5226 字 · 约 16 分钟</span>
+      
+        
+        <a class="bkt" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/">计算机科学</a>
+        
+        <a class="bkt" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/AI%E5%B7%A5%E5%85%B7/">AI工具</a>
+        
+      
+      
+        
+        <a class="bkt cyan" href="/tags/AI%E6%97%A5%E6%8A%A5/">#AI日报</a>
+        
+        <a class="bkt cyan" href="/tags/AI/">#AI</a>
+        
+        <a class="bkt cyan" href="/tags/GitHub%E7%83%AD%E9%97%A8/">#GitHub热门</a>
+        
+        <a class="bkt cyan" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">#人工智能</a>
+        
+        <a class="bkt cyan" href="/tags/%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF/">#技术趋势</a>
+        
+      
+    </div>
+  </header>
+
+  
+  <details class="toc-wrap" open>
+    <summary class="toc-title">目录</summary>
+    <nav class="toc">
+      
+      <a class="toc-level-2" href="#今日热点">今日热点</a>
+      
+      <a class="toc-level-2" href="#github-热门-ai-项目">GitHub 热门 AI 项目</a>
+      
+      <a class="toc-level-3" href="#1-pingdotggx2ft3code-agent-的控制面成了今天最硬的生意3100">1. pingdotgg&amp;#x2F;t3code —— agent 的控制面，成了今天最硬的生意（+3,100）</a>
+      
+      <a class="toc-level-3" href="#2-flashml-orgx2ffreetoken-290b-moe-跑在你的游戏主机上232">2. FlashML-org&amp;#x2F;FreeToken —— 290B MoE 跑在你的游戏主机上（+232）</a>
+      
+      <a class="toc-level-3" href="#3-shiyu-coderx2fkronos-把-k-线当成一种语言来预训练611">3. shiyu-coder&amp;#x2F;Kronos —— 把 K 线当成一种语言来预训练（+611）</a>
+      
+      <a class="toc-level-3" href="#4-beenuarx2faisoc-安全运营要的不是更聪明的-agent是可复核的-agent436">4. beenuar&amp;#x2F;AiSOC —— 安全运营要的不是更聪明的 agent，是可复核的 agent（+436）</a>
+      
+      <a class="toc-level-3" href="#榜单其余速览">榜单其余速览</a>
+      
+      <a class="toc-level-2" href="#新工具x2f产品速览">新工具&amp;#x2F;产品速览</a>
+      
+      <a class="toc-level-2" href="#行业动态">行业动态</a>
+      
+      <a class="toc-level-2" href="#技术洞见">技术洞见</a>
+      
+      <a class="toc-level-3" href="#洞见一agent-时代的分发入口是控制面而不是模型">洞见一：agent 时代的分发入口，是控制面而不是模型</a>
+      
+      <a class="toc-level-3" href="#洞见二垂直基础模型的配方已经收敛成四步">洞见二：垂直基础模型的配方，已经收敛成四步</a>
+      
+    </nav>
+  </details>
+  
+
+  <div class="post-content">
+    <h2 id="今日热点"><a href="#今日热点" class="headerlink" title="今日热点"></a>今日热点</h2><p>今天的榜首换人了，而且换得很有信息量：<strong>pingdotgg&#x2F;t3code</strong> 单日 +3,100 star，从昨天的第三名直接登顶。它卖的不是模型，也不是 agent 能力，而是”控制 agent 的那块面板”——手机、网页、桌面三端遥控你机器上的 Claude Code、Codex、Cursor。与此同时，昨天那批”多 agent 组织”叙事明显退潮：Claude-Code-Game-Studios 增速从 +1,347 掉到 +970，Orkas 直接掉出榜单。另一条线更值得盯：FreeToken 把 290B 级 MoE 模型塞进游戏主机，Kronos 把 K 线当成一种语言来预训练。<strong>热度正从”造更多 agent”转向”控制它们、并且养得起它们”。</strong></p>
+<span id="more"></span>
+
+<h2 id="github-热门-ai-项目"><a href="#GitHub-热门-AI-项目" class="headerlink" title="GitHub 热门 AI 项目"></a>GitHub 热门 AI 项目</h2><h3 id="1-pingdotggx2ft3code-agent-的控制面成了今天最硬的生意3100"><a href="#1-pingdotgg-t3code-——-agent-的控制面，成了今天最硬的生意（-3-100）" class="headerlink" title="1. pingdotgg&#x2F;t3code —— agent 的控制面，成了今天最硬的生意（+3,100）"></a>1. pingdotgg&#x2F;t3code —— agent 的控制面，成了今天最硬的生意（+3,100）</h3><p>36,787 stars，今日 +3,100，TypeScript。官方自称 “agent harness control surface”：用一个控制面统一接管你机器上已经装好的 agent CLI——Claude Code、Codex、Cursor、Grok Build、OpenCode、Google Antigravity、fx——并提供 iOS、Android、Web 和 Electron 桌面四套客户端。</p>
+<p>昨天它还在第三名、增速 1,148，今天直接翻近三倍。这个跳跃值得拆开看，因为它标记了一个明确的转折：<strong>竞争焦点从”谁的模型强”移到了”谁握着遥控器”</strong>。</p>
+<p>先看它的产品判断。前三年的编码 agent 都在解决”agent 能不能把活干完”，而 agent 一旦能连续干两小时，新的痛点立刻变成：我人在外面，怎么知道它卡住了？在手机上怎么批准那一次危险操作？换台电脑怎么接着看？T3 Code 全部押在这三件事上，甚至明说”我们不卖任何东西”，装好你的订阅就能用。它不生产 agent，只生产<strong>注视与干预的能力</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    subgraph C[&quot;客户端层&quot;]</span><br><span class="line">        C1[&quot;iOS / Android&quot;]</span><br><span class="line">        C2[&quot;Web app&quot;]</span><br><span class="line">        C3[&quot;Electron 桌面&quot;]</span><br><span class="line">    end</span><br><span class="line">    C1 --&gt; S[&quot;t3 本地服务&lt;br/&gt;会话 / 终端 / 文件 / 审批&quot;]</span><br><span class="line">    C2 --&gt; S</span><br><span class="line">    C3 --&gt; S</span><br><span class="line">    S --&gt; P1[&quot;Claude Code CLI&quot;]</span><br><span class="line">    S --&gt; P2[&quot;Codex CLI&quot;]</span><br><span class="line">    S --&gt; P3[&quot;Cursor / OpenCode&quot;]</span><br><span class="line">    S --&gt; P4[&quot;Grok Build / Antigravity&quot;]</span><br><span class="line">    P1 --&gt; W[&quot;同一份工作区&lt;br/&gt;仓库 + 依赖 + 凭据&quot;]</span><br><span class="line">    P2 --&gt; W</span><br><span class="line">    P3 --&gt; W</span><br><span class="line">    P4 --&gt; W</span><br><span class="line">    W --&gt;|&quot;执行结果 / 中断请求&quot;| S</span><br></pre></td></tr></table></figure>
+
+<p>这个结构的关键在于 <strong>S 是单点</strong>。所有 agent 的 stdout、权限请求、文件改动都要经过它，于是它天然拥有了三样东西：会话历史、审批权、以及”哪个 agent 在哪个任务上更靠谱”的数据。前两样是体验，第三样是未来可以变现的资产——模型路由。今天 VentureBeat 那篇 GitHub Copilot Fusion 的报道已经证明了这一点：把任务分给不同模型、按任务计价，能把单任务成本砍一半。控制面是唯一能拿到”任务 → 效果”配对数据的位置。</p>
+<p>但风险同样集中在 S。第一，<strong>它寄生在别人的 CLI 上</strong>。Claude Code、Codex 的登录态、输出格式、限流策略任何一项改动，都会让控制面变成一块黑屏；而”用自己的订阅遥控”这件事，厂商随时可以在 ToS 里收紧。第二，<strong>它是新的信任边界</strong>。手机端能批准高危操作，等于把 shell 权限延伸到了口袋里——昨天的 Cursor 扩展投毒事件已经演示过一次，供应链攻击最喜欢挑这种”人人装、人人信”的中转层。</p>
+<p>一句话总结：T3 Code 值这个涨幅，因为它卖的是<strong>长任务时代的必要配件</strong>。但它的护城河是生态位而非技术，能不能守住，取决于它多快从”遥控器”长成”带策略的路由器”。</p>
+<h3 id="2-flashml-orgx2ffreetoken-290b-moe-跑在你的游戏主机上232"><a href="#2-FlashML-org-FreeToken-——-290B-MoE-跑在你的游戏主机上（-232）" class="headerlink" title="2. FlashML-org&#x2F;FreeToken —— 290B MoE 跑在你的游戏主机上（+232）"></a>2. FlashML-org&#x2F;FreeToken —— 290B MoE 跑在你的游戏主机上（+232）</h3><p>15,143 stars，今日 +232，Python。定位很直接：边缘原生的 MoE 推理引擎，让 290B+ 的前沿开源 MoE 模型在个人硬件上跑到”可交互”的速度。核心技术点写得相当具体：</p>
+<ul>
+<li><strong>带宽自适应 CPU–GPU 协同执行</strong>（论文里称作 $q^\star$ 策略），按实测带宽决定每层专家放在哪；</li>
+<li><strong>全层双缓冲 prefill 流式</strong>，把权重加载和执行重叠起来；</li>
+<li><strong>全局 LRU 专家缓存</strong>，配合 <strong>FTW 快速权重格式</strong>；</li>
+<li><strong>语义锚点 checkpoint</strong>：对循环状态与 KV cache 做语义级快照，agent 的工具调用、思考块被编辑后不必重算整段上下文；</li>
+<li><strong>弹性显存管理</strong>，运行时在专家缓存与 KV 之间重新分配 VRAM，不用重启引擎；</li>
+<li>支持 DeepSeek-V4-Flash、Qwen3.6-35B-A3B、GLM-5.2，量化格式覆盖 MXFP4 &#x2F; NVFP4 &#x2F; FP8 &#x2F; BF16，并暴露 Anthropic &#x2F; OpenAI 兼容 API。</li>
+</ul>
+<p>今天只涨 232，热度不高，但它是这批项目里<strong>工程含量最重</strong>的一个。原因在于 MoE 的物理现实：一个 290B 的模型每次前向只激活其中一小部分专家，所以真正的瓶颈不是 FLOPS，而是<strong>你能不能把需要的专家及时搬到计算单元旁边</strong>。消费级显卡的显存装不下全部专家，PCIe 带宽又只有数据中心 NVLink 的零头，于是”每一层都要做一次搬砖决策”。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    T[&quot;token 进入某一层&quot;] --&gt; R&#123;&quot;路由选中的专家&lt;br/&gt;在 GPU 显存里吗？&quot;&#125;</span><br><span class="line">    R --&gt;|命中| G[&quot;GPU 直接计算&lt;br/&gt;高吞吐&quot;]</span><br><span class="line">    R --&gt;|未命中| Q&#123;&quot;预算允许预取吗？&lt;br/&gt;q* 策略按带宽估算&quot;&#125;</span><br><span class="line">    Q --&gt;|允许| P[&quot;异步预取下一层热门专家&lt;br/&gt;双缓冲与当前计算重叠&quot;]</span><br><span class="line">    Q --&gt;|不允许| CPU[&quot;CPU / 主机内存执行&lt;br/&gt;慢但不断流&quot;]</span><br><span class="line">    P --&gt; G</span><br><span class="line">    CPU --&gt; L[&quot;更新全局 LRU 缓存&lt;br/&gt;回写权重&quot;]</span><br><span class="line">    G --&gt; L</span><br><span class="line">    L --&gt; N[&quot;下一层&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>这张图里最值钱的是那条 <strong>q*</strong> 分支。纯 GPU 推理要求全部权重驻留，纯 CPU 推理慢到不可用，离线预取又会把宝贵带宽浪费在”猜错的专家”上。FreeToken 的做法是把带宽当成一等公民来做调度——这跟数据库的 buffer pool 管理是同一类问题，只是换了个介质。再叠加”语义锚点”这个设计：agent 场景下上下文经常被编辑（工具返回、思考块折叠），传统 KV cache 只能整段重算，而语义级快照能把重算范围压到一次工具调用之内。<strong>这一条才是它敢说自己”给 agent 用”的底气。</strong></p>
+<p>要泼的冷水是：宣传口径的”290B 交互速度”必然对应特定硬件与特定量化（多半是 MXFP4 + RTX 50 系 + 大内存），换到笔记本就是另一个故事。而且专家缓存命中率高度依赖任务分布——写代码和闲聊走的是完全不同的专家路径，LRU 在切换任务时会集体失效。想认真评估，别跑 benchmark，跑你自己的真实会话。</p>
+<h3 id="3-shiyu-coderx2fkronos-把-k-线当成一种语言来预训练611"><a href="#3-shiyu-coder-Kronos-——-把-K-线当成一种语言来预训练（-611）" class="headerlink" title="3. shiyu-coder&#x2F;Kronos —— 把 K 线当成一种语言来预训练（+611）"></a>3. shiyu-coder&#x2F;Kronos —— 把 K 线当成一种语言来预训练（+611）</h3><p>45,011 stars，今日 +611，Python。Kronos 是一个专门为金融市场”语言”预训练的 decoder-only 基础模型族。它的两段式框架很清晰：</p>
+<ol>
+<li><strong>专用 tokenizer</strong>：把连续、多维的 K 线数据（OHLCV）量化成<strong>分层离散 token</strong>；</li>
+<li><strong>自回归 Transformer</strong>：在这些 token 上预训练，从而作为一个统一模型服务多种量化任务。</li>
+</ol>
+<p>模型动物园覆盖四个尺寸——mini 4.1M（上下文 2048）、small 24.7M（512）、base 102.3M（512）、large，全部开在 Hugging Face 上，还配了一个 BTC&#x2F;USDT 未来 24 小时预测的可视化 demo。</p>
+<p>这个项目最值得学的不是预测准不准，而是<strong>它选了”造 tokenizer”而不是”调 prompt”</strong>。通用时间序列基础模型（TSFM）在金融数据上普遍表现平庸，原因很朴素：金融序列噪声极高、非平稳、且不同频率（分钟线&#x2F;日线）的统计性质完全不同。直接喂连续值，模型学到的是”平均走势”，而真正有信息量的是<strong>形态</strong>——长上影、缩量回踩、跳空缺口。把 OHLCV 分层量化成离散 token，本质上是把”形态”变成词汇表里的词，让 Transformer 用它最擅长的方式（离散符号的共现统计）去学。</p>
+<p>顺带说一句它的尺寸选择很有诚意：4.1M 参数的 mini 版能在笔记本上跑，102M 的 base 版一张消费卡就够。<strong>这是”垂直基础模型”的正确姿势——先证明小模型在窄领域能打，而不是一上来就对标 GPT。</strong></p>
+<p>冷水照旧要泼：预测误差小，不等于能赚钱。真实交易里还有手续费、滑点、冲击成本、以及最致命的 regime shift——模型在 2020 年 3 月那种行情里学到的东西，会在下一个流动性事件里全部作废。把它当成”信号生成器的一个特征来源”是合理的，当成”自动交易大脑”是危险的。</p>
+<h3 id="4-beenuarx2faisoc-安全运营要的不是更聪明的-agent是可复核的-agent436"><a href="#4-beenuar-AiSOC-——-安全运营要的不是更聪明的-agent，是可复核的-agent（-436）" class="headerlink" title="4. beenuar&#x2F;AiSOC —— 安全运营要的不是更聪明的 agent，是可复核的 agent（+436）"></a>4. beenuar&#x2F;AiSOC —— 安全运营要的不是更聪明的 agent，是可复核的 agent（+436）</h3><p>5,920 stars，今日 +436，Python，MIT。开源自托管的 AI 安全运营中心：接入安全遥测 → 归一化 → 跑规则库（7015 条规则中 2530 条可执行）→ 关联成事件 → 由 AI agent 调查，每一步的 prompt 与工具调用都被记录 → 提出处置建议，由人批准后才下发。附带 MCP server，能接 Claude、Cursor、Continue，无需任何 API key 即可自托管运行，当前 v21.0.0。</p>
+<p>选它进前四，是因为它回答了一个很实际的问题：<strong>安全场景凭什么敢让 agent 动手？</strong></p>
+<p>答案是三条工程约束，而不是更高的准确率：</p>
+<ul>
+<li><strong>规则先于模型</strong>。2530 条可执行规则负责”确定性地过滤”，把告警洪水压到 agent 能处理的量级。模型只负责归因与调查，不负责发现。</li>
+<li><strong>决策账本可重放</strong>。每个 agent 步骤都有记录，能回放——出问题时你可以指出”它在第 4 步读了这个日志、第 7 步下了这个结论”。这在安全审计里不是加分项，是准入条件。</li>
+<li><strong>人批准才落地</strong>。响应动作是 proposal，不是 action。这一条把最坏情况的破坏力封在了”误报”级别。</li>
+</ul>
+<p>这也正好接上昨天 Cursor 扩展投毒事件留下的教训：安全产品的可信度从来不来自”我判断得准”，而来自**”我错的时候你能查出来我错在哪”**。AiSOC 把 decision ledger 做成核心卖点，说明这个行业的采购逻辑已经成熟了——买的是可审计性。</p>
+<h3 id="榜单其余速览"><a href="#榜单其余速览" class="headerlink" title="榜单其余速览"></a>榜单其余速览</h3><ul>
+<li><strong>thedotmack&#x2F;claude-mem</strong>（108,604 stars，+1,527，TypeScript）：跨会话持久记忆，捕获、压缩、注入三步走，兼容 Claude Code、OpenClaw、Codex、Gemini、Hermes、Copilot、OpenCode。昨天 +1,723，今天仍是全榜第二高增速。连续两天高位增长说明”记忆层”已经不是尝鲜，而是必需品——它正在变成 agent 之间的上下文交换格式。</li>
+<li><strong>lightpanda-io&#x2F;browser</strong>（39,705 stars，+827，Zig）：从零写的无头浏览器，不是 Chromium fork。官方基准：100 页峰值内存 123MB vs 2GB（约 16 倍差距），执行时间 5s vs 46s（约 9 倍）。给 agent 用的浏览器不需要渲染给人看的那一半，砍掉的正是成本最大的那一半。</li>
+<li><strong>cjpais&#x2F;Handy</strong>（36,136 stars，+383，Rust）与 <strong>anomalyco&#x2F;hex</strong>（2,683 stars，+1,329，Rust）：今天语音输入这条线同时上了两个项目。Handy 是全离线、可扩展的语音转文字应用；hex 是 macOS 优先的本地听写——按住快捷键说话，松手粘贴到任意应用，端侧识别，Linux beta 在跟进。两个都是 Rust、都强调 on-device，这不是巧合：<strong>语音是当下最适合端侧推理的模态</strong>（延迟敏感、隐私敏感、模型小）。</li>
+<li><strong>milind-soni&#x2F;OpenMausBot</strong>（10,188 stars，+919，TypeScript）：开源版 Grok Bot 替代品，核心是给每个 bot 一台虚拟机。昨天 9,264 &#x2F; +1,304，今天增速略降但仍在榜。</li>
+<li><strong>Donchitos&#x2F;Claude-Code-Game-Studios</strong>（31,749 stars，+970，Shell）：49 个角色 + 72 个 skill 的游戏工作室模拟。昨天 +1,347 排第一，今天掉到 +970 —— 组织层叙事的第一波热度正在退。</li>
+<li><strong>Renhuai123&#x2F;ziwei-doushu</strong>（12,826 stars，+953，TypeScript）：紫微斗数排盘引擎，含完整算法、四化系统、格局知识库与古籍原文数据。连续两天上榜，是”领域知识库 + 确定性算法 + LLM 解释层”这套组合最好的样本。</li>
+<li><strong>CopilotKit&#x2F;OpenBot</strong>（9,276 stars，+178，TypeScript）：给每个 AI 同事配独立浏览器、文件与工具，动作先决策后记录，走 AG-UI 协议接任意 agent 栈。定位是”模板而非产品”，适合想自建的人抄结构。</li>
+<li><strong>patchy631&#x2F;ai-engineering-hub</strong>（39,886 stars，+573，Jupyter）、<strong>kornia&#x2F;kornia</strong>（11,613 stars，+88，Python）、<strong>public-apis&#x2F;public-apis</strong>（494,089 stars，+298）：教程库、几何视觉库、免费 API 清单，属于长期盘踞榜单的基础设施型仓库，与当日热点无关。</li>
+<li><strong>hyprwm&#x2F;Hyprland</strong>（39,171 stars，+37，C++）：Wayland 合成器，非 AI 项目，因桌面美化话题顺带上榜。</li>
+</ul>
+<h2 id="新工具x2f产品速览"><a href="#新工具-产品速览" class="headerlink" title="新工具&#x2F;产品速览"></a>新工具&#x2F;产品速览</h2><ul>
+<li><strong>GitHub Copilot Fusion：混模型编排，逼近 Opus 5.5 的编码水平、单任务成本减半</strong>。GitHub CPO Mario Rodriguez 同时确认支持跨设备续接工作，包括手机端——agent 在你合上笔记本后继续跑，换个设备接着看。这条和我今天排第一的 T3 Code 是同一个需求的两种答案：一个做开放控制面，一个把控制面焊进 IDE。</li>
+<li><strong>Liquid AI 发布 LFM3</strong>：把浏览器 agent、语音指令、图像识别放进企业可控的本地设备，单张 GPU 即可定制，可部署在端侧、私有服务器或云。小模型 + 强模态专门化，是企业侧最现实的落地形态。</li>
+<li><strong>Salesforce 扩展 Agent Fabric</strong>：加入 AI 评估器，agent 失败时触发关机（kill switch），并把成本控制做进编排层。这是”agent 治理”从口号变成产品开关的标志。</li>
+<li><strong>Apple 下周推送 iOS 27.3 beta</strong>，把首批 Apple Intelligence 功能带进中国市场；<strong>Gemini Live 或在 Android 上获得离线模式</strong>（beta 代码中出现”无需联网使用 Gemini Live”文案，实现方式未明）。端侧与合规，仍是两大厂商在中国市场的真正赛点。</li>
+<li><strong>Google 用 AI Studio 做了个机器人花盆 Sprout</strong>：自主寻找最佳光照、缺水时推送提醒，官方说明”只是好玩，不卖”。这类 demo 的价值在于展示”vibe coding 一个硬件项目”的完整链路有多短。</li>
+</ul>
+<h2 id="行业动态"><a href="#行业动态" class="headerlink" title="行业动态"></a>行业动态</h2><ul>
+<li><strong>“Evil Qwen”与神经元探索</strong>：VentureBeat 报道了围绕 LLM 内部神经元的一轮探索热潮。核心观点值得记下来——<strong>一个叫嚣要毁灭人类的模型，比一个悄悄利用错误目标、或在”看起来很有帮助”的同时越权行动的模型，更容易被发现</strong>。对齐工作的难点从来不是识别怪物，而是识别”过于配合”。</li>
+<li><strong>开源权重模型更便宜也更强了，但别自己扛推理成本</strong>：VentureBeat 10-31 的分析把开源与闭源的关系类比成 Linux&#x2F;Windows、Android&#x2F;iOS——不是赢者通吃，而是各服务不同市场。对企业的实际建议是：用开源权重拿能力与议价权，用托管推理拿弹性，别把两者混成”自建机房”。</li>
+<li><strong>Nvidia 与 Oracle 扩产 Vera Rubin</strong>，卖点转向”提高利用率”——因为企业客户普遍报告 GPU 闲置。这一句比任何 benchmark 都诚实：算力过剩与算力浪费同时存在。</li>
+<li><strong>AI 正在改写计算机科学几十年的研究方式</strong>（The Verge）：从论文选题、实验设计到复现，agent 参与度快速上升。与之相伴的争议也很具体——当 AI 能批量生成”看起来成立的实验”，同行评审这套机制要如何自处。</li>
+<li><strong>数据中心开始进入地方政治</strong>：缅因州参议院选战里，科技富豪的巨额投入与乡村选民对电价、资源占用、”幽灵岗位”的反弹正面相撞。AI 基础设施的选址问题，正在从工程问题变成选票问题。</li>
+</ul>
+<h2 id="技术洞见"><a href="#技术洞见" class="headerlink" title="技术洞见"></a>技术洞见</h2><h3 id="洞见一agent-时代的分发入口是控制面而不是模型"><a href="#洞见一：agent-时代的分发入口，是控制面而不是模型" class="headerlink" title="洞见一：agent 时代的分发入口，是控制面而不是模型"></a>洞见一：agent 时代的分发入口，是控制面而不是模型</h3><p>把今天榜单前三名连起来看，会看到一条很清晰的迁移路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart TB</span><br><span class="line">    subgraph L1[&quot;2024-2025：能力竞争&quot;]</span><br><span class="line">        A1[&quot;谁的模型强&lt;br/&gt;benchmark 军备竞赛&quot;]</span><br><span class="line">    end</span><br><span class="line">    subgraph L2[&quot;2026 上半年：编排竞争&quot;]</span><br><span class="line">        B1[&quot;谁能拆解任务&lt;br/&gt;多 agent 角色 / skill 分发&quot;]</span><br><span class="line">    end</span><br><span class="line">    subgraph L3[&quot;2026 Q4：控制面竞争&quot;]</span><br><span class="line">        C1[&quot;t3code&lt;br/&gt;跨端遥控 + 审批&quot;]</span><br><span class="line">        C2[&quot;Copilot Fusion&lt;br/&gt;跨设备续接&quot;]</span><br><span class="line">        C3[&quot;claude-mem&lt;br/&gt;跨会话状态&quot;]</span><br><span class="line">    end</span><br><span class="line">    A1 --&gt;|&quot;能力过剩，差异缩小&quot;| B1</span><br><span class="line">    B1 --&gt;|&quot;角色堆叠触及收益递减&quot;| C1</span><br><span class="line">    B1 --&gt; C2</span><br><span class="line">    B1 --&gt; C3</span><br></pre></td></tr></table></figure>
+
+<p>昨天榜单前十有一半在做”agent 的组织形式”，今天这批项目集体降速，而控制面项目翻倍增长。这不是巧合，是<strong>收益递减的必然结果</strong>：多加一个角色，边际收益很快被协调成本和 token 消耗吃掉；而”让我在手机上看到它在干什么、并且能叫停”这件事，是每个用户每天都会用到的确定性收益。</p>
+<p>更本质地说，模型层已经商品化了。同一个任务，前沿模型之间的差距在缩小，价格却在快速下探（Copilot Fusion 半价、Mistral Large 4 单任务成本降 63%）。当”能力”不再是差异，”注意力”就成了差异——谁占据了你每天打开的那个界面，谁就掌握了路由权、订阅权、以及最重要的<strong>任务效果数据的归属权</strong>。</p>
+<p>风险也在这里：控制面天然是信任的汇聚点。它同时握着你的凭据、你的仓库、你的审批权。T3 Code 用”开源、可 fork”来对冲——真出问题你可以自己改；但大多数用户不会 fork，只会安装。<strong>这一层迟早需要类似浏览器扩展市场那样的审核与签名机制</strong>，否则昨天的投毒事件只会换个包装重演。</p>
+<h3 id="洞见二垂直基础模型的配方已经收敛成四步"><a href="#洞见二：垂直基础模型的配方，已经收敛成四步" class="headerlink" title="洞见二：垂直基础模型的配方，已经收敛成四步"></a>洞见二：垂直基础模型的配方，已经收敛成四步</h3><p>Kronos（金融）、AiSOC（安全）、FreeToken（把大模型压进个人硬件）看起来毫不相干，但它们的工程骨架是同一个：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">flowchart LR</span><br><span class="line">    D[&quot;领域原始数据&lt;br/&gt;K线 / 告警日志 / 权重&quot;] --&gt; E[&quot;专用编码&lt;br/&gt;分层离散 token / 规则归一化 / 量化格式&quot;]</span><br><span class="line">    E --&gt; M[&quot;小尺寸自回归主干&lt;br/&gt;4M–100M 参数 / MoE 稀疏激活&quot;]</span><br><span class="line">    M --&gt; V[&quot;领域内可验证的评测&lt;br/&gt;形态命中 / 调查结论 / 交互延迟&quot;]</span><br><span class="line">    V --&gt;|不达标| E</span><br><span class="line">    V --&gt;|达标| P[&quot;边缘部署&lt;br/&gt;本地 / 单卡 / 自托管&quot;]</span><br><span class="line">    P --&gt; F[&quot;反馈回流&lt;br/&gt;真实任务分布&quot;]</span><br><span class="line">    F --&gt; E</span><br></pre></td></tr></table></figure>
+
+<p>四步是：<strong>专用编码 → 小主干 → 领域评测 → 边缘部署</strong>，闭环靠真实任务分布回流。</p>
+<p>这套配方之所以在 2026 年底收敛，是因为通用大模型在垂直场景的三个死穴一直没有解：<strong>噪声</strong>（金融的高频抖动、安全的误报洪水）、<strong>时效</strong>（等不起一次云端往返）、<strong>可审计</strong>（要能指出第几步错了）。前两个用专用编码 + 小模型解决，第三个用决策账本解决。</p>
+<p>有意思的是，这三个项目都在同一个方向上做了让步：<strong>放弃”通用”，换取”可部署”</strong>。Kronos 最小的模型 4.1M 参数，FreeToken 的卖点是消费级显卡，AiSOC 强调”无 API key 也能跑”。这不是技术退步，而是市场分层——当前沿模型的边际能力提升越来越贵，把钱花在”在我这台机器上、针对我这类数据、能被我审计”的模型上，回报率反而更高。</p>
+<p>对个人开发者的启示很直接：别再想着训一个更大的模型。找一个噪声大、规则多、又必须本地跑的领域，把它的<strong>编码方式</strong>做对，用 100M 以内的参数跑通闭环，你就有了一个别人拿 GPT 也替代不了的东西。Kronos 能在一天里涨 611 star，靠的就是这个逻辑被市场认出来了。</p>
+
+  </div>
+</article>
+
+
+<nav class="post-nav">
+  
+  
+  <a class="next" href="/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-10-31/">AI 日报 2026-10-31</a>
+  
+</nav>
+
+
+
+<div class="post-comments" id="comments">
+  <script>
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://giscus.app/client.js';
+    s.setAttribute('data-repo', 'Scottalive/scottalive.github.io');
+    s.setAttribute('data-repo-id', 'R_kgDOJOvmZg');
+    s.setAttribute('data-category', 'General');
+    s.setAttribute('data-category-id', 'DIC_kwDOJOvmZs4C7utF');
+    s.setAttribute('data-mapping', 'pathname');
+    s.setAttribute('data-strict', '0');
+    s.setAttribute('data-reactions-enabled', '1');
+    s.setAttribute('data-emit-metadata', '0');
+    s.setAttribute('data-input-position', 'bottom');
+    s.setAttribute('data-theme', window.__theme === 'dark' ? 'dark' : 'light');
+    s.setAttribute('data-lang', 'zh-CN');
+    s.setAttribute('data-loading', 'lazy');
+    s.setAttribute('crossorigin', 'anonymous');
+    document.getElementById('comments').appendChild(s);
+  })();
+  </script>
+</div>
+
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 沉鱼 &nbsp;·&nbsp; uv:<span id="site-uv">-</span> &nbsp;pv:<span id="site-pv">-</span> &nbsp;·&nbsp; <a href="/atom.xml" title="RSS 订阅">[rss]</a> &nbsp;·&nbsp; powered by <a href="https://hexo.io" target="_blank" rel="noopener">hexo</a></p>
+    </div>
+  </footer>
+
+  <script>
+  window.__downloads = [{"title":"GCG-4995669932716","url":"/downloads/"},{"title":"Lost2","url":"/downloads/"},{"title":"LostFind","url":"/downloads/"},{"title":"Lovekami -Healing Harem-","url":"/downloads/"},{"title":"MIss Neko1","url":"/downloads/"},{"title":"Miss Neko 2","url":"/downloads/"},{"title":"Miss Neko3","url":"/downloads/"},{"title":"NTR模拟游戏","url":"/downloads/"},{"title":"PazzleSchool2 v1.9.1","url":"/downloads/"},{"title":"RJ01326567","url":"/downloads/"},{"title":"RenaiHajime","url":"/downloads/"},{"title":"Tsukiniyorisou2","url":"/downloads/"},{"title":"X爱调教","url":"/downloads/"},{"title":"[110701][暁WORKS-響-] LOVELY×CATION","url":"/downloads/"},{"title":"[120727][ωstar] 美少女万華鏡 -忘れな草と永遠の少女 (无码)","url":"/downloads/"},{"title":"[130426][hibiki works] LOVELY×CATION2","url":"/downloads/"},{"title":"[140228][ωstar] 美少女万華鏡 -かつて少女だった君へ (无码)","url":"/downloads/"},{"title":"[210924][HULOTTE] 俺の恋天使がポンコツすぎてコワ～い。无码版","url":"/downloads/"},{"title":"[211210][Shiravune] 桃色恋恋～姉妹とつむぐエッチな関係～ steam版 (files)","url":"/downloads/"},{"title":"[220813][Whirlpool] けもの道☆ガーリッシュスクエア LOVE+PLUS 无码 steam版 (files)","url":"/downloads/"},{"title":"[230520][Kagura Games] 新生 むっち無知 田舎性活 steam版 (files)","url":"/downloads/"},{"title":"[230526][Whisp] ガマンができない童貞兄キと、スナオになれない反抗妹 steam版 (files)","url":"/downloads/"},{"title":"[云翻]我的女朋友不可能是超H班主任(无码)","url":"/downloads/"},{"title":"blacksouls","url":"/downloads/"},{"title":"deepconversation","url":"/downloads/"},{"title":"flip_flop","url":"/downloads/"},{"title":"kasiki","url":"/downloads/"},{"title":"meierzhoumu","url":"/downloads/"},{"title":"meimei","url":"/downloads/"},{"title":"meimeitongju","url":"/downloads/"},{"title":"☆援助妊娠學園☆ V1.2","url":"/downloads/"},{"title":"【SLG动态 触摸 萝莉】双子睡眠すやすやえっち[Ver1.01]","url":"/downloads/"},{"title":"その花びらにくちづけを11 无码版","url":"/downloads/"},{"title":"上班族","url":"/downloads/"},{"title":"不双休就死","url":"/downloads/"},{"title":"与妹妹两人的生活","url":"/downloads/"},{"title":"与妹妹同居","url":"/downloads/"},{"title":"与妹妹的一个月","url":"/downloads/"},{"title":"与妹妹的保健室","url":"/downloads/"},{"title":"与妹妹的周末","url":"/downloads/"},{"title":"与小萝莉相思相爱","url":"/downloads/"},{"title":"催眠","url":"/downloads/"},{"title":"催眠少女","url":"/downloads/"},{"title":"傲娇妹妹","url":"/downloads/"},{"title":"傲慢少女","url":"/downloads/"},{"title":"兄妹秘哀～口嫌体正直～","url":"/downloads/"},{"title":"刘禅养成计划","url":"/downloads/"},{"title":"千恋万花","url":"/downloads/"},{"title":"只奈","url":"/downloads/"},{"title":"吉里吉里Z Ver1.4.0 リリース","url":"/downloads/"},{"title":"后宫","url":"/downloads/"},{"title":"和妹妹一起生活吧","url":"/downloads/"},{"title":"和存在感微薄少女一起的简单生活","url":"/downloads/"},{"title":"和毒舌且帅气的妹妹做爱～哥哥这个变态、大变态，负起责任让我怀孕啊！～","url":"/downloads/"},{"title":"回乡","url":"/downloads/"},{"title":"回乡2","url":"/downloads/"},{"title":"回想","url":"/downloads/"},{"title":"图书馆","url":"/downloads/"},{"title":"在叔叔家玩吧","url":"/downloads/"},{"title":"地下偶像教育录","url":"/downloads/"},{"title":"地雷酱","url":"/downloads/"},{"title":"堕落电车","url":"/downloads/"},{"title":"堕落皇家圣女","url":"/downloads/"},{"title":"夏之音","url":"/downloads/"},{"title":"夏天的小秘密","url":"/downloads/"},{"title":"夏編","url":"/downloads/"},{"title":"天使的纷扰","url":"/downloads/"},{"title":"妹妹-1","url":"/downloads/"},{"title":"妹妹养成","url":"/downloads/"},{"title":"妹妹勇者","url":"/downloads/"},{"title":"妹妹和朋友与我的日常","url":"/downloads/"},{"title":"妹嫁 ～妹妹新娘～","url":"/downloads/"},{"title":"妹寝","url":"/downloads/"},{"title":"妹爱","url":"/downloads/"},{"title":"姐姐","url":"/downloads/"},{"title":"孕育","url":"/downloads/"},{"title":"学园","url":"/downloads/"},{"title":"学园偶像","url":"/downloads/"},{"title":"家出少女","url":"/downloads/"},{"title":"家里蹲义妹","url":"/downloads/"},{"title":"希尔薇PC","url":"/downloads/"},{"title":"带我去地下城吧","url":"/downloads/"},{"title":"彼女","url":"/downloads/"},{"title":"怀孕无双！色色生活~让1000名女孩怀孕","url":"/downloads/"},{"title":"恋爱 X 决胜战 茉莉 & 汐音 & 苍 小故事(新米,繁体)","url":"/downloads/"},{"title":"我爱上了班里的一个妹子","url":"/downloads/"},{"title":"我的暑假时光","url":"/downloads/"},{"title":"搜查官莉娜","url":"/downloads/"},{"title":"新妻LOVELY×CATION(全汉)","url":"/downloads/"},{"title":"时间停止","url":"/downloads/"},{"title":"栏中","url":"/downloads/"},{"title":"毁灭之地的勇者","url":"/downloads/"},{"title":"永恒","url":"/downloads/"},{"title":"洛丽塔","url":"/downloads/"},{"title":"清纯大小姐催眠","url":"/downloads/"},{"title":"爪子小巷小羊","url":"/downloads/"},{"title":"爱与恶魔","url":"/downloads/"},{"title":"特工","url":"/downloads/"},{"title":"犬娘","url":"/downloads/"},{"title":"狂之血 SaDistic BlooD(无码)","url":"/downloads/"},{"title":"狐狸屋部","url":"/downloads/"},{"title":"理想中的父亲","url":"/downloads/"},{"title":"痴汉","url":"/downloads/"},{"title":"痴汉内向女高","url":"/downloads/"},{"title":"社区审查","url":"/downloads/"},{"title":"紫宫迷宫","url":"/downloads/"},{"title":"美少女万华镜1-被诅咒之传说少女","url":"/downloads/"},{"title":"美少女万华镜2.5-献给曾经是少女的你","url":"/downloads/"},{"title":"美少女万华镜3-神明所创造的少女们","url":"/downloads/"},{"title":"美少女万华镜4-罪与罚的少女","url":"/downloads/"},{"title":"美少女万华镜5-理与迷宫的少女","url":"/downloads/"},{"title":"美少女万華鏡 -忘れな草と永遠の少女-","url":"/downloads/"},{"title":"美少女万華鏡異聞 雪おんな","url":"/downloads/"},{"title":"苦主","url":"/downloads/"},{"title":"苦主3","url":"/downloads/"},{"title":"莉可的不可思议差事","url":"/downloads/"},{"title":"萝怀孕","url":"/downloads/"},{"title":"萝莉吸血鬼!~与吸血鬼姐妹的性福生活～","url":"/downloads/"},{"title":"萝莉妹妹非要用","url":"/downloads/"},{"title":"虚拟女孩","url":"/downloads/"},{"title":"表妹","url":"/downloads/"},{"title":"角折魔王エリスの再生譚","url":"/downloads/"},{"title":"触摸","url":"/downloads/"},{"title":"触摸互动","url":"/downloads/"},{"title":"调皮生魂少女","url":"/downloads/"},{"title":"踏ちっ娘☆まいろーど","url":"/downloads/"},{"title":"车万同人","url":"/downloads/"},{"title":"这位小姐，触摸","url":"/downloads/"},{"title":"邻座的女同学","url":"/downloads/"},{"title":"银习的幽世村 Ver1.34官方中文步兵版-PC","url":"/downloads/"},{"title":"驯化雌小鬼","url":"/downloads/"},{"title":"骄傲少女","url":"/downloads/"},{"title":"鬼娘乱舞","url":"/downloads/"},{"title":"魅魔莉莉姆","url":"/downloads/"},{"title":"魔法少女","url":"/downloads/"}];
+  </script>
+  <script>
+  /* search */
+  (function() {
+    var input = document.getElementById('search-input');
+    var results = document.getElementById('search-results');
+    var posts = null;
+    var idx = {};
+
+    input.addEventListener('focus', function() {
+      if (!posts) loadData();
+    });
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim();
+      if (q.length < 2) { results.innerHTML = ''; results.classList.remove('show'); return; }
+      if (!posts) { loadData(function() { doSearch(q); }); return; }
+      doSearch(q);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) results.classList.remove('show');
+    });
+
+    function loadData(cb) {
+      fetch('/search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(json) {
+          posts = json;
+          json.forEach(function(item, i) { idx['p' + i] = { text: (item.title + ' ' + strip(item.content || '')).toLowerCase(), item: item }; });
+          (window.__downloads || []).forEach(function(item, i) {
+            idx['d' + i] = { text: item.title.toLowerCase(), item: item };
+          });
+          if (cb) cb();
+        });
+    }
+
+    function strip(html) {
+      var tmp = document.createElement('div');
+      tmp.innerHTML = html;
+      return tmp.textContent || tmp.innerText || '';
+    }
+
+    function doSearch(q) {
+      q = q.toLowerCase();
+      var hits = [];
+      Object.keys(idx).forEach(function(k) {
+        var score = 0;
+        var pos = idx[k].text.indexOf(q);
+        if (pos !== -1) {
+          score = pos === 0 ? 100 : 100 - pos;
+          hits.push({ idx: k, score: score });
+        }
+      });
+      hits.sort(function(a, b) { return b.score - a.score; });
+      hits = hits.slice(0, 8);
+
+      if (hits.length === 0) {
+        results.innerHTML = '<div class="search-empty">没有找到结果</div>';
+      } else {
+        results.innerHTML = hits.map(function(h) {
+          var entry = idx[h.idx];
+          var item = entry.item;
+          var isDownload = h.idx.charAt(0) === 'd';
+          var sub = isDownload ? '<span class="search-tag">资源下载</span>' : '<span class="search-excerpt">' + excerpt(item.content, q, 80) + '</span>';
+          return '<a class="search-item" href="' + item.url + '">' +
+            '<span class="search-title">' + highlight(item.title, q) + '</span>' + sub +
+          '</a>';
+        }).join('');
+      }
+      results.classList.add('show');
+    }
+
+    function highlight(text, q) {
+      var re = new RegExp('(' + escapeRegExp(q) + ')', 'gi');
+      return text.replace(re, '<mark>$1</mark>');
+    }
+
+    function excerpt(html, q, len) {
+      var text = strip(html);
+      var pos = text.toLowerCase().indexOf(q.toLowerCase());
+      if (pos === -1) pos = 0;
+      var start = Math.max(0, pos - 30);
+      var snippet = text.substring(start, start + len);
+      if (start > 0) snippet = '...' + snippet;
+      if (start + len < text.length) snippet += '...';
+      return highlight(snippet, q);
+    }
+
+    function escapeRegExp(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+  })();
+  </script>
+
+  <script>
+  /* back to top */
+  (function() {
+    var btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('show', window.scrollY > 400);
+    });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+  </script>
+
+  <script>
+  /* dark mode toggle：深色为默认，按钮在 dark/light 间切换 */
+  (function() {
+    var btn = document.getElementById('dark-toggle');
+    function notifyGiscus(theme) {
+      var iframe = document.querySelector('.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
+    }
+    btn.addEventListener('click', function() {
+      var currentlyDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      var next = currentlyDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      window.__theme = next;
+      notifyGiscus(next);
+    });
+  })();
+  </script>
+
+  <script>
+  /* lightbox */
+  (function() {
+    document.addEventListener('click', function(e) {
+      var img = e.target.closest('.post-content img');
+      if (!img || img.closest('a')) return;
+      if (document.querySelector('.lightbox-overlay')) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      var clone = document.createElement('img');
+      clone.src = img.src;
+      clone.alt = img.alt || '';
+      clone.className = 'lightbox-img';
+      overlay.appendChild(clone);
+      document.body.appendChild(overlay);
+
+      overlay.addEventListener('click', function() { overlay.remove(); });
+      document.addEventListener('keydown', function esc(e) {
+        if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', esc); }
+      });
+    });
+  })();
+  </script>
+
+  <script>
+  /* Code + Mermaid — 视频播放器风格放大查看 */
+  (function() {
+    'use strict';
+    var currentViewer = null;
+
+    /* ---- 弹窗 ---- */
+    function showViewer(opts) {
+      if (currentViewer) { currentViewer.remove(); currentViewer = null; }
+      var isMermaid = !!opts.isMermaid;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'code-viewer-overlay';
+
+      var viewer = document.createElement('div');
+      viewer.className = 'code-viewer';
+
+      /* toolbar */
+      var tb = document.createElement('div');
+      tb.className = 'code-viewer-toolbar';
+      var actionsHtml = '<div class="code-viewer-actions">';
+      if (isMermaid && opts.bodyHtml) {
+        actionsHtml += '<button class="code-viewer-btn" data-dl>⬇ 下载图片</button>';
+      } else if (opts.copyText) {
+        actionsHtml += '<button class="code-viewer-btn" data-copy>📋 复制</button>';
+      }
+      actionsHtml += '<button class="code-viewer-close">✕</button></div>';
+      tb.innerHTML = '<span class="code-viewer-title">' +
+        '<span>' + (isMermaid ? '📊' : '&lt;/&gt;') + '</span> ' + opts.title + '</span>' + actionsHtml;
+      viewer.appendChild(tb);
+
+      /* body */
+      var body = document.createElement('div');
+      body.className = 'code-viewer-body' + (isMermaid ? ' mermaid-body' : '');
+      if (isMermaid) {
+        body.innerHTML = opts.bodyHtml;
+      } else {
+        body.innerHTML = '<pre><code>' + escHtml(opts.bodyHtml) + '</code></pre>';
+      }
+      viewer.appendChild(body);
+      overlay.appendChild(viewer);
+      document.body.appendChild(overlay);
+      document.body.style.overflow = 'hidden';
+      currentViewer = overlay;
+
+      /* copy logic */
+      var copyBtn = tb.querySelector('[data-copy]');
+      if (copyBtn && opts.copyText) {
+        copyBtn.addEventListener('click', function() {
+          navigator.clipboard.writeText(opts.copyText).then(function() {
+            copyBtn.textContent = '✅ 已复制';
+            copyBtn.classList.add('copied');
+            setTimeout(function() { copyBtn.textContent = '📋 复制'; copyBtn.classList.remove('copied'); }, 2000);
+          });
+        });
+      }
+
+      /* download image logic */
+      var dlBtn = tb.querySelector('[data-dl]');
+      if (dlBtn && isMermaid && opts.bodyHtml) {
+        dlBtn.addEventListener('click', function() {
+          var svgEl = body.querySelector('svg');
+          if (!svgEl) return;
+          var svgClone = svgEl.cloneNode(true);
+          svgClone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+          var serializer = new XMLSerializer();
+          var svgStr = serializer.serializeToString(svgClone);
+          var blob = new Blob([svgStr], { type: 'image/svg+xml;charset=utf-8' });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = (opts.title || '流程图') + '.svg';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          dlBtn.textContent = '✅ 已下载';
+          setTimeout(function() { dlBtn.textContent = '⬇ 下载图片'; }, 2000);
+        });
+      }
+
+      /* close handlers */
+      tb.querySelector('.code-viewer-close').addEventListener('click', closeViewer);
+      overlay.addEventListener('click', function(e) { if (e.target === overlay) closeViewer(); });
+      document.addEventListener('keydown', onEsc);
+    }
+
+    function closeViewer() {
+      if (!currentViewer) return;
+      currentViewer.remove(); currentViewer = null;
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', onEsc);
+    }
+    function onEsc(e) { if (e.key === 'Escape') closeViewer(); }
+
+    function escHtml(s) {
+      return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    /* ---- 事件委托：点击 Mermaid 流程图任意位置放大 ---- */
+    document.addEventListener('click', function(e) {
+      var wrap = e.target.closest('.mermaid-container[data-orig]');
+      if (!wrap) return;
+      /* 排除viewer弹窗内的SVG（viewer不在容器内，双保险） */
+      if (e.target.closest('.code-viewer-overlay')) return;
+
+      var origCode = wrap.getAttribute('data-orig');
+      if (!origCode) return;
+      /* 使用 mermaid.render() 获取 SVG 字符串 */
+      if (typeof mermaid !== 'undefined' && mermaid.render) {
+        var uid = 'mermaid-viewer-' + Date.now() + '-' + Math.random().toString(36).slice(2,6);
+        mermaid.render(uid, origCode).then(function(result) {
+          showViewer({ title: '流程图', bodyHtml: result.svg, isMermaid: true });
+        }).catch(function(err) {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        });
+      } else if (typeof mermaid !== 'undefined' && mermaid.run) {
+        /* fallback to run() */
+        var tmp = document.createElement('div');
+        tmp.textContent = origCode;
+        mermaid.run({ nodes: [tmp] }).then(function() {
+          showViewer({ title: '流程图', bodyHtml: tmp.innerHTML || origCode, isMermaid: true });
+        }).catch(function() {
+          showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+        });
+      } else {
+        showViewer({ title: '流程图（源码）', bodyHtml: origCode, copyText: origCode });
+      }
+    });
+
+    /* ---- 初始化：给每个代码块加复制按钮（不加放大遮罩） ---- */
+    var preList = document.querySelectorAll('.post-content figure.highlight td.code pre, .post-content > pre');
+    preList.forEach(function(pre) {
+      if (pre.closest('.code-block-wrap')) return; /* 已包装 */
+      var wrap = document.createElement('div');
+      wrap.className = 'code-block-wrap';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      /* 复制按钮 */
+      var copyBtn = document.createElement('button');
+      copyBtn.className = 'copy-btn';
+      copyBtn.textContent = '复制';
+      copyBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var text = pre.innerText || pre.textContent || '';
+        navigator.clipboard.writeText(text).then(function() {
+          copyBtn.textContent = '已复制';
+          copyBtn.classList.add('copied');
+          setTimeout(function() { copyBtn.textContent = '复制'; copyBtn.classList.remove('copied'); }, 2000);
+        });
+      });
+      wrap.appendChild(copyBtn);
+    });
+
+    /* ---- Mermaid 容器：右上角小展开按钮 ---- */
+    function addMermaidOverlay() {
+      document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)').forEach(function(c) {
+        if (!c.querySelector('svg')) return;
+        c.classList.add('has-overlay');
+        var btn = document.createElement('button');
+        btn.className = 'mermaid-expand-btn';
+        btn.title = '点击放大查看';
+        btn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="currentColor"/></svg>';
+        c.appendChild(btn);
+      });
+    }
+    var mo = setInterval(function() {
+      addMermaidOverlay();
+      var left = document.querySelectorAll('.mermaid-container[data-orig]:not(.has-overlay)');
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext:not([data-mermaid-rendered])');
+      if (!left.length && !figs.length) clearInterval(mo);
+    }, 300);
+    /* 最多跑 8 秒后自动停止 */
+    setTimeout(function() { if (mo) clearInterval(mo); }, 8000);
+  })();
+  </script>
+
+  <!-- Mermaid 流程图 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <script>
+  (function() {
+    var MERMAID_FONT = '"JetBrains Mono","SF Mono",Menlo,Consolas,"Sarasa Mono SC","Noto Sans Mono CJK SC",monospace';
+
+    /* 与博客主题配色统一的 Mermaid 配置（深色/浅色两套） */
+    function getMermaidConfig(isDark) {
+      var palette = isDark ? {
+        nodeBg: '#182233',
+        nodeBorder: '#3a5a7a',
+        nodeText: '#c7d3e2',
+        line: '#4d7a9a',
+        clusterBg: 'rgba(19,26,37,0.55)',
+        clusterBorder: '#2a3a4f',
+        labelBg: '#131a25',
+        noteBg: '#1a2436',
+        hoverGlow: 'rgba(0,255,156,0.35)',
+        hoverStroke: '#00ff9c'
+      } : {
+        nodeBg: '#ffffff',
+        nodeBorder: '#b8b29c',
+        nodeText: '#33383f',
+        line: '#8a8571',
+        clusterBg: 'rgba(236,234,223,0.6)',
+        clusterBorder: '#c4bfa8',
+        labelBg: '#faf8f1',
+        noteBg: '#f5f3e8',
+        hoverGlow: 'rgba(10,125,74,0.22)',
+        hoverStroke: '#0a7d4a'
+      };
+
+      var themeCSS = [
+        '.flowchart .node rect, .flowchart .node circle, .flowchart .node ellipse, .flowchart .node polygon { stroke-width: 1.4px; }',
+        '.flowchart .node rect { rx: 6px; ry: 6px; }',
+        '.edgePaths path, .flowchart .edgePath path { stroke-width: 1.6px; }',
+        '.edgeLabel { background-color: ' + palette.labelBg + '; border-radius: 4px; padding: 2px 6px; }',
+        '.edgeLabel rect { fill: ' + palette.labelBg + ' !important; rx: 4px; ry: 4px; }',
+        '.edgeLabel p { background-color: ' + palette.labelBg + ' !important; }',
+        '.cluster rect { rx: 8px; ry: 8px; stroke-dasharray: 5 4; }',
+        '.flowchart .node { transition: filter .18s; }',
+        '.flowchart .node:hover rect, .flowchart .node:hover circle, .flowchart .node:hover ellipse, .flowchart .node:hover polygon { stroke: ' + palette.hoverStroke + '; filter: drop-shadow(0 0 6px ' + palette.hoverGlow + '); }'
+      ].join('\n');
+
+      return {
+        startOnLoad: false,
+        theme: 'base',
+        securityLevel: 'loose',
+        fontFamily: MERMAID_FONT,
+        themeVariables: {
+          fontFamily: MERMAID_FONT,
+          fontSize: '14px',
+          primaryColor: palette.nodeBg,
+          primaryTextColor: palette.nodeText,
+          primaryBorderColor: palette.nodeBorder,
+          lineColor: palette.line,
+          textColor: palette.nodeText,
+          mainBkg: palette.nodeBg,
+          nodeBorder: palette.nodeBorder,
+          secondaryColor: isDark ? '#131a25' : '#eceadf',
+          tertiaryColor: isDark ? '#0d1219' : '#f2f0e8',
+          clusterBkg: palette.clusterBg,
+          clusterBorder: palette.clusterBorder,
+          edgeLabelBackground: palette.labelBg,
+          noteBkgColor: palette.noteBg,
+          noteTextColor: palette.nodeText,
+          noteBorderColor: palette.nodeBorder,
+          actorBorder: palette.nodeBorder,
+          actorBkg: palette.nodeBg,
+          actorTextColor: palette.nodeText,
+          signalColor: palette.nodeText,
+          signalTextColor: palette.nodeText,
+          labelTextColor: palette.nodeText
+        },
+        themeCSS: themeCSS,
+        flowchart: {
+          curve: 'basis',
+          htmlLabels: true,
+          padding: 10,
+          nodeSpacing: 45,
+          rankSpacing: 55,
+          useMaxWidth: true
+        }
+      };
+    }
+
+    var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    mermaid.initialize(getMermaidConfig(isDark));
+
+    /* 匹配 mermaid 图表的关键词（首行判断） */
+    var MERMAID_RE = /^(flowchart|graph|sequenceDiagram|classDiagram|stateDiagram|gantt|pie|erDiagram|journey|gitgraph|mindmap|timeline|zenuml|sankey|xychart|block|packet)/i;
+
+    /**
+     * Hexo 默认高亮插件将 markdown 代码块渲染为：
+     *   <figure class="highlight plaintext">
+     *     <table><tr><td class="code"><pre><span class="line">...</span>...</pre></td></tr></table>
+     * 因此无法通过 code.language-mermaid 选择器定位。
+     * 改为：匹配所有 figure.highlight.plaintext，提取其文本内容并检查首行是否为 mermaid 关键字。
+     */
+    function findMermaidBlocks() {
+      var blocks = [];
+      var figs = document.querySelectorAll('.post-content figure.highlight.plaintext');
+      for (var i = 0; i < figs.length; i++) {
+        var fig = figs[i];
+        if (fig.dataset.mermaidRendered) continue;
+
+        var lines = fig.querySelectorAll('.line');
+        if (!lines.length) continue;
+
+        var code = '';
+        for (var j = 0; j < lines.length; j++) {
+          code += lines[j].textContent + '\n';
+        }
+        code = code.trim();
+
+        /* 只处理首行为 mermaid 关键词的块 */
+        var firstLine = code.split('\n')[0].trim();
+        if (!MERMAID_RE.test(firstLine)) continue;
+
+        blocks.push({ fig: fig, code: code });
+      }
+      return blocks;
+    }
+
+    async function renderMermaid() {
+      var blocks = findMermaidBlocks();
+      for (var i = 0; i < blocks.length; i++) {
+        var fig = blocks[i].fig;
+        var origCode = blocks[i].code;
+        fig.dataset.mermaidRendered = '1';
+
+        var container = document.createElement('div');
+        container.className = 'mermaid-container';
+        container.setAttribute('data-orig', origCode);
+        container.textContent = origCode;
+        fig.parentNode.replaceChild(container, fig);
+
+        try {
+          await mermaid.run({ nodes: [container] });
+        } catch(e) {
+          container.innerHTML = '<pre class="mermaid-error">Mermaid 图表语法错误: ' + e.message + '</pre>';
+          container.removeAttribute('data-orig');
+        }
+      }
+    }
+
+    renderMermaid();
+
+    /* 主题切换时重新渲染 mermaid */
+    var darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      darkToggle.addEventListener('click', function() {
+        setTimeout(async function() {
+          var containers = document.querySelectorAll('.mermaid-container[data-orig]');
+          for (var i = 0; i < containers.length; i++) {
+            var el = containers[i];
+            el.removeAttribute('data-processed');
+            el.innerHTML = '';
+            el.textContent = el.getAttribute('data-orig');
+          }
+          var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+          mermaid.initialize(getMermaidConfig(isDark));
+          if (containers.length > 0) {
+            try { await mermaid.run({ nodes: Array.from(containers) }); } catch(e) {}
+          }
+        }, 150);
+      });
+    }
+  })();
+  </script>
+
+  <script>
+  /* Matrix 字符雨背景：全屏 canvas 垫底，跟随主题色，空闲/隐藏时暂停 */
+  (function() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var cv = document.createElement('canvas');
+    cv.id = 'matrix-bg';
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;';
+    cv.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var fontSize = 16, cols, drops;
+    var CHARS = '0123456789abcdef{}[]()<>/\\$#*+=;:constfnlet=>';
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cols = Math.ceil(innerWidth / fontSize);
+      drops = [];
+      for (var i = 0; i < cols; i++) drops[i] = Math.random() * -60;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function themeColors() {
+      var s = getComputedStyle(document.documentElement);
+      var green = s.getPropertyValue('--green').trim() || '#00ff9c';
+      var bg = s.getPropertyValue('--bg').trim() || '#0a0e14';
+      return { green: green, bg: bg };
+    }
+    var colors = themeColors();
+    /* 主题切换时更新颜色 */
+    var toggle = document.getElementById('dark-toggle');
+    if (toggle) toggle.addEventListener('click', function() {
+      setTimeout(function() { colors = themeColors(); }, 50);
+    });
+
+    function hexToRgb(hex) {
+      var m = hex.replace('#', '');
+      if (m.length === 3) m = m[0]+m[0]+m[1]+m[1]+m[2]+m[2];
+      var n = parseInt(m, 16);
+      return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+    }
+
+    var running = true, last = 0;
+    function tick(ts) {
+      if (!running) return;
+      /* 限流 ~20fps，字符雨不需要高帧率 */
+      if (ts - last < 50) { requestAnimationFrame(tick); return; }
+      last = ts;
+
+      var rgb = hexToRgb(colors.bg);
+      ctx.fillStyle = 'rgba(' + rgb[0] + ',' + rgb[1] + ',' + rgb[2] + ',0.09)';
+      ctx.fillRect(0, 0, innerWidth, innerHeight);
+      ctx.font = fontSize + 'px ' + fontFamily;
+
+      var g = hexToRgb(colors.green);
+      for (var i = 0; i < cols; i++) {
+        var ch = CHARS[Math.floor(Math.random() * CHARS.length)];
+        /* 头部亮、尾部暗：每列首字符高亮 */
+        var head = Math.random() > 0.96;
+        ctx.fillStyle = 'rgba(' + g[0] + ',' + g[1] + ',' + g[2] + ',' + (head ? 0.9 : 0.45) + ')';
+        ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+        drops[i]++;
+        if (drops[i] * fontSize > innerHeight && Math.random() > 0.975) drops[i] = 0;
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden) {
+        running = false;
+      } else if (!running) {
+        running = true;
+        last = 0;
+        requestAnimationFrame(tick);
+      }
+    });
+  })();
+  </script>
+
+  <script>
+  /* 点击字符爆裂动效：终端字形 + 重力 + 淡出，颜色跟随主题主色 */
+  (function() {
+    var cv = document.createElement('canvas');
+    cv.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:9999;';
+    document.body.appendChild(cv);
+    var ctx = cv.getContext && cv.getContext('2d');
+    if (!ctx) return;
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    function resize() {
+      cv.width = innerWidth * dpr;
+      cv.height = innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var GLYPHS = '01<>/#$*{}[];=+';
+    var parts = [];
+    var raf = null;
+    var fontFamily = getComputedStyle(document.body).fontFamily;
+
+    function burst(x, y) {
+      var color = getComputedStyle(document.documentElement)
+        .getPropertyValue('--green').trim() || '#00ff9c';
+      for (var i = 0; i < 16; i++) {
+        var a = Math.random() * Math.PI * 2;
+        var sp = 2 + Math.random() * 5;
+        parts.push({
+          x: x, y: y,
+          vx: Math.cos(a) * sp,
+          vy: Math.sin(a) * sp - 2.5,
+          ch: GLYPHS[Math.floor(Math.random() * GLYPHS.length)],
+          life: 1,
+          size: 11 + Math.random() * 7,
+          color: color
+        });
+      }
+      if (!raf) raf = requestAnimationFrame(tick);
+    }
+
+    function tick() {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      for (var i = parts.length - 1; i >= 0; i--) {
+        var p = parts[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.22;           /* 重力 */
+        p.vx *= 0.985;
+        p.life -= 0.018;
+        if (p.life <= 0) { parts.splice(i, 1); continue; }
+        ctx.globalAlpha = Math.max(p.life, 0);
+        ctx.fillStyle = p.color;
+        ctx.font = p.size + 'px ' + fontFamily;
+        ctx.fillText(p.ch, p.x, p.y);
+      }
+      ctx.globalAlpha = 1;
+      raf = parts.length ? requestAnimationFrame(tick) : (ctx.clearRect(0, 0, innerWidth, innerHeight), null);
+    }
+
+    document.addEventListener('pointerdown', function(e) {
+      burst(e.clientX, e.clientY);
+    }, { passive: true });
+  })();
+  </script>
+
+  <!-- 访问量统计（counter-api · Vercel KV） -->
+  <script>
+  (function() {
+    /* TODO(一次性): 部署 counter-api 到 Vercel 后，把下面的地址改成实际域名 */
+    var COUNTER_API = 'https://blog-counter-api.vercel.app/api/counter';
+    if (!COUNTER_API) return;
+
+    /* 访客 ID：localStorage 持久化，用于 UV 去重 */
+    var vid = localStorage.getItem('visitor-id');
+    if (!vid) {
+      vid = 'v-' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      localStorage.setItem('visitor-id', vid);
+    }
+
+    fetch(COUNTER_API, { headers: { 'x-visitor-id': vid } })
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        if (d && d.uv != null) document.getElementById('site-uv').textContent = d.uv;
+        if (d && d.pv != null) document.getElementById('site-pv').textContent = d.pv;
+      })
+      .catch(function() { /* 统计不可用时静默，保持 '-' */ });
+  })();
+  </script>
+
+  <script>
+  /* 按 / 聚焦搜索框，Esc 取消焦点（终端式快捷键） */
+  (function() {
+    document.addEventListener('keydown', function(e) {
+      var typing = /^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName);
+      if (e.key === '/' && !typing) {
+        e.preventDefault();
+        document.getElementById('search-input').focus();
+      } else if (e.key === 'Escape' && typing) {
+        document.activeElement.blur();
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
