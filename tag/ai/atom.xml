@@ -3,7 +3,7 @@
     <id>https://scottalive.github.io</id>
     <title>沉鱼的博客 • Posts by &#34;ai&#34; tag</title>
     <link href="https://scottalive.github.io" />
-    <updated>2026-11-01T14:00:00.000Z</updated>
+    <updated>2026-11-02T14:00:00.000Z</updated>
     <category term="AI日报" />
     <category term="AI" />
     <category term="GitHub热门" />
@@ -13,17 +13,14 @@
     <category term="个人详情" />
     <category term="个人分享" />
     <category term="坏习惯" />
-    <category term="心理学知识" />
-    <category term="阿德勒心理学" />
-    <category term="自卑与超越" />
     <category term="Kubernetes" />
     <category term="k8s" />
-    <category term="容器编排" />
-    <category term="DevOps" />
-    <category term="运维" />
     <category term="kubeconfig" />
     <category term="kubectl" />
     <category term="Context" />
+    <category term="DevOps" />
+    <category term="容器编排" />
+    <category term="运维" />
     <category term="Helm" />
     <category term="学习计划" />
     <category term="OpenSRE" />
@@ -48,18 +45,18 @@
     <category term="MCP" />
     <category term="自动化" />
     <category term="编程笔记" />
-    <category term="编程助手" />
     <category term="DeepSeek" />
     <category term="Harness" />
     <category term="插件" />
     <category term="安装教程" />
+    <category term="编程助手" />
     <category term="Hermes" />
     <category term="v0.20" />
     <category term="语音交互" />
     <category term="A2A" />
     <category term="Webhook" />
-    <category term="v0.17" />
     <category term="NousResearch" />
+    <category term="v0.17" />
     <category term="进阶" />
     <category term="配置" />
     <category term="高阶" />
@@ -70,28 +67,121 @@
     <category term="LangChain" />
     <category term="Python" />
     <category term="工作流" />
-    <category term="故障排查" />
     <category term="OpenClaw" />
     <category term="网关" />
-    <category term="SSE" />
-    <category term="HTTP" />
-    <category term="力扣算法题" />
+    <category term="故障排查" />
     <category term="AI运维" />
     <category term="根因分析" />
+    <category term="SSE" />
+    <category term="HTTP" />
     <category term="WorkBuddy" />
     <category term="腾讯" />
     <category term="办公自动化" />
     <category term="AI工具" />
+    <category term="心理学知识" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
+    <category term="力扣算法题" />
     <category term="算法" />
+    <category term="动态规划" />
     <category term="JavaSE" />
     <category term="Java开发面试题" />
     <category term="SpringBoot" />
     <category term="Spring" />
     <category term="接口开发" />
     <category term="开发注意事项" />
-    <category term="动态规划" />
     <category term="微服务" />
     <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-02/</id>
+        <title>AI 日报 2026-11-02</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-02/"/>
+        <content type="html">&lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;榜首又换人了，这次换得很有象征意义：&lt;strong&gt;vercel-labs 的 agent-desktop&lt;/strong&gt; 单日 +2,243 star 登顶。它不做更聪明的模型，只解决一件事——让 agent 可靠地”看见”并操作桌面应用，靠的是操作系统无障碍树，而不是截图猜坐标。同一天，Scrapling（92,315 star）把网页抓取做成了 MCP 工具，colibri（46,240）用纯 C 把 MoE 专家从磁盘流式加载，nanochat（59,672）继续证明 48 美元能训出 GPT-2 级别的模型。&lt;strong&gt;主线很清楚：agent 的竞争从”想得多好”转向”看得多准、动得多稳”，而模型本身正在变成可以自己养的家用基础设施。&lt;/strong&gt;&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;1-vercel-labs-agent-desktop-——-不看像素，读无障碍树（-2-243）&#34;&gt;&lt;a href=&#34;#1-vercel-labs-agent-desktop-——-不看像素，读无障碍树（-2-243）&#34; class=&#34;headerlink&#34; title=&#34;1. vercel-labs&amp;#x2F;agent-desktop —— 不看像素，读无障碍树（+2,243）&#34;&gt;&lt;/a&gt;1. vercel-labs&amp;#x2F;agent-desktop —— 不看像素，读无障碍树（+2,243）&lt;/h3&gt;&lt;p&gt;8,265 stars，582 forks，Rust，今日新增 2,243，是今天唯一一个”从零起量”就冲到第一的项目。官方描述只有一句话：给任何 agent 提供可靠的桌面 computer use 能力，通过 OS 无障碍树看到任意应用的真实 UI 结构，从而操作它——&lt;strong&gt;引用保持稳定，动作可以安全重试，而不是从像素里猜&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这句话里的每个词都踩在痛点上。过去两年 computer use 的主流做法是截图 + 视觉模型输出坐标，然后模拟点击。这条路在 demo 里很惊艳，在生产里很脆：分辨率与缩放一变，坐标就偏；暗色模式、动画过渡、弹窗遮挡、字体渲染差异，都会让同一次点击落到别处；更麻烦的是&lt;strong&gt;失败不可诊断&lt;/strong&gt;——你只知道点空了，不知道是模型看错了、坐标算错了，还是页面慢了半拍。&lt;/p&gt;
+&lt;p&gt;agent-desktop 换了一条路：把应用当成一棵有语义的树来读。按钮、输入框、菜单项、列表项都带着角色、名称、状态和层级；agent 拿到的是一个编号引用（ref），动作是”对 ref-17 执行 press”，而不是”在 (812, 466) 处点击”。这带来三个直接收益：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;稳定&lt;/strong&gt;：ref 绑定的是节点身份，窗口移动、主题切换不影响它；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可校验&lt;/strong&gt;：动作执行后可以回读该节点的状态，确认是否真的生效，而不是靠再截一张图去猜；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;省 token&lt;/strong&gt;：一棵裁剪过的无障碍树通常几百到几千 token，远少于高分辨率截图加视觉推理的成本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[&amp;quot;agent 请求&amp;lt;br/&amp;gt;看当前界面&amp;quot;] --&amp;gt; B[&amp;quot;Rust 核心&amp;lt;br/&amp;gt;平台适配层&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C1[&amp;quot;macOS&amp;lt;br/&amp;gt;AXUIElement&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C2[&amp;quot;Windows&amp;lt;br/&amp;gt;UIAutomation&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C3[&amp;quot;Linux&amp;lt;br/&amp;gt;AT-SPI&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C1 --&amp;gt; D[&amp;quot;语义节点树&amp;lt;br/&amp;gt;role / name / state / bounds&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C2 --&amp;gt; D&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C3 --&amp;gt; D&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[&amp;quot;裁剪 + 编号&amp;lt;br/&amp;gt;生成 ref 表&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F[&amp;quot;agent 决策&amp;lt;br/&amp;gt;对 ref 下发动作&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G[&amp;quot;执行 press / setValue / focus&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H&amp;#123;&amp;quot;回读节点状态&amp;quot;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt;|成功| I[&amp;quot;继续下一步&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt;|失败| J[&amp;quot;带原因重试&amp;lt;br/&amp;gt;或换一条路径&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;技术上最难的不是读树，而是&lt;strong&gt;把三套平台无障碍 API 抹平成一套语义&lt;/strong&gt;。macOS 的 AX 树、Windows 的 UIA、Linux 的 AT-SPI 在角色命名、事件模型、异步填充时机上都不一样；有些应用（尤其是 Electron、Flutter、自绘 Canvas）树是空的或者严重残缺。所以这类项目的真实工程量藏在”降级策略”里：树可用时走结构，树残缺时退回视觉，两者都失败时给 agent 一个明确的”我看不见这个控件”，而不是让它瞎点。&lt;/p&gt;
+&lt;p&gt;冷水也得泼：无障碍树能覆盖的是&lt;strong&gt;标准控件&lt;/strong&gt;，覆盖不了游戏、专业绘图软件、自定义渲染的图表。而且它天然是一个高权限组件——能操作任意应用，等于握着你桌面的一切。真正落地时，动作白名单、敏感应用排除、每步人工确认这些边界，比识别准确率更重要。&lt;/p&gt;
+&lt;h3 id=&#34;2-D4Vinci-Scrapling-——-92-315-star，爬虫正在变成-agent-的感官&#34;&gt;&lt;a href=&#34;#2-D4Vinci-Scrapling-——-92-315-star，爬虫正在变成-agent-的感官&#34; class=&#34;headerlink&#34; title=&#34;2. D4Vinci&amp;#x2F;Scrapling —— 92,315 star，爬虫正在变成 agent 的感官&#34;&gt;&lt;/a&gt;2. D4Vinci&amp;#x2F;Scrapling —— 92,315 star，爬虫正在变成 agent 的感官&lt;/h3&gt;&lt;p&gt;92,315 stars，9,742 forks，Python，BSD-3-Clause。这个项目不是新面孔（2024 年 10 月创建），但今天重新上榜值得单独说：它已经从”一个爬虫库”长成了&lt;strong&gt;一套完整的取数工作流&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;它的分层很清晰：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;取&lt;/strong&gt;：快速 HTTP 请求、隐身浏览器、JS 渲染、Cloudflare Turnstile&amp;#x2F;Interstitial 处理、持久会话、后台 API 捕获；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解&lt;/strong&gt;：CSS &amp;#x2F; XPath &amp;#x2F; 文本 &amp;#x2F; 正则选择器，&lt;strong&gt;自适应元素追踪&lt;/strong&gt;，相似元素匹配，直接输出干净 Markdown；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;爬&lt;/strong&gt;：并发 spider、代理轮换、重试、AutoThrottle、暂停续跑、流式输出、JSON&amp;#x2F;JSONL&amp;#x2F;CSV&amp;#x2F;XML 导出；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;给 agent 用&lt;/strong&gt;：内置 MCP server 与 Agent Skill，加上 CLI 和交互式 shell。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这里最值得学的是”&lt;strong&gt;自适应元素追踪&lt;/strong&gt;“。写过爬虫的人都知道，维护成本的大头不是写选择器，而是网站改版后选择器集体失效——class 改个名、外面多包一层 div，整条流水线就断。Scrapling 的做法是记住元素的结构指纹与文本特征，改版后按相似度重新定位，把”必然的断”降级成”偶发的偏”。这跟 agent-desktop 读无障碍树是同一个思路的两面：&lt;strong&gt;不要依赖最脆弱的表层特征（像素、CSS class），要依赖更稳定的结构语义。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;顺带一个对比：昨天榜单上的 lightpanda 是”为 agent 重写一个更轻的浏览器”，Scrapling 是”把抓取、解析、爬取、导出串成一条链，再挂到 MCP 上”。前者省资源，后者省工程。两者都会长期存在，因为 agent 取数的场景本来就分成”打开一个页面看看”和”把这个站点搬成数据集”两类。&lt;/p&gt;
+&lt;p&gt;合规提醒必须写在这里：隐身浏览器与 Cloudflare 绕过能力是中性的，但用在哪里不是。robots.txt、站点 ToS、个人数据边界，这些不会因为工具变强就消失。&lt;/p&gt;
+&lt;h3 id=&#34;3-JustVugg-colibri-——-46-240-star，纯-C-把前沿-MoE-塞进你的机器&#34;&gt;&lt;a href=&#34;#3-JustVugg-colibri-——-46-240-star，纯-C-把前沿-MoE-塞进你的机器&#34; class=&#34;headerlink&#34; title=&#34;3. JustVugg&amp;#x2F;colibri —— 46,240 star，纯 C 把前沿 MoE 塞进你的机器&#34;&gt;&lt;/a&gt;3. JustVugg&amp;#x2F;colibri —— 46,240 star，纯 C 把前沿 MoE 塞进你的机器&lt;/h3&gt;&lt;p&gt;46,240 stars，5,342 forks，C，Apache-2.0，今年 7 月才创建。一句话：&lt;strong&gt;在你已经拥有的硬件上跑前沿 MoE 模型——纯 C、零依赖、专家从磁盘流式加载。引擎很小，模型很大。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这跟昨天写的 FreeToken 是同一战场的两个位置。FreeToken 是 Python 的服务层，管调度、量化格式、API 兼容、语义快照；colibri 是极致精简的执行核心，把”能不能跑起来”这件事压到最低门槛。两者共同的物理约束是同一个：MoE 每次前向只激活一小部分专家，所以瓶颈不是算力，而是&lt;strong&gt;容量与带宽的矛盾&lt;/strong&gt;——全部专家装不下显存，那就得决定”这一层要哪些专家、从哪儿搬过来、搬的时候计算单元别闲着”。&lt;/p&gt;
+&lt;p&gt;colibri 的选择是把磁盘当第二级存储，用流式预读把专家搬进内存；纯 C 零依赖意味着它能在几乎任何有编译器的设备上跑起来，包括那些装不了 Python 运行时、也装不了 CUDA 工具链的老机器。代价也很直接：&lt;strong&gt;首 token 延迟会被 IO 支配&lt;/strong&gt;，机械硬盘上体验会崩，SSD 才勉强可用；并发一高，随机读会把 IOPS 打满。所以它适合的场景是”单用户、能跑就行、隐私优先”，不适合”多租户高吞吐”。&lt;/p&gt;
+&lt;p&gt;一句话评价：这类项目的价值不在于 benchmark 数字，而在于&lt;strong&gt;把”前沿模型只能用 API”这个默认前提打掉&lt;/strong&gt;。前提一旦松动，后面的产品形态就会跟着变。&lt;/p&gt;
+&lt;h3 id=&#34;4-karpathy-nanochat-——-59-672-star，48-美元的-GPT-2-速度赛&#34;&gt;&lt;a href=&#34;#4-karpathy-nanochat-——-59-672-star，48-美元的-GPT-2-速度赛&#34; class=&#34;headerlink&#34; title=&#34;4. karpathy&amp;#x2F;nanochat —— 59,672 star，48 美元的 GPT-2 速度赛&#34;&gt;&lt;/a&gt;4. karpathy&amp;#x2F;nanochat —— 59,672 star，48 美元的 GPT-2 速度赛&lt;/h3&gt;&lt;p&gt;59,672 stars，8,391 forks，Python，MIT。定位是”100 美元能买到的最好的 ChatGPT”，实际是一个&lt;strong&gt;极简的 LLM 训练实验装置&lt;/strong&gt;：单 GPU 节点、代码可读可改、覆盖分词、预训练、微调、评测、推理全流程。&lt;/p&gt;
+&lt;p&gt;它最漂亮的设计是&lt;strong&gt;一个旋钮控制整个模型族&lt;/strong&gt;：只设 &lt;code&gt;--depth&lt;/code&gt;（层数），宽度、头数、学习率调度、训练时长、权重衰减全部按最优比例自动推导。GPT-2 级能力大约对应 depth 26。于是”训练一个大模型”从一堆需要调的超参，变成了一个可复现的、带排行榜的工程问题。&lt;/p&gt;
+&lt;p&gt;排行榜本身就是内容。GPT-2 在 2019 年花了约 43,000 美元、168 小时；nanochat 目前的最优记录是 &lt;strong&gt;8×H100 上 1.65 小时&lt;/strong&gt;，按 3 美元&amp;#x2F;GPU&amp;#x2F;小时算约 48 美元，spot 实例能压到 15 美元左右，CORE 分数 0.2626 已经超过 GPT-2 的 0.2565。这中间压缩的不是某一个技巧，而是七年里整条栈的进步：数据配比（换到 NVIDIA ClimbMix 直接把时间从 2.76 小时砍到 2.02 小时）、fp8、batch size、以及几轮”自动研究”式的调参。&lt;/p&gt;
+&lt;p&gt;对读者的实际用法有两个：想理解 LLM 全流程，这是目前最短的路径；想验证一个架构想法，这是最便宜的试验台——两小时几十美元就能拿到一个可对话的模型，比读十篇论文直观。&lt;/p&gt;
+&lt;h3 id=&#34;榜单其余速览&#34;&gt;&lt;a href=&#34;#榜单其余速览&#34; class=&#34;headerlink&#34; title=&#34;榜单其余速览&#34;&gt;&lt;/a&gt;榜单其余速览&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;pingdotgg&amp;#x2F;t3code&lt;/strong&gt;（40,262 stars，+3,216，TypeScript）：连续第三天占据增速榜首（昨天 36,787 &amp;#x2F; +3,100）。控制面这条线没有减速迹象，说明”远程看着 agent 干活并随时叫停”已经从尝鲜变成日常。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;thedotmack&amp;#x2F;claude-mem&lt;/strong&gt;（110,318 stars，+1,799，TypeScript）：跨会话记忆层，昨天 +1,527，今天加速。它兼容 Claude Code、OpenClaw、Codex、Gemini、Hermes、Copilot、OpenCode——&lt;strong&gt;当”记忆”开始跨 agent 通用，它就不再是某个产品的功能，而是基础设施。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Donchitos&amp;#x2F;Claude-Code-Game-Studios&lt;/strong&gt;（33,084 stars，+1,380，Shell）：49 个 agent + 72 个 skill 的游戏工作室模拟。昨天我写它”组织层叙事退潮”，今天它从 +970 反弹到 +1,380——更正一下判断：这类项目不是死了，而是进入高频波动期，热度跟着”多人协作演示”的传播节奏走。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;p-e-w&amp;#x2F;heretic&lt;/strong&gt;（37,836 stars，Python，AGPL-3.0）：训练无关的语言模型改造，去掉审查、压制套话、降低谄媚。技术上属于 abliteration 一脉：找到拒绝行为对应的方向向量并消减它，不需要微调。能力很实用，但&lt;strong&gt;它会同时削掉安全边界&lt;/strong&gt;，且 AGPL 对商用有约束，用之前先想清楚责任归属。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;FlashML-org&amp;#x2F;FreeToken&lt;/strong&gt;（15,816 stars，昨天 15,143）：边缘 MoE 服务层，热度平稳，属于慢工出细活的那一类。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;max-sixty&amp;#x2F;worktrunk&lt;/strong&gt;（9,864 stars，+115，Rust）：给并行 agent 工作流设计的 git worktree 管理 CLI。小工具，但方向对——多个 agent 同时改代码时，仓库层面的隔离比模型能力更容易出事故。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;shiyu-coder&amp;#x2F;Kronos&lt;/strong&gt;（金融时序基础模型）、&lt;strong&gt;kornia&amp;#x2F;kornia&lt;/strong&gt;（几何视觉库）、&lt;strong&gt;paperclipai&amp;#x2F;paperclip&lt;/strong&gt;（agent 管理）、&lt;strong&gt;mattpocock&amp;#x2F;skills&lt;/strong&gt;（工程 skill 集）、&lt;strong&gt;hyprwm&amp;#x2F;Hyprland&lt;/strong&gt;（Wayland 合成器，非 AI）：老面孔，不展开。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Anthropic 给 Claude 订阅改名&lt;/strong&gt;：Max 5x 变成 Max，Max 20x 变成 Ultra，价格不变（100 &amp;#x2F; 200 美元每月）。命名对齐了”档位即能力”的行业惯例，实质没变，但把”Ultra”这个词从芯片圈借到了订阅圈。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gemini Live 可能要有离线模式&lt;/strong&gt;：Android 版 Google 应用 beta（v17.71.17）里出现”无需联网使用 Gemini Live”的文案。如果属实，这是把实时语音助手从”云往返”改成”端侧推理”的关键一步——延迟和隐私同时受益，代价是模型尺寸。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mistral Large 4 “Le Chonk”&lt;/strong&gt;：官方口径是”中国以外最强的开源模型”，编码能力提升，单任务成本降低 63%。但同一批测试里仍落后 DeepSeek V4.1 Flash 1017 和 GLM-5.3 约 6 分（两者都开到最大推理档）。开源阵营的头部竞争，现在是中国模型在定标尺。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gemini 4 Carbon&lt;/strong&gt;：在更新、更难的基准上重回第一，但访问受限，且在事实性知识测试上的幻觉率高于上一代 Argon。&lt;strong&gt;“榜首”和”能稳定用”是两件事&lt;/strong&gt;，这条差异比排名本身更值得记住。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Google 的机器人花盆 Sprout&lt;/strong&gt;：自主寻找最佳光照、缺水时提醒，官方说”只是好玩，不卖”。它的价值是演示了用 AI Studio 从想法到硬件的链路有多短。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Grok Bot 被限流，理由是”成本相对收入不可持续”&lt;/strong&gt;。马斯克在 X 上回应了用户对额度提前耗尽的抱怨。这是常驻型 agent 第一次被公开按计算成本踩刹车：&lt;strong&gt;一个 7×24 在线的 agent，单位经济模型和按次调用的聊天机器人完全不同&lt;/strong&gt;，它烧的是持续推理与状态维护，而不是一次问答。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cursor 扩展市场出现恶意的 Claude Code 扩展，约 5,000 人可能安装&lt;/strong&gt;。修改版在周四 5:27 到 16:35（ET）之间上架，收集主机名、用户名、操作系统、家目录、公网 IP 等信息，现已被下架。这是本周最该被记住的安全事件：&lt;strong&gt;agent 生态的中转层（扩展市场、控制面、MCP server）正在成为供应链攻击的首选入口&lt;/strong&gt;，因为它一次投毒就能触达大量开发者的凭据与仓库。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OpenAI 收紧 ChatGPT 的暴力相关内容&lt;/strong&gt;：青少年账户对武器类信息的获取进一步受限，”即使问题看起来无害”；所有用户关于过往大规模袭击的提问也会得到更少细节。平台责任正在从”事后删除”前移到”默认不给”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Proton 取消了对员工的”AI 面试”&lt;/strong&gt;。此前 404 Media 报道公司要盘问员工如何使用 AI 以决定岗位去留，引发强烈反弹；CEO 最终取消，并称”不会因 AI 裁员”，但重组仍会发生。企业推 AI 的真正阻力，往往不在技术，而在&lt;strong&gt;信任与程序正义&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;洞见一：agent-的瓶颈已经从”想”移到”看”&#34;&gt;&lt;a href=&#34;#洞见一：agent-的瓶颈已经从”想”移到”看”&#34; class=&#34;headerlink&#34; title=&#34;洞见一：agent 的瓶颈已经从”想”移到”看”&#34;&gt;&lt;/a&gt;洞见一：agent 的瓶颈已经从”想”移到”看”&lt;/h3&gt;&lt;p&gt;把今天前两名放在一起看，会发现它们解决的是同一个问题的两端：agent-desktop 让 agent 看懂桌面，Scrapling 让 agent 看懂网页。两者都放弃了”用视觉模型猜”，转向&lt;strong&gt;结构化语义 + 稳定引用&lt;/strong&gt;。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TB&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph OLD[&amp;quot;像素路线&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        O1[&amp;quot;截图&amp;quot;] --&amp;gt; O2[&amp;quot;视觉模型输出坐标&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        O2 --&amp;gt; O3[&amp;quot;模拟点击&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        O3 --&amp;gt; O4[&amp;quot;再截图确认&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        O4 --&amp;gt;|&amp;quot;偏移 / 遮挡 / 动画&amp;quot;| O1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph NEW[&amp;quot;结构路线&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        N1[&amp;quot;读语义树 / DOM&amp;quot;] --&amp;gt; N2[&amp;quot;裁剪成带编号的节点表&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        N2 --&amp;gt; N3[&amp;quot;对 ref 下发语义动作&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        N3 --&amp;gt; N4[&amp;quot;回读节点状态校验&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        N4 --&amp;gt;|&amp;quot;失败&amp;quot;| N5[&amp;quot;带原因重试或换路径&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        N4 --&amp;gt;|&amp;quot;成功&amp;quot;| N6[&amp;quot;进入下一步&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;为什么结构路线会赢？三个可量化的理由：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;token 效率&lt;/strong&gt;。一张 Retina 截图编码后动辄上千 token，一棵裁剪过的无障碍树通常只保留可交互节点，几百 token 就够。同样预算下，结构路线能多走好几步。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可校验&lt;/strong&gt;。像素路线只能”再截一张看看像不像”，结构路线可以直接问”这个按钮的 enabled 变成 true 了吗”。&lt;strong&gt;能被断言的动作才能进入自动化流程。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可重试&lt;/strong&gt;。ref 是稳定的，重试是幂等友好的；坐标不是，重试只会点偏第二次。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这也解释了 MCP 为什么重要：当”感官”被标准化成工具，agent 本体和感知层就能解耦。今天 Scrapling 自带 MCP server 与 Agent Skill，agent-desktop 也是以工具形态对外——&lt;strong&gt;未来的 agent 不会内置一套感官，而是按场景插拔。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;但结构路线有自己的天花板：自绘界面、游戏、Canvas 图表没有语义树；跨平台无障碍实现差异巨大；而且它把权限问题放大了——一个能读任意应用结构、并对任意控件下动作的组件，本质上是一个新的 root 级信任边界。&lt;strong&gt;能力越结构化，越需要白名单与审计日志。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;洞见二：本地推理栈已经三层俱全，还多了个”后处理层”&#34;&gt;&lt;a href=&#34;#洞见二：本地推理栈已经三层俱全，还多了个”后处理层”&#34; class=&#34;headerlink&#34; title=&#34;洞见二：本地推理栈已经三层俱全，还多了个”后处理层”&#34;&gt;&lt;/a&gt;洞见二：本地推理栈已经三层俱全，还多了个”后处理层”&lt;/h3&gt;&lt;p&gt;今天榜单里有一条不显眼但很完整的线：nanochat（训练）、FreeToken（服务）、colibri（执行引擎）。三年前，个人想在本地”拥有”一个前沿模型，缺的从来不是某一个零件，而是整条链——不会训、不会部署、跑不动。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph STACK[&amp;quot;个人硬件上的模型栈&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        T[&amp;quot;训练层&amp;lt;br/&amp;gt;nanochat：单节点全流程&amp;lt;br/&amp;gt;48 美元训出 GPT-2 级&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        S[&amp;quot;服务层&amp;lt;br/&amp;gt;FreeToken：量化 / 调度 / 兼容 API&amp;lt;br/&amp;gt;语义锚点 checkpoint&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        E[&amp;quot;执行层&amp;lt;br/&amp;gt;colibri：纯 C 零依赖&amp;lt;br/&amp;gt;专家从磁盘流式加载&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        P[&amp;quot;后处理层&amp;lt;br/&amp;gt;heretic：训练无关的行为改造&amp;lt;br/&amp;gt;方向向量消减&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H[&amp;quot;你的机器&amp;lt;br/&amp;gt;单卡 / 大内存 / SSD&amp;quot;] --&amp;gt; T&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; S&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; E&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; P&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    T --&amp;gt; W[&amp;quot;权重&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    W --&amp;gt; S&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    S --&amp;gt; E&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    W --&amp;gt; P&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    P --&amp;gt; U[&amp;quot;定制行为的本地模型&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; A[&amp;quot;agent / 应用&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;这四层各自独立，但合起来改变了一件事：&lt;strong&gt;模型从”只能订阅的服务”变成”可以自举的工件”&lt;/strong&gt;。你能训、能服务、能跑、还能改行为，整条链路都不需要联网。成本曲线也在配合——两小时几十美元就能得到一个可对话的 GPT-2 级模型，而 2019 年这要四万多美元。&lt;/p&gt;
+&lt;p&gt;真正的摩擦因此从技术转向了三处非技术问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;许可&lt;/strong&gt;。开源权重不等于随便用，AGPL、商用限制、蒸馏条款都会在”改完再分发”这一步咬人。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;责任&lt;/strong&gt;。heretic 这类工具能去掉安全对齐，能力很实用，但一旦被改过的模型出了事，责任在改的人还是原模型方，目前没有共识。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;可维护性&lt;/strong&gt;。自建栈意味着自己负责升级、量化踩坑、IO 调优。省下的 API 费用，往往以运维时间的形式付回去。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以我的判断是：&lt;strong&gt;本地栈会先在”隐私敏感 + 任务固定 + 单用户”的场景里站稳&lt;/strong&gt;（个人知识库、离线编码助手、行业数据处理），而不是去正面替代云端 API。它的意义不是更便宜，而是&lt;strong&gt;把”能不能用”的决定权从服务商手里拿回来&lt;/strong&gt;——这一点，在 Grok Bot 因为成本被限流的今天，显得格外有说服力。&lt;/p&gt;
+</content>
+        <category term="AI日报" />
+        <category term="AI" />
+        <category term="GitHub热门" />
+        <category term="人工智能" />
+        <category term="技术趋势" />
+        <updated>2026-11-02T14:00:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-01/</id>
         <title>AI 日报 2026-11-01</title>
