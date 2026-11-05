@@ -3,17 +3,28 @@
     <id>https://scottalive.github.io</id>
     <title>沉鱼的博客 • Posts by &#34;ai日报&#34; tag</title>
     <link href="https://scottalive.github.io" />
-    <updated>2026-11-03T14:00:00.000Z</updated>
+    <updated>2026-11-05T14:00:00.000Z</updated>
+    <category term="原则" />
+    <category term="个人详情" />
+    <category term="个人分享" />
+    <category term="坏习惯" />
     <category term="AI日报" />
     <category term="AI" />
     <category term="GitHub热门" />
     <category term="人工智能" />
     <category term="技术趋势" />
-    <category term="原则" />
-    <category term="个人详情" />
-    <category term="个人分享" />
-    <category term="坏习惯" />
     <category term="Kubernetes" />
+    <category term="k8s" />
+    <category term="kubeconfig" />
+    <category term="kubectl" />
+    <category term="Context" />
+    <category term="DevOps" />
+    <category term="容器编排" />
+    <category term="运维" />
+    <category term="OpenSRE" />
+    <category term="Grafana" />
+    <category term="SRE" />
+    <category term="可观测性" />
     <category term="Helm" />
     <category term="学习计划" />
     <category term="网络安全" />
@@ -22,76 +33,200 @@
     <category term="CSRF" />
     <category term="DDoS" />
     <category term="渗透测试" />
-    <category term="k8s" />
-    <category term="容器编排" />
-    <category term="DevOps" />
-    <category term="运维" />
-    <category term="kubeconfig" />
-    <category term="kubectl" />
-    <category term="Context" />
-    <category term="心理学知识" />
-    <category term="OpenSRE" />
-    <category term="Grafana" />
-    <category term="SRE" />
-    <category term="可观测性" />
-    <category term="阿德勒心理学" />
-    <category term="自卑与超越" />
     <category term="GPT-5.5" />
     <category term="OpenAI" />
     <category term="Codex" />
-    <category term="Claude" />
     <category term="ClaudeCode" />
+    <category term="Gemini" />
+    <category term="开发工具" />
+    <category term="开源" />
+    <category term="Claude" />
     <category term="Agent" />
     <category term="MCP" />
     <category term="自动化" />
-    <category term="开发工具" />
+    <category term="编程笔记" />
     <category term="编程助手" />
+    <category term="DeepSeek" />
+    <category term="Harness" />
+    <category term="插件" />
+    <category term="安装教程" />
     <category term="Hermes" />
     <category term="v0.17" />
-    <category term="Gemini" />
-    <category term="开源" />
     <category term="NousResearch" />
     <category term="进阶" />
     <category term="配置" />
+    <category term="v0.20" />
+    <category term="语音交互" />
+    <category term="A2A" />
+    <category term="Webhook" />
     <category term="高阶" />
     <category term="LangChain" />
     <category term="LangGraph" />
     <category term="Python" />
     <category term="LLM" />
+    <category term="故障排查" />
     <category term="工作流" />
     <category term="OpenClaw" />
     <category term="网关" />
-    <category term="故障排查" />
-    <category term="编程笔记" />
-    <category term="DeepSeek" />
-    <category term="Harness" />
-    <category term="插件" />
-    <category term="安装教程" />
+    <category term="AI运维" />
+    <category term="根因分析" />
+    <category term="SSE" />
+    <category term="HTTP" />
+    <category term="心理学知识" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
+    <category term="RAG" />
+    <category term="知识库" />
     <category term="WorkBuddy" />
     <category term="腾讯" />
     <category term="办公自动化" />
     <category term="AI工具" />
-    <category term="AI运维" />
-    <category term="根因分析" />
-    <category term="v0.20" />
-    <category term="语音交互" />
-    <category term="A2A" />
-    <category term="Webhook" />
-    <category term="RAG" />
-    <category term="知识库" />
-    <category term="SSE" />
-    <category term="HTTP" />
     <category term="力扣算法题" />
     <category term="算法" />
     <category term="动态规划" />
-    <category term="接口开发" />
-    <category term="开发注意事项" />
-    <category term="微服务" />
     <category term="JavaSE" />
     <category term="Java开发面试题" />
     <category term="SpringBoot" />
     <category term="Spring" />
+    <category term="接口开发" />
+    <category term="开发注意事项" />
+    <category term="微服务" />
     <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-05/</id>
+        <title>AI 日报 2026-11-05</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-05/"/>
+        <content type="html">&lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;如果说前几个月大家在给 Agent 造”器官”——记忆、视觉、桌面操作——那今天最明显的信号是：&lt;strong&gt;器官齐了，开始造”雇佣关系”&lt;/strong&gt;。GitHub 上冒得最快的一批新仓库，清一色在解决同一个问题：怎么让一个 Agent 在你睡觉的时候自己接活、自己提交 PR、只在拿不准的时候弹一张卡片问你一句。DeepSeek 的 &lt;code&gt;dsh-superagent&lt;/code&gt; 五天拿下 1.9 万星，&lt;code&gt;agent-autoloop&lt;/code&gt; 两天冲到 3000 星，都不是在做更强的模型，而是在做更省人类注意力的调度层。&lt;/p&gt;
+&lt;p&gt;另一条线在权重侧。Kimi K3.1 Pro 权重开源、Ripple-65B 打出”美国开源权重在 Agentic Coding 上的 SOTA”、百度放出 ERNIE 5.5 Flash Base，同一天 Anthropic 又发了”可证明推理”的研究——开源权重在往上顶，可验证性在往下扎，两头同时挤压闭源 API 的舒适区。&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;数据说明：&lt;code&gt;github.com/trending&lt;/code&gt; 页面今日无法直连，以下榜单基于 GitHub Search API 的&lt;strong&gt;近 7 天新建仓库 star 榜&lt;/strong&gt;与&lt;strong&gt;活跃大仓库榜&lt;/strong&gt;交叉筛选，star 数为当前总数，”日均”按建仓天数折算。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;1-deepseek-ai-dsh-superagent-prototype-——-一个只服务单个仓库的”常驻雇员”&#34;&gt;&lt;a href=&#34;#1-deepseek-ai-dsh-superagent-prototype-——-一个只服务单个仓库的”常驻雇员”&#34; class=&#34;headerlink&#34; title=&#34;1. deepseek-ai&amp;#x2F;dsh-superagent-prototype —— 一个只服务单个仓库的”常驻雇员”&#34;&gt;&lt;/a&gt;1. deepseek-ai&amp;#x2F;dsh-superagent-prototype —— 一个只服务单个仓库的”常驻雇员”&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：TypeScript&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据&lt;/strong&gt;：19,240 Star（10-31 建仓，5 天，日均约 3,850）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：面向单个 GitHub 仓库的主动式编码 Agent，打包为 DeepSeek Harness 的 bundle&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这是今天最值得读的项目，原因不在代码，而在它的&lt;strong&gt;产品定义&lt;/strong&gt;。README 里有一句很克制的话：”take as little human attention as possible, and give as much value as possible”——尽可能少占用人的注意力，尽可能多产出价值。它甚至反过来警告：一个能替整个团队行动的 Agent，同样有能力浪费整个团队的注意力。&lt;/p&gt;
+&lt;p&gt;具体机制是这样的：它监听 GitHub（可选接飞书），当被授权的人提出工作请求时，它开一个 &lt;strong&gt;work item&lt;/strong&gt;，在自己的 agent session 和独立工作目录里干活，最后回到原来那段对话里回复，通常是一个 PR；另有一个 web 面板展示”哪些事需要人来拍板”。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[GitHub Issue / 飞书消息] --&amp;gt; B&amp;#123;授权检查&amp;lt;br/&amp;gt;是否在白名单或规则内&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B -- 否 --&amp;gt; C[不响应，静默丢弃]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B -- 是 --&amp;gt; D[创建 Work Item]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[分配独立工作目录 + Agent Session]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F[执行：读码 / 改码 / 跑测试]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G&amp;#123;遇到需要人类决策的点?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G -- 是 --&amp;gt; H[生成待办卡片 → Web 面板]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; I[人类一句话答复]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    I --&amp;gt; F&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G -- 否 --&amp;gt; J[提交 PR + 在原对话回复]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    J --&amp;gt; K[归档 Work Item]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;三个细节值得抄：&lt;strong&gt;独立目录&lt;/strong&gt;保证并行任务不互相踩；&lt;strong&gt;回到原对话回复&lt;/strong&gt;让通知落在上下文里，而不是散到另一个系统；&lt;strong&gt;web 面板只展示需要人的事&lt;/strong&gt;，把”监控”从”刷日志”降级成”处理收件箱”。&lt;/p&gt;
+&lt;p&gt;官方强调这是研究原型、非官方产品，”大部分工程由编码 Agent 完成”，代码风格可能不一致。但正因为如此，它其实是一份&lt;strong&gt;关于如何与 Agent 协作的说明书&lt;/strong&gt;——包括安装都是让 Agent 读 &lt;code&gt;SETUP.md&lt;/code&gt; 自己装。&lt;/p&gt;
+&lt;h3 id=&#34;2-storytold-craft-anything-——-看懂任何软件，然后让-Agent-重写一个&#34;&gt;&lt;a href=&#34;#2-storytold-craft-anything-——-看懂任何软件，然后让-Agent-重写一个&#34; class=&#34;headerlink&#34; title=&#34;2. storytold&amp;#x2F;craft-anything —— 看懂任何软件，然后让 Agent 重写一个&#34;&gt;&lt;/a&gt;2. storytold&amp;#x2F;craft-anything —— 看懂任何软件，然后让 Agent 重写一个&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Rust&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据&lt;/strong&gt;：13,994 Star（10-31 建仓，5 天，日均约 2,799）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：开源 clean-room 引擎，把”复刻”变成可验证的闭环&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;给它一个目标（网站、App、游戏），说一句你想要什么，它会用真实的检查工具去研究原件，让编码 Agent 新建一个项目，再&lt;strong&gt;拿结果和原件逐项比对&lt;/strong&gt;，不一致就继续改。UI 上那份”检查清单”会明确列出哪几页还不像、相似度多少。&lt;/p&gt;
+&lt;p&gt;这里的工程价值在于”比对”被当成一等公民。绝大多数 AI 生成代码的工具止步于”看起来对”，而这个项目的核心循环是&lt;strong&gt;差异驱动的迭代&lt;/strong&gt;：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[目标物: 网站/App/游戏] --&amp;gt; B[真实检查工具&amp;lt;br/&amp;gt;DOM / 进程 / 输入输出]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[结构化的行为规格]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[编码 Agent 生成新项目]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[自动比对: 行为 / 布局 / 相似度]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F&amp;#123;差异在阈值内?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F -- 否 --&amp;gt; G[生成差异报告 → 回灌 Agent]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; D&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F -- 是 --&amp;gt; H[交付 + 人工验收]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;它自称 early alpha，MIT &amp;#x2F; Apache-2.0 双许可，跨 macOS、Windows、Linux、FreeBSD 与 Web。用 Rust 写这类”要长期跑检查、要直接和系统交互”的引擎是合理选择。风险也很明确：&lt;strong&gt;clean-room 的法律边界&lt;/strong&gt;——“学习行为再重写”和”复制实现”之间，不同司法辖区的判断并不一致，团队落地前最好先过一遍法务。&lt;/p&gt;
+&lt;h3 id=&#34;3-KKKKhazix-agent-autoloop-——-把命令行-Agent-变成能值夜班的同事&#34;&gt;&lt;a href=&#34;#3-KKKKhazix-agent-autoloop-——-把命令行-Agent-变成能值夜班的同事&#34; class=&#34;headerlink&#34; title=&#34;3. KKKKhazix&amp;#x2F;agent-autoloop —— 把命令行 Agent 变成能值夜班的同事&#34;&gt;&lt;/a&gt;3. KKKKhazix&amp;#x2F;agent-autoloop —— 把命令行 Agent 变成能值夜班的同事&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：TypeScript&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据&lt;/strong&gt;：3,076 Star（11-03 建仓，2 天，日均约 1,538）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：零外部依赖的 Agent 调度内核，事件源 &amp;#x2F; Agent &amp;#x2F; 通知通道 &amp;#x2F; 上线流水线全部插件化&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;它点破了一个大家心知肚明却少有人正面解决的事实：我们现在用 Claude Code、Codex 的方式，本质是”人守着终端”。你输一句、盯着它跑、等它问你下一步；人一走开，事情就断在进度 60% 的地方。&lt;/p&gt;
+&lt;p&gt;agent-autoloop 的做法是把这层”值守”抽出来：定时任务、GitHub 新 Issue、业务系统报错，统一变成标准事件进入内核，内核按规则决定交给哪个 Agent、在哪个目录干；需要人类拍板时，把卡片推到飞书、钉钉、企微、Slack、Discord 或桌面通知。&lt;strong&gt;Agent 提问期间不占进程、不烧 Token&lt;/strong&gt;，答完自动接上原会话继续干。一条 &lt;code&gt;curl | sh&lt;/code&gt; 装完，不需要云服务器、不开放公网端口、不需要 SDK——能接收提示词并打印最后一条回复的命令行工具都能接进来。&lt;/p&gt;
+&lt;p&gt;这台”中台”目前只支持 macOS &amp;#x2F; Linux，作者明说 Windows 版要等 11 月 7、8 号回家做完兼容性测试。这种坦诚反而增加了可信度。&lt;/p&gt;
+&lt;h3 id=&#34;4-Balanov-uncut-——-7MB、837-行、四个工具的”极简-Agent-骨架”&#34;&gt;&lt;a href=&#34;#4-Balanov-uncut-——-7MB、837-行、四个工具的”极简-Agent-骨架”&#34; class=&#34;headerlink&#34; title=&#34;4. Balanov&amp;#x2F;uncut —— 7MB、837 行、四个工具的”极简 Agent 骨架”&#34;&gt;&lt;/a&gt;4. Balanov&amp;#x2F;uncut —— 7MB、837 行、四个工具的”极简 Agent 骨架”&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Go&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据&lt;/strong&gt;：604 Star（11-01 建仓，4 天，日均约 151）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：无损、无头的编码 Agent harness，为 shell 管道和 CI 而生&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在所有人都在往 Agent 里塞功能的时候，uncut 反着做：没有 TUI、没有遥测、没有插件系统、没有后台 Agent、没有自动重试、没有上下文压缩。整个二进制 7MB 静态链接，四个工具，纯 stdin&amp;#x2F;stdout，NDJSON 事件可选。&lt;/p&gt;
+&lt;p&gt;它最有态度的一条设计是&lt;strong&gt;拒绝静默截断&lt;/strong&gt;：每次模型调用都发送完整对话，文件内容和命令输出永不截断；如果上游因为输出上限把回复切了，uncut 直接报错退出，而不是把半截答案当成成功交付。这个选择在长任务里非常关键——很多”Agent 幻觉”其实是”harness 悄悄丢了上下文”。&lt;/p&gt;
+&lt;p&gt;837 行实现、单 provider 协议、单 agent loop，意味着它是&lt;strong&gt;用来被 fork 的&lt;/strong&gt;，不是用来被依赖的。想理解一个编码 Agent 到底由哪些零件组成，读它比读任何一个大框架都快。&lt;/p&gt;
+&lt;h3 id=&#34;5-wquguru-cicada（知了）——-直接读系统声音的实时会议助手&#34;&gt;&lt;a href=&#34;#5-wquguru-cicada（知了）——-直接读系统声音的实时会议助手&#34; class=&#34;headerlink&#34; title=&#34;5. wquguru&amp;#x2F;cicada（知了）—— 直接读系统声音的实时会议助手&#34;&gt;&lt;/a&gt;5. wquguru&amp;#x2F;cicada（知了）—— 直接读系统声音的实时会议助手&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Swift&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据&lt;/strong&gt;：1,424 Star（11-01 建仓，4 天，日均约 356）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：跨 Mac &amp;#x2F; Windows &amp;#x2F; Linux &amp;#x2F; Android 的实时字幕、同声传译与结构化会议纪要&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;它绕开了所有会议机器人都绕不开的尴尬：不用往会里塞一个”参会机器人”。办法是直接读系统声音，对方完全无感；Mac 上还可以全本机识别，声音不出电脑。讲话时按住右 Command（Windows 是右 Ctrl）就能把自己的话翻成目标语言播出去。&lt;/p&gt;
+&lt;p&gt;纪要侧做得比多数同类深：边听边整理总结、议题、结论、待办、鱼骨图和人名术语表，点一条结论能跳回双语原文那一句；还会统一术语写法并记下识别错的变体，搜索时一并命中。Apache-2.0，四个平台共用同一版本号和会议记录格式。&lt;/p&gt;
+&lt;h3 id=&#34;6-patch-gg-pixelfx-caru-ini-stack-diagram-elvarofficial-teardown-——-“Skill-即分发单元”的三连击&#34;&gt;&lt;a href=&#34;#6-patch-gg-pixelfx-caru-ini-stack-diagram-elvarofficial-teardown-——-“Skill-即分发单元”的三连击&#34; class=&#34;headerlink&#34; title=&#34;6. patch-gg&amp;#x2F;pixelfx &amp;#x2F; caru-ini&amp;#x2F;stack-diagram &amp;#x2F; elvarofficial&amp;#x2F;teardown —— “Skill 即分发单元”的三连击&#34;&gt;&lt;/a&gt;6. patch-gg&amp;#x2F;pixelfx &amp;#x2F; caru-ini&amp;#x2F;stack-diagram &amp;#x2F; elvarofficial&amp;#x2F;teardown —— “Skill 即分发单元”的三连击&lt;/h3&gt;&lt;p&gt;这三个项目放在一起看才有意思，它们共同说明：&lt;strong&gt;Claude Code Skill 正在变成新的 npm 包&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;pixelfx&lt;/strong&gt;（JavaScript，5,123 Star，日均约 854）：244 个像素艺术特效，每一个都是可以读的小段代码，外加一个帮你写自己特效的 Claude Code skill。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;stack-diagram&lt;/strong&gt;（TypeScript，1,827 Star，日均约 457）：一句话描述你的技术栈，输出带官方 logo 的架构图。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;teardown&lt;/strong&gt;（JavaScript，2,064 Star，日均约 344）：把一个 Claude Code skill 变成”可拆解的 3D 模拟器”，让你把任何机器在三维空间里拆开看。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;它们的共同特征是：&lt;strong&gt;代码量不大，价值密度很高，入口是一个 skill 而不是一个库&lt;/strong&gt;。用户不需要读文档、不需要写 import，只需要说一句话。这种分发方式对开发者心智的侵入性，比装依赖低一个数量级。&lt;/p&gt;
+&lt;h3 id=&#34;7-anthropics-FlashProve-——-给-AI-推理做零知识证明&#34;&gt;&lt;a href=&#34;#7-anthropics-FlashProve-——-给-AI-推理做零知识证明&#34; class=&#34;headerlink&#34; title=&#34;7. anthropics&amp;#x2F;FlashProve —— 给 AI 推理做零知识证明&#34;&gt;&lt;/a&gt;7. anthropics&amp;#x2F;FlashProve —— 给 AI 推理做零知识证明&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Lean&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据&lt;/strong&gt;：889 Star（10-30 建仓，6 天，日均约 148）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：AI 推理零知识证明的研究原型（官方注明”不维护”）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;它今天上榜不只是因为星数，而是因为它和 Anthropic 同日发布的《Progress on provable inference for large language models》正好互为注脚：一边是研究文章讲思路，一边是 Lean 写的原型让人能自己动手验。&lt;/p&gt;
+&lt;p&gt;这件事的意义在于&lt;strong&gt;信任模型的重心转移&lt;/strong&gt;。现在你要相信一个推理结果，只能相信服务商；可证明推理想做到的是：你给我结果，同时给我一份能独立验证的证明，我需要相信的只剩数学。代价是开销——证明生成的成本、验证的延迟，都还在工程上很不好看。但一旦这条路走通，”模型跑在谁的机器上”就不再是安全问题，只剩价格问题。&lt;/p&gt;
+&lt;h3 id=&#34;其他值得留意的仓库&#34;&gt;&lt;a href=&#34;#其他值得留意的仓库&#34; class=&#34;headerlink&#34; title=&#34;其他值得留意的仓库&#34;&gt;&lt;/a&gt;其他值得留意的仓库&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;N1nEmAn&amp;#x2F;sapper-v2&lt;/strong&gt;（Python，1,206 Star）：自主渗透测试军团，AI 指挥官 + worker 集群 + 分层事实-意图图，腾讯智能攻防赛第 3 名，634 支队伍、8 小时无人值守。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;s1dashu&amp;#x2F;quiet-md&lt;/strong&gt;（Rust，968 Star）：Rust + GPUI 的本地优先笔记应用，兼容飞书 DocxXML 格式。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Verlintas&amp;#x2F;NOIR&lt;/strong&gt;（Kotlin，2,367 Star）：用 adb 扫出 Android 应用的权限、上报端点与数据流向，并给出可回滚的处置。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Minglink&amp;#x2F;dsh-jailbreak-workflow&lt;/strong&gt;（TypeScript，655 Star）：围绕 DeepSeek Harness 的提示词工作流实验，名字里的”破甲”值得警惕，使用前请自行评估合规性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;OpenAI Images 2.6&lt;/strong&gt;：图像模型小版本更新，Hacker News 上 337 分。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Baidu ERNIE 5.5 Flash Base&lt;/strong&gt;：文心新一代 Flash 基座放出，主打推理成本。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;terminal-mac&lt;/strong&gt;（Swift，1,803 Star）：把整个 macOS 塞进终端的实验项目，纯好玩，但说明了 Swift 在终端渲染上的潜力。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;subvox&lt;/strong&gt;（Swift，735 Star）：本地语音转写方向的又一个小工具，无描述、纯靠口碑传播。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Meta 收购 Conductor。&lt;/strong&gt; Conductor 官方公告”Conductor is joining Meta”，TechCrunch 同步确认。这是一家做 AI 编码协作的初创公司——注意这个方向：不是做模型，是做”多个 Agent 并行改同一个仓库”的编排。大厂买编排层，说明它们认定瓶颈在工程侧而非模型侧。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;开源权重集体上强度。&lt;/strong&gt; Kimi K3.1 Pro 权重在 Hugging Face 放出（HN 574 分），Ripple-65B Preview 打出”美国开源权重在 Agentic Coding 上的 SOTA”，百度 ERNIE 5.5 Flash Base 同天发布。三家在不同量级上同时推进，直接后果是：闭源 API 的定价权会被进一步压缩，而”选哪个模型”这件事会从能力对比变成&lt;strong&gt;成本 &amp;#x2F; 延迟 &amp;#x2F; 可部署性&lt;/strong&gt;的三维权衡。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;苹果在削减内部 AI 预算。&lt;/strong&gt; 据报道 Apple 正在压缩内部 AI 使用开支。这条消息和上面那条放在一起读很有意思：一边是开源权重把推理价格打下来，一边是最大的终端厂商在收紧 AI 支出——说明企业侧的 ROI 核算已经开始了，烧钱换故事的阶段正在结束。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Agility 成为第一家上市的人形机器人公司。&lt;/strong&gt; 纯人形机器人标的首次进入公开市场，资本市场对这个赛道的定价从此有了公开参照。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;AI PAC 的中期选举账单。&lt;/strong&gt; 多个 AI 政治行动委员会在中期选举中投入数百万美元试图影响国会席位构成，结果已经出炉。AI 监管的博弈正式进入常规政治流程。&lt;/p&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;洞见一：Agent-的竞争焦点，从”能力”移到了”注意力账本”&#34;&gt;&lt;a href=&#34;#洞见一：Agent-的竞争焦点，从”能力”移到了”注意力账本”&#34; class=&#34;headerlink&#34; title=&#34;洞见一：Agent 的竞争焦点，从”能力”移到了”注意力账本”&#34;&gt;&lt;/a&gt;洞见一：Agent 的竞争焦点，从”能力”移到了”注意力账本”&lt;/h3&gt;&lt;p&gt;把今天榜单前四名排在一起看，会发现它们优化的其实不是同一个指标，但方向高度一致：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;项目&lt;/th&gt;
+&lt;th&gt;优化对象&lt;/th&gt;
+&lt;th&gt;人类需要介入的时刻&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;dsh-superagent&lt;/td&gt;
+&lt;td&gt;单仓库的持续值守&lt;/td&gt;
+&lt;td&gt;只有需要拍板的决策点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;agent-autoloop&lt;/td&gt;
+&lt;td&gt;事件到任务的调度&lt;/td&gt;
+&lt;td&gt;只有 Agent 主动提问时&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;uncut&lt;/td&gt;
+&lt;td&gt;上下文完整性&lt;/td&gt;
+&lt;td&gt;只在出错时（且必须报错）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;craft-anything&lt;/td&gt;
+&lt;td&gt;复刻的收敛速度&lt;/td&gt;
+&lt;td&gt;只在验收时&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;这四个项目都在回答同一个问题：&lt;strong&gt;一个 Agent 一天要占用人类多少分钟？&lt;/strong&gt; 这是比 benchmark 分数更贴近采购决策的指标。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[人类注意力&amp;lt;br/&amp;gt;最稀缺资源] --&amp;gt; B[事件进来]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C&amp;#123;规则允许自动处理?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C -- 是 --&amp;gt; D[Agent 自主执行]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E&amp;#123;结果可自动验证?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E -- 是 --&amp;gt; F[直接交付&amp;lt;br/&amp;gt;人类零介入]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E -- 否 --&amp;gt; G[生成决策卡片]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C -- 否 --&amp;gt; G&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H[人类 30 秒决策]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; D&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; I[注意力账本: 记录本次消耗]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; I&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    I --&amp;gt; J[反向优化规则边界]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    J --&amp;gt; C&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;真正成熟的团队会开始记这笔账：本周 Agent 提交了多少 PR，人类回了多少张卡片，每张卡片平均花多久。&lt;strong&gt;这个比值才是 Agent 系统的真实吞吐&lt;/strong&gt;，star 数和 benchmark 都不是。&lt;/p&gt;
+&lt;h3 id=&#34;洞见二：可验证性正在成为模型之外的第二个卖点&#34;&gt;&lt;a href=&#34;#洞见二：可验证性正在成为模型之外的第二个卖点&#34; class=&#34;headerlink&#34; title=&#34;洞见二：可验证性正在成为模型之外的第二个卖点&#34;&gt;&lt;/a&gt;洞见二：可验证性正在成为模型之外的第二个卖点&lt;/h3&gt;&lt;p&gt;Anthropic 的可证明推理研究 + FlashProve 的 Lean 原型，指向一个正在成形的分层：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TB&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 现在&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A1[用户] --&amp;gt; B1[相信服务商]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B1 --&amp;gt; C1[API 返回结果]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 正在形成&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A2[用户] --&amp;gt; B2[验证器]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B2 --&amp;gt; C2[证明 π]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        C2 --&amp;gt; D2[独立校验]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        D2 --&amp;gt; E2&amp;#123;通过?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        E2 -- 是 --&amp;gt; F2[采信结果]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        E2 -- 否 --&amp;gt; G2[拒收]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        H2[推理服务] --&amp;gt; C2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;短期看这只是一个合规工具——金融、医疗、法律这些行业需要”我能证明这个输出没被篡改”。中期看它会改变部署形态：既然结果可以脱离执行环境被验证，那么推理完全可以跑在&lt;strong&gt;你不信任的机器&lt;/strong&gt;上，成本曲线会因此重排一次。&lt;/p&gt;
+&lt;p&gt;真正的门槛不在密码学，而在&lt;strong&gt;证明开销&lt;/strong&gt;。当下生成一份 LLM 推理证明的成本还远高于推理本身，谁先把这层开销压到可接受区间，谁就拿到了下一轮基础设施的入场券。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;今天最实用的一条建议：如果你在用 Claude Code 或 Codex 守终端，花半小时看看 &lt;code&gt;agent-autoloop&lt;/code&gt; 或 &lt;code&gt;dsh-superagent&lt;/code&gt; 的设计文档——不是为了换工具，而是为了想清楚&lt;strong&gt;哪些环节其实根本不需要你在场&lt;/strong&gt;。&lt;/p&gt;
+</content>
+        <category term="AI日报" />
+        <category term="AI" />
+        <category term="GitHub热门" />
+        <category term="人工智能" />
+        <category term="技术趋势" />
+        <updated>2026-11-05T14:00:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-03/</id>
         <title>AI 日报 2026-11-03</title>
