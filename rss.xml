@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <rss version="2.0">
     <channel>
-        <title>沉鱼的博客</title>
+        <title>沉鱼的博�?</title>
         <link>https://scottalive.github.io</link>
         <description>编程笔记 &amp; 资料分享</description>
         <language>zh-CN</language>
@@ -16,6 +16,20 @@
         <category>个人分享</category>
         <category>原则</category>
         <category>个人详情</category>
+        <category>Kubernetes</category>
+        <category>k8s</category>
+        <category>容器编排</category>
+        <category>DevOps</category>
+        <category>运维</category>
+        <category>kubeconfig</category>
+        <category>kubectl</category>
+        <category>Context</category>
+        <category>Helm</category>
+        <category>学习计划</category>
+        <category>OpenSRE</category>
+        <category>Grafana</category>
+        <category>SRE</category>
+        <category>可观测性</category>
         <category>网络安全</category>
         <category>SQL注入</category>
         <category>XSS</category>
@@ -29,16 +43,16 @@
         <category>Gemini</category>
         <category>开发工具</category>
         <category>开源</category>
+        <category>编程笔记</category>
         <category>Claude</category>
         <category>Agent</category>
         <category>MCP</category>
         <category>自动化</category>
-        <category>编程笔记</category>
-        <category>编程助手</category>
         <category>DeepSeek</category>
         <category>Harness</category>
         <category>插件</category>
         <category>安装教程</category>
+        <category>编程助手</category>
         <category>Hermes</category>
         <category>v0.20</category>
         <category>语音交互</category>
@@ -58,39 +72,25 @@
         <category>工作流</category>
         <category>OpenClaw</category>
         <category>网关</category>
-        <category>OpenSRE</category>
-        <category>SRE</category>
-        <category>运维</category>
-        <category>故障排查</category>
         <category>AI运维</category>
+        <category>故障排查</category>
         <category>根因分析</category>
-        <category>DevOps</category>
         <category>SSE</category>
         <category>HTTP</category>
+        <category>心理学知识</category>
+        <category>阿德勒心理学</category>
+        <category>自卑与超越</category>
+        <category>力扣算法题</category>
+        <category>算法</category>
+        <category>动态规划</category>
+        <category>JavaSE</category>
+        <category>Java开发面试题</category>
+        <category>SpringBoot</category>
         <category>WorkBuddy</category>
         <category>腾讯</category>
         <category>办公自动化</category>
         <category>AI工具</category>
-        <category>心理学知识</category>
-        <category>阿德勒心理学</category>
-        <category>自卑与超越</category>
-        <category>Kubernetes</category>
-        <category>k8s</category>
-        <category>容器编排</category>
-        <category>kubeconfig</category>
-        <category>kubectl</category>
-        <category>Context</category>
-        <category>Helm</category>
-        <category>学习计划</category>
-        <category>Grafana</category>
-        <category>可观测性</category>
-        <category>JavaSE</category>
-        <category>Java开发面试题</category>
-        <category>SpringBoot</category>
         <category>Spring</category>
-        <category>力扣算法题</category>
-        <category>算法</category>
-        <category>动态规划</category>
         <category>接口开发</category>
         <category>开发注意事项</category>
         <category>微服务</category>
@@ -12962,9 +12962,9 @@
             <guid isPermalink="true">https://scottalive.github.io/computer-science/devops/k8s-context-switch/</guid>
             <title>单机内 K8S 集群环境切换指南</title>
             <link>https://scottalive.github.io/computer-science/devops/k8s-context-switch/</link>
-            <category>DevOps</category>
             <category>Kubernetes</category>
             <category>k8s</category>
+            <category>DevOps</category>
             <category>kubeconfig</category>
             <category>kubectl</category>
             <category>Context</category>
@@ -13565,11 +13565,11 @@
             <guid isPermalink="true">https://scottalive.github.io/computer-science/devops/k8s-command-guide/</guid>
             <title>K8s 使用指南 — 各类场景命令全解</title>
             <link>https://scottalive.github.io/computer-science/devops/k8s-command-guide/</link>
-            <category>运维</category>
-            <category>DevOps</category>
             <category>Kubernetes</category>
             <category>k8s</category>
             <category>容器编排</category>
+            <category>DevOps</category>
+            <category>运维</category>
             <pubDate>Sat, 16 May 2026 10:03:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;Kubernetes-使用指南-—-各类场景命令全解&#34;&gt;&lt;a href=&#34;#Kubernetes-使用指南-—-各类场景命令全解&#34; class=&#34;headerlink&#34; title=&#34;Kubernetes 使用指南 — 各类场景命令全解&#34;&gt;&lt;/a&gt;Kubernetes 使用指南 — 各类场景命令全解&lt;/h1&gt;&lt;p&gt;Kubernetes（简称 K8s）是当前业界标准的容器编排平台。无论你是刚入门的学习者，还是日常运维的一线工程师，掌握 &lt;strong&gt;kubectl&lt;/strong&gt; 的核心命令都至关重要。&lt;/p&gt;
 &lt;p&gt;本文将按照 &lt;strong&gt;实际场景&lt;/strong&gt; 组织命令，告别枯燥的 API 罗列，让你遇到问题时能快速找到对应「武器」。&lt;/p&gt;
@@ -14069,8 +14069,8 @@
             <link>https://scottalive.github.io/computer-science/devops/opensre-grafana-integration/</link>
             <category>AI</category>
             <category>OpenSRE</category>
-            <category>SRE</category>
             <category>Grafana</category>
+            <category>SRE</category>
             <category>可观测性</category>
             <pubDate>Wed, 13 May 2026 11:44:00 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
@@ -14530,12 +14530,12 @@
             <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/OpenSRE-%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98-%E6%8E%92%E6%9F%A5%E4%B8%8E%E6%8A%A5%E5%91%8A%E6%8C%87%E5%8D%97/</guid>
             <title>OpenSRE 进阶实战：排查方法论与报告解读指南</title>
             <link>https://scottalive.github.io/computer-science/ai-tools/OpenSRE-%E8%BF%9B%E9%98%B6%E5%AE%9E%E6%88%98-%E6%8E%92%E6%9F%A5%E4%B8%8E%E6%8A%A5%E5%91%8A%E6%8C%87%E5%8D%97/</link>
+            <category>DevOps</category>
             <category>OpenSRE</category>
             <category>SRE</category>
-            <category>故障排查</category>
             <category>AI运维</category>
+            <category>故障排查</category>
             <category>根因分析</category>
-            <category>DevOps</category>
             <pubDate>Mon, 11 May 2026 01:10:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;引言&#34;&gt;&lt;a href=&#34;#引言&#34; class=&#34;headerlink&#34; title=&#34;引言&#34;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;在&lt;a href=&#34;/2026/05/11/OpenSRE-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/&#34;&gt;上一篇文章&lt;/a&gt;中，我们介绍了 OpenSRE 的安装与基础用法。本文将深入探讨三个实战核心话题：&lt;strong&gt;如何高效使用 OpenSRE 进行生产故障排查&lt;/strong&gt;、&lt;strong&gt;使用过程中的关键注意事项&lt;/strong&gt;，以及&lt;strong&gt;如何理解和运用它生成的调查报告&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;项目地址：&lt;a href=&#34;https://github.com/Tracer-Cloud/OpenSRE&#34;&gt;GitHub - Tracer-Cloud&amp;#x2F;OpenSRE&lt;/a&gt;&lt;/p&gt;
@@ -14825,9 +14825,9 @@
             <title>OpenSRE 安装与使用指南</title>
             <link>https://scottalive.github.io/computer-science/ai-tools/OpenSRE-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
             <category>AI</category>
+            <category>运维</category>
             <category>OpenSRE</category>
             <category>SRE</category>
-            <category>运维</category>
             <category>故障排查</category>
             <pubDate>Mon, 11 May 2026 00:50:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;概述&#34;&gt;&lt;a href=&#34;#概述&#34; class=&#34;headerlink&#34; title=&#34;概述&#34;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;OpenSRE&lt;/strong&gt; 是一个开源的 AI SRE（站点可靠性工程）Agent 框架，能够帮助你构建属于自己的 AI 运维助手。它能够连接 60+ 常用工具，自动进行生产故障调查、根因分析，并生成结构化的调查报告。&lt;/p&gt;
@@ -29266,16 +29266,6 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/interview/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</guid>
-            <title>自我介绍</title>
-            <link>https://scottalive.github.io/computer-science/java/interview/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</link>
-            <category>JavaSE</category>
-            <category>Java开发面试题</category>
-            <pubDate>Mon, 09 Oct 2023 22:05:00 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;自我介绍&#34;&gt;&lt;a href=&#34;#自我介绍&#34; class=&#34;headerlink&#34; title=&#34;自我介绍&#34;&gt;&lt;/a&gt;自我介绍&lt;/h3&gt;&lt;p&gt;面试官您好，&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/java/interview/10%E6%9C%889%E6%97%A5%E9%9D%A2%E8%AF%95%E5%A4%B1%E8%B4%A5%E5%A4%8D%E7%9B%98/</guid>
             <title>10月9日面试失败复盘</title>
             <link>https://scottalive.github.io/computer-science/java/interview/10%E6%9C%889%E6%97%A5%E9%9D%A2%E8%AF%95%E5%A4%B1%E8%B4%A5%E5%A4%8D%E7%9B%98/</link>
@@ -29411,6 +29401,16 @@
 &lt;li&gt;框架原理&lt;/li&gt;
 &lt;li&gt;项目？&lt;/li&gt;
 &lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/interview/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</guid>
+            <title>自我介绍</title>
+            <link>https://scottalive.github.io/computer-science/java/interview/%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D/</link>
+            <category>JavaSE</category>
+            <category>Java开发面试题</category>
+            <pubDate>Mon, 09 Oct 2023 22:05:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h3 id=&#34;自我介绍&#34;&gt;&lt;a href=&#34;#自我介绍&#34; class=&#34;headerlink&#34; title=&#34;自我介绍&#34;&gt;&lt;/a&gt;自我介绍&lt;/h3&gt;&lt;p&gt;面试官您好，&lt;/p&gt;
  ]]></description>
         </item>
         <item>
