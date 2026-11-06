@@ -5,8 +5,8 @@
         <link>https://scottalive.github.io</link>
         <description>编程笔记 &amp; 资料分享</description>
         <language>zh-CN</language>
-        <pubDate>Thu, 05 Nov 2026 22:00:00 +0800</pubDate>
-        <lastBuildDate>Thu, 05 Nov 2026 22:00:00 +0800</lastBuildDate>
+        <pubDate>Sat, 07 Nov 2026 22:00:00 +0800</pubDate>
+        <lastBuildDate>Sat, 07 Nov 2026 22:00:00 +0800</lastBuildDate>
         <category>AI日报</category>
         <category>AI</category>
         <category>GitHub热门</category>
@@ -21,21 +21,15 @@
         <category>容器编排</category>
         <category>DevOps</category>
         <category>运维</category>
+        <category>OpenSRE</category>
+        <category>Grafana</category>
+        <category>SRE</category>
+        <category>可观测性</category>
         <category>kubeconfig</category>
         <category>kubectl</category>
         <category>Context</category>
         <category>Helm</category>
         <category>学习计划</category>
-        <category>OpenSRE</category>
-        <category>Grafana</category>
-        <category>SRE</category>
-        <category>可观测性</category>
-        <category>网络安全</category>
-        <category>SQL注入</category>
-        <category>XSS</category>
-        <category>CSRF</category>
-        <category>DDoS</category>
-        <category>渗透测试</category>
         <category>GPT-5.5</category>
         <category>OpenAI</category>
         <category>Codex</category>
@@ -59,42 +53,227 @@
         <category>语音交互</category>
         <category>A2A</category>
         <category>Webhook</category>
+        <category>高阶</category>
         <category>NousResearch</category>
         <category>进阶</category>
         <category>配置</category>
         <category>LLM</category>
         <category>RAG</category>
         <category>知识库</category>
-        <category>高阶</category>
         <category>LangChain</category>
         <category>LangGraph</category>
         <category>Python</category>
         <category>工作流</category>
         <category>OpenClaw</category>
         <category>网关</category>
-        <category>AI运维</category>
         <category>故障排查</category>
+        <category>AI运维</category>
         <category>根因分析</category>
         <category>SSE</category>
         <category>HTTP</category>
+        <category>心理学知识</category>
         <category>WorkBuddy</category>
         <category>腾讯</category>
         <category>办公自动化</category>
         <category>AI工具</category>
-        <category>心理学知识</category>
         <category>阿德勒心理学</category>
         <category>自卑与超越</category>
+        <category>网络安全</category>
+        <category>SQL注入</category>
+        <category>XSS</category>
+        <category>CSRF</category>
+        <category>DDoS</category>
+        <category>渗透测试</category>
+        <category>力扣算法题</category>
+        <category>算法</category>
+        <category>动态规划</category>
         <category>JavaSE</category>
         <category>Java开发面试题</category>
         <category>SpringBoot</category>
         <category>Spring</category>
-        <category>力扣算法题</category>
-        <category>算法</category>
-        <category>动态规划</category>
         <category>接口开发</category>
         <category>开发注意事项</category>
         <category>微服务</category>
         <category>python</category>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-07/</guid>
+            <title>AI 日报 2026-11-07</title>
+            <link>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-07/</link>
+            <category>AI日报</category>
+            <category>AI</category>
+            <category>GitHub热门</category>
+            <category>人工智能</category>
+            <category>技术趋势</category>
+            <pubDate>Sat, 07 Nov 2026 22:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;今天榜单呈现出一种不太常见的整齐：&lt;strong&gt;前五名全是 Agent，而且全是”把 Agent 从对话框里拽出来”的项目&lt;/strong&gt;。DeepSeek 官方放出 &lt;code&gt;dsh-superagent&lt;/code&gt;，一个只听 GitHub 与飞书指令、自己开工作项、自己提 PR 的主动式编码 Agent，五天 2 万星；同一天排行第三的 &lt;code&gt;dsh-Go&lt;/code&gt; 把 DeepSeek Harness 整个塞进安卓手机；&lt;code&gt;Mika&lt;/code&gt; 干脆让 Agent 在一块隐藏的后台屏幕里替你操作微信和购物 App。&lt;/p&gt;
+&lt;p&gt;与之呼应的是一批 &lt;strong&gt;“Skill 化”项目&lt;/strong&gt;：&lt;code&gt;unslop&lt;/code&gt; 用一套设计评审流程去治 AI 生成界面的”塑料味”，&lt;code&gt;floorplan&lt;/code&gt; 让 Agent 画代码地图，&lt;code&gt;teardown&lt;/code&gt; 把任意机器变成可拆解的 3D 模型。能力没变，变的是&lt;strong&gt;分发形态&lt;/strong&gt;——不再是库和 API，而是一份能被 Agent 直接读懂的 Markdown 技能包。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;说明：今晚 &lt;code&gt;github.com/trending&lt;/code&gt; 直连超时，榜单改由 GitHub Search API 按”近期创建 + 高星 + 持续推送”筛选得出，star 数为当前总数，不代表单日增量。新闻部分来自 TechCrunch（HN、VentureBeat 当晚不可达）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;1-deepseek-ai-dsh-superagent-prototype-——-会自己接活的编码-Agent&#34;&gt;&lt;a href=&#34;#1-deepseek-ai-dsh-superagent-prototype-——-会自己接活的编码-Agent&#34; class=&#34;headerlink&#34; title=&#34;1. deepseek-ai&amp;#x2F;dsh-superagent-prototype —— 会自己接活的编码 Agent&#34;&gt;&lt;/a&gt;1. deepseek-ai&amp;#x2F;dsh-superagent-prototype —— 会自己接活的编码 Agent&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：TypeScript（pnpm 工程）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据&lt;/strong&gt;：20,172 Star &amp;#x2F; 2,343 Fork，创建于 2026-10-31&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;协议&lt;/strong&gt;：MIT&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：面向单个 GitHub 仓库的&lt;strong&gt;主动式&lt;/strong&gt;编码 Agent，以插件包形式运行在 DeepSeek Harness 上&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;README 第一句就把免责声明摆在最前面：&lt;em&gt;“Research prototype for reference only, not an official DeepSeek product”&lt;/em&gt;——这是研究原型，代码大量由编码 Agent 自己写出来，工程风格可能不一致。这份坦率反而值得注意：它说明 DeepSeek 内部已经在用”Agent 写 Agent 框架”的方式迭代了。&lt;/p&gt;
+&lt;p&gt;它最核心的设计不是能力，而是&lt;strong&gt;注意力经济&lt;/strong&gt;。README 里有一句几乎是纲领的话：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;take as little human attention as possible, and give as much value as possible.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一个能替整个团队干活的 Agent，同样也能浪费整个团队的注意力。所以它把行为边界收得很紧：&lt;strong&gt;只在被要求时行动，或只在团队明文写下的规则允许时行动；只在有人必须做决定、或结果真能被用上时才开口。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;工作流可以拆成一条相当清晰的流水线：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[GitHub Issue / PR 评论&amp;lt;br/&amp;gt;或飞书消息] --&amp;gt; B&amp;#123;授权检查&amp;lt;br/&amp;gt;Authorization&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B -- 未授权 --&amp;gt; Z[忽略，不产生任何通知]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B -- 已授权 --&amp;gt; C[创建 Work Item&amp;lt;br/&amp;gt;独立会话 + 独立工作目录]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[Agent Session&amp;lt;br/&amp;gt;读代码 / 改代码 / 跑测试]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E&amp;#123;自检通过?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E -- 否 --&amp;gt; D&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E -- 是 --&amp;gt; F[产出 PR 或回复&amp;lt;br/&amp;gt;回到原始会话]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G[Web Panel&amp;lt;br/&amp;gt;列出&amp;quot;需要人&amp;quot;的事项]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H[人类只处理&amp;lt;br/&amp;gt;真正需要判断的少数项]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;几个值得抄的工程细节：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;会话隔离&lt;/strong&gt;：每个 work item 有自己的 agent session 和自己的工作目录，避免多个任务在同一份工作区里互相污染上下文。这是多 Agent 系统里最容易被忽略、也最容易出事的地方。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;回复归位&lt;/strong&gt;：答案回到&lt;strong&gt;发起对话的那个线程&lt;/strong&gt;，而不是新开一个频道。对使用者来说，Agent 的存在感被压到最低。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;人机边界显式化&lt;/strong&gt;：Web Panel 不是”监控面板”，而是”待人工队列”。它承认了一件事——判断权和执行权必须分开。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;文档即协议&lt;/strong&gt;：&lt;code&gt;docs/000-philosophy.md&lt;/code&gt; 到 &lt;code&gt;008-cookbook.md&lt;/code&gt;，按编号递进，每一篇只依赖前面几篇。用人话把设计意图写清楚，比写一堆抽象接口更有用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-storytold-craft-anything-——-把”逆向-重建”做成闭环&#34;&gt;&lt;a href=&#34;#2-storytold-craft-anything-——-把”逆向-重建”做成闭环&#34; class=&#34;headerlink&#34; title=&#34;2. storytold&amp;#x2F;craft-anything —— 把”逆向 + 重建”做成闭环&#34;&gt;&lt;/a&gt;2. storytold&amp;#x2F;craft-anything —— 把”逆向 + 重建”做成闭环&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Rust（100%），跨 macOS &amp;#x2F; Windows &amp;#x2F; Linux &amp;#x2F; FreeBSD &amp;#x2F; Web&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据&lt;/strong&gt;：17,495 Star &amp;#x2F; 3,195 Fork&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;协议&lt;/strong&gt;：MIT OR Apache-2.0（early alpha）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：看明白任意网站、App 或游戏怎么运作，然后让 AI 给你造一个自己的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这个项目把过去零散的三件事接成了一条自动流水线：&lt;strong&gt;用真实检测工具观察目标 → 编码 Agent 立项重写 → 与原目标对照、迭代修正&lt;/strong&gt;。注意”clean-room”这个词——它在法律上很关键，意思是实现方不接触原始源码，只依据外部行为重建。Rust 写引擎则保证了跨平台分发和 Web 端的一致性。&lt;/p&gt;
+&lt;p&gt;它的价值不在于”抄”，而在于&lt;strong&gt;给 Agent 提供了可验证的参照系&lt;/strong&gt;。大多数 Agent 写代码的问题是写完没人验收；craft-anything 把”原目标”变成了天然的测试用例。&lt;/p&gt;
+&lt;h3 id=&#34;3-ccch1mneyyy-dsh-Go-——-把-Agent-装进口袋&#34;&gt;&lt;a href=&#34;#3-ccch1mneyyy-dsh-Go-——-把-Agent-装进口袋&#34; class=&#34;headerlink&#34; title=&#34;3. ccch1mneyyy&amp;#x2F;dsh-Go —— 把 Agent 装进口袋&#34;&gt;&lt;/a&gt;3. ccch1mneyyy&amp;#x2F;dsh-Go —— 把 Agent 装进口袋&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Dart &amp;#x2F; Flutter（安卓端）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据&lt;/strong&gt;：12,829 Star &amp;#x2F; 585 Fork&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;协议&lt;/strong&gt;：AGPL-3.0&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：DeepSeek Harness 的手机外壳，本机运行，也能遥控你的电脑&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;它解决的是一个非常具体的痛点：Harness 类工具默认长在终端里，而终端在电脑上。dsh-Go 把它变成安卓 App，本地跑一份，远程连一份。从 topics 看（&lt;code&gt;dsh-plugin&lt;/code&gt;、&lt;code&gt;dsh-tui&lt;/code&gt;、&lt;code&gt;coding-agent&lt;/code&gt;），它不只是一个 SSH 客户端，而是想把插件生态一起搬过去。&lt;/p&gt;
+&lt;p&gt;值得注意的是 &lt;strong&gt;AGPL-3.0&lt;/strong&gt; 这个选择。对一个”把服务端能力下放到客户端”的项目来说，这是防止被云厂商白嫖的常规操作，但也意味着一部分企业用户会绕道走。&lt;/p&gt;
+&lt;h3 id=&#34;4-heydamir-unslop-——-治一治-AI-界面的塑料味&#34;&gt;&lt;a href=&#34;#4-heydamir-unslop-——-治一治-AI-界面的塑料味&#34; class=&#34;headerlink&#34; title=&#34;4. heydamir&amp;#x2F;unslop —— 治一治 AI 界面的塑料味&#34;&gt;&lt;/a&gt;4. heydamir&amp;#x2F;unslop —— 治一治 AI 界面的塑料味&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：JavaScript（技能包，非运行时）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据&lt;/strong&gt;：10,601 Star &amp;#x2F; 577 Fork&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;协议&lt;/strong&gt;：CC BY 4.0&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：Claude Code &amp;#x2F; Codex 技能，把”vibecoded”的界面改成有设计感的界面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这是今天最”人味”的项目。作者 Damir Sokolovsky 在 X 上连载 Unslopping 系列，把设计师做 redline review 的那套方法拆成了 Agent 可执行的步骤。它先列出所有”slop”的痕迹——&lt;strong&gt;紫色渐变、发光、emoji 当标签用、文案在喊叫、间距忽大忽小&lt;/strong&gt;——再从你的产品里提炼出一个方向，最后像设计师一样一轮一轮地改。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[输入：屏幕 / 项目 / 线上链接] --&amp;gt; B[Audit&amp;lt;br/&amp;gt;逐条列出 slop 痕迹]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[Direction&amp;lt;br/&amp;gt;性格 · 世界 · 1-2 个记忆点]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[Passes&amp;lt;br/&amp;gt;间距 → 色彩 → 图标 → 文案&amp;lt;br/&amp;gt;→ 字体 → 布局 → 细节 → 视觉 → 动效]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[Visuals&amp;lt;br/&amp;gt;需要插画才走付费生成&amp;lt;br/&amp;gt;且必须提前确认]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F[Story Video&amp;lt;br/&amp;gt;10 秒内方形视频&amp;lt;br/&amp;gt;Playwright + ffmpeg]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G[输出：可直接发布的成品]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;几个设计得很聪明的地方：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;先给方向，再动刀&lt;/strong&gt;：它审完屏先提方案，让人在早期就能纠偏，而不是改完一屏才发现风格不对。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;如果本来就好看，它会说好看&lt;/strong&gt;：README 明确写了”如果屏幕已经不错，它只提几条小改建议，不重做”。这在 Agent 产品里罕见，因为”重做”看起来更有产出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;付费动作必须确认&lt;/strong&gt;：需要生成图片时，它会展示 prompt 并征求同意，才调用 fal &amp;#x2F; Replicate &amp;#x2F; OpenAI Images。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;隐藏彩蛋&lt;/strong&gt;：&lt;code&gt;Story Video&lt;/code&gt; 会把”界面自我净化”的过程录成一条 10 秒短视频，直接可发。这是一个把工具变成传播素材的设计。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-wangzan101-Mika-——-后台屏幕里的手机助手&#34;&gt;&lt;a href=&#34;#5-wangzan101-Mika-——-后台屏幕里的手机助手&#34; class=&#34;headerlink&#34; title=&#34;5. wangzan101&amp;#x2F;Mika —— 后台屏幕里的手机助手&#34;&gt;&lt;/a&gt;5. wangzan101&amp;#x2F;Mika —— 后台屏幕里的手机助手&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：Kotlin（Jetpack Compose）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据&lt;/strong&gt;：7,363 Star &amp;#x2F; 1,694 Fork&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;协议&lt;/strong&gt;：Apache-2.0&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：安卓端的端侧 AI Agent，替你操作 App 和网页&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Mika 的技术关键点只有一句，但分量很重：&lt;strong&gt;它跑在一块隐藏的后台屏幕上，你可以继续用手机。&lt;/strong&gt; 大多数手机自动化方案要么抢占前台，要么靠无障碍服务的模拟点击，要么需要 root；Mika 走的是 Android 的虚拟显示（virtual display）路线，在后台把 App 渲染出来，再读取 UI 树、执行操作。&lt;/p&gt;
+&lt;p&gt;README 里的例子都很”生活化”：一句话让它在后台打开微信找到联系人发消息；翻完一个微信群把今天的讨论总结出来；在购物 App 里按”30 美元以内、4.5 星以上”挑充电器加进购物车。这条路线的想象空间很大——&lt;strong&gt;端侧 Agent 的真正瓶颈从来不是模型，而是”能不能在不打扰人的前提下操作真实 App”&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;6-KKKKhazix-agent-autoloop-——-让命令行-Agent-自己跟进到底&#34;&gt;&lt;a href=&#34;#6-KKKKhazix-agent-autoloop-——-让命令行-Agent-自己跟进到底&#34; class=&#34;headerlink&#34; title=&#34;6. KKKKhazix&amp;#x2F;agent-autoloop —— 让命令行 Agent 自己跟进到底&#34;&gt;&lt;/a&gt;6. KKKKhazix&amp;#x2F;agent-autoloop —— 让命令行 Agent 自己跟进到底&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：TypeScript&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据&lt;/strong&gt;：3,626 Star（创建于 2026-11-03，四天）&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：事件驱动的自托管 agent loop，给 Claude Code &amp;#x2F; Codex 加一层”后台值守”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;它的定位很直白：让你的命令行 Agent 在后台自己接活、自己跟进到底；平时不烦你，遇到拿不准的事才发一条卡片找你拍板。技术栈是 MCP + 事件驱动 + 自托管，跟今天第 1 名的思路撞了车——&lt;strong&gt;大家都在把 Agent 从”你问我答”改成”事件驱动的常驻进程”&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;7-haydenschmitty-floorplan-——-让-Agent-画一张代码地图&#34;&gt;&lt;a href=&#34;#7-haydenschmitty-floorplan-——-让-Agent-画一张代码地图&#34; class=&#34;headerlink&#34; title=&#34;7. haydenschmitty&amp;#x2F;floorplan —— 让 Agent 画一张代码地图&#34;&gt;&lt;/a&gt;7. haydenschmitty&amp;#x2F;floorplan —— 让 Agent 画一张代码地图&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;语言&lt;/strong&gt;：JavaScript&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;数据&lt;/strong&gt;：3,060 Star &amp;#x2F; 734 Fork&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;定位&lt;/strong&gt;：Claude &amp;#x2F; Codex 插件，把代码库画成一张”人话版”的交互地图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;新人和 Agent 面对同一个问题：一个中型仓库有几百个文件，真正的结构藏在 import 图和调用链里，不在目录名里。floorplan 用图结构把”这个 App 到底是怎么拼起来的”画出来，比让模型读目录然后猜要可靠得多。这类工具的价值会随着仓库变大而上升。&lt;/p&gt;
+&lt;h3 id=&#34;其他值得一看的项目&#34;&gt;&lt;a href=&#34;#其他值得一看的项目&#34; class=&#34;headerlink&#34; title=&#34;其他值得一看的项目&#34;&gt;&lt;/a&gt;其他值得一看的项目&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;项目&lt;/th&gt;
+&lt;th&gt;Star&lt;/th&gt;
+&lt;th&gt;语言&lt;/th&gt;
+&lt;th&gt;一句话&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;JuneYaooo&amp;#x2F;rea-video&lt;/td&gt;
+&lt;td&gt;2,771&lt;/td&gt;
+&lt;td&gt;Python&lt;/td&gt;
+&lt;td&gt;逐镜头逆向任意视频：判断是实拍、AI 生成还是代码渲染，并给出复刻方案&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;modelflare-ai&amp;#x2F;AnyModelBot&lt;/td&gt;
+&lt;td&gt;2,729&lt;/td&gt;
+&lt;td&gt;Python&lt;/td&gt;
+&lt;td&gt;本地优先的多模型机器人，一个 key 打通 70+ 模型，可接微信&amp;#x2F;飞书&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;qybaihe&amp;#x2F;bla&lt;/td&gt;
+&lt;td&gt;2,524&lt;/td&gt;
+&lt;td&gt;TypeScript&lt;/td&gt;
+&lt;td&gt;对抗 AI 逆向 Agent 的防护壳：Poison → Exhaust → Hallucinate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;elvarofficial&amp;#x2F;teardown&lt;/td&gt;
+&lt;td&gt;2,384&lt;/td&gt;
+&lt;td&gt;JavaScript&lt;/td&gt;
+&lt;td&gt;Claude Code 技能，把任意机器变成可拆解的 3D 模型&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;benjitaylor&amp;#x2F;skills&lt;/td&gt;
+&lt;td&gt;2,212&lt;/td&gt;
+&lt;td&gt;TypeScript&lt;/td&gt;
+&lt;td&gt;作者日常在用的 Agent 技能集，兼容 Claude Code 与 Codex&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Pika-Labs&amp;#x2F;Pika-H3-Flex&lt;/td&gt;
+&lt;td&gt;2,045&lt;/td&gt;
+&lt;td&gt;Python&lt;/td&gt;
+&lt;td&gt;Pika 的视频 + 音频联合生成推理代码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;一个有意思的对照：&lt;code&gt;rea-video&lt;/code&gt;（第 8 位）是”用 Agent 逆向一切”，&lt;code&gt;bla&lt;/code&gt;（第 10 位）是”专门防 Agent 逆向”。攻防两端在同一天的榜单上相遇，说明&lt;strong&gt;逆向工程 Agent 已经不是概念，而是能赚钱、也需要被防的东西了&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Underdog 放出 32MB 的语音模型 Woof。&lt;/strong&gt; 31.7MB、3100 万参数、纯浏览器运行、完全离线，模型权重公开可下载。它甚至用这个模型做了个小游戏：房间里有一台打字机、一台 CRT 显示器、一盏台灯，你打什么字，游戏就用 Woof 念出来；转动旋钮还能生成不同风格的音乐。游戏剧情里”入侵小镇的云厂商”显然是句嘲讽。这家公司在几周前刚发布 167MB 的语音转文字模型 Bark，路线非常一致——&lt;strong&gt;把语音能力塞进端侧&lt;/strong&gt;。创始人 Sigil Wen 的说法是，他不想用 Granola 那类笔记工具，想自己造一套跑在用户设备上、数据归用户所有的系统。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Claude 上线个人财务分析。&lt;/strong&gt; 可以直接分析你的消费记录。这类”高敏感数据 + 强推理”的场景是对模型信任度的一次真刀真枪的考试。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;亚马逊让用户发短信给 Alexa 帮忙购物。&lt;/strong&gt; 值得注意的是时机——就在亚马逊屏蔽 Muse 之后。大厂对”第三方 Agent 进入自己的商业闭环”态度很明显：入口可以给，但必须是我自己的入口。&lt;/p&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;AI 支出增速熄火，而 Anthropic 正走向 IPO。&lt;/strong&gt; Ramp 的数据显示，8 月和 9 月企业 AI token 支出只涨了 &lt;strong&gt;1.5%&lt;/strong&gt;，而 7 月的环比增速是 &lt;strong&gt;42%&lt;/strong&gt;。10 月略有回暖（9&amp;#x2F;23 到 10&amp;#x2F;23 涨 8.9%），但趋势线已经变了。Ramp 首席经济学家 Ara Kharazian 的判断很尖锐：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;几乎所有 AI 支出都来自风投支持的高增长科技公司。只要支出继续涨，这没问题；可一旦因为市场或其他因素开始放缓，它们会同时放缓，然后引发连锁反应。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;分层数据更能说明问题：中位数企业每人每月只花 &lt;strong&gt;12~15 美元&lt;/strong&gt;，前 10% 花 &lt;strong&gt;600~1000 美元&lt;/strong&gt;，而最”AI 上头”的前 1% 曾达到每人每月近 &lt;strong&gt;1 万美元&lt;/strong&gt;——8、9 月已经跌破了这条线。而前 1% 的轻微回落，”足以让整体收入增速熄火，哪怕用量还在涨”。&lt;/p&gt;
+&lt;p&gt;换句话说：&lt;strong&gt;用量在涨，收入不涨。&lt;/strong&gt; 这是价格战和客户成熟共同作用的结果，也是所有按 token 计费的商业模式迟早要面对的剪刀差。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;其他动作：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Palo Alto Networks 正洽谈以 &lt;strong&gt;5 亿美元&lt;/strong&gt; 收购 AI Agent 安全公司 Clutch——Agent 安全开始被当成正经的安全品类来买了。&lt;/li&gt;
+&lt;li&gt;OpenAI 总裁 Greg Brockman 称公司可能在 &lt;strong&gt;2027 年&lt;/strong&gt;具备 IPO 条件。&lt;/li&gt;
+&lt;li&gt;OpenAI 发布了一款面向网络安全的专用模型（业内对其效果仍有争议）。&lt;/li&gt;
+&lt;li&gt;Meta 收购 AI 编码公司 &lt;strong&gt;Conductor&lt;/strong&gt;；Dropbox 以 &lt;strong&gt;3.5 亿美元&lt;/strong&gt; 收购 Tigris Data 补 AI 基础设施。&lt;/li&gt;
+&lt;li&gt;Agility 成为第一家纯人形机器人上市公司。&lt;/li&gt;
+&lt;li&gt;苹果据报正在削减内部 AI 使用的预算。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;一、Agent-的分发单位，正在从”库”变成”技能”&#34;&gt;&lt;a href=&#34;#一、Agent-的分发单位，正在从”库”变成”技能”&#34; class=&#34;headerlink&#34; title=&#34;一、Agent 的分发单位，正在从”库”变成”技能”&#34;&gt;&lt;/a&gt;一、Agent 的分发单位，正在从”库”变成”技能”&lt;/h3&gt;&lt;p&gt;把今天前七名排在一起看，会发现一个共同的形状：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 旧形态[&amp;quot;旧形态：库 / API&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        L1[开发者读文档] --&amp;gt; L2[写胶水代码] --&amp;gt; L3[接入自己的系统]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 新形态[&amp;quot;新形态：技能包 / Harness 插件&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        S1[Agent 读 SKILL.md] --&amp;gt; S2[按流程执行&amp;lt;br/&amp;gt;审 → 定向 → 改 → 验] --&amp;gt; S3[直接产出成品]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    旧形态 -.被替代.-&amp;gt; 新形态&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code&gt;unslop&lt;/code&gt;、&lt;code&gt;floorplan&lt;/code&gt;、&lt;code&gt;teardown&lt;/code&gt;、&lt;code&gt;skills&lt;/code&gt; 四个项目没有一个是运行时，全部是 &lt;strong&gt;Markdown + 少量脚本 + 参考资料&lt;/strong&gt;。它们不需要你 &lt;code&gt;npm install&lt;/code&gt;，只需要被 Agent 读到。这意味着：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;分发成本接近零&lt;/strong&gt;，一个仓库就是一次安装；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;质量取决于流程设计，不取决于代码量&lt;/strong&gt;，所以设计师、咨询顾问也能做”开发工具”；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;护城河变浅&lt;/strong&gt;，但组合价值变高——真正的差异在于”这套流程有没有被验证过”。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;而 &lt;code&gt;dsh-superagent&lt;/code&gt; 与 &lt;code&gt;agent-autoloop&lt;/code&gt; 代表另一半：&lt;strong&gt;Harness 本身在平台化&lt;/strong&gt;。Agent 不再是终端里的一个会话，而是一个监听事件、持有工作目录、能自己开 PR 的常驻进程。&lt;code&gt;dsh-Go&lt;/code&gt; 则把同一个 Harness 搬到手机上。&lt;strong&gt;框架、技能、外壳三层已经分层了&lt;/strong&gt;，这是生态成熟的信号。&lt;/p&gt;
+&lt;h3 id=&#34;二、两条曲线正在交叉：端侧小模型-vs-云端大账单&#34;&gt;&lt;a href=&#34;#二、两条曲线正在交叉：端侧小模型-vs-云端大账单&#34; class=&#34;headerlink&#34; title=&#34;二、两条曲线正在交叉：端侧小模型 vs. 云端大账单&#34;&gt;&lt;/a&gt;二、两条曲线正在交叉：端侧小模型 vs. 云端大账单&lt;/h3&gt;&lt;p&gt;今天的两条新闻放在一起非常有意思。一边是 Underdog 把语音模型压到 &lt;strong&gt;31.7MB&lt;/strong&gt;，浏览器里离线跑；另一边是 Ramp 的数据显示企业 AI 支出增速从 42% 掉到 1.5%。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[模型能力提升] --&amp;gt; B[单任务推理成本下降]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C[端侧小模型成熟&amp;lt;br/&amp;gt;31MB TTS / 167MB STT] --&amp;gt; D[高频低难任务&amp;lt;br/&amp;gt;迁移到本地]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; D&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[云端 token 用量结构变化&amp;lt;br/&amp;gt;只剩高难任务]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F[企业 AI 支出增速放缓&amp;lt;br/&amp;gt;1.5% vs 42%]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G&amp;#123;谁会受伤?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H[纯按 token 计费的&amp;lt;br/&amp;gt;通用模型厂商]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; I[提供工作流与结果的&amp;lt;br/&amp;gt;Agent 平台 / 垂直应用]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    I --&amp;gt; J[受益: 定价锚点&amp;lt;br/&amp;gt;从 token 转向任务]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;这条链的结论并不悲观，但很明确：&lt;strong&gt;当”够用的智能”变得极其便宜，卖 token 的生意就会先撞墙，卖结果的生意才有定价权。&lt;/strong&gt; Mika 那种”后台屏幕替我操作 App”的产品，卖的是”这件事被办成了”，不是”我调用了多少次模型”——定价模型天生更抗跌。&lt;/p&gt;
+&lt;p&gt;对个人开发者来说，可操作的判断有两条：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;别在通用能力上做产品&lt;/strong&gt;，去做”端侧 + 特定 App&amp;#x2F;流程”的组合，那里云端厂商下不来；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;把交付物从”接口”改成”结果”&lt;/strong&gt;，技能包这种分发形态恰好最适合这种转型。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;em&gt;今日榜单数据来自 GitHub Search API（github.com 主站当晚不可达），新闻来自 TechCrunch。star 数为抓取时刻总数。&lt;/em&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-05/</guid>
             <title>AI 日报 2026-11-05</title>
@@ -14354,8 +14533,8 @@
             <category>DevOps</category>
             <category>OpenSRE</category>
             <category>SRE</category>
-            <category>AI运维</category>
             <category>故障排查</category>
+            <category>AI运维</category>
             <category>根因分析</category>
             <pubDate>Mon, 11 May 2026 01:10:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;引言&#34;&gt;&lt;a href=&#34;#引言&#34; class=&#34;headerlink&#34; title=&#34;引言&#34;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;在&lt;a href=&#34;/2026/05/11/OpenSRE-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/&#34;&gt;上一篇文章&lt;/a&gt;中，我们介绍了 OpenSRE 的安装与基础用法。本文将深入探讨三个实战核心话题：&lt;strong&gt;如何高效使用 OpenSRE 进行生产故障排查&lt;/strong&gt;、&lt;strong&gt;使用过程中的关键注意事项&lt;/strong&gt;，以及&lt;strong&gt;如何理解和运用它生成的调查报告&lt;/strong&gt;。&lt;/p&gt;
@@ -30248,95 +30427,6 @@
  ]]></description>
         </item>
         <item>
-            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/String%E7%B1%BB/</guid>
-            <title>String类</title>
-            <link>https://scottalive.github.io/computer-science/java/javase/String%E7%B1%BB/</link>
-            <category>编程笔记</category>
-            <category>JavaSE</category>
-            <pubDate>Fri, 31 Mar 2023 09:37:00 +0800</pubDate>
-            <description><![CDATA[ &lt;h3 id=&#34;String类&#34;&gt;&lt;a href=&#34;#String类&#34; class=&#34;headerlink&#34; title=&#34;String类&#34;&gt;&lt;/a&gt;String类&lt;/h3&gt;&lt;p&gt;​		&lt;code&gt;String&lt;/code&gt;是&lt;code&gt;Java&lt;/code&gt;中非常常用的一个类，它代表了一个字符串对象。在&lt;code&gt;Java&lt;/code&gt;中，字符串是不可变的，也就是说，一旦一个字符串对象被创建，它的值就不能被改变。因此，每次对字符串进行修改，都会创建一个新的字符串对象。&lt;/p&gt;
-&lt;h3 id=&#34;String类为什么是不可变的？&#34;&gt;&lt;a href=&#34;#String类为什么是不可变的？&#34; class=&#34;headerlink&#34; title=&#34;String类为什么是不可变的？&#34;&gt;&lt;/a&gt;String类为什么是不可变的？&lt;/h3&gt;&lt;p&gt;​		String类的不可变特性指的是String实例的值一旦被创建就不能被修改。这意味着对一个String对象进行操作时，如果需要修改其值，实际上是创建了一个新的String对象，并将新对象的引用赋给原对象。这种特性有助于提高程序的性能和安全性。&lt;/p&gt;
-&lt;p&gt;​		从源码层面来看，String类中的不可变特性是通过使用final关键字和private修饰符来实现的。String类中的每个方法都不会修改原有的String对象，而是返回一个新的String对象，以保持原有的String对象的不可变性。&lt;/p&gt;
-&lt;p&gt;​		例如，String类中的&lt;code&gt;concat&lt;/code&gt;方法可以将两个字符串连接起来，返回一个新的String对象，而不会修改原有的字符串：&lt;/p&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;World&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str3&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str1.concat(str2); &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象，值为&amp;quot;HelloWorld&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;​		另外，String类还有一种常用的创建方式，即使用字符串字面值创建对象。这种方式在Java虚拟机中被优化，称为字符串常量池（String Pool）。当使用字符串字面值创建一个String对象时，Java虚拟机会首先在字符串常量池中查找是否已存在该值的字符串对象，如果存在则返回该对象的引用，否则创建一个新的String对象并加入字符串常量池。例如：&lt;/p&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象并加入字符串常量池&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;// 直接返回字符串常量池中的引用，与str1引用同一个对象&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str3&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;String&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象，不在字符串常量池中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;​		由于String的不可变特性和字符串常量池的存在，可以安全地共享字符串对象，从而提高程序的性能和安全性。&lt;/p&gt;
-&lt;h3 id=&#34;String类有很多实用的方法，例如：&#34;&gt;&lt;a href=&#34;#String类有很多实用的方法，例如：&#34; class=&#34;headerlink&#34; title=&#34;String类有很多实用的方法，例如：&#34;&gt;&lt;/a&gt;&lt;strong&gt;String类有很多实用的方法，例如：&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;length()&lt;/code&gt;：获取字符串的长度。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;charAt(int index)&lt;/code&gt;：获取指定索引位置的字符。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;substring(int beginIndex, int endIndex)&lt;/code&gt;：获取指定索引范围内的子字符串。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;concat(String str)&lt;/code&gt;：将指定字符串连接到此字符串的末尾。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;indexOf(String str)&lt;/code&gt;：返回指定子字符串第一次出现的索引。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;equals(Object anObject)&lt;/code&gt;：将此字符串与指定对象进行比较。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;toUpperCase()&lt;/code&gt;：将字符串中的所有字符转换为大写。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;toLowerCase()&lt;/code&gt;：将字符串中的所有字符转换为小写。&lt;/li&gt;
-&lt;li&gt;…&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;以下是String类的常用方法的例子：&lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;length()&lt;/code&gt;方法：获取字符串的长度。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.length(); &lt;span class=&#34;comment&#34;&gt;// length = 12&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;&lt;code&gt;charAt(int index)&lt;/code&gt;方法：获取指定位置的字符。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.charAt(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// c = &amp;#x27;e&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;&lt;code&gt;substring(int beginIndex, int endIndex)&lt;/code&gt;方法：获取指定位置范围内的子字符串。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;subStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.substring(&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// subStr = &amp;quot;Hello&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;&lt;code&gt;indexOf(String str)&lt;/code&gt;方法：获取指定字符串在该字符串中第一次出现的位置。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.indexOf(&lt;span class=&#34;string&#34;&gt;&amp;quot;World&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// index = 6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;&lt;code&gt;lastIndexOf(String str)&lt;/code&gt;方法：获取指定字符串在该字符串中最后一次出现的位置。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.lastIndexOf(&lt;span class=&#34;string&#34;&gt;&amp;quot;l&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// index = 9&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;6&#34;&gt;
-&lt;li&gt;&lt;code&gt;equals(Object obj)&lt;/code&gt;方法：比较字符串是否相等。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;isEqual&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str1.equals(str2); &lt;span class=&#34;comment&#34;&gt;// isEqual = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;7&#34;&gt;
-&lt;li&gt;&lt;code&gt;startsWith(String prefix)&lt;/code&gt;方法：判断字符串是否以指定字符串开头。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;startsWith&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.startsWith(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// startsWith = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;8&#34;&gt;
-&lt;li&gt;&lt;code&gt;endsWith(String suffix)&lt;/code&gt;方法：判断字符串是否以指定字符串结尾。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;endsWith&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.endsWith(&lt;span class=&#34;string&#34;&gt;&amp;quot;World!&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// endsWith = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;9&#34;&gt;
-&lt;li&gt;&lt;code&gt;replace(char oldChar, char newChar)&lt;/code&gt;方法：用指定字符替换字符串中的所有指定字符。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;newStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.replace(&lt;span class=&#34;string&#34;&gt;&amp;#x27;o&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;#x27;*&amp;#x27;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// newStr = &amp;quot;Hell* W*rld!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ol start=&#34;10&#34;&gt;
-&lt;li&gt;&lt;code&gt;toLowerCase()&lt;/code&gt;方法和&lt;code&gt;toUpperCase()&lt;/code&gt;方法：将字符串转换为小写或大写。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;lowerCaseStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.toLowerCase(); &lt;span class=&#34;comment&#34;&gt;// lowerCaseStr = &amp;quot;hello world!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;upperCaseStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.toUpperCase(); &lt;span class=&#34;comment&#34;&gt;// upperCaseStr = &amp;quot;HELLO WORLD!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;h3 id=&#34;String类其他特性&#34;&gt;&lt;a href=&#34;#String类其他特性&#34; class=&#34;headerlink&#34; title=&#34;String类其他特性&#34;&gt;&lt;/a&gt;String类其他特性&lt;/h3&gt;&lt;p&gt;​		&lt;code&gt;String&lt;/code&gt;类还支持字符串拼接操作。在&lt;code&gt;Java 5&lt;/code&gt;之前，通常使用字符串拼接操作符&lt;code&gt;+&lt;/code&gt;来实现字符串拼接，例如：&lt;/p&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt; + &lt;span class=&#34;string&#34;&gt;&amp;quot; &amp;quot;&lt;/span&gt; + &lt;span class=&#34;string&#34;&gt;&amp;quot;world!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;​		在&lt;code&gt;Java 5&lt;/code&gt;及之后的版本中，还引入了&lt;code&gt;StringBuilder&lt;/code&gt;和&lt;code&gt;StringBuffer&lt;/code&gt;两个类来优化字符串拼接操作。这两个类可以动态地添加、修改和删除字符串中的字符，并且能够避免频繁创建新的字符串对象。例如：&lt;/p&gt;
-&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;StringBuilder&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;sb&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;StringBuilder&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot; &amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot;world!&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; sb.toString();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;​		当需要在多线程环境下使用字符串拼接操作时，应该使用&lt;code&gt;StringBuffer&lt;/code&gt;类。如果在单线程环境下使用字符串拼接操作，或者需要更高的性能，应该使用&lt;code&gt;StringBuilder&lt;/code&gt;类。&lt;/p&gt;
-&lt;p&gt;​		总之，&lt;code&gt;String&lt;/code&gt;类是&lt;code&gt;Java&lt;/code&gt;中非常常用的一个类，它不仅支持字符串的基本操作，还提供了丰富的字符串处理方法，对于&lt;code&gt;Java&lt;/code&gt;程序开发来说是一个必不可少的类。&lt;/p&gt;
- ]]></description>
-        </item>
-        <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/%E6%97%A5%E6%9C%9F%E7%B1%BB/</guid>
             <title>日期类</title>
             <link>https://scottalive.github.io/computer-science/java/javase/%E6%97%A5%E6%9C%9F%E7%B1%BB/</link>
@@ -30614,6 +30704,95 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/String%E7%B1%BB/</guid>
+            <title>String类</title>
+            <link>https://scottalive.github.io/computer-science/java/javase/String%E7%B1%BB/</link>
+            <category>编程笔记</category>
+            <category>JavaSE</category>
+            <pubDate>Fri, 31 Mar 2023 09:37:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h3 id=&#34;String类&#34;&gt;&lt;a href=&#34;#String类&#34; class=&#34;headerlink&#34; title=&#34;String类&#34;&gt;&lt;/a&gt;String类&lt;/h3&gt;&lt;p&gt;​		&lt;code&gt;String&lt;/code&gt;是&lt;code&gt;Java&lt;/code&gt;中非常常用的一个类，它代表了一个字符串对象。在&lt;code&gt;Java&lt;/code&gt;中，字符串是不可变的，也就是说，一旦一个字符串对象被创建，它的值就不能被改变。因此，每次对字符串进行修改，都会创建一个新的字符串对象。&lt;/p&gt;
+&lt;h3 id=&#34;String类为什么是不可变的？&#34;&gt;&lt;a href=&#34;#String类为什么是不可变的？&#34; class=&#34;headerlink&#34; title=&#34;String类为什么是不可变的？&#34;&gt;&lt;/a&gt;String类为什么是不可变的？&lt;/h3&gt;&lt;p&gt;​		String类的不可变特性指的是String实例的值一旦被创建就不能被修改。这意味着对一个String对象进行操作时，如果需要修改其值，实际上是创建了一个新的String对象，并将新对象的引用赋给原对象。这种特性有助于提高程序的性能和安全性。&lt;/p&gt;
+&lt;p&gt;​		从源码层面来看，String类中的不可变特性是通过使用final关键字和private修饰符来实现的。String类中的每个方法都不会修改原有的String对象，而是返回一个新的String对象，以保持原有的String对象的不可变性。&lt;/p&gt;
+&lt;p&gt;​		例如，String类中的&lt;code&gt;concat&lt;/code&gt;方法可以将两个字符串连接起来，返回一个新的String对象，而不会修改原有的字符串：&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;World&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str3&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str1.concat(str2); &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象，值为&amp;quot;HelloWorld&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;​		另外，String类还有一种常用的创建方式，即使用字符串字面值创建对象。这种方式在Java虚拟机中被优化，称为字符串常量池（String Pool）。当使用字符串字面值创建一个String对象时，Java虚拟机会首先在字符串常量池中查找是否已存在该值的字符串对象，如果存在则返回该对象的引用，否则创建一个新的String对象并加入字符串常量池。例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象并加入字符串常量池&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;; &lt;span class=&#34;comment&#34;&gt;// 直接返回字符串常量池中的引用，与str1引用同一个对象&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str3&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;String&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// 创建新的String对象，不在字符串常量池中&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;​		由于String的不可变特性和字符串常量池的存在，可以安全地共享字符串对象，从而提高程序的性能和安全性。&lt;/p&gt;
+&lt;h3 id=&#34;String类有很多实用的方法，例如：&#34;&gt;&lt;a href=&#34;#String类有很多实用的方法，例如：&#34; class=&#34;headerlink&#34; title=&#34;String类有很多实用的方法，例如：&#34;&gt;&lt;/a&gt;&lt;strong&gt;String类有很多实用的方法，例如：&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;length()&lt;/code&gt;：获取字符串的长度。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;charAt(int index)&lt;/code&gt;：获取指定索引位置的字符。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;substring(int beginIndex, int endIndex)&lt;/code&gt;：获取指定索引范围内的子字符串。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;concat(String str)&lt;/code&gt;：将指定字符串连接到此字符串的末尾。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;indexOf(String str)&lt;/code&gt;：返回指定子字符串第一次出现的索引。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;equals(Object anObject)&lt;/code&gt;：将此字符串与指定对象进行比较。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;toUpperCase()&lt;/code&gt;：将字符串中的所有字符转换为大写。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;toLowerCase()&lt;/code&gt;：将字符串中的所有字符转换为小写。&lt;/li&gt;
+&lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;以下是String类的常用方法的例子：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;length()&lt;/code&gt;方法：获取字符串的长度。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.length(); &lt;span class=&#34;comment&#34;&gt;// length = 12&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;code&gt;charAt(int index)&lt;/code&gt;方法：获取指定位置的字符。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.charAt(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// c = &amp;#x27;e&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;substring(int beginIndex, int endIndex)&lt;/code&gt;方法：获取指定位置范围内的子字符串。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;subStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.substring(&lt;span class=&#34;number&#34;&gt;0&lt;/span&gt;, &lt;span class=&#34;number&#34;&gt;5&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// subStr = &amp;quot;Hello&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;&lt;code&gt;indexOf(String str)&lt;/code&gt;方法：获取指定字符串在该字符串中第一次出现的位置。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.indexOf(&lt;span class=&#34;string&#34;&gt;&amp;quot;World&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// index = 6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;&lt;code&gt;lastIndexOf(String str)&lt;/code&gt;方法：获取指定字符串在该字符串中最后一次出现的位置。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;index&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.lastIndexOf(&lt;span class=&#34;string&#34;&gt;&amp;quot;l&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// index = 9&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;&lt;code&gt;equals(Object obj)&lt;/code&gt;方法：比较字符串是否相等。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str1&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str2&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;isEqual&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str1.equals(str2); &lt;span class=&#34;comment&#34;&gt;// isEqual = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;&lt;code&gt;startsWith(String prefix)&lt;/code&gt;方法：判断字符串是否以指定字符串开头。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;startsWith&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.startsWith(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// startsWith = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;&lt;code&gt;endsWith(String suffix)&lt;/code&gt;方法：判断字符串是否以指定字符串结尾。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;endsWith&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.endsWith(&lt;span class=&#34;string&#34;&gt;&amp;quot;World!&amp;quot;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// endsWith = true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;&lt;code&gt;replace(char oldChar, char newChar)&lt;/code&gt;方法：用指定字符替换字符串中的所有指定字符。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;newStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.replace(&lt;span class=&#34;string&#34;&gt;&amp;#x27;o&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;#x27;*&amp;#x27;&lt;/span&gt;); &lt;span class=&#34;comment&#34;&gt;// newStr = &amp;quot;Hell* W*rld!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ol start=&#34;10&#34;&gt;
+&lt;li&gt;&lt;code&gt;toLowerCase()&lt;/code&gt;方法和&lt;code&gt;toUpperCase()&lt;/code&gt;方法：将字符串转换为小写或大写。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;lowerCaseStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.toLowerCase(); &lt;span class=&#34;comment&#34;&gt;// lowerCaseStr = &amp;quot;hello world!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;upperCaseStr&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; str.toUpperCase(); &lt;span class=&#34;comment&#34;&gt;// upperCaseStr = &amp;quot;HELLO WORLD!&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;String类其他特性&#34;&gt;&lt;a href=&#34;#String类其他特性&#34; class=&#34;headerlink&#34; title=&#34;String类其他特性&#34;&gt;&lt;/a&gt;String类其他特性&lt;/h3&gt;&lt;p&gt;​		&lt;code&gt;String&lt;/code&gt;类还支持字符串拼接操作。在&lt;code&gt;Java 5&lt;/code&gt;之前，通常使用字符串拼接操作符&lt;code&gt;+&lt;/code&gt;来实现字符串拼接，例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt; + &lt;span class=&#34;string&#34;&gt;&amp;quot; &amp;quot;&lt;/span&gt; + &lt;span class=&#34;string&#34;&gt;&amp;quot;world!&amp;quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;​		在&lt;code&gt;Java 5&lt;/code&gt;及之后的版本中，还引入了&lt;code&gt;StringBuilder&lt;/code&gt;和&lt;code&gt;StringBuffer&lt;/code&gt;两个类来优化字符串拼接操作。这两个类可以动态地添加、修改和删除字符串中的字符，并且能够避免频繁创建新的字符串对象。例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;StringBuilder&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;sb&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;StringBuilder&lt;/span&gt;();&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot;Hello&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot; &amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;sb.append(&lt;span class=&#34;string&#34;&gt;&amp;quot;world!&amp;quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;variable&#34;&gt;str&lt;/span&gt; &lt;span class=&#34;operator&#34;&gt;=&lt;/span&gt; sb.toString();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;​		当需要在多线程环境下使用字符串拼接操作时，应该使用&lt;code&gt;StringBuffer&lt;/code&gt;类。如果在单线程环境下使用字符串拼接操作，或者需要更高的性能，应该使用&lt;code&gt;StringBuilder&lt;/code&gt;类。&lt;/p&gt;
+&lt;p&gt;​		总之，&lt;code&gt;String&lt;/code&gt;类是&lt;code&gt;Java&lt;/code&gt;中非常常用的一个类，它不仅支持字符串的基本操作，还提供了丰富的字符串处理方法，对于&lt;code&gt;Java&lt;/code&gt;程序开发来说是一个必不可少的类。&lt;/p&gt;
  ]]></description>
         </item>
         <item>
