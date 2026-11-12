@@ -5,31 +5,40 @@
         <link>https://scottalive.github.io</link>
         <description>编程笔记 &amp; 资料分享</description>
         <language>zh-CN</language>
-        <pubDate>Wed, 11 Nov 2026 22:00:00 +0800</pubDate>
-        <lastBuildDate>Wed, 11 Nov 2026 22:00:00 +0800</lastBuildDate>
+        <pubDate>Thu, 12 Nov 2026 22:00:00 +0800</pubDate>
+        <lastBuildDate>Thu, 12 Nov 2026 22:00:00 +0800</lastBuildDate>
         <category>AI日报</category>
         <category>AI</category>
         <category>GitHub热门</category>
         <category>人工智能</category>
         <category>技术趋势</category>
+        <category>心理学知识</category>
+        <category>坏习惯</category>
+        <category>个人分享</category>
         <category>原则</category>
         <category>个人详情</category>
-        <category>个人分享</category>
-        <category>坏习惯</category>
         <category>Kubernetes</category>
         <category>k8s</category>
+        <category>容器编排</category>
+        <category>DevOps</category>
+        <category>运维</category>
+        <category>网络安全</category>
+        <category>SQL注入</category>
+        <category>XSS</category>
+        <category>CSRF</category>
+        <category>DDoS</category>
+        <category>渗透测试</category>
         <category>kubeconfig</category>
         <category>kubectl</category>
         <category>Context</category>
-        <category>DevOps</category>
-        <category>容器编排</category>
-        <category>运维</category>
+        <category>Helm</category>
+        <category>学习计划</category>
         <category>OpenSRE</category>
         <category>Grafana</category>
         <category>SRE</category>
         <category>可观测性</category>
-        <category>Helm</category>
-        <category>学习计划</category>
+        <category>阿德勒心理学</category>
+        <category>自卑与超越</category>
         <category>GPT-5.5</category>
         <category>OpenAI</category>
         <category>Codex</category>
@@ -42,59 +51,121 @@
         <category>MCP</category>
         <category>自动化</category>
         <category>编程笔记</category>
+        <category>Hermes</category>
+        <category>v0.17</category>
+        <category>NousResearch</category>
         <category>编程助手</category>
+        <category>高阶</category>
+        <category>进阶</category>
+        <category>配置</category>
         <category>DeepSeek</category>
         <category>Harness</category>
         <category>插件</category>
         <category>安装教程</category>
-        <category>Hermes</category>
-        <category>v0.17</category>
-        <category>NousResearch</category>
+        <category>LangChain</category>
+        <category>LangGraph</category>
+        <category>Python</category>
+        <category>LLM</category>
         <category>v0.20</category>
         <category>语音交互</category>
         <category>A2A</category>
         <category>Webhook</category>
-        <category>进阶</category>
-        <category>配置</category>
-        <category>高阶</category>
-        <category>LLM</category>
-        <category>RAG</category>
-        <category>知识库</category>
-        <category>LangChain</category>
-        <category>LangGraph</category>
-        <category>Python</category>
         <category>工作流</category>
-        <category>OpenClaw</category>
-        <category>网关</category>
-        <category>故障排查</category>
-        <category>AI运维</category>
-        <category>根因分析</category>
         <category>SSE</category>
         <category>HTTP</category>
         <category>WorkBuddy</category>
         <category>腾讯</category>
         <category>办公自动化</category>
         <category>AI工具</category>
-        <category>网络安全</category>
-        <category>SQL注入</category>
-        <category>XSS</category>
-        <category>CSRF</category>
-        <category>DDoS</category>
-        <category>渗透测试</category>
-        <category>心理学知识</category>
-        <category>阿德勒心理学</category>
-        <category>自卑与超越</category>
+        <category>OpenClaw</category>
+        <category>网关</category>
+        <category>AI运维</category>
+        <category>故障排查</category>
+        <category>根因分析</category>
         <category>力扣算法题</category>
+        <category>RAG</category>
+        <category>知识库</category>
         <category>算法</category>
         <category>动态规划</category>
         <category>JavaSE</category>
         <category>Java开发面试题</category>
         <category>SpringBoot</category>
         <category>Spring</category>
-        <category>微服务</category>
         <category>接口开发</category>
         <category>开发注意事项</category>
+        <category>微服务</category>
         <category>python</category>
+        <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-12/</guid>
+            <title>AI 日报 2026-11-12</title>
+            <link>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-12/</link>
+            <category>AI日报</category>
+            <category>AI</category>
+            <category>GitHub热门</category>
+            <category>人工智能</category>
+            <category>技术趋势</category>
+            <pubDate>Thu, 12 Nov 2026 22:00:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;今天 GitHub 榜单的主线只有一条：&lt;strong&gt;agent 生成的代码，开始被当成需要审计的产物&lt;/strong&gt;。OpenAI 开源了 &lt;code&gt;codex-security&lt;/code&gt;，把”找漏洞—验证—打补丁—定责”做成一条能进 CI 的流水线，单日涨 663 星；CopilotKit 的 OpenBot 给每个 AI 同事配一台”自己的电脑”，动作前判定、动作后留痕，涨 291 星。另一边，The Verge 报道安全公司 Claroc 发现约 3.5 万个用 Grok 的 vibe-coding 功能做出来的应用可被任意人凭链接打开，其中 24 个来自 SpaceXSI 员工，包含”机密入职计划”。生成能力早就过剩，&lt;strong&gt;让生成物可追溯、可复核、可归责&lt;/strong&gt;，才是这两天的真实进展。&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;1-openai-codex-security-——-把安全审计做成可编排的扫描器&#34;&gt;&lt;a href=&#34;#1-openai-codex-security-——-把安全审计做成可编排的扫描器&#34; class=&#34;headerlink&#34; title=&#34;1. openai&amp;#x2F;codex-security —— 把安全审计做成可编排的扫描器&#34;&gt;&lt;/a&gt;1. openai&amp;#x2F;codex-security —— 把安全审计做成可编排的扫描器&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;12,126 stars · +663 today · TypeScript · npm &lt;code&gt;@openai/codex-security&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这是今天最值得读的一个仓库。它不是一个”AI 帮你看看代码有没有洞”的聊天壳，而是三件套：Codex 内的安全 workflow、终端 CLI（&lt;code&gt;cs&lt;/code&gt;）、TypeScript SDK，外加一个 GitHub Action。&lt;/p&gt;
+&lt;p&gt;装上就能跑：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install --global @openai/codex-security&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cs login&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cs scan .                          &lt;span class=&#34;comment&#34;&gt;# 全仓库&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cs scan . --path src --path tests  &lt;span class=&#34;comment&#34;&gt;# 指定目录&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cs scan . --diff origin/main       &lt;span class=&#34;comment&#34;&gt;# 只看这次改动&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cs scan . --mode deep              &lt;span class=&#34;comment&#34;&gt;# 深度扫描&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;cs scan . --max-time 15            &lt;span class=&#34;comment&#34;&gt;# 给 15 分钟调查预算&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code&gt;--max-time&lt;/code&gt; 这个参数暴露了它的真实设计取向：&lt;strong&gt;扫描是一次有预算的调查，不是一次全量穷举&lt;/strong&gt;。深度扫描会重跑标准扫描并对发现去重，而不是另起一套逻辑。&lt;/p&gt;
+&lt;p&gt;它的输出同样不是一段”看起来很有道理”的散文，而是一份带源码证据和”覆盖边界”（exclusions）的 Markdown 报告——哪些地方没扫、为什么没扫，写清楚。这一点比多找两个漏洞更值钱：安全报告最大的问题是”看起来全覆盖”，而它主动承认盲区。&lt;/p&gt;
+&lt;p&gt;再往后是修复与流转：验证候选发现、生成补丁、验证修复是否真的生效、按你自己的评级标准（rubric）判严重度、从源码和 Git 历史里推断该由谁负责，最后推到 Linear &amp;#x2F; Jira &amp;#x2F; GitHub，或导出 SARIF &amp;#x2F; JSON &amp;#x2F; CSV。第三方扫描器的结果也能导入预览。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[cs scan .] --&amp;gt; B&amp;#123;扫描范围&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|全仓库 / --path / --diff| C[候选发现]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|--mode deep| C&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[验证候选&amp;lt;br/&amp;gt;源码证据 + 覆盖边界]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E&amp;#123;有效?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt;|否| F[写入排除项&amp;lt;br/&amp;gt;报告里说明为何不报]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt;|是| G[生成补丁]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H[验证修复]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; I[按自有 rubric 定严重度]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    I --&amp;gt; J[从 Git 历史推荐 owner]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    J --&amp;gt; K[Linear / Jira / GitHub]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    K --&amp;gt; L[SARIF / JSON / CSV]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;对团队的实际意义：&lt;/strong&gt; 过去”AI 代码审计”的瓶颈是误报——没人愿意处理一份 200 条、其中 190 条是噪音的报告。这个项目把重心从”发现”移到”验证”和”归属”：发现交给模型，验证要证据，归属交给 Git 历史。这三步里，只有第一步是模型能力，后两步是工程。它同时说明了一件事：安全工具要进企业，&lt;strong&gt;输出格式比模型智商更关键&lt;/strong&gt;——SARIF 能进现有流水线，CSV 能进表格，Jira 能进排期，缺一个就落不了地。&lt;/p&gt;
+&lt;p&gt;环境要求：Node.js 22.13+（22.x）或 24.x &amp;#x2F; 26.x，Python 3.10+。部分高危安全请求需要 Trusted Access for Cyber 权限。&lt;/p&gt;
+&lt;h3 id=&#34;2-CopilotKit-OpenBot-——-每个-AI-同事一台自己的电脑&#34;&gt;&lt;a href=&#34;#2-CopilotKit-OpenBot-——-每个-AI-同事一台自己的电脑&#34; class=&#34;headerlink&#34; title=&#34;2. CopilotKit&amp;#x2F;OpenBot —— 每个 AI 同事一台自己的电脑&#34;&gt;&lt;/a&gt;2. CopilotKit&amp;#x2F;OpenBot —— 每个 AI 同事一台自己的电脑&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;11,275 stars · +291 today · TypeScript · MIT 模板&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;CopilotKit 是 AG-UI 协议的作者，OpenBot 是他们的”AI 同事工作台”：每个 Bot 分到一台独立环境——浏览器、文件、工具，&lt;strong&gt;动作前先判定，动作后记录下来&lt;/strong&gt;。自带桌面端（macOS 签名 dmg、Windows 签名安装包），也可以 Kubernetes 自托管，模型随你换：OpenAI、Claude、Gemini，或任何 OpenAI 兼容端点上的开源模型。&lt;/p&gt;
+&lt;p&gt;真正有意思的是它的分层：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;隔离&lt;/strong&gt;：agent 不直接碰你的桌面，它有自己的浏览器和文件系统。这既防误操作，也让”它到底看到了什么”变得可复现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;审批&lt;/strong&gt;：发消息、提交表单这类不可逆动作，等人工点头才执行。README 的演示视频里，Bot 会停下来等批准。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;留痕&lt;/strong&gt;：所有动作有记录，企业版叠加公司登录、角色、工具权限和审计。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;架构上它把 AG-UI 当”agent 插座”：Anthropic 的 Claude Agent SDK、Microsoft Agent Framework、Google ADK、AWS Strands、LangChain、Mastra、Pydantic AI、Agno、CrewAI 都能接进来，不同技术栈的 agent 可以共处一个工作区。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;为什么值得关注：&lt;/strong&gt; 大多数”AI 员工”产品把治理写在提示词里——“请不要删除文件”。OpenBot 把它写进运行时：权限在工具层，审批在动作层，审计在记录层。提示词会被越狱，运行时不会。&lt;/p&gt;
+&lt;h3 id=&#34;3-QwenLM-qwen-code-——-终端里的开源编码-agent&#34;&gt;&lt;a href=&#34;#3-QwenLM-qwen-code-——-终端里的开源编码-agent&#34; class=&#34;headerlink&#34; title=&#34;3. QwenLM&amp;#x2F;qwen-code —— 终端里的开源编码 agent&#34;&gt;&lt;/a&gt;3. QwenLM&amp;#x2F;qwen-code —— 终端里的开源编码 agent&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;29,595 stars · 3,387 forks · +151 today · TypeScript&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;阿里 Qwen 团队的终端编码 agent，定位和 Claude Code、Codex CLI 正面重合：在 shell 里读写仓库、跑命令、改代码。&lt;/p&gt;
+&lt;p&gt;它今天的增长不算爆炸，但 3,387 个 fork 很说明问题——这类工具的真实用法不是”装一个用”，而是”fork 一份改成自己团队的”：换模型端点、加内部工具、改审批策略。&lt;strong&gt;终端 agent 正在从产品变成模板。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这也解释了为什么今天榜单上同时出现 &lt;code&gt;free-claude-code&lt;/code&gt; 这种”多 harness 聚合器”：当 harness 本身不再稀缺，价值就往上移到模型与往下移到集成。&lt;/p&gt;
+&lt;h3 id=&#34;4-ashhart-TensorFold-——-用-Zig-写一个跨-Metal-CUDA-Vulkan-的推理引擎&#34;&gt;&lt;a href=&#34;#4-ashhart-TensorFold-——-用-Zig-写一个跨-Metal-CUDA-Vulkan-的推理引擎&#34; class=&#34;headerlink&#34; title=&#34;4. ashhart&amp;#x2F;TensorFold —— 用 Zig 写一个跨 Metal &amp;#x2F; CUDA &amp;#x2F; Vulkan 的推理引擎&#34;&gt;&lt;/a&gt;4. ashhart&amp;#x2F;TensorFold —— 用 Zig 写一个跨 Metal &amp;#x2F; CUDA &amp;#x2F; Vulkan 的推理引擎&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;1,849 stars · 389 forks · +58 today · Zig&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;LLM 推理引擎，一套代码跑 Metal（Apple）、CUDA（NVIDIA）、Vulkan（几乎其余所有 GPU）。用 Zig 写，编译期做后端分派，没有 C++ 模板地狱，也没有 Python 运行时。&lt;/p&gt;
+&lt;p&gt;单日 58 星不算热，但方向值得记一笔：&lt;strong&gt;推理的瓶颈正在从”算力”变成”可移植性”&lt;/strong&gt;。 llama.cpp 已经证明了”一套 C&amp;#x2F;C++ 跑遍所有设备”的价值，TensorFold 想做的是同一件事，但把 Vulkan 摆到一等公民的位置——这意味着 Android、Windows 集显、国产 GPU 都在射程内。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    M[模型图 / 权重] --&amp;gt; G[Zig 编译期分派]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; CUDA[CUDA 后端]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; METAL[Metal 后端]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; VK[Vulkan 后端]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    CUDA --&amp;gt; R[统一张量运行时]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    METAL --&amp;gt; R&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    VK --&amp;gt; R&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    R --&amp;gt; O[token 输出]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;对普通开发者的意义：端侧推理的竞争，接下来比的不是谁的 kernel 快 5%，而是&lt;strong&gt;同一个模型能在多少种设备上以可接受的延迟跑起来&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;5-Alishahryar1-free-claude-code-——-“13-亿免费-token”的另一面&#34;&gt;&lt;a href=&#34;#5-Alishahryar1-free-claude-code-——-“13-亿免费-token”的另一面&#34; class=&#34;headerlink&#34; title=&#34;5. Alishahryar1&amp;#x2F;free-claude-code —— “13 亿免费 token”的另一面&#34;&gt;&lt;/a&gt;5. Alishahryar1&amp;#x2F;free-claude-code —— “13 亿免费 token”的另一面&lt;/h3&gt;&lt;p&gt;这个项目声称可以免费使用 Claude Code、Codex、Antigravity、VSCode、Pi、OpenCode 等十来个 harness，并支持浏览器原生会话与语音，自称”ToS friendly”。&lt;/p&gt;
+&lt;p&gt;技术上它是个多 harness + 多模型的统一入口，体验上确实省事。但”1.3B+ free tokens”这句话本身就值得警惕：免费额度从哪来？如果是官方试用额度轮换、共享账号或逆向接口，那么账号封禁、数据留存、供应链投毒都是现实风险。&lt;strong&gt;当一个工具的核心卖点是”绕过计费”，它就不该被放进有生产凭证的环境里。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;把它和今天的 &lt;code&gt;codex-security&lt;/code&gt;、OpenBot 放在一起看，反差很清楚：一边在给 agent 加锁，一边在给 agent 找后门。两边都会有人用，但只有一边能进企业。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;补充：昨天写过的 &lt;code&gt;meta/astryx&lt;/code&gt;（26,031 stars，+1,789 today）仍在榜上，”为人和 agent 一起构建”的设计系统这条线还在延续，今天不重复展开。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Gmail「Help me write」向全部 Workspace 用户开放&lt;/strong&gt;：Google 宣布未来两周内向 18 岁以上的所有 Workspace 用户推送该功能，同时把 AI Overview 的会话摘要扩展到”提炼要点与回复”。办公场景的 AI 正在从”可选项”变成默认层。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OpenBot 提供开箱即用的桌面端&lt;/strong&gt;：macOS（Apple silicon &amp;#x2F; Intel）与 Windows x64 均为签名安装包，不需要终端和开发环境；企业版另提供 SSO、工具权限、审批与审计。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;codex-security 可直接以 GitHub Action 形式接入 CI&lt;/strong&gt;：设置 &lt;code&gt;OPENAI_API_KEY&lt;/code&gt; 或 &lt;code&gt;CODEX_API_KEY&lt;/code&gt; 即可在流水线里跑扫描，支持容器与无头机器。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Nvidia 的权力交接传闻。&lt;/strong&gt; 《纽约时报》报道称 Jensen Huang 存在第二段婚外关系，对象是向他汇报的高管；随后《华尔街日报》报道 Nvidia 董事会”正准备罢免”这位 CEO。Semafor 列出的接任人选包括苹果硬件负责人 Johny Srouji（部分董事更倾向 CFO Colette Kress）。Huang 本人对记者的回应是”我觉得你不该直接跟我谈”，随即挂断。AOC 在 TMZ 的采访里把话题引向”为什么我们的经济依赖五个穿礼服的男人管住自己的裤子”。&lt;/p&gt;
+&lt;p&gt;这条新闻的分量不在八卦，而在于&lt;strong&gt;全球 AI 算力供给的单一决策点风险&lt;/strong&gt;：一家公司的 CEO 变动，足以让整条 GPU 供应链的交付预期重定价。它也顺带展示了一个新现象——Huang 那些”穿着 Saint Laurent 夹克”的病毒式照片被 Vanity Fair 证实是带 SynthID 标记的 AI 伪造图。&lt;strong&gt;高管形象已经进入”需要内容凭证”的时代。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Grok 的 vibe-coding 应用泄露用户数据。&lt;/strong&gt; 安全公司 Claroc 称发现约 35,000 个用该功能生成的应用可被任何拿到链接的人打开，其中 24 个由 SpaceXSI 员工创建，内容包括广告方案和一份”机密入职计划”。Grok 回应称 Ars Technica 的报道”不准确”，指出问题出在 grok.com 的 app builder 而非 Grok Build，并强调发布前有共享设置提示。&lt;/p&gt;
+&lt;p&gt;无论归属如何，失败模式是清晰的：&lt;strong&gt;默认公开的链接分享 + 没有审查的生成式发布 &amp;#x3D; 批量数据泄露&lt;/strong&gt;。这正好解释了为什么今天 &lt;code&gt;codex-security&lt;/code&gt; 这类工具会涨——不是大家突然爱安全了，而是事故开始有名字了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;数据中心开始变成选举议题。&lt;/strong&gt; 中期选举中，”限制数据中心”成为多个选区的共同议题，除一项公投外，选民普遍支持设限；此前推动限制的团体正在准备监督新当选官员兑现承诺。算力扩张的社会成本，正在从”选址纠纷”升级为”政治承诺”。&lt;/p&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;洞见一：agent-的交付物正在从”代码”变成”证据链”&#34;&gt;&lt;a href=&#34;#洞见一：agent-的交付物正在从”代码”变成”证据链”&#34; class=&#34;headerlink&#34; title=&#34;洞见一：agent 的交付物正在从”代码”变成”证据链”&#34;&gt;&lt;/a&gt;洞见一：agent 的交付物正在从”代码”变成”证据链”&lt;/h3&gt;&lt;p&gt;过去两年，AI 编码工具的竞赛指标是”一次通过率”。今天的榜单给出了另一个指标：&lt;strong&gt;你的产出能不能被第三方复核。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;codex-security&lt;/code&gt; 的报告里带源码证据和覆盖边界，&lt;code&gt;shadcn/improve&lt;/code&gt;（昨天的项目）把计划写成 markdown 供别的模型执行，OpenBot 把每个动作记成可回放的记录。三者形式不同，指向一致：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[生成] --&amp;gt; B[自证&amp;lt;br/&amp;gt;证据 / 覆盖范围 / 理由]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[他证&amp;lt;br/&amp;gt;另一个模型或人复核]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[归属&amp;lt;br/&amp;gt;谁引入、谁修复]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[可流转&amp;lt;br/&amp;gt;SARIF / Issue / PR]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E -.-&amp;gt;|下次生成复用| A&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;这条链缺任何一环，AI 产出就进不了需要问责的组织。企业的采购逻辑其实很朴素：不是”你的模型多聪明”，而是”出错时我能不能定位到哪一步、由谁负责、怎么回滚”。&lt;/p&gt;
+&lt;h3 id=&#34;洞见二：agent-运行时的三件套——隔离、审批、留痕&#34;&gt;&lt;a href=&#34;#洞见二：agent-运行时的三件套——隔离、审批、留痕&#34; class=&#34;headerlink&#34; title=&#34;洞见二：agent 运行时的三件套——隔离、审批、留痕&#34;&gt;&lt;/a&gt;洞见二：agent 运行时的三件套——隔离、审批、留痕&lt;/h3&gt;&lt;p&gt;OpenBot 的架构值得抄作业：每个 agent 一台独立环境（隔离），不可逆动作前要人点头（审批），全部动作有记录（留痕）。这三件事都不是模型能力，而是&lt;strong&gt;运行时设计&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;对比今天另外两个项目就很清楚：&lt;code&gt;free-claude-code&lt;/code&gt; 把”绕过计费”当卖点，等于把凭证风险引进开发机；Grok 的泄露事故则说明，只要”发布”这个动作没有审批和留痕，生成速度越快，事故规模越大。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;结论：&lt;/strong&gt; 2026 年下半年，AI 工具的差异化不在生成质量，而在&lt;strong&gt;约束的质量&lt;/strong&gt;——你的 agent 能做什么、不能做什么、做错了怎么查。谁把这三件事做进架构，谁就能进生产环境；谁只做在提示词里，谁就只能停在 demo。&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-11/</guid>
             <title>AI 日报 2026-11-11</title>
@@ -5517,10 +5588,10 @@
             <link>https://scottalive.github.io/computer-science/ai-tools/LangGraph-1.2-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
             <category>AI</category>
             <category>Agent</category>
-            <category>LLM</category>
             <category>LangChain</category>
             <category>LangGraph</category>
             <category>Python</category>
+            <category>LLM</category>
             <category>工作流</category>
             <pubDate>Sat, 12 Sep 2026 02:30:00 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;img src=&#34;/images/langgraph/og-image.png&#34;&gt;&lt;/p&gt;
@@ -7037,10 +7108,10 @@
             <category>AI</category>
             <category>开发工具</category>
             <category>Agent</category>
-            <category>LLM</category>
             <category>LangChain</category>
             <category>LangGraph</category>
             <category>Python</category>
+            <category>LLM</category>
             <pubDate>Wed, 26 Aug 2026 01:30:00 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;img src=&#34;/images/langchain/og-image.png&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -13187,10 +13258,10 @@
             <link>https://scottalive.github.io/computer-science/devops/k8s-context-switch/</link>
             <category>Kubernetes</category>
             <category>k8s</category>
+            <category>DevOps</category>
             <category>kubeconfig</category>
             <category>kubectl</category>
             <category>Context</category>
-            <category>DevOps</category>
             <pubDate>Wed, 20 May 2026 16:30:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;单机内-K8S-集群环境切换指南&#34;&gt;&lt;a href=&#34;#单机内-K8S-集群环境切换指南&#34; class=&#34;headerlink&#34; title=&#34;单机内 K8S 集群环境切换指南&#34;&gt;&lt;/a&gt;单机内 K8S 集群环境切换指南&lt;/h1&gt;&lt;p&gt;在实际开发运维中，很少有人只用一个 K8S 集群。本地有 Minikube 或 Kind 的测试集群，公司有开发、预发、生产等多套环境，还可能涉及公有云托管的 K8S（如 TKE、ACK、EKS）。&lt;strong&gt;如何在一台机器上优雅地管理多个集群环境，并在它们之间快速切换？&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;本文从 &lt;strong&gt;kubeconfig&lt;/strong&gt; 的底层结构出发，覆盖多集群配置、Context 切换、文件合并、安全认证等全流程，让你在单机环境中像「切换频道」一样切换 K8S 集群。&lt;/p&gt;
@@ -13790,8 +13861,8 @@
             <link>https://scottalive.github.io/computer-science/devops/k8s-command-guide/</link>
             <category>Kubernetes</category>
             <category>k8s</category>
-            <category>DevOps</category>
             <category>容器编排</category>
+            <category>DevOps</category>
             <category>运维</category>
             <pubDate>Sat, 16 May 2026 10:03:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;Kubernetes-使用指南-—-各类场景命令全解&#34;&gt;&lt;a href=&#34;#Kubernetes-使用指南-—-各类场景命令全解&#34; class=&#34;headerlink&#34; title=&#34;Kubernetes 使用指南 — 各类场景命令全解&#34;&gt;&lt;/a&gt;Kubernetes 使用指南 — 各类场景命令全解&lt;/h1&gt;&lt;p&gt;Kubernetes（简称 K8s）是当前业界标准的容器编排平台。无论你是刚入门的学习者，还是日常运维的一线工程师，掌握 &lt;strong&gt;kubectl&lt;/strong&gt; 的核心命令都至关重要。&lt;/p&gt;
@@ -14756,8 +14827,8 @@
             <category>DevOps</category>
             <category>OpenSRE</category>
             <category>SRE</category>
-            <category>故障排查</category>
             <category>AI运维</category>
+            <category>故障排查</category>
             <category>根因分析</category>
             <pubDate>Mon, 11 May 2026 01:10:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;引言&#34;&gt;&lt;a href=&#34;#引言&#34; class=&#34;headerlink&#34; title=&#34;引言&#34;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;在&lt;a href=&#34;/2026/05/11/OpenSRE-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/&#34;&gt;上一篇文章&lt;/a&gt;中，我们介绍了 OpenSRE 的安装与基础用法。本文将深入探讨三个实战核心话题：&lt;strong&gt;如何高效使用 OpenSRE 进行生产故障排查&lt;/strong&gt;、&lt;strong&gt;使用过程中的关键注意事项&lt;/strong&gt;，以及&lt;strong&gt;如何理解和运用它生成的调查报告&lt;/strong&gt;。&lt;/p&gt;
@@ -30995,6 +31066,15 @@
  ]]></description>
         </item>
         <item>
+            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
+            <title>Java8新特性</title>
+            <link>https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</link>
+            <category>编程笔记</category>
+            <category>JavaSE</category>
+            <pubDate>Thu, 30 Mar 2023 11:43:30 +0800</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;Java8新特性&#34;&gt;&lt;a href=&#34;#Java8新特性&#34; class=&#34;headerlink&#34; title=&#34;Java8新特性&#34;&gt;&lt;/a&gt;Java8新特性&lt;/h2&gt; ]]></description>
+        </item>
+        <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/</guid>
             <title>Java发展历程</title>
             <link>https://scottalive.github.io/computer-science/java/javase/Java%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B/</link>
@@ -31203,15 +31283,6 @@
 &lt;h3 id=&#34;Java-Version-SE-10-0&#34;&gt;&lt;a href=&#34;#Java-Version-SE-10-0&#34; class=&#34;headerlink&#34; title=&#34;Java Version SE 10.0&#34;&gt;&lt;/a&gt;Java Version SE 10.0&lt;/h3&gt;&lt;p&gt;​		本地变量类型推断，可以使用本地变量的初始化去推荐对应变量的类型。提升了并行垃圾收集器G1的性能，降低了收集延时。应用优化了启动时刻的数据共享，已经存在的类更好的共享。一个试用的即时编译器Grral，只支持linux x64平台能够感知到docker的存在，如果运行在linux平台，可以感知到是否运行在 docker容器中,可以查询到操作系统给容器分配的cpu和内存等等物理资源信息.&lt;br&gt;修复从主机Java线程连接到容器内Java线程的一个问题。更短的jShell REPL tool启动时间.提供了新接口，可以获取可变化的集合类，copyOf,Set.copyOf, 和Map.copyOf等方法创建一个新的集合对象，toUnmodifiableList, toUnmodifiableSet, 和toUnmodifiableMap获取不可修改对象，让Stream操作可以获取到不可变对象。&lt;br&gt;​		本地变量类型推断。可以减少类型的生命，同时也保证了static类型的安全性。提供一个垃圾收集的接口去提供各个垃圾收集器隔离的能力，这样可以让内置的垃圾收集器正常运行，同时可以更容易向hotspot添加新的垃圾收集器。改进的并行的垃圾收集器G1,可以有效降低延迟。让hotspot支持寻找可用的任何内存，例如 NVDIMM存储模块，用户可以去指定它，这也是为未来的异构内存提供支持。在Linux&amp;#x2F;x64平台提供一个实验性的即时编译器。让jdk使用单一仓库管理，现在分离在不同的仓库，这样给源码管理带来了一些困难。提升了内存的共享，减少了应用的启动时间。本地线程握手，可以在虚拟机的全局安全点暂停而不用等待其他的任何线程。为openJDK提供Oracle根认证，这样可以吸引更多的开发者使用openJDK。&lt;/p&gt;
 &lt;p&gt;原文链接：&lt;a href=&#34;https://blog.csdn.net/ghscarecrow/article/details/82318636&#34;&gt;https://blog.csdn.net/ghscarecrow/article/details/82318636&lt;/a&gt;&lt;/p&gt;
  ]]></description>
-        </item>
-        <item>
-            <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</guid>
-            <title>Java8新特性</title>
-            <link>https://scottalive.github.io/computer-science/java/javase/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</link>
-            <category>编程笔记</category>
-            <category>JavaSE</category>
-            <pubDate>Thu, 30 Mar 2023 11:43:30 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;Java8新特性&#34;&gt;&lt;a href=&#34;#Java8新特性&#34; class=&#34;headerlink&#34; title=&#34;Java8新特性&#34;&gt;&lt;/a&gt;Java8新特性&lt;/h2&gt; ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/java/javase/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</guid>
