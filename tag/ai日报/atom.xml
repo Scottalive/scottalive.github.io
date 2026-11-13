@@ -3,27 +3,27 @@
     <id>https://scottalive.github.io</id>
     <title>沉鱼的博�? • Posts by &#34;ai日报&#34; tag</title>
     <link href="https://scottalive.github.io" />
-    <updated>2026-11-12T14:00:00.000Z</updated>
+    <updated>2026-11-13T14:00:00.000Z</updated>
+    <category term="原则" />
+    <category term="个人详情" />
+    <category term="个人分享" />
+    <category term="坏习惯" />
+    <category term="心理学知识" />
+    <category term="阿德勒心理学" />
+    <category term="自卑与超越" />
     <category term="AI日报" />
     <category term="AI" />
     <category term="GitHub热门" />
     <category term="人工智能" />
     <category term="技术趋势" />
-    <category term="原则" />
-    <category term="个人详情" />
-    <category term="个人分享" />
-    <category term="心理学知识" />
-    <category term="阿德勒心理学" />
-    <category term="自卑与超越" />
-    <category term="坏习惯" />
     <category term="Kubernetes" />
     <category term="k8s" />
+    <category term="容器编排" />
+    <category term="DevOps" />
+    <category term="运维" />
     <category term="kubeconfig" />
     <category term="kubectl" />
     <category term="Context" />
-    <category term="DevOps" />
-    <category term="容器编排" />
-    <category term="运维" />
     <category term="Helm" />
     <category term="学习计划" />
     <category term="OpenSRE" />
@@ -39,15 +39,15 @@
     <category term="GPT-5.5" />
     <category term="OpenAI" />
     <category term="Codex" />
-    <category term="Claude" />
     <category term="ClaudeCode" />
+    <category term="Gemini" />
+    <category term="开发工具" />
+    <category term="开源" />
+    <category term="Claude" />
     <category term="Agent" />
     <category term="MCP" />
     <category term="自动化" />
-    <category term="开发工具" />
     <category term="编程笔记" />
-    <category term="Gemini" />
-    <category term="开源" />
     <category term="DeepSeek" />
     <category term="Harness" />
     <category term="插件" />
@@ -55,43 +55,137 @@
     <category term="编程助手" />
     <category term="Hermes" />
     <category term="v0.17" />
+    <category term="NousResearch" />
     <category term="v0.20" />
     <category term="语音交互" />
     <category term="A2A" />
     <category term="Webhook" />
-    <category term="NousResearch" />
-    <category term="进阶" />
-    <category term="配置" />
     <category term="高阶" />
     <category term="LLM" />
     <category term="RAG" />
     <category term="知识库" />
+    <category term="进阶" />
+    <category term="配置" />
     <category term="LangChain" />
     <category term="LangGraph" />
     <category term="Python" />
     <category term="工作流" />
     <category term="OpenClaw" />
     <category term="网关" />
-    <category term="故障排查" />
     <category term="AI运维" />
+    <category term="故障排查" />
     <category term="根因分析" />
     <category term="SSE" />
     <category term="HTTP" />
-    <category term="力扣算法题" />
+    <category term="JavaSE" />
+    <category term="Java开发面试题" />
     <category term="WorkBuddy" />
     <category term="腾讯" />
     <category term="办公自动化" />
     <category term="AI工具" />
-    <category term="算法" />
-    <category term="动态规划" />
-    <category term="JavaSE" />
-    <category term="Java开发面试题" />
     <category term="SpringBoot" />
     <category term="Spring" />
     <category term="接口开发" />
     <category term="开发注意事项" />
     <category term="微服务" />
+    <category term="力扣算法题" />
+    <category term="算法" />
+    <category term="动态规划" />
     <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-13/</id>
+        <title>AI 日报 2026-11-13</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-13/"/>
+        <content type="html">&lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;今天榜首是一个”反 AI 味儿”很浓的项目：阿里的 &lt;code&gt;open-code-review&lt;/code&gt;。它不吹模型多聪明，反而把审代码这件事拆成两半——&lt;strong&gt;该确定的部分交给工程，该判断的部分才交给模型&lt;/strong&gt;。官方的说法很直白：纯语言驱动的 review 有三个死穴，大改动集上”挑着看”、行号漂移、质量随 prompt 抖动，根因是”没有硬约束”。同一时间，Chrome&amp;#x2F;Edge&amp;#x2F;Firefox&amp;#x2F;MDN 联合维护的 &lt;code&gt;modern-web-guidance&lt;/code&gt; 单日涨 1,875 星，做的事情是给编码 agent 喂”这个平台现在到底该怎么写”的准确知识。两条线指向同一个结论：&lt;strong&gt;2026 年底的竞争点已经不在模型智商，而在喂给模型的上下文和约束够不够硬。&lt;/strong&gt;&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;1-alibaba-open-code-review-——-把”不该出错的步骤”从模型手里拿走&#34;&gt;&lt;a href=&#34;#1-alibaba-open-code-review-——-把”不该出错的步骤”从模型手里拿走&#34; class=&#34;headerlink&#34; title=&#34;1. alibaba&amp;#x2F;open-code-review —— 把”不该出错的步骤”从模型手里拿走&#34;&gt;&lt;/a&gt;1. alibaba&amp;#x2F;open-code-review —— 把”不该出错的步骤”从模型手里拿走&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;TypeScript · Apache-2.0 · npm &lt;code&gt;@alibaba-group/open-code-review&lt;/code&gt; · 阿里内部打磨两年，服务数万开发者，累计发现数百万缺陷&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这是今天最值得读的架构文档。作者没写”我们用大模型做了代码审查”，而是先列了失败案例：拿 Claude Code + Skills 去 review 一个几百文件的改动集，agent 会”偷工减料”——只挑看起来重要的文件看，剩下的跳过；报出来的问题位置经常对不上真实代码行；同样的代码换个 prompt 措辞，结论就变。&lt;/p&gt;
+&lt;p&gt;它的诊断是：&lt;strong&gt;纯语言驱动的架构，对流程没有任何硬约束。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;于是架构被切成两层。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;确定性层（工程保证，模型不参与）：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;精确的文件选择&lt;/strong&gt; —— 哪些文件必须审、哪些该过滤，由规则算出来，不靠模型”留意到”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;智能文件打包&lt;/strong&gt; —— 一个逻辑变更涉及的多个文件被捆成一个审查单元，比如 &lt;code&gt;message_en.properties&lt;/code&gt; 和 &lt;code&gt;message_zh.properties&lt;/code&gt; 必须一起看，拆开就丢语义。每个包跑一个独立上下文的子 agent，分而治之，天然支持并发，大改动集上也不会崩。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;细粒度规则匹配&lt;/strong&gt; —— 按文件特征（语言、路径、类型）挂对应的规则集，内置多语言规则覆盖 NPE、线程安全、XSS、SQL 注入。目的是在源头消噪，让模型的注意力不被无关规则稀释。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;独立的位置与反思模块&lt;/strong&gt; —— 专门负责把评论钉到正确行号，以及复核评论本身说得对不对。这两件事单独做成模块，而不是指望主 agent 顺手做好。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Agent 层（只做动态决策）：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;场景化 prompt 模板，为代码审查深度调过，效果更好且更省 token；&lt;/li&gt;
+&lt;li&gt;场景化工具集，是从大规模生产环境的工具调用 trace 里蒸馏出来的——调用频次分布、单工具重复率、新增工具对整条调用链的影响，都算过。结论是通用 agent 的工具箱在 review 场景里是负担。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[git diff] --&amp;gt; B[确定性层: 文件选择]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[文件打包&amp;lt;br/&amp;gt;逻辑相关文件捆成审查单元]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[规则匹配&amp;lt;br/&amp;gt;按语言/路径挂规则集]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E1[子 Agent 1&amp;lt;br/&amp;gt;隔离上下文]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E2[子 Agent 2&amp;lt;br/&amp;gt;隔离上下文]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E3[子 Agent N&amp;lt;br/&amp;gt;隔离上下文]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E1 --&amp;gt; F[位置模块&amp;lt;br/&amp;gt;校正行号]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E2 --&amp;gt; F&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E3 --&amp;gt; F&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G[反思模块&amp;lt;br/&amp;gt;复核评论是否成立]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H&amp;#123;通过?&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt;|否| I[丢弃 / 降级]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt;|是| J[结构化输出&amp;lt;br/&amp;gt;JSON / SARIF / Session Viewer]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;它敢报数字。&lt;/strong&gt; 团队建了 AACR-Bench：50 个流行开源仓库、200 个真实 PR、10 种语言，80 多位资深工程师交叉标注出 1,505 个 ground-truth 问题。结论是在同一底层模型下，precision 和 F1 明显高于通用 agent，token 消耗只有约 1&amp;#x2F;9，速度更快；而 &lt;strong&gt;recall 低于通用 agent，这是刻意的取舍&lt;/strong&gt;——宁可少报，不要噪音。&lt;/p&gt;
+&lt;p&gt;这个取舍值得单独说一句。代码审查的真实成本不在”发现”，在”分诊”：一份 200 条、190 条是误报的报告，团队第三天就会把它静音。所以把 precision 顶上去，比把 recall 拉满更有工程价值。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;上手方式：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npm install -g @alibaba-group/open-code-review   &lt;span class=&#34;comment&#34;&gt;# 需要 Git &amp;gt;= 2.41&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ocr config provider    &lt;span class=&#34;comment&#34;&gt;# 选内置 provider 或自定义，OpenAI / Anthropic 兼容&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ocr config model&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ocr review                                    &lt;span class=&#34;comment&#34;&gt;# 工作区：已暂存 + 未暂存 + 未跟踪&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ocr review --from main --to feature-branch    &lt;span class=&#34;comment&#34;&gt;# 分支区间，从 merge-base 算&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ocr review --commit abc123&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ocr scan                                      &lt;span class=&#34;comment&#34;&gt;# 全文件扫描，审陌生代码库用&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ocr review --format json --output result.json &lt;span class=&#34;comment&#34;&gt;# 给宿主 agent 消费&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;ocr delegate preview                          &lt;span class=&#34;comment&#34;&gt;# 委托模式：让宿主 agent 自己审，OCR 只出文件和规则&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;最后这个 &lt;code&gt;delegate&lt;/code&gt; 模式挺有意思：如果你已经在 Claude Code &amp;#x2F; Codex &amp;#x2F; Cursor &amp;#x2F; Kimi Code 里，可以让宿主的模型来执行审查，OCR 只负责”选文件 + 配规则”这两件确定性的事，不需要另配一套 API key。等于把确定性骨架做成了可插拔的中间件。集成方面 Claude Code、Codex、Cursor、Kimi Code、OpenCode 都有现成插件，CI 支持 GitHub Actions、GitLab CI、Gerrit，还带一个 Session Viewer 可以在浏览器里回放审查过程、把评论标成已修或忽略。&lt;/p&gt;
+&lt;p&gt;一个细节：它自己就承认”用 general-purpose agent 做 review 会漂移”，然后给出的解法是减少模型的自由度。这跟 2025 年那股”给 agent 更多自主权”的风向，正好相反。&lt;/p&gt;
+&lt;h3 id=&#34;2-GoogleChrome-modern-web-guidance-src-——-给-agent-补上”平台现状”这一课&#34;&gt;&lt;a href=&#34;#2-GoogleChrome-modern-web-guidance-src-——-给-agent-补上”平台现状”这一课&#34; class=&#34;headerlink&#34; title=&#34;2. GoogleChrome&amp;#x2F;modern-web-guidance-src —— 给 agent 补上”平台现状”这一课&#34;&gt;&lt;/a&gt;2. GoogleChrome&amp;#x2F;modern-web-guidance-src —— 给 agent 补上”平台现状”这一课&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;4,281 stars · +1,875 today · TypeScript · Chrome &amp;#x2F; Edge &amp;#x2F; Firefox &amp;#x2F; MDN 联合维护&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;今天涨幅最大的项目，解决的问题极其朴素：&lt;strong&gt;模型的训练数据里，旧代码比新代码多。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;结果是 agent 会本能地给你写一堆已经不需要的 JavaScript：明明 CSS 有 &lt;code&gt;container queries&lt;/code&gt; 和 &lt;code&gt;subgrid&lt;/code&gt;，它还是上栅格库；明明 &lt;code&gt;Popover API&lt;/code&gt; 和 &lt;code&gt;Anchor Positioning&lt;/code&gt; 能把 tooltip 做干净，它还是拖一个 30KB 的定位库进来；明明 &lt;code&gt;View Transitions&lt;/code&gt; 能搞定页面切换动画，它还是手搓 class 切换。&lt;/p&gt;
+&lt;p&gt;更隐蔽的一层：即使模型知道某个 API 存在，它也缺少”生产级写法”的密度——知道 &lt;code&gt;oklch&lt;/code&gt; 这个概念，和知道在这个设计系统里怎么用它，是两件事。&lt;/p&gt;
+&lt;p&gt;Modern Web Guidance 就是一套 skills，把 web 平台的专业知识、最佳实践、浏览器兼容数据直接塞进 agent 的上下文。CLI 很克制：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npx modern-web-guidance@latest install                        &lt;span class=&#34;comment&#34;&gt;# 交互式安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;npx modern-web-guidance@latest search &lt;span class=&#34;string&#34;&gt;&amp;quot;animate a dialog modal backdrop&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;npx modern-web-guidance@latest retrieve &lt;span class=&#34;string&#34;&gt;&amp;quot;animate-to-from-top-layer&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;npx modern-web-guidance@latest legacy-scan .                  &lt;span class=&#34;comment&#34;&gt;# 扫出代码库里的过时模式&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;覆盖 250 个现代 web 特性，按主题分：视觉状态（View Transitions、入场出场动画、视差滚动、&lt;code&gt;scrollbar-color&lt;/code&gt;）、现代布局（容器查询、subgrid、&lt;code&gt;oklch&lt;/code&gt;、&lt;code&gt;text-wrap&lt;/code&gt; 调优、行高压平）、性能（即时预加载、INP 诊断、&lt;code&gt;scheduler.yield&lt;/code&gt; 调度）、原生组件（Anchor Positioning 做 tooltip、Popover、dialog、&lt;code&gt;:user-invalid&lt;/code&gt;、自适应高度输入框）、可访问性（读屏与键盘可操作性）、端侧小模型（浏览器内翻译、摘要、语种检测）。&lt;/p&gt;
+&lt;p&gt;关键是它强调”token 高效”：他们跑 eval 把模型本来就会的常识性内容剪掉，只留真正能改变输出的部分。这个做法值得所有写 skills 的人参考——&lt;strong&gt;给 agent 塞知识，塞得越多不一定越好，塞得越准才是。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;legacy-scan&lt;/code&gt; 是最实用的一个子命令：不用等 agent 犯错，先扫一遍代码库，把过时模式列出来，再让 agent 按指南改。这比”重写一遍”可控得多。&lt;/p&gt;
+&lt;h3 id=&#34;3-openai-codex-security-——-另一条路线：扫描、验证、归责&#34;&gt;&lt;a href=&#34;#3-openai-codex-security-——-另一条路线：扫描、验证、归责&#34; class=&#34;headerlink&#34; title=&#34;3. openai&amp;#x2F;codex-security —— 另一条路线：扫描、验证、归责&#34;&gt;&lt;/a&gt;3. openai&amp;#x2F;codex-security —— 另一条路线：扫描、验证、归责&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;12,853 stars · +754 today · TypeScript · npm &lt;code&gt;@openai/codex-security&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;昨天的日报详细写过它，今天它还在榜上，值得放在一起对照：这是同一问题的另一种拆法。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;open-code-review&lt;/code&gt; 的思路是&lt;strong&gt;前置约束&lt;/strong&gt;——在模型动手之前，用工程把流程钉死，减少它犯错的空间。&lt;code&gt;codex-security&lt;/code&gt; 的思路是&lt;strong&gt;后置验证&lt;/strong&gt;——允许模型大量报候选发现，但每一条都要给出源码证据、明确覆盖边界（哪些地方没扫、为什么没扫），再验证、再打补丁、再按自有 rubric 定严重度，最后从 Git 历史推断该由谁负责。&lt;/p&gt;
+&lt;p&gt;一个把不确定性挡在入口，一个把不确定性放在出口消化。两者都不相信”模型说没问题就是没问题”，只是不信的位置不同。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 前置约束&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A1[工程选文件] --&amp;gt; A2[工程打包]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A2 --&amp;gt; A3[工程挂规则]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A3 --&amp;gt; A4[模型只做判断]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph 后置验证&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B1[模型大量报候选] --&amp;gt; B2[要求源码证据]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B2 --&amp;gt; B3[验证候选]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B3 --&amp;gt; B4[补丁 + 复验 + 定责]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A4 --&amp;gt; C[可信输出]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B4 --&amp;gt; C&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;命令行细节和昨天的分析一致：&lt;code&gt;cs scan .&lt;/code&gt; 全仓、&lt;code&gt;--path&lt;/code&gt; 限定目录、&lt;code&gt;--diff origin/main&lt;/code&gt; 只看改动、&lt;code&gt;--mode deep&lt;/code&gt; 深度扫描、&lt;code&gt;--max-time 15&lt;/code&gt; 给调查预算。&lt;code&gt;--max-time&lt;/code&gt; 这个参数本身就是设计声明：&lt;strong&gt;扫描是一次有预算的调查，不是一次全量穷举。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;4-ChromeDevTools-chrome-devtools-mcp-——-让-agent-看见浏览器里到底发生了什么&#34;&gt;&lt;a href=&#34;#4-ChromeDevTools-chrome-devtools-mcp-——-让-agent-看见浏览器里到底发生了什么&#34; class=&#34;headerlink&#34; title=&#34;4. ChromeDevTools&amp;#x2F;chrome-devtools-mcp —— 让 agent 看见浏览器里到底发生了什么&#34;&gt;&lt;/a&gt;4. ChromeDevTools&amp;#x2F;chrome-devtools-mcp —— 让 agent 看见浏览器里到底发生了什么&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;55,252 stars · +60 today · TypeScript&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;MCP 服务器，把 Chrome DevTools 的调试能力暴露给编码 agent。它解决的问题和 &lt;code&gt;modern-web-guidance&lt;/code&gt; 是一对：前者给 agent”应该怎么写”的知识，后者给 agent”现在为什么不对”的现场。&lt;/p&gt;
+&lt;p&gt;前端调试的本质是&lt;strong&gt;信息不对称&lt;/strong&gt;——agent 看不到 console 报错、看不到网络瀑布、看不到 DOM 的实际计算样式，就只能靠猜。有了这个 MCP，agent 能自己开页面、读控制台、查请求、看布局，把”你贴个报错给我”变成”我自己去拿”。&lt;/p&gt;
+&lt;p&gt;这类工具的价值不在炫技，在于它把 agent 的反馈回路从”人转述”改成”机器直连”。所有”agent 写完代码就撒手”的失败案例，根因基本都是反馈回路断了。&lt;/p&gt;
+&lt;h3 id=&#34;5-垂直领域的-skills-化：daily-stock-analysis-与-claude-trading-skills&#34;&gt;&lt;a href=&#34;#5-垂直领域的-skills-化：daily-stock-analysis-与-claude-trading-skills&#34; class=&#34;headerlink&#34; title=&#34;5. 垂直领域的 skills 化：daily_stock_analysis 与 claude-trading-skills&#34;&gt;&lt;/a&gt;5. 垂直领域的 skills 化：daily_stock_analysis 与 claude-trading-skills&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;ZhuLinsen&amp;#x2F;daily_stock_analysis&lt;/strong&gt; —— LLM 驱动的多市场股票分析系统：多源行情、实时新闻、决策看板、自动推送，支持零成本定时运行。它的卖点不是”AI 选股”，而是&lt;strong&gt;把一套分析流程做成可定时跑的流水线&lt;/strong&gt;——多源行情对齐、新闻抓取、指标计算、结论生成、推送到手机，每一环都是确定性的，模型只在”写结论”那一步介入。国内开发者做的这类项目有个共同特征：先解决部署成本（零成本定时运行），再谈智能。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;tradermonty&amp;#x2F;claude-trading-skills&lt;/strong&gt; —— 3,921 stars · +60 today · Python。把股票投资和交易需要的技能（行情分析、技术图表、经济日历、选股筛选器、策略开发）打包成 Claude Code skills。&lt;/p&gt;
+&lt;p&gt;两个项目放在一起看很有意思：一个把流程做成系统，一个把流程做成技能包。前者适合”每天自动跑一遍”，后者适合”我在对话里随时叫一下”。这也说明 skills 正在成为一种分发格式——&lt;strong&gt;领域知识不再以文档形式存在，而是以 agent 能直接执行的形式存在。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;其他值得一看&#34;&gt;&lt;a href=&#34;#其他值得一看&#34; class=&#34;headerlink&#34; title=&#34;其他值得一看&#34;&gt;&lt;/a&gt;其他值得一看&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;backnotprop&amp;#x2F;plannotator&lt;/strong&gt; —— 10,289 stars · +100 today · TypeScript。给人和 agent 之间加一个”工作台”：改计划、做决策、标注、审代码、一键把反馈回传给 agent。human-in-the-loop 从”打断一下问问你”变成”在同一个画布上协作”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Likely7&amp;#x2F;Veyra-NRVideo&lt;/strong&gt; —— 1,447 stars · +245 today · C++。Windows 视频播放与采集增强工具，把 AI 超分、DLSS 5 图像增强、帧生成拼在一起做实时预览。消费端的 AI 增强已经从”滤镜”走到”重建画面”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;tailscale&amp;#x2F;tailcat&lt;/strong&gt; —— 9,237 stars · +173 today · Go。像 netcat，但跑在 Tailscale 数据面上、不经过控制面。不是 AI 项目，但”给 agent 用的内网工具”这个方向会越来越常见。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;louislam&amp;#x2F;uptime-kuma&lt;/strong&gt; —— 93,657 stars · +61 today。自托管监控的老熟人，长期挂在榜上，说明”能自己部署的运维面板”始终有刚需。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Google：Gemini 4 Hydrogen 是”Search 史上最大的一次模型升级”。&lt;/strong&gt; Google 的 Robby Stein 用了这个说法。信息量不大，但措辞值得注意——它把模型升级定位在 Search 上，而不是 Gemini 应用上。搜索仍然是 Google 最大的分发口，模型能力的兑现顺序是从搜索往外溢。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Meta：Muse 能替你打外呼电话了。&lt;/strong&gt; 在拿到”处理转发邮件”的能力之后，这个 agent 现在能打那些你不想打的电话——订餐位、跟保险公司和有线电视公司扯皮。目前仅限美国付费订阅用户。从”处理你收到的信息”到”代替你发起对话”，这一步跨得不小：外呼需要实时语音、需要处理对方的中断、需要在被拒绝后换策略，是 agent 里最难的一类任务。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Gemini 应用上 Apple CarPlay。&lt;/strong&gt; 之前已经在 Google 内置车机和 Android Auto 上，现在 CarPlay 主屏也开放了。一个细节：Apple 允许竞品助手进主屏，说明车机这块的护城河比想象中浅。&lt;/p&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Anthropic 确认 11 月 19 日股票开始公开交易&lt;/strong&gt;，定价日在前一天，此前给出的区间是每股 70–78 美元，对应估值最高 1.4 万亿美元。这个数字已经不像一家模型公司的估值，更像一家基础设施公司的估值。它同时意味着：模型层的竞争从”谁的效果好”进入”谁的资本结构撑得住”。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Yahoo 成为 Internet Licensing Collective（ILC）的第一个正式被许可方。&lt;/strong&gt; ILC 是 RSL 那套”AI 抓取要付费”标准的演进版，思路是&lt;strong&gt;集体许可&lt;/strong&gt;——不做一家一家媒体的单独交易，而是做成类似音乐版权的池子，AI 公司统一付费、统一分账。Yahoo 既是发起方之一，也是第一个用户。这条路如果走通，会改变整个训练数据的成本结构；走不通，就还是各打各的官司。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Nvidia 的治理震荡还在继续。&lt;/strong&gt; 据 The Verge 与 Reuters 报道，前 CEO 黄仁勋的私人关系问题已牵出第三位当事人，公司股价当日收跌 4.3%，董事会据称在讨论人选，名单里有 Apple 硬件负责人 Johny Srouji 和 Nvidia CFO Colette Kress。同期还有一条技术侧的小注脚：网上流传的他穿 Saint Laurent 皮衣的照片被《Vanity Fair》证实是 AI 伪造，但带有 Google SynthID 水印，是从 6 月真实照片改的。&lt;/p&gt;
+&lt;p&gt;把这两件事放在一起不是为了八卦。它暴露了一个结构性风险：&lt;strong&gt;当前 AI 算力供应链的估值，高度集中在单一公司的单一决策者身上。&lt;/strong&gt; 一个治理事件能让整条链的市值蒸发几个百分点，这在地缘政治风险之外又多了一种”人”的风险。对下游做模型和应用的团队来说，供应链多元化从”成本考虑”变成了”风险管理”。&lt;/p&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;洞见一：混合架构正在取代”全能-agent”&#34;&gt;&lt;a href=&#34;#洞见一：混合架构正在取代”全能-agent”&#34; class=&#34;headerlink&#34; title=&#34;洞见一：混合架构正在取代”全能 agent”&#34;&gt;&lt;/a&gt;洞见一：混合架构正在取代”全能 agent”&lt;/h3&gt;&lt;p&gt;把今天榜单上最硬的两个项目放在坐标系里，会发现它们在做同一件事的不同切面。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;open-code-review&lt;/code&gt; 列的三条失败原因——覆盖不全、位置漂移、质量抖动——本质上是同一个病：&lt;strong&gt;你要求一个概率模型去保证确定性结果。&lt;/strong&gt; 文件该不该看，这是布尔判断；行号对不对，这是指针运算；规则该不该应用，这是查表。这三件事没有一件需要语言理解。&lt;/p&gt;
+&lt;p&gt;所以它的解法是把流程切成”模型能做的”和”模型不该做的”，前者留给他，后者用代码写死。加 &lt;code&gt;--max-time&lt;/code&gt; 的 &lt;code&gt;codex-security&lt;/code&gt; 也是同一逻辑：给模型一个预算明确的调查任务，而不是一个开放式指令。&lt;/p&gt;
+&lt;p&gt;这和 2025 年那波”给 agent 更多自主权、让它自己规划”的热潮正好相反。原因不难理解：自主权越大，方差越大；方差一大，就没法进 CI、没法算 SLA、没法给客户承诺。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[任务] --&amp;gt; B&amp;#123;这一步允许出错吗&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|不允许| C[确定性代码&amp;lt;br/&amp;gt;文件选择 / 打包 / 规则 / 定位]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt;|允许| D[模型&amp;lt;br/&amp;gt;判断 / 解释 / 生成]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; E[约束后的输入]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; D&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; F&amp;#123;输出可验证吗&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt;|否| G[加验证层&amp;lt;br/&amp;gt;证据 / 复验 / rubric]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt;|是| H[交付]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;判断标准其实只有一条：&lt;strong&gt;这一步错了，下游能不能兜住。&lt;/strong&gt; 兜不住的，用代码；兜得住的，用模型。按这条线去审自己手上的 agent 流程，通常能砍掉一半”让模型自己注意一下”的设计。&lt;/p&gt;
+&lt;h3 id=&#34;洞见二：上下文供给正在变成一个独立的基础设施层&#34;&gt;&lt;a href=&#34;#洞见二：上下文供给正在变成一个独立的基础设施层&#34; class=&#34;headerlink&#34; title=&#34;洞见二：上下文供给正在变成一个独立的基础设施层&#34;&gt;&lt;/a&gt;洞见二：上下文供给正在变成一个独立的基础设施层&lt;/h3&gt;&lt;p&gt;&lt;code&gt;modern-web-guidance&lt;/code&gt; 是 Chrome、Edge、Firefox、MDN 四个团队一起维护的。这个阵容本身就说明问题：&lt;strong&gt;浏览器厂商开始为”模型的训练数据过时”这件事买单了。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;过去这件事被当成模型问题——等下一代模型训完就好。现在大家发现等不起：web 平台每季度都在加新特性，而模型的权重是冻结的。于是出现了新的分工：模型负责推理，&lt;strong&gt;外部供给负责时效&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;今天上榜的项目里，这个层已经能看出三层结构：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[上下文供给层] --&amp;gt; B[静态知识&amp;lt;br/&amp;gt;modern-web-guidance&amp;lt;br/&amp;gt;250 个现代特性 + 兼容数据]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; C[实时现场&amp;lt;br/&amp;gt;chrome-devtools-mcp&amp;lt;br/&amp;gt;console / 网络 / 布局]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A --&amp;gt; D[流程知识&amp;lt;br/&amp;gt;claude-trading-skills&amp;lt;br/&amp;gt;plannotator]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; E[agent 的输出质量]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; E&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F[人的复核成本]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;静态知识解决”该怎么做”，实时现场解决”现在为什么不对”，流程知识解决”按什么顺序做”。三者的共同点是：&lt;strong&gt;都可以脱离模型单独迭代、单独评估、单独版本化。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这件事的战略含义不小。如果上下文层可以独立演进，那么模型之间的差距会被压缩——同一个模型配上好上下文和烂上下文，输出质量差得比两个模型之间还多。&lt;code&gt;open-code-review&lt;/code&gt; 的 benchmark 就是活证据：同一个底层模型，只因为加了确定性的文件选择和规则匹配，precision 和 F1 就拉开一截，token 还只要 1&amp;#x2F;9。&lt;/p&gt;
+&lt;p&gt;对做产品的人，这意味着一件事：&lt;strong&gt;别再等模型升级来解决你的准确率问题。&lt;/strong&gt; 先把上下文供给做好——文档、规则、现场数据、校验层，这些是你自己能控制的变量，而且迭代周期是小时级，不是季度级。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;今天榜单整体偏”工程味”：没有新的模型发布，没有新的 benchmark 破纪录，全是脚手架、规则、验证、上下文。这大概是行业成熟的信号——&lt;strong&gt;当所有人都在讨论怎么把东西做对，而不是能不能做出来的时候，说明”能做出来”已经不是问题了。&lt;/strong&gt;&lt;/p&gt;
+</content>
+        <category term="AI日报" />
+        <category term="AI" />
+        <category term="GitHub热门" />
+        <category term="人工智能" />
+        <category term="技术趋势" />
+        <updated>2026-11-13T14:00:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-12/</id>
         <title>AI 日报 2026-11-12</title>
