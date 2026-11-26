@@ -7,18 +7,35 @@
         <language>zh-CN</language>
         <pubDate>Thu, 26 Nov 2026 22:00:00 +0800</pubDate>
         <lastBuildDate>Thu, 26 Nov 2026 22:00:00 +0800</lastBuildDate>
-        <category>原则</category>
-        <category>个人详情</category>
-        <category>个人分享</category>
-        <category>坏习惯</category>
-        <category>心理学知识</category>
-        <category>阿德勒心理学</category>
-        <category>自卑与超越</category>
+        <category>网络安全</category>
+        <category>SQL注入</category>
+        <category>XSS</category>
+        <category>CSRF</category>
+        <category>DDoS</category>
+        <category>渗透测试</category>
         <category>AI日报</category>
         <category>AI</category>
         <category>GitHub热门</category>
         <category>人工智能</category>
         <category>技术趋势</category>
+        <category>坏习惯</category>
+        <category>个人分享</category>
+        <category>Kubernetes</category>
+        <category>k8s</category>
+        <category>kubeconfig</category>
+        <category>kubectl</category>
+        <category>Context</category>
+        <category>DevOps</category>
+        <category>容器编排</category>
+        <category>运维</category>
+        <category>原则</category>
+        <category>个人详情</category>
+        <category>OpenSRE</category>
+        <category>Grafana</category>
+        <category>SRE</category>
+        <category>可观测性</category>
+        <category>Helm</category>
+        <category>学习计划</category>
         <category>GPT-5.5</category>
         <category>OpenAI</category>
         <category>Codex</category>
@@ -26,75 +43,58 @@
         <category>Gemini</category>
         <category>开发工具</category>
         <category>开源</category>
-        <category>编程笔记</category>
         <category>Claude</category>
         <category>Agent</category>
         <category>MCP</category>
         <category>自动化</category>
+        <category>编程笔记</category>
+        <category>编程助手</category>
         <category>DeepSeek</category>
         <category>Harness</category>
         <category>插件</category>
         <category>安装教程</category>
-        <category>编程助手</category>
         <category>Hermes</category>
+        <category>v0.17</category>
         <category>v0.20</category>
         <category>语音交互</category>
         <category>A2A</category>
         <category>Webhook</category>
         <category>NousResearch</category>
-        <category>v0.17</category>
-        <category>高阶</category>
         <category>进阶</category>
         <category>配置</category>
         <category>LangChain</category>
         <category>LangGraph</category>
         <category>Python</category>
         <category>LLM</category>
-        <category>工作流</category>
+        <category>高阶</category>
         <category>RAG</category>
         <category>知识库</category>
+        <category>工作流</category>
         <category>OpenClaw</category>
         <category>网关</category>
+        <category>故障排查</category>
+        <category>AI运维</category>
+        <category>根因分析</category>
         <category>SSE</category>
         <category>HTTP</category>
-        <category>OpenSRE</category>
-        <category>SRE</category>
-        <category>AI运维</category>
-        <category>故障排查</category>
-        <category>根因分析</category>
-        <category>DevOps</category>
+        <category>心理学知识</category>
         <category>WorkBuddy</category>
         <category>腾讯</category>
         <category>办公自动化</category>
         <category>AI工具</category>
-        <category>运维</category>
-        <category>Kubernetes</category>
-        <category>Helm</category>
-        <category>学习计划</category>
-        <category>k8s</category>
-        <category>容器编排</category>
-        <category>Grafana</category>
-        <category>可观测性</category>
-        <category>kubeconfig</category>
-        <category>kubectl</category>
-        <category>Context</category>
-        <category>网络安全</category>
-        <category>SQL注入</category>
-        <category>XSS</category>
-        <category>CSRF</category>
-        <category>DDoS</category>
-        <category>渗透测试</category>
-        <category>力扣算法题</category>
-        <category>算法</category>
-        <category>动态规划</category>
+        <category>阿德勒心理学</category>
+        <category>自卑与超越</category>
+        <category>python</category>
         <category>JavaSE</category>
         <category>Java开发面试题</category>
-        <category>Spring</category>
         <category>SpringBoot</category>
+        <category>Spring</category>
         <category>接口开发</category>
         <category>开发注意事项</category>
         <category>微服务</category>
-        <category>python</category>
+        <category>力扣算法题</category>
+        <category>算法</category>
+        <category>动态规划</category>
         <item>
             <guid isPermalink="true">https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-26/</guid>
             <title>AI 日报 2026-11-26</title>
@@ -105,116 +105,65 @@
             <category>人工智能</category>
             <category>技术趋势</category>
             <pubDate>Thu, 26 Nov 2026 22:00:00 +0800</pubDate>
-            <description><![CDATA[ &lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;今天的主题词是&lt;strong&gt;分发的单位变了&lt;/strong&gt;。GitHub Trending 前十六名里，有八个是「技能 &amp;#x2F; 插件」形态而不是应用形态——Claude-BugHunter 继续霸榜（第六天以后增速回落到 +1,600），superpowers、stitch-skills、diagram-design、last30days-skill 各自只干一件事。同一天，Anthropic 把 &lt;strong&gt;Skills over MCP&lt;/strong&gt; 推进 public beta：MCP server 从此不只要送工具，还可以送操作手册，用户那边不用装任何东西。模型侧的对照则更有意思——Z.ai 的 GLM-5.4 用「28 层跑两遍」去够 2T–3T 体量的对手，同一周 Thinking Machines 的 Inkling 2 Mini 用同族思路把循环层塞进了笔记本。&lt;strong&gt;一端是把软件拆成技能分发，一端是把参数换成计算量&lt;/strong&gt;，两件事都在回答同一个问题：怎么用更少的东西办成同样的事。&lt;/p&gt;
+            <description><![CDATA[ &lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;今天 GitHub Trending 透露出一件事：&lt;strong&gt;“技能”正在取代”应用”成为新的分发单位&lt;/strong&gt;。榜单前列里，Claude Code 技能包、Agent Skills 库、插件规范、CLI 生成器占了近一半——Claude-BugHunter 单日涨星 1,600，stitch-skills、cursor&amp;#x2F;plugins 稳居前列，而港大的 CLI-Anything 干脆在喊”让所有软件 Agent 原生”。与此同时，Nvidia 把 AI 芯片的停供范围从中国扩大到东南亚四国，硬件侧的地缘裂缝越拉越宽。&lt;/p&gt;
 &lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
 
-&lt;hr&gt;
-&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;1-Claude-BugHunter-——-第八天榜首，增速落到-1-600&#34;&gt;&lt;a href=&#34;#1-Claude-BugHunter-——-第八天榜首，增速落到-1-600&#34; class=&#34;headerlink&#34; title=&#34;1. Claude-BugHunter —— 第八天榜首，增速落到 +1,600&#34;&gt;&lt;/a&gt;1. Claude-BugHunter —— 第八天榜首，增速落到 +1,600&lt;/h3&gt;&lt;p&gt;&lt;code&gt;elementalsouls/Claude-BugHunter&lt;/code&gt; 今天 &lt;strong&gt;2.39 万 Star、2,433 Fork、单日 +1,600&lt;/strong&gt;，Python。内容：85 个技能、16 个斜杠命令、681 份已披露报告的模式库、24 类核心漏洞，外加企业身份与基础设施攻击矩阵。&lt;/p&gt;
-&lt;p&gt;对比两天前的数据（2.08 万 Star、+1,833），增速又降了一档，但绝对量仍然可观。更值得注意的是&lt;strong&gt;内容增量几乎停了&lt;/strong&gt;：两天里技能从 84 变 85、斜杠命令从 15 变 16，而 Star 涨了三千。这个组合说明项目已经进入第二阶段——作者的重心从「扩表」转向「维护」，流量则在从「猎奇围观」转向「拿来当基线」。&lt;/p&gt;
-&lt;p&gt;这个转向会带来一个它自己也没准备好的需求：&lt;strong&gt;版本化&lt;/strong&gt;。安全判例和模型权重不一样，它折旧得毫无仪式感。云厂商改一个默认配置、WAF 升一版规则、框架发一个 patch 版本，一批技能就从「有效」变成「误报制造机」，而没有任何东西会通知你。&lt;/p&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[&amp;quot;681 份披露报告&amp;quot;] --&amp;gt; B[&amp;quot;蒸馏为技能与斜杠命令&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[&amp;quot;对目标系统探测&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D&amp;#123;&amp;quot;命中已有判例?&amp;quot;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt;|&amp;quot;是&amp;quot;| E[&amp;quot;按步骤复现验证&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt;|&amp;quot;否&amp;quot;| F[&amp;quot;记录新样本&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; G&amp;#123;&amp;quot;今天还成立?&amp;quot;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt;|&amp;quot;成立&amp;quot;| H[&amp;quot;提交报告&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt;|&amp;quot;不成立&amp;quot;| I[&amp;quot;标记为失效并归档&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; J[&amp;quot;判例库更新&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; J&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    I --&amp;gt; J&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    J --&amp;gt; B&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    I -.-&amp;gt;|&amp;quot;回归套件反向验证&amp;quot;| B&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;真正决定这类项目能不能长期用的，是虚线那条边：&lt;strong&gt;有没有一个 CI 能跑「这条漏洞今天还能不能打」&lt;/strong&gt;。没有它，技能库越大，误报率越高，最后用户会选择少装几个。这也是我对「技能生态」最基础的判断标准——不看数量，看它怎么处理失效。&lt;/p&gt;
-&lt;h3 id=&#34;2-CLI-Anything-——-把「软件接入」做成内容工程&#34;&gt;&lt;a href=&#34;#2-CLI-Anything-——-把「软件接入」做成内容工程&#34; class=&#34;headerlink&#34; title=&#34;2. CLI-Anything —— 把「软件接入」做成内容工程&#34;&gt;&lt;/a&gt;2. CLI-Anything —— 把「软件接入」做成内容工程&lt;/h3&gt;&lt;p&gt;&lt;code&gt;HKUDS/CLI-Anything&lt;/code&gt; 的口号是「Making ALL Software Agent-Native」，配了一个 CLI-Hub（clianything.cc）。思路直白：Agent 操作软件的能力受限于软件有没有 CLI，那就把没有的补齐。&lt;/p&gt;
-&lt;p&gt;这条路的价值在于绕开了 GUI 自动化最脆弱的一环——像素坐标。能用 &lt;code&gt;--json&lt;/code&gt; 拿结构化输出，就不该去截图点按钮。但它把风险从「看不见」换成了「看得见」：CLI 意味着真实副作用，&lt;code&gt;rm&lt;/code&gt;、&lt;code&gt;push&lt;/code&gt;、&lt;code&gt;deploy&lt;/code&gt; 都是一行命令的事，错了没有确认弹窗。所以这类 Hub 真正的技术难点不是覆盖率，而是&lt;strong&gt;命令的危险等级标注&lt;/strong&gt;——哪些命令只读、哪些需要 dry-run、哪些必须人工确认。缺了这一层，它就是把一把上了膛的枪递给一个刚学会走路的 Agent。&lt;/p&gt;
-&lt;h3 id=&#34;3-minimind-——-两小时，从零训一个-64M-模型&#34;&gt;&lt;a href=&#34;#3-minimind-——-两小时，从零训一个-64M-模型&#34; class=&#34;headerlink&#34; title=&#34;3. minimind —— 两小时，从零训一个 64M 模型&#34;&gt;&lt;/a&gt;3. minimind —— 两小时，从零训一个 64M 模型&lt;/h3&gt;&lt;p&gt;&lt;code&gt;jingyaogong/minimind&lt;/code&gt; 的描述就一句话：两小时从 0 训出你的 64M 大模型。&lt;/p&gt;
-&lt;p&gt;把它和 GLM-5.4 放在同一天的榜单上看，反差非常有意思：一端是 750B 参数、循环层、云端集群；另一端是 64M、单卡、两小时。中间的每一层都被抽掉了，只剩下最核心的骨架——tokenizer、注意力、位置编码、反向传播。&lt;strong&gt;理解成本正在从「读论文」降到「跑一遍」&lt;/strong&gt;，这是今年教育型项目最大的价值变化。&lt;/p&gt;
-&lt;p&gt;对已经写业务代码的人来说，跑完这一遍的收益不是学会训练模型，而是学会&lt;strong&gt;判断别人关于模型的说法是否可信&lt;/strong&gt;。知道 64M 模型在什么任务上必然失败，就不会被「小模型也能打」的宣传带走；知道 loss 曲线的形状，就不会把训练不稳误判成数据问题。&lt;/p&gt;
-&lt;h3 id=&#34;4-firecrawl-——-Agent-的供给侧基础设施&#34;&gt;&lt;a href=&#34;#4-firecrawl-——-Agent-的供给侧基础设施&#34; class=&#34;headerlink&#34; title=&#34;4. firecrawl —— Agent 的供给侧基础设施&#34;&gt;&lt;/a&gt;4. firecrawl —— Agent 的供给侧基础设施&lt;/h3&gt;&lt;p&gt;&lt;code&gt;firecrawl/firecrawl&lt;/code&gt; 的定位已经从「爬虫」变成了「知识基础设施」：搜索、抓取、访问 550+ 数据源，一个 API。&lt;/p&gt;
-&lt;p&gt;这个转向值得记一笔。Agent 的瓶颈早就不是推理，而是&lt;strong&gt;拿到干净、结构化、可追溯的输入&lt;/strong&gt;。网页抓取的三座山——反爬、动态渲染、正文提取——没有一座是模型能解决的，全是工程脏活。有人把它做成 API，等于把 Agent 的输入质量下限抬高了。&lt;/p&gt;
-&lt;p&gt;选型的判断点是&lt;strong&gt;可追溯性&lt;/strong&gt;：返回结果里带不带原始 URL、抓取时间、以及正文提取的置信度。不带这些，下游的引用就是编的。&lt;/p&gt;
-&lt;h3 id=&#34;5-diagram-design-——-「技能即品味」，而且它明确反对-Mermaid&#34;&gt;&lt;a href=&#34;#5-diagram-design-——-「技能即品味」，而且它明确反对-Mermaid&#34; class=&#34;headerlink&#34; title=&#34;5. diagram-design —— 「技能即品味」，而且它明确反对 Mermaid&#34;&gt;&lt;/a&gt;5. diagram-design —— 「技能即品味」，而且它明确反对 Mermaid&lt;/h3&gt;&lt;p&gt;&lt;code&gt;cathrynlavery/diagram-design&lt;/code&gt; 支持 Claude Code、Codex、Copilot、Cursor 等，52 种图表类型，输出自包含的 HTML + SVG。README 里那句 &lt;strong&gt;“No shadows. No Mermaid slop.”&lt;/strong&gt; 基本就是它的产品宣言。&lt;/p&gt;
-&lt;p&gt;这是我今天看到最诚实的一个技能：它不假装自己在做「通用可视化」，而是把自己的审美主张写在门口。技能生态要成熟，必须允许这种「有偏好的工具」存在——因为默认值的质量决定了大多数人产出的质量，而 Mermaid 的默认值确实平庸。&lt;/p&gt;
-&lt;p&gt;（本文仍然用 Mermaid，因为 Hexo 渲染便宜。这是个成本取舍，不是审美判断。）&lt;/p&gt;
-&lt;h3 id=&#34;6-app-store-compliance-——-从-936-掉到-561，但方向没变&#34;&gt;&lt;a href=&#34;#6-app-store-compliance-——-从-936-掉到-561，但方向没变&#34; class=&#34;headerlink&#34; title=&#34;6. app-store-compliance —— 从 +936 掉到 +561，但方向没变&#34;&gt;&lt;/a&gt;6. app-store-compliance —— 从 +936 掉到 +561，但方向没变&lt;/h3&gt;&lt;p&gt;&lt;code&gt;mjmirza/app-store-compliance&lt;/code&gt; 今天 &lt;strong&gt;6,813 Star、451 Fork、+561&lt;/strong&gt;，Shell。125 条拒审模式、隐私清单与 Data safety 检查、117 个跟踪中的合规截止日期（EU AI Act、DSA、COPPA、各州年龄法）。&lt;/p&gt;
-&lt;p&gt;增速掉下来了，这很正常——它的用户是「正在被拒审的人」，不是「围观的人」，池子本来就小。但它验证的判断我认为仍然成立：&lt;strong&gt;法规是技能生态里最被低估的品类&lt;/strong&gt;。法规天生具备四个软件包属性——有版本、有生效日、有判定条件、有地域差异。这种东西做成文档是浪费，做成检查项才是它该有的形态。&lt;/p&gt;
-&lt;h3 id=&#34;7-stitch-skills-与-cursor-plugins-——-规范之争进入第二年&#34;&gt;&lt;a href=&#34;#7-stitch-skills-与-cursor-plugins-——-规范之争进入第二年&#34; class=&#34;headerlink&#34; title=&#34;7. stitch-skills 与 cursor&amp;#x2F;plugins —— 规范之争进入第二年&#34;&gt;&lt;/a&gt;7. stitch-skills 与 cursor&amp;#x2F;plugins —— 规范之争进入第二年&lt;/h3&gt;&lt;p&gt;&lt;code&gt;google-labs-code/stitch-skills&lt;/code&gt; &lt;strong&gt;1.32 万 Star、1,550 Fork、+308&lt;/strong&gt;，为 Stitch MCP server 提供遵循 Agent Skills 开放标准的技能库。&lt;code&gt;cursor/plugins&lt;/code&gt; &lt;strong&gt;1.97 万 Star、2,126 Fork、+268&lt;/strong&gt;，Fork 比例接近 11%，远高于一般工具库。&lt;/p&gt;
-&lt;p&gt;两个数字放在一起读：一边是厂商在发规范（而且互相兼容同一套标准），一边是用户在大量 Fork 改造。&lt;strong&gt;规范已经收敛，工具链还没收敛。&lt;/strong&gt; 这是好事——标准统一之后，竞争会从「谁的格式赢」转到「谁的权限模型更让人敢用」。而后者，恰好是今天 Anthropic 那篇公告里最含糊的部分。&lt;/p&gt;
-&lt;h3 id=&#34;8-opensre-——-站内刚写过安装指南，它今天上榜了&#34;&gt;&lt;a href=&#34;#8-opensre-——-站内刚写过安装指南，它今天上榜了&#34; class=&#34;headerlink&#34; title=&#34;8. opensre —— 站内刚写过安装指南，它今天上榜了&#34;&gt;&lt;/a&gt;8. opensre —— 站内刚写过安装指南，它今天上榜了&lt;/h3&gt;&lt;p&gt;&lt;code&gt;Tracer-Cloud/opensre&lt;/code&gt; 定位是「开源 CI&amp;#x2F;CD 可靠性 Agent」。有意思的是本站两天前刚发过它的安装与实战指南，今天就出现在 Trending 上。&lt;/p&gt;
-&lt;p&gt;CI&amp;#x2F;CD 是 Agent 落地最被低估的场景之一：日志结构化程度高、失败可复现、判断标准明确（流水线绿了就是绿了）。它不需要模型有创造力，只需要模型有耐心——把 200 行日志读完，找到第一个真正的 error，而不是第 40 个 WARN。&lt;/p&gt;
-&lt;h3 id=&#34;9-其余值得扫一眼的&#34;&gt;&lt;a href=&#34;#9-其余值得扫一眼的&#34; class=&#34;headerlink&#34; title=&#34;9. 其余值得扫一眼的&#34;&gt;&lt;/a&gt;9. 其余值得扫一眼的&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;toeverything/AFFiNE&lt;/code&gt; &lt;strong&gt;7.88 万 Star、+521&lt;/strong&gt;：Notion + Miro 的开源替代，本地优先、可自托管，AI 能力往知识库内核走。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;zhouxiaoka/autoclip&lt;/code&gt;：OpusClip 的开源替代，本地优先的 AI 剪辑 + MCP server。一个链接进，短视频出，字幕封面文案一起给。工作量全在各平台规则适配上。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;obra/superpowers&lt;/code&gt;：仍在榜，Star 已过 32 万。方法论框架继续作为「默认入口」存在。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mvanhorn/last30days-skill&lt;/code&gt;：跨 Reddit&amp;#x2F;X&amp;#x2F;YouTube&amp;#x2F;HN&amp;#x2F;Polymarket 研究后合成带出处的摘要。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;openvinotoolkit/openvino&lt;/code&gt;：推理优化工具链，端侧部署的常规选项。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;nginx/nginx&lt;/code&gt;：官方仓库本身不是新闻，但它出现在 Trending 通常意味着有一批人在自建或迁移。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;XiaoYouChR/Ghost-Downloader-3&lt;/code&gt;：非 AI，下载器。基础工具的缺口一直存在。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Skills over MCP（Anthropic，public beta）&lt;/strong&gt;：Claude 与 Claude Code 里可以默认开启（Pro&amp;#x2F;Max&amp;#x2F;Ultra），Team 需管理员打开，Enterprise 待跟进。一个技能就是一个目录加 &lt;code&gt;SKILL.md&lt;/code&gt;，通过 MCP 的 Resources 分发：&lt;strong&gt;连接时只发现清单，指令按需加载&lt;/strong&gt;。同期 MCP 的 Tasks 扩展（长任务后台跑）与 Elicitation（服务端反问用户）转 GA，File Uploads 在路上——后者让客户端把文件直接传给服务端，&lt;strong&gt;不经过模型的上下文窗口&lt;/strong&gt;。VS Code 1.147+ 也已支持。官方举例：Shopify 建店、HubSpot 客户上手、Atlassian 工作分析、Carta 起草股权。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;GLM-5.4（Z.ai）&lt;/strong&gt;：首个基于 Loop Transformer 的旗舰，750B 规模上把 28 层跑两遍。加了视觉，主打「Generalized Coding」——把代码能力延伸到机械设计与 3D 建模。已在 GLM Coding Plan &amp;#x2F; ZCode &amp;#x2F; Z.ai Chat 上线，API 待发，开源权重「安全加固后跟进」，未给日期。见下方技术洞见。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Inkling 2 Mini（Thinking Machines Lab）&lt;/strong&gt;：同族循环层思路，主打&lt;strong&gt;在笔记本上本地跑&lt;/strong&gt;。上周发布，本周被 GLM-5.4 的公告顺带带火。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Performance Factory（OpenAI）&lt;/strong&gt;：Codex 驱动的软件优化系统，用来让 ChatGPT 自己保持快。内部工具外露，说明「用 AI 优化 AI 基础设施」已经从实验变成产线。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Snowflake 的预算观&lt;/strong&gt;：在 token 排行榜和支出上限之后，它的第三个想法是&lt;strong&gt;保留上限，然后研究谁把它撞破了&lt;/strong&gt;。这是个很聪明的设计——上限是成本控制，撞线记录是需求信号，两者本来就不该分开看。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;近半数受访工程师与管理者表示：写代码的 Agent 也在审这些代码。&lt;/strong&gt; 这个数字比它看起来更麻烦。自我审查的问题不是「模型会不会放水」，而是&lt;strong&gt;写和审共享同一套盲区&lt;/strong&gt;。同一个模型在同一份上下文里犯的错，换个角色不会自动消失。真正有效的做法是引入不对称：换模型、换上下文、换提示词，最好再加一条静态检查兜底。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Nvidia 六天内把黄仁勋请回 CEO 位。&lt;/strong&gt; 一周前刚表态「不回归」，六天后改口。叠加此前的股价波动与会计实务调查，这条线的关键词仍是治理而非产品。对下游的实际影响在采购条款：长约还是短约、算力能否转租、断供时的退出成本。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Uber 超支后下调编码工具的上下文与推理档位；T-Mobile 给 AI 更多资料，回答反而更差。&lt;/strong&gt; 两条合起来说的是一件事：&lt;strong&gt;「多给模型一点」不再是默认正确的优化&lt;/strong&gt;。上下文窗口变大不等于效果变好，检索进一堆弱相关内容，模型会在噪声里做取舍，最后给出更自信但更错的答案。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Claude Fable 5.2 在 bug 修复实测里花掉 Opus 5.5 三倍成本，结果几乎相同。&lt;/strong&gt; 这不等于模型差，但足以说明新模型的价格涨幅正在快于能力涨幅。按任务价值分级，比按榜单排名选型更划算。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;「你的模型通过了所有测试」——然后呢。&lt;/strong&gt; VentureBeat 那篇讲的是最常见的失效模式：模型在干净、熟悉的材料上被测试，然后毕业进入生产环境，输入变脏、标签漂移、没人给你按曲线打分了。实验室里的优秀，和生产里的静默退化，是两件事。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;最快的 AI 集群也可能被发布流水线拖住。&lt;/strong&gt; 一篇关于固件灰度发布的复盘：自动化在第 1:14 自己停了，因为某个 zone 的非正常重启比例越过安全阈值。这类文章的价值在于它写出了「自动化的正确行为是停下来找人」，而不是「自动修好」。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;洞见一：技能成了可分发的软件包，但权限不能由包自证&#34;&gt;&lt;a href=&#34;#洞见一：技能成了可分发的软件包，但权限不能由包自证&#34; class=&#34;headerlink&#34; title=&#34;洞见一：技能成了可分发的软件包，但权限不能由包自证&#34;&gt;&lt;/a&gt;洞见一：技能成了可分发的软件包，但权限不能由包自证&lt;/h3&gt;&lt;p&gt;把今天的两条线拼起来看：Trending 上一半是技能包，Anthropic 让 MCP server 也能送技能。这意味着**「技能」正式成为一种分发单位**——和 npm 包、Docker 镜像、VS Code 插件同级别的东西。&lt;/p&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[&amp;quot;技能作者&amp;lt;br/&amp;gt;SKILL.md + 附带脚本&amp;quot;] --&amp;gt; B[&amp;quot;打包进 MCP Server&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[&amp;quot;客户端连接 → 发现技能清单&amp;lt;br/&amp;gt;只拿名字和描述&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D&amp;#123;&amp;quot;客户端策略判定&amp;quot;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt;|&amp;quot;允许&amp;quot;| E[&amp;quot;按需加载完整指令&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt;|&amp;quot;需确认&amp;quot;| F[&amp;quot;首次加载弹窗&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt;|&amp;quot;禁止&amp;quot;| G[&amp;quot;只暴露工具，不加载技能&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; H[&amp;quot;Agent 执行任务&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; H&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; I[&amp;quot;成功 / 失败样本回流&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    I --&amp;gt; A&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; J[&amp;quot;降级：纯工具调用&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;这条链路里最关键的裁决点在 &lt;code&gt;D&lt;/code&gt;，而这正是公告里最含糊的地方。原文说得很清楚：&lt;strong&gt;Claude Code 会忽略 MCP 技能自己声明的一部分设置，包括工具权限和 hooks&lt;/strong&gt;。换句话说，一个技能包不能自己宣布「我有权删文件」。这个决定是对的——如果包能自证权限，那它就是 &lt;code&gt;npm install&lt;/code&gt; 的 postinstall 脚本问题再来一遍。&lt;/p&gt;
-&lt;p&gt;但「客户端裁决」立刻带来第二个问题：&lt;strong&gt;裁决依据是什么&lt;/strong&gt;。默认的 auto 模式靠一个分类器判断「这个技能能不能不经询问就加载」，这在低风险场景下很顺，在高风险场景下就是黑箱。企业真正需要的不是更好的分类器，而是三样朴素的东西：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;来源分级&lt;/strong&gt;：官方连接器、内部私有 server、第三方公开 server，三档不同的默认策略。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;按技能粒度管控&lt;/strong&gt;，而不是按 server。一个 server 同时提供「查文档」和「改生产库」两个技能，一刀切禁用等于放弃它。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;加载即审计&lt;/strong&gt;。技能在什么时候被加载、被哪个任务触发、之后产生了哪些工具调用，要能串成一条可回放的链。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;再看官方举的例子——Shopify 建店、HubSpot 客户上手、Carta 起草股权——共同点是&lt;strong&gt;它们都在动真实资产&lt;/strong&gt;。这类技能一旦被自动加载并在错误的上下文里执行，损失不是一次重试能挽回的。所以我对这个 beta 的判断是：体验会很顺，&lt;strong&gt;治理会在半年内成为主要吐槽点&lt;/strong&gt;。而半年后赢的，不是技能最多的那个 server，是第一个把「谁能改什么」说清楚的那个。&lt;/p&gt;
-&lt;p&gt;顺带一个观察：File Uploads 那条不起眼，但影响的架构面比 Skills 大。文件不进上下文窗口，意味着&lt;strong&gt;大文件的处理从「塞进去」变成「传过去」&lt;/strong&gt;，token 账本会重算一遍。&lt;/p&gt;
-&lt;h3 id=&#34;洞见二：循环层是把空间换时间搬进模型结构&#34;&gt;&lt;a href=&#34;#洞见二：循环层是把空间换时间搬进模型结构&#34; class=&#34;headerlink&#34; title=&#34;洞见二：循环层是把空间换时间搬进模型结构&#34;&gt;&lt;/a&gt;洞见二：循环层是把空间换时间搬进模型结构&lt;/h3&gt;&lt;p&gt;GLM-5.4 的做法一句话：&lt;strong&gt;28 层跑两遍&lt;/strong&gt;，不改参数量，只加计算量。&lt;/p&gt;
-&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    T[&amp;quot;输入 token&amp;quot;] --&amp;gt; E[&amp;quot;Embedding&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; P1[&amp;quot;第 1 遍：28 层&amp;lt;br/&amp;gt;门控保守写入&amp;lt;br/&amp;gt;建立全局上下文&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    P1 --&amp;gt; K[&amp;quot;写入稀疏 KV cache&amp;lt;br/&amp;gt;+ 稀疏注意力索引&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    K --&amp;gt; P2[&amp;quot;第 2 遍：复用同一 28 层&amp;lt;br/&amp;gt;门控全开，完整写入&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    K -.-&amp;gt;|&amp;quot;索引复用，跳过二次 indexing&amp;quot;| P2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    K -.-&amp;gt;|&amp;quot;KV 复用 + 第二遍滑动窗口&amp;quot;| P2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    P2 --&amp;gt; O[&amp;quot;输出 logits&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;p&gt;真正值得学的是它没说出口的部分：&lt;strong&gt;朴素地把层跑两遍是训不起来的&lt;/strong&gt;。三个补丁各自对应一个具体故障：&lt;/p&gt;
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;1-elementalsouls-Claude-BugHunter-—-把红队经验封装成技能包&#34;&gt;&lt;a href=&#34;#1-elementalsouls-Claude-BugHunter-—-把红队经验封装成技能包&#34; class=&#34;headerlink&#34; title=&#34;1. elementalsouls&amp;#x2F;Claude-BugHunter — 把红队经验封装成技能包&#34;&gt;&lt;/a&gt;1. elementalsouls&amp;#x2F;Claude-BugHunter — 把红队经验封装成技能包&lt;/h3&gt;&lt;p&gt;今日 +1,600 stars，总计 23,915 stars &amp;#x2F; 2,433 forks，语言 Python。&lt;/p&gt;
+&lt;p&gt;它包含 85 个技能、16 个 slash 命令、681 条已披露报告模式，覆盖 24 类核心漏洞，外加企业身份与基础设施攻击矩阵。真正有价值的不是”又一个 AI 渗透工具”，而是它的知识组织方式：把散落在 HackerOne、Bugcrowd 报告里的攻击模式，压缩成 agent 可检索的结构化模式库。&lt;/p&gt;
+&lt;p&gt;技术形态上，它本质是 Claude Code skill bundle——Markdown + 提示词 + 脚本的组合，而不是一个独立程序。应用场景集中在外部红队、SRC 漏洞挖掘、授权渗透测试。⚠️ 需要提醒：这类工具的双刃剑属性极强，务必在明确授权范围内使用，否则就是法律风险而不是技术问题。&lt;/p&gt;
+&lt;h3 id=&#34;2-jingyaogong-minimind-—-3-块钱、2-小时，从零训一个-64M-大模型&#34;&gt;&lt;a href=&#34;#2-jingyaogong-minimind-—-3-块钱、2-小时，从零训一个-64M-大模型&#34; class=&#34;headerlink&#34; title=&#34;2. jingyaogong&amp;#x2F;minimind — 3 块钱、2 小时，从零训一个 64M 大模型&#34;&gt;&lt;/a&gt;2. jingyaogong&amp;#x2F;minimind — 3 块钱、2 小时，从零训一个 64M 大模型&lt;/h3&gt;&lt;p&gt;这大概是今天最有教育价值的一个项目。它的目标不是刷榜，而是把大模型的黑盒子拆开给你看。&lt;/p&gt;
+&lt;p&gt;核心信息：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;门控渐进更新&lt;/strong&gt;：同一组表示被反复更新会发散。per-token 门控让第一遍「小步写、建全局」，第二遍「大步写、补细节」，并且按 token 难度调步长——越难的 token 第一遍写得越狠。这本质上是个&lt;strong&gt;由难度驱动的时间分配器&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;混合 KV cache&lt;/strong&gt;：第二遍不复用整套 cache，而是复用第一遍的稀疏部分，第二遍只多存一个滑动窗口。显存增长被压住了。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;稀疏注意力索引复用&lt;/strong&gt;：第二遍直接用第一遍的 indexer 结果，实验说与重算几乎等价。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;minimind-3&lt;/strong&gt;：64M Dense；&lt;strong&gt;minimind-3-moe&lt;/strong&gt;：198M-A64M，结构主线对齐 Qwen3 &amp;#x2F; Qwen3-MoE 生态&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;全链路自研&lt;/strong&gt;：Tokenizer → Pretrain → SFT → LoRA → DPO → PPO&amp;#x2F;GRPO&amp;#x2F;CISPO → Tool Use → Agentic RL → 模型蒸馏&lt;/li&gt;
+&lt;li&gt;所有核心算法用 PyTorch 原生实现，不依赖 transformers &amp;#x2F; trl &amp;#x2F; peft 的高层封装&lt;/li&gt;
+&lt;li&gt;兼容 llama.cpp、vllm、ollama，自带 OpenAI 协议服务端和 Streamlit WebUI&lt;/li&gt;
+&lt;li&gt;“2 小时”指的是单张 3090 跑完 SFT 一个 epoch；”3 块钱”是对应时段的 GPU 租用成本&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;为什么这条路在 2026 年集体出现？因为&lt;strong&gt;权重占显存，计算量占时间，而这两条价格曲线在分叉&lt;/strong&gt;。参数翻四倍，显存和带宽都要翻四倍；同样的权重多跑一遍，只增加 FLOPs。在端侧和推理成本敏感的市场上，后者的边际成本低得多。&lt;/p&gt;
-&lt;p&gt;但账要算全：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;维度&lt;/th&gt;
-&lt;th&gt;循环层&lt;/th&gt;
-&lt;th&gt;等参数稠密堆叠&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;&lt;tr&gt;
-&lt;td&gt;显存占用&lt;/td&gt;
-&lt;td&gt;低（权重复用）&lt;/td&gt;
-&lt;td&gt;高&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;每 token 计算量&lt;/td&gt;
-&lt;td&gt;高（×2）&lt;/td&gt;
-&lt;td&gt;低&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;首 token 延迟&lt;/td&gt;
-&lt;td&gt;随循环次数线性上升&lt;/td&gt;
-&lt;td&gt;稳定&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;训练稳定性&lt;/td&gt;
-&lt;td&gt;需要门控等结构补偿&lt;/td&gt;
-&lt;td&gt;相对成熟&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;长链推理&lt;/td&gt;
-&lt;td&gt;有「陷在同一错误」的风险&lt;/td&gt;
-&lt;td&gt;更稳&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
-&lt;p&gt;Z.ai 自己承认 GLM-5.4 会陷入过长的推理循环——这几乎是循环结构的宿命：&lt;strong&gt;同一组权重反复处理同一份表示，容易在表征上自我强化&lt;/strong&gt;。简单任务变快，需要多步跳跃的任务反而可能卡住。它给出的对比也值得打个折：主要受控证据来自一个 30B 测试模型（同样配置下多用约 10% 训练算力，MMLU-Pro 约 +15%，GPQA-Diamond 约 +12%，输出长度还短了一些），而「接近 2T–3T 体量」这句没有方法论。&lt;/p&gt;
-&lt;p&gt;所以「28 层跑两遍」不是白捡的便宜，是把&lt;strong&gt;空间换时间&lt;/strong&gt;的经典交易搬到了模型结构里。它最适合的场景很清晰：显存受限、延迟可容忍、任务以单步生成为主。反过来，长链推理和强交互场景，稠密大模型仍然占优。&lt;/p&gt;
-&lt;p&gt;把两条洞见放一起看，今天讲的其实是同一门手艺：&lt;strong&gt;怎么用更少的东西办成同样的事&lt;/strong&gt;。技能那条线是把一个大系统拆成可分发的小零件，代价是治理复杂度转移给了客户端；循环层那条线是把参数换成计算，代价是延迟和稳定性。两条线都没有免费的午餐，只是交易的位置不同。而工程判断力，说到底就是&lt;strong&gt;知道自己在跟谁做交易&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;为什么值得关注？现在大多数人学 LLM 的路径是”调 API → 微调 LoRA”，对 attention 实现、MoE 路由、RLHF 的损失函数一律黑箱。minimind 给了另一条路——&lt;strong&gt;最小可复现单元&lt;/strong&gt;。64M 参数在消费级显卡上两小时能跑完，意味着你可以用一个晚上试三个想法，而不是等一周的算力审批。&lt;/p&gt;
+&lt;p&gt;训练链路大致长这样：&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[原始语料] --&amp;gt; B[清洗 / 去重 / 蒸馏]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[Tokenizer 训练&amp;lt;br/&amp;gt;BPE + ByteLevel]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[Pretrain&amp;lt;br/&amp;gt;Dense / MoE]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E[SFT&amp;lt;br/&amp;gt;内置 tool_call 模板]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; F&amp;#123;对齐阶段&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt;|偏好学习| G[DPO]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt;|在线 RL| H[PPO / GRPO / CISPO]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; I[Agentic RL&amp;lt;br/&amp;gt;多轮 Tool-Use]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; J[蒸馏 / LoRA 合并导出]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    I --&amp;gt; J&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    J --&amp;gt; K[llama.cpp / vllm / ollama]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;值得注意的是它 2026-04 的这次大改：移除独立的 &lt;code&gt;train_reason.py&lt;/code&gt;，把思考能力统一交给 &lt;code&gt;chat_template&lt;/code&gt; 的 &lt;code&gt;&amp;lt;think&amp;gt;&lt;/code&gt; 标记与 &lt;code&gt;open_thinking&lt;/code&gt; 开关控制；tool_call 能力直接混入 SFT 主线数据，默认 &lt;code&gt;full_sft&lt;/code&gt; 就具备基础工具调用。这其实是工业界正在收敛的做法——&lt;strong&gt;能力不再是独立流水线，而是同一份数据的标签差异&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;3-HKUDS-CLI-Anything-—-让所有软件”Agent-原生”&#34;&gt;&lt;a href=&#34;#3-HKUDS-CLI-Anything-—-让所有软件”Agent-原生”&#34; class=&#34;headerlink&#34; title=&#34;3. HKUDS&amp;#x2F;CLI-Anything — 让所有软件”Agent 原生”&#34;&gt;&lt;/a&gt;3. HKUDS&amp;#x2F;CLI-Anything — 让所有软件”Agent 原生”&lt;/h3&gt;&lt;p&gt;一句话概括：给任意软件生成一个 CLI 外壳，让 agent 能稳定操作它。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CLI-Hub 注册表：&lt;code&gt;pip install cli-anything-hub&lt;/code&gt;，然后 &lt;code&gt;cli-hub install &amp;lt;name&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;已适配 Pi、OpenClaw、nanobot、Cursor、Claude Code&lt;/li&gt;
+&lt;li&gt;有配套论文（arXiv 2606.03854）和真实 demo：CAD 建模、3D 场景、图表、游戏、字幕&lt;/li&gt;
+&lt;li&gt;有意思的机制：preview &amp;#x2F; live preview &amp;#x2F; trajectory loop——agent 生成的产物可以先预览再迭代&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这个方向很聪明。MCP 解决的是”模型怎么发现工具”，CLI 解决的是”工具怎么被稳定执行”。CLI 的优势在于可组合（管道）、可脚本化、可被任何 agent 调用，而且不需要模型去理解复杂的 JSON schema。代价是它把”理解软件语义”的责任交给了 harness 的生成质量。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TB&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    U[用户意图] --&amp;gt; AG[Agent&amp;lt;br/&amp;gt;Cursor / Claude Code / OpenClaw]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    AG --&amp;gt;|读取 SKILL.md| H[CLI-Anything Harness]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt;|cli-hub install| R[(CLI-Hub 注册表)]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    R --&amp;gt; C1[CAD CLI]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    R --&amp;gt; C2[Obsidian CLI]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    R --&amp;gt; C3[ArcGIS CLI]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; E[执行 CLI 命令]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; O[产物: 模型 / 文档 / 图表]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    O --&amp;gt;|preview / trajectory| AG&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;4-firecrawl-firecrawl-—-Agent-的知识基础设施&#34;&gt;&lt;a href=&#34;#4-firecrawl-firecrawl-—-Agent-的知识基础设施&#34; class=&#34;headerlink&#34; title=&#34;4. firecrawl&amp;#x2F;firecrawl — Agent 的知识基础设施&#34;&gt;&lt;/a&gt;4. firecrawl&amp;#x2F;firecrawl — Agent 的知识基础设施&lt;/h3&gt;&lt;p&gt;“Search, scrape and access 550+ data providers through one API”。爬虫赛道已经很卷，firecrawl 的差异化在于：它把”给 agent 喂干净数据”当成产品目标，而不是给人类做网页存档。输出直接是 Markdown + 结构化 JSON，替 agent 省掉了自己解析 HTML 的那一层——这层看着简单，实际是 agent 稳定性的最大黑洞之一。&lt;/p&gt;
+&lt;h3 id=&#34;5-其他值得一看&#34;&gt;&lt;a href=&#34;#5-其他值得一看&#34; class=&#34;headerlink&#34; title=&#34;5. 其他值得一看&#34;&gt;&lt;/a&gt;5. 其他值得一看&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;obra&amp;#x2F;superpowers&lt;/strong&gt;：agentic skills 框架 + 软件开发方法论，试图把”如何让 agent 写出可维护代码”流程化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cursor&amp;#x2F;plugins&lt;/strong&gt;（19.7k stars，+268）：Cursor 插件规范与官方插件，说明编辑器生态开始标准化。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;google-labs-code&amp;#x2F;stitch-skills&lt;/strong&gt;（13.2k stars，+308）：Stitch MCP server 的技能库，遵循 Agent Skills 开放标准，兼容 Antigravity、Gemini CLI、Claude Code、Cursor。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cathrynlavery&amp;#x2F;diagram-design&lt;/strong&gt;：52 种图表类型的自包含 HTML + SVG 生成，宣传语直接写”No Mermaid slop”——有点凡尔赛，但”图表该由设计规则驱动而非模板渲染”这个判断是对的。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;zhouxiaoka&amp;#x2F;autoclip&lt;/strong&gt;：开源版 OpusClip，本地优先的 AI 切片工具，长视频一键转短视频并生成字幕、封面、发布文案，适配抖音 &amp;#x2F; 小红书 &amp;#x2F; TikTok &amp;#x2F; Reels &amp;#x2F; YouTube Shorts。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;mjmirza&amp;#x2F;app-store-compliance&lt;/strong&gt;（+561）：125 条上架被拒模式 + 117 个合规截止日（EU AI Act、DSA、COPPA），做成给 AI 编码 agent 用的技能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;openvinotoolkit&amp;#x2F;openvino&lt;/strong&gt;：Intel 的推理优化与部署工具包，端侧部署的老牌选手，在算力受限的当下价值被重新抬高。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;toeverything&amp;#x2F;AFFiNE&lt;/strong&gt;（78.8k stars，+521）：开源知识库，Notion + Miro 的合体，隐私优先。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具&amp;#x2F;产品速览&#34;&gt;&lt;/a&gt;新工具&amp;#x2F;产品速览&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Ubuntu 要做 AI 启动器。&lt;/strong&gt; Canonical 的 Didier Roche 放出了预览截图，明年 1 月上线。定位是”统一、键盘与语音友好的入口，连接你的应用、本地上下文和智能助手——仅在你明确请求时触发”。最后半句是关键：Linux 桌面在 AI 入口上选择了”显式调用”而非”常驻监听”，这是个克制但也可能踩空的产品判断。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;OpenAI 合并 ChatGPT 与 Codex 额度。&lt;/strong&gt; 12 月起，Plus &amp;#x2F; Pro &amp;#x2F; Business 订阅者的 ChatGPT 与 Codex 共享用量上限；同时”chat”和”work”两个标签页会合为一个界面。官方说法是”大多数用户不会比以前更频繁地等额度重置”——翻译一下：以前两份额度，现在一份，但总量大致没砍。&lt;/p&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Nvidia 停供范围扩大到东南亚。&lt;/strong&gt; 继停止向中国销售 H200 等 AI 芯片后，据 FT 报道，对马来西亚、新加坡、泰国、印尼的出货也已暂停。背景是美国上周收紧的限制——防止中国通过海外数据中心远程获取先进算力。这条链的逻辑很清楚：管制从”卖不卖”延伸到”在哪用”。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Anthropic 开始向作者支付版权和解金。&lt;/strong&gt; 集体诉讼的赔偿开始落到创作者手里。这是 AI 训练数据版权争议中，第一次出现实际赔付的闭环——虽然金额和覆盖范围仍待观察，但”先例”本身就是信号。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;纽约州禁止 AI 聊天玩具。&lt;/strong&gt; Hochul 州长签署法案，对会联网并与儿童对话的智能玩偶、机器人实施五年制造、分销与销售暂停。一个月前该州刚限制过聊天机器人与未成年人的交互方式。监管在儿童场景上的动作明显快于成人场景。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Character.AI 被多州总检察长指控。&lt;/strong&gt; 一个两党联盟称其计划向出价最高者出售未成年人的个人数据。如果属实，这会是陪伴类 AI 产品最危险的合规雷区。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Etsy 澄清 AI 训练条款。&lt;/strong&gt; 更新 ToS 允许用商品图训练模型后遭卖家抵制，公司补充说明”不会用你的内容生成仿品”，但卖家仍在流失。平台与创作者之间关于”数据归属”的信任赤字，一时半会补不回来。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Dario Amodei 回应”交出自由意志”论。&lt;/strong&gt; 在 Axios 的报道暗示 Anthropic 认为人类应让渡自由意志后，他在 X 上发了千字长文否认，称那”会是个糟糕的主意”，并强调自己立场”一贯且明确”。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;EA Sports FC 用 AI 复活已故解说员。&lt;/strong&gt; 2027 版将加入前 BBC 解说 John Motson 的 AI 声音。技术上不难，伦理讨论可以正式开始了。&lt;/p&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;洞见一：分发单位从”应用”迁移到”技能”&#34;&gt;&lt;a href=&#34;#洞见一：分发单位从”应用”迁移到”技能”&#34; class=&#34;headerlink&#34; title=&#34;洞见一：分发单位从”应用”迁移到”技能”&#34;&gt;&lt;/a&gt;洞见一：分发单位从”应用”迁移到”技能”&lt;/h3&gt;&lt;p&gt;看今天的榜单，最扎眼的不是某个模型，而是一整类项目：Claude-BugHunter、superpowers、stitch-skills、last30days-skill、app-store-compliance——它们都不是”应用”，而是&lt;strong&gt;给 agent 用的技能、插件与规范&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;这个迁移的含义不小。过去十年，软件的分发单位是 App（给人点）；现在开始出现以 Skill 为单位的形态（给 agent 调）。Skills 的特点很统一：无 UI、纯文本 + 脚本、可组合、有明确的触发条件。这也解释了为什么 Anthropic 在推 Skills over MCP——MCP 送工具，Skills 送操作手册，用户端什么都不用装。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph OLD[&amp;quot;旧范式&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A1[应用 App] --&amp;gt; A2[人类点击]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        A2 --&amp;gt; A3[完成工作]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    subgraph NEW[&amp;quot;新范式&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B1[技能 Skill] --&amp;gt; B2[Agent 调度]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B4[MCP: 送工具] --&amp;gt; B2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B5[Skills: 送手册] --&amp;gt; B2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        B2 --&amp;gt; B3[完成工作]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    end&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;顺带一个副作用：当分发单位变成技能，&lt;strong&gt;评估标准&lt;/strong&gt;也得跟着变。App 看留存和日活，Skill 看的是”被正确触发的概率”和”一次触发内完成任务的成功率”。这两套指标目前还没人认真做。&lt;/p&gt;
+&lt;h3 id=&#34;洞见二：算力管制从”出口”走向”使用地”&#34;&gt;&lt;a href=&#34;#洞见二：算力管制从”出口”走向”使用地”&#34; class=&#34;headerlink&#34; title=&#34;洞见二：算力管制从”出口”走向”使用地”&#34;&gt;&lt;/a&gt;洞见二：算力管制从”出口”走向”使用地”&lt;/h3&gt;&lt;p&gt;Nvidia 这轮动作值得单拎出来。第一轮管制是”不卖给中国”，这一轮是”不卖给东南亚，因为可能中转给中国”。管制对象从&lt;strong&gt;货物&lt;/strong&gt;变成了&lt;strong&gt;使用路径&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;技术后果是双向的：一方面，海外数据中心的”算力套利”空间被压缩；另一方面，它会加速两件事——国产芯片的替代进程，以及推理优化与模型压缩的价值重估。openvino 这种端侧推理工具、minimind 这种”用极少算力跑通全流程”的项目，会在这种环境下被重新定价。&lt;strong&gt;当算力变贵，效率就成了硬通货。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;一个观察&#34;&gt;&lt;a href=&#34;#一个观察&#34; class=&#34;headerlink&#34; title=&#34;一个观察&#34;&gt;&lt;/a&gt;一个观察&lt;/h3&gt;&lt;p&gt;今天榜单里有三个项目在做同一件事的不同侧面：minimind 降低”训练”的门槛，CLI-Anything 降低”操作”的门槛，autoclip 降低”内容生产”的门槛。&lt;/p&gt;
+&lt;p&gt;共同点是：&lt;strong&gt;把复杂度封进工具，把控制权还给个人&lt;/strong&gt;。在一个越来越依赖超大集群和超大预算的行业里，这条线显得格外健康——它提醒我们，AI 的进步不只发生在参数规模上，也发生在”让更多人能自己动手”这件事上。&lt;/p&gt;
  ]]></description>
         </item>
         <item>
