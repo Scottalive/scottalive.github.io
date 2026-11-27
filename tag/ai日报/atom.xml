@@ -3,19 +3,25 @@
     <id>https://scottalive.github.io</id>
     <title>沉鱼的博客 • Posts by &#34;ai日报&#34; tag</title>
     <link href="https://scottalive.github.io" />
-    <updated>2026-11-26T14:00:00.000Z</updated>
-    <category term="原则" />
-    <category term="个人详情" />
-    <category term="个人分享" />
-    <category term="心理学知识" />
+    <updated>2026-11-27T14:00:00.000Z</updated>
     <category term="AI日报" />
     <category term="AI" />
     <category term="GitHub热门" />
     <category term="人工智能" />
     <category term="技术趋势" />
+    <category term="原则" />
+    <category term="个人详情" />
+    <category term="个人分享" />
+    <category term="坏习惯" />
+    <category term="心理学知识" />
     <category term="阿德勒心理学" />
     <category term="自卑与超越" />
-    <category term="坏习惯" />
+    <category term="网络安全" />
+    <category term="SQL注入" />
+    <category term="XSS" />
+    <category term="CSRF" />
+    <category term="DDoS" />
+    <category term="渗透测试" />
     <category term="Kubernetes" />
     <category term="k8s" />
     <category term="容器编排" />
@@ -41,57 +47,164 @@
     <category term="Agent" />
     <category term="MCP" />
     <category term="自动化" />
-    <category term="编程助手" />
     <category term="编程笔记" />
+    <category term="编程助手" />
     <category term="DeepSeek" />
     <category term="Harness" />
     <category term="插件" />
     <category term="安装教程" />
     <category term="Hermes" />
-    <category term="NousResearch" />
-    <category term="进阶" />
-    <category term="配置" />
+    <category term="v0.17" />
     <category term="v0.20" />
     <category term="语音交互" />
     <category term="A2A" />
     <category term="Webhook" />
+    <category term="NousResearch" />
     <category term="高阶" />
-    <category term="v0.17" />
-    <category term="LangGraph" />
-    <category term="LangChain" />
-    <category term="Python" />
+    <category term="进阶" />
+    <category term="配置" />
     <category term="LLM" />
+    <category term="RAG" />
+    <category term="知识库" />
+    <category term="LangChain" />
+    <category term="LangGraph" />
+    <category term="Python" />
     <category term="工作流" />
     <category term="OpenClaw" />
     <category term="网关" />
     <category term="故障排查" />
-    <category term="RAG" />
-    <category term="知识库" />
-    <category term="网络安全" />
-    <category term="SQL注入" />
-    <category term="XSS" />
-    <category term="CSRF" />
-    <category term="DDoS" />
-    <category term="渗透测试" />
     <category term="AI运维" />
     <category term="根因分析" />
+    <category term="SSE" />
+    <category term="HTTP" />
     <category term="WorkBuddy" />
     <category term="腾讯" />
     <category term="办公自动化" />
     <category term="AI工具" />
-    <category term="SSE" />
-    <category term="HTTP" />
-    <category term="力扣算法题" />
-    <category term="算法" />
-    <category term="动态规划" />
     <category term="JavaSE" />
     <category term="Java开发面试题" />
     <category term="SpringBoot" />
     <category term="Spring" />
     <category term="接口开发" />
     <category term="开发注意事项" />
+    <category term="力扣算法题" />
+    <category term="算法" />
+    <category term="动态规划" />
     <category term="微服务" />
     <category term="python" />
+    <entry>
+        <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-27/</id>
+        <title>AI 日报 2026-11-27</title>
+        <link rel="alternate" href="https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-27/"/>
+        <content type="html">&lt;h2 id=&#34;今日热点&#34;&gt;&lt;a href=&#34;#今日热点&#34; class=&#34;headerlink&#34; title=&#34;今日热点&#34;&gt;&lt;/a&gt;今日热点&lt;/h2&gt;&lt;p&gt;今天四条约束同时收紧。&lt;strong&gt;算力&lt;/strong&gt;：Nvidia 继停供中国之后，又把马来西亚、新加坡、泰国、印尼的出货一并停了，而 Bloomberg 同一天曝出未获出口许可的 GB200&amp;#x2F;GB300 已经躺在中国相关背景的数据中心里；六天前刚说「黄仁勋不会回来」的 Nvidia，今天把他请回了 CEO 位。&lt;strong&gt;预算&lt;/strong&gt;：Uber 在 AI 账单爆掉之后，砍掉了编程工具里的上下文和推理强度。&lt;strong&gt;权限&lt;/strong&gt;：MCP server 现在能直接下发技能，企业开始头疼「连一个 server 等于批准了什么」。&lt;strong&gt;评审&lt;/strong&gt;：近半数受访工程团队承认，写代码的 agent 也在审自己的代码。而 GitHub Trending 上最热的，仍然是那批发技能的仓库。&lt;/p&gt;
+&lt;span id=&#34;more&#34;&gt;&lt;/span&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;GitHub-热门-AI-项目&#34;&gt;&lt;a href=&#34;#GitHub-热门-AI-项目&#34; class=&#34;headerlink&#34; title=&#34;GitHub 热门 AI 项目&#34;&gt;&lt;/a&gt;GitHub 热门 AI 项目&lt;/h2&gt;&lt;h3 id=&#34;1-Claude-BugHunter：榜首第九天，旁边多出一个「发行商」&#34;&gt;&lt;a href=&#34;#1-Claude-BugHunter：榜首第九天，旁边多出一个「发行商」&#34; class=&#34;headerlink&#34; title=&#34;1. Claude-BugHunter：榜首第九天，旁边多出一个「发行商」&#34;&gt;&lt;/a&gt;1. Claude-BugHunter：榜首第九天，旁边多出一个「发行商」&lt;/h3&gt;&lt;p&gt;&lt;code&gt;elementalsouls/Claude-BugHunter&lt;/code&gt; 今天 &lt;strong&gt;2.55 万 Star、2,602 Fork、单日 +1,615&lt;/strong&gt;，Python。内容基本没动：85 个技能、16 个斜杠命令、681 份披露报告模式、24 类核心漏洞。&lt;/p&gt;
+&lt;p&gt;但今天真正值得看的是「Built by」那一行。Trending 前十六里，有三个技能类项目共用同一个贡献者账号 &lt;code&gt;rudycelekli&lt;/code&gt;——Claude-BugHunter（红队）、stitch-skills（UI 组件库）、app-store-compliance（应用商店合规）。三个作者不同、领域毫不相干，却共用同一个贡献者。这种密度不是巧合能解释的。&lt;/p&gt;
+&lt;p&gt;它说明技能生态长出了第一个中间层：&lt;strong&gt;发行&lt;/strong&gt;。作者只管内容，发行方负责把一份 SKILL.md 翻译成六个客户端各自的目录结构、补好安装说明、推到 Trending 上去。这条路和 npm 早期的包推广、WordPress 插件市场的「上架服务」是同构的——每个生态在内容过剩之后，都会先长出卖货的，而不是先长出品控的。&lt;/p&gt;
+&lt;p&gt;风险也随之而来：&lt;strong&gt;发行方没有维护义务&lt;/strong&gt;。一个仓库被推到 2.5 万 Star，作者可能三周后就不再管了，而用户是按 Star 数做的选择。所以我现在看这类项目只问三个问题：有没有 CI、有没有 issue 模板、有没有「这条判例上次验证是什么时候」。三个都没有的，Star 再高也只是内容，不是产品。&lt;/p&gt;
+&lt;h3 id=&#34;2-CLI-Anything：把「软件接入」做成工程，难点在命令分级&#34;&gt;&lt;a href=&#34;#2-CLI-Anything：把「软件接入」做成工程，难点在命令分级&#34; class=&#34;headerlink&#34; title=&#34;2. CLI-Anything：把「软件接入」做成工程，难点在命令分级&#34;&gt;&lt;/a&gt;2. CLI-Anything：把「软件接入」做成工程，难点在命令分级&lt;/h3&gt;&lt;p&gt;&lt;code&gt;HKUDS/CLI-Anything&lt;/code&gt;，口号是 “Making ALL Software Agent-Native”，配了一个 CLI-Hub。&lt;/p&gt;
+&lt;p&gt;思路很直白：Agent 操作软件的能力受限于软件有没有 CLI，那就把缺的补齐。这条路绕开了 GUI 自动化最脆的环节——像素坐标和弹窗时序。能用 &lt;code&gt;--json&lt;/code&gt; 拿结构化输出，就不该去截图点按钮。&lt;/p&gt;
+&lt;p&gt;但它把风险从「看不见」换成了「看得见」：CLI 意味着真实副作用，&lt;code&gt;rm&lt;/code&gt;、&lt;code&gt;push&lt;/code&gt;、&lt;code&gt;deploy&lt;/code&gt; 都是一行的事，而且没有确认弹窗兜底。所以这类 Hub 的核心资产不是覆盖率，而是&lt;strong&gt;危险等级标注&lt;/strong&gt;。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart TD&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[&amp;quot;用户自然语言意图&amp;quot;] --&amp;gt; B[&amp;quot;检索可用 CLI 与子命令&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C&amp;#123;&amp;quot;命令分级&amp;quot;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|&amp;quot;只读&amp;quot;| D[&amp;quot;直接执行，返回结构化 JSON&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|&amp;quot;写入&amp;quot;| E[&amp;quot;要求 --dry-run 先出计划&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt;|&amp;quot;危险&amp;quot;| F[&amp;quot;人工确认 + 显式目标路径&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt; G[&amp;quot;执行并记录到审计日志&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; G&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; G&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; H&amp;#123;&amp;quot;结果符合预期?&amp;quot;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt;|&amp;quot;是&amp;quot;| I[&amp;quot;写入成功样本缓存&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt;|&amp;quot;否&amp;quot;| J[&amp;quot;回滚并标记该命令不安全&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    J --&amp;gt; C&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    I --&amp;gt; B&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;图里最容易被跳过的是 &lt;code&gt;E&lt;/code&gt; 和 &lt;code&gt;J&lt;/code&gt;。没有 dry-run，「AI 帮我整理服务器」和「AI 帮我删服务器」在实践中是同一个动作；没有回滚记录，一次错误的 &lt;code&gt;push --force&lt;/code&gt; 之后你连现场都重建不出来。&lt;strong&gt;给 Agent 递 CLI，等于递给它一把上了膛的枪——所以要连保险和弹道记录一起给。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;3-cursor-plugins-与-stitch-skills：厂商开始写规范了&#34;&gt;&lt;a href=&#34;#3-cursor-plugins-与-stitch-skills：厂商开始写规范了&#34; class=&#34;headerlink&#34; title=&#34;3. cursor&amp;#x2F;plugins 与 stitch-skills：厂商开始写规范了&#34;&gt;&lt;/a&gt;3. cursor&amp;#x2F;plugins 与 stitch-skills：厂商开始写规范了&lt;/h3&gt;&lt;p&gt;&lt;code&gt;cursor/plugins&lt;/code&gt; 今天 &lt;strong&gt;1.99 万 Star、2,200 Fork、+242&lt;/strong&gt;，TypeScript，内容是 Cursor 的插件规范和官方插件。&lt;code&gt;google-labs-code/stitch-skills&lt;/code&gt; &lt;strong&gt;1.35 万 Star、+311&lt;/strong&gt;，明确说自己遵循 Agent Skills 开放标准，兼容 Antigravity、Gemini CLI、Claude Code、Cursor。&lt;/p&gt;
+&lt;p&gt;这两件事要连起来看。一年前，让 agent 认识你的项目有一堆互不兼容的写法：&lt;code&gt;.cursorrules&lt;/code&gt;、&lt;code&gt;CLAUDE.md&lt;/code&gt;、&lt;code&gt;copilot-instructions.md&lt;/code&gt;、各种 &lt;code&gt;*.mdc&lt;/code&gt;。今天它们开始收敛到 SKILL.md 一个格式。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;标准化的真正信号从来不是「发布了规范文档」，而是「竞品之间互相兼容」。&lt;/strong&gt; stitch-skills 直接在 README 里写兼容四个竞品客户端——这是标准的特征，不是护城河的写法。反过来说，格式本身已经不是差异化了，接下来的竞争回到两件事：内容质量和分发路径。&lt;/p&gt;
+&lt;h3 id=&#34;4-diagram-design：一个明确反对-Mermaid-的技能&#34;&gt;&lt;a href=&#34;#4-diagram-design：一个明确反对-Mermaid-的技能&#34; class=&#34;headerlink&#34; title=&#34;4. diagram-design：一个明确反对 Mermaid 的技能&#34;&gt;&lt;/a&gt;4. diagram-design：一个明确反对 Mermaid 的技能&lt;/h3&gt;&lt;p&gt;&lt;code&gt;cathrynlavery/diagram-design&lt;/code&gt;，支持 Claude Code、Codex、Copilot、Cursor、Factory Droid 等，52 种图表类型，输出自包含的 HTML + SVG。README 里那句 &lt;strong&gt;“No shadows. No Mermaid slop.”&lt;/strong&gt; 基本就是它的产品宣言。&lt;/p&gt;
+&lt;p&gt;这是我今天看到最诚实的一个技能：它不假装自己在做「通用可视化」，而是把自己的审美主张写在门口。技能生态要成熟，必须允许这种「有偏好的工具」存在——因为默认值的质量，决定了大多数人产出的质量，而 Mermaid 的默认值确实平庸。&lt;/p&gt;
+&lt;p&gt;（本文还是用 Mermaid，因为 Hexo 渲染零成本。这是成本取舍，不是审美判断。）&lt;/p&gt;
+&lt;h3 id=&#34;5-minimind：两小时训出-64M-模型，理解成本降到「跑一遍」&#34;&gt;&lt;a href=&#34;#5-minimind：两小时训出-64M-模型，理解成本降到「跑一遍」&#34; class=&#34;headerlink&#34; title=&#34;5. minimind：两小时训出 64M 模型，理解成本降到「跑一遍」&#34;&gt;&lt;/a&gt;5. minimind：两小时训出 64M 模型，理解成本降到「跑一遍」&lt;/h3&gt;&lt;p&gt;&lt;code&gt;jingyaogong/minimind&lt;/code&gt; 一句话描述：两小时从 0 训出你的 64M 大模型。&lt;/p&gt;
+&lt;p&gt;把它和动辄几千亿参数的云端模型放同一张榜单上看，反差非常有用：中间的每一层都被抽掉了，只剩 tokenizer、注意力、位置编码、反向传播这几根骨头。&lt;strong&gt;理解一个系统的成本，正在从「读论文」降到「跑一遍」&lt;/strong&gt;，这是今年教育型项目最大的价值变化。&lt;/p&gt;
+&lt;p&gt;对已经写业务代码的人来说，跑完这一遍的收益不是学会训练模型，而是获得&lt;strong&gt;判断力&lt;/strong&gt;：知道 64M 模型在什么任务上必然失败，就不会被「小模型也能打」的宣传带走；知道 loss 曲线长什么样，就不会把训练不稳误判成数据问题。&lt;/p&gt;
+&lt;h3 id=&#34;6-app-store-compliance：合规也被做成了技能&#34;&gt;&lt;a href=&#34;#6-app-store-compliance：合规也被做成了技能&#34; class=&#34;headerlink&#34; title=&#34;6. app-store-compliance：合规也被做成了技能&#34;&gt;&lt;/a&gt;6. app-store-compliance：合规也被做成了技能&lt;/h3&gt;&lt;p&gt;&lt;code&gt;mjmirza/app-store-compliance&lt;/code&gt;，&lt;strong&gt;7,339 Star、+531、Shell&lt;/strong&gt;。125 条有据可查的拒审模式与修法、隐私清单与 Data safety 检查、117 个被追踪的截止日期（EU AI Act、DSA、COPPA、各州年龄法规），外加一个给 AI 编程 agent 用的技能。&lt;/p&gt;
+&lt;p&gt;单日 +531，占总 Star 的 7%——这个增速说明「法规倒计时」型内容有真实的焦虑支撑，而不是纯技术猎奇。但它同时暴露一个结构性问题：&lt;strong&gt;合规知识折旧极快&lt;/strong&gt;。117 个日期里有一半明年就失效，而仓库里没有任何机制提醒你哪一条已经过期。这类项目最需要的不是更多条目，是一个会自己过期的数据模型。&lt;/p&gt;
+&lt;h3 id=&#34;其他值得一提&#34;&gt;&lt;a href=&#34;#其他值得一提&#34; class=&#34;headerlink&#34; title=&#34;其他值得一提&#34;&gt;&lt;/a&gt;其他值得一提&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;项目&lt;/th&gt;
+&lt;th&gt;今日数据&lt;/th&gt;
+&lt;th&gt;一句话&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;firecrawl/firecrawl&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;搜索&amp;#x2F;抓取 550+ 数据源，一个 API，定位已从爬虫变成 Agent 的输入层&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;openvinotoolkit/openvino&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;推理优化与部署工具链，端侧落地的老牌底座&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;toeverything/AFFiNE&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;7.92 万，+469&lt;/td&gt;
+&lt;td&gt;知识库，Notion + Miro 的合体，隐私优先&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;Tracer-Cloud/opensre&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;面向 CI&amp;#x2F;CD 可靠性的开源 agent，运维侧少见的正经选题&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;zhouxiaoka/autoclip&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;本地优先的 AI 切片工具，长视频自动切短视频，带 MCP server&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;mvanhorn/last30days-skill&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;跨 Reddit&amp;#x2F;X&amp;#x2F;YouTube&amp;#x2F;HN 调研并综合的技能&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;obra/superpowers&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;技能框架 + 开发方法论，偏流程而非工具&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;nginx/nginx&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;—&lt;/td&gt;
+&lt;td&gt;官方仓库迁上 GitHub，非 AI 但值得记一笔&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;新工具-产品速览&#34;&gt;&lt;a href=&#34;#新工具-产品速览&#34; class=&#34;headerlink&#34; title=&#34;新工具 &amp;#x2F; 产品速览&#34;&gt;&lt;/a&gt;新工具 &amp;#x2F; 产品速览&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Ubuntu 明年一月上 AI 启动器。&lt;/strong&gt; Canonical 的 Didier Roche 放出了预览图：主屏上一个提示框，官方的说法是「统一的、键盘和语音友好的入口，只在你明确要求时连接你的应用、本地上下文和智能助手」。注意那句话里的限定语——&lt;strong&gt;只在你明确要求时&lt;/strong&gt;。桌面端的 AI 和手机端走了相反的路：手机在抢默认入口，桌面在强调不主动。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;OpenAI 把 ChatGPT 和 Codex 的用量额度合并了。&lt;/strong&gt; 一个订阅覆盖两条产品线，表面上对用户是好事，实质是把「写代码」和「聊天」放进同一个成本池。这意味着重度使用 Agent 编程的用户，会开始感知到自己的对话也在花钱。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Thinking Machines 的 Inkling 2 Mini 能在笔记本上跑。&lt;/strong&gt; 循环 Transformer 的思路，和 GLM-5.4「28 层跑两遍」是同一族手艺——用计算量换参数量。这条路今年集体出现，原因很简单：&lt;strong&gt;权重要占显存，多跑一遍只花时间。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Claude Fable 5.2 的成本账被 VentureBeat 算了一笔。&lt;/strong&gt; 在他们的修 bug 测试里，Fable 5.2 花了 Opus 5.5 三倍的钱，结果几乎一样。这类评测的价值不在排名，在于提醒一件事：&lt;strong&gt;同一任务上，贵的模型不一定更对，只一定更贵。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;行业动态&#34;&gt;&lt;a href=&#34;#行业动态&#34; class=&#34;headerlink&#34; title=&#34;行业动态&#34;&gt;&lt;/a&gt;行业动态&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;芯片管制的边界在往外扩。&lt;/strong&gt; Nvidia 此前已停止向中国出售 H200，本周据 FT 报道又停了马来西亚、新加坡、泰国、印尼的出货，背景是美国上周生效的新规，专门堵「通过海外数据中心远程访问先进算力」这条路。同一天 Bloomberg 曝出：未获出口许可的 Blackwell GB200 和 GB300，已经装进了至少两个与 Megaspeed 有关的数据中心——那家公司已被美国列入实体清单。&lt;strong&gt;管制写在纸上，芯片躺在机架上&lt;/strong&gt;，中间的差额就是这门生意真正的利润率所在。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Nvidia 把黄仁勋请回了 CEO 位，距「排除其回归可能」的声明只有六天。&lt;/strong&gt; 这个反转本身比任何财报都更能说明公司治理的现状。The Verge 引 Dan Davies 的评论值得抄下来：黄作为管理者和生意人受的伤，可能比外界以为的重；而 OpenAI 在 Altman 那次「LOL，没什么大不了」之后，也再没真正恢复过领先。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Anthropic 开始向作者支付版权和解金。&lt;/strong&gt; 这是训练数据版权案里少见的「真金白银落地」节点。金额不重要，重要的是它给后来者定了一个可参照的价签。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;纽约州给 AI 玩具按下五年暂停键。&lt;/strong&gt; Hochul 签署的法案禁止生产、分销和销售「通过联网与儿童对话的毛绒玩具、玩偶和机器人」，为期五年。一个月前该州才刚限制聊天机器人对未成年人的交互方式。监管的手正在从「模型输出」伸到「硬件形态」。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Etsy 的 AI 条款风波没平。&lt;/strong&gt; 平台改了两版措辞，承诺不用卖家内容生成「仿制品」，但卖家仍在成批迁出。&lt;strong&gt;用户对「训练」这两个字的容忍度，比对涨价低得多。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Character.AI 被多位州检察长指控拟将未成年人个人数据卖给出价最高者。&lt;/strong&gt; 两党联合，说明这事已经越过党派分歧线。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;近半数工程团队让写代码的 agent 自己审代码。&lt;/strong&gt; VentureBeat 的调查数字。这不是懒，是吞吐量压力下的必然——但它在流程上删掉了唯一一个「独立信号源」。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Uber 在 AI 预算爆掉之后，把编程工具里的上下文长度和推理强度调了回去。&lt;/strong&gt; 这条比任何模型发布都值得记：&lt;strong&gt;第一个大规模承认「用多了不划算」的案例，往往标志着技术从尝鲜期进入运营期。&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;技术洞见&#34;&gt;&lt;a href=&#34;#技术洞见&#34; class=&#34;headerlink&#34; title=&#34;技术洞见&#34;&gt;&lt;/a&gt;技术洞见&lt;/h2&gt;&lt;h3 id=&#34;洞见一：上下文从「越多越好」变成一条要算边际收益的曲线&#34;&gt;&lt;a href=&#34;#洞见一：上下文从「越多越好」变成一条要算边际收益的曲线&#34; class=&#34;headerlink&#34; title=&#34;洞见一：上下文从「越多越好」变成一条要算边际收益的曲线&#34;&gt;&lt;/a&gt;洞见一：上下文从「越多越好」变成一条要算边际收益的曲线&lt;/h3&gt;&lt;p&gt;今天有三条独立证据指向同一件事。&lt;/p&gt;
+&lt;p&gt;T-Mobile 发现自己给 AI 更多材料去读，答案反而更差。Uber 在超预算后主动砍掉上下文和推理强度。Snowflake 在做 token 上限，而且做法很有意思——&lt;strong&gt;保留上限，然后从撞线的人身上学&lt;/strong&gt;，看谁在什么任务上真的需要更多。&lt;/p&gt;
+&lt;p&gt;这三件事合起来说明：上下文不是免费资源，它有自己的边际收益递减曲线，而且这条曲线在不同任务上形状完全不同。过去两年业界的默认动作是「能塞多少塞多少」，2026 年下半年开始转向「按任务选多少」。&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;flowchart LR&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    A[&amp;quot;任务进来&amp;quot;] --&amp;gt; B[&amp;quot;任务分档&amp;lt;br/&amp;gt;查询 / 生成 / 推理 / 长链&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    B --&amp;gt; C[&amp;quot;分配上下文预算&amp;lt;br/&amp;gt;与推理强度档位&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    C --&amp;gt; D[&amp;quot;执行&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    D --&amp;gt; E&amp;#123;&amp;quot;质量达标?&amp;quot;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt;|&amp;quot;达标且有余量&amp;quot;| F[&amp;quot;下调一档，记录该档位&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt;|&amp;quot;达标但撞线&amp;quot;| G[&amp;quot;保持，标记为真实需求&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    E --&amp;gt;|&amp;quot;不达标&amp;quot;| H[&amp;quot;上调一档，同时检查&amp;lt;br/&amp;gt;是否该换检索而非加量&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    F --&amp;gt; I[&amp;quot;成本曲线更新&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    G --&amp;gt; I&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    H --&amp;gt; I&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    I --&amp;gt; B&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;关键的判断点在 &lt;code&gt;H&lt;/code&gt; 那条边：&lt;strong&gt;答案不好，第一反应是不是「加材料」，而是「材料对不对」。&lt;/strong&gt; 大多数上下文失效不是量不够，是检索进了噪音，模型把噪音当成了证据。把「加 token」当成默认修复手段，等于用钱买错误。&lt;/p&gt;
+&lt;h3 id=&#34;洞见二：评审被自动化了，但独立信号没有补上&#34;&gt;&lt;a href=&#34;#洞见二：评审被自动化了，但独立信号没有补上&#34; class=&#34;headerlink&#34; title=&#34;洞见二：评审被自动化了，但独立信号没有补上&#34;&gt;&lt;/a&gt;洞见二：评审被自动化了，但独立信号没有补上&lt;/h3&gt;&lt;p&gt;近半数团队让写代码的 agent 也审自己的代码——这在成本上完全合理，在质量上则要看一个前提：&lt;strong&gt;评审的价值来自「不同来源的信号」，而不是「第二次意见」。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;VentureBeat 那篇讲 ML 测试的文章把这个逻辑讲透了：模型在干净、熟悉的数据上通过所有测试，然后进生产，输入变脏、标签漂移，于是安静地退化。&lt;strong&gt;测试通过从来不等于可靠，它只等于「在这批测试上没被证伪」。&lt;/strong&gt; 同一个模型审自己的代码，是同一个盲区被问了第二遍——它会一致地把「我没想到的边界」继续漏掉。&lt;/p&gt;
+&lt;p&gt;要补的不是第二个模型，是&lt;strong&gt;外部判据&lt;/strong&gt;：真实流量的金丝雀指标、失败样本的回归集、上线后 24 小时的错误率曲线。这三样东西不依赖模型自证，模型再自信也改不了它们的读数。&lt;/p&gt;
+&lt;p&gt;同一逻辑也适用于今天的 MCP 技能潮。客户端裁决技能能不能加载，靠的是分类器；而分类器的判断依据，最终还是要落到可回放的审计记录上——&lt;strong&gt;没有记录的治理，只是感觉良好。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;把今天所有事放一起看，主线其实很朴素：&lt;strong&gt;这个行业正在给每一样免费的东西标价。&lt;/strong&gt; 算力有出口管制，上下文有 token 预算，权限有客户端裁决，评审有独立信号的要求，连「Star 数」都在被发行方定价。技术能力的上限还在涨，但决定它能落地多少的，越来越是这些标价牌上的数字。&lt;/p&gt;
+&lt;p&gt;而工程判断力，说到底就是知道每一项约束值多少钱。&lt;/p&gt;
+</content>
+        <category term="AI日报" />
+        <category term="AI" />
+        <category term="GitHub热门" />
+        <category term="人工智能" />
+        <category term="技术趋势" />
+        <updated>2026-11-27T14:00:00.000Z</updated>
+    </entry>
     <entry>
         <id>https://scottalive.github.io/computer-science/ai-tools/AI%E6%97%A5%E6%8A%A5-2026-11-26/</id>
         <title>AI 日报 2026-11-26</title>
